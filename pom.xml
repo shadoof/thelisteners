@@ -63,7 +63,12 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>
+	  </pluginManagement>
+		<resources>
+			<resource>
+				<directory>src/resources</directory>
+			</resource>
+		</resources>
   </build>
   
 </project>

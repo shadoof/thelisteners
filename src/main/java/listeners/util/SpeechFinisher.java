@@ -1,23 +1,13 @@
 package listeners.util;
 
+import static listeners.util.ConstantUtils.info;
+import static listeners.util.ConstantUtils.insertPauseTags;
+import static listeners.util.ConstantUtils.stripSsmlTags;
+import static listeners.util.SpeechUtils.wrapInPollyVoice;
+
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import java.util.TimeZone;
-
-import rita.RiTa;
-
-import static listeners.model.Constants.SPC;
-import static listeners.model.Constants.PAUSES_MAP;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
-import static listeners.model.LangConstants.AFFECTS_ARRAY;
-import static listeners.util.ConstantUtils.*;
-import static listeners.util.SpeechUtils.*;
 
 public class SpeechFinisher {
 	

@@ -1,8 +1,10 @@
 package listeners;
 
 import com.amazon.ask.Skill;
-import com.amazon.ask.Skills;
 import com.amazon.ask.SkillStreamHandler;
+import com.amazon.ask.Skills;
+
+import listeners.handlers.ExceptionHandler;
 import listeners.handlers.LaunchRequestHandler;
 //import com.amazon.ask.quiz.handlers.ExitSkillHandler;
 //import com.amazon.ask.quiz.handlers.HelpIntentHandler;
@@ -12,9 +14,6 @@ import listeners.handlers.LaunchRequestHandler;
 //import com.amazon.ask.quiz.handlers.RepeatIntentHandler;
 //import com.amazon.ask.quiz.handlers.SessionEndedHandler;
 import listeners.handlers.UnsupportedRequestHandler;
-import listeners.handlers.ExceptionHandler;
-
-import listeners.model.LangConstants;
 
 public class ListenersStreamHandler extends SkillStreamHandler {
 
@@ -43,6 +42,5 @@ public class ListenersStreamHandler extends SkillStreamHandler {
 	public ListenersStreamHandler() {
 
 		super(getSkill());
-		LangConstants.setLangConstants("en-US"); // TODO get LOCALE & do right
 	}
 }
