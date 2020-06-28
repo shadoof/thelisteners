@@ -16,26 +16,30 @@ public class LangConstants {
 	public static Map<String, String> AFFECTIVEJJ2NN_MAP;
 	public static HashSet<String> SPECIAL_THINGS = new HashSet<>();
 	public static HashSet<String> PICTURE_WORDS = new HashSet<>();
-	
+
 	public static String localeTag;
 	public static Locale locale;
+	public static String polyVoiceWrapper;
 
 	public LangConstants(String localeString) {
-		
-		this.localeTag = localeString.substring(0,2) + "_" + localeString.substring(3,5).toUpperCase();
+
+		this.localeTag = localeString.substring(0, 2) + "_" + localeString.substring(3, 5).toUpperCase();
+
+		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
+
 		// TODO put a note in the documentation, ultimately:
 		// British English, en-gb is the default for this skill
-		Locale.setDefault(new Locale("en","GB"));
+		Locale.setDefault(new Locale("en", "GB"));
 		//
 		info("@LangConstants, localeTag: " + localeTag);
-		this.locale = new Locale(localeTag.substring(0,2) , localeTag.substring(3,5));
+		this.locale = new Locale(localeTag.substring(0, 2), localeTag.substring(3, 5));
 
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
-		
+
 		// now that the language contstants are instantiated
 		// we make a new assumption for l1on:
 		// all languages not German and not Australian English revert to British
-		
+
 		FRAGMENTNUMBER_MAP = (Map<String, Integer>) rb.getObject("fragmentNumberMap");
 		FRAGMENTNAME_MAP = (Map<String, Integer>) rb.getObject("fragmentNameMap");
 		AFFECTS_ARRAY = (String[]) rb.getObject("affectsArray");
@@ -44,7 +48,26 @@ public class LangConstants {
 		AFFECTIVEJJ2NN_MAP = (Map<String, String>) rb.getObject("affectiveJJ2NNmap");
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
-		
+
 		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
+	}
+
+	private String setPolyVoiceWrappers(String localeTag) {
+
+		switch (localeTag) {
+			case "de_DE":
+				return "<voice name='Marlene'><lang xml:lang='de-DE'>";
+			case "ja_JP":
+				return "<voice name='Mizuki'><lang xml:lang='ja-JP'>";
+			case "en_IN":
+				return "<voice name='Raveena'><lang xml:lang='en-IN'>";
+			case "en_AU":
+				return "<voice name='Nicole'><lang xml:lang='en-AU'>";
+			case "en_US":
+			case "en_CA":
+				return "<voice name='Joanna'><lang xml:lang='en-US'>";
+			default:
+				return "<voice name='Amy'><lang xml:lang='en-GB'>";
+		}
 	}
 }

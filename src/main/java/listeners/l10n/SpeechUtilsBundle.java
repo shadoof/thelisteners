@@ -1,4 +1,4 @@
-package listeners.util;
+package listeners.l10n;
 
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
@@ -12,6 +12,7 @@ import static listeners.util.ConstantUtils.phonemic;
 import static listeners.util.ConstantUtils.randInt;
 import static listeners.util.ConstantUtils.s;
 
+import java.util.ListResourceBundle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,16 +20,19 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class SpeechUtils {
+public class SpeechUtilsBundle extends ListResourceBundle {
 
 	// static String langTag = "en-US"; // TODO
 
-	public SpeechUtils(Locale locale) {
+	public SpeechUtilsBundle(Locale locale) {
 
 		info("@SpeechUtils, locale: " + locale);
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.SpeechUtilsBundle", locale);
 
 	}
+
+	public Object[][] contents = { { "chooseContinue", chooseContinue() } 
+			};
 
 	// *** langTag-dependent speech utilities ***
 
@@ -412,28 +416,10 @@ public class SpeechUtils {
 		return reprompt;
 	}
 
-	public static String wrapInPollyVoice(String sp) {
+	@Override
+	protected Object[][] getContents() {
 
-		switch (langTag) { // TODO
-			case "de-DE":
-				sp = "<voice name='Marlene'><lang xml:lang='de-DE'>" + sp + "</lang></voice>";
-				break;
-			case "ja-JP":
-				sp = "<voice name='Mizuki'><lang xml:lang='ja-JP'>" + sp + "</lang></voice>";
-				break;
-			case "en-IN":
-				sp = "<voice name='Raveena'><lang xml:lang='en-IN'>" + sp + "</lang></voice>";
-				break;
-			case "en-GB":
-				sp = "<voice name='Amy'><lang xml:lang='en-GB'>" + sp + "</lang></voice>";
-				break;
-			case "en-AU":
-				sp = "<voice name='Nicole'><lang xml:lang='en-AU'>" + sp + "</lang></voice>";
-				break;
-			default: // "en-US", "en-CA" etc.
-				sp = "<voice name='Joanna'>" + sp + "</voice>";
-		}
-		return sp;
+		return contents;
 	}
 
 }

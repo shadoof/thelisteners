@@ -2,6 +2,7 @@ package listeners.util;
 
 import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.PERFORMANCE;
+import static listeners.model.LangConstants.polyVoiceWrapper;
 import static listeners.util.ConstantUtils.info;
 import static listeners.util.ConstantUtils.insertPauseTags;
 import static listeners.util.ConstantUtils.stripSsmlTags;
@@ -224,8 +225,7 @@ public class SpeechFinisher {
 		// SsmlOutputSpeech ssmlSpeech = new SsmlOutputSpeech();
 
 		speech = insertPauseTags(speech);
-		speech = wrapInPollyVoice(speech);
-		speech = "<speak>" + speech + "</speak>";
+		speech = "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
 		// ssmlSpeech.setSsml("<speak>" + speech + "</speak>");
 
 		// TODO preSpeech = ""; // immediately ensure that it defaults to nothing.
@@ -234,8 +234,7 @@ public class SpeechFinisher {
 		// SsmlOutputSpeech ssmlReprompt = new SsmlOutputSpeech();
 
 		reprompt = insertPauseTags(reprompt);
-		reprompt = wrapInPollyVoice(reprompt);
-		reprompt = "<speak>" + reprompt + "</speak>";
+		reprompt = "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
 		// ssmlReprompt.setSsml("<speak>" + reprompt + "</speak>");
 		// Reprompt repromptObject = new Reprompt();
 		// repromptObject.setOutputSpeech(ssmlReprompt);
