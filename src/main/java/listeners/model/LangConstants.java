@@ -1,6 +1,7 @@
 package listeners.model;
 
 import static listeners.util.ConstantUtils.info;
+import static listeners.util.ConstantUtils.locTag;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -15,11 +16,25 @@ public class LangConstants {
 	public static Map<String, String> AFFECTIVEJJ2NN_MAP;
 	public static HashSet<String> SPECIAL_THINGS = new HashSet<>();
 	public static HashSet<String> PICTURE_WORDS = new HashSet<>();
+	
+	public static String localeTag;
+	public static Locale locale;
 
-	public LangConstants(Locale locale) {
-		info("@LangConstants(): " + locale.toString());
+	public LangConstants(String localeString) {
 		
+		this.localeTag = localeString.substring(0,2) + "_" + localeString.substring(3,5).toUpperCase();
+		// TODO put a note in the documentation, ultimately:
+		// British English, en-gb is the default for this skill
+		Locale.setDefault(new Locale("en","GB"));
+		//
+		info("@LangConstants, localeTag: " + localeTag);
+		this.locale = new Locale(localeTag.substring(0,2) , localeTag.substring(3,5));
+
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
+		
+		// now that the language contstants are instantiated
+		// we make a new assumption for l1on:
+		// all languages not German and not Australian English revert to British
 		
 		FRAGMENTNUMBER_MAP = (Map<String, Integer>) rb.getObject("fragmentNumberMap");
 		FRAGMENTNAME_MAP = (Map<String, Integer>) rb.getObject("fragmentNameMap");
@@ -29,5 +44,7 @@ public class LangConstants {
 		AFFECTIVEJJ2NN_MAP = (Map<String, String>) rb.getObject("affectiveJJ2NNmap");
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
+		
+		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
 	}
 }

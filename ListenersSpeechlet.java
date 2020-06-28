@@ -98,18 +98,6 @@ public class ListenersSpeechlet implements Speechlet {
 	// private static final Logger log =
 	// LoggerFactory.getLogger(ListenersSpeechlet.class);
 	// keys:
-	private static final String AFFECT_KEY = "AFFECT", AFFECT_SLOT = "Affect";
-	private static final String FRAGMENT_KEY = "FRAGMENT", FRAGMENTLIST_KEY = "FRAGMENTLIST";
-	private static final String FRAGMENTNAME_SLOT = "FragmentName";
-	private static final String GUYZ_KEY = "GUYZ", GUYZIRQ_KEY = "GUYZIRQ";
-	private static final String HEARDBREATHAFFECTS_KEY = "HEARDBREATHAFFECTS", HEARDNO_KEY = "HEARDNOTHANKS";
-	private static final String HEARDWELCOME_KEY = "HEARDWELCOME", LASTINTENT_KEY = "LASTINTENT";
-	private static final String LISTENERSAFFECT_KEY = "LISTENERSAFFECT", LOCALE_KEY = "LOCALE";
-	private static final String MARKOVIRQ_KEY = "MARKOVIRQ", READSOFAR_KEY = "READSOFAR";
-	private static final String PREVIOUSAFFECT_KEY = "PREVIOUSAFFECT";
-	private static final String THING_KEY = "THING", THING_SLOT = "ThingName";
-	private static final String SPEAKGUYZCONFIRMED_KEY = "SPEAKGUYZCONFIRMED";
-	private static final int NOT_YET_GREETED = -1, NUMBER_OF_FRAGMENTS = 10, NUMBER_OF_GUYZ = 35, NUMBER_OF_READABLES = 40, SPEECH = 0, REPROMPT = 1, VERSE = 7;
 	// some finals, used for flags:
 //	private static final boolean POSITIVE = true, NEGATIVE = false, DO_NOT_PROMPT_AFFECT = false;
 //	private static final boolean SPECIFIC_FRAGMENT = true;

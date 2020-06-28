@@ -15,9 +15,15 @@ public class LangConstantsBundle extends ListResourceBundle {
 	protected static String[] AFFECTS_ARRAY;
 	protected static Map<String, Boolean> AFFECTS_MAP, SPECIAL_AFFECT_MAP;
 	protected static Map<String, String> AFFECTIVEJJ2NN_MAP;
-	protected static HashSet<String> SPECIAL_THINGS = new HashSet<>();
-	protected static HashSet<String> PICTURE_WORDS = new HashSet<>();
-
+	protected static HashSet<String> SPECIAL_THINGS;
+	protected static HashSet<String> PICTURE_WORDS;
+	
+//	public LangConstantsBundle() {
+//		super();
+//		build();
+//	}
+//
+//	private void build() {
 	static {
 		FRAGMENTNUMBER_MAP = new HashMap<>();
 		FRAGMENTNUMBER_MAP.put("1", 0);
@@ -249,6 +255,7 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTIVEJJ2NN_MAP.put("unsure", S("insecurity", "uncertainty"));
 		AFFECTIVEJJ2NN_MAP.put("weird", S("strangeness", "weirdness"));
 		//
+		SPECIAL_THINGS = new HashSet<>();
 		SPECIAL_THINGS.add("nightmare");
 		SPECIAL_THINGS.add("nightmare withheld");
 		SPECIAL_THINGS.add("dream");
@@ -260,6 +267,7 @@ public class LangConstantsBundle extends ListResourceBundle {
 		SPECIAL_THINGS.add("breath");
 		SPECIAL_THINGS.add("breath withheld");
 		//
+		PICTURE_WORDS = new HashSet<>();
 		PICTURE_WORDS.add("collage");
 		PICTURE_WORDS.add("frame");
 		PICTURE_WORDS.add("image");

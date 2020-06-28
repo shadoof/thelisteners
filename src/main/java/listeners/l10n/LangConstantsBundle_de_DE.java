@@ -8,14 +8,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class LangConstantsBundle_de extends LangConstantsBundle {
-
-	private static Map<String, Integer> FRAGMENTNUMBER_MAP, FRAGMENTNAME_MAP;
-	private static String[] AFFECTS_ARRAY;
-	private static Map<String, Boolean> AFFECTS_MAP, SPECIAL_AFFECT_MAP;
-	private static Map<String, String> AFFECTIVEJJ2NN_MAP;
-	private static HashSet<String> SPECIAL_THINGS = new HashSet<>();
-	private static HashSet<String> PICTURE_WORDS = new HashSet<>();
+public class LangConstantsBundle_de_DE extends LangConstantsBundle {
+	
+//	public LangConstantsBundle_de_DE() {
+//		build();
+//	}
+//
+//	private void build() {
 	static {
 		FRAGMENTNUMBER_MAP = new HashMap<>();
 		FRAGMENTNUMBER_MAP.put("1", 0);
@@ -247,6 +246,7 @@ public class LangConstantsBundle_de extends LangConstantsBundle {
 		AFFECTIVEJJ2NN_MAP.put("unsure", S("insecurity", "uncertainty"));
 		AFFECTIVEJJ2NN_MAP.put("weird", S("strangeness", "weirdness"));
 //
+		SPECIAL_THINGS = new HashSet<>();
 		SPECIAL_THINGS.add("der Alptraum");
 		SPECIAL_THINGS.add("der zurückgehaltene Alptraum");
 		SPECIAL_THINGS.add("der Traum");
@@ -258,6 +258,7 @@ public class LangConstantsBundle_de extends LangConstantsBundle {
 		SPECIAL_THINGS.add("der Atem");
 		SPECIAL_THINGS.add("der angehaltene Atem");
 //
+		PICTURE_WORDS = new HashSet<>();
 		PICTURE_WORDS.add("die Collage");
 		PICTURE_WORDS.add("der Rahmen");
 		PICTURE_WORDS.add("das Bild");

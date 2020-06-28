@@ -4,6 +4,7 @@ import static listeners.model.Constants.PAUSES_MAP;
 import static listeners.model.Constants.SPC;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 
@@ -62,6 +63,10 @@ public class ConstantUtils {
 		return speech;
 	}
 
+	public static String locTag(Locale locale) {
+		return locale.getLanguage() + "_";
+	}
+	
 	public static String removeInterSentencePauses(String speech) {
 
 		Set<String> hs = new HashSet<>();

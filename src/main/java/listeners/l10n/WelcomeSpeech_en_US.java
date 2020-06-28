@@ -15,29 +15,15 @@ import org.apache.commons.lang3.StringUtils;
 
 import listeners.util.SpeechFinisher;
 
-public class WelcomeSpeech_en_GB extends WelcomeSpeech {
+public class WelcomeSpeech_en_US extends WelcomeSpeech {
 
-	public WelcomeSpeech_en_GB(String langTag) {
-
-		super(langTag);
-	}
-
-	private static String langTag;
-
-	static {
-		cardTitle = S("Welcome", "Greetings");
-		speech += s("Greetings.", "Welcome.") + s("Whoever you may be.", "") + breathLong();
+	protected String buildSpeech() {
+		speech = s("Hello there!", "Welcome.") + s("Whoever you are.", "") + breathLong();
 		speech += "We are " + /* s("always", "") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
-		speech += "In so far as we are " + s(breathLong(), "") + "with you, " + breathShort() + "it is a pleasure. " + breath();
-		speech += S("It is " + S("always s", "S") + "uch a pleasure. " + breath(), "");
+		speech += "In as much as we are " + s(breathLong(), "") + "with you, " + breathShort() + "it is a pleasure. " + breath();
+		speech += s("It is " + s("always", "") + "such a pleasure. " + breath(), "");
 		speech += s("It is " + s("such", "") + " a pleasure to be with you. " + breath(), "");
 		speech += "Always. " + s(breath() + "Always.", "") + breathShort() + s("Such a", "A") + "pleasure. " + breath();
-
-		reprompt += chooseContinue();
-		
-		SpeechFinisher sf = new SpeechFinisher(langTag, speech, reprompt, postSpeechPrompt);
-		speech = sf.getSpeech();
-		reprompt = sf.getReprompt();
+		return speech;
 	}
-
 }
