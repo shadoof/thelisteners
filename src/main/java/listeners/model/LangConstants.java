@@ -1,7 +1,6 @@
 package listeners.model;
 
 import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.locTag;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -27,7 +26,7 @@ public class LangConstants {
 
 		// ... although Voices are wrapped according to regions
 		// TODO put a note in the documentation, ultimately:
-		// for use in other English speaking regions
+		// for use in other English speaking regions:
 		// British English, en-gb *text* is the default for this skill:
 		
 		Locale.setDefault(new Locale("en", "GB"));
@@ -37,9 +36,9 @@ public class LangConstants {
 
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
 
-		// ... and now that the language contstants are instantiated
-		// we make a new assumption for l1on bundle preparation:
-		// all languages not German and not Australian English revert to British
+		// ... and now that the bundled language constants are instantiated
+		// we make a new assumption with respect to l1on bundle preparation:
+		// all languages except German and US English revert to British
 
 		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
 		

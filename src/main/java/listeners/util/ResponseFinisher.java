@@ -24,13 +24,11 @@ public class ResponseFinisher {
 	private String cardText;
 	private String dateString;
 
-	public ResponseFinisher(String locTag, String speech, String reprompt, String postSpeechPrompt) {
+	public ResponseFinisher(String localeTag, String speech, String reprompt, String postSpeechPrompt) {
 
 		// TODO if (speech == null || reprompt == null) throw new
 		// SpeechletException("Nothing to say ... for Fragment: " + fragmentIndex);
 
-		// Create the Simple card content. DONE
-		// TODO
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		dateString = dateFormat.format(date);
