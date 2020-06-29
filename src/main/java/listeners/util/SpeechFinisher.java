@@ -7,7 +7,6 @@ import static listeners.util.ConstantUtils.info;
 import static listeners.util.ConstantUtils.insertPauseTags;
 import static listeners.util.ConstantUtils.stripSsmlTags;
 import static listeners.util.ConstantUtils.S;
-import static listeners.util.SpeechUtils.wrapInPollyVoice;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

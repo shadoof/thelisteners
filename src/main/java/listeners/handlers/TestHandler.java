@@ -13,11 +13,9 @@ import listeners.l10n.WelcomeSpeech;
 public class TestHandler {
 
 	public TestHandler() {
-
-		// LangConstants LANG_CONSTANTS = new LangConstants("de_DE");
-		Locale.setDefault(new Locale("en", "GB"));
-		Locale l = new Locale("en", "GB");
-		WelcomeSpeech ws = (WelcomeSpeech) ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech", l);
+		
+		LangConstants lc = new LangConstants("en_GB");
+		WelcomeSpeech ws = (WelcomeSpeech) ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech", lc.locale);
 
 		// WelcomeSpeech ws = (WelcomeSpeech)
 		// ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech", l);

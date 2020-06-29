@@ -39,7 +39,7 @@ public class LaunchRequestHandler implements RequestHandler {
 		if (!sessionAttributes.keySet().contains(FRAGMENTCOUNT_KEY) || (sessionAttributes.get(FRAGMENTCOUNT_KEY).equals(NOT_YET_GREETED))) {
 
 			info("@Launch: no fragmentCount or NOT_YET_GREETED");
-			// TODO munge locale and/or localeTag to handle alt defaults for some regions
+
 			WelcomeSpeech ws = (WelcomeSpeech) ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech",lc.locale);
 
 			String postSpeechPrompt = "";

@@ -1,19 +1,9 @@
 package listeners.l10n;
 
-import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.s;
-import static listeners.util.SpeechUtils.chooseContinue;
-import static listeners.util.SpeechUtils.chooseSpeechAssistance;
-import static listeners.util.SpeechUtils.chooseUnsureAboutAffect;
-
-import java.util.ListResourceBundle;
-
-import org.apache.commons.lang3.StringUtils;
-
-import listeners.util.SpeechFinisher;
 
 public class WelcomeSpeech_en_US extends WelcomeSpeech {
 

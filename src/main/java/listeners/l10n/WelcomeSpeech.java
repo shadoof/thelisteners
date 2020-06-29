@@ -5,16 +5,11 @@ import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.s;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.SpeechUtils.chooseContinue;
-import static listeners.util.SpeechUtils.chooseSpeechAssistance;
-import static listeners.util.SpeechUtils.chooseUnsureAboutAffect;
+import static listeners.model.LangConstants.locale;
 
 import java.util.ListResourceBundle;
 
-import org.apache.commons.lang3.StringUtils;
-
-import listeners.util.SpeechFinisher;
+import listeners.util.SpeechUtils;
 
 public class WelcomeSpeech extends ListResourceBundle {
 
@@ -53,7 +48,7 @@ public class WelcomeSpeech extends ListResourceBundle {
 	}
 
 	protected String buildReprompt() {
-		return chooseContinue();
+		return new SpeechUtils(locale).chooseContinue();
 	}
 
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 

@@ -26,18 +26,21 @@ public class LangConstants {
 		this.localeTag = localeString.substring(0, 2) + "_" + localeString.substring(3, 5).toUpperCase();
 
 		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
-
+		
+		// ... although Voices are wrapped according to regions
 		// TODO put a note in the documentation, ultimately:
-		// British English, en-gb is the default for this skill
+		// for use in other English speaking regions
+		// British English, en-gb *text* is the default for this skill:
+		
 		Locale.setDefault(new Locale("en", "GB"));
-		//
+
 		info("@LangConstants, localeTag: " + localeTag);
 		this.locale = new Locale(localeTag.substring(0, 2), localeTag.substring(3, 5));
 
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
 
-		// now that the language contstants are instantiated
-		// we make a new assumption for l1on:
+		// ... and now that the language contstants are instantiated
+		// we make a new assumption for l1on bundle preparation:
 		// all languages not German and not Australian English revert to British
 
 		FRAGMENTNUMBER_MAP = (Map<String, Integer>) rb.getObject("fragmentNumberMap");
