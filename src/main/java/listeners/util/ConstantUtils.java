@@ -2,6 +2,7 @@ package listeners.util;
 
 import static listeners.model.Constants.PAUSES_MAP;
 import static listeners.model.Constants.SPC;
+import static listeners.model.Constants.DEV;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -20,7 +21,8 @@ public class ConstantUtils {
 	}
 
 	public static void info(String s) {
-
+		
+		if (DEV) 
 		System.out.println("[INFO] " + s);
 	}
 

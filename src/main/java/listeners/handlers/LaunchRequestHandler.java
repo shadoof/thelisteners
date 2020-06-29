@@ -42,6 +42,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
 			WelcomeSpeech ws = (WelcomeSpeech) ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech",lc.locale);
 
+			// TODO l10n for SpeechFinisher
 			String postSpeechPrompt = "";
 			SpeechFinisher sf = new SpeechFinisher(lc.localeTag, ws.getString("speech"), ws.getString("reprompt"), postSpeechPrompt);
 

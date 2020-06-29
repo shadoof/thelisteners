@@ -25,8 +25,6 @@ public class LangConstants {
 
 		this.localeTag = localeString.substring(0, 2) + "_" + localeString.substring(3, 5).toUpperCase();
 
-		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
-		
 		// ... although Voices are wrapped according to regions
 		// TODO put a note in the documentation, ultimately:
 		// for use in other English speaking regions
@@ -43,6 +41,8 @@ public class LangConstants {
 		// we make a new assumption for l1on bundle preparation:
 		// all languages not German and not Australian English revert to British
 
+		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
+		
 		FRAGMENTNUMBER_MAP = (Map<String, Integer>) rb.getObject("fragmentNumberMap");
 		FRAGMENTNAME_MAP = (Map<String, Integer>) rb.getObject("fragmentNameMap");
 		AFFECTS_ARRAY = (String[]) rb.getObject("affectsArray");
@@ -52,7 +52,7 @@ public class LangConstants {
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
 
-		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
+		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString()); // TEST
 	}
 
 	private String setPolyVoiceWrappers(String localeTag) {

@@ -68,7 +68,7 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 		return reprompt;
 	}
 
-	protected static String chooseSomeFragmentNames() {
+	protected String chooseSomeFragmentNames() {
 
 		String s = "";
 		ArrayList list = new ArrayList(FRAGMENTNAME_MAP.keySet());
