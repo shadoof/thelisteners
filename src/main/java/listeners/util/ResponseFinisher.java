@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class SpeechFinisher {
+public class ResponseFinisher {
 
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
@@ -24,7 +24,7 @@ public class SpeechFinisher {
 	private String cardText;
 	private String dateString;
 
-	public SpeechFinisher(String locTag, String speech, String reprompt, String postSpeechPrompt) {
+	public ResponseFinisher(String locTag, String speech, String reprompt, String postSpeechPrompt) {
 
 		// TODO if (speech == null || reprompt == null) throw new
 		// SpeechletException("Nothing to say ... for Fragment: " + fragmentIndex);

@@ -17,7 +17,7 @@ import com.amazon.ask.model.Response;
 
 import listeners.l10n.WelcomeSpeech;
 import listeners.model.LangConstants;
-import listeners.util.SpeechFinisher;
+import listeners.util.ResponseFinisher;
 
 public class LaunchRequestHandler implements RequestHandler {
 
@@ -44,7 +44,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
 			// TODO l10n for SpeechFinisher
 			String postSpeechPrompt = "";
-			SpeechFinisher sf = new SpeechFinisher(lc.localeTag, ws.getString("speech"), ws.getString("reprompt"), postSpeechPrompt);
+			ResponseFinisher sf = new ResponseFinisher(lc.localeTag, ws.getString("speech"), ws.getString("reprompt"), postSpeechPrompt);
 
 			sessionAttributes.put(FRAGMENTCOUNT_KEY, 0);
 
