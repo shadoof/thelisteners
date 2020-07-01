@@ -8,21 +8,23 @@ import java.util.ResourceBundle;
 
 import static listeners.util.ConstantUtils.info;
 import listeners.model.LangConstants;
+import listeners.l10n.L10nSpeech;
 import listeners.l10n.WelcomeSpeech;
 
 public class TestHandler {
 
 	public TestHandler() {
 		
-		LangConstants lc = new LangConstants("en_IN");
-		WelcomeSpeech ws = (WelcomeSpeech) ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech", lc.locale);
+		LangConstants lc = new LangConstants("de_DE");
+		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n.VersionIntent", lc.locale);
 
 		// WelcomeSpeech ws = (WelcomeSpeech)
 		// ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech", l);
 
-		info("@TestHandler, cardTitle: “" + ws.getString("cardTitle") + "”");
-		info("@TestHandler, speech: “" + ws.getString("speech") + "”");
-		info("@TestHandler, reprompt: “" + ws.getString("reprompt") + "”");
+		info("@TestHandler, cardTitle: “" + ls.getString("cardTitle") + "”");
+		info("@TestHandler, speech: “" + ls.getString("speech") + "”");
+		info("@TestHandler, reprompt: “" + ls.getString("reprompt") + "”");
+		info("@TestHandler, postSpeechPrompt: “" + ls.getString("postSpeechPrompt") + "”");
 
 		// Object PICTURE_WORDS = rb.getObject("pictureWords");
 		// info("@TestHandler, PICTURE_WORDS: " + PICTURE_WORDS.toString());

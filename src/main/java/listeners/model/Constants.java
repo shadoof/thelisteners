@@ -12,6 +12,20 @@ public class Constants {
 	public static final boolean LIVE = false;
 	public static final boolean PERFORMANCE = false;
 	
+	// version information
+	// 2.2.2 - first release with differentation of other Englishes	
+	// 2.5.0 - introducing Polly Voices at the behest of Amazon who do not
+	// want The Listeners 'confused' with the Alexa personality:
+	// stage one: female voice only for en-US, en-GB, en-IN, de-DE
+	// 2.5.2 new version at request of Alexa Skills Team with "always listening"
+	// remove, meanwhile 2.5.1 has been preserved on branch: listeners2.5
+	// 2.6.0 - working towards this version which will launch German
+	// 2.6.0a and 0b were in response to Amazon demands to remove 'always listening' instances
+	public static final String VERSION = "3.0.0";
+	public static final String VERSION_DATE_LIVE = "July 15, 2020";
+	public static final String VERSION_DATE_DEV = "July 1, 2020";
+
+	
 	// configurable
 	public static final int NUMBER_OF_FRAGMENTS = 10;
 	public static final int NUMBER_OF_GUYZ = 35;

@@ -11,13 +11,13 @@ import java.util.ListResourceBundle;
 
 import listeners.util.SpeechUtils;
 
-public class WelcomeSpeech extends ListResourceBundle {
+public class WelcomeSpeech extends L10nSpeech {
 
 	protected String cardTitle = "";
 	protected String speech = "";
 	protected String reprompt = "";
 	
-	protected String buildSpeech() {
+	public String buildSpeech() {
 		speech = s("Greetings.", "Welcome.") + s("Whoever you may be.", "") + breathLong();
 		speech += "We are " + /* s("always", "") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
 		speech += "In so far as we are " + s(breathLong(), "") + "with you, " + breathShort() + "it is a pleasure. " + breath();
@@ -43,11 +43,11 @@ public class WelcomeSpeech extends ListResourceBundle {
 		return speech;
 	}
 	
-	protected String buildCardTitle() {
+	public String buildCardTitle() {
 		return S("Welcome", "Greetings");
 	}
 
-	protected String buildReprompt() {
+	public String buildReprompt() {
 		return new SpeechUtils(locale).chooseContinue();
 	}
 
@@ -62,4 +62,10 @@ public class WelcomeSpeech extends ListResourceBundle {
 		return contents;
 	}
 
+	@Override
+	public String buildPostSpeechPrompt() {
+
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

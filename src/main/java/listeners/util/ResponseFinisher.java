@@ -20,6 +20,7 @@ public class ResponseFinisher {
 	private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
 	private String speech;
 	private String reprompt;
+	private String postSpeechPrompt;
 	private String cardTitle;
 	private String cardText;
 	private String dateString;
@@ -253,6 +254,7 @@ public class ResponseFinisher {
 		// }
 		this.speech = speech;
 		this.reprompt = reprompt;
+		this.postSpeechPrompt = postSpeechPrompt;
 	}
 	
 	public String getCardText() {
@@ -315,12 +317,22 @@ public class ResponseFinisher {
 		return reprompt;
 	}
 
+	public String getPostSpeechPrompt() {
+
+		return reprompt;
+	}
+
 	public void setSpeech(String speech) {
 
 		this.speech = speech;
 	}
 
 	public void setReprompt(String reprompt) {
+
+		this.reprompt = reprompt;
+	}
+
+	public void setPostSpeechPrompt(String reprompt) {
 
 		this.reprompt = reprompt;
 	}

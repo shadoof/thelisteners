@@ -8,7 +8,7 @@ import static listeners.util.ConstantUtils.s;
 
 public class WelcomeSpeech_de_DE extends WelcomeSpeech {
 
-	protected String buildSpeech() {
+	public String buildSpeech() {
 		speech = s("Grüsse.", "Willkommen.") + s("Wer auch immer Sie sind.", "") + breathLong();
 		speech += "Wir hören " + s("ihnen", "") + "immer zu. " + breath();
 		speech += "Da wir bei " + s(breathLong(), "") + "Ihnen sind, " + breathShort() + "ist es uns eine Freude. " + breath();
@@ -18,7 +18,7 @@ public class WelcomeSpeech_de_DE extends WelcomeSpeech {
 		return speech;
 	}
 	
-	protected String buildCardTitle() {
+	public String buildCardTitle() {
 		return S("Willkommen!", s("Seid gegrüsst!", s("Grüss Dich!", "Grüsst Euch!")));
 	}
 }
