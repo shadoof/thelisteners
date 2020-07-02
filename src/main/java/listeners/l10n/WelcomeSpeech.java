@@ -1,13 +1,11 @@
 package listeners.l10n;
 
+import static listeners.model.LangConstants.locale;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.s;
-import static listeners.model.LangConstants.locale;
-
-import java.util.ListResourceBundle;
 
 import listeners.util.SpeechUtils;
 
@@ -16,7 +14,27 @@ public class WelcomeSpeech extends L10nSpeech {
 	protected String cardTitle = "";
 	protected String speech = "";
 	protected String reprompt = "";
+	protected String postSpeechPrompt = "";
 	
+	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
+			{ "speech", buildSpeech() }, 
+			{ "reprompt", buildReprompt() }, 
+			};
+	
+	public String buildCardTitle() {
+		return S("Welcome", "Greetings");
+	}
+
+	@Override
+	public String buildPostSpeechPrompt() {
+
+		return postSpeechPrompt; // empty
+	}
+
+	public String buildReprompt() {
+		return new SpeechUtils(locale).chooseContinue();
+	}
+
 	public String buildSpeech() {
 		speech = s("Greetings.", "Welcome.") + s("Whoever you may be.", "") + breathLong();
 		speech += "We are " + /* s("always", "") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
@@ -42,30 +60,10 @@ public class WelcomeSpeech extends L10nSpeech {
 
 		return speech;
 	}
-	
-	public String buildCardTitle() {
-		return S("Welcome", "Greetings");
-	}
-
-	public String buildReprompt() {
-		return new SpeechUtils(locale).chooseContinue();
-	}
-
-	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
-			};
 
 	@Override
 	protected Object[][] getContents() {
 
 		return contents;
-	}
-
-	@Override
-	public String buildPostSpeechPrompt() {
-
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

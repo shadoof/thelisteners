@@ -4,10 +4,10 @@ interface ResponseSpeech {
 
 	public String buildCardTitle();
 	
-	public String buildSpeech();
+	public String buildPostSpeechPrompt();
 	
 	public String buildReprompt();
 
-	public String buildPostSpeechPrompt();
+	public String buildSpeech();
 
 }

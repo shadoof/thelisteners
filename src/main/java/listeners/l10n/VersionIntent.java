@@ -21,6 +21,36 @@ public class VersionIntent extends L10nSpeech {
 	protected String reprompt = "";
 	protected String postSpeechPrompt = "";
 
+	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
+			{ "speech", buildSpeech() }, 
+			{ "reprompt", buildReprompt() }, 
+			{ "postSpeechPrompt", buildPostSpeechPrompt() }
+			};
+
+	public String buildCardTitle() {
+
+		return "Version";
+	}
+
+	@Override
+	public String buildPostSpeechPrompt() {
+
+		if (DEV && !LIVE) {
+			return postSpeechPrompt; // empty string
+		}
+		else
+			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
+	}
+
+	public String buildReprompt() {
+
+		if (DEV && !LIVE) {
+			return speech;
+		}
+		else
+			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
+	}
+
 	public String buildSpeech() {
 
 		if (DEV && !LIVE) {
@@ -33,6 +63,12 @@ public class VersionIntent extends L10nSpeech {
 			speech += s("It seems always to be very recent. " + s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
 		}
 		return speech += breath();
+	}
+
+	@Override
+	protected Object[][] getContents() {
+
+		return contents;
 	}
 
 	protected String getVersionLocale() {
@@ -61,41 +97,5 @@ public class VersionIntent extends L10nSpeech {
 				s += "United States English. ";
 		}
 		return s;
-	}
-
-	public String buildCardTitle() {
-
-		return "Version";
-	}
-
-	public String buildReprompt() {
-
-		if (DEV && !LIVE) {
-			return speech;
-		}
-		else
-			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
-	}
-
-	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
-			{ "postSpeechPrompt", buildPostSpeechPrompt() }
-			};
-
-	@Override
-	protected Object[][] getContents() {
-
-		return contents;
-	}
-
-	@Override
-	public String buildPostSpeechPrompt() {
-
-		if (DEV && !LIVE) {
-			return postSpeechPrompt; // empty string
-		}
-		else
-			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
 	}
 }

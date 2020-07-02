@@ -13,6 +13,12 @@ import listeners.l10n.WelcomeSpeech;
 
 public class TestHandler {
 
+	public static void main(String[] args) {
+
+		new TestHandler();
+
+	}
+
 	public TestHandler() {
 		
 		LangConstants lc = new LangConstants("de_DE");
@@ -28,12 +34,6 @@ public class TestHandler {
 
 		// Object PICTURE_WORDS = rb.getObject("pictureWords");
 		// info("@TestHandler, PICTURE_WORDS: " + PICTURE_WORDS.toString());
-	}
-
-	public static void main(String[] args) {
-
-		new TestHandler();
-
 	}
 
 }

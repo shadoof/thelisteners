@@ -8,6 +8,10 @@ import static listeners.util.ConstantUtils.s;
 
 public class WelcomeSpeech_de_DE extends WelcomeSpeech {
 
+	public String buildCardTitle() {
+		return S("Willkommen!", s("Seid gegrüsst!", s("Grüss Dich!", "Grüsst Euch!")));
+	}
+	
 	public String buildSpeech() {
 		speech = s("Grüsse.", "Willkommen.") + s("Wer auch immer Sie sind.", "") + breathLong();
 		speech += "Wir hören " + s("ihnen", "") + "immer zu. " + breath();
@@ -16,9 +20,5 @@ public class WelcomeSpeech_de_DE extends WelcomeSpeech {
 		speech += s("Es ist " + s("so", "") + " eine Freude, bei Ihnen zu sein. " + breath(), "");
 		speech += "Immer. " + s(breath() + "Immer.", "") + breathShort() + "So eine " + s("grosse", "") + "Freude. " + breath();
 		return speech;
-	}
-	
-	public String buildCardTitle() {
-		return S("Willkommen!", s("Seid gegrüsst!", s("Grüss Dich!", "Grüsst Euch!")));
 	}
 }

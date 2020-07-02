@@ -17,6 +17,29 @@ public class WinterIntent extends L10nSpeech {
 	protected String reprompt = "";
 	protected String postSpeechPrompt = "";
 
+	public Object[][] contents = { 
+			{ "cardTitle", buildCardTitle() }, 
+			{ "speech", buildSpeech() }, 
+			{ "reprompt", buildReprompt() }, 
+			{ "postSpeechPrompt", buildPostSpeechPrompt() }, 
+			};
+
+	public String buildCardTitle() {
+
+		return S("The Game", "No middle ground");
+	}
+
+	@Override
+	public String buildPostSpeechPrompt() {
+
+		return postSpeechPrompt; // usually empty
+	}
+
+	public String buildReprompt() {
+
+		return new SpeechUtils(locale).chooseContinue();
+	}
+
 	public String buildSpeech() {
 		// TODO German
 		String[] winterWords = { "Nothing " + s("hears you,", "listens,") + breathShort() + "like the silence.",
@@ -52,32 +75,9 @@ public class WinterIntent extends L10nSpeech {
 		return speech += breath();
 	}
 
-	public String buildCardTitle() {
-
-		return S("The Game", "No middle ground");
-	}
-
-	public String buildReprompt() {
-
-		return new SpeechUtils(locale).chooseContinue();
-	}
-
-	public Object[][] contents = { 
-			{ "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
-			{ "postSpeechPrompt", buildPostSpeechPrompt() }, 
-			};
-
 	@Override
 	protected Object[][] getContents() {
 
 		return contents;
-	}
-
-	@Override
-	public String buildPostSpeechPrompt() {
-
-		return postSpeechPrompt; // usually empty
 	}
 }
