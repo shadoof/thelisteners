@@ -22,6 +22,7 @@ public class LangConstants {
 
 	public LangConstants(String localeString) {
 
+		// getting a form of the tag that is consistent with ResourceBundle
 		this.localeTag = localeString.substring(0, 2) + "_" + localeString.substring(3, 5).toUpperCase();
 
 		// ... although Voices are wrapped according to regions

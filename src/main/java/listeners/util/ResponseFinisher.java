@@ -2,39 +2,111 @@ package listeners.util;
 
 import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.PERFORMANCE;
+import static listeners.model.LangConstants.localeTag;
 import static listeners.model.LangConstants.polyVoiceWrapper;
+import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.info;
 import static listeners.util.ConstantUtils.insertPauseTags;
 import static listeners.util.ConstantUtils.stripSsmlTags;
-import static listeners.util.ConstantUtils.S;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class ResponseFinisher {
 
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
-	@SuppressWarnings("unused")
 	private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
-	private String speech;
-	private String reprompt;
-	private String postSpeechPrompt;
-	private String cardTitle;
-	private String cardText;
-	private String dateString;
+	private static String speech;
+	private static String reprompt;
+	private static String cardTitle;
+	private static String cardText;
+	private static String dateString;
 
-	public ResponseFinisher(String localeTag, String speech, String reprompt, String postSpeechPrompt) {
-
-		// TODO if (speech == null || reprompt == null) throw new
-		// SpeechletException("Nothing to say ... for Fragment: " + fragmentIndex);
+	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt) {
 
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		dateString = dateFormat.format(date);
-		
 		info("@SpeechFinisher: " + dateString);
+		
+		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
+		this.reprompt = buildSimpleReprompt(reprompt);
+	}
+
+	private String buildSimpleReprompt(String reprompt) {
+
+		reprompt = insertPauseTags(reprompt);
+		return "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
+	}
+
+	private String buildSimpleSpeech(String speech, String postSpeechPrompt) {
+
+		speech = insertPauseTags(speech);
+		return "<speak>" + polyVoiceWrapper + speech + postSpeechPrompt + "</lang></voice></speak>";
+	}
+	
+	public String getCardText() {
+
+		String s = stripSsmlTags(speech);
+		return PERFORMANCE ? s + " - " + dateString : s;
+	} 
+
+	public String getCardTitle() {
+
+		return cardTitle;
+	}
+
+	public String getCardTitle(String intentName) {
+		
+		if (cardTitle.equals("")) {
+			cardTitle = localeTag.equals("de_DE") ? S("Hören", "Höre immer noch zu") : S("Still, l", "L") + "istening";
+		}
+		
+		return DEV ? intentName +  " - " + dateString : cardTitle;
+		
+	}
+
+	public String getReprompt() {
+
+		return reprompt;
+	}
+
+	public String getSpeech() {
+
+		return speech;
+	}
+
+	public void setCardText(String cardTitle) {
+
+		this.cardTitle = cardTitle;
+	}
+
+	public void setCardTitle(String cardTitle) {
+
+		this.cardTitle = cardTitle;
+	}
+
+	public void setReprompt(String reprompt) {
+
+		this.reprompt = reprompt;
+	}
+
+	public void setSpeech(String speech) {
+
+		this.speech = speech;
+	}
+
+	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt, Map<String, Object> sessionAttributes) {
+		
+		this(localeTag, speech, postSpeechPrompt, reprompt);
+
+		// TODO if (speech == null || reprompt == null)
+		// throw new SpeechletException("Nothing to say ... for Fragment: " +
+		// fragmentIndex);
+
 
 		// TODO: session related *** FROM HERE ... ***
 		// Session session = getListenerSession();
@@ -215,15 +287,15 @@ public class ResponseFinisher {
 		// other voice" + s("s", "") + SPC)) + "interrupted here ...] ";
 		// }
 		// cardText = speech.replaceAll("<guyz> ", guyzIrq);
-		// 
+		//
 		// speech = speech.replaceAll("<guyz> ", "");
 		// *** TO HERE ***
 
-		// TODO: Create SSML speech output
+		// Create SSML speech output
 		// SsmlOutputSpeech ssmlSpeech = new SsmlOutputSpeech();
 
-		speech = insertPauseTags(speech);
-		speech = "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
+//		speech = insertPauseTags(speech);
+//		speech = "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
 		// ssmlSpeech.setSsml("<speak>" + speech + "</speak>");
 
 		// TODO preSpeech = ""; // immediately ensure that it defaults to nothing.
@@ -231,8 +303,8 @@ public class ResponseFinisher {
 		// Create reprompt. NB: now using SSML
 		// SsmlOutputSpeech ssmlReprompt = new SsmlOutputSpeech();
 
-		reprompt = insertPauseTags(reprompt);
-		reprompt = "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
+//		reprompt = insertPauseTags(reprompt);
+//		reprompt = "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
 		// ssmlReprompt.setSsml("<speak>" + reprompt + "</speak>");
 		// Reprompt repromptObject = new Reprompt();
 		// repromptObject.setOutputSpeech(ssmlReprompt);
@@ -241,7 +313,6 @@ public class ResponseFinisher {
 		// TODO interruptable = false;
 		// markovable = false;
 
-		// TODO:
 		// if (isAskResponse) {
 		// return SpeechletResponse.newAskResponse(ssmlSpeech, repromptObject,
 		// card);
@@ -252,89 +323,9 @@ public class ResponseFinisher {
 		// // NOTE: 'newTellResponse' ends the session
 		// return SpeechletResponse.newTellResponse(ssmlSpeech, card);
 		// }
-		this.speech = speech;
-		this.reprompt = reprompt;
-		this.postSpeechPrompt = postSpeechPrompt;
-	}
-	
-	public String getCardText() {
-		
-		return cardText;
-	}
-	
-	public String getCardText(Boolean dev, boolean performance) {
-		
-		cardText = stripSsmlTags(speech) + ((DEV || PERFORMANCE) ? " - " + dateString : "");
-		return cardText;
-	}
-
-	public String getCardTitle() {
-
-		return cardTitle;
-	}
-
-	public String getCardTitle(String cardTitle, String locTag) {
-
-		if (DEV) {// TODO && !intentName.isEmpty())
-			// card.setTitle(intentName);
-		}
-		else {
-			this.cardTitle = cardTitle;
-			return this.cardTitle;
-		}
-		// TODO just making sure to reset the default
-		switch (locTag) {
-			case "de_DE":
-				this.cardTitle = S("Hören", "Höre immer noch zu");
-				break;
-			case "ja-JP":
-				// break;
-			case "en-CA":
-				// break;
-			case "en-IN":
-				// break;
-			case "en-AU":
-				// break;
-			case "en-GB":
-			default: // "en-US" etc.
-				this.cardTitle = S("Still, l", "L") + "istening";
-		}
-		return  this.cardTitle;
-	}
-
-	public String getSpeech() {
-
-		return speech;
-	}
-
-	public void setCardTitle(String cardTitle) {
-
-		this.cardTitle = cardTitle;
-	}
-
-	public String getReprompt() {
-
-		return reprompt;
-	}
-
-	public String getPostSpeechPrompt() {
-
-		return reprompt;
-	}
-
-	public void setSpeech(String speech) {
-
-		this.speech = speech;
-	}
-
-	public void setReprompt(String reprompt) {
-
-		this.reprompt = reprompt;
-	}
-
-	public void setPostSpeechPrompt(String reprompt) {
-
-		this.reprompt = reprompt;
+//		this.speech = speech;
+//		this.reprompt = reprompt;
+//		this.postSpeechPrompt = postSpeechPrompt;
 	}
 
 }

@@ -1,26 +1,15 @@
 package listeners.l10n;
 
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
-import static listeners.model.LangConstants.locale;
-import static listeners.model.LangConstants.localeTag;
-import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.breath;
-import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.heads;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.phonemic;
 import static listeners.util.ConstantUtils.randInt;
 import static listeners.util.ConstantUtils.s;
 
-import java.util.ListResourceBundle;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class SpeechUtilsBundle_de_DE extends SpeechUtilsBundle {
 

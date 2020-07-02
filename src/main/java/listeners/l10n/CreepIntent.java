@@ -17,7 +17,11 @@ public class CreepIntent extends L10nSpeech {
 	protected String reprompt = "";
 	protected String postSpeechPrompt = "";
 
-	public Object[][] contents = { { "cardTitle", buildCardTitle() }, { "speech", buildSpeech() }, { "reprompt", buildReprompt() }, { "postSpeechPrompt", buildPostSpeechPrompt() }, };
+	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
+			{ "speech", buildSpeech() }, 
+			{ "reprompt", buildReprompt() }, 
+			{ "postSpeechPrompt", buildPostSpeechPrompt() }, 
+			};
 
 	public String buildCardTitle() {
 

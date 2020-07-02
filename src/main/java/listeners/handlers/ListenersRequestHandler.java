@@ -3,9 +3,14 @@ package listeners.handlers;
 import static com.amazon.ask.request.Predicates.requestType;
 import static listeners.model.Attributes.FRAGMENTCOUNT_KEY;
 import static listeners.model.Attributes.NOT_YET_GREETED;
+import static listeners.model.Attributes.AMANAGER;
+import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.util.ConstantUtils.info;
 import static org.slf4j.LoggerFactory.getLogger;
 import static listeners.model.LangConstants.localeTag;
+import static listeners.model.Constants.DEV;
+import static listeners.model.Constants.LIVE;
+import static listeners.model.Constants.PERFORMANCE;
 
 import java.util.Map;
 import java.util.Optional;
@@ -38,30 +43,65 @@ public class ListenersRequestHandler implements RequestHandler {
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
 
+		// get environment variables
+		// which should be set up up in Lambda but will
+		// default to a Development set: true, false, false
+		DEV = (System.getenv("DEV") == null) ? DEV : Boolean.parseBoolean(System.getenv("DEV"));
+		LIVE = (System.getenv("LIVE") == null) ? LIVE : Boolean.parseBoolean(System.getenv("LIVE"));
+		PERFORMANCE = (System.getenv("PERFORMANCE") == null) ? PERFORMANCE : Boolean.parseBoolean(System.getenv("PERFORMANCE"));
+
+		// set up LanguageConstants
 		final LangConstants lc = new LangConstants(input.getRequestEnvelope().getRequest().getLocale());
 
-		Map<String, Object> persistentAttributes = input.getAttributesManager().getPersistentAttributes();
+		AMANAGER = input.getAttributesManager();
 
-		if (persistentAttributes == null) {
+		Map<String, Object> persistentAttributes = AMANAGER.getPersistentAttributes();
+		Map<String, Object> sessionAttributes = AMANAGER.getSessionAttributes();
+
+		String relationship = "normal";
+		if (persistentAttributes.isEmpty()) {
 			// very first encounter
-			info("@ListenersRequestHandler: first encounter"); // TODO
-			// build first response
+			info("@ListenersRequestHandler: firstEncounter");
+			persistentAttributes.put("relationship", "normal");
+			
+			// initializing session attributes
+			sessionAttributes = initSessionAttributes();
+			
+			relationship = "firstEncounter";
+			if (input.matches(requestType(LaunchRequest.class))) {
+				return new LaunchRequestResponse().getResponse(input, relationship);
+			} else {
+				return new IntentRequestResponse().getResponse(input, relationship);
+			}
 		}
-		else if (persistentAttributes.get("relationship") != null && persistentAttributes.get("relationship").equals("StartingOver")) {
-			// another encounter but is this an IntentRequest?
-			info("@ListenersRequestHandler: another encounter but StartingOver"); // TODO
-			// build response
-		}
-		// TODO get sessionAttributes
+		
+		info("@ListenersRequestHandler, persistentAttributes: " + persistentAttributes.toString());
 
 		if (input.matches(requestType(LaunchRequest.class))) {
-			// neither very first nor StartingOver
-			info("@ListenersRequestHandler: neither very first nor StartingOver");
+			if (sessionAttributes.isEmpty()) {
+				info("@ListenersRequestHandler: firstExchange");
+				relationship = "ask";
+			}
+			
+			if (sessionAttributes.get("relationship") != null && sessionAttributes.get("relationship").equals("normal")) {
+				info("@ListenersRequestHandler: not first exchange but perhaps startingOver"); // TODO
+				relationship = "ask";
+			}
 
-			return new LaunchRequestResponse().getResponse(input);
+			if (relationship.equals("ask")) {
+				// TODO
+				// use Dialog interface if possible to confirm startingOver
+				// for now:
+				relationship = "normal";
+			} else {
+				sessionAttributes.put("relationship","normal");
+			}
+
+			return new LaunchRequestResponse().getResponse(input, relationship);
 		}
+
 		// must be an IntentRequest
 		info("@ListenersRequestHandler: handling an IntentRequest");
-		return new IntentRequestResponse().getResponse(input);
+		return new IntentRequestResponse().getResponse(input, relationship);
 	}
 }

@@ -7,6 +7,6 @@ import com.amazon.ask.model.Response;
 
 public interface RequestResponse {
 
-	Optional<Response> getResponse(HandlerInput input);
+	Optional<Response> getResponse(HandlerInput input, String relationship);
 
 }

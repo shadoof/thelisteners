@@ -20,17 +20,18 @@ public class LaunchRequestResponse implements RequestResponse {
 
 	private String affect; // TODO
 
-	public Optional<Response> getResponse(HandlerInput input) {
+	public Optional<Response> getResponse(HandlerInput input, String relationship) {
 
-		// TODO Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
-		// TODO sessionAttributes.put(FRAGMENTCOUNT_KEY, 0);
+		if (relationship.equals("fistEncounter")) {
+			// build first response TODO
+			// add intro and 'trigger warning' in Alexa's voice TODO
+		}
 
 		ResourceBundle.clearCache();
 		WelcomeSpeech ws = (WelcomeSpeech) ResourceBundle.getBundle("listeners.l10n.WelcomeSpeech", locale);
 
-		// TODO l10n for SpeechFinisher
-		String postSpeechPrompt = "";
-		ResponseFinisher rf = new ResponseFinisher(localeTag, ws.getString("speech"), ws.getString("reprompt"), postSpeechPrompt);
+		// TODO l10n for ResponseFinisher
+		ResponseFinisher rf = new ResponseFinisher(localeTag, ws.getString("speech"), "", ws.getString("reprompt"));
 
 		return input.getResponseBuilder().
 				withSpeech(rf.getSpeech()).

@@ -7,10 +7,14 @@ import java.util.Map;
 
 public class Constants {
 	
-	// TODO environment
-	public static final boolean DEV = true;
-	public static final boolean LIVE = false;
-	public static final boolean PERFORMANCE = false;
+	// environment
+	// These variables should be set in the Lambda function.
+	// DEV - are you still developing?
+	// LIVE - the behavior of the skill IS either live or 'as if' live.
+	// PERFORMANCE - used in performance (other voices' drama shorter, etc.)
+	public static boolean DEV = true;
+	public static boolean LIVE = false;
+	public static boolean PERFORMANCE = false;
 	
 	// version information
 	// 2.2.2 - first release with differentation of other Englishes	
@@ -21,6 +25,7 @@ public class Constants {
 	// remove, meanwhile 2.5.1 has been preserved on branch: listeners2.5
 	// 2.6.0 - working towards this version which will launch German
 	// 2.6.0a and 0b were in response to Amazon demands to remove 'always listening' instances
+	// 3.0.0 factored for the latest Java ASK SDK and decent 110n
 	public static final String VERSION = "3.0.0";
 	public static final String VERSION_DATE_LIVE = "July 15, 2020";
 	public static final String VERSION_DATE_DEV = "July 1, 2020";

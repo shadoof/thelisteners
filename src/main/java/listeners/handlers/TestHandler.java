@@ -20,6 +20,8 @@ public class TestHandler {
 	}
 
 	public TestHandler() {
+		String anything = null;
+		info("" + (anything == null));
 		
 		LangConstants lc = new LangConstants("de_DE");
 		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n.VersionIntent", lc.locale);
