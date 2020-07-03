@@ -7,12 +7,15 @@ import static listeners.model.LangConstants.polyVoiceWrapper;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.info;
 import static listeners.util.ConstantUtils.insertPauseTags;
+import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.stripSsmlTags;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
+
+import com.amazon.ask.model.Intent;
 
 public class ResponseFinisher {
 
@@ -25,15 +28,25 @@ public class ResponseFinisher {
 	private static String cardText;
 	private static String dateString;
 
+	// simple: no preamble
 	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt) {
 
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		dateString = dateFormat.format(date);
 		info("@SpeechFinisher: " + dateString);
-		
+
 		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
 		this.reprompt = buildSimpleReprompt(reprompt);
+	}
+
+	// may have preAmble
+	public ResponseFinisher(String localeTag, String preamble, String speech, String postSpeechPrompt, String reprompt) {
+
+		this(localeTag, speech, postSpeechPrompt, reprompt);
+
+		if (!"".equals(preamble)) 
+			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLong()));
 	}
 
 	private String buildSimpleReprompt(String reprompt) {
@@ -47,12 +60,12 @@ public class ResponseFinisher {
 		speech = insertPauseTags(speech);
 		return "<speak>" + polyVoiceWrapper + speech + postSpeechPrompt + "</lang></voice></speak>";
 	}
-	
+
 	public String getCardText() {
 
 		String s = stripSsmlTags(speech);
 		return PERFORMANCE ? s + " - " + dateString : s;
-	} 
+	}
 
 	public String getCardTitle() {
 
@@ -60,13 +73,13 @@ public class ResponseFinisher {
 	}
 
 	public String getCardTitle(String intentName) {
-		
+
 		if (cardTitle.equals("")) {
-			cardTitle = localeTag.equals("de_DE") ? S("Hören", "Höre immer noch zu") : S("Still, l", "L") + "istening";
+			cardTitle = "de_DE".equals(localeTag) ? S("Hören", "Höre immer noch zu") : S("Still, l", "L") + "istening";
 		}
-		
-		return DEV ? intentName +  " - " + dateString : cardTitle;
-		
+
+		return DEV ? intentName + " - " + dateString : cardTitle;
+
 	}
 
 	public String getReprompt() {
@@ -100,13 +113,12 @@ public class ResponseFinisher {
 	}
 
 	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt, Map<String, Object> sessionAttributes) {
-		
+
 		this(localeTag, speech, postSpeechPrompt, reprompt);
 
 		// TODO if (speech == null || reprompt == null)
 		// throw new SpeechletException("Nothing to say ... for Fragment: " +
 		// fragmentIndex);
-
 
 		// TODO: session related *** FROM HERE ... ***
 		// Session session = getListenerSession();
@@ -294,8 +306,9 @@ public class ResponseFinisher {
 		// Create SSML speech output
 		// SsmlOutputSpeech ssmlSpeech = new SsmlOutputSpeech();
 
-//		speech = insertPauseTags(speech);
-//		speech = "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
+		// speech = insertPauseTags(speech);
+		// speech = "<speak>" + polyVoiceWrapper + speech +
+		// "</lang></voice></speak>";
 		// ssmlSpeech.setSsml("<speak>" + speech + "</speak>");
 
 		// TODO preSpeech = ""; // immediately ensure that it defaults to nothing.
@@ -303,8 +316,9 @@ public class ResponseFinisher {
 		// Create reprompt. NB: now using SSML
 		// SsmlOutputSpeech ssmlReprompt = new SsmlOutputSpeech();
 
-//		reprompt = insertPauseTags(reprompt);
-//		reprompt = "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
+		// reprompt = insertPauseTags(reprompt);
+		// reprompt = "<speak>" + polyVoiceWrapper + reprompt +
+		// "</lang></voice></speak>";
 		// ssmlReprompt.setSsml("<speak>" + reprompt + "</speak>");
 		// Reprompt repromptObject = new Reprompt();
 		// repromptObject.setOutputSpeech(ssmlReprompt);
@@ -323,9 +337,9 @@ public class ResponseFinisher {
 		// // NOTE: 'newTellResponse' ends the session
 		// return SpeechletResponse.newTellResponse(ssmlSpeech, card);
 		// }
-//		this.speech = speech;
-//		this.reprompt = reprompt;
-//		this.postSpeechPrompt = postSpeechPrompt;
+		// this.speech = speech;
+		// this.reprompt = reprompt;
+		// this.postSpeechPrompt = postSpeechPrompt;
 	}
 
 }

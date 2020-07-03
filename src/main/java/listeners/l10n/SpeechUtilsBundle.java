@@ -74,7 +74,7 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 			s += list.get(i) + ", ";
 		}
 		// TODO check for other non-English languages
-		s += list.get(i) + (localeTag.equals("de-DE") ? "" : ". ");
+		s += list.get(i) + ("de-DE".equals(localeTag) ? "" : ". ");
 		return s;
 	}
 

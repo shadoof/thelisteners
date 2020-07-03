@@ -9,7 +9,7 @@ import static listeners.util.ConstantUtils.s;
 
 import listeners.util.SpeechUtils;
 
-public class WelcomeSpeech extends L10nSpeech {
+public class Welcome extends L10nSpeech {
 
 	protected String cardTitle = "";
 	protected String speech = "";
@@ -17,22 +17,11 @@ public class WelcomeSpeech extends L10nSpeech {
 	protected String postSpeechPrompt = "";
 	
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
+			{ "speech", buildSpeech() } 
 			};
 	
 	public String buildCardTitle() {
 		return S("Welcome", "Greetings");
-	}
-
-	@Override
-	public String buildPostSpeechPrompt() {
-
-		return postSpeechPrompt; // empty
-	}
-
-	public String buildReprompt() {
-		return new SpeechUtils(locale).chooseContinue();
 	}
 
 	public String buildSpeech() {
@@ -42,21 +31,6 @@ public class WelcomeSpeech extends L10nSpeech {
 		speech += S("It is " + S("always s", "S") + "uch a pleasure. " + breath(), "");
 		speech += s("It is " + s("such", "") + " a pleasure to be with you. " + breath(), "");
 		speech += "Always. " + s(breath() + "Always.", "") + breathShort() + s("Such a", "A") + "pleasure. " + breath();
-
-		// affect = getAffectFromSession(session, AFFECT_KEY); TODO
-
-		// help is added to the welcome here:
-		// if (StringUtils.isEmpty(affect)) {
-		// postSpeechPrompt = chooseSpeechAssistance();
-		// reprompt = chooseUnsureAboutAffect();
-		// }
-		// else {
-		// we set affect to the empty string here;
-		// this happens if user invokes welcome from
-		// within session, thus restarting:
-		//
-		// session.setAttribute(AFFECT_KEY, ""); TODO
-		// }
 
 		return speech;
 	}

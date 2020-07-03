@@ -6,7 +6,7 @@ import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.s;
 
-public class WelcomeSpeech_de_DE extends WelcomeSpeech {
+public class Welcome_de_DE extends Welcome {
 
 	public String buildCardTitle() {
 		return S("Willkommen!", s("Seid gegrüsst!", s("Grüss Dich!", "Grüsst Euch!")));

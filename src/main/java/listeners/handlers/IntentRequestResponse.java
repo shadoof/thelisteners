@@ -5,6 +5,7 @@ import static listeners.model.LangConstants.localeTag;
 import static listeners.util.ConstantUtils.info;
 import static listeners.model.Constants.DEV;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -14,18 +15,24 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 
 import listeners.l10n.L10nSpeech;
-import listeners.l10n.WelcomeSpeech;
+import listeners.l10n.Welcome;
 import listeners.util.ResponseFinisher;
+import listeners.util.SpeechUtils;
 
-public class IntentRequestResponse implements RequestResponse {
+public class IntentRequestResponse extends RequestResponse implements RequestResponsible {
 
 	// this RequestResponse is for straightforward responses,
 	// no slots, no dialog (confirmation) needed
 
+	IntentRequestResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
+
+		super(persistentAttributes, sessionAttributes);
+	}
+
 	@Override
 	public Optional<Response> getResponse(HandlerInput input, String relationship) {
 		
-		if (relationship.equals("fistEncounter")) {
+		if ("firstEncounter".equals(relationship)) {
 			// build first response TODO
 			// add intro and 'trigger warning' in Alexa's voice TODO
 		}
@@ -41,10 +48,14 @@ public class IntentRequestResponse implements RequestResponse {
 		// we just load a bundle with the intent.getName():
 		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
 
-		// TODO l10n for ResponseFinisher
-		ResponseFinisher rf = new ResponseFinisher(localeTag, ls.getString("speech"), ls.getString("postSpeechPrompt"), ls.getString("reprompt"));
+		SpeechUtils su = new SpeechUtils(locale);
+		
+		String postSpeechPrompt = ls.getString("postSpeechReprompt") != null ? ls.getString("postSpeechReprompt") : su.chooseContinue();
+		String reprompt = ls.getString("reprompt") != null ? ls.getString("reprompt") : su.chooseContinue();
 
-		String ct = DEV ? rf.getCardTitle(intent.getName()) : rf.getCardTitle();
+		ResponseFinisher rf = new ResponseFinisher(localeTag, ls.getString("speech"), postSpeechPrompt, reprompt);
+
+		String ct = DEV ? intent.getName() : ls.getString("cardTitle");
 		
 		return input.getResponseBuilder().
 				withSpeech(rf.getSpeech()).

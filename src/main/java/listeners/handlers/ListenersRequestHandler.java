@@ -4,6 +4,7 @@ import static com.amazon.ask.request.Predicates.requestType;
 import static listeners.model.Attributes.FRAGMENTCOUNT_KEY;
 import static listeners.model.Attributes.NOT_YET_GREETED;
 import static listeners.model.Attributes.AMANAGER;
+import static listeners.model.Attributes.LISTENERSAFFECT_KEY;
 import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.util.ConstantUtils.info;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -25,7 +26,7 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
-import listeners.l10n.WelcomeSpeech;
+import listeners.l10n.Welcome;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
 
@@ -59,22 +60,26 @@ public class ListenersRequestHandler implements RequestHandler {
 		Map<String, Object> sessionAttributes = AMANAGER.getSessionAttributes();
 
 		String relationship = "normal";
-		if (persistentAttributes.isEmpty()) {
+		if (persistentAttributes.isEmpty() && sessionAttributes.isEmpty()) {
 			// very first encounter
 			info("@ListenersRequestHandler: firstEncounter");
 			persistentAttributes.put("relationship", "normal");
 			
-			// initializing session attributes
-			sessionAttributes = initSessionAttributes();
+			// initializing session attributes, only if empty
+			if (sessionAttributes.isEmpty()) sessionAttributes = initSessionAttributes();
+			// Listeners affect is set to a random affect:
+			info("@ListenersRequestHandler: listenersAffect" + sessionAttributes.get(LISTENERSAFFECT_KEY));
+			
 			
 			relationship = "firstEncounter";
 			if (input.matches(requestType(LaunchRequest.class))) {
-				return new LaunchRequestResponse().getResponse(input, relationship);
+				return new LaunchRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 			} else {
-				return new IntentRequestResponse().getResponse(input, relationship);
+				return new IntentRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 			}
 		}
 		
+		// only here after a firstEncounter and if a session has started
 		info("@ListenersRequestHandler, persistentAttributes: " + persistentAttributes.toString());
 
 		if (input.matches(requestType(LaunchRequest.class))) {
@@ -84,24 +89,25 @@ public class ListenersRequestHandler implements RequestHandler {
 			}
 			
 			if (sessionAttributes.get("relationship") != null && sessionAttributes.get("relationship").equals("normal")) {
-				info("@ListenersRequestHandler: not first exchange but perhaps startingOver"); // TODO
+				info("@ListenersRequestHandler: not first exchange but perhaps startingOver");
 				relationship = "ask";
 			}
 
-			if (relationship.equals("ask")) {
+			if ("ask".equals(relationship)) {
 				// TODO
 				// use Dialog interface if possible to confirm startingOver
 				// for now:
 				relationship = "normal";
+				sessionAttributes.put("relationship","normal");
 			} else {
 				sessionAttributes.put("relationship","normal");
 			}
 
-			return new LaunchRequestResponse().getResponse(input, relationship);
+			return new LaunchRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 		}
 
 		// must be an IntentRequest
 		info("@ListenersRequestHandler: handling an IntentRequest");
-		return new IntentRequestResponse().getResponse(input, relationship);
+		return new IntentRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 	}
 }

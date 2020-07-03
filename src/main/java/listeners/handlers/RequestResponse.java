@@ -1,12 +1,14 @@
 package listeners.handlers;
 
-import java.util.Optional;
+import java.util.Map;
 
-import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.model.Response;
+public abstract class RequestResponse implements RequestResponsible {
+	
+	protected Map<String, Object> persistentAttributes;
+	protected Map<String, Object> sessionAttributes;
 
-public interface RequestResponse {
-
-	Optional<Response> getResponse(HandlerInput input, String relationship);
-
+	RequestResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
+		this.persistentAttributes = persistentAttributes;
+		this.sessionAttributes = sessionAttributes;
+	}
 }

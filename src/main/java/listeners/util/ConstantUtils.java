@@ -105,7 +105,7 @@ public class ConstantUtils {
 
 	public static String s(String firstAlternative, String secondAlternative) {
 
-		return heads() ? firstAlternative.equals("") ? firstAlternative : firstAlternative + SPC : secondAlternative.equals("") ? secondAlternative : secondAlternative + SPC;
+		return heads() ? "".equals(firstAlternative) ? firstAlternative : firstAlternative + SPC : "".equals(secondAlternative) ? secondAlternative : secondAlternative + SPC;
 	}
 
 	public static String S(String firstAlternative, String secondAlternative) {

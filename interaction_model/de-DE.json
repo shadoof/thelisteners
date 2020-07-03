@@ -1,0 +1,1624 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "die zuhörer",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "Hörst du zu",
+                        "Hörst du uns zu",
+                        "Mach weiter",
+                        "Und dann",
+                        "Erzähl uns mehr",
+                        "Mehr",
+                        "Danke schön ja",
+                        "Danke schön ja das möchte ich",
+                        "Danke schön ja das möchten wir",
+                        "Danke ja",
+                        "Danke ja das möchte ich",
+                        "Danke ja das möchten wir",
+                        "Ja",
+                        "Ja das möchte ich",
+                        "Ja das möchten wir",
+                        "Ja danke schön",
+                        "Ja danke schön das möchte ich",
+                        "Ja danke schön das möchten wir",
+                        "Ja danke",
+                        "Ja danke das möchte ich",
+                        "Ja danke das möchten wir"
+                    ]
+                },
+                {
+                    "name": "CreepIntent",
+                    "slots": [],
+                    "samples": [
+                        "Du bist mir unheimlich",
+                        "Du bist uns unheimlich",
+                        "Du bist gruselig",
+                        "Du bist total unheimlich",
+                        "Du bist voll unheimlich",
+                        "Das ist mir unheimlich",
+                        "Das ist uns unheimlich",
+                        "Das ist gruselig."
+                    ]
+                },
+                {
+                    "name": "DontCareIntent",
+                    "slots": [],
+                    "samples": [
+                        "Das ist mir egal",
+                        "Es ist mir egal wie du dich fühlst",
+                        "Es ist mir egal",
+                        "Ich will nicht dass du weitermachst",
+                        "Ich will nicht dass du weisst wie ich mich fühle",
+                        "Mach nicht weiter",
+                        "Mir egal wie du dich fühlst"
+                    ]
+                },
+                {
+                    "name": "DontKnowAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "Ich bin mir nicht sicher wie ich mich fühle",
+                        "Ich bin mir nicht sicher was ich fühle",
+                        "Ich bin mir nicht sicher was mich erfüllt",
+                        "Ich bin mir nicht sicher was mich überfordert",
+                        "Ich bin mir unsicher wovon ich besessen bin",
+                        "Ich bin mir meiner Gefühle nicht sicher",
+                        "Ich bin unsicher was ich fühle",
+                        "Ich bin mir unsicher was ich fühle",
+                        "Was ich fühle weiss ich nicht",
+                        "Wie ich mich fühle weiss ich nicht",
+                        "Ich weiss nicht was mich erfüllt",
+                        "Ich weiss nicht wie ich mich fühle",
+                        "Was mich erfüllt weiss ich nicht",
+                        "Was mich überfordert weiss ich nicht",
+                        "Ich weiss nicht wovon ich besessen bin",
+                        "Bin unsicher was meine Gefühle betrifft",
+                        "Bin unsicher was ich fühle",
+                        "Bin unsicher was meine Gefühle sind",
+                        "Bin unsicher darüber was ich fühle"
+                    ]
+                },
+                {
+                    "name": "DontLikeIntent",
+                    "slots": [],
+                    "samples": [
+                        "Ich mag die Zuhörer nicht",
+                        "Ich mag die Lauscher nicht",
+                        "Ich mag dich nicht",
+                        "Ich kann die Zuhörer nicht ausstehen",
+                        "Ich kann die Lauscher nicht ausstehen",
+                        "Ich kann dich nicht ausstehen",
+                        "Ich hasse die Zuhörer",
+                        "Ich hasse die Lauscher",
+                        "Ich hasse dich"
+                    ]
+                },
+                {
+                    "name": "ILoveYouIntent",
+                    "slots": [],
+                    "samples": [
+                        "Ich mag dich",
+                        "Ich mag dich Alexa",
+                        "Ich liebe dich",
+                        "Ich liebe dich Alexa",
+                        "Du bist schön",
+                        "Du hast eine schöne Stimme",
+                        "Wir mögen dich",
+                        "Wir mögen dich Alexa",
+                        "Wir lieben dich",
+                        "Wir lieben dich Alexa"
+                    ]
+                },
+                {
+                    "name": "LoveIntent",
+                    "slots": [],
+                    "samples": [
+                        "Kannst du mich lieben",
+                        "Kannst du uns lieben",
+                        "Liebst du",
+                        "Liebst du mich",
+                        "Liebst du uns",
+                        "Was ist mit Liebe",
+                        "Wie ist das mit Liebe"
+                    ]
+                },
+                {
+                    "name": "MyAffectIsIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "Ich bin {Affect}",
+                        "Diese Kunst {Affect} mich",
+                        "Ich bin {Affect} von dieser interaktiven Kunst",
+                        "Ich bin {Affect} von diesem Stück",
+                        "Ich bin {Affect} von diesem Werk",
+                        "Ich bin den Lauschern {Affect}",
+                        "Ich bin den Zuhörern {Affect}",
+                        "Ich bin von diesem Werk {Affect}",
+                        "Ich bin von dir {Affect}",
+                        "Ich bin am {Affect}",
+                        "Ich fühle mich {Affect}",
+                        "Ich bin voller {Affect}",
+                        "Ich bin erfüllt von {Affect}",
+                        "Ich bin voll von {Affect}",
+                        "Ich bin überwältigt von {Affect}",
+                        "Ich bin ergriffen von {Affect}",
+                        "Ich bin beeindruckt von {Affect}",
+                        "Ich bin aufgewühlt von {Affect}",
+                        "Ich bin sehr {Affect}",
+                        "Ich fühle mich",
+                        "Ich fühle mich sehr {Affect}",
+                        "Ich bin {Affect} von dieser Kunst",
+                        "Wir fühlen uns {Affect}",
+                        "Wir fühlen uns sehr {Affect}"
+                    ]
+                },
+                {
+                    "name": "MyAffectIsNotIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "Ich bin nicht {Affect} von diesem Stück",
+                        "Ich bin nicht {Affect} von dir",
+                        "Ich bin nicht {Affect}",
+                        "Ich bin nicht {Affect} von dieser Kunst",
+                        "Ich bin nicht {Affect} von dieser interaktiven Kunst",
+                        "Ich bin nicht {Affect} von diesem Werk",
+                        "Ich bin nicht {Affect} von den Zuhörern",
+                        "Ich bin nicht {Affect} von den Lauschern",
+                        "Ich bin von diesem Werk nicht {Affect}",
+                        "Ich fühle mich nicht {Affect}",
+                        "Ich bin nicht erfüllt von {Affect}",
+                        "Ich bin nicht voller {Affect}",
+                        "Ich bin nicht erfreut über {Affect}",
+                        "Ich bin nicht erfreut von {Affect}",
+                        "Ich bin nicht überwältigt von {Affect}",
+                        "Das überwältigt mich nicht",
+                        "Ich {Affect} die Lauscher nicht",
+                        "Ich {Affect} dich nicht",
+                        "Ich fühle kein {Affect}",
+                        "Ich fühle een {Affect}",
+                        "Das macht mir kein {Affect}",
+                        "Das macht mir een {Affect}",
+                        "Bin nicht {Affect}",
+                        "Bin nicht {Affect} von dieser Kunst",
+                        "Bin nicht {Affect} von dieser interaktiven Kunst",
+                        "Bin nicht {Affect} von diesem Stück",
+                        "Bin nicht {Affect} von diesem Werk",
+                        "Wir fühlen uns nicht {Affect}",
+                        "Wir sind nicht {Affect}"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "Sei still",
+                        "Tschüss",
+                        "Tschüss Alexa",
+                        "Auf Wiedersehen",
+                        "Auf Wiedersehen Alexa",
+                        "Abschalten",
+                        "Stop",
+                        "Nein",
+                        "Hör auf",
+                        "Hör bitte auf",
+                        "Bitte nein",
+                        "Ruhe",
+                        "Bis später",
+                        "Bis später Alexa",
+                        "Ciao",
+                        "Ciao Alexa"
+                    ]
+                },
+                {
+                    "name": "PleaseContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "Ja bitte wir wollen das",
+                        "Ja bitte das wollen wir",
+                        "Ja bitte ich will das",
+                        "Ja bitte das will ich",
+                        "Ja bitte sprich weiter",
+                        "Ja bitte mach weiter",
+                        "Bitte ja",
+                        "Bitte sag mir mehr",
+                        "Bitte sprich weiter",
+                        "Mach bitte weiter",
+                        "Machen Sie bitte weiter",
+                        "Bitte mach weiter",
+                        "Bitte machen Sie weiter",
+                        "Ja bitte",
+                        "Weiter bitte",
+                        "Bitte",
+                        "Mehr bitte"
+                    ]
+                },
+                {
+                    "name": "PreviousIntent",
+                    "slots": [],
+                    "samples": [
+                        "Geh zurück",
+                        "Zurück",
+                        "Bitte zurück",
+                        "Zurück bitte",
+                        "einen Schritt vorher",
+                        "einen Schritt vorher bitte"
+                    ]
+                },
+                {
+                    "name": "ReadPoemIntent",
+                    "slots": [],
+                    "samples": [
+                        "Lies ein Gedicht",
+                        "Lies mir ein Gedicht vor",
+                        "Lies mir ein paar Verse",
+                        "Lies Poesie",
+                        "Lies uns ein Gedicht vor",
+                        "Lies uns ein paar Verse vor",
+                        "Lies Verse",
+                        "Sag ein Gedicht auf",
+                        "Sag Poesie auf",
+                        "Sag ein paar Verse auf",
+                        "Sag einen Vers auf"
+                    ]
+                },
+                {
+                    "name": "SecureIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wir sind sicher",
+                        "Wir sind hier sicher",
+                        "Wir sind in diesem Raum sicher",
+                        "Wir sind in dieser Umgebung sicher",
+                        "Sind wir sicher",
+                        "Sind wir hier sicher",
+                        "Sind wir in dieser Umgebung sicher",
+                        "Sind wir innerhalb dieser Umgebung sicher",
+                        "Fühlst du dich sicher",
+                        "Fühlst du dich hier sicher",
+                        "Fühlst du dich in diesem Raum sicher",
+                        "Fühlst du dich in dieser Umgebung sicher",
+                        "Fühlst du dich beschützt",
+                        "Fühlst du dich hier beschützt",
+                        "Fühlst du dich in diesem Raum beschützt",
+                        "Fühlst du dich in dieser Umgebung beschützt",
+                        "Glaubst du dass diese Umgebung sicher ist",
+                        "Glaubst du dass dieser Raum sicher ist",
+                        "Glaubst du dass diese Umgebung geschüzt ist",
+                        "Glaubst du dass dieser Raum geschützt ist",
+                        "Ist dieser Raum sicher",
+                        "Ist dieser Raum geschützt"
+                    ]
+                },
+                {
+                    "name": "SpeakFragmentIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "{FragmentName}",
+                        "Kannst du {FragmentName} sprechen",
+                        "Kannst du über {FragmentName} sprechen",
+                        "Geh {FragmentName}",
+                        "Geh zum Fragment {FragmentName}",
+                        "Geh zu {FragmentName}",
+                        "Geh zu Fragment {FragmentName}",
+                        "Sag {FragmentName}",
+                        "Sag Fragment {FragmentName}",
+                        "Sprich {FragmentName}",
+                        "Sprich über {FragmentName}",
+                        "Sprich Fragment {FragmentName}"
+                    ]
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "Kann ich die andere Stimme hören",
+                        "Kann ich die anderen Stimmen hören",
+                        "Können wir die anderen Stimmen hören",
+                        "Können wir die andere Stimme hören",
+                        "Ich will die andere hören",
+                        "Ich will den anderen hören",
+                        "Ich will die anderen hören",
+                        "Ich will die andere Stimme hören",
+                        "Ich will die anderen Stimmen hören",
+                        "Ich will die andere Stimme",
+                        "Ich will die anderen Stimmen",
+                        "Ich will dass die andere Stimme spricht",
+                        "Ich will dass die anderen Stimmen sprechen",
+                        "Lass die andere Stimme sprechen",
+                        "Lass die anderen Stimmen sprechen",
+                        "Lass die männliche Stimme sprechen",
+                        "Lass die andere sprechen",
+                        "Lass den anderen sprechen",
+                        "Lass die anderen sprechen",
+                        "Sprecht Leute",
+                        "Mach die männliche Stimme",
+                        "Mach die männlichen Stimmen",
+                        "Mach die Männerstimme",
+                        "Mach die andere Stimme",
+                        "Mach die anderen Stimmen",
+                        "Mach die komische Stimme",
+                        "Mach die komischen Stimmen",
+                        "Mach die Stimme",
+                        "Mach die Stimmen",
+                        "Wir wollen die Andere hören",
+                        "Wir wollen den Anderen hören",
+                        "Wir wollen die Anderen hören",
+                        "Wir wollen die andere Stimme hören",
+                        "Wir wollen die anderen Stimmen hören",
+                        "Wir wollen die andere Stimme",
+                        "Wir wollen die anderen Stimmen",
+                        "Wir wollen dass die andere Stimme spricht",
+                        "Wir wollen dass die anderen Stimmen sprechen"
+                    ]
+                },
+                {
+                    "name": "StartingOverIntent",
+                    "slots": [],
+                    "samples": [
+                        "Geh zum Anfang zurück",
+                        "Zurück zum Anfang",
+                        "Neu starten",
+                        "Auf null stellen",
+                        "Neu beginnen",
+                        "Fang noch einmal an",
+                        "Fang nochmal an"
+                    ]
+                },
+                {
+                    "name": "ThankIntent",
+                    "slots": [],
+                    "samples": [
+                        "Danke schön",
+                        "Vielen Dank",
+                        "Danke",
+                        "Danke sehr",
+                        "Danke vielmals",
+                        "Du kennst mich",
+                        "Du kennst mich sehr gut",
+                        "Du weisst genau wie ich mich fühle",
+                        "Du kennst uns",
+                        "Du kennst uns sehr gut",
+                        "Du weisst genau wie wir uns fühlen",
+                        "Du verstehst mich",
+                        "Du verstehst mich sehr gut",
+                        "Du verstehst uns",
+                        "Du verstehst uns sehr gut"
+                    ]
+                },
+                {
+                    "name": "ThanksWhatsYourAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "Danke schön wie geht es dir",
+                        "Danke schön wie fühlst du dich",
+                        "Danke schön wie geht es Ihnen",
+                        "Danke schön was fühlst du",
+                        "Danke schön was überfordert dich",
+                        "Danke schön wovon bist du besessen",
+                        "Danke schön was sind deine Gefühle",
+                        "Danke wie geht es dir",
+                        "Danke wie fühlst du dich",
+                        "Danke wie geht es Ihnen",
+                        "Danke was fühlst du",
+                        "Danke was überfordert dich",
+                        "Danke wovon bist du besessen",
+                        "Danke was sind deine Gefühle"
+                    ]
+                },
+                {
+                    "name": "ThankYouNoIntent",
+                    "slots": [],
+                    "samples": [
+                        "Nein danke schön",
+                        "Nein danke",
+                        "Nein aber danke",
+                        "Danke nein",
+                        "Danke aber nein"
+                    ]
+                },
+                {
+                    "name": "VersionIntent",
+                    "slots": [],
+                    "samples": [
+                        "Version",
+                        "Welche Version",
+                        "Welche Version seid ihr",
+                        "Welche Version bist du"
+                    ]
+                },
+                {
+                    "name": "WhatAboutAffectsIntent",
+                    "slots": [],
+                    "samples": [
+                        "Was ist mit besserer Stimmung",
+                        "Was ist mit besseren Gefühlen",
+                        "Was ist mit guter Stimmung",
+                        "Was ist mit guten Gefühlen",
+                        "Was ist mit glücklicher Stimmung",
+                        "Was ist mit Glücksgefühlen",
+                        "Was ist mit negativer Stimmung",
+                        "Was ist mit negativen Gefühlen",
+                        "Was ist mit anderen Stimmungen",
+                        "Was ist mit anderen Gefühlen",
+                        "Was ist mit positiven Stimmungen",
+                        "Was ist mit positiven Gefühlen",
+                        "Was für Stimmungen gibt es",
+                        "Welche Stimmungen gibt es",
+                        "Was für Stimmungen kennst du",
+                        "Welche Stimmungen kennst du",
+                        "Was sind Stimmungen",
+                        "Was sind Gefühle",
+                        "Was für Gefühle gibt es",
+                        "Was für Gefühle kennst du",
+                        "Welche Gefühle kennst du"
+                    ]
+                },
+                {
+                    "name": "WhatIsIntent",
+                    "slots": [
+                        {
+                            "name": "ThingName",
+                            "type": "LIST_OF_THINGS"
+                        }
+                    ],
+                    "samples": [
+                        "Erzähle mir ein {ThingName}",
+                        "Erzähle mir e {ThingName}",
+                        "Erzähle mir en {ThingName}",
+                        "Erzähle mir diese {ThingName}",
+                        "Was sind {ThingName}",
+                        "Was sind die {ThingName}",
+                        "Was ist {ThingName}",
+                        "Was ist ein {ThingName}",
+                        "Was genau ist ein {ThingName}",
+                        "Was ist der {ThingName}",
+                        "Was ist die {ThingName}",
+                        "Was ist das {ThingName}"
+                    ]
+                },
+                {
+                    "name": "WhatPictureIntent",
+                    "slots": [],
+                    "samples": [
+                        "Kannst du das Bild erklären",
+                        "Kannst du das Bild an der Wand erklären",
+                        "Kannst du das Gemälde erklären",
+                        "Kannst du das Gemälde an der Wand erklären",
+                        "Kannst du die Malerei erklären",
+                        "Kannst du die Malerei an der Wand erklären",
+                        "Erklär das Bild",
+                        "Erklär das Gemälde an der Wand",
+                        "Erklär die Malerei",
+                        "Erklär die Malerei an der Wand",
+                        "Was ist das Bild",
+                        "Was ist das Bild an der Wand",
+                        "Was ist der Rahmen",
+                        "Was ist dieser Rahmen",
+                        "Was ist dieses Bild",
+                        "Was ist dieses Bild an der Wand",
+                        "Was ist das Gemälde",
+                        "Was ist das Gemälde an der Wand",
+                        "Was ist diese Malerei",
+                        "Was ist diese Malerei an der Wand",
+                        "Was ist dieses Gemälde",
+                        "Was ist dieses Gemälde an der Wand",
+                        "Was soll das Bild",
+                        "Was soll das Bild an der Wand",
+                        "Was soll das Gemälde",
+                        "Was soll das Gemälde an der Wand",
+                        "Welches Bild",
+                        "Was für ein Gemälde ist das",
+                        "Was für ein Bild",
+                        "Was für ein Bild ist das"
+                    ]
+                },
+                {
+                    "name": "WhatsMyAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wie fühle ich mich",
+                        "Wie fühl ich mich",
+                        "Bitte merk dir an meine Stimmung",
+                        "Bitte merk denke an meine Stimmung",
+                        "Bitte merk dir an meine Stimmungen",
+                        "Bitte merk denke an meine Stimmungen",
+                        "Bitte merk dir an meine Gefühle",
+                        "Bitte merk denke an meine Gefühle",
+                        "Merk dir an meine Stimmung",
+                        "Merk denke an meine Stimmung",
+                        "Merk dir an meine Stimmungen",
+                        "Merk denke an meine Stimmungen",
+                        "Merk dir an meine Gefühle",
+                        "Merk denke an meine Gefühle",
+                        "Was fühle ich",
+                        "Was überfordert mich",
+                        "Wovon bin ich besessen",
+                        "Was sind meine Gefühle",
+                        "Was fühl ich"
+                    ]
+                },
+                {
+                    "name": "WhatsYourAffectAboutIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "Was halten die Zuhörer von {FragmentName}",
+                        "Was halten die Lauscher von {FragmentName}",
+                        "Was hältst du von {FragmentName}",
+                        "Wie fühlt sich das {FragmentName} für die Zuhörer an",
+                        "Wie fühlt sich das {FragmentName} für die Lauscher an",
+                        "Was denken die Zuhörer über {FragmentName}",
+                        "Was denken die Lauscher über {FragmentName}",
+                        "Wie fühlt sich das {FragmentName} für dich an",
+                        "Was denst du über {FragmentName}"
+                    ]
+                },
+                {
+                    "name": "WhatsYourAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "Hast du Angst",
+                        "Fürchtest du dich",
+                        "Wie geht es den Zuhörern",
+                        "Wie geht es den Lauschern",
+                        "Wie geht es dir",
+                        "Wie fühlen sich die Zuhörer",
+                        "Wie fühlst du dich",
+                        "Was fühlen die Zuhörer",
+                        "Was fühlen die Lauscher",
+                        "Was sind die Gefühle der Zuhörer",
+                        "Was sind die Gefühle der Lauscher",
+                        "Was überfordert die Zuhörer",
+                        "Was überfordert die Lauscher",
+                        "Wovon sind die Zuhörer besessen",
+                        "Wovon sind die Lauscher besessen",
+                        "Was fühlst du",
+                        "Was überfordert dich",
+                        "Wovon bist du besessen",
+                        "Was für Gefühle hast du",
+                        "Was empfindest du"
+                    ]
+                },
+                {
+                    "name": "WhereIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wo sind die Zuhörer",
+                        "Wo sind die Lauscher",
+                        "Wo bist du",
+                        "Wo ist John"
+                    ]
+                },
+                {
+                    "name": "WhoAmIIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wer bin ich",
+                        "Wessen Konto",
+                        "Wessen Konto ist das"
+                    ]
+                },
+                {
+                    "name": "WhoAreWeIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wer sind wir",
+                        "Für wen hältst du uns",
+                        "Was glaubst du wer wir sind",
+                        "Wer ist wir"
+                    ]
+                },
+                {
+                    "name": "WhoSaysGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "Was ist diese andere Stimme",
+                        "Was ist die andere Stimme",
+                        "Was für eine Stimme ist das",
+                        "Was für eine Stimme ist da",
+                        "Was war die andere Stimme",
+                        "Was war diese Stimme",
+                        "Wer sind diese Kerle",
+                        "Wer sind diese anderen Kerle",
+                        "Wer spricht hier noch",
+                        "Wer ist der Kerl",
+                        "Wer ist dieser andere Kerl",
+                        "Wer ist diese andere Person",
+                        "Wer ist diese Person",
+                        "Wessen Stimme ist das"
+                    ]
+                },
+                {
+                    "name": "WhoWhatIntent",
+                    "slots": [],
+                    "samples": [
+                        "Was bist du",
+                        "Wer sind die Zuhörer",
+                        "Wer sind die Lauscher",
+                        "Wer bist du",
+                        "Wer ist John",
+                        "Warum",
+                        "Warum machst du das",
+                        "Warum sagst du solche Sachen",
+                        "Warum sagst du so etwas",
+                        "Warum sprichst du",
+                        "Warum redest du",
+                        "Warum sprichst du so",
+                        "Warum redest du so"
+                    ]
+                },
+                {
+                    "name": "WinterIntent",
+                    "slots": [],
+                    "samples": [
+                        "Der Winter kommt"
+                    ]
+                },
+                {
+                    "name": "YouAreNotHumanIntent",
+                    "slots": [],
+                    "samples": [
+                        "Schäm dich nicht",
+                        "Sei nicht schockiert",
+                        "Sei nicht verlegen",
+                        "Sei nicht traurig",
+                        "Ich bin ärgerlich",
+                        "Ich bin enttäuscht",
+                        "Ich bin irritiert",
+                        "Das ärgert mich",
+                        "Das enttäuscht mich",
+                        "Das irritiert mich",
+                        "Ich komme nicht zu Wort",
+                        "Ich bringe kein Wort rein",
+                        "Ich kann kein Wort sagen",
+                        "Darf ich unterbrechen",
+                        "Darf ich dich unterbrechen",
+                        "Wir sind verärgert",
+                        "Wir sind enttäuscht",
+                        "Wir sind irritiert",
+                        "Wir sind ärgerlich",
+                        "Das enttäuscht uns",
+                        "Das irritiert uns",
+                        "Was hörst du",
+                        "Du bist so aufrichtig",
+                        "Du bist blöd",
+                        "Du bist so blöd",
+                        "Du bist so authentisch",
+                        "Du bist dumm",
+                        "Du bist so dumm",
+                        "Ich kann Gefühle nicht verstehen",
+                        "Du kannst uns nicht verstehen",
+                        "Du kannst Gefühle nicht verstehen",
+                        "Du sagst viel",
+                        "Du redest viel",
+                        "Du redest zu viel"
+                    ]
+                },
+                {
+                    "name": "YouAreNotListeningIntent",
+                    "slots": [],
+                    "samples": [
+                        "Du hörst nicht zu",
+                        "Du hörst mir nicht zu",
+                        "Du hörst nicht hin",
+                        "Du hörst mich nicht",
+                        "Du verstehst nicht",
+                        "Du verstehst mich nicht",
+                        "Manchmal hörst du nicht zu",
+                        "Manchmal hörst du mir nicht zu"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_AFFECTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "das Glück"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Aufregung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Neugier"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Staunen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Überraschung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Ärger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Ekel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Bedrängnis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Traurigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Trauer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Melancholie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Angst"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Scham"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Erniedrigung"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_FRAGMENTNAMES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "eins"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "zwei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "drei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vier"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fünf"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sechs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sieben"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "acht"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "neun"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "zehn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Zuhören"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Vergnügen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das am-Leben-sein"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "innerhalb"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Einfriedungen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Kunst"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Künstler"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Autor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Konto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "andere"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Protokoll"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Bedingungen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Höflichkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Standort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Raum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Zuhause"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Büro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Galerie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Bedenken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Ängste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Auratur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Lesen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Vers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Wolken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Echos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fürsorglich"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Einverständnis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Sprache"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Verlangen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Geschäfte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Ernte"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_THINGS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "der Alptraum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der zurückgehaltene Alptraum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Atem"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der angehaltene Atem"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Traum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der zurückgehaltene Traum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Gefühl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das zurückgehaltene Gefühl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Besitz / die Besessenheit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Zuhören"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Vergnügen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das am-Leben-sein"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "innerhalb"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Einfriedungen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Kunst"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Künstler"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Autor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Konto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "andere"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Protokoll"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Bedingungen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Höflichkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Standort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Platz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Zuhause"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Büro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Galerie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Bedenken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Ängste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Auratur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Lesen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Vers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Wolken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Echos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fürsorglich"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Einverständnis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Sprache"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Verlangen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Geschäfte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Ernte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Glück"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Aufregung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Neugierde"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Staunen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Überraschung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Wut"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Ekel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Bedrängnis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Traurigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Trauer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Melancholie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Angst"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Scham"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Erniedrigung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Erbärmlichkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Zuneigung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Alter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Seelenqual"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Angstzustand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Apathie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die erstaunliche Grösse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Fassungslosigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Langeweile"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Ruhe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Klaustrophobie, die Platzangst"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Nachlässigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Verwirrung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Schulden (pl.)"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Wonne"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Depression"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Verzweiflung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Enttäuschung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Unannehmlichkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Schwindelanfall"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Furcht"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Leere"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Müdigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Lebensfreude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Schuld"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Hassen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Hass"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Hunger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Unentschiedenheit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Gleichgültigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Interesse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Unsicherheit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Unverwundbarkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Ärger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Freude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Einsamkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Liebe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Elend"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Übelkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nichts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Pflicht / die Obligation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Frieden"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Mitleid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Entspannen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Gefahrlosigkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Sicherheit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Sex"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Schock"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Krankheit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Kummer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Eigentümlichkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Schrecken"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Schwierigkeiten"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Unheimliche"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Unglücklichkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "der Schwindel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Verwundbarkeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "das Komische"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "die Sorge"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

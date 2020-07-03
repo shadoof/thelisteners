@@ -5,7 +5,7 @@ import static listeners.util.ConstantUtils.breathLong;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.s;
 
-public class WelcomeSpeech_en_US extends WelcomeSpeech {
+public class Welcome_en_US extends Welcome {
 
 	public String buildSpeech() {
 		speech = s("Hello there!", "Welcome.") + s("Whoever you are.", "") + breathLong();

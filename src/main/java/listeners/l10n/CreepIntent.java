@@ -20,7 +20,7 @@ public class CreepIntent extends L10nSpeech {
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
 			{ "speech", buildSpeech() }, 
 			{ "reprompt", buildReprompt() }, 
-			{ "postSpeechPrompt", buildPostSpeechPrompt() }, 
+			{ "postSpeechPrompt", buildPostSpeechPrompt() } 
 			};
 
 	public String buildCardTitle() {
@@ -28,7 +28,6 @@ public class CreepIntent extends L10nSpeech {
 		return S("You find us creepy?", "You think we're creepy?");
 	}
 
-	@Override
 	public String buildPostSpeechPrompt() {
 
 		return new SpeechUtils(locale).chooseContinue();

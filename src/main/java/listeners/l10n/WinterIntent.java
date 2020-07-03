@@ -29,7 +29,6 @@ public class WinterIntent extends L10nSpeech {
 		return S("The Game", "No middle ground");
 	}
 
-	@Override
 	public String buildPostSpeechPrompt() {
 
 		return postSpeechPrompt; // usually empty

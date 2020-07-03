@@ -32,7 +32,6 @@ public class VersionIntent extends L10nSpeech {
 		return "Version";
 	}
 
-	@Override
 	public String buildPostSpeechPrompt() {
 
 		if (DEV && !LIVE) {
