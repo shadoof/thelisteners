@@ -16,10 +16,7 @@ import listeners.util.SpeechUtils;
 
 public class VersionIntent extends L10nSpeech {
 
-	protected String cardTitle = "";
 	protected String speech = "";
-	protected String reprompt = "";
-	protected String postSpeechPrompt = "";
 
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
 			{ "speech", buildSpeech() }, 
@@ -35,7 +32,7 @@ public class VersionIntent extends L10nSpeech {
 	public String buildPostSpeechPrompt() {
 
 		if (DEV && !LIVE) {
-			return postSpeechPrompt; // empty string
+			return ""; // empty string
 		}
 		else
 			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);

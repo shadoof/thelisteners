@@ -11,11 +11,6 @@ import listeners.util.SpeechUtils;
 
 public class Welcome extends L10nSpeech {
 
-	protected String cardTitle = "";
-	protected String speech = "";
-	protected String reprompt = "";
-	protected String postSpeechPrompt = "";
-	
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
 			{ "speech", buildSpeech() } 
 			};
@@ -25,7 +20,7 @@ public class Welcome extends L10nSpeech {
 	}
 
 	public String buildSpeech() {
-		speech = s("Greetings.", "Welcome.") + s("Whoever you may be.", "") + breathLong();
+		String speech = s("Greetings.", "Welcome.") + s("Whoever you may be.", "") + breathLong();
 		speech += "We are " + /* s("always", "") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
 		speech += "In so far as we are " + s(breathLong(), "") + "with you, " + breathShort() + "it is a pleasure. " + breath();
 		speech += S("It is " + S("always s", "S") + "uch a pleasure. " + breath(), "");

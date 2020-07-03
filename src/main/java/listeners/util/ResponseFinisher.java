@@ -21,11 +21,9 @@ public class ResponseFinisher {
 
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
-	private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
+//	private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
 	private static String speech;
 	private static String reprompt;
-	private static String cardTitle;
-	private static String cardText;
 	private static String dateString;
 
 	// simple: no preamble
@@ -33,7 +31,7 @@ public class ResponseFinisher {
 
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-		dateString = dateFormat.format(date);
+		this.dateString = dateFormat.format(date);
 		info("@SpeechFinisher: " + dateString);
 
 		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
@@ -57,8 +55,8 @@ public class ResponseFinisher {
 
 	private String buildSimpleSpeech(String speech, String postSpeechPrompt) {
 
-		speech = insertPauseTags(speech);
-		return "<speak>" + polyVoiceWrapper + speech + postSpeechPrompt + "</lang></voice></speak>";
+		speech = insertPauseTags(speech + postSpeechPrompt);
+		return "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
 	}
 
 	public String getCardText() {
@@ -67,19 +65,9 @@ public class ResponseFinisher {
 		return PERFORMANCE ? s + " - " + dateString : s;
 	}
 
-	public String getCardTitle() {
+	public String getDateString() {
 
-		return cardTitle;
-	}
-
-	public String getCardTitle(String intentName) {
-
-		if (cardTitle.equals("")) {
-			cardTitle = "de_DE".equals(localeTag) ? S("Hören", "Höre immer noch zu") : S("Still, l", "L") + "istening";
-		}
-
-		return DEV ? intentName + " - " + dateString : cardTitle;
-
+		return dateString;
 	}
 
 	public String getReprompt() {
@@ -90,16 +78,6 @@ public class ResponseFinisher {
 	public String getSpeech() {
 
 		return speech;
-	}
-
-	public void setCardText(String cardTitle) {
-
-		this.cardTitle = cardTitle;
-	}
-
-	public void setCardTitle(String cardTitle) {
-
-		this.cardTitle = cardTitle;
 	}
 
 	public void setReprompt(String reprompt) {

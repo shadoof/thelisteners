@@ -8,7 +8,7 @@ import static listeners.util.ConstantUtils.s;
 public class Welcome_en_US extends Welcome {
 
 	public String buildSpeech() {
-		speech = s("Hello there!", "Welcome.") + s("Whoever you are.", "") + breathLong();
+		String speech = s("Hello there!", "Welcome.") + s("Whoever you are.", "") + breathLong();
 		speech += "We are " + /* s("always", "") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
 		speech += "In as much as we are " + s(breathLong(), "") + "with you, " + breathShort() + "it is a pleasure. " + breath();
 		speech += s("It is " + s("always", "") + "such a pleasure. " + breath(), "");

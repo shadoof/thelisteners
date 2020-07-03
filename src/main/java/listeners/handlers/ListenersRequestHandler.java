@@ -32,8 +32,7 @@ import listeners.util.ResponseFinisher;
 
 public class ListenersRequestHandler implements RequestHandler {
 
-	private static Logger LOG = getLogger(ListenersRequestHandler.class);
-	private String affect; // TODO
+//	private static Logger LOG = getLogger(ListenersRequestHandler.class);
 
 	@Override
 	public boolean canHandle(HandlerInput input) {

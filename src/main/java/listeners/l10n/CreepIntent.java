@@ -12,15 +12,8 @@ import listeners.util.SpeechUtils;
 
 public class CreepIntent extends L10nSpeech {
 
-	protected String cardTitle = "";
-	protected String speech = "";
-	protected String reprompt = "";
-	protected String postSpeechPrompt = "";
-
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
-			{ "postSpeechPrompt", buildPostSpeechPrompt() } 
+			{ "speech", buildSpeech() } 
 			};
 
 	public String buildCardTitle() {
@@ -28,19 +21,9 @@ public class CreepIntent extends L10nSpeech {
 		return S("You find us creepy?", "You think we're creepy?");
 	}
 
-	public String buildPostSpeechPrompt() {
-
-		return new SpeechUtils(locale).chooseContinue();
-	}
-
-	public String buildReprompt() {
-
-		return new SpeechUtils(locale).chooseContinue();
-	}
-
 	public String buildSpeech() {
 
-		speech += s("It's a little " + s("shocking", "disturbing"), "We are " + s("shocked", s("a little", "") + "upset")) + breath();
+		String speech = s("It's a little " + s("shocking", "disturbing"), "We are " + s("shocked", s("a little", "") + "upset")) + breath();
 		speech += "to hear that. " + breathShort();
 		speech += "We certainly don't " + s("intend", "mean") + "to " + s("disturb you.", "'creep you out'.") + breathShort();
 		speech += "We " + s("just", "only") + "want to listen to you. ";

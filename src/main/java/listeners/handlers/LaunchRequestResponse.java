@@ -61,12 +61,12 @@ public class LaunchRequestResponse extends RequestResponse {
 		}
 
 		// TODO l10n for ResponseFinisher
-		ResponseFinisher rf = new ResponseFinisher(localeTag, preamble, ws.getString("speech"), postSpeechPrompt, reprompt);
+		ResponseFinisher rf = new ResponseFinisher(localeTag, preamble, ws.getSpeech(), postSpeechPrompt, reprompt);
 
 		return input.getResponseBuilder().
 				withSpeech(rf.getSpeech()).
 				withReprompt(rf.getReprompt()).
-				withSimpleCard(rf.getCardTitle(), rf.getCardText()).
+				withSimpleCard(ws.getCardTitle(), rf.getCardText()).
 				withShouldEndSession(false).
 				build();
 	}

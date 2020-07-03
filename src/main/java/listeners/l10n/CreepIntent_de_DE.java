@@ -14,7 +14,7 @@ public class CreepIntent_de_DE extends CreepIntent {
 	
 	public String buildSpeech() {
 
-		speech += s(s("Wir sind ein bisschen " + s("schockiert,", "beunruhigt,"), "Das höre ich aber nicht gern,"), "Es stört mich " + s("ein bisschen,", "etwas,"));
+		String speech = s(s("Wir sind ein bisschen " + s("schockiert,", "beunruhigt,"), "Das höre ich aber nicht gern,"), "Es stört mich " + s("ein bisschen,", "etwas,"));
 		speech += breathShort() + "das zu hören. " + breathShort();
 		speech += "Wir " + s("haben nicht die Absicht, Sie zu beunruhigen.", "wollen " + s("Ihnen keine Angst machen.", "Sie " + s("sicher nicht stören.", "nicht beunruhigen.")));
 		speech += "Wir wollen " + s("Dir einfach", "Ihnen nur") + "zuhören. " + breath();
