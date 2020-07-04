@@ -52,7 +52,7 @@ public class LangConstants {
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
 
-		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString()); // TEST
+//		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
 	}
 
 	private String setPolyVoiceWrappers(String localeTag) {

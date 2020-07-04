@@ -37,11 +37,6 @@
       <version>2.5.5</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.0</version>
-    </dependency>
-    <dependency>
       <groupId>rita</groupId>
       <artifactId>rita</artifactId>
       <version>1.1.35</version>
@@ -64,11 +59,6 @@
         </plugin>
       </plugins>
 	  </pluginManagement>
-		<resources>
-			<resource>
-				<directory>src/resources</directory>
-			</resource>
-		</resources>
   </build>
   
 </project>

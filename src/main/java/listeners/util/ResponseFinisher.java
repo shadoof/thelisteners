@@ -44,7 +44,6 @@ public class ResponseFinisher {
 		this(localeTag, speech, postSpeechPrompt, reprompt);
 
 		if (!"".equals(preamble)) {
-			info(speech);
 			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLongest()));
 		}
 	}
