@@ -1,10 +1,10 @@
 package listeners.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
-import static listeners.model.Attributes.FRAGMENTCOUNT_KEY;
+import static listeners.model.Attributes.FRAGMENTCOUNT;
 import static listeners.model.Attributes.NOT_YET_GREETED;
 import static listeners.model.Attributes.AMANAGER;
-import static listeners.model.Attributes.LISTENERSAFFECT_KEY;
+import static listeners.model.Attributes.LISTENERSAFFECT;
 import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.util.ConstantUtils.info;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -67,7 +67,7 @@ public class ListenersRequestHandler implements RequestHandler {
 			// initializing session attributes, only if empty
 			if (sessionAttributes.isEmpty()) sessionAttributes = initSessionAttributes();
 			// Listeners affect is set to a random affect:
-			info("@ListenersRequestHandler, listenersAffect: " + sessionAttributes.get(LISTENERSAFFECT_KEY));
+			info("@ListenersRequestHandler, listenersAffect: " + sessionAttributes.get(LISTENERSAFFECT));
 			
 			
 			relationship = "firstEncounter";

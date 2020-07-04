@@ -22,22 +22,23 @@ public final class Attributes {
 	// manager
 	public static AttributesManager AMANAGER;
 
-	// keys
-	public static final String AFFECT_KEY = "affect";
-	public static final String FRAGMENTCOUNT_KEY = "fragmentCount";
-	public static final String FRAGMENTLIST_KEY = "faragmentList";
-	public static final String GUYZINDEX_KEY = "guyzIndex";
-	public static final String GUYZIRQ_KEY = "guyzIRQ";
-	public static final String HEARDBREATHAFFECTS_KEY = "heardBreathAffects";
-	public static final String HEARDNO_KEY = "heardNoThanks";
-	public static final String HEARDWELCOME_KEY = "heardWelcome";
-	public static final String LASTINTENT_KEY = "lastIntent";
-	public static final String LISTENERSAFFECT_KEY = "listenersAffect";
-	public static final String MARKOVIRQ_KEY = "markovIRQ";
-	public static final String READSOFAR_KEY = "readSoFar";
-	public static final String PREVIOUSAFFECT_KEY = "previousAffect";
-	public static final String THING_KEY = "thing";
-	public static final String SPEAKGUYZCONFIRMED_KEY = "speakGuyzConfirmed";
+	// keys recognizable as static final constants
+	public static final String AFFECT = "affect";
+	public static final String FRAGMENTCOUNT = "fragmentCount";
+	public static final String FRAGMENTLIST = "faragmentList";
+	public static final String GUYZINDEX = "guyzIndex";
+	public static final String GUYZIRQ = "guyzIRQ";
+	public static final String GUYZSPEECHINDEX = "guyzSpeechIndex";
+	public static final String HEARDBREATHAFFECTS = "heardBreathAffects";
+	public static final String HEARDNO = "heardNoThanks";
+	public static final String HEARDWELCOME = "heardWelcome";
+	public static final String LASTINTENT = "lastIntent";
+	public static final String LISTENERSAFFECT = "listenersAffect";
+	public static final String MARKOVIRQ = "markovIRQ";
+	public static final String READSOFAR = "readSoFar";
+	public static final String PREVIOUSAFFECT = "previousAffect";
+	public static final String THING = "thing";
+	public static final String SPEAKGUYZCONFIRMED = "speakGuyzConfirmed";
 	
 	// slot names
 	public static final String AFFECT_SLOT = "Affect";
@@ -46,27 +47,28 @@ public final class Attributes {
 	
 	// values
 	public static final int NOT_YET_GREETED = -1;
-	public static ArrayList FRAGMENTLIST = new ArrayList();
+	public static ArrayList LIST_OF_FRAGMENTS = new ArrayList();
 	public static HashSet<String> ALL_AFFECTS = buildAffects();
 
 	public static Map<String, Object> initSessionAttributes() {
 		Map<String, Object> m = new HashMap();
-		m.put(AFFECT_KEY, "");
-		m.put(FRAGMENTCOUNT_KEY, NOT_YET_GREETED);
-		FRAGMENTLIST.clear();
-		m.put(FRAGMENTLIST_KEY, FRAGMENTLIST);
-		m.put(GUYZINDEX_KEY, 0);
-		m.put(GUYZIRQ_KEY, false);
-		m.put(HEARDBREATHAFFECTS_KEY, false);
-		m.put(HEARDNO_KEY, false);
-		m.put(HEARDWELCOME_KEY, true);
-		m.put(LASTINTENT_KEY, "");
-		m.put(LISTENERSAFFECT_KEY, setRandomListenersAffect());
-		m.put(MARKOVIRQ_KEY, false);
-		m.put(READSOFAR_KEY, 0);
-		m.put(PREVIOUSAFFECT_KEY, "");
-		m.put(THING_KEY, "");
-		m.put(SPEAKGUYZCONFIRMED_KEY, false);
+		m.put(AFFECT, "");
+		m.put(FRAGMENTCOUNT, NOT_YET_GREETED);
+		LIST_OF_FRAGMENTS.clear();
+		m.put(FRAGMENTLIST, LIST_OF_FRAGMENTS);
+		m.put(GUYZINDEX, 0);
+		m.put(GUYZIRQ, false);
+		m.put(GUYZSPEECHINDEX, 1);
+		m.put(HEARDBREATHAFFECTS, false);
+		m.put(HEARDNO, false);
+		m.put(HEARDWELCOME, true);
+		m.put(LASTINTENT, "");
+		m.put(LISTENERSAFFECT, getRandomAffect());
+		m.put(MARKOVIRQ, false);
+		m.put(READSOFAR, 0);
+		m.put(PREVIOUSAFFECT, "");
+		m.put(THING, "");
+		m.put(SPEAKGUYZCONFIRMED, false);
 		return m;
 	}
 
@@ -83,7 +85,7 @@ public final class Attributes {
 		return hs;
 	}
 
-	private static String setRandomListenersAffect() {
+	public static String getRandomAffect() {
 
 		ArrayList al = new ArrayList<>(AFFECTS_MAP.keySet());
 		return (String) al.get(randInt(0, al.size() - 1));

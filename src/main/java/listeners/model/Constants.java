@@ -2,6 +2,7 @@ package listeners.model;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -34,12 +35,14 @@ public class Constants {
 	// configurable
 	public static final int NUMBER_OF_FRAGMENTS = 10;
 	public static final int NUMBER_OF_GUYZ = 35;
+	public static final int NUMBER_OF_GUYZ_PER_BATCH = 5;
 	public static final int NUMBER_OF_READABLES = 40;
 
   // for readability
 	public static final String EXCEPTION_MESSAGE = "Sorry, I can't understand the command. Please say again.";
 	public static final String SPC = " ";
 	public static final Map<String, String> PAUSES_MAP;
+	public static final HashSet<String> NO_MORE;
 	public static final boolean POSITIVE = true;
 	public static final boolean NEGATIVE = false;
 	public static final boolean DO_NOT_PROMPT_AFFECT = false;
@@ -56,5 +59,12 @@ public class Constants {
 		PAUSES_MAP.put("Longbreath", "1.5");
 		PAUSES_MAP.put("Longerbreath", "2.0");
 		PAUSES_MAP.put("Longestbreath", "2.5");
+		
+		NO_MORE = new HashSet<>();
+		NO_MORE.add("NoIntent");
+		NO_MORE.add("ThankYouNoIntent");
+		NO_MORE.add("AMAZON.StopIntent");
+		NO_MORE.add("AMAZON.CancelIntent");
+
 	}
 }

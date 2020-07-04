@@ -1,11 +1,8 @@
 package listeners.handlers;
 
-import static listeners.model.Attributes.FRAGMENTCOUNT_KEY;
-import static listeners.model.Attributes.AFFECT_KEY;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.s;
-import static listeners.model.LangConstants.locale;
-import static listeners.model.LangConstants.localeTag;
+import static listeners.model.Attributes.*;
+import static listeners.util.ConstantUtils.*;
+import static listeners.model.LangConstants.*;
 
 import java.util.Map;
 import java.util.Optional;
@@ -46,17 +43,17 @@ public class LaunchRequestResponse extends RequestResponse {
 		// Welcome at launch gets special treatment
 		// for postSpeechPrompt and reprompt
 		String postSpeechPrompt = "", reprompt = "";
-		String affect = (String) sessionAttributes.get(AFFECT_KEY);
+		String affect = (String) sessionAttributes.get(AFFECT);
 		if (affect == null || "".equals(affect)) {
 			// extra help for initial welcome:
 			postSpeechPrompt = su.chooseSpeechAssistance();
 			reprompt = su.chooseUnsureAboutAffect();
 		}
 		else {
-			// not sure if this can happen
+			// not sure if this can happen:
 			// (LauchRequest triggered from within a session)
 			// if it can, set affect to the empty string
-			sessionAttributes.put(AFFECT_KEY, "");
+			sessionAttributes.put(AFFECT, "");
 			reprompt = su.chooseContinue();
 		}
 
