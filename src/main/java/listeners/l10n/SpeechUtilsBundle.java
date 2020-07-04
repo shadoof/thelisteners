@@ -146,7 +146,6 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 		return reprompt;
 	}
 
-	@Override
 	protected Object[][] getContents() {
 
 		return contents;

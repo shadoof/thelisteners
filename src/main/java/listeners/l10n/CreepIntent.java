@@ -1,14 +1,9 @@
 package listeners.l10n;
 
-import static listeners.model.LangConstants.locale;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathShort;
-import static listeners.util.ConstantUtils.breathShortest;
-import static listeners.util.ConstantUtils.randInt;
 import static listeners.util.ConstantUtils.s;
-
-import listeners.util.SpeechUtils;
 
 public class CreepIntent extends L10nSpeech {
 
@@ -32,9 +27,9 @@ public class CreepIntent extends L10nSpeech {
 		return speech;
 	}
 
-	@Override
 	protected Object[][] getContents() {
 
 		return contents;
 	}
+
 }

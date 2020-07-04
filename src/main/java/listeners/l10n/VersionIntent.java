@@ -16,8 +16,6 @@ import listeners.util.SpeechUtils;
 
 public class VersionIntent extends L10nSpeech {
 
-	protected String speech = "";
-
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
 			{ "speech", buildSpeech() }, 
 			{ "reprompt", buildReprompt() }, 
@@ -40,8 +38,9 @@ public class VersionIntent extends L10nSpeech {
 
 	public String buildReprompt() {
 
+		String s = new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
 		if (DEV && !LIVE) {
-			return speech;
+			return buildSpeech() + " " + breath() + s;
 		}
 		else
 			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
@@ -49,22 +48,17 @@ public class VersionIntent extends L10nSpeech {
 
 	public String buildSpeech() {
 
+		String s;
 		if (DEV && !LIVE) {
-			speech = getVersionLocale();
+			s = getVersionLocale();
 		}
 		else {
-			speech = s("Thank you for " + s("your interest.", "the question.") + breath(), "");
-			speech += "We " + s("prefer to", "would rather") + "think of this as the date of our last rebirth, which was ";
-			speech += VERSION_DATE_LIVE + ". " + breath();
-			speech += s("It seems always to be very recent. " + s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
+			s = s("Thank you for " + s("your interest.", "the question.") + breath(), "");
+			s += "We " + s("prefer to", "would rather") + "think of this as the date of our last rebirth, which was ";
+			s += VERSION_DATE_LIVE + ". " + breath();
+			s += s("It seems always to be very recent. " + s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
 		}
-		return speech += breath();
-	}
-
-	@Override
-	protected Object[][] getContents() {
-
-		return contents;
+		return s += breath();
 	}
 
 	protected String getVersionLocale() {
@@ -94,4 +88,10 @@ public class VersionIntent extends L10nSpeech {
 		}
 		return s;
 	}
+
+	protected Object[][] getContents() {
+
+		return contents;
+	}
+
 }

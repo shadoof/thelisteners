@@ -10,16 +10,17 @@ public class VersionIntent_de_DE extends VersionIntent {
 
 	public String buildSpeech() {
 
+		String s;
 		if (DEV && !LIVE) {
-			speech = getVersionLocale();
+			s = getVersionLocale();
 		}
 		else {
-			speech = s("Danke für die Frage.", "Vielen Dank für Ihr Interesse.") + breath();
-			speech += "Wir " + s("ziehen es vor, dies", "würden das leiber") + "als das Datum unserer letzten Wiedergeburt zu betrachten, das war ";
+			s = s("Danke für die Frage.", "Vielen Dank für Ihr Interesse.") + breath();
+			s += "Wir " + s("ziehen es vor, dies", "würden das leiber") + "als das Datum unserer letzten Wiedergeburt zu betrachten, das war ";
 			// TODO l10n for VERSION_DATE_LIVE
-			speech += VERSION_DATE_LIVE + ". " + breath();
+			s += VERSION_DATE_LIVE + ". " + breath();
 		}
-		return speech += breath();
+		return s += breath();
 	}
 
 }

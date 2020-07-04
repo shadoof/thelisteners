@@ -292,7 +292,6 @@ public class LangConstantsBundle extends ListResourceBundle {
 
 	};
 
-	@Override
 	protected Object[][] getContents() {
 
 		return contents;

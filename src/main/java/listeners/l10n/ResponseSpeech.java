@@ -2,8 +2,12 @@ package listeners.l10n;
 
 interface ResponseSpeech {
 
-	public String buildCardTitle();
+	String buildCardTitle();
 	
-	public String buildSpeech();
+	String buildSpeech();
+	
+	String getCardTitle();
+	
+	String getSpeech();
 
 }

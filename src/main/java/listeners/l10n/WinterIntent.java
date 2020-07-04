@@ -1,6 +1,5 @@
 package listeners.l10n;
 
-import static listeners.model.LangConstants.locale;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathShort;
@@ -8,20 +7,12 @@ import static listeners.util.ConstantUtils.breathShortest;
 import static listeners.util.ConstantUtils.randInt;
 import static listeners.util.ConstantUtils.s;
 
-import listeners.util.SpeechUtils;
-
 public class WinterIntent extends L10nSpeech {
-
-	protected String cardTitle = "";
-	protected String speech = "";
-	protected String reprompt = "";
-	protected String postSpeechPrompt = "";
 
 	public Object[][] contents = { 
 			{ "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
-			{ "postSpeechPrompt", buildPostSpeechPrompt() }, 
+			{ "speech", buildSpeech() },
+			{ "postSpeechPrompt", buildPostSpeechPrompt() } 
 			};
 
 	public String buildCardTitle() {
@@ -31,12 +22,7 @@ public class WinterIntent extends L10nSpeech {
 
 	public String buildPostSpeechPrompt() {
 
-		return postSpeechPrompt; // usually empty
-	}
-
-	public String buildReprompt() {
-
-		return new SpeechUtils(locale).chooseContinue();
+		return ""; // empty for this intent
 	}
 
 	public String buildSpeech() {
@@ -70,13 +56,12 @@ public class WinterIntent extends L10nSpeech {
 				"When you play the game of words, " + breathShortest() + "you speak, and we listen. " + breathShort() + "There is no middle ground.",
 				// Never forget what you are, for surely the world will not.
 				"Never forget what you are! " + breathShort() + "For surely, we will not." };
-		speech += winterWords[randInt(0, winterWords.length - 1)] + " ";
-		return speech += breath();
+		return winterWords[randInt(0, winterWords.length - 1)] + " " + breath();
 	}
 
-	@Override
 	protected Object[][] getContents() {
 
 		return contents;
 	}
+
 }

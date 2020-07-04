@@ -45,6 +45,8 @@ public class LaunchRequestResponse extends RequestResponse {
 		
 		SpeechUtils su = new SpeechUtils(locale);
 		
+		// Welcome at launch gets special treatment
+		// for postSpeechPrompt and reprompt
 		String postSpeechPrompt = "", reprompt = "";
 		String affect = (String) sessionAttributes.get(AFFECT_KEY);
 		if (affect == null || "".equals(affect)) {

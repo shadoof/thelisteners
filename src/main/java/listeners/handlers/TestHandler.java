@@ -33,19 +33,18 @@ public class TestHandler {
 				preAmble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, " + s("clearly,", s("firmly,", "")) + "'Alex, Stop!' ";
 				preAmble += s(s("And have done with it.",""),"They can be a little 'dark'. But ...") + s("We hope you enjoy","Thank you for listening to") + "'The Listeners'. ";
 
-		LangConstants lc = new LangConstants("en_US");
-		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n.Welcome", lc.locale);
+		LangConstants lc = new LangConstants("en_GB");
+		L10nSpeech ls = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", lc.locale);
 
-		// Welcome ws = (Welcome)
-		// ResourceBundle.getBundle("listeners.l10n.Welcome", l);
 
-		info("@TestHandler, cardTitle: “" + ls.getString("cardTitle") + "”");
-		info("@TestHandler, speech: “" + ls.getString("speech") + "”");
-		info("@TestHandler, reprompt: “" + ls.getString("reprompt") + "”");
-//		info("@TestHandler, postSpeechPrompt: “" + ls.getString("postSpeechPrompt") + "”");
+		info("@TestHandler, cardTitle: “" + ls.getCardTitle() + "”");
+		info("@TestHandler, speech: “" + ls.getSpeech() + "”");
+		info("@TestHandler, reprompt: “" + ls.getReprompt() + "”");
+		info("@TestHandler, postSpeechPrompt: “" + ls.getPostSpeechPrompt() + "”");
 		
-		ResponseFinisher rf = new ResponseFinisher(localeTag, preAmble, ls.getString("speech"), "", ls.getString("reprompt"));
+		ResponseFinisher rf = new ResponseFinisher(localeTag, preAmble, ls.getSpeech(), ls.getPostSpeechPrompt(), ls.getReprompt());
 		
+		info("@TestHandler, After finishing:");
 		info("@TestHandler, speech: “" + rf.getSpeech());
 		info("@TestHandler, reprompt: “" + rf.getReprompt());
 		

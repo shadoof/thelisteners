@@ -67,7 +67,7 @@ public class ListenersRequestHandler implements RequestHandler {
 			// initializing session attributes, only if empty
 			if (sessionAttributes.isEmpty()) sessionAttributes = initSessionAttributes();
 			// Listeners affect is set to a random affect:
-			info("@ListenersRequestHandler: listenersAffect" + sessionAttributes.get(LISTENERSAFFECT_KEY));
+			info("@ListenersRequestHandler, listenersAffect: " + sessionAttributes.get(LISTENERSAFFECT_KEY));
 			
 			
 			relationship = "firstEncounter";

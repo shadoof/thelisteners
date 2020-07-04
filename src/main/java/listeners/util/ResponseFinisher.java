@@ -7,7 +7,7 @@ import static listeners.model.LangConstants.polyVoiceWrapper;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.info;
 import static listeners.util.ConstantUtils.insertPauseTags;
-import static listeners.util.ConstantUtils.breathLong;
+import static listeners.util.ConstantUtils.breathLongest;
 import static listeners.util.ConstantUtils.stripSsmlTags;
 
 import java.text.SimpleDateFormat;
@@ -32,19 +32,21 @@ public class ResponseFinisher {
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		this.dateString = dateFormat.format(date);
-		info("@SpeechFinisher: " + dateString);
+//		info("@ResponseFinisher, dateString: " + dateString);
 
 		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
 		this.reprompt = buildSimpleReprompt(reprompt);
 	}
 
-	// may have preAmble
+	// may have preamble
 	public ResponseFinisher(String localeTag, String preamble, String speech, String postSpeechPrompt, String reprompt) {
 
 		this(localeTag, speech, postSpeechPrompt, reprompt);
 
-		if (!"".equals(preamble)) 
-			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLong()));
+		if (!"".equals(preamble)) {
+			info(speech);
+			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLongest()));
+		}
 	}
 
 	private String buildSimpleReprompt(String reprompt) {

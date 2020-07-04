@@ -50,13 +50,9 @@ public class IntentRequestResponse extends RequestResponse implements RequestRes
 
 		SpeechUtils su = new SpeechUtils(locale);
 		
-		String postSpeechPrompt = ls.getPostSpeechPrompt();
-		if (postSpeechPrompt == null) postSpeechPrompt = su.chooseContinue();
-		String reprompt = ls.getReprompt();
-		if (reprompt == null) reprompt = su.chooseContinue();
+		ResponseFinisher rf = new ResponseFinisher(localeTag, ls.getSpeech(), ls.getPostSpeechPrompt(), ls.getReprompt());
 
-		ResponseFinisher rf = new ResponseFinisher(localeTag, ls.getSpeech(), postSpeechPrompt, reprompt);
-
+		// while developing replace cardTitle with intentName - dated
 		String ct = DEV ? intent.getName() + " - " + rf.getDateString() : ls.getCardTitle();
 		
 		return input.getResponseBuilder().
