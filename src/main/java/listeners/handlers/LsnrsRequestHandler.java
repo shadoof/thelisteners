@@ -30,7 +30,7 @@ import listeners.l10n.Welcome;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
 
-public class ListenersRequestHandler implements RequestHandler {
+public class LsnrsRequestHandler implements RequestHandler {
 
 //	private static Logger LOG = getLogger(ListenersRequestHandler.class);
 
@@ -72,9 +72,9 @@ public class ListenersRequestHandler implements RequestHandler {
 			
 			relationship = "firstEncounter";
 			if (input.matches(requestType(LaunchRequest.class))) {
-				return new LaunchRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
+				return new LsnrsLaunchResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 			} else {
-				return new IntentRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
+				return new LsnrsIntentResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 			}
 		}
 		
@@ -102,11 +102,11 @@ public class ListenersRequestHandler implements RequestHandler {
 				sessionAttributes.put("relationship","normal");
 			}
 
-			return new LaunchRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
+			return new LsnrsLaunchResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 		}
 
 		// must be an IntentRequest
 		info("@ListenersRequestHandler: handling an IntentRequest");
-		return new IntentRequestResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
+		return new LsnrsIntentResponse(persistentAttributes, sessionAttributes).getResponse(input, relationship);
 	}
 }

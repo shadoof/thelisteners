@@ -16,9 +16,9 @@ import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
 import listeners.util.SpeechUtils;
 
-public class LaunchRequestResponse extends RequestResponse {
+public class LsnrsLaunchResponse extends LsnrsResponse {
 
-	public LaunchRequestResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
+	public LsnrsLaunchResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
 
 		super(persistentAttributes, sessionAttributes);
 	}
@@ -38,27 +38,32 @@ public class LaunchRequestResponse extends RequestResponse {
 		ResourceBundle.clearCache();
 		Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
 		
-		SpeechUtils su = new SpeechUtils(locale);
-		
 		// Welcome at launch gets special treatment
 		// for postSpeechPrompt and reprompt
 		String postSpeechPrompt = "", reprompt = "";
 		String affect = (String) sessionAttributes.get(AFFECT);
 		if (affect == null || "".equals(affect)) {
 			// extra help for initial welcome:
-			postSpeechPrompt = su.chooseSpeechAssistance();
-			reprompt = su.chooseUnsureAboutAffect();
+			postSpeechPrompt = speechUtils.chooseSpeechAssistance();
+			reprompt = speechUtils.chooseUnsureAboutAffect();
 		}
 		else {
 			// not sure if this can happen:
 			// (LauchRequest triggered from within a session)
 			// if it can, set affect to the empty string
 			sessionAttributes.put(AFFECT, "");
-			reprompt = su.chooseContinue();
+			reprompt = speechUtils.chooseContinue();
 		}
 
 		// TODO l10n for ResponseFinisher
-		ResponseFinisher rf = new ResponseFinisher(localeTag, preamble, ws.getSpeech(), postSpeechPrompt, reprompt);
+		ResponseFinisher rf = ResponseFinisher.builder().
+				withPreamble(preamble).
+				withSpeech(ws.getSpeech()).
+				withPostSpeechPrompt(postSpeechPrompt).
+				withReprompt(reprompt).
+				build();
+				
+		// ResponseFinisher rf = new ResponseFinisher(localeTag, preamble, ws.getSpeech(), postSpeechPrompt, reprompt);
 
 		return input.getResponseBuilder().
 				withSpeech(rf.getSpeech()).

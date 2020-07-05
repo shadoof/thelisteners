@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import com.amazon.ask.model.Intent;
+
 import static listeners.model.LangConstants.localeTag;
 import static listeners.util.ConstantUtils.info;
 import static listeners.util.ConstantUtils.s;
@@ -25,15 +27,15 @@ public class TestHandler {
 
 	public TestHandler() {
 		
-		String preAmble = "";
-				preAmble = s("Unless we're mistaken, this is", "This seems to be") + "your first encounter with 'The Listeners'. ";
-				preAmble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as") + "they listen. ";
-				preAmble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
-				preAmble += s("patient.","patient, and spend some time with " + s("them.", "the skill."));
-				preAmble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, " + s("clearly,", s("firmly,", "")) + "'Alex, Stop!' ";
-				preAmble += s(s("And have done with it.",""),"They can be a little 'dark'. But ...") + s("We hope you enjoy","Thank you for listening to") + "'The Listeners'. ";
+		String preamble = "";
+				preamble = s("Unless we're mistaken, this is", "This seems to be") + "your first encounter with 'The Listeners'. ";
+				preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as") + "they listen. ";
+				preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
+				preamble += s("patient.","patient, and spend some time with " + s("them.", "the skill."));
+				preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, " + s("clearly,", s("firmly,", "")) + "'Alex, Stop!' ";
+				preamble += s(s("And have done with it.",""),"They can be a little 'dark'. But ...") + s("We hope you enjoy","Thank you for listening to") + "'The Listeners'. ";
 
-		LangConstants lc = new LangConstants("en_GB");
+		LangConstants lc = new LangConstants("de_DE");
 		L10nSpeech ls = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", lc.locale);
 
 
@@ -42,7 +44,13 @@ public class TestHandler {
 		info("@TestHandler, reprompt: “" + ls.getReprompt() + "”");
 		info("@TestHandler, postSpeechPrompt: “" + ls.getPostSpeechPrompt() + "”");
 		
-		ResponseFinisher rf = new ResponseFinisher(localeTag, preAmble, ls.getSpeech(), ls.getPostSpeechPrompt(), ls.getReprompt());
+		ResponseFinisher rf = ResponseFinisher.builder().
+				withPreamble(preamble).
+				withPostSpeechPrompt(ls.getPostSpeechPrompt()).
+				withReprompt(ls.getReprompt()).
+				build();
+				
+//		ResponseFinisher rf = new ResponseFinisher(localeTag, preAmble, ls.getSpeech(), ls.getPostSpeechPrompt(), ls.getReprompt());
 		
 		info("@TestHandler, After finishing:");
 		info("@TestHandler, speech: “" + rf.getSpeech());

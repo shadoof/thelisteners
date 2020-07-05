@@ -5,7 +5,7 @@ import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
 import listeners.handlers.ExceptionHandler;
-import listeners.handlers.ListenersRequestHandler;
+import listeners.handlers.LsnrsRequestHandler;
 import listeners.handlers.UnsupportedRequestHandler;
 
 public class ListenersStreamHandler extends SkillStreamHandler {
@@ -14,7 +14,7 @@ public class ListenersStreamHandler extends SkillStreamHandler {
 
 		return Skills.standard()
 				.addRequestHandlers(
-						new ListenersRequestHandler(),
+						new LsnrsRequestHandler(),
 						// new LaunchRequestHandler(),
 						// new QuizAndStartOverIntentHandler(),
 						// new NoAnswerIntentHandler(),

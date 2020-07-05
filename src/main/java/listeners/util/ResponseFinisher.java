@@ -1,52 +1,51 @@
 package listeners.util;
 
-import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.PERFORMANCE;
-import static listeners.model.LangConstants.localeTag;
+import static listeners.model.LangConstants.dateString;
 import static listeners.model.LangConstants.polyVoiceWrapper;
-import static listeners.util.ConstantUtils.S;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.insertPauseTags;
 import static listeners.util.ConstantUtils.breathLongest;
+import static listeners.util.ConstantUtils.insertPauseTags;
 import static listeners.util.ConstantUtils.stripSsmlTags;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
-import java.util.TimeZone;
 
-import com.amazon.ask.model.Intent;
-
+// get one of these with the pattern: ResponseFinisher.builder().withSpeech(speech).build();
 public class ResponseFinisher {
 
-	private static Date date;
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
-//	private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
 	private static String speech;
+	private static String cardText;
 	private static String reprompt;
-	private static String dateString;
+	
+  public static Builder builder() {
+    return new Builder();
+  }
+  
+  public ResponseFinisher(Builder builder) {
+  	this.speech = "<speak>" + insertPauseTags(builder.preamble) +
+  			polyVoiceWrapper + 
+  			insertPauseTags(builder.speech.concat(builder.postSpeechPrompt)) +
+  			"</lang></voice></speak>";
+  	this.cardText = stripSsmlTags(insertPauseTags(builder.speech));
+  	this.reprompt = "<speak>" + polyVoiceWrapper + 
+  			insertPauseTags(builder.reprompt) + "</lang></voice></speak>";
+  }
 
 	// simple: no preamble
-	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt) {
-
-		date = new Date();
-		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-		this.dateString = dateFormat.format(date);
-//		info("@ResponseFinisher, dateString: " + dateString);
-
-		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
-		this.reprompt = buildSimpleReprompt(reprompt);
-	}
+//	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt) {
+//
+//		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
+//		this.reprompt = buildSimpleReprompt(reprompt);
+//	}
 
 	// may have preamble
-	public ResponseFinisher(String localeTag, String preamble, String speech, String postSpeechPrompt, String reprompt) {
-
-		this(localeTag, speech, postSpeechPrompt, reprompt);
-
-		if (!"".equals(preamble)) {
-			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLongest()));
-		}
-	}
+//	public ResponseFinisher(String localeTag, String preamble, String speech, String postSpeechPrompt, String reprompt) {
+//
+//		this(localeTag, speech, postSpeechPrompt, reprompt);
+//
+//		if (!"".equals(preamble)) {
+//			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLongest()));
+//		}
+//	}
 
 	private String buildSimpleReprompt(String reprompt) {
 
@@ -62,13 +61,7 @@ public class ResponseFinisher {
 
 	public String getCardText() {
 
-		String s = stripSsmlTags(speech);
-		return PERFORMANCE ? s + " - " + dateString : s;
-	}
-
-	public String getDateString() {
-
-		return dateString;
+		return PERFORMANCE ? cardText + " - " + dateString : cardText;
 	}
 
 	public String getReprompt() {
@@ -81,19 +74,9 @@ public class ResponseFinisher {
 		return speech;
 	}
 
-	public void setReprompt(String reprompt) {
-
-		this.reprompt = reprompt;
-	}
-
-	public void setSpeech(String speech) {
-
-		this.speech = speech;
-	}
-
 	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt, Map<String, Object> sessionAttributes) {
 
-		this(localeTag, speech, postSpeechPrompt, reprompt);
+//		this(localeTag, speech, postSpeechPrompt, reprompt);
 
 		// TODO if (speech == null || reprompt == null)
 		// throw new SpeechletException("Nothing to say ... for Fragment: " +
@@ -320,5 +303,40 @@ public class ResponseFinisher {
 		// this.reprompt = reprompt;
 		// this.postSpeechPrompt = postSpeechPrompt;
 	}
+
+  public static class Builder {
+  	private String preamble = "";
+    private String speech = "";
+    private String postSpeechPrompt = "";
+    private String reprompt = "";
+    private String cardTitle = "";
+
+    private Builder() { }
+    
+    public Builder withPreamble(String preamble) {
+    	this.preamble = preamble;
+    	return this;
+    }
+
+    public Builder withSpeech(String speech) {
+      this.speech = speech;
+      return this;
+    }
+      
+    public Builder withPostSpeechPrompt(String postSpeechPrompt) {
+      this.postSpeechPrompt = postSpeechPrompt;
+      return this;
+    }
+      
+    public Builder withReprompt(String reprompt) {
+      this.reprompt = reprompt;
+      return this;
+    }
+      
+
+    public ResponseFinisher build() {
+      return new ResponseFinisher(this);
+    }
+  }
 
 }

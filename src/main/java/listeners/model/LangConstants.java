@@ -1,11 +1,15 @@
 package listeners.model;
 
 import static listeners.util.ConstantUtils.info;
+import listeners.util.SpeechUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.TimeZone;
 
 public class LangConstants {
 
@@ -20,6 +24,14 @@ public class LangConstants {
 	public static Locale locale;
 	public static String polyVoiceWrapper;
 
+	public static SpeechUtils speechUtils;
+
+	private static Date date;
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
+	// private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM
+	// d, y");
+	public static String dateString;
+
 	public LangConstants(String localeString) {
 
 		// getting a form of the tag that is consistent with ResourceBundle
@@ -29,20 +41,18 @@ public class LangConstants {
 		// TODO put a note in the documentation, ultimately:
 		// for use in other English speaking regions:
 		// British English, en-gb *text* is the default for this skill:
-		
 		Locale.setDefault(new Locale("en", "GB"));
 
 		info("@LangConstants, localeTag: " + localeTag);
 		this.locale = new Locale(localeTag.substring(0, 2), localeTag.substring(3, 5));
 
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
-
 		// ... and now that the bundled language constants are instantiated
 		// we make a new assumption with respect to l1on bundle preparation:
 		// all languages except German and US English revert to British
 
 		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
-		
+
 		FRAGMENTNUMBER_MAP = (Map<String, Integer>) rb.getObject("fragmentNumberMap");
 		FRAGMENTNAME_MAP = (Map<String, Integer>) rb.getObject("fragmentNameMap");
 		AFFECTS_ARRAY = (String[]) rb.getObject("affectsArray");
@@ -52,7 +62,16 @@ public class LangConstants {
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
 
-//		info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
+		date = new Date();
+		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+		this.dateString = dateFormat.format(date);
+		// info("@LanguageConstants, dateString: " + dateString);
+
+		// info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
+
+		// this must be built at the end
+		// after all the language constants are set:
+		this.speechUtils = new SpeechUtils(locale);
 	}
 
 	private String setPolyVoiceWrappers(String localeTag) {

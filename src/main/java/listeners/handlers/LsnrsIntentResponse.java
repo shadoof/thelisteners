@@ -19,12 +19,12 @@ import listeners.l10n.Welcome;
 import listeners.util.ResponseFinisher;
 import listeners.util.SpeechUtils;
 
-public class IntentRequestResponse extends RequestResponse implements RequestResponsible {
+public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsible {
 
-	// this RequestResponse is for straightforward responses,
+	// this IntentResponse is (so-far) for straightforward responses TODO
 	// no slots, no dialog (confirmation) needed
 
-	IntentRequestResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
+	LsnrsIntentResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
 
 		super(persistentAttributes, sessionAttributes);
 	}
@@ -33,8 +33,9 @@ public class IntentRequestResponse extends RequestResponse implements RequestRes
 	public Optional<Response> getResponse(HandlerInput input, String relationship) {
 
 		if ("firstEncounter".equals(relationship)) {
-			// build first response TODO
-			// add intro and 'trigger warning' in Alexa's voice TODO
+			// build first response
+			// since the firstEncounter conveyed an intent TODO
+			// add intro and 'trigger warning' in Alexa's voice
 		}
 
 		IntentRequest intentRequest = (IntentRequest) input.getRequestEnvelope().getRequest();
@@ -71,8 +72,8 @@ public class IntentRequestResponse extends RequestResponse implements RequestRes
 			sessionAttributes.put(HEARDNO, false);
 		}
 		// (3) one two-stage also done with this in 2.x
-		Boolean heardPlease = false; // TODO
-		
+		Boolean heardPlease = false;
+				
 		// actual reponse text construction block:
 		// clear cache before building l10n speeches
 		ResourceBundle.clearCache();
@@ -80,10 +81,15 @@ public class IntentRequestResponse extends RequestResponse implements RequestRes
 		// for ALL simple intentNames we need no 'switch' or 'else if' logic here.
 		// we just load a bundle with the intent.getName():
 		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
-		SpeechUtils su = new SpeechUtils(locale);
-		ResponseFinisher rf = new ResponseFinisher(localeTag, ls.getSpeech(), ls.getPostSpeechPrompt(), ls.getReprompt());
+		
+		ResponseFinisher rf = ResponseFinisher.builder().
+				withSpeech(ls.getSpeech()).
+				withPostSpeechPrompt(ls.getPostSpeechPrompt()).
+				withReprompt(ls.getReprompt()).
+				build();
+
 		// while developing replace cardTitle with intentName - dated
-		String ct = DEV ? intent.getName() + " - " + rf.getDateString() : ls.getCardTitle();
+		String ct = DEV ? intent.getName() + " - " + dateString : ls.getCardTitle();
 
 		return input.getResponseBuilder().
 				withSpeech(rf.getSpeech()).
