@@ -7,12 +7,13 @@ import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.VERSION;
 import static listeners.model.Constants.VERSION_DATE_DEV;
 import static listeners.model.Constants.VERSION_DATE_LIVE;
-import static listeners.model.LangConstants.locale;
-import static listeners.model.LangConstants.localeTag;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.s;
 
-import listeners.util.SpeechUtils;
+import listeners.model.Constants;
+import listeners.model.LangConstants;
 
 public class VersionIntent extends L10nSpeech {
 
@@ -33,17 +34,17 @@ public class VersionIntent extends L10nSpeech {
 			return ""; // empty string
 		}
 		else
-			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
+			return speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT); 
 	}
 
 	public String buildReprompt() {
 
-		String s = new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
+		String s = speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
 		if (DEV && !LIVE) {
 			return buildSpeech() + " " + breath() + s;
 		}
 		else
-			return new SpeechUtils(locale).chooseContinue(DO_NOT_PROMPT_AFFECT);
+			return speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
 	}
 
 	public String buildSpeech() {

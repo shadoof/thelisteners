@@ -9,11 +9,15 @@ public class SpeechUtils {
 
 	ResourceBundle rb;
 
-	public SpeechUtils(Locale locale) {
+	private SpeechUtils(Locale locale) {
 
 //		info("@SpeechUtils, getting another bundle for locale: " + locale);
 		ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.SpeechUtilsBundle", locale);
 		this.rb = rb;
+	}
+	
+	public static SpeechUtils getInstance(Locale locale) {
+		return new SpeechUtils(locale);
 	}
 	
 	public String chooseContinue() {
@@ -30,6 +34,10 @@ public class SpeechUtils {
 
 	public String chooseUnsureAboutAffect() {
 		return rb.getString("chooseUnsureAboutAffect");
+	}
+
+	public String getAbandonmentMessage() {
+		return rb.getString("getAbandonmentMessage");
 	}
 
 }

@@ -38,7 +38,8 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 			// add intro and 'trigger warning' in Alexa's voice
 		}
 
-		IntentRequest intentRequest = (IntentRequest) input.getRequestEnvelope().getRequest();
+		IntentRequest intentRequest = (IntentRequest) input	.getRequestEnvelope()
+																												.getRequest();
 		Intent intent = intentRequest.getIntent();
 
 		// generating variety here (needs assessing for actual effect) TODO
@@ -46,7 +47,7 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		if (!"".equals(sessionAttributes.get(AFFECT))) {
 			// change affect roughly 1 of 3 intent requests ...
 			if (randInt(0, 2) == 0) {
-				sessionAttributes.put(AFFECT, getRandomAffect());
+				sessionAttributes.put(AFFECT, attributes.getRandomAffect());
 				// and a third of these times make listeners affect match
 				if (randInt(0, 2) == 0) sessionAttributes.put(LISTENERSAFFECT, sessionAttributes.get(AFFECT));
 			}
@@ -59,7 +60,9 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		// (1)
 		if (("SpeakGuyzIntent".equals((String) sessionAttributes.get(LASTINTENT))) && "ContinueIntent".equals(intent.getName())) {
 			sessionAttributes.put(SPEAKGUYZCONFIRMED, true);
-			intent = Intent.builder().withName("SpeakGuyzIntent").build();
+			intent = Intent	.builder()
+											.withName("SpeakGuyzIntent")
+											.build();
 			if ((int) sessionAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH)) sessionAttributes.put(LASTINTENT, "");
 		}
 		else if ("NoIntent".equals(intent.getName()) || "ThankYouNoIntent".equals(intent.getName())) {
@@ -73,7 +76,7 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		}
 		// (3) one two-stage also done with this in 2.x
 		Boolean heardPlease = false;
-				
+
 		// actual reponse text construction block:
 		// clear cache before building l10n speeches
 		ResourceBundle.clearCache();
@@ -81,22 +84,22 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		// for ALL simple intentNames we need no 'switch' or 'else if' logic here.
 		// we just load a bundle with the intent.getName():
 		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
-		
-		ResponseFinisher rf = ResponseFinisher.builder().
-				withSpeech(ls.getSpeech()).
-				withPostSpeechPrompt(ls.getPostSpeechPrompt()).
-				withReprompt(ls.getReprompt()).
-				build();
+
+		ResponseFinisher rf = ResponseFinisher.builder()
+																					.withSpeech(ls.getSpeech())
+																					.withPostSpeechPrompt(ls.getPostSpeechPrompt())
+																					.withReprompt(ls.getReprompt())
+																					.build();
 
 		// while developing replace cardTitle with intentName - dated
 		String ct = DEV ? intent.getName() + " - " + dateString : ls.getCardTitle();
 
-		return input.getResponseBuilder().
-				withSpeech(rf.getSpeech()).
-				withReprompt(rf.getReprompt()).
-				withSimpleCard(ct, rf.getCardText()).
-				withShouldEndSession(false).
-				build();
+		return input.getResponseBuilder()
+								.withSpeech(rf.getSpeech())
+								.withReprompt(rf.getReprompt())
+								.withSimpleCard(ct, rf.getCardText())
+								.withShouldEndSession(false)
+								.build();
 	}
 
 }

@@ -1,5 +1,10 @@
 package listeners.model;
 
+import static listeners.model.Constants.localeTag;
+import static listeners.model.LangConstants.AFFECTIVEJJ2NN_MAP;
+import static listeners.model.LangConstants.AFFECTS_ARRAY;
+import static listeners.model.LangConstants.AFFECTS_MAP;
+import static listeners.model.LangConstants.SPECIAL_AFFECT_MAP;
 import static listeners.util.ConstantUtils.info;
 import listeners.util.SpeechUtils;
 
@@ -19,23 +24,26 @@ public class LangConstants {
 	public static Map<String, String> AFFECTIVEJJ2NN_MAP;
 	public static HashSet<String> SPECIAL_THINGS = new HashSet<>();
 	public static HashSet<String> PICTURE_WORDS = new HashSet<>();
+	public static HashSet<String> ALL_AFFECTS;
 
-	public static String localeTag;
-	public static Locale locale;
 	public static String polyVoiceWrapper;
-
-	public static SpeechUtils speechUtils;
 
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
-	// private static SimpleDateFormat mdyFormat = new SimpleDateFormat("MMMMMMMMM
-	// d, y");
+	// private static SimpleDateFormat 
+	// mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
 	public static String dateString;
-
-	public LangConstants(String localeString) {
-
-		// getting a form of the tag that is consistent with ResourceBundle
-		this.localeTag = localeString.substring(0, 2) + "_" + localeString.substring(3, 5).toUpperCase();
+	
+	private static LangConstants instance;
+	
+	public static LangConstants getInstance(Locale locale) {
+		if (instance == null)
+			return new LangConstants(locale);
+		else
+			return instance;
+	}
+	
+	private LangConstants(Locale locale) {
 
 		// ... although Voices are wrapped according to regions
 		// TODO put a note in the documentation, ultimately:
@@ -43,8 +51,8 @@ public class LangConstants {
 		// British English, en-gb *text* is the default for this skill:
 		Locale.setDefault(new Locale("en", "GB"));
 
+		// localeTag is actually parsed into Constants by LsnrsRequestHandler
 		info("@LangConstants, localeTag: " + localeTag);
-		this.locale = new Locale(localeTag.substring(0, 2), localeTag.substring(3, 5));
 
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
 		// ... and now that the bundled language constants are instantiated
@@ -61,19 +69,28 @@ public class LangConstants {
 		AFFECTIVEJJ2NN_MAP = (Map<String, String>) rb.getObject("affectiveJJ2NNmap");
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
+		
+		ALL_AFFECTS = buildAffects();
 
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		this.dateString = dateFormat.format(date);
 		// info("@LanguageConstants, dateString: " + dateString);
 
-		// info("@LanguageConstants, PICTURE_WORDS: " + PICTURE_WORDS.toString());
-
-		// this must be built at the end
-		// after all the language constants are set:
-		this.speechUtils = new SpeechUtils(locale);
 	}
 
+	private static HashSet buildAffects() {
+		
+		HashSet<String> hs = new HashSet();
+		for (int i = 0; i < AFFECTS_ARRAY.length; i++) {
+			hs.add(AFFECTS_ARRAY[i]);
+		}
+		hs.addAll(AFFECTS_MAP.keySet());
+		hs.addAll(SPECIAL_AFFECT_MAP.keySet());
+		hs.addAll(AFFECTIVEJJ2NN_MAP.values());
+		return hs;
+	}
+	
 	private String setPolyVoiceWrappers(String localeTag) {
 
 		switch (localeTag) {

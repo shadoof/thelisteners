@@ -4,7 +4,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import com.amazon.ask.attributes.AttributesManager;
+
+import listeners.util.SpeechUtils;
 
 public class Constants {
 	
@@ -50,6 +55,17 @@ public class Constants {
 	public static final int REPROMPT = 1;
 	public static final int SPEECH = 0;
 	public static final int VERSE = 7;
+	
+	public static String localeTag;
+	public static String localeLang;
+	public static String localeCountry;
+	public static Locale locale;
+	
+	// some useful instances
+	public static AttributesManager attributesManager;
+	public static Attributes attributes;
+	public static LangConstants langConstants;
+	public static SpeechUtils speechUtils;
 			
 	static {
 		PAUSES_MAP = new HashMap<>();
@@ -66,5 +82,13 @@ public class Constants {
 		NO_MORE.add("AMAZON.StopIntent");
 		NO_MORE.add("AMAZON.CancelIntent");
 
+	}
+	
+	public static Locale parseLocale(String localeString) {
+		localeLang = localeString.substring(0, 2);
+		localeCountry = localeString.substring(3, 5).toUpperCase();
+		localeTag = localeLang + "_" + localeCountry;
+ 		locale = new Locale(localeLang, localeCountry);
+		return locale;
 	}
 }

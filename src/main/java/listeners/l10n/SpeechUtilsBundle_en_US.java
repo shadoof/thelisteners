@@ -1,6 +1,8 @@
 package listeners.l10n;
 
+import static listeners.model.Attributes.AFFECT;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
+import static listeners.model.Constants.attributes;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathLong;
@@ -13,6 +15,8 @@ import static listeners.util.ConstantUtils.s;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import listeners.model.Constants;
 
 public class SpeechUtilsBundle_en_US extends SpeechUtilsBundle {
 
@@ -97,4 +101,17 @@ public class SpeechUtilsBundle_en_US extends SpeechUtilsBundle {
 		reprompt += s("Or, you can " + s("also", "") + s("simply", "") + s("ask", "tell") + "us to: " + s("'Continue'.", "'Continue' or 'Keep going'."), "");
 		return reprompt;
 	}
+	
+	protected String buildAbandonmentMessage() {
+
+		// does not set the sessionAttributes
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect() : attributes.getAffect();
+		String amsg;
+		if (attributes.isPositive(affect))
+			amsg = String.format("It's good to know that you dwell within %s. " + breathShort() + s("Still,", "Whatever, " + breath()), affect);
+		else
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to " + s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. " + breathShort() + "And now, ", affect);
+		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+	}
+
 }

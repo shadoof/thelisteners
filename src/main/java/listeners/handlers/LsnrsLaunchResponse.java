@@ -1,8 +1,10 @@
 package listeners.handlers;
 
-import static listeners.model.Attributes.*;
-import static listeners.util.ConstantUtils.*;
-import static listeners.model.LangConstants.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.util.ConstantUtils.s;
+import static listeners.model.Constants.locale;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.speechUtils;
 
 import java.util.Map;
 import java.util.Optional;
@@ -12,9 +14,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
 
 import listeners.l10n.Welcome;
-import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
-import listeners.util.SpeechUtils;
 
 public class LsnrsLaunchResponse extends LsnrsResponse {
 

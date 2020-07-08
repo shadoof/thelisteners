@@ -1,6 +1,6 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.DO_NOT_PROMPT_AFFECT;
+import static listeners.model.Constants.*;
 import static listeners.model.LangConstants.*;
 import static listeners.util.ConstantUtils.S;
 
