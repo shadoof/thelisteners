@@ -21,7 +21,8 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
     public Optional<Response> handle(HandlerInput input, Throwable throwable) {
         LOG.error("Error message is " + throwable.getMessage());
         return input.getResponseBuilder()
-                .withSpeech(Constants.EXCEPTION_MESSAGE)
+										.withSpeech(
+												Constants.EXCEPTION_MESSAGE)
                 .withReprompt(Constants.EXCEPTION_MESSAGE)
                 .build();
     }

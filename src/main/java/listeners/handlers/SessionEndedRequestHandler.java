@@ -13,18 +13,22 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 public class SessionEndedRequestHandler implements RequestHandler {
 
-    private static Logger LOG = getLogger(SessionEndedRequestHandler.class);
+	private static Logger LOG = getLogger(SessionEndedRequestHandler.class);
 
-    @Override
-    public boolean canHandle(HandlerInput input) {
-        return input.matches(requestType(SessionEndedRequest.class));
-    }
+	@Override
+	public boolean canHandle(HandlerInput input) {
 
-    @Override
-    public Optional<Response> handle(HandlerInput input) {
-        SessionEndedRequest sessionEndedRequest = (SessionEndedRequest) input.getRequestEnvelope().getRequest();
-        LOG.debug("Session ended with reason: " + sessionEndedRequest.getReason().toString());
-        return Optional.empty();
-    }
+		return input.matches(requestType(SessionEndedRequest.class));
+	}
+
+	@Override
+	public Optional<Response> handle(HandlerInput input) {
+
+		SessionEndedRequest sessionEndedRequest = (SessionEndedRequest) input	.getRequestEnvelope()
+																																					.getRequest();
+		LOG.debug("Session ended with reason: " + sessionEndedRequest	.getReason()
+																																	.toString());
+		return Optional.empty();
+	}
 
 }

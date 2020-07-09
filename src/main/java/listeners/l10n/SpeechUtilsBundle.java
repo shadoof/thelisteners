@@ -20,7 +20,14 @@ import java.util.ListResourceBundle;
 
 public class SpeechUtilsBundle extends ListResourceBundle {
 
-	public Object[][] contents = { { "chooseContinue", chooseContinue() }, { "chooseContinueNoAffect", chooseContinue(false) }, { "chooseSomeFragmentNames", chooseSomeFragmentNames() }, { "chooseSpeechAssistance", chooseSpeechAssistance() }, { "chooseTellUsAbout", chooseTellUsAbout() }, { "chooseUnsureAboutAffect", chooseUnsureAboutAffect() },
+	public Object[][] contents = { { "chooseContinue", chooseContinue() },
+			{ "chooseContinueNoAffect", chooseContinue(false) },
+			{ "choosePhrase", choosePhrase() },
+			{ "chooseSomeFragmentNames", chooseSomeFragmentNames() },
+			{ "chooseSpeechAssistance", chooseSpeechAssistance() },
+			{ "chooseTellUsAbout", chooseTellUsAbout() },
+			{ "chooseUnsureAboutAffect", chooseUnsureAboutAffect() },
+			{ "chooseYouCanFindOutAffect", chooseYouCanFindOutAffect() },
 			{ "getAbandonmentMessage", buildAbandonmentMessage() } };
 
 	protected String chooseContinue() {
@@ -34,17 +41,23 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 		String reprompt = "";
 		switch (randInt(0, upperLimit)) {
 			case 0:
-				reprompt += s("Shall we " + s("go on?", "continue?"), s(s("Do you want to", "Would you like to") + "hear more?", s("Please say, 'yes' for more.", "More?")));
+				reprompt += s("Shall we " + s("go on?", "continue?"),
+						s(s("Do you want to", "Would you like to") + "hear more?",
+								s("Please say, 'yes' for more.", "More?")));
 				break;
 			case 1:
-				reprompt += s("Is there more that you would " + s("like", "care") + "to " + s("hear?", "hear from us?"), "");
+				reprompt += s(
+						"Is there more that you would " + s("like", "care") + "to " + s("hear?", "hear from us?"),
+						"");
 				reprompt += s("We are listening.", ""); // ALWAYCHANGE Always.
 				reprompt += s("You may " + s("always", ""), "Just") + "ask us to " + s("go on.", "continue.");
 				break;
 			case 2:
-				reprompt += "You " + s("may", "can") + "ask us to 'speak' " + s("about", "") + s("any of the following:", "") + breath();
+				reprompt += "You " + s("may", "can") + "ask us to 'speak' " + s("about", "")
+						+ s("any of the following:", "") + breath();
 				reprompt += chooseSomeFragmentNames() + breath();
-				reprompt += "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to " + s("go on.", "continue.");
+				reprompt += "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
+						+ s("go on.", "continue.");
 				break;
 			case 3:
 				reprompt += s(s("Perhaps, now,", "Perhaps") + "you would", "Would you");
@@ -52,11 +65,35 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 				reprompt += s("Listening to us, as we listen to you?", "");
 				break;
 			case 4:
-				reprompt += s("You " + s("may", "can") + "always", s("If you like, please", "Please") + s("do", ""));
-				reprompt += s("ask " + s(s("us to 'recall' " + s("your feelings.", "the " + s("feelings", phonemic("a") + "ffect") + "within which you dwell."), "us, 'What am I feeling?'"), "what we are feeling."), "tell us " + s("your feelings about all this.", s("your feelings.", "the feelings that possess you.")));
-				reprompt += breathShort() + "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to " + s("go on.", "continue.");
+				reprompt += s("You " + s("may", "can") + "always",
+						s("If you like, please", "Please") + s("do", ""));
+				reprompt += s(
+						"ask " + s(s(
+								"us to 'recall' " + s("your feelings.",
+										"the " + s("feelings", phonemic("a") + "ffect") + "within which you dwell."),
+								"us, 'What am I feeling?'"), "what we are feeling."),
+						"tell us " + s("your feelings about all this.",
+								s("your feelings.", "the feelings that possess you.")));
+				reprompt += breathShort() + "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
+						+ s("go on.", "continue.");
 		}
 		return reprompt;
+	}
+
+	protected String choosePhrase() {
+
+		String phrase = "phrase";
+		switch (randInt(0, 3)) {
+			case 0:
+				phrase = "word";
+				break;
+			case 1:
+				phrase = "sentence";
+				break;
+			case 2:
+				phrase = "feeling";
+		}
+		return phrase;
 	}
 
 	protected String chooseSomeFragmentNames() {
@@ -81,13 +118,17 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 		speech += "us to: 'Continue', or 'Go on'. " + breath();
 		speech += "You may " + chooseTellUsAbout() + "your feelings, ";
 		speech += "by " + s("saying", "speaking") + "the words: " + breath();
-		speech += "'I am " + s(s("filled with,'", "overwhelmed by,'"), "feeling,'") + "and then one of the nine " + phonemic("a") + s("ffects, that is, a name for one of the nine feelings.", "ffects.") + breathLong();
-		speech += s("And", "Or,") + "you " + s("may", "might") + "even ask us how we " + s(s("feel.", "are feeling."), "feel, ourselves.") + breath();
+		speech += "'I am " + s(s("filled with,'", "overwhelmed by,'"), "feeling,'")
+				+ "and then one of the nine " + phonemic("a")
+				+ s("ffects, that is, a name for one of the nine feelings.", "ffects.") + breathLong();
+		speech += s("And", "Or,") + "you " + s("may", "might") + "even ask us how we "
+				+ s(s("feel.", "are feeling."), "feel, ourselves.") + breath();
 
 		boolean heads = heads();
 
 		if (heads) {
-			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can " + s("hear,", "recognize,") + "include: " + breath();
+			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can "
+					+ s("hear,", "recognize,") + "include: " + breath();
 			List list = (List) Arrays.asList(AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
@@ -102,7 +143,8 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 		}
 
 		if (!heads && heads()) {
-			speech += "Or, you " + s("may", "could") + "ask us to " + s("'speak',", "'speak about',") + s("any of the following:", "") + breath();
+			speech += "Or, you " + s("may", "could") + "ask us to " + s("'speak',", "'speak about',")
+					+ s("any of the following:", "") + breath();
 			speech += chooseSomeFragmentNames() + ". ";
 		}
 
@@ -130,26 +172,42 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 	protected String chooseUnsureAboutAffect() {
 
 		String reprompt = "";
-		reprompt += "We are " + s("unsure", "unclear") + "about " + s("any", "the") + "feelings " + s("that " + s("may", "") + "possess you.", "within which you " + s("may", "") + "dwell.");
+		reprompt += "We are " + s("unsure", "unclear") + "about " + s("any", "the") + "feelings "
+				+ s("that " + s("may", "") + "possess you.", "within which you " + s("may", "") + "dwell.");
 		reprompt += "You " + s("may", "might");
 		reprompt += chooseTellUsAbout();
 		reprompt += s("these", "your") + "feelings, ";
 		reprompt += "by " + s("saying, " + s("the words,", ""), "speaking the words,");
-		reprompt += "'I am " + s("filled with,'", "overwhelmed by,'") + "and then one of the nine " + phonemic("a") + "ffects. " + breath();
-		reprompt += s("Or, you " + s("may", "might") + s("also", "") + s("simply", "") + s("ask", "tell") + "us to: " + s("'Continue' or 'Go on'.", "'Continue'."), "");
+		reprompt += "'I am " + s("filled with,'", "overwhelmed by,'") + "and then one of the nine "
+				+ phonemic("a") + "ffects. " + breath();
+		reprompt += s("Or, you " + s("may", "might") + s("also", "") + s("simply", "") + s("ask", "tell")
+				+ "us to: " + s("'Continue' or 'Go on'.", "'Continue'."), "");
 
 		return reprompt;
+	}
+
+	protected String chooseYouCanFindOutAffect() {
+
+		String s = "You " + s("can", "may") + "always "
+				+ s("ask us about", "discover from us what we believe we know concerning");
+		s += s(s("these", "the") + "feelings", "the " + phonemic("a") + "ffects")
+				+ s("within which you dwell,", "which possess you,") + "by saying, 'What am I feeling?' ";
+		return s;
 	}
 
 	protected String buildAbandonmentMessage() {
 
 		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect() : attributes.getAffect();
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: attributes.getAffect();
 		String amsg;
 		if (attributes.isPositive(affect))
-			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. " + breathShort() + "And yet, " + s("still,", "even so,"), affect);
+			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
+					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
 		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to " + s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. " + breathShort() + "And now, ", affect);
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
 		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
 	}
 

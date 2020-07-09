@@ -2,6 +2,7 @@ package listeners.model;
 
 import static listeners.model.Constants.attributesManager;
 import static listeners.util.ConstantUtils.randInt;
+import static listeners.util.ConstantUtils.info;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,11 +81,20 @@ public class Attributes {
 	}
 
 	public String getAffect() {
-		
-		if (attributesManager == null)
-			return "[ no AttributesManager ]";
+
+		if (attributesManager == null) {
+			info("@Attributes: no AttributesManager");
+			return null;
+		}
 		return (String) attributesManager	.getSessionAttributes()
 																			.get(AFFECT);
+	}
+
+	public void setAffect(String affect) {
+
+		if (attributesManager == null) info("@Attributes: no AttributesManager");
+		attributesManager	.getSessionAttributes()
+																			.put(AFFECT, affect);
 	}
 
 	public String getRandomAffect() {
@@ -107,8 +117,12 @@ public class Attributes {
 
 	public boolean isPositive(String affect) {
 
-		boolean affectIsPositive = (LangConstants.AFFECTS_MAP.containsKey(affect)) ? LangConstants.AFFECTS_MAP.get(affect) : false;
-		return affectIsPositive = (LangConstants.SPECIAL_AFFECT_MAP.containsKey(affect)) ? LangConstants.SPECIAL_AFFECT_MAP.get(affect) : affectIsPositive;
+		boolean affectIsPositive = (LangConstants.AFFECTS_MAP.containsKey(affect))
+				? LangConstants.AFFECTS_MAP.get(affect)
+				: false;
+		return affectIsPositive = (LangConstants.SPECIAL_AFFECT_MAP.containsKey(affect))
+				? LangConstants.SPECIAL_AFFECT_MAP.get(affect)
+				: affectIsPositive;
 	}
 
 }

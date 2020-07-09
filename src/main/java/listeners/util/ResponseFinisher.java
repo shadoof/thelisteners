@@ -15,37 +15,40 @@ public class ResponseFinisher {
 	private static String speech;
 	private static String cardText;
 	private static String reprompt;
-	
-  public static Builder builder() {
-    return new Builder();
-  }
-  
-  public ResponseFinisher(Builder builder) {
-  	this.speech = "<speak>" + insertPauseTags(builder.preamble) +
-  			polyVoiceWrapper + 
-  			insertPauseTags(builder.speech.concat(builder.postSpeechPrompt)) +
-  			"</lang></voice></speak>";
-  	this.cardText = stripSsmlTags(insertPauseTags(builder.speech));
-  	this.reprompt = "<speak>" + polyVoiceWrapper + 
-  			insertPauseTags(builder.reprompt) + "</lang></voice></speak>";
-  }
+
+	public static Builder builder() {
+
+		return new Builder();
+	}
+
+	public ResponseFinisher(Builder builder) {
+
+		this.speech = "<speak>" + insertPauseTags(builder.preamble) + polyVoiceWrapper
+				+ insertPauseTags(builder.speech.concat(builder.postSpeechPrompt)) + "</lang></voice></speak>";
+		this.cardText = stripSsmlTags(insertPauseTags(builder.speech));
+		this.reprompt = "<speak>" + polyVoiceWrapper + insertPauseTags(builder.reprompt)
+				+ "</lang></voice></speak>";
+	}
 
 	// simple: no preamble
-//	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt) {
-//
-//		this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
-//		this.reprompt = buildSimpleReprompt(reprompt);
-//	}
+	// public ResponseFinisher(String localeTag, String speech, String
+	// postSpeechPrompt, String reprompt) {
+	//
+	// this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
+	// this.reprompt = buildSimpleReprompt(reprompt);
+	// }
 
 	// may have preamble
-//	public ResponseFinisher(String localeTag, String preamble, String speech, String postSpeechPrompt, String reprompt) {
-//
-//		this(localeTag, speech, postSpeechPrompt, reprompt);
-//
-//		if (!"".equals(preamble)) {
-//			this.speech = this.speech.replace("<speak>", "<speak>" + insertPauseTags(preamble + breathLongest()));
-//		}
-//	}
+	// public ResponseFinisher(String localeTag, String preamble, String speech,
+	// String postSpeechPrompt, String reprompt) {
+	//
+	// this(localeTag, speech, postSpeechPrompt, reprompt);
+	//
+	// if (!"".equals(preamble)) {
+	// this.speech = this.speech.replace("<speak>", "<speak>" +
+	// insertPauseTags(preamble + breathLongest()));
+	// }
+	// }
 
 	private String buildSimpleReprompt(String reprompt) {
 
@@ -74,9 +77,10 @@ public class ResponseFinisher {
 		return speech;
 	}
 
-	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt, Map<String, Object> sessionAttributes) {
+	public ResponseFinisher(String localeTag, String speech, String postSpeechPrompt, String reprompt,
+			Map<String, Object> sessionAttributes) {
 
-//		this(localeTag, speech, postSpeechPrompt, reprompt);
+		// this(localeTag, speech, postSpeechPrompt, reprompt);
 
 		// TODO if (speech == null || reprompt == null)
 		// throw new SpeechletException("Nothing to say ... for Fragment: " +
@@ -304,39 +308,46 @@ public class ResponseFinisher {
 		// this.postSpeechPrompt = postSpeechPrompt;
 	}
 
-  public static class Builder {
-  	private String preamble = "";
-    private String speech = "";
-    private String postSpeechPrompt = "";
-    private String reprompt = "";
-    private String cardTitle = "";
+	public static class Builder {
 
-    private Builder() { }
-    
-    public Builder withPreamble(String preamble) {
-    	this.preamble = preamble;
-    	return this;
-    }
+		private String preamble = "";
+		private String speech = "";
+		private String postSpeechPrompt = "";
+		private String reprompt = "";
+		private String cardTitle = "";
 
-    public Builder withSpeech(String speech) {
-      this.speech = speech;
-      return this;
-    }
-      
-    public Builder withPostSpeechPrompt(String postSpeechPrompt) {
-      this.postSpeechPrompt = postSpeechPrompt;
-      return this;
-    }
-      
-    public Builder withReprompt(String reprompt) {
-      this.reprompt = reprompt;
-      return this;
-    }
-      
+		private Builder() {
 
-    public ResponseFinisher build() {
-      return new ResponseFinisher(this);
-    }
-  }
+		}
+
+		public Builder withPreamble(String preamble) {
+
+			this.preamble = preamble;
+			return this;
+		}
+
+		public Builder withSpeech(String speech) {
+
+			this.speech = speech;
+			return this;
+		}
+
+		public Builder withPostSpeechPrompt(String postSpeechPrompt) {
+
+			this.postSpeechPrompt = postSpeechPrompt;
+			return this;
+		}
+
+		public Builder withReprompt(String reprompt) {
+
+			this.reprompt = reprompt;
+			return this;
+		}
+
+		public ResponseFinisher build() {
+
+			return new ResponseFinisher(this);
+		}
+	}
 
 }

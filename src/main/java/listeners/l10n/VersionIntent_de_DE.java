@@ -16,7 +16,8 @@ public class VersionIntent_de_DE extends VersionIntent {
 		}
 		else {
 			s = s("Danke für die Frage.", "Vielen Dank für Ihr Interesse.") + breath();
-			s += "Wir " + s("ziehen es vor, dies", "würden das leiber") + "als das Datum unserer letzten Wiedergeburt zu betrachten, das war ";
+			s += "Wir " + s("ziehen es vor, dies", "würden das leiber")
+					+ "als das Datum unserer letzten Wiedergeburt zu betrachten, das war ";
 			// TODO l10n for VERSION_DATE_LIVE
 			s += VERSION_DATE_LIVE + ". " + breath();
 		}

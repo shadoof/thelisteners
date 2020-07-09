@@ -62,7 +62,9 @@ public class ConstantUtils {
 
 	public static String capitalize(String s) {
 
-		return s.substring(0, 1).toUpperCase() + s.substring(1);
+		return s.substring(0, 1)
+						.toUpperCase()
+				+ s.substring(1);
 	}
 
 	public static String insertPauseTags(String speech) {
@@ -80,7 +82,8 @@ public class ConstantUtils {
 
 		// String prefix = "<phoneme alphabet=\"ipa\" ph=\"", phonemic = "", medial
 		// = "\">", suffix = "</phoneme>";
-		String prefix = "<phoneme alphabet=\"x-sampa\" ph=\"", phonemic = "", medial = "\">", suffix = "</phoneme>";
+		String prefix = "<phoneme alphabet=\"x-sampa\" ph=\"", phonemic = "", medial = "\">",
+				suffix = "</phoneme>";
 		switch (englishLetter) {
 			case "a":
 				// phonemic = prefix + "æ:" + medial + englishLetter + suffix;
@@ -105,7 +108,8 @@ public class ConstantUtils {
 
 	public static String s(String firstAlternative, String secondAlternative) {
 
-		return heads() ? "".equals(firstAlternative) ? firstAlternative : firstAlternative + SPC : "".equals(secondAlternative) ? secondAlternative : secondAlternative + SPC;
+		return heads() ? "".equals(firstAlternative) ? firstAlternative : firstAlternative + SPC
+				: "".equals(secondAlternative) ? secondAlternative : secondAlternative + SPC;
 	}
 
 	public static String S(String firstAlternative, String secondAlternative) {

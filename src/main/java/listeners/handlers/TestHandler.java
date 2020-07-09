@@ -26,12 +26,16 @@ public class TestHandler {
 	public TestHandler() {
 
 		String preamble = "";
-		preamble = s("Unless we're mistaken, this is", "This seems to be") + "your first encounter with 'The Listeners'. ";
-		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as") + "they listen. ";
+		preamble = s("Unless we're mistaken, this is", "This seems to be")
+				+ "your first encounter with 'The Listeners'. ";
+		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
+				+ "they listen. ";
 		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
 		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
-		preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, " + s("clearly,", s("firmly,", "")) + "'Alex, Stop!' ";
-		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...") + s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
+		preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, "
+				+ s("clearly,", s("firmly,", "")) + "'Alex, Stop!' ";
+		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
+				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
 
 		Locale locale = Constants.parseLocale("de-de");
 		// test version without passing an AttributesManager
@@ -39,7 +43,7 @@ public class TestHandler {
 		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
 		speechUtils = SpeechUtils.getInstance(locale);
-		
+
 		L10nSpeech ls = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
 
 		info("@TestHandler, cardTitle: “" + ls.getCardTitle() + "”");

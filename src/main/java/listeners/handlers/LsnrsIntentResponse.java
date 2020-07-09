@@ -58,12 +58,14 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		// should be possible to replace this with the new Dialog interface TODO
 		// NB: confirmationStatus is already a field of the Intent class !
 		// (1)
-		if (("SpeakGuyzIntent".equals((String) sessionAttributes.get(LASTINTENT))) && "ContinueIntent".equals(intent.getName())) {
+		if (("SpeakGuyzIntent".equals((String) sessionAttributes.get(LASTINTENT)))
+				&& "ContinueIntent".equals(intent.getName())) {
 			sessionAttributes.put(SPEAKGUYZCONFIRMED, true);
 			intent = Intent	.builder()
 											.withName("SpeakGuyzIntent")
 											.build();
-			if ((int) sessionAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH)) sessionAttributes.put(LASTINTENT, "");
+			if ((int) sessionAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH))
+				sessionAttributes.put(LASTINTENT, "");
 		}
 		else if ("NoIntent".equals(intent.getName()) || "ThankYouNoIntent".equals(intent.getName())) {
 			sessionAttributes.put(SPEAKGUYZCONFIRMED, false);

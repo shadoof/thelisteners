@@ -9,11 +9,10 @@ import java.util.MissingResourceException;
 
 import listeners.util.SpeechUtils;
 
-
 public abstract class L10nSpeech extends ListResourceBundle implements ResponseSpeech {
-	
+
 	public Object[][] contents;
-	
+
 	@Override
 	public abstract String buildCardTitle();
 
@@ -30,13 +29,14 @@ public abstract class L10nSpeech extends ListResourceBundle implements ResponseS
 			if (!(e instanceof MissingResourceException)) {
 				e.printStackTrace();
 			}
-			ct = "de_DE".equals(localeTag) ? S("Hören", "Höre immer noch zu") : S("Still, l", "L") + "istening";
+			ct = "de_DE".equals(localeTag) ? S("Hören", "Höre immer noch zu")
+					: S("Still, l", "L") + "istening";
 		}
 		return ct;
 	}
 
 	protected abstract Object[][] getContents();
-	
+
 	public String getPostSpeechPrompt() {
 
 		String pst;
@@ -68,6 +68,7 @@ public abstract class L10nSpeech extends ListResourceBundle implements ResponseS
 	}
 
 	public String getSpeech() {
+
 		return getString("speech");
 	}
 

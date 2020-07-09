@@ -17,13 +17,13 @@ public class LangConstantsBundle extends ListResourceBundle {
 	protected static Map<String, String> AFFECTIVEJJ2NN_MAP;
 	protected static HashSet<String> SPECIAL_THINGS;
 	protected static HashSet<String> PICTURE_WORDS;
-	
-//	public LangConstantsBundle() {
-//		super();
-//		build();
-//	}
-//
-//	private void build() {
+
+	// public LangConstantsBundle() {
+	// super();
+	// build();
+	// }
+	//
+	// private void build() {
 	static {
 		FRAGMENTNUMBER_MAP = new HashMap<>();
 		FRAGMENTNUMBER_MAP.put("1", 0);
@@ -83,7 +83,8 @@ public class LangConstantsBundle extends ListResourceBundle {
 		FRAGMENTNAME_MAP.put("harvest", 9);
 		//
 		// Make sure affects names match
-		String[] enTemp = { "happiness", "excitement", "curiosity", "wonder", "surprise", "anger", "disgust", "distress", "sadness", "grief", "melancholy", "fear", "shame", "humiliation" };
+		String[] enTemp = { "happiness", "excitement", "curiosity", "wonder", "surprise", "anger",
+				"disgust", "distress", "sadness", "grief", "melancholy", "fear", "shame", "humiliation" };
 		AFFECTS_ARRAY = new String[enTemp.length];
 		for (int i = 0; i < enTemp.length; i++) {
 			AFFECTS_ARRAY[i] = enTemp[i];

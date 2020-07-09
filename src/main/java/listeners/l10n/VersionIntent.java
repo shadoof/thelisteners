@@ -17,11 +17,9 @@ import listeners.model.LangConstants;
 
 public class VersionIntent extends L10nSpeech {
 
-	public Object[][] contents = { { "cardTitle", buildCardTitle() }, 
-			{ "speech", buildSpeech() }, 
-			{ "reprompt", buildReprompt() }, 
-			{ "postSpeechPrompt", buildPostSpeechPrompt() }
-			};
+	public Object[][] contents = { { "cardTitle", buildCardTitle() }, { "speech", buildSpeech() },
+			{ "reprompt", buildReprompt() },
+			{ "postSpeechPrompt", buildPostSpeechPrompt() } };
 
 	public String buildCardTitle() {
 
@@ -34,7 +32,7 @@ public class VersionIntent extends L10nSpeech {
 			return ""; // empty string
 		}
 		else
-			return speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT); 
+			return speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
 	}
 
 	public String buildReprompt() {
@@ -55,16 +53,19 @@ public class VersionIntent extends L10nSpeech {
 		}
 		else {
 			s = s("Thank you for " + s("your interest.", "the question.") + breath(), "");
-			s += "We " + s("prefer to", "would rather") + "think of this as the date of our last rebirth, which was ";
+			s += "We " + s("prefer to", "would rather")
+					+ "think of this as the date of our last rebirth, which was ";
 			s += VERSION_DATE_LIVE + ". " + breath();
-			s += s("It seems always to be very recent. " + s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
+			s += s("It seems always to be very recent. "
+					+ s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
 		}
 		return s += breath();
 	}
 
 	protected String getVersionLocale() {
 
-		String s = "Development. " + VERSION + ", " + VERSION_DATE_DEV + (PERFORMANCE ? ". Performance. " : ". ");
+		String s = "Development. " + VERSION + ", " + VERSION_DATE_DEV
+				+ (PERFORMANCE ? ". Performance. " : ". ");
 		switch (localeTag) {
 			case "de_DE":
 				s += "German. ";

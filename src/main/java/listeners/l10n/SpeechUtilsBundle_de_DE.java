@@ -6,6 +6,7 @@ import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.util.ConstantUtils.breath;
 import static listeners.util.ConstantUtils.breathShort;
 import static listeners.util.ConstantUtils.heads;
+import static listeners.util.ConstantUtils.phonemic;
 import static listeners.util.ConstantUtils.randInt;
 import static listeners.util.ConstantUtils.s;
 
@@ -23,17 +24,23 @@ public class SpeechUtilsBundle_de_DE extends SpeechUtilsBundle {
 		String reprompt = "";
 		switch (randInt(0, upperLimit)) {
 			case 0:
-				reprompt += s("Sollen wir " + s("weiter machen?", "fortfahren?"), s(s("Wollen Sie", "Möchten Sie") + "mehr hören?", s("Bitte sagen Sie «ja», um mehr zu hören.", "Mehr?")));
+				reprompt += s("Sollen wir " + s("weiter machen?", "fortfahren?"),
+						s(s("Wollen Sie", "Möchten Sie") + "mehr hören?",
+								s("Bitte sagen Sie «ja», um mehr zu hören.", "Mehr?")));
 				break;
 			case 1:
-				reprompt += s(s("Gibt es noch mehr, was du hören " + s("willst?", "möchtest?"), s("Möchtest", "Willst") + "du noch mehr hören?"), "");
+				reprompt += s(s("Gibt es noch mehr, was du hören " + s("willst?", "möchtest?"),
+						s("Möchtest", "Willst") + "du noch mehr hören?"), "");
 				reprompt += s("Wir hören zu. Immer.", "");
-				reprompt += "Du kannst uns " + s("immer", "") + "bitten " + s("weiter zu machen.", "fortzufahren.");
+				reprompt += "Du kannst uns " + s("immer", "") + "bitten "
+						+ s("weiter zu machen.", "fortzufahren.");
 				break;
 			case 2:
-				reprompt += "Du " + s("kannst", "darfst") + "uns bitten " + s("über", "") + s("alle folgenden Dinge:", "") + breathShort();
+				reprompt += "Du " + s("kannst", "darfst") + "uns bitten " + s("über", "")
+						+ s("alle folgenden Dinge:", "") + breathShort();
 				reprompt += chooseSomeFragmentNames() + "zu sprechen. " + breath();
-				reprompt += "Oder du kannst uns einfach " + s("sagen", "bitten") + s("weiter zu machen.", "fortzufahren.");
+				reprompt += "Oder du kannst uns einfach " + s("sagen", "bitten")
+						+ s("weiter zu machen.", "fortzufahren.");
 				break;
 			case 3:
 				reprompt += s("Würdest", "Möchtest") + "du uns vielleicht " + s("jetzt", "");
@@ -43,32 +50,56 @@ public class SpeechUtilsBundle_de_DE extends SpeechUtilsBundle {
 			case 4:
 				if (heads()) {
 					reprompt += "Sie " + s("dürfen", "können") + "uns immer wenn Sie wollen ";
-					reprompt += "bitten, " + s("Ihre " + s("Gefühle", "Affekte") + s("in denen Sie leben", "") + "abzurufen. ", s("«Wie fühle ich mich?»", "«Was fühlen wir?»"));
+					reprompt += "bitten, "
+							+ s("Ihre " + s("Gefühle", "Affekte") + s("in denen Sie leben", "") + "abzurufen. ",
+									s("«Wie fühle ich mich?»", "«Was fühlen wir?»"));
 				}
 				else {
 					reprompt += "Du  " + s("darfst", "kannst") + "uns immer wenn du willst ";
-					reprompt += "sag uns " + s("deine Gefühle darüber.", s("deine Gefühle.", s("die Gefühle, die du hast.", "die Gefühle, von denen du besessen bist.")));
+					reprompt += "sag uns " + s("deine Gefühle darüber.", s("deine Gefühle.",
+							s("die Gefühle, die du hast.", "die Gefühle, von denen du besessen bist.")));
 				}
-				reprompt += breathShort() + "Oder du kannst uns " + s("einfach", "") + s("sagen", "bitten") + s("weiter zu machen.", "fortzufahren.");
+				reprompt += breathShort() + "Oder du kannst uns " + s("einfach", "") + s("sagen", "bitten")
+						+ s("weiter zu machen.", "fortzufahren.");
 		}
 		return reprompt;
+	}
+
+	protected String choosePhrase() {
+
+		String phrase = "eine Phrase";
+		switch (randInt(0, 3)) {
+			case 0:
+				phrase = "ein Wort";
+				break;
+			case 1:
+				phrase = "ein Satz";
+				break;
+			case 2:
+				phrase = "ein Gefühl";
+		}
+		return phrase;
 	}
 
 	protected String chooseSpeechAssistance() {
 
 		String speech = "";
 
-		speech += "Du kannst uns einfach " + s("sagen", "bitten") + s("weiter zu machen.", "fortzufahren.") + breath();
+		speech += "Du kannst uns einfach " + s("sagen", "bitten") + s("weiter zu machen.", "fortzufahren.")
+				+ breath();
 		speech += "Sie " + s("können", "könnten");
 		speech += chooseTellUsAbout();
 		speech += s("diese", "Ihren") + "Gefühle ";
 		speech += "indem Sie die Worte " + s("sagen, ", "the sprechen,");
-		speech += "«Ich bin " + s("voller»", s("besessen", "überwältigt") + "von»") + "und dann einen der neun Affekte. " + breathShort();
-		speech += s("Und", "Oder") + "Sie fragen " + s("uns,", "uns vielleicht sogar,") + "wie wir uns fühlen. " + breath();
+		speech += "«Ich bin " + s("voller»", s("besessen", "überwältigt") + "von»")
+				+ "und dann einen der neun Affekte. " + breathShort();
+		speech += s("Und", "Oder") + "Sie fragen " + s("uns,", "uns vielleicht sogar,")
+				+ "wie wir uns fühlen. " + breath();
 
 		boolean heads = heads();
 		if (heads) {
-			speech += s("Manche der Namen", "Die Namen") + "für die neuen Affekte, die wir " + s("hören", "erkennen") + "können, sind: " + breath();
+			speech += s("Manche der Namen", "Die Namen") + "für die neuen Affekte, die wir "
+					+ s("hören", "erkennen") + "können, sind: " + breath();
 			List list = (List) Arrays.asList(AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
@@ -83,7 +114,9 @@ public class SpeechUtilsBundle_de_DE extends SpeechUtilsBundle {
 		}
 
 		if (!heads && heads()) {
-			speech += "Oder du " + s("kannst", "könntest") + "uns bitten, " + s("über " + s("Folgendes", "") + "zu sprechen:", s("Folgendes", "") + "zu sagen:") + breath();
+			speech += "Oder du " + s("kannst", "könntest") + "uns bitten, "
+					+ s("über " + s("Folgendes", "") + "zu sprechen:", s("Folgendes", "") + "zu sagen:")
+					+ breath();
 			speech += chooseSomeFragmentNames() + ". ";
 		}
 
@@ -113,25 +146,51 @@ public class SpeechUtilsBundle_de_DE extends SpeechUtilsBundle {
 	protected String chooseUnsureAboutAffect() {
 
 		String reprompt = "";
-		reprompt += "Wir sind " + s("nicht sicher", "unsicher") + s("was Ihre Gefühle sind,", "welche Gefühle es sind, ") + "die Sie da " + s("haben.", "überwältigen.");
+		reprompt += "Wir sind " + s("nicht sicher", "unsicher")
+				+ s("was Ihre Gefühle sind,", "welche Gefühle es sind, ") + "die Sie da "
+				+ s("haben.", "überwältigen.");
 		reprompt += "Sie " + s("können", "könnten");
 		reprompt += chooseTellUsAbout();
 		reprompt += s("diese", "Ihren") + "Gefühle ";
 		reprompt += "indem Sie die Worte " + s("sagen, ", "the sprechen,");
-		reprompt += "«Ich bin " + s("voller»", s("besessen", "überwältigt") + "von»") + "und dann einen der neun Affekte. " + breathShort();
-		reprompt += s(breathShort() + "Oder du kannst uns einfach " + s("sagen", "bitten") + s("weiter zu machen.", "fortzufahren."), "");
+		reprompt += "«Ich bin " + s("voller»", s("besessen", "überwältigt") + "von»")
+				+ "und dann einen der neun Affekte. " + breathShort();
+		reprompt += s(breathShort() + "Oder du kannst uns einfach " + s("sagen", "bitten")
+				+ s("weiter zu machen.", "fortzufahren."), "");
 		return reprompt;
 	}
-	
+
+	protected String chooseYouCanFindOutAffect() {
+
+		String s;
+		if (heads()) {
+			s = "Sie " + s("dürfen", "können") + "uns immer wenn Sie wollen ";
+			s += "bitten, "
+					+ s("Ihre " + s("Gefühle", "Affekte") + s("in denen Sie leben", "") + "abzurufen. ",
+							s("«Wie fühle ich mich?»", "«Was fühlen wir?»"));
+		}
+		else {
+			s = "Du  " + s("darfst", "kannst") + "uns immer wenn du willst ";
+			s += "sag uns " + s("deine Gefühle darüber.", s("deine Gefühle.",
+					s("die Gefühle, die du hast.", "die Gefühle, von denen du besessen bist.")));
+		}
+		return s;
+	}
+
 	protected String buildAbandonmentMessage() {
+
 		// TODO German
 		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect() : attributes.getAffect();
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: attributes.getAffect();
 		String amsg;
 		if (attributes.isPositive(affect))
-			amsg = String.format("It's good to know that you dwell within %s. " + breathShort() + s("Still,", "Whatever, " + breath()), affect);
+			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
+					+ s("Still,", "Whatever, " + breath()), affect);
 		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to " + s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. " + breathShort() + "And now, ", affect);
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
 		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
 	}
 

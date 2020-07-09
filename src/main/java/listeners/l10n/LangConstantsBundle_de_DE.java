@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class LangConstantsBundle_de_DE extends LangConstantsBundle {
-	
-//	public LangConstantsBundle_de_DE() {
-//		build();
-//	}
-//
-//	private void build() {
+
+	// public LangConstantsBundle_de_DE() {
+	// build();
+	// }
+	//
+	// private void build() {
 	static {
 		FRAGMENTNUMBER_MAP = new HashMap<>();
 		FRAGMENTNUMBER_MAP.put("1", 0);
@@ -37,7 +37,7 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		FRAGMENTNUMBER_MAP.put("acht", 7);
 		FRAGMENTNUMBER_MAP.put("neun", 8);
 		FRAGMENTNUMBER_MAP.put("zehn", 9);
-//
+		//
 		FRAGMENTNAME_MAP = new HashMap<>();
 		FRAGMENTNAME_MAP.put("das Zuhören", 0);
 		FRAGMENTNAME_MAP.put("das Vergnügen", 0);
@@ -71,14 +71,16 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		FRAGMENTNAME_MAP.put("das Verlangen", 9);
 		FRAGMENTNAME_MAP.put("die Geschäfte", 9);
 		FRAGMENTNAME_MAP.put("die Ernte", 9);
-//
+		//
 		// Make sure GERMAN affects names match
-		String[] temp = { "das Glück", "die Aufregung", "die Neugier", "das Staunen", "die Überraschung", "der Ärger", "der Ekel", "die Bedrängnis", "die Traurigkeit", "die Trauer", "die Melancholie", "die Angst", "die Scham", "die Erniedrigung" };
+		String[] temp = { "das Glück", "die Aufregung", "die Neugier", "das Staunen", "die Überraschung",
+				"der Ärger", "der Ekel", "die Bedrängnis", "die Traurigkeit", "die Trauer", "die Melancholie",
+				"die Angst", "die Scham", "die Erniedrigung" };
 		AFFECTS_ARRAY = new String[temp.length];
 		for (int i = 0; i < temp.length; i++) {
 			AFFECTS_ARRAY[i] = temp[i];
 		}
-//
+		//
 		AFFECTS_MAP = new HashMap<>();
 		AFFECTS_MAP.put("das Glück", POSITIVE);
 		AFFECTS_MAP.put("die Aufregung", POSITIVE);
@@ -106,7 +108,7 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		AFFECTS_MAP.put("das Entspannen", POSITIVE);
 		AFFECTS_MAP.put("die Sicherheit", POSITIVE);
 		AFFECTS_MAP.put("die Wonne", POSITIVE);
-//
+		//
 		SPECIAL_AFFECT_MAP = new HashMap<>();
 		SPECIAL_AFFECT_MAP.put("affection", POSITIVE);
 		SPECIAL_AFFECT_MAP.put("anxiety", NEGATIVE);
@@ -137,7 +139,7 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		SPECIAL_AFFECT_MAP.put("strangeness", NEGATIVE);
 		SPECIAL_AFFECT_MAP.put("the uncanny", NEGATIVE);
 		SPECIAL_AFFECT_MAP.put("vulnerability", POSITIVE);
-//
+		//
 		AFFECTIVEJJ2NN_MAP = new HashMap<>();
 		AFFECTIVEJJ2NN_MAP.put("abject", "abjection");
 		AFFECTIVEJJ2NN_MAP.put("affectionate", "affection");
@@ -244,7 +246,7 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		AFFECTIVEJJ2NN_MAP.put("uncomfortable", S("discomfort", "anxiety"));
 		AFFECTIVEJJ2NN_MAP.put("unsure", S("insecurity", "uncertainty"));
 		AFFECTIVEJJ2NN_MAP.put("weird", S("strangeness", "weirdness"));
-//
+		//
 		SPECIAL_THINGS = new HashSet<>();
 		SPECIAL_THINGS.add("der Alptraum");
 		SPECIAL_THINGS.add("der zurückgehaltene Alptraum");
@@ -256,7 +258,7 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		SPECIAL_THINGS.add("der Besitz");
 		SPECIAL_THINGS.add("der Atem");
 		SPECIAL_THINGS.add("der angehaltene Atem");
-//
+		//
 		PICTURE_WORDS = new HashSet<>();
 		PICTURE_WORDS.add("die Collage");
 		PICTURE_WORDS.add("der Rahmen");

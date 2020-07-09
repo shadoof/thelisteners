@@ -1,6 +1,7 @@
 package listeners.model;
 
 import static listeners.model.Constants.localeTag;
+import static listeners.model.Attributes.NOT_YET_GREETED;
 import static listeners.model.LangConstants.AFFECTIVEJJ2NN_MAP;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.model.LangConstants.AFFECTS_MAP;
@@ -30,19 +31,18 @@ public class LangConstants {
 
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
-	// private static SimpleDateFormat 
+	// private static SimpleDateFormat
 	// mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
 	public static String dateString;
-	
+
 	private static LangConstants instance;
-	
+
 	public static LangConstants getInstance(Locale locale) {
-		if (instance == null)
-			return new LangConstants(locale);
-		else
-			return instance;
+
+		if (instance == null) instance = new LangConstants(locale);
+		return instance;
 	}
-	
+
 	private LangConstants(Locale locale) {
 
 		// ... although Voices are wrapped according to regions
@@ -69,7 +69,7 @@ public class LangConstants {
 		AFFECTIVEJJ2NN_MAP = (Map<String, String>) rb.getObject("affectiveJJ2NNmap");
 		SPECIAL_THINGS = (HashSet<String>) rb.getObject("specialThings");
 		PICTURE_WORDS = (HashSet<String>) rb.getObject("pictureWords");
-		
+
 		ALL_AFFECTS = buildAffects();
 
 		date = new Date();
@@ -80,7 +80,7 @@ public class LangConstants {
 	}
 
 	private static HashSet buildAffects() {
-		
+
 		HashSet<String> hs = new HashSet();
 		for (int i = 0; i < AFFECTS_ARRAY.length; i++) {
 			hs.add(AFFECTS_ARRAY[i]);
@@ -90,7 +90,7 @@ public class LangConstants {
 		hs.addAll(AFFECTIVEJJ2NN_MAP.values());
 		return hs;
 	}
-	
+
 	private String setPolyVoiceWrappers(String localeTag) {
 
 		switch (localeTag) {
@@ -109,4 +109,17 @@ public class LangConstants {
 				return "<voice name='Amy'><lang xml:lang='en-GB'>";
 		}
 	}
+
+	public String getNounFromAdjective(String adjective) {
+
+		adjective = adjective.toLowerCase();
+		return (AFFECTIVEJJ2NN_MAP.containsKey(adjective)) ? AFFECTIVEJJ2NN_MAP.get(adjective) : adjective;
+	}
+
+	public int parseNameToInt(String fragmentName) {
+
+		int theNumber = FRAGMENTNUMBER_MAP.containsKey(fragmentName) ? FRAGMENTNUMBER_MAP.get(fragmentName) : NOT_YET_GREETED;
+		return FRAGMENTNAME_MAP.containsKey(fragmentName) ? FRAGMENTNAME_MAP.get(fragmentName) : theNumber;
+	}
+
 }
