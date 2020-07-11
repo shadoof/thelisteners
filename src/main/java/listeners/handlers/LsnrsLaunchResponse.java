@@ -37,7 +37,7 @@ public class LsnrsLaunchResponse extends LsnrsResponse {
 			preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, "
 					+ s("clearly,", s("firmly,", "")) + "'Alexa, Stop!' ";
 			preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
-					+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
+					+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. " + "\n***\n";
 		}
 
 		ResourceBundle.clearCache();

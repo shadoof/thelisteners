@@ -7,8 +7,6 @@ import java.util.function.Supplier;
 
 public class Fragments extends ListResourceBundle {
 
-	private int fragmentNumber;
-
 	public Object[][] contents = { { "fragment0", buildFragment(0) },
 			{ "fragment1", buildFragment(1) },
 			{ "fragment2", buildFragment(2) },

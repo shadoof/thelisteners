@@ -40,7 +40,6 @@ public class LangConstants {
 
 	public static String[] fragments = new String[NUMBER_OF_FRAGMENTS];
 	public static RiMarkov rm2, rm3, rm4, rm5;
-	private static String markovCorpus;
 
 	private static LangConstants instance;
 
@@ -87,7 +86,7 @@ public class LangConstants {
 		buildFragments();
 		info("@LangConstants: initialized fragments");
 
-		markovCorpus = buildMarkovCorpus(HOW_MANY_FRAGMENT_SETS, false);
+		String markovCorpus = buildMarkovCorpus(HOW_MANY_FRAGMENT_SETS, false);
 		// build RiMarkovs(nFactor, try-to-recognize-sentences, don't-allow-duplicate)
 		rm2 = new RiMarkov(2, true, false);
 		rm2.loadText(markovCorpus);
@@ -131,7 +130,7 @@ public class LangConstants {
 		String markovSupply = "";
 		for (int i = 0; i < howManyFragmentSets; i++) {
 			for (int f = 0; f < NUMBER_OF_FRAGMENTS; f++) {
-				markovSupply += fragments[f];
+				markovSupply += fragments[f].replaceAll("'", "");
 			}
 		}
 		return removePauses ? removeInterSentencePauses(markovSupply) : markovSupply;
