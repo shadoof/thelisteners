@@ -50,17 +50,17 @@ public class ResponseFinisher {
 	// }
 	// }
 
-	private String buildSimpleReprompt(String reprompt) {
-
-		reprompt = insertPauseTags(reprompt);
-		return "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
-	}
-
-	private String buildSimpleSpeech(String speech, String postSpeechPrompt) {
-
-		speech = insertPauseTags(speech + postSpeechPrompt);
-		return "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
-	}
+//	private String buildSimpleReprompt(String reprompt) {
+//
+//		reprompt = insertPauseTags(reprompt);
+//		return "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
+//	}
+//
+//	private String buildSimpleSpeech(String speech, String postSpeechPrompt) {
+//
+//		speech = insertPauseTags(speech + postSpeechPrompt);
+//		return "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
+//	}
 
 	public String getCardText() {
 
@@ -314,7 +314,6 @@ public class ResponseFinisher {
 		private String speech = "";
 		private String postSpeechPrompt = "";
 		private String reprompt = "";
-		private String cardTitle = "";
 
 		private Builder() {
 

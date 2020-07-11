@@ -1,7 +1,6 @@
 package listeners.handlers;
 
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.s;
+import static listeners.util.ConstantUtils.*;
 import static listeners.model.Constants.*;
 import static listeners.model.LangConstants.*;
 
@@ -33,14 +32,42 @@ public class TestHandler {
 		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
 		speechUtils = SpeechUtils.getInstance(locale);
+				
+		// fragments (10 speeches The Listeners like to make)
+		// have been built and stored in LangConstants instance
+		
+		int f = randInt(0, 9);
+		info("@TestHander, fragments[" + f +"]:");
+		info(removePauseTags(fragments[f]) + "\n");
 
 		// Markov generation testing
 
-		info("rm2:");
-		int numOfSents = 5;
+		info("@TestHander, rm2:");
+		int numOfSents = 3;
 		String[] sents = rm2.generateSentences(numOfSents);
 		for (int i = 0; i < sents.length; i++) {
-			info(sents[i]);
+			info(removePauseTags(sents[i]) + ((i == (sents.length - 1)) ? "\n" : ""));
+		}
+
+		info("@TestHander, rm3:");
+		numOfSents = 3;
+		sents = rm3.generateSentences(numOfSents);
+		for (int i = 0; i < sents.length; i++) {
+			info(removePauseTags(sents[i]) + ((i == (sents.length - 1)) ? "\n" : ""));
+		}
+
+		info("@TestHander, rm4:");
+		numOfSents = 3;
+		sents = rm4.generateSentences(numOfSents);
+		for (int i = 0; i < sents.length; i++) {
+			info(removePauseTags(sents[i]) + ((i == (sents.length - 1)) ? "\n" : ""));
+		}
+
+		info("@TestHander, rm5:");
+		numOfSents = 3;
+		sents = rm5.generateSentences(numOfSents);
+		for (int i = 0; i < sents.length; i++) {
+			info(removePauseTags(sents[i]) + ((i == (sents.length - 1)) ? "\n" : ""));
 		}
 
 		// Response Assembly Testing:

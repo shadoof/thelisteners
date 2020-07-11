@@ -106,6 +106,17 @@ public class ConstantUtils {
 		return speech;
 	}
 
+	public static String removePauseTags(String speech) {
+
+		Set<String> hs = new HashSet<>();
+		hs = PAUSES_MAP.keySet();
+		for (String s : hs) {
+			speech = speech.replaceAll(s + SPC, "");
+			speech = speech.replaceAll(s + "\\(", "(");
+		}
+		return speech;
+	}
+
 	public static String s(String firstAlternative, String secondAlternative) {
 
 		return heads() ? "".equals(firstAlternative) ? firstAlternative : firstAlternative + SPC
