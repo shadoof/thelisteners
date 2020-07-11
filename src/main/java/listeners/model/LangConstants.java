@@ -1,13 +1,13 @@
 package listeners.model;
 
-import static listeners.model.Constants.localeTag;
 import static listeners.model.Attributes.NOT_YET_GREETED;
-import static listeners.model.LangConstants.AFFECTIVEJJ2NN_MAP;
-import static listeners.model.LangConstants.AFFECTS_ARRAY;
-import static listeners.model.LangConstants.AFFECTS_MAP;
-import static listeners.model.LangConstants.SPECIAL_AFFECT_MAP;
+import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
+import static listeners.model.Constants.HOW_MANY_FRAGMENT_SETS;
+import static listeners.model.Constants.locale;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.ConstantUtils.info;
-import listeners.util.SpeechUtils;
+import static listeners.util.ConstantUtils.removeInterSentencePauses;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +16,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
+
+import listeners.l10n.Fragments;
+import rita.RiMarkov;
 
 public class LangConstants {
 
@@ -34,6 +37,10 @@ public class LangConstants {
 	// private static SimpleDateFormat
 	// mdyFormat = new SimpleDateFormat("MMMMMMMMM d, y");
 	public static String dateString;
+
+	public static String[] fragments = new String[NUMBER_OF_FRAGMENTS];
+	public static RiMarkov rm2, rm3, rm4, rm5;
+	private static String markovCorpus;
 
 	private static LangConstants instance;
 
@@ -77,6 +84,21 @@ public class LangConstants {
 		this.dateString = dateFormat.format(date);
 		// info("@LanguageConstants, dateString: " + dateString);
 
+		buildFragments();
+		info("@LangConstants: initialized fragments");
+
+		markovCorpus = buildMarkovCorpus(HOW_MANY_FRAGMENT_SETS, false);
+		// build RiMarkovs(nFactor, try-to-recognize-sentences, don't-allow-duplicate)
+		rm2 = new RiMarkov(2, true, false);
+		rm2.loadText(markovCorpus);
+		rm3 = new RiMarkov(3, true, false);
+		rm3.loadText(markovCorpus);
+		rm4 = new RiMarkov(4, true, false);
+		rm4.loadText(markovCorpus);
+		rm5 = new RiMarkov(5, true, false);
+		rm5.loadText(markovCorpus);
+		info("@LangConstants: initialized Markov models");
+
 	}
 
 	private static HashSet buildAffects() {
@@ -91,7 +113,31 @@ public class LangConstants {
 		return hs;
 	}
 
-	private String setPolyVoiceWrappers(String localeTag) {
+	private static void buildFragments() {
+
+		ResourceBundle.clearCache();
+		Fragments fs = (Fragments) ResourceBundle.getBundle("listeners.l10n.Fragments", locale);
+		for (int fn = 0; fn < NUMBER_OF_FRAGMENTS; fn++) {
+			fragments[fn] = fs.getString("fragment" + fn);
+		}
+	}
+
+	private static String buildMarkovCorpus(int howManyFragmentSets, boolean removePauses) {
+
+		// we could rebuild here with buildFragments();
+		// but try using what was actual built on initialization
+		// with the idea that the generated sentences will have
+		// more commonality with what the interlocutor will have heard
+		String markovSupply = "";
+		for (int i = 0; i < howManyFragmentSets; i++) {
+			for (int f = 0; f < NUMBER_OF_FRAGMENTS; f++) {
+				markovSupply += fragments[f];
+			}
+		}
+		return removePauses ? removeInterSentencePauses(markovSupply) : markovSupply;
+	}
+
+	private static String setPolyVoiceWrappers(String localeTag) {
 
 		switch (localeTag) {
 			case "de_DE":
@@ -118,7 +164,8 @@ public class LangConstants {
 
 	public int parseNameToInt(String fragmentName) {
 
-		int theNumber = FRAGMENTNUMBER_MAP.containsKey(fragmentName) ? FRAGMENTNUMBER_MAP.get(fragmentName) : NOT_YET_GREETED;
+		int theNumber = FRAGMENTNUMBER_MAP.containsKey(fragmentName) ? FRAGMENTNUMBER_MAP.get(fragmentName)
+				: NOT_YET_GREETED;
 		return FRAGMENTNAME_MAP.containsKey(fragmentName) ? FRAGMENTNAME_MAP.get(fragmentName) : theNumber;
 	}
 

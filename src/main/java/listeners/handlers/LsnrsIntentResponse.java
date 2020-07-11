@@ -38,8 +38,8 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 			// add intro and 'trigger warning' in Alexa's voice
 		}
 
-		IntentRequest intentRequest = (IntentRequest) input	.getRequestEnvelope()
-																												.getRequest();
+		IntentRequest intentRequest = (IntentRequest) input.getRequestEnvelope()
+				.getRequest();
 		Intent intent = intentRequest.getIntent();
 
 		// generating variety here (needs assessing for actual effect) TODO
@@ -61,9 +61,9 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		if (("SpeakGuyzIntent".equals((String) sessionAttributes.get(LASTINTENT)))
 				&& "ContinueIntent".equals(intent.getName())) {
 			sessionAttributes.put(SPEAKGUYZCONFIRMED, true);
-			intent = Intent	.builder()
-											.withName("SpeakGuyzIntent")
-											.build();
+			intent = Intent.builder()
+					.withName("SpeakGuyzIntent")
+					.build();
 			if ((int) sessionAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH))
 				sessionAttributes.put(LASTINTENT, "");
 		}
@@ -88,20 +88,20 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
 
 		ResponseFinisher rf = ResponseFinisher.builder()
-																					.withSpeech(ls.getSpeech())
-																					.withPostSpeechPrompt(ls.getPostSpeechPrompt())
-																					.withReprompt(ls.getReprompt())
-																					.build();
+				.withSpeech(ls.getSpeech())
+				.withPostSpeechPrompt(ls.getPostSpeechPrompt())
+				.withReprompt(ls.getReprompt())
+				.build();
 
 		// while developing replace cardTitle with intentName - dated
 		String ct = DEV ? intent.getName() + " - " + dateString : ls.getCardTitle();
 
 		return input.getResponseBuilder()
-								.withSpeech(rf.getSpeech())
-								.withReprompt(rf.getReprompt())
-								.withSimpleCard(ct, rf.getCardText())
-								.withShouldEndSession(false)
-								.build();
+				.withSpeech(rf.getSpeech())
+				.withReprompt(rf.getReprompt())
+				.withSimpleCard(ct, rf.getCardText())
+				.withShouldEndSession(false)
+				.build();
 	}
 
 }

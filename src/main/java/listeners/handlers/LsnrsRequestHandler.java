@@ -47,9 +47,9 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 		// Attributes and LangConstants depend on locale so
 		// we assemble locale constants in top-level model.Constants:
-		Locale locale = Constants.parseLocale(input	.getRequestEnvelope()
-																								.getRequest()
-																								.getLocale());
+		Locale locale = Constants.parseLocale(input.getRequestEnvelope()
+				.getRequest()
+				.getLocale());
 
 		// get the AttributesManager and put it in Constants
 		attributesManager = input.getAttributesManager();
@@ -63,10 +63,11 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 		String relationship = "normal"; // this is the default
 		if ((persistentAttributes.isEmpty() && sessionAttributes.isEmpty())
-				// TODO remove (this is for dev and debugging):
-//				|| (persistentAttributes.get("relationship") != null && persistentAttributes.get("relationship")
-//																																										.equals("ask"))
-				) {
+		// TODO remove (this is for dev and debugging):
+		// || (persistentAttributes.get("relationship") != null &&
+		// persistentAttributes.get("relationship")
+		// .equals("ask"))
+		) {
 			// very first encounter
 			info("@ListenersRequestHandler: firstEncounter");
 			persistentAttributes.put("relationship", relationship);
@@ -112,7 +113,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			}
 
 			if (persistentAttributes.get("relationship") != null && persistentAttributes.get("relationship")
-																																									.equals("normal")) {
+					.equals("normal")) {
 				info("@ListenersRequestHandler: not first exchange but perhaps startingOver");
 				relationship = "ask";
 			}
@@ -141,23 +142,23 @@ public class LsnrsRequestHandler implements RequestHandler {
 			String cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
 					: S("That's e", "E") + "nough";
 			String speech = speechUtils.getAbandonmentMessage();
-			String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "")
-					: S("Cheerio!", "");
+			String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
 			speech += attributes.isPositive((String) sessionAttributes.get(AFFECT)) ? bye : "";
 			ResponseFinisher rf = ResponseFinisher.builder()
-																						.withSpeech(speechUtils.getAbandonmentMessage())
-																						.build();
+					.withSpeech(speechUtils.getAbandonmentMessage())
+					.build();
 
 			// for now, on STOP or CANCEL we clear persistentAttributes
 			// and set relationship to "ask"
 			persistentAttributes.clear();
-			persistentAttributes.put("relationship", "ask"); // comment this for firstEncounter
+			persistentAttributes.put("relationship", "ask"); // comment this for
+																												// firstEncounter
 			attributesManager.savePersistentAttributes();
 			return input.getResponseBuilder()
-									.withSpeech(rf.getSpeech())
-									.withSimpleCard(cardTitle, rf.getCardText())
-									.withShouldEndSession(true)
-									.build();
+					.withSpeech(rf.getSpeech())
+					.withSimpleCard(cardTitle, rf.getCardText())
+					.withShouldEndSession(true)
+					.build();
 		}
 
 		info("@ListenersRequestHandler:" + persistentAttributes + " " + sessionAttributes + " " + input

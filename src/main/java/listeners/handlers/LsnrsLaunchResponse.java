@@ -62,20 +62,20 @@ public class LsnrsLaunchResponse extends LsnrsResponse {
 
 		// TODO l10n for ResponseFinisher
 		ResponseFinisher rf = ResponseFinisher.builder()
-																					.withPreamble(preamble)
-																					.withSpeech(ws.getSpeech())
-																					.withPostSpeechPrompt(postSpeechPrompt)
-																					.withReprompt(reprompt)
-																					.build();
+				.withPreamble(preamble)
+				.withSpeech(ws.getSpeech())
+				.withPostSpeechPrompt(postSpeechPrompt)
+				.withReprompt(reprompt)
+				.build();
 
 		// ResponseFinisher rf = new ResponseFinisher(localeTag, preamble,
 		// ws.getSpeech(), postSpeechPrompt, reprompt);
 
 		return input.getResponseBuilder()
-								.withSpeech(rf.getSpeech())
-								.withReprompt(rf.getReprompt())
-								.withSimpleCard(ws.getCardTitle(), rf.getCardText())
-								.withShouldEndSession(false)
-								.build();
+				.withSpeech(rf.getSpeech())
+				.withReprompt(rf.getReprompt())
+				.withSimpleCard(ws.getCardTitle(), rf.getCardText())
+				.withShouldEndSession(false)
+				.build();
 	}
 }

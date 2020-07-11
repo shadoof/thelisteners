@@ -19,9 +19,9 @@ public class UnsupportedRequestHandler implements RequestHandler {
 
 		String outputSpeech = "Say yes to continue, or no to end the game.";
 		return input.getResponseBuilder()
-								.withSpeech(outputSpeech)
-								.withReprompt(outputSpeech)
-								.build();
+				.withSpeech(outputSpeech)
+				.withReprompt(outputSpeech)
+				.build();
 	}
 
 }

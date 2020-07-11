@@ -39,6 +39,7 @@ public class Constants {
 
 	// configurable
 	public static final int NUMBER_OF_FRAGMENTS = 10;
+	public static final int HOW_MANY_FRAGMENT_SETS = 1;
 	public static final int NUMBER_OF_GUYZ = 35;
 	public static final int NUMBER_OF_GUYZ_PER_BATCH = 5;
 	public static final int NUMBER_OF_READABLES = 40;
@@ -52,8 +53,6 @@ public class Constants {
 	public static final boolean NEGATIVE = false;
 	public static final boolean DO_NOT_PROMPT_AFFECT = false;
 	public static final boolean SPECIFIC_FRAGMENT = true;
-	public static final int REPROMPT = 1;
-	public static final int SPEECH = 0;
 	public static final int VERSE = 7;
 
 	public static String localeTag;
