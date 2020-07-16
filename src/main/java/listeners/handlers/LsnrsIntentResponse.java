@@ -1,11 +1,24 @@
 package listeners.handlers;
 
-import static listeners.model.LangConstants.*;
-import static listeners.util.ConstantUtils.*;
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.GUYZSPEECHINDEX;
+import static listeners.model.Attributes.HEARDNO;
+import static listeners.model.Attributes.LASTINTENT;
+import static listeners.model.Attributes.LISTENERSAFFECT;
+import static listeners.model.Attributes.SPEAKGUYZCONFIRMED;
+import static listeners.model.Attributes.sessionAttributes;
+import static listeners.model.Constants.DEV;
+import static listeners.model.Constants.NO_MORE;
+import static listeners.model.Constants.NUMBER_OF_GUYZ;
+import static listeners.model.Constants.NUMBER_OF_GUYZ_PER_BATCH;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.locale;
+import static listeners.model.Constants.speechUtils;
+import static listeners.model.LangConstants.dateString;
+import static listeners.util.ConstantUtils.info;
+import static listeners.util.ConstantUtils.randInt;
 
-import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -15,32 +28,35 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 
 import listeners.l10n.L10nSpeech;
-import listeners.l10n.Welcome;
 import listeners.util.ResponseFinisher;
-import listeners.util.SpeechUtils;
+import listeners.util.UnknownIntentException;
 
-public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsible {
+public class LsnrsIntentResponse implements LsnrsResponse {
 
-	// this IntentResponse is (so-far) for straightforward responses TODO
-	// no slots, no dialog (confirmation) needed
+	protected static HandlerInput input;
+	protected static IntentRequest intentRequest;
+	protected static Intent intent;
+	protected static String relationship;
 
-	LsnrsIntentResponse(Map<String, Object> persistentAttributes, Map<String, Object> sessionAttributes) {
-
-		super(persistentAttributes, sessionAttributes);
+	LsnrsIntentResponse(HandlerInput input, String relationship) {
+		
+		this.input = input;
+		intentRequest = (IntentRequest) input.getRequestEnvelope()
+				.getRequest();
+		intent = intentRequest.getIntent();
+		this.relationship = relationship;
+	}
+	
+	LsnrsIntentResponse() {
+		
 	}
 
 	@Override
-	public Optional<Response> getResponse(HandlerInput input, String relationship) {
+	public Optional<Response> getResponse()
+			throws UnknownIntentException {
 
-		if ("firstEncounter".equals(relationship)) {
-			// build first response
-			// since the firstEncounter conveyed an intent TODO
-			// add intro and 'trigger warning' in Alexa's voice
-		}
-
-		IntentRequest intentRequest = (IntentRequest) input.getRequestEnvelope()
-				.getRequest();
-		Intent intent = intentRequest.getIntent();
+		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble")
+				: "";
 
 		// generating variety here (needs assessing for actual effect) TODO
 		// if affect for the session is set
@@ -48,7 +64,7 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 			// change affect roughly 1 of 3 intent requests ...
 			if (randInt(0, 2) == 0) {
 				sessionAttributes.put(AFFECT, attributes.getRandomAffect());
-				// and a third of these times make listeners affect match
+				// and a third of these times make listeners' affect match
 				if (randInt(0, 2) == 0) sessionAttributes.put(LISTENERSAFFECT, sessionAttributes.get(AFFECT));
 			}
 		}
@@ -85,9 +101,26 @@ public class LsnrsIntentResponse extends LsnrsResponse implements LsnrsResponsib
 		// if we adhere to the convention that there are l10n class bundles
 		// for ALL simple intentNames we need no 'switch' or 'else if' logic here.
 		// we just load a bundle with the intent.getName():
-		L10nSpeech ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
+		L10nSpeech ls = null;
+		try {
+			ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
+		}
+		catch (Exception e) {
+			if (e instanceof MissingResourceException) {
+				// we did not find a simple intent in 110n:
+				// and must deal separately with intents that
+				// need to know where they are in the session, etc.
+				// NB: any firstEncounter preamble is NOT passed
+				LsnrsContinueIntentResponse lcir = new LsnrsContinueIntentResponse();
+				info("GETS HERE with input: " + input + " and relationship: " + relationship);
+				return new LsnrsContinueIntentResponse().getResponse();
+			}
+		}
 
 		ResponseFinisher rf = ResponseFinisher.builder()
+				// possible firstEncounter preamble
+				// when there is a simple intent response
+				.withPreamble(preamble)
 				.withSpeech(ls.getSpeech())
 				.withPostSpeechPrompt(ls.getPostSpeechPrompt())
 				.withReprompt(ls.getReprompt())

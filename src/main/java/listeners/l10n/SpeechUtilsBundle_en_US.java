@@ -1,6 +1,7 @@
 package listeners.l10n;
 
 import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.sessionAttributes;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.model.Constants.attributes;
 import static listeners.util.ConstantUtils.S;
@@ -19,6 +20,22 @@ import java.util.List;
 import listeners.model.Constants;
 
 public class SpeechUtilsBundle_en_US extends SpeechUtilsBundle {
+
+	protected String buildAbandonmentMessage() {
+
+		// does not set the sessionAttributes
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: attributes.getAffect();
+		String amsg;
+		if (attributes.isPositive(affect))
+			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
+					+ s("Still,", "Whatever, " + breath()), affect);
+		else
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
+		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+	}
 
 	protected String chooseContinue(boolean promptForAffect) {
 
@@ -130,20 +147,62 @@ public class SpeechUtilsBundle_en_US extends SpeechUtilsBundle {
 		return s;
 	}
 
-	protected String buildAbandonmentMessage() {
+	protected String heardAllFragments() {
 
-		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
-				: attributes.getAffect();
-		String amsg;
-		if (attributes.isPositive(affect))
-			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
-					+ s("Still,", "Whatever, " + breath()), affect);
-		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+		String speech = "We're pretty sure " + s("that", "that, " + s("by", "") + "now,") + "you've heard ";
+		speech += s("most", "all") + "of what we can " + s("tell you,", "say to you,");
+		speech += s(s("at this time,", "for the time being,"), "");
+		speech += s("coherently.", "");
+		speech += "But we " + s("will " + s("always", "") + "be", "are " + s("always", ""));
+		speech += s("more than", "") + "happy to keep on churning out these words ";
+		speech += s("of yours", "") + s("so long as", "if") + "you " + s(s("need", "want"), "ask")
+				+ "us to 'continue'. ";
+		return speech += breath();
+	}
+
+	protected String pleaseContinueCardTitle() {
+
+		return S("More to say, with thanks ...", "Continuing, grateful for your courtesy ...");
+	}
+
+	protected String pleaseContinuePreSpeech() {
+
+		return s(S("Uh-huh, i", "I") + "t's a pleasure.", "") + s(
+				"Thank you for " + s(s("asking to continue.", "asking."), "asking to continue, so nicely."),
+				"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It's a pleasure.", ""))
+				+ breath();
+	}
+
+	protected String preSpeechFeelings() {
+
+		String preSpeech = "";
+
+		String affect = (String) sessionAttributes.get(AFFECT);
+
+		if ("".equals(affect)) {
+			preSpeech += "We don't " + s("seem to", "") + "know "
+					+ s("what feelings possess you.", "the feelings that you are experiencing.") + breath();
+			preSpeech += s("Please", "Why don't you") + s("tell us,", "give us that information,")
+					+ "if you wish. " + breathLong();
+		}
+		else {
+			if (attributes.isPositive(affect)) {
+				preSpeech = "We are " + s("so", "") + s("pleased", "happy");
+				preSpeech = randInt(0, 3) == 0 ? "It's cool " : preSpeech;
+			}
+			else {
+				String adjective = s("sorry", "upset");
+				String intensifier = adjective.equals("upset ") ? "a bit " : "very ";
+				preSpeech = "We are " + s(adjective, intensifier + adjective);
+				preSpeech = randInt(0, 3) == 0 ? "It's " + s("quite", "a little") + "troubling for us "
+						: preSpeech;
+
+			}
+			preSpeech += String
+					.format("to " + s("know", "hear") + "that you are filled with %s. " + breathLong(), affect);
+		}
+
+		return preSpeech;
 	}
 
 }

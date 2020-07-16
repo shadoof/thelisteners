@@ -2,14 +2,27 @@ package listeners.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.requestType;
-import static listeners.model.Attributes.*;
-import static listeners.model.Constants.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.FRAGMENTINDEX;
+import static listeners.model.Attributes.LISTENERSAFFECT;
+import static listeners.model.Attributes.NOT_YET_GREETED;
+import static listeners.model.Attributes.initSessionAttributes;
+import static listeners.model.Attributes.persistentAttributes;
+import static listeners.model.Attributes.sessionAttributes;
+import static listeners.model.Constants.DEV;
+import static listeners.model.Constants.LIVE;
+import static listeners.model.Constants.PERFORMANCE;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.attributesManager;
+import static listeners.model.Constants.langConstants;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.ConstantUtils.S;
 import static listeners.util.ConstantUtils.info;
 
 import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
@@ -21,7 +34,7 @@ import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
-import listeners.util.SpeechUtils;
+import listeners.util.UnknownIntentException;
 
 public class LsnrsRequestHandler implements RequestHandler {
 
@@ -54,15 +67,14 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// get the AttributesManager and put it in Constants
 		attributesManager = input.getAttributesManager();
 		// get singleton instance of Attributes and put it in Constants
-		attributes = Attributes.getInstance(locale);
-		Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
-		Map<String, Object> sessionAttributes = attributesManager.getSessionAttributes();
+		attributes = Attributes.getInstance(locale, attributesManager);
 		// these instances are also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
-		speechUtils = SpeechUtils.getInstance(locale); // can make new instances
+		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtilsBundle", locale);
+		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
 		String relationship = "normal"; // this is the default
-		if ((persistentAttributes.isEmpty() && sessionAttributes.isEmpty())
+		if (persistentAttributes.isEmpty()
 		// TODO remove (this is for dev and debugging):
 		// || (persistentAttributes.get("relationship") != null &&
 		// persistentAttributes.get("relationship")
@@ -88,12 +100,16 @@ public class LsnrsRequestHandler implements RequestHandler {
 		if (!sessionAttributes.isEmpty()) {
 			relationship = "firstEncounter";
 			if (input.matches(requestType(LaunchRequest.class))) {
-				return new LsnrsLaunchResponse(persistentAttributes, sessionAttributes).getResponse(input,
-						relationship);
+				return new LsnrsLaunchResponse(input, relationship).getResponse();
 			}
 			else {
-				return new LsnrsIntentResponse(persistentAttributes, sessionAttributes).getResponse(input,
-						relationship);
+				try {
+					return new LsnrsIntentResponse(input, relationship).getResponse();
+				}
+				catch (UnknownIntentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 
@@ -106,9 +122,9 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// is it a non-firstEncounter launch request?
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// is it at beginning of session?
-			if ((int) sessionAttributes.get(FRAGMENTCOUNT) == NOT_YET_GREETED) {
+			if ((int) sessionAttributes.get(FRAGMENTINDEX) == NOT_YET_GREETED) {
 				info("@ListenersRequestHandler: launch request at beginning of session");
-				sessionAttributes.put(FRAGMENTCOUNT, 0);
+				sessionAttributes.put(FRAGMENTINDEX, 0);
 				relationship = "ask"; // about startingOver
 			}
 
@@ -129,8 +145,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 				persistentAttributes.put("relationship", "normal");
 			}
 
-			return new LsnrsLaunchResponse(persistentAttributes, sessionAttributes).getResponse(input,
-					relationship);
+			return new LsnrsLaunchResponse(input, relationship).getResponse();
 		}
 
 		// must be a non-firstEncounter IntentRequest
@@ -141,18 +156,18 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 			String cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
 					: S("That's e", "E") + "nough";
-			String speech = speechUtils.getAbandonmentMessage();
+			String speech = speechUtils.getString("getAbandonmentMessage");
 			String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
 			speech += attributes.isPositive((String) sessionAttributes.get(AFFECT)) ? bye : "";
 			ResponseFinisher rf = ResponseFinisher.builder()
-					.withSpeech(speechUtils.getAbandonmentMessage())
+					.withSpeech(speech)
 					.build();
 
 			// for now, on STOP or CANCEL we clear persistentAttributes
 			// and set relationship to "ask"
 			persistentAttributes.clear();
-			persistentAttributes.put("relationship", "ask"); // comment this for
-																												// firstEncounter
+			// comment the following for a firstEncounter or use DEV
+			if (!DEV) persistentAttributes.put("relationship", "ask");
 			attributesManager.savePersistentAttributes();
 			return input.getResponseBuilder()
 					.withSpeech(rf.getSpeech())
@@ -161,11 +176,18 @@ public class LsnrsRequestHandler implements RequestHandler {
 					.build();
 		}
 
-		info("@ListenersRequestHandler:" + persistentAttributes + " " + sessionAttributes + " " + input
-				+ " " + relationship);
+		// info("@ListenersRequestHandler:" + persistentAttributes + " " + sessionAttributes + " " +
+		// input
+		// + " " + relationship);
 
-		return new LsnrsIntentResponse(persistentAttributes, sessionAttributes).getResponse(input,
-				relationship);
+		try {
+			return new LsnrsIntentResponse(input, relationship).getResponse();
+		}
+		catch (UnknownIntentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 
 		// only here after a firstEncounter and if a session has started
 		// info("@ListenersRequestHandler, persistentAttributes: " +

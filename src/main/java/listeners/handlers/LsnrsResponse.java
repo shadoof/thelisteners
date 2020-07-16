@@ -1,16 +1,14 @@
 package listeners.handlers;
 
-import java.util.Map;
+import java.util.Optional;
 
-public abstract class LsnrsResponse implements LsnrsResponsible {
+import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.model.Response;
 
-	protected Map<String, Object> persistentAttributes;
-	protected Map<String, Object> sessionAttributes;
+import listeners.util.UnknownIntentException;
 
-	public LsnrsResponse(Map<String, Object> persistentAttributes,
-			Map<String, Object> sessionAttributes) {
+public interface LsnrsResponse {
 
-		this.persistentAttributes = persistentAttributes;
-		this.sessionAttributes = sessionAttributes;
-	}
+	Optional<Response> getResponse() throws UnknownIntentException;
+
 }

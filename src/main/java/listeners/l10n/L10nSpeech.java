@@ -1,13 +1,12 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.*;
-import static listeners.model.LangConstants.*;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.ConstantUtils.S;
 
 import java.util.ListResourceBundle;
 import java.util.MissingResourceException;
 
-import listeners.util.SpeechUtils;
 
 public abstract class L10nSpeech extends ListResourceBundle implements ResponseSpeech {
 
@@ -47,7 +46,7 @@ public abstract class L10nSpeech extends ListResourceBundle implements ResponseS
 			if (!(e instanceof MissingResourceException)) {
 				e.printStackTrace();
 			}
-			pst = speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
+			pst = speechUtils.getString("chooseContinueNoAffect");
 		}
 		return pst;
 	}
@@ -62,7 +61,7 @@ public abstract class L10nSpeech extends ListResourceBundle implements ResponseS
 			if (!(e instanceof MissingResourceException)) {
 				e.printStackTrace();
 			}
-			r = speechUtils.chooseContinue();
+			r = speechUtils.getString("chooseContinue");
 		}
 		return r;
 	}

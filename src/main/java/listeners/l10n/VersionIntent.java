@@ -32,17 +32,17 @@ public class VersionIntent extends L10nSpeech {
 			return ""; // empty string
 		}
 		else
-			return speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
+			return speechUtils.getString("chooseContinueNoAffect");
 	}
 
 	public String buildReprompt() {
 
-		String s = speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
+		String s = speechUtils.getString("chooseContinueNoAffect");
 		if (DEV && !LIVE) {
 			return buildSpeech() + " " + breath() + s;
 		}
 		else
-			return speechUtils.chooseContinue(DO_NOT_PROMPT_AFFECT);
+			return speechUtils.getString("chooseContinueNoAffect");
 	}
 
 	public String buildSpeech() {

@@ -1,15 +1,13 @@
 package listeners.model;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import com.amazon.ask.attributes.AttributesManager;
 
-import listeners.util.SpeechUtils;
 
 public class Constants {
 
@@ -64,7 +62,8 @@ public class Constants {
 	public static AttributesManager attributesManager;
 	public static Attributes attributes;
 	public static LangConstants langConstants;
-	public static SpeechUtils speechUtils;
+	public static ResourceBundle speechUtils;
+//	public static SpeechUtils speechUtils;
 
 	static {
 		PAUSES_MAP = new HashMap<>();

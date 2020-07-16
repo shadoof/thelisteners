@@ -5,6 +5,8 @@ import com.amazon.ask.model.Response;
 import listeners.model.Constants;
 import org.slf4j.Logger;
 
+import static listeners.util.ConstantUtils.info;
+
 import java.util.Optional;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -23,6 +25,8 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 	public Optional<Response> handle(HandlerInput input, Throwable throwable) {
 
 		LOG.error("Error message is " + throwable.getMessage());
+		info("Cause: " + throwable.getCause());
+	  throwable.printStackTrace();
 		return input.getResponseBuilder()
 				.withSpeech(Constants.EXCEPTION_MESSAGE)
 				.withReprompt(Constants.EXCEPTION_MESSAGE)

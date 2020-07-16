@@ -112,7 +112,7 @@ public class LangConstants {
 		return hs;
 	}
 
-	private static void buildFragments() {
+	public static void buildFragments() {
 
 		ResourceBundle.clearCache();
 		Fragments fs = (Fragments) ResourceBundle.getBundle("listeners.l10n.Fragments", locale);

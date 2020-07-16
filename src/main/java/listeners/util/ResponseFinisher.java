@@ -3,9 +3,7 @@ package listeners.util;
 import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.LangConstants.dateString;
 import static listeners.model.LangConstants.polyVoiceWrapper;
-import static listeners.util.ConstantUtils.breathLongest;
-import static listeners.util.ConstantUtils.insertPauseTags;
-import static listeners.util.ConstantUtils.stripSsmlTags;
+import static listeners.util.ConstantUtils.*;
 
 import java.util.Map;
 
@@ -23,44 +21,17 @@ public class ResponseFinisher {
 
 	public ResponseFinisher(Builder builder) {
 
+		if ("".equals(builder.preamble))
+			this.cardText = removePauseTags(builder.speech);
+		else
+			this.cardText = removePauseTags(builder.preamble) + "\nTHE LISTENERS ...\n" + removePauseTags(builder.speech);
+		
 		this.speech = "<speak>" + insertPauseTags(builder.preamble) + polyVoiceWrapper
 				+ insertPauseTags(builder.speech.concat(builder.postSpeechPrompt)) + "</lang></voice></speak>";
-		this.cardText = stripSsmlTags(insertPauseTags(builder.speech));
+
 		this.reprompt = "<speak>" + polyVoiceWrapper + insertPauseTags(builder.reprompt)
 				+ "</lang></voice></speak>";
 	}
-
-	// simple: no preamble
-	// public ResponseFinisher(String localeTag, String speech, String
-	// postSpeechPrompt, String reprompt) {
-	//
-	// this.speech = buildSimpleSpeech(speech, postSpeechPrompt);
-	// this.reprompt = buildSimpleReprompt(reprompt);
-	// }
-
-	// may have preamble
-	// public ResponseFinisher(String localeTag, String preamble, String speech,
-	// String postSpeechPrompt, String reprompt) {
-	//
-	// this(localeTag, speech, postSpeechPrompt, reprompt);
-	//
-	// if (!"".equals(preamble)) {
-	// this.speech = this.speech.replace("<speak>", "<speak>" +
-	// insertPauseTags(preamble + breathLongest()));
-	// }
-	// }
-
-//	private String buildSimpleReprompt(String reprompt) {
-//
-//		reprompt = insertPauseTags(reprompt);
-//		return "<speak>" + polyVoiceWrapper + reprompt + "</lang></voice></speak>";
-//	}
-//
-//	private String buildSimpleSpeech(String speech, String postSpeechPrompt) {
-//
-//		speech = insertPauseTags(speech + postSpeechPrompt);
-//		return "<speak>" + polyVoiceWrapper + speech + "</lang></voice></speak>";
-//	}
 
 	public String getCardText() {
 
@@ -82,9 +53,6 @@ public class ResponseFinisher {
 
 		// this(localeTag, speech, postSpeechPrompt, reprompt);
 
-		// TODO if (speech == null || reprompt == null)
-		// throw new SpeechletException("Nothing to say ... for Fragment: " +
-		// fragmentIndex);
 
 		// TODO: session related *** FROM HERE ... ***
 		// Session session = getListenerSession();
@@ -276,8 +244,6 @@ public class ResponseFinisher {
 		// speech = "<speak>" + polyVoiceWrapper + speech +
 		// "</lang></voice></speak>";
 		// ssmlSpeech.setSsml("<speak>" + speech + "</speak>");
-
-		// TODO preSpeech = ""; // immediately ensure that it defaults to nothing.
 
 		// Create reprompt. NB: now using SSML
 		// SsmlOutputSpeech ssmlReprompt = new SsmlOutputSpeech();

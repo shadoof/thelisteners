@@ -28,7 +28,44 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 			{ "chooseTellUsAbout", chooseTellUsAbout() },
 			{ "chooseUnsureAboutAffect", chooseUnsureAboutAffect() },
 			{ "chooseYouCanFindOutAffect", chooseYouCanFindOutAffect() },
-			{ "getAbandonmentMessage", buildAbandonmentMessage() } };
+			{ "continueCardTitle", continueCardTitle() },
+			{ "getPreamble", buildPreamble() },
+			{ "getAbandonmentMessage", buildAbandonmentMessage() },
+			{ "heardAllFragments", heardAllFragments() },
+			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
+			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
+			{ "preSpeechFeelings", preSpeechFeelings() } };
+
+	protected String buildAbandonmentMessage() {
+
+		// does not set the sessionAttributes
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: attributes.getAffect();
+		String amsg;
+		if (attributes.isPositive(affect))
+			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
+					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
+		else
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
+		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+	}
+
+	protected String buildPreamble() {
+
+		String preamble = s("Unless we're mistaken, this is", "This seems to be")
+				+ "your first encounter with 'The Listeners'. ";
+		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
+				+ "they listen. ";
+		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
+		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
+		preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, "
+				+ s("clearly,", s("firmly,", "")) + "'Alexa, Stop!' ";
+		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
+				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
+		return preamble;
+	}
 
 	protected String chooseContinue() {
 
@@ -195,25 +232,73 @@ public class SpeechUtilsBundle extends ListResourceBundle {
 		return s;
 	}
 
-	protected String buildAbandonmentMessage() {
-
-		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
-				: attributes.getAffect();
-		String amsg;
-		if (attributes.isPositive(affect))
-			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
-					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
-		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
-	}
-
 	protected Object[][] getContents() {
 
 		return contents;
+	}
+
+	protected String heardAllFragments() {
+
+		String speech = "We believe " + s("that", "that, " + s("by", "") + "now,") + "you " + s("will", "")
+				+ "have heard ";
+		speech += s("most", "all") + "of what we are able to " + s("tell you,", "say to you,");
+		speech += s(s("at this time,", "for the time being,"), "");
+		speech += s("coherently.", "");
+		speech += "But we " + s("will " + s("always", "") + "be", "are " + s("always", ""));
+		speech += s("more than", "") + "happy to " + s("keep on chaining", "chain") + "these words ";
+		speech += s("of yours", "") + "together for you, " + s("so long as", "if") + "you "
+				+ s(s("need", "want"), "ask") + "us to 'continue'. ";
+		return speech += breath();
+	}
+
+	protected String continueCardTitle() {
+
+		return S("Continue ...", S("Go on ...", S("Always m", "M") + "ore ..."));
+	}
+
+	protected String pleaseContinueCardTitle() {
+
+		return S("Going on, with thanks ...", "Continuing, grateful for your courtesy ...");
+	}
+
+	protected String pleaseContinuePreSpeech() {
+
+		return s(S("Of course, i", "I") + "t's a pleasure.", "") + s(
+				"Thank you for " + s(s("asking to continue.", "asking."), "asking to continue, so nicely."),
+				"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It's a pleasure.", ""))
+				+ breath();
+	}
+
+	protected String preSpeechFeelings() {
+
+		String preSpeech = "";
+
+		String affect = (String) sessionAttributes.get(AFFECT);
+
+		if ("".equals(affect)) {
+			preSpeech += "We do not seem to " + s("know about,", "be aware of,")
+					+ s("the feelings that possess you.", "the feelings that you are experiencing.") + breath();
+			preSpeech += s("Please", "You may") + s("tell us,", "inform us about them,") + "if you wish. "
+					+ breathLong();
+		}
+		else {
+			if (attributes.isPositive(affect)) {
+				preSpeech = "We are " + s("so", "") + s("pleased", "delighted");
+				preSpeech = randInt(0, 3) == 0 ? "It is pleasing to us " : preSpeech;
+			}
+			else {
+				String adjective = s("sorry", "dismayed");
+				String intensifier = "dismayed ".equals(adjective) ? "somewhat " : "very ";
+				preSpeech = "We are " + s(adjective, intensifier + adjective);
+				preSpeech = randInt(0, 3) == 0 ? "It is " + s("somewhat", "a little") + "troubling for us "
+						: preSpeech;
+
+			}
+			preSpeech += String.format(
+					"to " + s("know", "have learned") + "that you are filled with %s. " + breathLong(), affect);
+		}
+
+		return preSpeech;
 	}
 
 }
