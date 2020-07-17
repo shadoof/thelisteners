@@ -1,8 +1,8 @@
 package listeners.model;
 
 import static listeners.model.Constants.attributesManager;
-import static listeners.util.ConstantUtils.randInt;
-import static listeners.util.ConstantUtils.info;
+import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.info;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,13 +23,13 @@ public class Attributes {
 
 	private Attributes(Locale locale) {
 		
-		sessionAttributes = initSessionAttributes();
+		sessAttributes = initSessionAttributes();
 	}
 
 	private Attributes(Locale locale, AttributesManager attributesManager) {
 
-		persistentAttributes = attributesManager.getPersistentAttributes();
-		sessionAttributes = attributesManager.getSessionAttributes();
+		persAttributes = attributesManager.getPersistentAttributes();
+		sessAttributes = attributesManager.getSessionAttributes();
 	}
 
 	public static Attributes getInstance(Locale locale) {
@@ -69,8 +69,8 @@ public class Attributes {
 	public static final String THING_SLOT = "ThingName";
 
 	// attributes objects
-	public static Map<String, Object> persistentAttributes;
-	public static Map<String, Object> sessionAttributes;
+	public static Map<String, Object> persAttributes;
+	public static Map<String, Object> sessAttributes;
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
@@ -106,23 +106,6 @@ public class Attributes {
 		return m;
 	}
 
-	public String getAffect() {
-
-		if (attributesManager == null) {
-			info("@Attributes: no AttributesManager");
-			return null;
-		}
-		return (String) attributesManager.getSessionAttributes()
-				.get(AFFECT);
-	}
-
-	public void setAffect(String affect) {
-
-		if (attributesManager == null) info("@Attributes: no AttributesManager");
-		attributesManager.getSessionAttributes()
-				.put(AFFECT, affect);
-	}
-
 	public String getRandomAffect() {
 
 		ArrayList al = new ArrayList<>(LangConstants.AFFECTS_MAP.keySet());
@@ -131,24 +114,29 @@ public class Attributes {
 
 	public boolean isEmptyForSession(String key) {
 
-		// info("aManager: " + attributesManager);
-		if (attributesManager == null)
-			return true;
-		else
-			return (attributesManager.getSessionAttributes()
-					.get(key) == null)
-					|| ((String) attributesManager.getSessionAttributes()
-							.get(key)).isEmpty();
+		return sessAttributes == null 
+			|| sessAttributes.get(key) == null 
+			|| ((String) sessAttributes.get(key)).isEmpty();
 	}
 
 	public boolean isPositive(String affect) {
 
+		if (affect == null) return false;
 		boolean affectIsPositive = (LangConstants.AFFECTS_MAP.containsKey(affect))
 				? LangConstants.AFFECTS_MAP.get(affect)
 				: false;
 		return affectIsPositive = (LangConstants.SPECIAL_AFFECT_MAP.containsKey(affect))
 				? LangConstants.SPECIAL_AFFECT_MAP.get(affect)
 				: affectIsPositive;
+	}
+
+	public String setAndGetRandomAffectIfEmpty(String affect) {
+
+		if (affect == null || affect.isEmpty()) {
+			affect = getRandomAffect();
+			sessAttributes.put(AFFECT, affect);
+		}		
+		return affect;
 	}
 
 }

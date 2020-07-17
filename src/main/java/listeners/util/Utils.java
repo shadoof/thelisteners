@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 
-public class ConstantUtils {
+public class Utils {
 
 	private static final Random RANDOM = new Random();
 

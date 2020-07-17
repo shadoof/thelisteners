@@ -9,8 +9,8 @@ import static listeners.model.Constants.VERSION_DATE_DEV;
 import static listeners.model.Constants.VERSION_DATE_LIVE;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
-import static listeners.util.ConstantUtils.breath;
-import static listeners.util.ConstantUtils.s;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.s;
 
 import listeners.model.Constants;
 import listeners.model.LangConstants;

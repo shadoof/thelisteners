@@ -1,10 +1,11 @@
 package listeners.l10n;
 
 import static listeners.model.Constants.attributes;
-import static listeners.util.ConstantUtils.S;
-import static listeners.util.ConstantUtils.breath;
-import static listeners.util.ConstantUtils.breathShort;
-import static listeners.util.ConstantUtils.s;
+import static listeners.model.Attributes.*;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.s;
 
 public class DontKnowAffectIntent_en_US extends DontKnowAffectIntent {
 
@@ -17,7 +18,7 @@ public class DontKnowAffectIntent_en_US extends DontKnowAffectIntent {
 	public String buildSpeech() {
 
 		String s = S("uncertainty", "insecurity");
-		attributes.setAffect(s);
+		sessAttributes.put(AFFECT, s);
 		String speech = s("We're " + s("a bit", "") + "distressed to",
 				"It is " + s("a little", "") + s("upsetting", "disturbing") + "to know") + "that you don't "
 				+ s("even", "") + "know how you feel. ";

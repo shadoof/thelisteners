@@ -1,6 +1,6 @@
 package listeners.handlers;
 
-import static listeners.util.ConstantUtils.*;
+import static listeners.util.Utils.*;
 import static listeners.model.Constants.*;
 import static listeners.model.LangConstants.*;
 
@@ -30,7 +30,7 @@ public class TestHandler {
 
 		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
-		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtilsBundle", locale);
+		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 				
 //		// fragments (10 speeches The Listeners like to make)
 //		// have been built and stored in LangConstants instance

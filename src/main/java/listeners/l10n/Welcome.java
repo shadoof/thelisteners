@@ -1,10 +1,10 @@
 package listeners.l10n;
 
-import static listeners.util.ConstantUtils.S;
-import static listeners.util.ConstantUtils.breath;
-import static listeners.util.ConstantUtils.breathLong;
-import static listeners.util.ConstantUtils.breathShort;
-import static listeners.util.ConstantUtils.s;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathLong;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.s;
 
 public class Welcome extends L10nSpeech {
 

@@ -1,6 +1,6 @@
 package listeners.util;
 
-import static listeners.util.ConstantUtils.info;
+import static listeners.util.Utils.info;
 
 
 public class UnknownIntentException extends Exception {

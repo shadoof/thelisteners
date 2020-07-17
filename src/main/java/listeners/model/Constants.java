@@ -44,6 +44,7 @@ public class Constants {
 
 	// for readability
 	public static final String EXCEPTION_MESSAGE = "Sorry, I can't understand the command. Please say again.";
+	public static final String RELATIONSHIP = "relationship"; // key
 	public static final String SPC = " ";
 	public static final Map<String, String> PAUSES_MAP;
 	public static final HashSet<String> NO_MORE;
@@ -76,7 +77,7 @@ public class Constants {
 
 		NO_MORE = new HashSet<>();
 		NO_MORE.add("NoIntent");
-		NO_MORE.add("ThankYouNoIntent");
+		NO_MORE.add("ThanksNoIntent");
 		NO_MORE.add("AMAZON.StopIntent");
 		NO_MORE.add("AMAZON.CancelIntent");
 

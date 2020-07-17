@@ -6,8 +6,8 @@ import static listeners.model.Constants.HOW_MANY_FRAGMENT_SETS;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.removeInterSentencePauses;
+import static listeners.util.Utils.info;
+import static listeners.util.Utils.removeInterSentencePauses;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

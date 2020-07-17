@@ -1,10 +1,12 @@
 package listeners.l10n;
 
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.attributes;
-import static listeners.util.ConstantUtils.S;
-import static listeners.util.ConstantUtils.breath;
-import static listeners.util.ConstantUtils.breathShort;
-import static listeners.util.ConstantUtils.s;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.s;
 
 
 public class DontCareIntent_en_US extends DontCareIntent {
@@ -16,7 +18,7 @@ public class DontCareIntent_en_US extends DontCareIntent {
 
 	public String buildSpeech() {
 
-		attributes.setAffect("indifference");
+		sessAttributes.put(AFFECT, "indifference");
 		String speech = "We're " + s(s("very", "") + "sorry", s("a bit", "") + "upset") + "that you feel " + s("this", "that") + "way. ";
 		speech += "And we " + s("feel like", "guess that") + "you are filled with 'indifference'. " + breathShort();
 		speech += "We " + s("hope, nonetheless,", "hope") + "that we can " + s("keep", "go on")

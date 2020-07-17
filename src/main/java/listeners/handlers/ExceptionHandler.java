@@ -5,7 +5,7 @@ import com.amazon.ask.model.Response;
 import listeners.model.Constants;
 import org.slf4j.Logger;
 
-import static listeners.util.ConstantUtils.info;
+import static listeners.util.Utils.info;
 
 import java.util.Optional;
 

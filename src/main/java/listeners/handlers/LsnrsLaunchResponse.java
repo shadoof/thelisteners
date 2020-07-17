@@ -1,7 +1,7 @@
 package listeners.handlers;
 
 import static listeners.model.Attributes.AFFECT;
-import static listeners.model.Attributes.sessionAttributes;
+import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
 
@@ -28,25 +28,24 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 
 	public Optional<Response> getResponse() {
 
+		// *** 1. ***
 		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble") : "";
 
+		// *** 2. and 3. ***
 		ResourceBundle.clearCache();
 		Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
 
 		// Welcome at launch gets special treatment
 		// for postSpeechPrompt and reprompt
 		String postSpeechPrompt = "", reprompt = "";
-		String affect = (String) sessionAttributes.get(AFFECT);
-		if (affect == null || "".equals(affect)) {
-			// extra help for initial welcome:
+		String affect = (String) sessAttributes.get(AFFECT);
+		if (affect == null || affect.isEmpty()) {
+			// *** 1. or 2. extra help for initial welcome:
 			postSpeechPrompt = speechUtils.getString("chooseSpeechAssistance");
 			reprompt = speechUtils.getString("chooseUnsureAboutAffect");
 		}
 		else {
-			// not sure if this can happen:
-			// (LauchRequest triggered from within a session)
-			// if it can, set affect to the empty string
-			sessionAttributes.put(AFFECT, "");
+			// *** 3. ***
 			reprompt = speechUtils.getString("chooseContinue");
 		}
 

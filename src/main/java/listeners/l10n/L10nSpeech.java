@@ -2,7 +2,7 @@ package listeners.l10n;
 
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
-import static listeners.util.ConstantUtils.S;
+import static listeners.util.Utils.S;
 
 import java.util.ListResourceBundle;
 import java.util.MissingResourceException;

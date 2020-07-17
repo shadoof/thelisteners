@@ -4,21 +4,15 @@ import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.requestType;
 import static listeners.model.Attributes.AFFECT;
 import static listeners.model.Attributes.FRAGMENTINDEX;
+import static listeners.model.Attributes.HEARDNO;
 import static listeners.model.Attributes.LISTENERSAFFECT;
 import static listeners.model.Attributes.NOT_YET_GREETED;
 import static listeners.model.Attributes.initSessionAttributes;
-import static listeners.model.Attributes.persistentAttributes;
-import static listeners.model.Attributes.sessionAttributes;
-import static listeners.model.Constants.DEV;
-import static listeners.model.Constants.LIVE;
-import static listeners.model.Constants.PERFORMANCE;
-import static listeners.model.Constants.attributes;
-import static listeners.model.Constants.attributesManager;
-import static listeners.model.Constants.langConstants;
-import static listeners.model.Constants.localeTag;
-import static listeners.model.Constants.speechUtils;
-import static listeners.util.ConstantUtils.S;
-import static listeners.util.ConstantUtils.info;
+import static listeners.model.Attributes.persAttributes;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.*;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.info;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -68,131 +62,94 @@ public class LsnrsRequestHandler implements RequestHandler {
 		attributesManager = input.getAttributesManager();
 		// get singleton instance of Attributes and put it in Constants
 		attributes = Attributes.getInstance(locale, attributesManager);
+		info("@LsnrsRequestHandler, init sessAttributes.get(HEARDNO): " + sessAttributes.get(HEARDNO));
 		// these instances are also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
-		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtilsBundle", locale);
+		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
-		String relationship = "normal"; // this is the default
-		if (persistentAttributes.isEmpty()
+		// possibilities are
+		// *** 0. ask with either request TODO
+		// *** 1. firstEncounter launch request
+		// *** 2. sessionStart launch request
+		// *** 3. normal launch request -> ASK TODO
+		// *** 4. firstEncounter intent request
+		// *** 5. sessionStart intent request
+		// *** 6. normal intent request (most common)
+		//
+
+		if (persAttributes.isEmpty()
 		// TODO remove (this is for dev and debugging):
-		// || (persistentAttributes.get("relationship") != null &&
-		// persistentAttributes.get("relationship")
+		// || (persistentAttributes.get(RELATIONSHIP) != null &&
+		// persistentAttributes.get(RELATIONSHIP)
 		// .equals("ask"))
 		) {
+			// *** 0. ***
+			// deal with ASK relationship here TODO
+
 			// very first encounter
-			info("@ListenersRequestHandler: firstEncounter");
-			persistentAttributes.put("relationship", relationship);
+			persAttributes.put(RELATIONSHIP, "firstEncounter");
+		}
+		else {
+			persAttributes.put(RELATIONSHIP, "normal");
+		}
+		info("@ListenersRequestHandler, relationship: " + persAttributes.get(RELATIONSHIP));
 
-			// initializing session attributes, only if empty
-			if (sessionAttributes.isEmpty()) sessionAttributes = initSessionAttributes();
+		info("@ListenersRequestHandler, sessAttributes: " + sessAttributes);
+		if (sessAttributes.isEmpty()) {
+			persAttributes.put(RELATIONSHIP, "sessionStart");
+			// initialize session attributes
+			sessAttributes = initSessionAttributes();
+			info("@LsnrsRequestHandler, after assignment sessAttributes.get(HEARDNO): " + sessAttributes.get(HEARDNO));
 			info("@ListenersRequestHandler: sessionAttributes are "
-					+ (sessionAttributes.isEmpty() ? "empty" : "initialized"));
-
+					+ (sessAttributes.isEmpty() ? "empty" : "initialized"));
 			// Listeners affect has been set to a random affect: // TODO remove later:
-			info("@ListenersRequestHandler, listenersAffect: " + sessionAttributes.get(LISTENERSAFFECT));
+			info("@ListenersRequestHandler, listenersAffect: " + sessAttributes.get(LISTENERSAFFECT));
 		}
 
 		// TODO may have to change once Dialogs are in place
+		// saving relationship:
 		attributesManager.savePersistentAttributes();
 
-		// if it was a firstEncounter sessionAttributes are NOT empty
-		if (!sessionAttributes.isEmpty()) {
-			relationship = "firstEncounter";
-			if (input.matches(requestType(LaunchRequest.class))) {
-				return new LsnrsLaunchResponse(input, relationship).getResponse();
-			}
-			else {
-				try {
-					return new LsnrsIntentResponse(input, relationship).getResponse();
-				}
-				catch (UnknownIntentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-
-		// otherwise there are still a few scenarios
-		// but must initializeSession attributes, if empty
-		if (sessionAttributes.isEmpty()) sessionAttributes = initSessionAttributes();
-		info("@ListenersRequestHandler: sessionAttributes are "
-				+ (sessionAttributes.isEmpty() ? "empty" : "initialized"));
-
-		// is it a non-firstEncounter launch request?
 		if (input.matches(requestType(LaunchRequest.class))) {
-			// is it at beginning of session?
-			if ((int) sessionAttributes.get(FRAGMENTINDEX) == NOT_YET_GREETED) {
-				info("@ListenersRequestHandler: launch request at beginning of session");
-				sessionAttributes.put(FRAGMENTINDEX, 0);
-				relationship = "ask"; // about startingOver
-			}
-
-			if (persistentAttributes.get("relationship") != null && persistentAttributes.get("relationship")
-					.equals("normal")) {
-				info("@ListenersRequestHandler: not first exchange but perhaps startingOver");
-				relationship = "ask";
-			}
-
-			if ("ask".equals(relationship)) {
-				// TODO
-				// use Dialog interface if possible to confirm startingOver
-				// for now:
-				relationship = "normal";
-				persistentAttributes.put("relationship", "normal");
-			}
-			else {
-				persistentAttributes.put("relationship", "normal");
-			}
-
-			return new LsnrsLaunchResponse(input, relationship).getResponse();
+			// *** 1. 2. and 3. ***
+			return new LsnrsLaunchResponse(input, (String) persAttributes.get(RELATIONSHIP))
+					.getResponse();
 		}
+		else {
+			// must be an Intent request
+			// we deal with STOP and CANCEL AMAZON intents right away, here
+			if (input.matches(intentName("AMAZON.StopIntent").or(intentName("AMAZON.CancelIntent")))) {
 
-		// must be a non-firstEncounter IntentRequest
-		info("@ListenersRequestHandler: non-firstEncounter IntentRequest");
+				String cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
+						: S("That's e", "E") + "nough";
+				String speech = speechUtils.getString("getAbandonmentMessage");
+				String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
+				speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
+				ResponseFinisher rf = ResponseFinisher.builder()
+						.withSpeech(speech)
+						.build();
 
-		// we deal with STOP and CANCEL AMAZON intents right away, here
-		if (input.matches(intentName("AMAZON.StopIntent").or(intentName("AMAZON.CancelIntent")))) {
-
-			String cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
-					: S("That's e", "E") + "nough";
-			String speech = speechUtils.getString("getAbandonmentMessage");
-			String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
-			speech += attributes.isPositive((String) sessionAttributes.get(AFFECT)) ? bye : "";
-			ResponseFinisher rf = ResponseFinisher.builder()
-					.withSpeech(speech)
-					.build();
-
-			// for now, on STOP or CANCEL we clear persistentAttributes
-			// and set relationship to "ask"
-			persistentAttributes.clear();
-			// comment the following for a firstEncounter or use DEV
-			if (!DEV) persistentAttributes.put("relationship", "ask");
-			attributesManager.savePersistentAttributes();
-			return input.getResponseBuilder()
-					.withSpeech(rf.getSpeech())
-					.withSimpleCard(cardTitle, rf.getCardText())
-					.withShouldEndSession(true)
-					.build();
+				// for now, on STOP or CANCEL we clear persistentAttributes
+				// and set relationship to "ask"
+				persAttributes.clear();
+				// comment the following for a firstEncounter or use DEV
+				if (!DEV) persAttributes.put(RELATIONSHIP, "ask");
+				attributesManager.savePersistentAttributes();
+				return input.getResponseBuilder()
+						.withSpeech(rf.getSpeech())
+						.withSimpleCard(cardTitle, rf.getCardText())
+						.withShouldEndSession(true)
+						.build();
+			}
+			try {
+				// *** 4. 5. and 6. ***
+				return new LsnrsIntentResponse(input, (String) persAttributes.get(RELATIONSHIP))
+						.getResponse();
+			}
+			catch (UnknownIntentException e) {
+				return null;
+			}
 		}
-
-		// info("@ListenersRequestHandler:" + persistentAttributes + " " + sessionAttributes + " " +
-		// input
-		// + " " + relationship);
-
-		try {
-			return new LsnrsIntentResponse(input, relationship).getResponse();
-		}
-		catch (UnknownIntentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-
-		// only here after a firstEncounter and if a session has started
-		// info("@ListenersRequestHandler, persistentAttributes: " +
-		// persistentAttributes.toString());
-
 	}
-
 }

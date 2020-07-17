@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "listeners three",
+            "invocationName": "harold wells",
             "intents": [
                 {
                     "name": "ContinueIntent",
@@ -112,19 +112,23 @@
                     ]
                 },
                 {
-                    "name": "ILoveYouIntent",
+                    "name": "SpkrsLoveLsnrsIntent",
                     "slots": [],
                     "samples": [
                         "i like you",
                         "i like you Alexa",
+                        "i like you Listeners",
                         "i love you",
                         "i love you Alexa",
+                        "i love you Listeners",
                         "you are beautiful",
                         "you have a beautiful voice",
                         "we like you",
                         "we like you Alexa",
+                        "we like you Listeners",
                         "we love you",
-                        "we love you Alexa"
+                        "we love you Alexa",
+                        "we love you Listeners"
                     ]
                 },
                 {
@@ -141,7 +145,7 @@
                     ]
                 },
                 {
-                    "name": "MyAffectIsIntent",
+                    "name": "SpkrsAffectIsIntent",
                     "slots": [
                         {
                             "name": "Affect",
@@ -181,7 +185,7 @@
                     ]
                 },
                 {
-                    "name": "MyAffectIsNotIntent",
+                    "name": "SpkrsAffectIsNotIntent",
                     "slots": [
                         {
                             "name": "Affect",
@@ -419,7 +423,7 @@
                     ]
                 },
                 {
-                    "name": "ThanksWhatsYourAffectIntent",
+                    "name": "ThanksWhatsLsnrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "thank you how are you feeling",
@@ -441,7 +445,7 @@
                     ]
                 },
                 {
-                    "name": "ThankYouNoIntent",
+                    "name": "ThanksNoIntent",
                     "slots": [],
                     "samples": [
                         "enough",
@@ -551,7 +555,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsMyAffectIntent",
+                    "name": "WhatsSpkrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "how am i feeling",
@@ -570,7 +574,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsYourAffectAboutIntent",
+                    "name": "WhatsLsnrsAffectAboutIntent",
                     "slots": [
                         {
                             "name": "FragmentName",
@@ -587,7 +591,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsYourAffectIntent",
+                    "name": "WhatsLsnrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "are you afraid",
@@ -620,18 +624,18 @@
                     ]
                 },
                 {
-                    "name": "WhoAmIIntent",
+                    "name": "WhoseAccountIntent",
                     "slots": [],
                     "samples": [
-                        "who am i",
                         "whose account",
                         "whose account is this"
                     ]
                 },
                 {
-                    "name": "WhoAreWeIntent",
+                    "name": "WhoAreSpkrsIntent",
                     "slots": [],
                     "samples": [
+                        "who am i",
                         "who are we",
                         "who do you take us for",
                         "who do you think we are",
@@ -683,7 +687,7 @@
                     ]
                 },
                 {
-                    "name": "YouAreNotHumanIntent",
+                    "name": "LsnrsAreNotHumanIntent",
                     "slots": [],
                     "samples": [
                         "don't be ashamed",
@@ -726,7 +730,7 @@
                     ]
                 },
                 {
-                    "name": "YouAreNotListeningIntent",
+                    "name": "LsnrsAreNotListeningIntent",
                     "slots": [],
                     "samples": [
                         "you are not listening",

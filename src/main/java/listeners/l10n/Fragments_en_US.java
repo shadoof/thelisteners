@@ -1,6 +1,6 @@
 package listeners.l10n;
 
-import static listeners.util.ConstantUtils.*;
+import static listeners.util.Utils.*;
 
 import java.util.ListResourceBundle;
 import java.util.function.Supplier;

@@ -11,8 +11,8 @@ import listeners.util.UnknownIntentException;
 
 import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.randInt;
+import static listeners.util.Utils.info;
+import static listeners.util.Utils.randInt;
 import static listeners.model.LangConstants.buildFragments;
 import static listeners.model.LangConstants.fragments;
 import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
@@ -29,8 +29,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 		boolean heardPlease = false;
 		String preSpeech = "";
 		String cardTitle = "";
-
-		info("GETS HERE with intent name: " +  intent.getName());
+		InnerResponse ir = new InnerResponse();
 
 		switch (intent.getName()) {
 			case "PleaseContinueIntent":
@@ -44,46 +43,56 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					cardTitle = speechUtils.getString("continueCardTitle");
 				}
 				// do, but not always, the preSpeech
-				if ((int) sessionAttributes.get(FRAGMENTINDEX) > 0 && randInt(1, 4) == 1) {
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > 0 && randInt(1, 4) == 1) {
 					preSpeech = speechUtils.getString("preSpeechFeelings");
 				}
-				NextFragmentResponse nfr = new NextFragmentResponse();
-				
-				ResponseFinisher rf = ResponseFinisher.builder()
-						.withSpeech(preSpeech + nfr.speech)
-						.withReprompt(nfr.reprompt)
-						.build();
-
-				return input.getResponseBuilder()
-						.withSpeech(rf.getSpeech())
-						.withReprompt(rf.getReprompt())
-						.withSimpleCard(cardTitle, rf.getCardText())
-						.withShouldEndSession(false)
-						.build();
+				ir = new NextFragmentResponse();
+				break;
+			default:
+				// no intent name case was matched
+				throw new UnknownIntentException(
+						"@LsnrsContinueIntentResponse, unknown intent: " + intent.getName());
 		}
 
-		// no intent name case was matched
-		throw new UnknownIntentException("@LsnrsContinueIntentResponse, nnknown intent: " + intent.getName()); 
+		ResponseFinisher rf = ResponseFinisher.builder()
+				.withSpeech(preSpeech + ir.speech)
+				.withPostSpeechPrompt(ir.postSpeechPrompt)
+				.withReprompt(ir.reprompt)
+				.build();
+
+		return input.getResponseBuilder()
+				.withSpeech(rf.getSpeech())
+				.withReprompt(rf.getReprompt())
+				.withSimpleCard(cardTitle, rf.getCardText())
+				.withShouldEndSession(false)
+				.build();
 	}
 
-	private class NextFragmentResponse {
+	private static class InnerResponse {
 
-		String speech = "";
-		String reprompt = "";
+		static String speech = "";
+		static String postSpeechPrompt = "";
+		static String reprompt = "";
+
+	}
+
+	private class NextFragmentResponse extends InnerResponse {
 
 		NextFragmentResponse() {
+
+			postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
 
 			// build variant fragments just before they're needed:
 			buildFragments();
 
-			sessionAttributes.put(FRAGMENTINDEX, randInt(0, NUMBER_OF_FRAGMENTS - 1));
+			sessAttributes.put(FRAGMENTINDEX, randInt(0, NUMBER_OF_FRAGMENTS - 1));
 
-			ArrayList al = (ArrayList) sessionAttributes.get(FRAGMENTLIST);
-			if (al.size() >= NUMBER_OF_FRAGMENTS && !((boolean) sessionAttributes.get(HEARDALLFRAGMENTS))) {
+			ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
+			if (al.size() >= NUMBER_OF_FRAGMENTS && !((boolean) sessAttributes.get(HEARDALLFRAGMENTS))) {
 				speech += speechUtils.getString("heardAllFragments");
 
 				// this used to be a trigger that ended the session below
-				sessionAttributes.put(HEARDALLFRAGMENTS, true);
+				sessAttributes.put(HEARDALLFRAGMENTS, true);
 				reprompt = speechUtils.getString("chooseContinueNoAffect");
 			}
 
@@ -95,21 +104,22 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				while (al.contains(fragmentIndex));
 
 				al.add(fragmentIndex);
-				sessionAttributes.put(FRAGMENTLIST, al);
+				sessAttributes.put(FRAGMENTLIST, al);
 			}
 
 			// check to see if the speaker has asked about a fragment-name 'thing'
-			String thing = (String) sessionAttributes.get(THING);
+			String thing = (String) sessAttributes.get(THING);
 			// is only set to non-empty if the fragment name was indeed asked about
-			if (!"".equals(thing)) {
+			if (!"".equals(thing) && FRAGMENTNAME_MAP.get(thing) != null) {
 				int thingFragmentNumber = FRAGMENTNAME_MAP.get(thing);
 				if (thingFragmentNumber > NOT_YET_GREETED && thingFragmentNumber <= NUMBER_OF_FRAGMENTS) {
-					sessionAttributes.put(FRAGMENTINDEX, thingFragmentNumber);
-					sessionAttributes.put(THING, "");
+					sessAttributes.put(FRAGMENTINDEX, thingFragmentNumber);
+					sessAttributes.put(THING, "");
 				}
 			}
 
-			speech = fragments[(int) sessionAttributes.get(FRAGMENTINDEX)];
-			if ("".equals(reprompt)) reprompt = speechUtils.getString("chooseContinue");		}
+			speech = fragments[(int) sessAttributes.get(FRAGMENTINDEX)];
+			if ("".equals(reprompt)) reprompt = speechUtils.getString("chooseContinue");
+		}
 	}
 }

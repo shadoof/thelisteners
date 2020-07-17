@@ -114,7 +114,7 @@
                     ]
                 },
                 {
-                    "name": "ILoveYouIntent",
+                    "name": "SpkrsLoveLsnrsIntent",
                     "slots": [],
                     "samples": [
                         "Ich mag dich",
@@ -143,7 +143,7 @@
                     ]
                 },
                 {
-                    "name": "MyAffectIsIntent",
+                    "name": "SpkrsAffectIsIntent",
                     "slots": [
                         {
                             "name": "Affect",
@@ -178,7 +178,7 @@
                     ]
                 },
                 {
-                    "name": "MyAffectIsNotIntent",
+                    "name": "SpkrsAffectIsNotIntent",
                     "slots": [
                         {
                             "name": "Affect",
@@ -421,7 +421,7 @@
                     ]
                 },
                 {
-                    "name": "ThanksWhatsYourAffectIntent",
+                    "name": "ThanksWhatsLsnrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "Danke schön wie geht es dir",
@@ -441,7 +441,7 @@
                     ]
                 },
                 {
-                    "name": "ThankYouNoIntent",
+                    "name": "ThanksNoIntent",
                     "slots": [],
                     "samples": [
                         "Nein danke schön",
@@ -548,7 +548,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsMyAffectIntent",
+                    "name": "WhatsSpkrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "Wie fühle ich mich",
@@ -573,7 +573,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsYourAffectAboutIntent",
+                    "name": "WhatsLsnrsAffectAboutIntent",
                     "slots": [
                         {
                             "name": "FragmentName",
@@ -593,7 +593,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsYourAffectIntent",
+                    "name": "WhatsLnsrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "Hast du Angst",
@@ -629,18 +629,18 @@
                     ]
                 },
                 {
-                    "name": "WhoAmIIntent",
+                    "name": "WhoseAccountIntent",
                     "slots": [],
                     "samples": [
-                        "Wer bin ich",
                         "Wessen Konto",
                         "Wessen Konto ist das"
                     ]
                 },
                 {
-                    "name": "WhoAreWeIntent",
+                    "name": "WhoAreSpkrsIntent",
                     "slots": [],
                     "samples": [
+                        "Wer bin ich",
                         "Wer sind wir",
                         "Für wen hältst du uns",
                         "Was glaubst du wer wir sind",
@@ -694,7 +694,7 @@
                     ]
                 },
                 {
-                    "name": "YouAreNotHumanIntent",
+                    "name": "LsnrsAreNotHumanIntent",
                     "slots": [],
                     "samples": [
                         "Schäm dich nicht",
@@ -734,7 +734,7 @@
                     ]
                 },
                 {
-                    "name": "YouAreNotListeningIntent",
+                    "name": "LsnrsAreNotListeningIntent",
                     "slots": [],
                     "samples": [
                         "Du hörst nicht zu",

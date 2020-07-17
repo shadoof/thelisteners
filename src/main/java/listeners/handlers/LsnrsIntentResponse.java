@@ -6,7 +6,7 @@ import static listeners.model.Attributes.HEARDNO;
 import static listeners.model.Attributes.LASTINTENT;
 import static listeners.model.Attributes.LISTENERSAFFECT;
 import static listeners.model.Attributes.SPEAKGUYZCONFIRMED;
-import static listeners.model.Attributes.sessionAttributes;
+import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.NO_MORE;
 import static listeners.model.Constants.NUMBER_OF_GUYZ;
@@ -14,9 +14,10 @@ import static listeners.model.Constants.NUMBER_OF_GUYZ_PER_BATCH;
 import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
+import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 import static listeners.model.LangConstants.dateString;
-import static listeners.util.ConstantUtils.info;
-import static listeners.util.ConstantUtils.randInt;
+import static listeners.util.Utils.info;
+import static listeners.util.Utils.randInt;
 
 import java.util.MissingResourceException;
 import java.util.Optional;
@@ -39,34 +40,49 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 	protected static String relationship;
 
 	LsnrsIntentResponse(HandlerInput input, String relationship) {
-		
+
 		this.input = input;
 		intentRequest = (IntentRequest) input.getRequestEnvelope()
 				.getRequest();
 		intent = intentRequest.getIntent();
 		this.relationship = relationship;
+		// while DEV
+		if (intent.getSlots() != null) {
+			info("@LsnrsIntentResponse, slots: " + intent.getSlots() + (intent.getSlots()
+					.isEmpty() ? " are empty" : ""));
+		}
+		else
+			info("@LsnrsIntentResponse, intent.getSlots() is null ");
 	}
-	
+
 	LsnrsIntentResponse() {
-		
+
 	}
 
 	@Override
-	public Optional<Response> getResponse()
-			throws UnknownIntentException {
+	public Optional<Response> getResponse() throws UnknownIntentException {
 
+		// *** 4. ***
 		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble")
 				: "";
 
+		// *** 5. and 6. *** treated the same
 		// generating variety here (needs assessing for actual effect) TODO
 		// if affect for the session is set
-		if (!"".equals(sessionAttributes.get(AFFECT))) {
+		if (!"".equals(sessAttributes.get(AFFECT))) {
 			// change affect roughly 1 of 3 intent requests ...
 			if (randInt(0, 2) == 0) {
-				sessionAttributes.put(AFFECT, attributes.getRandomAffect());
+				sessAttributes.put(AFFECT, attributes.getRandomAffect());
 				// and a third of these times make listeners' affect match
-				if (randInt(0, 2) == 0) sessionAttributes.put(LISTENERSAFFECT, sessionAttributes.get(AFFECT));
+				if (randInt(0, 2) == 0) sessAttributes.put(LISTENERSAFFECT, sessAttributes.get(AFFECT));
 			}
+		}
+		
+		// filtering out slotted intents now
+		// just for convenience
+		// since following kludge code does not apply to slotted intents
+		if (intent.getSlots() != null) {
+			return new LsnrsSlottedIntentResponse().getResponse();
 		}
 
 		// The following code block is based on Listeners 2.x,
@@ -74,23 +90,24 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		// should be possible to replace this with the new Dialog interface TODO
 		// NB: confirmationStatus is already a field of the Intent class !
 		// (1)
-		if (("SpeakGuyzIntent".equals((String) sessionAttributes.get(LASTINTENT)))
+		if (("SpeakGuyzIntent".equals((String) sessAttributes.get(LASTINTENT)))
 				&& "ContinueIntent".equals(intent.getName())) {
-			sessionAttributes.put(SPEAKGUYZCONFIRMED, true);
+			sessAttributes.put(SPEAKGUYZCONFIRMED, true);
 			intent = Intent.builder()
 					.withName("SpeakGuyzIntent")
 					.build();
-			if ((int) sessionAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH))
-				sessionAttributes.put(LASTINTENT, "");
+			if ((int) sessAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH))
+				sessAttributes.put(LASTINTENT, "");
 		}
-		else if ("NoIntent".equals(intent.getName()) || "ThankYouNoIntent".equals(intent.getName())) {
-			sessionAttributes.put(SPEAKGUYZCONFIRMED, false);
-			sessionAttributes.put(LASTINTENT, "");
+		else if ("NoIntent".equals(intent.getName()) || "ThanksNoIntent".equals(intent.getName())) {
+			sessAttributes.put(SPEAKGUYZCONFIRMED, false);
+			sessAttributes.put(LASTINTENT, "");
 		}
 		// (2) make it a little more difficult to leave session unintentionally
 		// reset HEARD_NO to false unless we really just heard one:
-		if ((boolean) sessionAttributes.get(HEARDNO) && !NO_MORE.contains(intent.getName())) {
-			sessionAttributes.put(HEARDNO, false);
+		info("@LsnrsIntentResponse, sessAttributes.get(HEARDNO): " + sessAttributes.get(HEARDNO));
+		if ((boolean) sessAttributes.get(HEARDNO) && !NO_MORE.contains(intent.getName())) {
+			sessAttributes.put(HEARDNO, false);
 		}
 		// (3) one two-stage also done with this in 2.x
 		Boolean heardPlease = false;
@@ -111,15 +128,13 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				// and must deal separately with intents that
 				// need to know where they are in the session, etc.
 				// NB: any firstEncounter preamble is NOT passed
-				LsnrsContinueIntentResponse lcir = new LsnrsContinueIntentResponse();
-				info("GETS HERE with input: " + input + " and relationship: " + relationship);
 				return new LsnrsContinueIntentResponse().getResponse();
 			}
 		}
 
+		// finish assembly of response for an unslotted simple response
 		ResponseFinisher rf = ResponseFinisher.builder()
-				// possible firstEncounter preamble
-				// when there is a simple intent response
+				// the possible firstEncounter preamble
 				.withPreamble(preamble)
 				.withSpeech(ls.getSpeech())
 				.withPostSpeechPrompt(ls.getPostSpeechPrompt())
