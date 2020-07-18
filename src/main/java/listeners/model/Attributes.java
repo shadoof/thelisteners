@@ -1,6 +1,7 @@
 package listeners.model;
 
 import static listeners.model.Constants.attributesManager;
+import static listeners.model.Constants.RELATIONSHIP;
 import static listeners.util.Utils.randInt;
 import static listeners.util.Utils.info;
 
@@ -10,6 +11,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import com.amazon.ask.attributes.AttributesManager;
+
+import listeners.util.SessionMap;
 
 // keys, slot names, and constant values
 // for The Listeners session state
@@ -29,7 +32,6 @@ public class Attributes {
 	private Attributes(Locale locale, AttributesManager attributesManager) {
 
 		persAttributes = attributesManager.getPersistentAttributes();
-		sessAttributes = attributesManager.getSessionAttributes();
 	}
 
 	public static Attributes getInstance(Locale locale) {
@@ -46,6 +48,7 @@ public class Attributes {
 
 	// keys recognizable as static final constants
 	public static final String AFFECT = "affect";
+	public static final String CHALLENGEDAFFECT = "challengedAffect";
 	public static final String FRAGMENTINDEX = "fragmentIndex";
 	public static final String FRAGMENTLIST = "faragmentList";
 	public static final String GUYZINDEX = "guyzIndex";
@@ -70,40 +73,44 @@ public class Attributes {
 
 	// attributes objects
 	public static Map<String, Object> persAttributes;
-	public static Map<String, Object> sessAttributes;
+	public static SessionMap sessAttributes;
+//	public static Map<String, Object> sessAttributes;
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
 	public static ArrayList LIST_OF_FRAGMENTS = new ArrayList();
 
-	public static Map<String, Object> initSessionAttributes() {
+	public static SessionMap initSessionAttributes() { // was Map<String, Object>
 
-		Map<String, Object> m = new HashMap();
-		m.put(AFFECT, "");
-		m.put(FRAGMENTINDEX, NOT_YET_GREETED);
+		SessionMap m = new SessionMap();
+		m.justPut(AFFECT, "");
+		m.justPut(CHALLENGEDAFFECT, "");
+		m.justPut(FRAGMENTINDEX, NOT_YET_GREETED);
 		LIST_OF_FRAGMENTS.clear();
-		m.put(FRAGMENTLIST, LIST_OF_FRAGMENTS);
-		m.put(GUYZINDEX, 0);
-		m.put(GUYZIRQ, false);
-		m.put(GUYZSPEECHINDEX, 1);
-		m.put(HEARDALLFRAGMENTS, false);
-		m.put(HEARDBREATHAFFECTS, false);
-		m.put(HEARDNO, false);
-		m.put(HEARDWELCOME, true);
-		m.put(LASTINTENT, "");
+		m.justPut(FRAGMENTLIST, LIST_OF_FRAGMENTS);
+		m.justPut(GUYZINDEX, 0);
+		m.justPut(GUYZIRQ, false);
+		m.justPut(GUYZSPEECHINDEX, 1);
+		m.justPut(HEARDALLFRAGMENTS, false);
+		m.justPut(HEARDBREATHAFFECTS, false);
+		m.justPut(HEARDNO, false);
+		m.justPut(HEARDWELCOME, true);
+		m.justPut(LASTINTENT, "");
 		ArrayList al;
 		String la = "";
 		if (LangConstants.AFFECTS_MAP != null) {
 			al = new ArrayList<>(LangConstants.AFFECTS_MAP.keySet());
 			la = (String) al.get(randInt(0, al.size() - 1));
 		}
-		m.put(LISTENERSAFFECT, la);
-		m.put(MARKOVIRQ, false);
-		m.put(READSOFAR, 0);
-		m.put(PREVIOUSAFFECT, "");
-		m.put(THING, "");
-		m.put(SPEAKGUYZCONFIRMED, false);
-		return m;
+		m.justPut(LISTENERSAFFECT, la);
+		m.justPut(MARKOVIRQ, false);
+		m.justPut(READSOFAR, 0);
+		m.justPut(PREVIOUSAFFECT, "");
+		m.justPut(THING, "");
+		m.justPut(RELATIONSHIP, "sessionStart");
+		m.justPut(SPEAKGUYZCONFIRMED, false);
+		attributesManager.setSessionAttributes((SessionMap) m);
+		return (SessionMap) m;
 	}
 
 	public String getRandomAffect() {

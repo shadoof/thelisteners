@@ -75,7 +75,7 @@ public class Utils {
 			speech = speech.replaceAll(s + SPC, "<break time=\"" + PAUSES_MAP.get(s) + "s\"/>");
 			speech = speech.replaceAll(s + "\\(", "<break time=\"" + PAUSES_MAP.get(s) + "s\"/>(");
 		}
-		return speech;
+		return speech.replaceAll("\\s{2,}", SPC);
 	}
 
 	public static String phonemic(String englishLetter) {
@@ -114,7 +114,7 @@ public class Utils {
 			speech = speech.replaceAll(s + SPC, "");
 			speech = speech.replaceAll(s + "\\(", "(");
 		}
-		return speech;
+		return speech.replaceAll("\\s{2,}", SPC);
 	}
 
 	public static String s(String firstAlternative, String secondAlternative) {

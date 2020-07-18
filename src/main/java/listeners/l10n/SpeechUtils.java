@@ -30,6 +30,8 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "preSpeechFeelings", preSpeechFeelings() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "spkrsAffectIsCardTitle", spkrsAffectIsCardTitle() },
+			{ "spkrsAffectIsNotCardTitle", spkrsAffectIsNotCardTitle() },
+			{ "spkrsAffectIsNotSpeech", spkrsAffectIsNotSpeech() },
 			{ "spkrsAffectIsSpeech", spkrsAffectIsSpeech() } };
 
 	protected String buildAbandonmentMessage() {
@@ -576,6 +578,38 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
 	}
 
+	protected String spkrsAffectIsNotCardTitle() {
+		
+		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")), "Apologies for our mistakes");
+	}
+	
+	protected String spkrsAffectIsNotSpeech() {
+		String challengedAffect = (String) sessAttributes.get(CHALLENGEDAFFECT);
+		String affect = (String) sessAttributes.get(AFFECT);
+		String adjective;
+		String intensifier;
+		String speech = s(s("Apologies!", "We are ashamed of ourselves."), "Our very sincere apologies.");
+		if (attributes.isPositive(challengedAffect)) {
+			speech += "We are " + s("so", "") + s("pleased", "delighted");
+		}
+		else {
+			adjective = s("sorry", "upset");
+			intensifier = "dismayed".equals(adjective) ? "a bit " : "very ";
+			speech = "We are " + s(adjective, intensifier + adjective);
+		}
+		speech += "to " + s("have misunderstood", "have wrongly believed")
+		+ "that you were filled with %s. " + breath();
+		if (challengedAffect.equals(affect)) {
+			speech += "Clearly, we did not " + s(s("properly", "") + "understand", "hear");
+			speech += s("whatever", "what") + s("it is that", "") + "you are feeling. ";
+			speech += "Please do " + s("try", "attempt") + "to tell us "
+					+ s("what it is that " + s("does, truly,", "does") + "possess you.",
+							"the feelings within which you do, now, dwell.");
+		}
+		speech = String.format(speech, challengedAffect);
+		return speech += breath();
+	}
+	
 	protected String spkrsAffectIsSpeech() {
 
 		String speech = "";

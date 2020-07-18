@@ -3,6 +3,7 @@ package listeners.handlers;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Intent;
@@ -10,6 +11,7 @@ import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
 import listeners.util.ResponseFinisher;
+import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
 
 import static listeners.model.Constants.*;
@@ -31,17 +33,23 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 		info("@LsnrsSlottedIntentResponse, intent name: " + intent.getName());
 
 		String cardTitle = "";
+		String affect = "";
 		InnerResponse ir = new InnerResponse();
 
 		switch (intent.getName()) {
 			case "SpkrsAffectIsIntent":
-				String affect = getAffectFromSlot(intent);
+				affect = getAffectFromSlot(intent);
 				info("@LsnrsSlottedIntentResponse, slot affect: " + affect);
 				sessAttributes.put(AFFECT, affect);
 
+				// we need clear cache and get a new bundle:
+				// for speechUtils every round
+				// NOTE this is now done by MapAdapter
+				// and SessionMap. The latters put() method
+				// does the SpeechUtils.getNewBundle() !
+
 				cardTitle = speechUtils.getString("spkrsAffectIsCardTitle");
 				ir.speech = speechUtils.getString("spkrsAffectIsSpeech");
-				// TODO check: may have to clear cache and get new bundle!
 				ir.speech += speechUtils.getString("specificAffectSpeech");
 
 				if (heads()) {
@@ -54,6 +62,26 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				ir.speech = String.format(ir.speech, affect);
 				ir.reprompt = speechUtils.getString("chooseYouCanFindOutAffect");
 				sessAttributes.put(PREVIOUSAFFECT, affect);
+				break;
+			case "SpkrsAffectIsNotIntent":
+				cardTitle = speechUtils.getString("spkrsAffectIsNot");
+				affect = (String) sessAttributes.get(AFFECT);
+				String challengedAffect = getAffectFromSlot(intent);
+				info("@LsnrsSlottedIntentResponse, challengedAffect: " + challengedAffect);
+				sessAttributes.put(CHALLENGEDAFFECT, challengedAffect);
+
+				if (affect.equals(challengedAffect)) {
+					// the speaker seems to have denied a previously set affect
+					affect = "";
+					sessAttributes.put(AFFECT, affect);
+				}
+				else {
+					ir.postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
+				}
+
+				if (!affect.isEmpty()) {
+					ir.reprompt = speechUtils.getString("chooseYouCanFindOutAffect");
+				}
 				break;
 			default:
 				// no intent name case was matched

@@ -1,6 +1,7 @@
 package listeners.l10n;
 
 import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.CHALLENGEDAFFECT;
 import static listeners.model.Attributes.PREVIOUSAFFECT;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
@@ -467,6 +468,33 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				}
 				break;
 		}
+		return speech += breath();
+	}
+
+	protected String spkrsAffectIsNotSpeech() {
+
+		String challengedAffect = (String) sessAttributes.get(CHALLENGEDAFFECT);
+		String affect = (String) sessAttributes.get(AFFECT);
+		String adjective;
+		String intensifier;
+		String speech = s(s("Apologies!", "We are ashamed of ourselves."), "We are so sorry.");
+		if (attributes.isPositive(challengedAffect)) {
+			speech += "We are " + s("pleased", "delighted");
+		}
+		else {
+			adjective = s("sorry", "dismayed");
+			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
+			speech = "We are " + s(adjective, intensifier + adjective);
+		}
+		speech += "to " + s("have misunderstood", "have got it wrong, thinking")
+				+ "that you were filled with %s. " + breath();
+		if (challengedAffect.equals(affect)) {
+			speech += "Obviously, we did not " + s("understand", s("hear", "hear, correctly,"));
+			speech += s("whatever", "what") + s("it is that", "") + "you are feeling. ";
+			speech += "Please tell us what " + s("your feelings " + s("really", "") + "are.",
+					"you are " + s("feeling, for real.", "feeling."));
+		}
+		speech = String.format(speech, challengedAffect);
 		return speech += breath();
 	}
 

@@ -28,6 +28,7 @@ import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
+import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
 
 public class LsnrsRequestHandler implements RequestHandler {
@@ -62,10 +63,11 @@ public class LsnrsRequestHandler implements RequestHandler {
 		attributesManager = input.getAttributesManager();
 		// get singleton instance of Attributes and put it in Constants
 		attributes = Attributes.getInstance(locale, attributesManager);
-		info("@LsnrsRequestHandler, init sessAttributes.get(HEARDNO): " + sessAttributes.get(HEARDNO));
 		// these instances are also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
-		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
+		// initialize session attributes
+		sessAttributes = Attributes.initSessionAttributes();
+		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
 		// possibilities are
@@ -91,21 +93,13 @@ public class LsnrsRequestHandler implements RequestHandler {
 			persAttributes.put(RELATIONSHIP, "firstEncounter");
 		}
 		else {
-			persAttributes.put(RELATIONSHIP, "normal");
+			persAttributes.put(RELATIONSHIP, sessAttributes.get(RELATIONSHIP)); // "sessionStart"
+			sessAttributes.put(RELATIONSHIP, "normal");
 		}
+		
 		info("@ListenersRequestHandler, relationship: " + persAttributes.get(RELATIONSHIP));
 
-		info("@ListenersRequestHandler, sessAttributes: " + sessAttributes);
-		if (sessAttributes.isEmpty()) {
-			persAttributes.put(RELATIONSHIP, "sessionStart");
-			// initialize session attributes
-			sessAttributes = initSessionAttributes();
-			info("@LsnrsRequestHandler, after assignment sessAttributes.get(HEARDNO): " + sessAttributes.get(HEARDNO));
-			info("@ListenersRequestHandler: sessionAttributes are "
-					+ (sessAttributes.isEmpty() ? "empty" : "initialized"));
-			// Listeners affect has been set to a random affect: // TODO remove later:
-			info("@ListenersRequestHandler, listenersAffect: " + sessAttributes.get(LISTENERSAFFECT));
-		}
+		// info("@ListenersRequestHandler, sessAttributes: " + sessAttributes);
 
 		// TODO may have to change once Dialogs are in place
 		// saving relationship:
