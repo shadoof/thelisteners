@@ -538,7 +538,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 						+ "you? ";
 				break;
 			default:
-				affect = attributes.setAndGetRandomAffectIfEmpty(affect);
+				affect = ("".equals(sessAttributes.get(AFFECT))) ? attributes.getRandomAffect() : affect;
 				if (attributes.isPositive(affect)) {
 					speech += s("How " + s("exciting!", "thrilling!"), "");
 					speech += "You must be one of " + s("those " + s("better", "happier"), "the speaking")
