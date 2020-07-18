@@ -48,6 +48,34 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				}
 				ir = new NextFragmentResponse();
 				break;
+			case "PreviousIntent":
+				cardTitle = speechUtils.getString("previousCardTitle");
+				// do, but not always, the preSpeech
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > 0 && randInt(0, 3) == 0)
+					preSpeech = speechUtils.getString("preSpeechFeelings");
+
+				// build variant fragments just before they're needed:
+				buildFragments();
+
+				int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX) - 1;
+				fragmentIndex = (fragmentIndex < 0) ? NUMBER_OF_FRAGMENTS - 1 : fragmentIndex;
+
+				sessAttributes.justPut(FRAGMENTINDEX, fragmentIndex);
+
+				ir.speech = fragments[fragmentIndex];
+				ir.reprompt = speechUtils.getString("chooseContinue");
+
+				// and add this to the list of fragments that have been heard
+				ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
+				if (!al.contains(fragmentIndex)) {
+					al.add(fragmentIndex);
+					sessAttributes.justPut(FRAGMENTLIST, al);
+				}
+				ir.postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
+				
+				// TODO in ResponseFinisher:
+				boolean specificFragment = true;
+				break;
 			default:
 				// no intent name case was matched
 				throw new UnknownIntentException(

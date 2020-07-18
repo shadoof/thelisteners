@@ -261,9 +261,11 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 	protected String peaceSpeech(String word) {
 
 		// TODO
-		String speech = "It is a " + s("great", "") + "comfort for us to " + s("know", "be aware") + "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
-				speech += capitalize(word) + "is something that we believe " + s("everyone", "every human being") + "should " + s("be able to", "");
-				speech += s(s("know.", "feel."), "dwell within.");
+		String speech = "It is a " + s("great", "") + "comfort for us to " + s("know", "be aware")
+				+ "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
+		speech += capitalize(word) + "is something that we believe " + s("everyone", "every human being")
+				+ "should " + s("be able to", "");
+		speech += s(s("know.", "feel."), "dwell within.");
 		return speech;
 
 	}
@@ -312,6 +314,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		}
 
 		return preSpeech;
+	}
+
+	protected String previousCardTitle() {
+
+		return S("Wir wollen auf einen früheren Gedanken zurückkommen",
+				s("Kommen wir auf frühere Gedanken zurück", "Lasst uns auf frühere Gedanken zurückkommen"))
+				+ "...";
 	}
 
 	protected String specificAffectSpeech() {
@@ -574,12 +583,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 	}
 
 	protected String spkrsAffectIsNotCardTitle() {
-		
-		return S("Entschuldigung, dass wir dich " + s("missverstanden haben", "falsch verstanden haben"), "Entschuldigung für unsere Fehler");
+
+		return S("Entschuldigung, dass wir dich " + s("missverstanden haben", "falsch verstanden haben"),
+				"Entschuldigung für unsere Fehler");
 	}
-	
+
 	protected String spkrsAffectIsNotSpeech() {
-		
+
 		// TODO
 		String challengedAffect = (String) sessAttributes.get(CHALLENGEDAFFECT);
 		String affect = (String) sessAttributes.get(AFFECT);
@@ -595,7 +605,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech = "We are " + s(adjective, intensifier + adjective);
 		}
 		speech += "to " + s("have misunderstood", "have wrongly believed")
-		+ "that you were filled with %s. " + breath();
+				+ "that you were filled with %s. " + breath();
 		if (challengedAffect.equals(affect)) {
 			speech += "Clearly, we did not " + s(s("properly", "") + "understand", "hear");
 			speech += s("whatever", "what") + s("it is that", "") + "you are feeling. ";
@@ -606,7 +616,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		speech = String.format(speech, challengedAffect);
 		return speech += breath();
 	}
-	
+
 	protected String spkrsAffectIsSpeech() {
 
 		// TODO

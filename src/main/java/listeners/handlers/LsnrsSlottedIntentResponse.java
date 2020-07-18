@@ -44,9 +44,9 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 				// we need clear cache and get a new bundle:
 				// for speechUtils every round
-				// NOTE this is now done by MapAdapter
-				// and SessionMap. The latters put() method
-				// does the SpeechUtils.getNewBundle() !
+				// NOTE this is now done by SessionMap
+				// as extension of HashMap SessionMap's put()
+				// does SpeechUtils.getNewBundle()
 
 				cardTitle = speechUtils.getString("spkrsAffectIsCardTitle");
 				ir.speech = speechUtils.getString("spkrsAffectIsSpeech");

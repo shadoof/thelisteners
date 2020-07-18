@@ -28,6 +28,7 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
 			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
 			{ "preSpeechFeelings", preSpeechFeelings() },
+			{ "previousCardTitle", previousCardTitle() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "spkrsAffectIsCardTitle", spkrsAffectIsCardTitle() },
 			{ "spkrsAffectIsNotCardTitle", spkrsAffectIsNotCardTitle() },
@@ -242,12 +243,16 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String hateRejoinder(String word) {
 
-		String speech = "To " + s("think", "hear") + "that your " + s("feelings for us", phonemic("a") + "ffects") + "are ";
-				speech += "negative to " + s("such an extent,", "this degree,");
-				speech += "that you " + (("hate".equals(word)) ? "go so far as to hate us, " : "are filled with hatred, ") + breath();
-				speech += "this will take us " + s("many more", "") + "years of " + s("listening to you,", "listening,");
-				speech += s("for us", "in order for us") + "to understand. ";
-				speech += "We " + s("cannot, truly,", "cannot") + "believe that " + (("hate".equals(word)) ? "this is how you feel. " : "these are your feelings. ");
+		String speech = "To " + s("think", "hear") + "that your "
+				+ s("feelings for us", phonemic("a") + "ffects") + "are ";
+		speech += "negative to " + s("such an extent,", "this degree,");
+		speech += "that you "
+				+ (("hate".equals(word)) ? "go so far as to hate us, " : "are filled with hatred, ") + breath();
+		speech += "this will take us " + s("many more", "") + "years of "
+				+ s("listening to you,", "listening,");
+		speech += s("for us", "in order for us") + "to understand. ";
+		speech += "We " + s("cannot, truly,", "cannot") + "believe that "
+				+ (("hate".equals(word)) ? "this is how you feel. " : "these are your feelings. ");
 		return speech;
 	}
 
@@ -319,6 +324,12 @@ public class SpeechUtils extends ListResourceBundle {
 		}
 
 		return preSpeech;
+	}
+
+	protected String previousCardTitle() {
+
+		return S("Trying to return", "Going back") + "to " + s("a previous thought", "previous thoughts")
+				+ "...";
 	}
 
 	protected String specificAffectSpeech() {
@@ -579,11 +590,13 @@ public class SpeechUtils extends ListResourceBundle {
 	}
 
 	protected String spkrsAffectIsNotCardTitle() {
-		
-		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")), "Apologies for our mistakes");
+
+		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")),
+				"Apologies for our mistakes");
 	}
-	
+
 	protected String spkrsAffectIsNotSpeech() {
+
 		String challengedAffect = (String) sessAttributes.get(CHALLENGEDAFFECT);
 		String affect = (String) sessAttributes.get(AFFECT);
 		String adjective;
@@ -598,7 +611,7 @@ public class SpeechUtils extends ListResourceBundle {
 			speech = "We are " + s(adjective, intensifier + adjective);
 		}
 		speech += "to " + s("have misunderstood", "have wrongly believed")
-		+ "that you were filled with %s. " + breath();
+				+ "that you were filled with %s. " + breath();
 		if (challengedAffect.equals(affect)) {
 			speech += "Clearly, we did not " + s(s("properly", "") + "understand", "hear");
 			speech += s("whatever", "what") + s("it is that", "") + "you are feeling. ";
@@ -609,7 +622,7 @@ public class SpeechUtils extends ListResourceBundle {
 		speech = String.format(speech, challengedAffect);
 		return speech += breath();
 	}
-	
+
 	protected String spkrsAffectIsSpeech() {
 
 		String speech = "";
