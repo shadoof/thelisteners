@@ -142,6 +142,21 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		return s;
 	}
 
+	protected String dontKnowFragmentReprompt() {
+
+		String reprompt = s("We don't know", "We're unsure about") + "which " + s("fragment", "passage")
+				+ s("you would like", "you'd like") + "to " + s("hear us speak.", "hear.");
+		return reprompt += breath();
+	}
+
+	protected String dontKnowFragmentSpeech() {
+
+		String speech = s("We don't know", "We're unsure about") + "which " + s("fragment", "passage")
+				+ s("you would like", "you'd like") + "to " + s("hear us speak.", "hear.");
+		speech += "Please " + s("try again.", s("tell us.", "repeat what you said."));
+		return speech += breath();
+	}
+
 	protected String hateRejoinder(String word) {
 
 		String speech = "To hear that your " + s("feelings for us", phonemic("a") + "ffects") + "are ";

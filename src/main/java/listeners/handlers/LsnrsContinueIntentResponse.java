@@ -72,9 +72,23 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					sessAttributes.justPut(FRAGMENTLIST, al);
 				}
 				ir.postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
-				
+
 				// TODO in ResponseFinisher:
 				boolean specificFragment = true;
+				break;
+			case "ReadPoemIntent":
+				cardTitle = speechUtils.getString("readPoemCardTitle");
+				fragmentIndex = VERSE;
+				sessAttributes.justPut(FRAGMENTINDEX, fragmentIndex);
+				// build variant fragments just before they're needed:
+				buildFragments();
+				ir.speech = fragments[fragmentIndex];
+				ir.reprompt = speechUtils.getString("chooseContinue");
+				al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
+				if (!al.contains(fragmentIndex)) {
+					al.add(fragmentIndex);
+					sessAttributes.justPut(FRAGMENTLIST, al);
+				}
 				break;
 			default:
 				// no intent name case was matched
@@ -94,14 +108,6 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				.withSimpleCard(cardTitle, rf.getCardText())
 				.withShouldEndSession(false)
 				.build();
-	}
-
-	private static class InnerResponse {
-
-		static String speech = "";
-		static String postSpeechPrompt = "";
-		static String reprompt = "";
-
 	}
 
 	private class NextFragmentResponse extends InnerResponse {

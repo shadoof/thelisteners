@@ -22,6 +22,8 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "chooseUnsureAboutAffect", chooseUnsureAboutAffect() },
 			{ "chooseYouCanFindOutAffect", chooseYouCanFindOutAffect() },
 			{ "continueCardTitle", continueCardTitle() },
+			{ "dontKnowFragmentReprompt", dontKnowFragmentReprompt() },
+			{ "dontKnowFragmentSpeech", dontKnowFragmentSpeech() },
 			{ "getPreamble", buildPreamble() },
 			{ "getAbandonmentMessage", buildAbandonmentMessage() },
 			{ "heardAllFragments", heardAllFragments() },
@@ -29,6 +31,8 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
 			{ "preSpeechFeelings", preSpeechFeelings() },
 			{ "previousCardTitle", previousCardTitle() },
+			{ "readPoemCardTitle", readPoemCardTitle() },
+			{ "speakFragmentCardTitle", speakFragmentCardTitle() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "spkrsAffectIsCardTitle", spkrsAffectIsCardTitle() },
 			{ "spkrsAffectIsNotCardTitle", spkrsAffectIsNotCardTitle() },
@@ -236,6 +240,21 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("Continue ...", S("Go on ...", S("Always m", "M") + "ore ..."));
 	}
 
+	protected String dontKnowFragmentReprompt() {
+
+		String reprompt = "We are " + s("unclear about", "unsure, of") + "which fragment you "
+				+ s("would like", "wish") + "to hear us speak. ";
+		return reprompt += breath();
+	}
+
+	protected String dontKnowFragmentSpeech() {
+
+		String speech = "We are " + s("unclear about", "unsure, of") + "which " + s("fragment", "passage")
+				+ "you " + s("would like", "wish") + "to hear us speak. ";
+		speech += "Please " + s("try", "attempt") + s("once more", "again") + "to tell us. ";
+		return speech += breath();
+	}
+
 	protected Object[][] getContents() {
 
 		return contents;
@@ -330,6 +349,17 @@ public class SpeechUtils extends ListResourceBundle {
 
 		return S("Trying to return", "Going back") + "to " + s("a previous thought", "previous thoughts")
 				+ "...";
+	}
+
+	protected String readPoemCardTitle() {
+
+		return S("We recite some verse", "The Listeners read, and adapt, some poetry");
+	}
+
+	protected String speakFragmentCardTitle() {
+
+		return S("Speaking about something particular",
+				"We will mention what you asked us to speak " + s("about", ""));
 	}
 
 	protected String specificAffectSpeech() {

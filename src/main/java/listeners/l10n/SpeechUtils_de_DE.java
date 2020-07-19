@@ -223,6 +223,23 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return S("Fortsetzung...", S("Machen Sie bitte weiter....", "Fahren Sie bitte fort...."));
 	}
 
+	protected String dontKnowFragmentReprompt() {
+
+		String reprompt = "Wir sind " + s("nicht sicher", "unsicher") + "welches Fragment Sie "
+				+ s("möchten", "wollen") + "dass wir sprechen. ";
+		return reprompt += breath();
+	}
+
+	protected String dontKnowFragmentSpeech() {
+
+		String speech = "Wir sind " + s("nicht sicher", "unsicher")
+				+ s("welches Fragment", "welche Passage") + "Sie " + s("möchten", "wollen")
+				+ "dass wir sprechen. ";
+		speech += "Bitte " + s("versuchen Sie", "probieren Sie") + s("nochmals", "noch einmal")
+				+ "uns das zu sagen. ";
+		return speech += breath();
+	}
+
 	protected String hateRejoinder(String word) {
 
 		// TODO
@@ -321,6 +338,17 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return S("Wir wollen auf einen früheren Gedanken zurückkommen",
 				s("Kommen wir auf frühere Gedanken zurück", "Lasst uns auf frühere Gedanken zurückkommen"))
 				+ "...";
+	}
+
+	protected String readPoemCardTitle() {
+
+		return S("Wir rezitieren Gedichte", "Die Zuhören lesen Gedichte und arbeiten sie um");
+	}
+
+	protected String speakFragmentCardTitle() {
+
+		return S("Über etwas Spezifisches sprechen",
+				"Wir werden über das reden, worüber du uns gebeten hast, zu sprechen");
 	}
 
 	protected String specificAffectSpeech() {

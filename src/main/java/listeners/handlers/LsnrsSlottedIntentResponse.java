@@ -34,7 +34,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 		String cardTitle = "";
 		String affect = "";
-		InnerResponse ir = new InnerResponse();
+		InnerResponse ir;
 
 		switch (intent.getName()) {
 			case "SpkrsAffectIsIntent":
@@ -49,6 +49,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				// does SpeechUtils.getNewBundle()
 
 				cardTitle = speechUtils.getString("spkrsAffectIsCardTitle");
+				ir = new InnerResponse();
 				ir.speech = speechUtils.getString("spkrsAffectIsSpeech");
 				ir.speech += speechUtils.getString("specificAffectSpeech");
 
@@ -70,6 +71,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				info("@LsnrsSlottedIntentResponse, challengedAffect: " + challengedAffect);
 				sessAttributes.put(CHALLENGEDAFFECT, challengedAffect);
 
+				ir = new InnerResponse();
 				if (affect.equals(challengedAffect)) {
 					// the speaker seems to have denied a previously set affect
 					affect = "";
@@ -82,6 +84,12 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				if (!affect.isEmpty()) {
 					ir.reprompt = speechUtils.getString("chooseYouCanFindOutAffect");
 				}
+				break;
+			case "SpeakFragmentIntent":
+			case "WhatsYourAffectAboutIntent":
+				cardTitle = speechUtils.getString("speakFragmentCardTitle");
+
+				ir = new RequestedFragmentResponse();
 				break;
 			default:
 				// no intent name case was matched
@@ -104,23 +112,47 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 	}
 
-	private static class InnerResponse {
+	private class RequestedFragmentResponse extends InnerResponse {
 
-		static String speech = "";
-		static String postSpeechPrompt = "";
-		static String reprompt = "";
+		private RequestedFragmentResponse() {
 
-		InnerResponse() {
+			// build variant fragments just before they're needed:
+			buildFragments();
+
+			// Get slot from the intent
+			Slot fragmentSlot = intent.getSlots().get(FRAGMENTNAME_SLOT);
+			String fragmentName = (fragmentSlot == null) ? "" : fragmentSlot.getValue();
+
+			int fragmentIndex = langConstants.parseNameToInt(fragmentName);
+
+			if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
+				speech = fragments[fragmentIndex];
+				reprompt = speechUtils.getString("chooseContinue");
+
+				// set the session fragmentIndex if a valid fragment was found
+				sessAttributes.justPut(FRAGMENTINDEX, fragmentIndex);
+				// and add this to the list of fragments that have been heard
+				ArrayList fl = (ArrayList) sessAttributes.get(FRAGMENTLIST);
+				if (!fl.contains(fragmentIndex)) fl.add(fragmentIndex);
+				sessAttributes.justPut(FRAGMENTLIST, fl);
+				
+				// do, but not always, the preSpeech
+				if (fragmentIndex > 0 && randInt(0, 3) == 0) preSpeech = speechUtils.getString("preSpeechFeelings");
+			}
+			else {
+				// After trying to parse the fragmentSlot,
+				// we don't know which fragment is wanted.
+				speech = speechUtils.getString("dontKnowFragmentSpeech");
+				reprompt = speechUtils.getString("dontKnowFragmentReprompt");
+			}
 
 		}
-
 	}
 
 	private String getAffectFromSlot(Intent intent) {
 
 		String affect;
-		Map<String, Slot> slots = intent.getSlots();
-		Slot affectSlot = slots.get(AFFECT_SLOT);
+		Slot affectSlot = intent.getSlots().get(AFFECT_SLOT);
 		affect = (affectSlot == null) ? "" : affectSlot.getValue();
 		return langConstants.getNounFromAdjective(affect);
 	}
