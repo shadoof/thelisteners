@@ -18,7 +18,7 @@ import listeners.util.SessionMap;
 // for The Listeners session state
 // and session to session persistance
 // with some attributes-related methods
-// some methods expect the Constants.attributesManager
+// some methods need the Constants.attributesManager
 
 public class Attributes {
 

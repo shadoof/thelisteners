@@ -1,15 +1,18 @@
 package listeners.handlers;
 
-import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.model.Response;
-import listeners.model.Constants;
-import org.slf4j.Logger;
-
+import static listeners.model.Constants.EXCEPTION_MESSAGE;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.Optional;
 
-import static org.slf4j.LoggerFactory.getLogger;
+import org.slf4j.Logger;
+
+import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.model.Response;
+
+import listeners.util.ResponseFinisher;
 
 public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.ExceptionHandler {
 
@@ -26,10 +29,17 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 
 		LOG.error("Error message is " + throwable.getMessage());
 		info("Cause: " + throwable.getCause());
-	  throwable.printStackTrace();
+		throwable.printStackTrace();
+		
+		ResponseFinisher rf = ResponseFinisher.builder()
+				.withSpeech(EXCEPTION_MESSAGE)
+				.withReprompt(speechUtils.getString("chooseContinueNoAffect"))
+				.build();
+
 		return input.getResponseBuilder()
-				.withSpeech(Constants.EXCEPTION_MESSAGE)
-				.withReprompt(Constants.EXCEPTION_MESSAGE)
+				.withSimpleCard("Not reading you ...", EXCEPTION_MESSAGE)
+				.withSpeech(rf.getSpeech())
+				.withReprompt(rf.getReprompt())
 				.build();
 	}
 

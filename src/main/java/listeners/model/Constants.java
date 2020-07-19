@@ -14,8 +14,8 @@ public class Constants {
 	// environment
 	// These variables should be set in the Lambda function.
 	// DEV - are you still developing?
-	// LIVE - the behavior of the skill IS either live or 'as if' live.
-	// PERFORMANCE - used in performance (other voices' drama shorter, etc.)
+	// LIVE - the behavior of the skill is either live or 'as if' live.
+	// PERFORMANCE - used in performance (other voices' drama is shorter, etc.)
 	public static boolean DEV = true;
 	public static boolean LIVE = false;
 	public static boolean PERFORMANCE = false;
@@ -30,7 +30,7 @@ public class Constants {
 	// 2.6.0 - working towards this version which will launch German
 	// 2.6.0a and 0b were in response to Amazon demands to remove 'always
 	// listening' instances
-	// 3.0.0 factored for the latest Java ASK SDK and decent 110n
+	// 3.0.0 refactored for the latest Java ASK SDK and decent 110n
 	public static final String VERSION = "3.0.0";
 	public static final String VERSION_DATE_LIVE = "July 15, 2020";
 	public static final String VERSION_DATE_DEV = "July 1, 2020";
@@ -43,7 +43,8 @@ public class Constants {
 	public static final int NUMBER_OF_READABLES = 40;
 
 	// for readability
-	public static final String EXCEPTION_MESSAGE = "Sorry, I can't understand the command. Please say again.";
+	// TODO l10n for Exception message
+	public static final String EXCEPTION_MESSAGE = "Sorry, we haven't heard you. Please say more.";
 	public static final String RELATIONSHIP = "relationship"; // key
 	public static final String SPC = " ";
 	public static final Map<String, String> PAUSES_MAP;
@@ -54,17 +55,16 @@ public class Constants {
 	public static final boolean SPECIFIC_FRAGMENT = true;
 	public static final int VERSE = 7;
 
-	public static String localeTag;
-	public static String localeLang;
-	public static String localeCountry;
 	public static Locale locale;
+	public static String localeCountry;
+	public static String localeLang;
+	public static String localeTag; // most used
 
 	// some useful instances
 	public static AttributesManager attributesManager;
 	public static Attributes attributes;
 	public static LangConstants langConstants;
 	public static ResourceBundle speechUtils;
-//	public static SpeechUtils speechUtils;
 
 	static {
 		PAUSES_MAP = new HashMap<>();
