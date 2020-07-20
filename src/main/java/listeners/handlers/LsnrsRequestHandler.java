@@ -28,6 +28,7 @@ import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
+import listeners.util.SessionMap;
 import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
 
@@ -67,6 +68,9 @@ public class LsnrsRequestHandler implements RequestHandler {
 		langConstants = LangConstants.getInstance(locale); // singleton
 		// initialize session attributes
 		sessAttributes = Attributes.initSessionAttributes();
+		attributesManager.setSessionAttributes(sessAttributes);
+
+		
 		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 

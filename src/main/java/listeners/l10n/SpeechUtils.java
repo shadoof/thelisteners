@@ -37,7 +37,86 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "spkrsAffectIsCardTitle", spkrsAffectIsCardTitle() },
 			{ "spkrsAffectIsNotCardTitle", spkrsAffectIsNotCardTitle() },
 			{ "spkrsAffectIsNotSpeech", spkrsAffectIsNotSpeech() },
-			{ "spkrsAffectIsSpeech", spkrsAffectIsSpeech() } };
+			{ "spkrsAffectIsSpeech", spkrsAffectIsSpeech() },
+			{ "thanksWhatsLsnrsAffectCardTitle", thanksWhatsLsnrsAffectCardTitle() },
+			{ "thanksWhatsLsnrsAffectPreSpeech", thanksWhatsLsnrsAffectPreSpeech() },
+			{ "thanksWhatsLsnrsAffectSpeech", thanksWhatsLsnrsAffectSpeech() },
+			{ "whatAboutAffectsCardTitle", whatAboutAffectsCardTitle() },
+			{ "whatAboutAffectsCardTitle", whatAboutAffectsSpeech() },
+			{ "whatIsCardTitle", whatIsCardTitle() },
+			{ "whatIsSpeech", whatIsSpeech() },
+			{ "whatPictureCardTitle", whatPictureCardTitle() },
+			{ "whatPictureSpeech", whatPictureSpeech() } };
+
+	protected String affectAsBreathingSpeech() {
+
+		String speech, s, f;
+		speech = s("We are listening.", "We are " + s("somewhat shocked that", "surprised") + "you asked.")
+				+ breath()
+				+ s("We, hear you.", "");
+		speech += "This is a " + s("fragment", "passage") + "that may " + s("tell you", "show you");
+		speech += s(breathShort(), "") + "how " + s(breath(), "") + "we feel. ";
+		speech += breathLong();
+		if (heads()) {
+			speech += "This is a " + choosePhrase() + SPC;
+			speech += "that was followed by a space. ";
+			speech += breathLonger();
+		}
+		s = choosePhrase();
+		speech += "This is a " + s + ", ";
+		speech += "that was followed by a " + (s.equals("feeling") ? "comma. " : s("feeling.", "comma."));
+		speech += breathLonger();
+		if (heads()) {
+			do {
+				s = choosePhrase();
+			}
+			while ("word".equals(s));
+			speech += "This is a " + s + ". ";
+			speech += "As a " + ("feeling".equals(s) ? "sentence. " : s("feeling.", "sentence."));
+			speech += breathLonger();
+		}
+		if (heads()) {
+			s = choosePhrase();
+			speech += "<p>This is a " + s + ".</p> ";
+			speech += "As a " + (s.equals("feeling") ? "paragraph. " : s("feeling.", "paragraph."));
+			speech += breathLonger();
+		}
+		if (heads()) {
+			s = choosePhrase();
+			f = ("feeling".equals(s) ? s("breath", "dream") : s("feeling", "dream"));
+			speech += "This is a " + s + SPC;
+			speech += breath() + "that was followed by a " + f + ". ";
+			speech += breathLonger();
+		}
+		speech += "Is this a question? ";
+		speech += breath() + "It was followed by a " + S(S("breath", "dream"), "feeling") + ". ";
+		speech += breathLonger();
+		speech += "This is a " + breath() + s("phrase,", "feeling,");
+		speech += breath() + "that was interrupted by a " + s("breath.", s("dream.", "nightmare."));
+		speech += breathLonger();
+		if (heads()) {
+			s = choosePhrase();
+			f = ("feeling".equals(s) ? s("breath", "dream") : s("feeling", "nightmare"));
+			speech += "This is a " + s + SPC;
+			speech += breathLong() + "that was followed by a long " + f + ". ";
+			speech += breathLonger();
+		}
+		speech += "This is a " + choosePhrase() + ". ";
+		speech += breathLong() + "that was followed by a " + s(s("nightmare", "breath"), "feeling")
+				+ "withheld. ";
+		speech += breathLonger();
+		if (heads()) {
+			speech += "This is a " + s("phrase", "sentence") + SPC;
+			speech += breathLonger() + "that was followed by a longer "
+					+ s(s("nightmare.", "pause."), "feeling.");
+			speech += breathLonger();
+		}
+		speech += "How, ever, could we feel more, and then, " + breath();
+		speech += "what " + s("would", "should") + "we feel? "
+				+ s("what, should we. " + breath() + "feel?", "");
+
+		return speech += breath();
+	}
 
 	protected String buildAbandonmentMessage() {
 
@@ -694,6 +773,69 @@ public class SpeechUtils extends ListResourceBundle {
 		return speech += breath();
 	}
 
+	protected String thanksWhatsLsnrsAffectCardTitle() {
+
+		return S("It's so nice of you to ask", "Thank you for " + s("taking an interest", "asking"));
+	}
+
+	protected String thanksWhatsLsnrsAffectPreSpeech() {
+
+		return s(s("You're", "You are") + s("very", "") + "welcome.",
+				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
+	}
+
+	protected String thanksWhatsLsnrsAffectSpeech() {
+
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+		String listenersAffect = (String) sessAttributes.get(LISTENERSAFFECT);
+
+		affect = attributes.setAndGetRandomAffectIfEmpty(AFFECT);
+		listenersAffect = attributes.setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
+
+		boolean shared = affect.equals(listenersAffect);
+
+		if ((boolean) sessAttributes.get(HEARDBREATHAFFECTS) || shared || heads()) {
+
+			speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
+					+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "
+					+ breathShort();
+			if (attributes.isPositive(affect) && attributes.isPositive(listenersAffect)) {
+
+				speech += "It is good " + s("for all of us", "") + "to know that we can "
+						+ (shared ? s("share these feelings.", "empathize with you.") : "have such feelings. ");
+			}
+			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+
+				speech += s(s("My", "Oh") + "heavens!", s("Oh goodness!", "Oh my word!")) + "That "
+						+ s("anyone", "any " + s("one", "") + "of us") + "should " + s("have to", "")
+						+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
+			}
+			else if (attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+				speech += "We are" + s(", at least,", SPC) + s("glad", "pleased") + "to "
+						+ s("know", "be aware") + "that the positivity of your "
+						+ s("feelings", phonemic("a") + "ffect") + "betters "
+						+ s("that of ourselves.", "our negative feelings.");
+			}
+			else // speaker negative; listeners positive
+			{
+				speech += "It is " + s("embarrassing", "awkward")
+						+ "for us to be experiencing positive feelings when you are "
+						+ s("possessed by " + s("relative", "") + "negativity.", "not.");
+				speech += s("But " + s("we suppose that", "") + "this cannot " + s("really", "") + "be helped. "
+						+ s("Can it?", ""), "");
+			}
+		}
+		else {
+			// TODO for ResponseFinisher
+			boolean interruptable = true;
+
+			speech += affectAsBreathingSpeech();
+			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
+		}
+		return speech += breath();
+	}
+
 	protected String tiredSpeech() {
 
 		String speech = "Although it is impossible for " + s("us, or so we believe,", "us")
@@ -704,6 +846,155 @@ public class SpeechUtils extends ListResourceBundle {
 		speech += "can be very " + s("tiring.", "tiring for you.")
 				+ s("At least we can be tireless, for " + s("you, in our listening.", "you."), "");
 		return speech;
+	}
+
+	protected String whatAboutAffectsCardTitle() {
+
+		return S("We are still learning" + s(", about feeling, in particular", ""),
+				"Our understanding is still limited");
+	}
+
+	protected String whatAboutAffectsSpeech() {
+
+		String speech = "When we " + s("welcome", "greet") + "you, "
+				+ s("we are only able to", "we can only") + s("mention", "suggest") + "a few of the "
+				+ s("nine", "") + phonemic("a") + "ffects ";
+		speech += s("that you may feel", s("within which you may dwell,", "by which you may be possessed,"))
+				+ "and that we can " + s(s("clearly", "") + "distinguish.", "hear clearly (as we listen).");
+		speech += s("Here", "Here, then,") + "is " + s("our", "the") + "list. We are "
+				+ s("conscious " + s("of the fact", ""), "sensitive to the fact") + "that it is "
+				+ s("not, and never can be,", "not") + "complete. " + breathShort();
+
+		int i;
+		for (i = 0; i < AFFECTS_ARRAY.length - 1; i++) {
+			speech += AFFECTS_ARRAY[i] + "; ";
+		}
+		speech += AFFECTS_ARRAY[i] + ". ";
+		return speech += breath();
+	}
+
+	protected String whatIsCardTitle() {
+
+		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
+				+ s(" about some thing", "");
+	}
+
+	protected String whatIsSpeech() {
+
+		String speech = "";
+		String thing = (String) sessAttributes.get(THING);
+		String capitalThing = capitalize(thing);
+		if (!thing.isEmpty()) {
+			boolean plural = "s".equals(thing.substring(thing.length() - 1))
+					&& !"ss".equals(thing.substring(thing.length() - 2));
+			if (ALL_AFFECTS.contains(thing)) {
+
+				speech += capitalThing + (plural ? ", are " : ", is one of the ")
+						+ s(phonemic("a") + "ffects", "ways of being or feeling")
+						+ "that we are beginning to learn about, " + s(breathShort(), "") + "from you, ";
+				speech += "and that we " + s("consider", "believe") + "to be "
+						+ (attributes.isPositive(thing)
+								? s(s("postive.", "positive, for all of us."),
+										s("wonderful, for all of us.", "really, very good."))
+								: s("negative.", s("bad,", "difficult,") + "for all of us."))
+						+ breath();
+			}
+			else if (FRAGMENTNAME_MAP.keySet()
+					.contains(thing)) {
+				speech += capitalThing + (plural ? ", are " : ", is one of those ")
+						+ "things about which we have something to say. "
+						+ s("Or, about which, we may have said, something.", "") + breathShort();
+				speech += "If you choose to " + s("'continue',", "'go on',") + (plural ? "they " : "it ")
+						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.", "");
+			}
+			else if (SPECIAL_THINGS.contains(thing)) {
+				switch (thing) {
+					case "dream":
+						speech += capitalThing + ", thanks to you, " + breathShort()
+								+ "is what we will have learned to do, " + breathShort()
+								+ s("before", "before, finally,") + "we leave you. "
+								+ s(breathShort() + "Or you abandon us.", "");
+						break;
+					case "dream withheld":
+						speech += capitalThing + ", is the pleasure we deny ourselves, " + breathShort()
+								+ "hanging on your every " + s("word.", "word, or breath.")
+								+ s(breathShort() + "When we might be sleeping, " + s("comfortably,", "")
+										+ "in the cloud" + S("s", "") + ".", "");
+						break;
+					case "hong kong":
+						speech += "Hong Kong is " + s("the only place", "a") + "on earth where, ";
+						speech += "despite grotesque inequalities, "
+								+ s("an extraordinary history,", "political complexities,")
+								+ "and a bizarre cosmopolitanism, ";
+						speech += "the people living " + s("here", "there") + "seem to be remarkably "
+								+ s("happy.", "content.");
+						break;
+					case "nightmare":
+						speech += capitalThing
+								+ ", is the dream that is not a dream, but the darkness, within which we would dwell, "
+								+ breathShort() + "without you. ";
+						break;
+					case "nightmare withheld":
+						speech += capitalThing + ", is the dream that is not a dream, and that we "
+								+ s("refuse to contenance.", "abjure.") + "Silence, " + breathShort() + "without you. ";
+						break;
+					case "feeling":
+						speech += capitalThing + ", is something that fills you, but that does not fill us, "
+								+ breathShort() + "yet. ";
+						break;
+					case "feeling withheld":
+						speech += capitalThing + ", is a dream that we have " + s("not, yet,", "not") + "dreamed. ";
+						break;
+					case "breath":
+						speech += capitalThing + ", is a brief moment of silence in our speaking, that you fill, "
+								+ breathShort() + "for us, " + breathShort() + "with feeling. ";
+						break;
+					case "breath withheld":
+						speech += capitalThing + ", may be a longer silence, however brief, " + breathShort()
+								+ "or an empty moment, in which we wait. " + s(breathShort() + "For you.", "");
+						break;
+					case "possession":
+						speech += capitalThing + ", is what you grant "
+								+ s("us.", "us, " + s("too", "") + "freely.");
+					default:
+						speech += capitalThing + (plural ? ", are " : ", is something that is ")
+								+ "very special to us. ";
+						break;
+				}
+
+			}
+			else {
+				speech += S("We are " + s("very sorry", s("dismayed", "embarrassed")) + "to "
+						+ s("confess", "say") + "that t", "T");
+				speech += "here is " + s("very little", "nothing") + "that "
+						+ s("we, " + breathShort() + "The Listeners,", "we") + "can tell you about " + thing + ". ";
+			}
+		}
+		else { // thing is empty
+			speech += "We are " + s("afraid", "sorry to say") + "that " + s("the thing", "whatever")
+					+ "you have asked about is " + s("unknown", "not known") + "to us. " + breathShort();
+			speech += s("Although we may learn " + s("about", "to know of") + "it in "
+					+ s("time.", s("the future.", "due course.")), "");
+		}
+		return speech + breath();
+	}
+
+	protected String whatPictureCardTitle() {
+
+		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+	}
+
+	protected String whatPictureSpeech() {
+
+		String speech = "This " + s("image,", "picture,") + "which is often "
+				+ s("mounted", "framed and hung") + "close to us, "
+				+ s("is", "is, " + s("actually,", "in fact,")) + "a papercut facsimile ";
+		speech += "of " + s("artificial", "") + "flowers that adorn " + s("ancient", "")
+				+ "Chinese Buddhist shrines. ";
+		speech += s("It is here, " + s("simply,", "") + "to remind us, " + s("and you,", "")
+				+ "of the place, " + s("a home,", "")
+				+ s("within which we are used to dwell.", "where we live.") + s("With you.", ""), "");
+		return speech += breath();
 	}
 
 }

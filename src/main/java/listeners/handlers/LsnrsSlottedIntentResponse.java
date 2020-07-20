@@ -17,9 +17,7 @@ import listeners.util.UnknownIntentException;
 import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
 import static listeners.util.Utils.*;
-import static listeners.model.LangConstants.buildFragments;
-import static listeners.model.LangConstants.fragments;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
+import static listeners.model.LangConstants.*;
 
 public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
@@ -38,7 +36,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 		switch (intent.getName()) {
 			case "SpkrsAffectIsIntent":
-				affect = getAffectFromSlot(intent);
+				affect = getFromSlot(AFFECT_SLOT);
 				info("@LsnrsSlottedIntentResponse, slot affect: " + affect);
 				sessAttributes.put(AFFECT, affect);
 
@@ -67,7 +65,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			case "SpkrsAffectIsNotIntent":
 				cardTitle = speechUtils.getString("spkrsAffectIsNot");
 				affect = (String) sessAttributes.get(AFFECT);
-				String challengedAffect = getAffectFromSlot(intent);
+				String challengedAffect = getFromSlot(AFFECT_SLOT);
 				info("@LsnrsSlottedIntentResponse, challengedAffect: " + challengedAffect);
 				sessAttributes.put(CHALLENGEDAFFECT, challengedAffect);
 
@@ -86,10 +84,22 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				}
 				break;
 			case "SpeakFragmentIntent":
-			case "WhatsYourAffectAboutIntent":
+			case "WhatsLsnrsAffectAboutIntent":
 				cardTitle = speechUtils.getString("speakFragmentCardTitle");
 
 				ir = new RequestedFragmentResponse();
+				break;
+			case "WhatIsIntent":
+				cardTitle = speechUtils.getString("whatIsCardTitle");
+				ir = new InnerResponse();
+				String thing = getFromSlot(THING_SLOT);
+				sessAttributes.put(THING, thing);
+				if (PICTURE_WORDS.contains(thing)) {
+					ir.speech = speechUtils.getString("whatPictureSpeech");
+				}
+				else {
+					ir.speech = speechUtils.getString("whatIsSpeech");
+				}
 				break;
 			default:
 				// no intent name case was matched
@@ -110,6 +120,17 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				.withShouldEndSession(false)
 				.build();
 
+	}
+
+	private String getFromSlot(String slotKey) {
+
+		String value;
+		Slot slot = intent.getSlots().get(slotKey);
+		value = (slot == null) ? "" : slot.getValue();
+		if (slotKey.contentEquals(AFFECT_SLOT)) {
+			return langConstants.getNounFromAdjective(value);
+		}
+		return value;
 	}
 
 	private class RequestedFragmentResponse extends InnerResponse {
@@ -147,14 +168,6 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			}
 
 		}
-	}
-
-	private String getAffectFromSlot(Intent intent) {
-
-		String affect;
-		Slot affectSlot = intent.getSlots().get(AFFECT_SLOT);
-		affect = (affectSlot == null) ? "" : affectSlot.getValue();
-		return langConstants.getNounFromAdjective(affect);
 	}
 
 }

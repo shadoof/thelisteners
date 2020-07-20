@@ -11,8 +11,7 @@ import listeners.util.UnknownIntentException;
 
 import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
-import static listeners.util.Utils.info;
-import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.*;
 import static listeners.model.LangConstants.buildFragments;
 import static listeners.model.LangConstants.fragments;
 import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
@@ -43,7 +42,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					cardTitle = speechUtils.getString("continueCardTitle");
 				}
 				// do, but not always, the preSpeech
-				if ((int) sessAttributes.get(FRAGMENTINDEX) > 0 && randInt(1, 4) == 1) {
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0) {
 					preSpeech = speechUtils.getString("preSpeechFeelings");
 				}
 				ir = new NextFragmentResponse();
@@ -51,7 +50,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 			case "PreviousIntent":
 				cardTitle = speechUtils.getString("previousCardTitle");
 				// do, but not always, the preSpeech
-				if ((int) sessAttributes.get(FRAGMENTINDEX) > 0 && randInt(0, 3) == 0)
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0)
 					preSpeech = speechUtils.getString("preSpeechFeelings");
 
 				// build variant fragments just before they're needed:
@@ -89,6 +88,27 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					al.add(fragmentIndex);
 					sessAttributes.justPut(FRAGMENTLIST, al);
 				}
+				break;
+			case "ThanksWhatsLsnrsAffectIntent":
+				cardTitle = speechUtils.getString("thanksWhatsLsnrsAffectCardTitle");
+				preSpeech = speechUtils.getString("thanksWhatsLsnrsAffectPreSpeech");
+				ir = new InnerResponse();
+				ir.speech = preSpeech + speechUtils.getString("thanksWhatsLsnrsAffectSpeech");
+				ir.reprompt = speechUtils.getString("chooseContinueNoAffect");
+				break;
+			case "WhatAboutAffectsIntent":
+				cardTitle = speechUtils.getString("whatAboutAffectsCardTitle");
+				ir = new InnerResponse();
+				ir.speech = speechUtils.getString("whatAboutAffectsSpeech");
+				ir.postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
+				ir.reprompt = speechUtils.getString("chooseContinueNoAffect");
+				break;
+			case "WhatPictureIntent":
+				cardTitle = speechUtils.getString("whatPictureCardTitle");
+				ir = new InnerResponse();
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0)
+					preSpeech = speechUtils.getString("preSpeechFeelings");
+				ir.speech = preSpeech + speechUtils.getString("whatPictureSpeech");
 				break;
 			default:
 				// no intent name case was matched
@@ -156,4 +176,5 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 			if ("".equals(reprompt)) reprompt = speechUtils.getString("chooseContinue");
 		}
 	}
+
 }

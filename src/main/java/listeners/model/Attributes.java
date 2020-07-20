@@ -1,6 +1,8 @@
 package listeners.model;
 
 import static listeners.model.Constants.attributesManager;
+import static listeners.model.Constants.langConstants;
+import static listeners.model.Attributes.AFFECT_SLOT;
 import static listeners.model.Constants.RELATIONSHIP;
 import static listeners.util.Utils.randInt;
 import static listeners.util.Utils.info;
@@ -11,6 +13,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import com.amazon.ask.attributes.AttributesManager;
+import com.amazon.ask.model.Slot;
 
 import listeners.util.SessionMap;
 
@@ -109,7 +112,6 @@ public class Attributes {
 		m.justPut(THING, "");
 		m.justPut(RELATIONSHIP, "sessionStart");
 		m.justPut(SPEAKGUYZCONFIRMED, false);
-		attributesManager.setSessionAttributes((SessionMap) m);
 		return (SessionMap) m;
 	}
 
@@ -137,11 +139,12 @@ public class Attributes {
 				: affectIsPositive;
 	}
 
-	public String setAndGetRandomAffectIfEmpty(String affect) {
+	public String setAndGetRandomAffectIfEmpty(String affectKey) {
 
+		String affect = (String) sessAttributes.get(affectKey);
 		if (affect == null || affect.isEmpty()) {
 			affect = getRandomAffect();
-			sessAttributes.put(AFFECT, affect);
+			sessAttributes.put(affectKey, affect);
 		}		
 		return affect;
 	}
