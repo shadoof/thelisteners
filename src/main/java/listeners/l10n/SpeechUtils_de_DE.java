@@ -141,7 +141,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				+ "'Alexa, Halt!' ";
 		preamble += s(s("Und bist fertig damit.", ""), "Sie können etwas 'düster' sein. Aber ...")
 				+ s("Wir hoffen es gefällt dir", "Vielen Dank, dass du zuhörst") + "'Den Zuhörern'. ";
-		return preamble;
+		return preamble += breathLong();
 	}
 
 	protected String chooseContinue(boolean promptForAffect) {

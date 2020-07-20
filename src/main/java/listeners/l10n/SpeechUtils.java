@@ -146,7 +146,7 @@ public class SpeechUtils extends ListResourceBundle {
 				+ s("clearly,", s("firmly,", "")) + "'Alexa, Stop!' ";
 		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
 				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
-		return preamble;
+		return preamble += breathLong();
 	}
 
 	protected String chooseContinue() {
