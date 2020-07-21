@@ -75,10 +75,15 @@ public class TestHandler {
 
 		 L10nSpeech ls = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
 		
-		 info("@TestHandler, cardTitle: “" + ls.getCardTitle() + "”");
-		 info("@TestHandler, speech: “" + ls.getSpeech() + "”");
+		 InnerResponse ir = (InnerResponse) speechUtils.getObject("where");
+
+//		 info("@TestHandler, cardTitle: “" + ls.getCardTitle() + "”");
+		 info("@TestHandler, cardTitle: “" + ir.getCardTitle() + "”");
+//		 info("@TestHandler, speech: “" + ls.getSpeech() + "”");
+		 info("@TestHandler, speech: “" + ir.getSpeech() + "”");
 		 info("@TestHandler, reprompt: “" + ls.getReprompt() + "”");
 		 info("@TestHandler, postSpeechPrompt: “" + ls.getPostSpeechPrompt() + "”");
+		 
 		
 		 ResponseFinisher rf = ResponseFinisher.builder()
 		 .withPreamble(preamble)

@@ -25,33 +25,18 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 	@Override
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
-		boolean heardPlease = false;
-		String preSpeech = "";
-		String cardTitle = "";
-		InnerResponse ir = new InnerResponse();
+		String intentName = intent.getName();
+		InnerResponse ir;
 
-		switch (intent.getName()) {
+		switch (intentName) {
 			case "PleaseContinueIntent":
-				cardTitle = speechUtils.getString("pleaseContinueCardTitle");
-				preSpeech = speechUtils.getString("pleaseContinuePreSpeech");
-				heardPlease = true;
-				// always fall through here:
 			case "ContinueIntent":
-
-				if (!heardPlease) {
-					cardTitle = speechUtils.getString("continueCardTitle");
-				}
-				// do, but not always, the preSpeech
-				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0) {
-					preSpeech = speechUtils.getString("preSpeechFeelings");
-				}
-				ir = new NextFragmentResponse();
+				ir = new NextFragmentResponse(intentName);
 				break;
 			case "PreviousIntent":
-				cardTitle = speechUtils.getString("previousCardTitle");
+				ir = new InnerResponse();
+				ir.setCardTitle(speechUtils.getString("previousCardTitle"));
 				// do, but not always, the preSpeech
-				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0)
-					preSpeech = speechUtils.getString("preSpeechFeelings");
 
 				// build variant fragments just before they're needed:
 				buildFragments();
@@ -61,8 +46,12 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 				sessAttributes.justPut(FRAGMENTINDEX, fragmentIndex);
 
-				ir.speech = fragments[fragmentIndex];
-				ir.reprompt = speechUtils.getString("chooseContinue");
+				ir.setSpeech(fragments[fragmentIndex]);
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0)
+					ir.setSpeech(speechUtils.getString("preSpeechFeelings") + ir.getSpeech());
+				ir.setSpeech(ir.getSpeech() + speechUtils.getString("chooseContinueNoAffect"));
+
+				ir.setReprompt(speechUtils.getString("chooseContinue"));
 
 				// and add this to the list of fragments that have been heard
 				ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
@@ -70,45 +59,49 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					al.add(fragmentIndex);
 					sessAttributes.justPut(FRAGMENTLIST, al);
 				}
-				ir.postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
 
 				// TODO in ResponseFinisher:
 				boolean specificFragment = true;
 				break;
 			case "ReadPoemIntent":
-				cardTitle = speechUtils.getString("readPoemCardTitle");
+				ir = new InnerResponse();
+				ir.setCardTitle(speechUtils.getString("readPoemCardTitle"));
 				fragmentIndex = VERSE;
 				sessAttributes.justPut(FRAGMENTINDEX, fragmentIndex);
 				// build variant fragments just before they're needed:
 				buildFragments();
-				ir.speech = fragments[fragmentIndex];
-				ir.reprompt = speechUtils.getString("chooseContinue");
+				ir.setSpeech(fragments[fragmentIndex]);
+				ir.setReprompt(speechUtils.getString("chooseContinue"));
 				al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
 				if (!al.contains(fragmentIndex)) {
 					al.add(fragmentIndex);
 					sessAttributes.justPut(FRAGMENTLIST, al);
 				}
 				break;
+			case "WhatsLsnrsAffectIntent":
 			case "ThanksWhatsLsnrsAffectIntent":
-				cardTitle = speechUtils.getString("thanksWhatsLsnrsAffectCardTitle");
-				preSpeech = speechUtils.getString("thanksWhatsLsnrsAffectPreSpeech");
-				ir = new InnerResponse();
-				ir.speech = preSpeech + speechUtils.getString("thanksWhatsLsnrsAffectSpeech");
-				ir.reprompt = speechUtils.getString("chooseContinueNoAffect");
+				ir = (InnerResponse) speechUtils.getObject("WhatsLsnrsAffectIntent");
+				if (intentName.equals("ThanksWhatsLsnrsAffectIntent")) {
+					ir.setCardTitle(speechUtils.getString("thanksWhatsLsnrsAffectCardTitle"));
+					ir.setSpeech(speechUtils.getString("thanksWhatsLsnrsAffectPreSpeech") + ir.getSpeech());
+				}
+				ir.setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 				break;
 			case "WhatAboutAffectsIntent":
-				cardTitle = speechUtils.getString("whatAboutAffectsCardTitle");
-				ir = new InnerResponse();
-				ir.speech = speechUtils.getString("whatAboutAffectsSpeech");
-				ir.postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
-				ir.reprompt = speechUtils.getString("chooseContinueNoAffect");
+				ir = (InnerResponse) speechUtils.getObject(intentName);
+				ir.setSpeech(ir.getSpeech() + speechUtils.getString("chooseContinueNoAffect"));
+				ir.setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 				break;
 			case "WhatPictureIntent":
-				cardTitle = speechUtils.getString("whatPictureCardTitle");
-				ir = new InnerResponse();
+				ir = (InnerResponse) speechUtils.getObject(intentName);
 				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0)
-					preSpeech = speechUtils.getString("preSpeechFeelings");
-				ir.speech = preSpeech + speechUtils.getString("whatPictureSpeech");
+					ir.setSpeech(speechUtils.getString("preSpeechFeelings") + ir.getSpeech());
+				break;
+			case "WhatsSpkrsAffectIntent":
+				ir = (InnerResponse) speechUtils.getObject(intentName);
+				ir.setReprompt((((String) sessAttributes.get(AFFECT)).isEmpty())
+						? speechUtils.getString("chooseUnsureAboutAffect")
+						: speechUtils.getString("chooseContinueNoAffect"));
 				break;
 			default:
 				// no intent name case was matched
@@ -117,24 +110,21 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 		}
 
 		ResponseFinisher rf = ResponseFinisher.builder()
-				.withSpeech(preSpeech + ir.speech)
-				.withPostSpeechPrompt(ir.postSpeechPrompt)
-				.withReprompt(ir.reprompt)
+				.withSpeech(ir.getSpeech())
+				.withReprompt(ir.getReprompt())
 				.build();
 
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())
-				.withSimpleCard(cardTitle, rf.getCardText())
+				.withSimpleCard(ir.getCardTitle(), rf.getCardText())
 				.withShouldEndSession(false)
 				.build();
 	}
 
 	private class NextFragmentResponse extends InnerResponse {
 
-		NextFragmentResponse() {
-
-			postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
+		NextFragmentResponse(String intentName) {
 
 			// build variant fragments just before they're needed:
 			buildFragments();
@@ -143,11 +133,11 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 			ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
 			if (al.size() >= NUMBER_OF_FRAGMENTS && !((boolean) sessAttributes.get(HEARDALLFRAGMENTS))) {
-				speech += speechUtils.getString("heardAllFragments");
+				setSpeech(speechUtils.getString("heardAllFragments"));
 
 				// this used to be a trigger that ended the session below
 				sessAttributes.put(HEARDALLFRAGMENTS, true);
-				reprompt = speechUtils.getString("chooseContinueNoAffect");
+				setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 			}
 
 			if (al.size() < NUMBER_OF_FRAGMENTS) {
@@ -172,8 +162,16 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				}
 			}
 
-			speech = fragments[(int) sessAttributes.get(FRAGMENTINDEX)];
-			if ("".equals(reprompt)) reprompt = speechUtils.getString("chooseContinue");
+			setSpeech(fragments[(int) sessAttributes.get(FRAGMENTINDEX)]
+					+ speechUtils.getString("chooseContinueNoAffect"));
+			
+			if (intentName.equals("PleaseContinueIntent")) {
+				setCardTitle(speechUtils.getString("pleaseContinueCardTitle"));
+				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0) {
+					setSpeech(speechUtils.getString("preSpeechFeelings") + getSpeech());
+				} else
+					setSpeech(speechUtils.getString("pleaseContinuePreSpeech") + getSpeech());
+			}
 		}
 	}
 

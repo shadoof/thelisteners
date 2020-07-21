@@ -147,7 +147,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())
-				.withSimpleCard(ct, rf.getCardText())
+				.withSimpleCard(ls.getCardTitle(), rf.getCardText())
 				.withShouldEndSession(false)
 				.build();
 	}

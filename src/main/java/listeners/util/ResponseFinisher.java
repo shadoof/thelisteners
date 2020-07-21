@@ -10,9 +10,9 @@ import java.util.Map;
 // get one of these with the pattern: ResponseFinisher.builder().withSpeech(speech).build();
 public class ResponseFinisher {
 
-	private static String speech;
-	private static String cardText;
-	private static String reprompt;
+	private String speech;
+	private String cardText;
+	private String reprompt;
 
 	public static Builder builder() {
 

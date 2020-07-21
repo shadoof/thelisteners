@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import listeners.handlers.InnerResponse;
 import listeners.model.Constants;
 
 public class SpeechUtils_de_DE extends SpeechUtils {
@@ -689,6 +690,49 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected Object spkrsAffectIs() {
+
+		// TODO
+		String speech = "";
+		String adjective = "";
+		String intensifier = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+		if (attributes.isPositive(affect)) {
+			speech = "We are " + s("so", "") + s("pleased", "delighted");
+		}
+		else {
+			adjective = s("sorry", "dismayed");
+			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
+			speech = "We are " + s(adjective, intensifier + adjective);
+		}
+		speech += "to " + s("know", "have learned") + "that you are "
+				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		if (!attributes.isEmptyForSession(PREVIOUSAFFECT)) {
+			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
+			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
+				speech += s("How much more positive are your feelings now?",
+						"It's good to " + s("know, at least,", "") + "know that you still "
+								+ s("have positive feelings.",
+										"feel positive " + phonemic("a") + "ffect" + s("s", "") + "."));
+			}
+			else if (attributes.isPositive(prevAffect) && !attributes.isPositive(affect)) {
+				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
+						+ s("taken a negative turn.", "taken a down turn.");
+			}
+			else if (!attributes.isPositive(prevAffect) && attributes.isPositive(affect)) {
+				speech += "So good to " + s("learn", "become aware") + "that your "
+						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
+						+ s("improved.", "become better.");
+			}
+			else {
+				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
+						+ s("seems", "appears") + s(", to us.", ".");
+			}
+		}
+
+		return new InnerResponse(spkrsAffectIsCardTitle(), speech += breath());
+	}
+
 	protected String spkrsAffectIsCardTitle() {
 
 		// TODO
@@ -701,7 +745,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				"Entschuldigung für unsere Fehler");
 	}
 
-	protected String spkrsAffectIsNotSpeech() {
+	protected InnerResponse spkrsAffectIsNot() {
 
 		// TODO
 		String challengedAffect = (String) sessAttributes.get(CHALLENGEDAFFECT);
@@ -727,7 +771,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 							"the feelings within which you do, now, dwell.");
 		}
 		speech = String.format(speech, challengedAffect);
-		return speech += breath();
+		return new InnerResponse(spkrsAffectIsNotCardTitle(), speech += breath());
 	}
 
 	protected String spkrsAffectIsSpeech() {
@@ -785,7 +829,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
 	}
 
-	protected String thanksWhatsLsnrsAffectSpeech() {
+	protected String whatsLsnrsAffectCardTitle() {
+
+		// TODO
+		return "What we " + s("are trying to", "") + "feel";
+	}
+
+	protected InnerResponse whatsLsnrsAffect() {
 
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
@@ -834,7 +884,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech += affectAsBreathingSpeech();
 			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
 		}
-		return speech += breath();
+		return new InnerResponse(whatsLsnrsAffectCardTitle() ,speech += breath());
 	}
 
 	protected String tiredSpeech() {
@@ -857,9 +907,9 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				"Our understanding is still limited");
 	}
 
-	protected String whatAboutAffectsSpeech() {
+	protected InnerResponse whatAboutAffects() {
 
-	// TODO
+		// TODO
 		String speech = "When we " + s("welcome", "greet") + "you, "
 				+ s("we are only able to", "we can only") + s("mention", "suggest") + "a few of the "
 				+ s("nine", "") + phonemic("a") + "ffects ";
@@ -874,7 +924,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech += AFFECTS_ARRAY[i] + "; ";
 		}
 		speech += AFFECTS_ARRAY[i] + ". ";
-		return speech += breath();
+		return new InnerResponse(whatAboutAffectsCardTitle(), speech += breath());
 	}
 
 	protected String whatIsCardTitle() {
@@ -884,7 +934,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				+ s(" about some thing", "");
 	}
 
-	protected String whatIsSpeech() {
+	protected InnerResponse whatIs() {
 
 		// TODO
 		String speech = "";
@@ -979,7 +1029,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech += s("Although we may learn " + s("about", "to know of") + "it in "
 					+ s("time.", s("the future.", "due course.")), "");
 		}
-		return speech + breath();
+		return new InnerResponse (whatIsCardTitle(),speech + breath());
 	}
 
 	protected String whatPictureCardTitle() {
@@ -988,7 +1038,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
 	}
 
-	protected String whatPictureSpeech() {
+	protected InnerResponse whatPicture() {
 
 		// TODO
 		String speech = "This " + s("image,", "picture,") + "which is often "
@@ -999,7 +1049,52 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		speech += s("It is here, " + s("simply,", "") + "to remind us, " + s("and you,", "")
 				+ "of the place, " + s("a home,", "")
 				+ s("within which we are used to dwell.", "where we live.") + s("With you.", ""), "");
-		return speech += breath();
+		return new InnerResponse (whatPictureCardTitle(),speech += breath());
+	}
+
+	protected String whatsSpkrsAffectCardTitle() {
+
+		// TODO
+		return S("You told us " + s("this", "this, concerning your feelings"),
+				"What we believe that you are feeling");
+	}
+
+	protected InnerResponse whatsSpkrsAffect() {
+
+		// TODO
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+
+		if (!affect.isEmpty()) {
+			if (attributes.isPositive(affect)) {
+				speech = "We are " + s("so", "") + s("pleased", "delighted");
+			}
+			else {
+				String adjective, intensifier;
+				adjective = s("sorry", "dismayed");
+				intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
+				speech = "We are " + s(adjective, intensifier + adjective);
+			}
+			speech += "to " + s("know", s("recall", "remember")) + "that ";
+			// make it brief 1 in 4 times:
+			if (randInt(0, 3) == 0)
+				speech = "Y";
+			else
+				speech += "y";
+			speech += String
+					.format("ou are " + s("filled with", s("possessed", "overwhelmed") + "by") + "%s. ", affect);
+
+			speech += s(breath() + specificAffectSpeech(), "");
+		}
+		// affect is not set
+		else {
+			// Since the user's affect is not set, ask them:
+			speech = "We are " + s("unclear about", "unsure, of");
+			speech += s("your feelings.",
+					"what these feelings are that " + s("possess", "overwhelm") + "you.");
+			speech += "Please " + s("try", "attempt") + "to tell us. ";
+		}
+		return new InnerResponse(whatsSpkrsAffectCardTitle(), speech += breath());
 	}
 
 }
