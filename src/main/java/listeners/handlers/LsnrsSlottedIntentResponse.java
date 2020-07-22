@@ -47,7 +47,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				sessAttributes.put(AFFECT, affect);
 				ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
 //				ir = (InnerResponse) speechUtils.getObject(intentName);
-//				cardTitle = ir.getCardTitle(); // TODO
+//				cardTitle = ir.getCardTitle(); // TODO remove after testing
 //				cardTitle = speechUtils.getString("spkrsAffectIsCardTitle");
 //				ir = new InnerResponse();
 //				ir.speech = speechUtils.getString("spkrsAffectIsSpeech");
@@ -105,6 +105,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 		ResponseFinisher rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
+				.withInterruptable(ir.isInterruptable())
 				.withReprompt(ir.getReprompt())
 				.build();
 
@@ -145,6 +146,9 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 			if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
 				setSpeech(fragments[fragmentIndex]);
+				
+				setInterruptable(true);
+				
 				setReprompt(speechUtils.getString("chooseContinue"));
 
 				// set the session fragmentIndex if a valid fragment was found

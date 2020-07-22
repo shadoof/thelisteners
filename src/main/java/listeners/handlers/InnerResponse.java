@@ -11,6 +11,19 @@ public class InnerResponse {
 	private String cardTitle;
 	private String speech;
 	private String reprompt;
+	private boolean interruptable = false;
+
+	
+	public boolean isInterruptable() {
+	
+		return interruptable;
+	}
+
+	
+	public void setInterruptable(boolean interruptable) {
+	
+		this.interruptable = interruptable;
+	}
 
 	public String getReprompt() {
 

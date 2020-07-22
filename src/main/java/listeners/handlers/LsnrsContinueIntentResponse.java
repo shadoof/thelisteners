@@ -111,6 +111,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 		ResponseFinisher rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
+				.withInterruptable(ir.isInterruptable())
 				.withReprompt(ir.getReprompt())
 				.build();
 
@@ -164,6 +165,8 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 			setSpeech(fragments[(int) sessAttributes.get(FRAGMENTINDEX)]
 					+ speechUtils.getString("chooseContinueNoAffect"));
+			
+			setInterruptable(true);
 			
 			if (intentName.equals("PleaseContinueIntent")) {
 				setCardTitle(speechUtils.getString("pleaseContinueCardTitle"));

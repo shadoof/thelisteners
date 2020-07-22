@@ -326,6 +326,19 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected String excuseMarkov() {
+
+		return breathLong() + s(
+				s("Entschuldigen uns.", "Entschuldigen Sie uns!")
+						+ "Wir sind nicht sicher, warum wir das gesagt haben. " + breathLong(),
+				s("Bitte entschuldigen Sie uns.", "") + "Ähm.") + breath();
+	}
+
+	protected String guyzIrq() {
+
+		return s("[die «Leute»", "[andere Stimmen") + "unterbrochen hier ...] ";
+	}
+
 	protected String hateRejoinder(String word) {
 
 		// TODO

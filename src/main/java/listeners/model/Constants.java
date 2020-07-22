@@ -48,6 +48,7 @@ public class Constants {
 	public static final String RELATIONSHIP = "relationship"; // key
 	public static final String SPC = " ";
 	public static final Map<String, String> PAUSES_MAP;
+	public static final Map<Integer, Integer> PROBABILITY_MAP;
 	public static final HashSet<String> NO_MORE;
 	public static final boolean POSITIVE = true;
 	public static final boolean NEGATIVE = false;
@@ -74,6 +75,33 @@ public class Constants {
 		PAUSES_MAP.put("Longbreath", "1.5");
 		PAUSES_MAP.put("Longerbreath", "2.0");
 		PAUSES_MAP.put("Longestbreath", "2.5");
+
+		PROBABILITY_MAP = new HashMap<>();
+		PROBABILITY_MAP.put(0, 12);
+		PROBABILITY_MAP.put(1, 10);
+		PROBABILITY_MAP.put(2, 8);
+		PROBABILITY_MAP.put(3, 6);
+		PROBABILITY_MAP.put(4, 4);
+		PROBABILITY_MAP.put(5, 4);
+		PROBABILITY_MAP.put(6, 3);
+		PROBABILITY_MAP.put(7, 3);
+		PROBABILITY_MAP.put(8, 3);
+		PROBABILITY_MAP.put(9, 2);
+		PROBABILITY_MAP.put(10, 2);
+		PROBABILITY_MAP.put(11, 2);
+		PROBABILITY_MAP.put(12, 2);
+		PROBABILITY_MAP.put(13, 1);
+		PROBABILITY_MAP.put(14, 1);
+		PROBABILITY_MAP.put(15, 1);
+		PROBABILITY_MAP.put(16, 1);
+		PROBABILITY_MAP.put(17, 1);
+		PROBABILITY_MAP.put(18, 1);
+		PROBABILITY_MAP.put(19, 1);
+		PROBABILITY_MAP.put(20, 0);
+		PROBABILITY_MAP.put(21, 0);
+		PROBABILITY_MAP.put(22, 0);
+		PROBABILITY_MAP.put(23, 0);
+		PROBABILITY_MAP.put(24, 0);
 
 		NO_MORE = new HashSet<>();
 		NO_MORE.add("NoIntent");
