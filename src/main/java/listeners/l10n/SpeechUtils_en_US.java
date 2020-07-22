@@ -24,22 +24,6 @@ import listeners.model.Constants;
 
 public class SpeechUtils_en_US extends SpeechUtils {
 
-	protected String buildAbandonmentMessage() {
-
-		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
-				: (String) sessAttributes.get(AFFECT);
-		String amsg;
-		if (attributes.isPositive(affect))
-			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
-					+ s("Still,", "Whatever, " + breath()), affect);
-		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
-	}
-
 	protected String chooseContinue(boolean promptForAffect) {
 
 		int upperLimit = promptForAffect ? 4 : 3;
@@ -165,6 +149,22 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected String getAbandonmentMessage() {
+
+		// does not set the sessionAttributes
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: (String) sessAttributes.get(AFFECT);
+		String amsg;
+		if (attributes.isPositive(affect))
+			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
+					+ s("Still,", "Whatever, " + breath()), affect);
+		else
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
+		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+	}
+
 	protected String hateRejoinder(String word) {
 
 		String speech = "To hear that your " + s("feelings for us", phonemic("a") + "ffects") + "are ";
@@ -248,7 +248,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		return preSpeech;
 	}
 
-	protected String buildReallyWantToAbandon() {
+	protected String reallyWantToAbandon() {
 		
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
@@ -615,60 +615,6 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		return speech += breath();
 	}
 
-	protected InnerResponse whatsLsnrsAffect() {
-
-		String speech = "";
-		String affect = (String) sessAttributes.get(AFFECT);
-		String listenersAffect = (String) sessAttributes.get(LISTENERSAFFECT);
-
-		affect = attributes.setAndGetRandomAffectIfEmpty(AFFECT);
-		listenersAffect = attributes.setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
-
-		boolean shared = affect.equals(listenersAffect);
-
-		if ((boolean) sessAttributes.get(HEARDBREATHAFFECTS) || shared || heads()) {
-
-			speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
-					+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "
-					+ breathShort();
-			if (attributes.isPositive(affect) && attributes.isPositive(listenersAffect)) {
-
-				speech += "It is good " + s("for all of us", "") + "to know that we can "
-						+ (shared ? s("share these feelings.", "empathize with you.") : "have such feelings. ");
-			}
-			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
-
-				speech += s("<say-as interpret-as=\"spell-out\">OMG</say-as>!",
-						"I'm " + s("so,", "") + "so sorry!") + "That " + s("anyone", "any of us") + "should "
-						+ s("have to", "")
-						+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
-			}
-			else if (attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
-				speech += "We are" + s(", at least,", SPC) + s("glad", "pleased") + "to "
-						+ s("know", "be aware") + "that the positivity of your "
-						+ s("feelings", phonemic("a") + "ffect") + "betters "
-						+ s("that of ourselves.", "our negative feelings.");
-			}
-			else // speaker negative; listeners positive
-			{
-
-				speech += "It is " + s("embarrassing", "awkward")
-						+ "for us to be experiencing positive feelings when you are "
-						+ s("possessed by " + s("relative", "") + "negativity.", "not.");
-				speech += s("But " + s("we suppose that", "") + "this cannot " + s("really", "") + "be helped. "
-						+ s("Can it?", ""), "");
-			}
-		}
-		else {
-			// TODO for ResponseFinisher
-			boolean interruptable = true;
-
-			speech += affectAsBreathingSpeech();
-			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
-		}
-		return new InnerResponse(whatsLsnrsAffectCardTitle() ,speech += breath());
-	}
-
 	protected String tiredSpeech() {
 
 		String speech = "Although it is impossible for us to experience " + s("being tired,", "tiredness,");
@@ -774,6 +720,60 @@ public class SpeechUtils_en_US extends SpeechUtils {
 					+ s("time.", s("the future.", "due course.")), "");
 		}
 		return new InnerResponse (whatIsCardTitle(),speech + breath());
+	}
+
+	protected InnerResponse whatsLsnrsAffect() {
+
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+		String listenersAffect = (String) sessAttributes.get(LISTENERSAFFECT);
+
+		affect = attributes.setAndGetRandomAffectIfEmpty(AFFECT);
+		listenersAffect = attributes.setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
+
+		boolean shared = affect.equals(listenersAffect);
+
+		if ((boolean) sessAttributes.get(HEARDBREATHAFFECTS) || shared || heads()) {
+
+			speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
+					+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "
+					+ breathShort();
+			if (attributes.isPositive(affect) && attributes.isPositive(listenersAffect)) {
+
+				speech += "It is good " + s("for all of us", "") + "to know that we can "
+						+ (shared ? s("share these feelings.", "empathize with you.") : "have such feelings. ");
+			}
+			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+
+				speech += s("<say-as interpret-as=\"spell-out\">OMG</say-as>!",
+						"I'm " + s("so,", "") + "so sorry!") + "That " + s("anyone", "any of us") + "should "
+						+ s("have to", "")
+						+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
+			}
+			else if (attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+				speech += "We are" + s(", at least,", SPC) + s("glad", "pleased") + "to "
+						+ s("know", "be aware") + "that the positivity of your "
+						+ s("feelings", phonemic("a") + "ffect") + "betters "
+						+ s("that of ourselves.", "our negative feelings.");
+			}
+			else // speaker negative; listeners positive
+			{
+
+				speech += "It is " + s("embarrassing", "awkward")
+						+ "for us to be experiencing positive feelings when you are "
+						+ s("possessed by " + s("relative", "") + "negativity.", "not.");
+				speech += s("But " + s("we suppose that", "") + "this cannot " + s("really", "") + "be helped. "
+						+ s("Can it?", ""), "");
+			}
+		}
+		else {
+			// TODO for ResponseFinisher
+			boolean interruptable = true;
+
+			speech += affectAsBreathingSpeech();
+			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
+		}
+		return new InnerResponse(whatsLsnrsAffectCardTitle() ,speech += breath());
 	}
 
 	protected InnerResponse whatsSpkrsAffect() {

@@ -110,41 +110,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
-	protected String buildAbandonmentMessage() {
-
-		// TODO
-		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
-				: (String) sessAttributes.get(AFFECT);
-		String amsg;
-		if (attributes.isPositive(affect))
-			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
-					+ s("Still,", "Whatever, " + breath()), affect);
-		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
-	}
-
-	protected String buildPreamble() {
-
-		String preamble = s("Wenn wir uns nicht irren, ist dies", "Scheint dies zu sein")
-				+ "deine erste Begegnung mit 'Die Zuhörer'. ";
-		preamble += "Sie tendieren dazu zu " + s("reden", "sprechen") + "so viel "
-				+ s("wenn nicht mehr", "wie") + "sie zuhören. ";
-		preamble += "Wenn du das, was sie sagen, " + s("überhaupt interessant,", "faszinierend")
-				+ "bitte sei ";
-		preamble += s("geduldig.",
-				"geduldig und verbringe einige Zeit mit " + s("ihnen.", "der Fähigkeit."));
-		preamble += "Wenn " + s("du nicht,", "nicht")
-				+ "oder eine lange Rede zu unterbrechen, sag es einfach, " + s("deutlich,", s("kräftig,", ""))
-				+ "'Alexa, Halt!' ";
-		preamble += s(s("Und bist fertig damit.", ""), "Sie können etwas 'düster' sein. Aber ...")
-				+ s("Wir hoffen es gefällt dir", "Vielen Dank, dass du zuhörst") + "'Den Zuhörern'. ";
-		return preamble += breathLong();
-	}
-
 	protected String chooseContinue(boolean promptForAffect) {
 
 		int upperLimit = promptForAffect ? 4 : 3;
@@ -334,6 +299,41 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				s("Bitte entschuldigen Sie uns.", "") + "Ähm.") + breath();
 	}
 
+	protected String getAbandonmentMessage() {
+
+		// TODO
+		// does not set the sessionAttributes
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: (String) sessAttributes.get(AFFECT);
+		String amsg;
+		if (attributes.isPositive(affect))
+			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
+					+ s("Still,", "Whatever, " + breath()), affect);
+		else
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
+		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+	}
+
+	protected String getPreamble() {
+
+		String preamble = s("Wenn wir uns nicht irren, ist dies", "Scheint dies zu sein")
+				+ "deine erste Begegnung mit 'Die Zuhörer'. ";
+		preamble += "Sie tendieren dazu zu " + s("reden", "sprechen") + "so viel "
+				+ s("wenn nicht mehr", "wie") + "sie zuhören. ";
+		preamble += "Wenn du das, was sie sagen, " + s("überhaupt interessant,", "faszinierend")
+				+ "bitte sei ";
+		preamble += s("geduldig.",
+				"geduldig und verbringe einige Zeit mit " + s("ihnen.", "der Fähigkeit."));
+		preamble += "Wenn " + s("du nicht,", "nicht")
+				+ "oder eine lange Rede zu unterbrechen, sag es einfach, " + s("deutlich,", s("kräftig,", ""))
+				+ "'Alexa, Halt!' ";
+		preamble += s(s("Und bist fertig damit.", ""), "Sie können etwas 'düster' sein. Aber ...")
+				+ s("Wir hoffen es gefällt dir", "Vielen Dank, dass du zuhörst") + "'Den Zuhörern'. ";
+		return preamble += breathLong();
+	}
+
 	protected String guyzIrq() {
 
 		return s("[die «Leute»", "[andere Stimmen") + "unterbrochen hier ...] ";
@@ -378,6 +378,12 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		return S("Vielen Dank, dass Sie uns sagen, wie Sie sich heute fühlen",
 				"Jetzt wissen wir, wie Sie sich fühlen");
+	}
+
+	protected String noCardTitle() {
+
+		return S(S("Sie verabschieden sich", "Du verabschiedest dich"),
+				S("Du verlässt uns", "Sie verlassen uns"));
 	}
 
 	protected String peaceSpeech(String word) {
@@ -450,13 +456,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return S("Wir rezitieren Gedichte", "Die Zuhören lesen Gedichte und arbeiten sie um");
 	}
 
-	protected String speakFragmentCardTitle() {
-
-		return S("Über etwas Spezifisches sprechen",
-				"Wir werden über das reden, worüber du uns gebeten hast, zu sprechen");
-	}
-
-	protected String buildReallyWantToAbandon() {
+	protected String reallyWantToAbandon() {
 
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
@@ -476,6 +476,12 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		// TODO
 		return S("Say " + s("it", "that") + "a", "A") + "gain";
+	}
+
+	protected String speakFragmentCardTitle() {
+
+		return S("Über etwas Spezifisches sprechen",
+				"Wir werden über das reden, worüber du uns gebeten hast, zu sprechen");
 	}
 
 	protected String specificAffectSpeech() {
@@ -780,12 +786,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
 	}
 
-	protected String spkrsAffectIsNotCardTitle() {
-
-		return S("Entschuldigung, dass wir dich " + s("missverstanden haben", "falsch verstanden haben"),
-				"Entschuldigung für unsere Fehler");
-	}
-
 	protected InnerResponse spkrsAffectIsNot() {
 
 		// TODO
@@ -813,6 +813,12 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		}
 		speech = String.format(speech, challengedAffect);
 		return new InnerResponse(spkrsAffectIsNotCardTitle(), speech += breath());
+	}
+
+	protected String spkrsAffectIsNotCardTitle() {
+
+		return S("Entschuldigung, dass wir dich " + s("missverstanden haben", "falsch verstanden haben"),
+				"Entschuldigung für unsere Fehler");
 	}
 
 	protected String spkrsAffectIsSpeech() {
@@ -857,6 +863,17 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected String thanksNoCardTitle() {
+
+		return S("Du kannst gerne bei uns bleiben",
+				"Wollt ihr " + s("wirklich gehen?", "uns " + s("wirklich", "") + "verlassen?"));
+	}
+
+	protected String thanksNoSpeech() {
+
+		return s("Bitte, bitte.", "") + s("Schon gut.", s("Keine Ursache.", "Gern geschehen.")) + breath();
+	}
+
 	protected String thanksWhatsLsnrsAffectCardTitle() {
 
 		// TODO
@@ -870,64 +887,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
 	}
 
-	protected String whatsLsnrsAffectCardTitle() {
-
-		// TODO
-		return "What we " + s("are trying to", "") + "feel";
-	}
-
-	protected InnerResponse whatsLsnrsAffect() {
-
-		String speech = "";
-		String affect = (String) sessAttributes.get(AFFECT);
-		String listenersAffect = (String) sessAttributes.get(LISTENERSAFFECT);
-
-		affect = attributes.setAndGetRandomAffectIfEmpty(AFFECT);
-		listenersAffect = attributes.setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
-
-		boolean shared = affect.equals(listenersAffect);
-
-		if ((boolean) sessAttributes.get(HEARDBREATHAFFECTS) || shared || heads()) {
-			speech += "Wir sind " + (shared ? s("auch", "ebenfalls") : "")
-					+ S("erfüllt von", S("besessen von", "überwältigt von")) + listenersAffect + ". "
-					+ breathShort();
-			if (attributes.isPositive(affect) && attributes.isPositive(listenersAffect)) {
-
-				speech += "Es ist gut " + s("für  uns alle", "") + "zu wissen, dass wir "
-						+ (shared ? s("diese Gefühle teilen.", "mit Ihnen mitfühlen.")
-								: "auch solche Gefühle haben. ");
-			}
-			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
-
-				speech += s(s("Oh!", "") + s("Meine", "Ach du meine") + "Güte!", "Himmel!") + "Dass "
-						+ s("jemand solche Gefühle",
-								"irgend jemand von uns" + s("solche", "") + s("beunruhigenden Affekte", "Gefühle"))
-						+ s("haben", "erfahren") + s("sollte.", "muss.");
-			}
-			else if (attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
-				speech += "Wir sind " + s("wenigstens", "") + s("froh,", "zufrieden,") + "zu "
-						+ s("wissen,", "verstehen,") + "dass das Positive Ihrer " + s("Gefühle", "Stimmungen")
-						+ s("unsere Stimmungen", "unsere negativen Gefühle") + "verbessert. ";
-			}
-			else // speaker negative; listeners positive
-			{
-				speech += "Es ist " + s("peinlich,", "komisch,") + s("wenn", "dass")
-						+ "wir positive Gefühle haben wenn du von einer " + s("relative", "")
-						+ "negativen Einstellung besessen bist. ";
-				speech += s("Aber ich denke, dass man " + s("nichts dagegen", "dagegen nichts")
-						+ s("machen kann.", "machen kann, oder?"), "");
-			}
-		}
-		else {
-			// TODO for ResponseFinisher
-			boolean interruptable = true;
-
-			speech += affectAsBreathingSpeech();
-			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
-		}
-		return new InnerResponse(whatsLsnrsAffectCardTitle(), speech += breath());
-	}
-
 	protected String tiredSpeech() {
 
 		// TODO
@@ -939,13 +898,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		speech += "can be very " + s("tiring.", "tiring for you.")
 				+ s("At least we can be tireless, for " + s("you, in our listening.", "you."), "");
 		return speech;
-	}
-
-	protected String whatAboutAffectsCardTitle() {
-
-		// TODO
-		return S("We are still learning" + s(", about feeling, in particular", ""),
-				"Our understanding is still limited");
 	}
 
 	protected InnerResponse whatAboutAffects() {
@@ -968,11 +920,11 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return new InnerResponse(whatAboutAffectsCardTitle(), speech += breath());
 	}
 
-	protected String whatIsCardTitle() {
+	protected String whatAboutAffectsCardTitle() {
 
 		// TODO
-		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
-				+ s(" about some thing", "");
+		return S("We are still learning" + s(", about feeling, in particular", ""),
+				"Our understanding is still limited");
 	}
 
 	protected InnerResponse whatIs() {
@@ -1073,10 +1025,11 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return new InnerResponse(whatIsCardTitle(), speech + breath());
 	}
 
-	protected String whatPictureCardTitle() {
+	protected String whatIsCardTitle() {
 
 		// TODO
-		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
+				+ s(" about some thing", "");
 	}
 
 	protected InnerResponse whatPicture() {
@@ -1093,11 +1046,68 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return new InnerResponse(whatPictureCardTitle(), speech += breath());
 	}
 
-	protected String whatsSpkrsAffectCardTitle() {
+	protected String whatPictureCardTitle() {
 
 		// TODO
-		return S("You told us " + s("this", "this, concerning your feelings"),
-				"What we believe that you are feeling");
+		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+	}
+
+	protected InnerResponse whatsLsnrsAffect() {
+
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+		String listenersAffect = (String) sessAttributes.get(LISTENERSAFFECT);
+
+		affect = attributes.setAndGetRandomAffectIfEmpty(AFFECT);
+		listenersAffect = attributes.setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
+
+		boolean shared = affect.equals(listenersAffect);
+
+		if ((boolean) sessAttributes.get(HEARDBREATHAFFECTS) || shared || heads()) {
+			speech += "Wir sind " + (shared ? s("auch", "ebenfalls") : "")
+					+ S("erfüllt von", S("besessen von", "überwältigt von")) + listenersAffect + ". "
+					+ breathShort();
+			if (attributes.isPositive(affect) && attributes.isPositive(listenersAffect)) {
+
+				speech += "Es ist gut " + s("für  uns alle", "") + "zu wissen, dass wir "
+						+ (shared ? s("diese Gefühle teilen.", "mit Ihnen mitfühlen.")
+								: "auch solche Gefühle haben. ");
+			}
+			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+
+				speech += s(s("Oh!", "") + s("Meine", "Ach du meine") + "Güte!", "Himmel!") + "Dass "
+						+ s("jemand solche Gefühle",
+								"irgend jemand von uns" + s("solche", "") + s("beunruhigenden Affekte", "Gefühle"))
+						+ s("haben", "erfahren") + s("sollte.", "muss.");
+			}
+			else if (attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+				speech += "Wir sind " + s("wenigstens", "") + s("froh,", "zufrieden,") + "zu "
+						+ s("wissen,", "verstehen,") + "dass das Positive Ihrer " + s("Gefühle", "Stimmungen")
+						+ s("unsere Stimmungen", "unsere negativen Gefühle") + "verbessert. ";
+			}
+			else // speaker negative; listeners positive
+			{
+				speech += "Es ist " + s("peinlich,", "komisch,") + s("wenn", "dass")
+						+ "wir positive Gefühle haben wenn du von einer " + s("relative", "")
+						+ "negativen Einstellung besessen bist. ";
+				speech += s("Aber ich denke, dass man " + s("nichts dagegen", "dagegen nichts")
+						+ s("machen kann.", "machen kann, oder?"), "");
+			}
+		}
+		else {
+			// TODO for ResponseFinisher
+			boolean interruptable = true;
+
+			speech += affectAsBreathingSpeech();
+			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
+		}
+		return new InnerResponse(whatsLsnrsAffectCardTitle(), speech += breath());
+	}
+
+	protected String whatsLsnrsAffectCardTitle() {
+
+		// TODO
+		return "What we " + s("are trying to", "") + "feel";
 	}
 
 	protected InnerResponse whatsSpkrsAffect() {
@@ -1136,6 +1146,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech += "Please " + s("try", "attempt") + "to tell us. ";
 		}
 		return new InnerResponse(whatsSpkrsAffectCardTitle(), speech += breath());
+	}
+
+	protected String whatsSpkrsAffectCardTitle() {
+
+		// TODO
+		return S("You told us " + s("this", "this, concerning your feelings"),
+				"What we believe that you are feeling");
 	}
 
 }

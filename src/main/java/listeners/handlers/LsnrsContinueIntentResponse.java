@@ -18,6 +18,8 @@ import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 
 public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
+	private boolean isEnd = false;
+
 	LsnrsContinueIntentResponse() {
 
 	}
@@ -29,6 +31,39 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 		InnerResponse ir;
 
 		switch (intentName) {
+			case "NoIntent":
+				ir = new InnerResponse();
+				ir.setCardTitle(speechUtils.getString("noCardTitle"));
+				if ((boolean) sessAttributes.get(HEARDNO)) {
+					isEnd = true;
+					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
+					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
+						ir.setSpeech(
+								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
+					}
+				}
+				// NB: fall-through is possible to:
+			case "ThanksNoIntent":
+				ir = new InnerResponse();
+				if ("ThanksNoIntent".equals(intentName)) {
+					ir.setCardTitle(speechUtils.getString("thanksNoCardTitle"));
+					ir.setSpeech(speechUtils.getString("thanksNoSpeech"));
+				}
+
+				if ((boolean) sessAttributes.get(HEARDNO)) {
+					isEnd = true;
+					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
+					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
+						ir.setSpeech(
+								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
+					}
+				}
+				
+				ir.setSpeech(ir.getSpeech() + speechUtils.getString("reallyWantToAbandon"));
+				
+				sessAttributes.justPut(HEARDNO, true);
+				sessAttributes.justPut(LASTINTENT, intentName);
+				break;
 			case "PleaseContinueIntent":
 			case "ContinueIntent":
 				ir = new NextFragmentResponse(intentName);
@@ -119,7 +154,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())
 				.withSimpleCard(ir.getCardTitle(), rf.getCardText())
-				.withShouldEndSession(false)
+				.withShouldEndSession(isEnd)
 				.build();
 	}
 
@@ -165,14 +200,15 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 			setSpeech(fragments[(int) sessAttributes.get(FRAGMENTINDEX)]
 					+ speechUtils.getString("chooseContinueNoAffect"));
-			
+
 			setInterruptable(true);
-			
+
 			if (intentName.equals("PleaseContinueIntent")) {
 				setCardTitle(speechUtils.getString("pleaseContinueCardTitle"));
 				if ((int) sessAttributes.get(FRAGMENTINDEX) > NOT_YET_GREETED && randInt(0, 3) == 0) {
 					setSpeech(speechUtils.getString("preSpeechFeelings") + getSpeech());
-				} else
+				}
+				else
 					setSpeech(speechUtils.getString("pleaseContinuePreSpeech") + getSpeech());
 			}
 		}

@@ -28,23 +28,26 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "dontKnowFragmentReprompt", dontKnowFragmentReprompt() },
 			{ "dontKnowFragmentSpeech", dontKnowFragmentSpeech() },
 			{ "excuseMarkov", excuseMarkov() },
-			{ "getPreamble", buildPreamble() },
-			{ "getAbandonmentMessage", buildAbandonmentMessage() },
+			{ "getPreamble", getPreamble() },
+			{ "getAbandonmentMessage", getAbandonmentMessage() },
 			{ "guyzIrq", guyzIrq() },
 			{ "heardAllFragments", heardAllFragments() },
 			{ "helpCardTitle", helpCardTitle() },
+			{ "noCardTitle", noCardTitle() },
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
 			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
 			{ "preSpeechFeelings", preSpeechFeelings() },
 			{ "previousCardTitle", previousCardTitle() },
 			{ "readPoemCardTitle", readPoemCardTitle() },
-			{ "reallyWantToAbandon", buildReallyWantToAbandon() },
+			{ "reallyWantToAbandon", reallyWantToAbandon() },
 			{ "repeatCardTitle", repeatCardTitle() },
 			{ "speakFragmentCardTitle", speakFragmentCardTitle() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "SpkrsAffectIsIntent", spkrsAffectIs() },
 			{ "SpkrsAffectIsNotIntent", spkrsAffectIsNot() },
+			{ "thanksNoCardTitle", thanksNoCardTitle() },
+			{ "thanksNoSpeech", thanksNoSpeech() },
 			{ "thanksWhatsLsnrsAffectCardTitle", thanksWhatsLsnrsAffectCardTitle() },
 			{ "thanksWhatsLsnrsAffectPreSpeech", thanksWhatsLsnrsAffectPreSpeech() },
 			{ "WhatAboutAffectsIntent", whatAboutAffects() },
@@ -121,37 +124,6 @@ public class SpeechUtils extends ListResourceBundle {
 				+ s("what, should we. " + breath() + "feel?", "");
 
 		return speech += breath();
-	}
-
-	protected String buildAbandonmentMessage() {
-
-		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
-				: (String) sessAttributes.get(AFFECT);
-		String amsg;
-		if (attributes.isPositive(affect))
-			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
-					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
-		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
-	}
-
-	protected String buildPreamble() {
-
-		String preamble = s("Unless we're mistaken, this is", "This seems to be")
-				+ "your first encounter with 'The Listeners'. ";
-		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
-				+ "they listen. ";
-		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
-		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
-		preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, "
-				+ s("clearly,", s("firmly,", "")) + "'Alexa, Stop!' ";
-		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
-				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
-		return preamble += breathLong();
 	}
 
 	protected String chooseContinue() {
@@ -347,9 +319,40 @@ public class SpeechUtils extends ListResourceBundle {
 				+ breath();
 	}
 
+	protected String getAbandonmentMessage() {
+
+		// does not set the sessionAttributes
+		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+				: (String) sessAttributes.get(AFFECT);
+		String amsg;
+		if (attributes.isPositive(affect))
+			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
+					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
+		else
+			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
+					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
+					+ breathShort() + "And now, ", affect);
+		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
+	}
+
 	protected Object[][] getContents() {
 
 		return contents;
+	}
+
+	protected String getPreamble() {
+
+		String preamble = s("Unless we're mistaken, this is", "This seems to be")
+				+ "your first encounter with 'The Listeners'. ";
+		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
+				+ "they listen. ";
+		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
+		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
+		preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, "
+				+ s("clearly,", s("firmly,", "")) + "'Alexa, Stop!' ";
+		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
+				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
+		return preamble += breathLong();
 	}
 
 	protected String guyzIrq() {
@@ -390,6 +393,11 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String helpCardTitle() {
 
 		return S("Assistance", S("A little s", "S") + "upport");
+	}
+
+	protected String noCardTitle() {
+
+		return S("You say goodbye", "You abandon us");
 	}
 
 	protected String peaceSpeech(String word) {
@@ -459,7 +467,7 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("We recite some verse", "The Listeners read, and adapt, some poetry");
 	}
 
-	protected String buildReallyWantToAbandon() {
+	protected String reallyWantToAbandon() {
 
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
@@ -473,15 +481,15 @@ public class SpeechUtils extends ListResourceBundle {
 		return speech += breath();
 	}
 
+	protected String repeatCardTitle() {
+
+		return S("Say " + s("it", "that") + "a", "A") + "gain";
+	}
+
 	protected String speakFragmentCardTitle() {
 
 		return S("Speaking about something particular",
 				"We will mention what you asked us to speak " + s("about", ""));
-	}
-
-	protected String repeatCardTitle() {
-
-		return S("Say " + s("it", "that") + "a", "A") + "gain";
 	}
 
 	protected String specificAffectSpeech() {
@@ -783,12 +791,6 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
 	}
 
-	protected String spkrsAffectIsNotCardTitle() {
-
-		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")),
-				"Apologies for our mistakes");
-	}
-
 	protected InnerResponse spkrsAffectIsNot() {
 
 		String challengedAffect = (String) sessAttributes.get(CHALLENGEDAFFECT);
@@ -815,6 +817,12 @@ public class SpeechUtils extends ListResourceBundle {
 		}
 		speech = String.format(speech, challengedAffect);
 		return new InnerResponse(spkrsAffectIsNotCardTitle(), speech += breath());
+	}
+
+	protected String spkrsAffectIsNotCardTitle() {
+
+		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")),
+				"Apologies for our mistakes");
 	}
 
 	protected String spkrsAffectIsSpeech() {
@@ -858,6 +866,17 @@ public class SpeechUtils extends ListResourceBundle {
 		return speech += breath();
 	}
 
+	protected String thanksNoCardTitle() {
+
+		return S("You're welcome to stay with us", "You really want to " + s("abandon us?", "go?"));
+	}
+
+	protected String thanksNoSpeech() {
+
+		return s(s("You're", "You are") + s("very", "") + "welcome.",
+				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
+	}
+
 	protected String thanksWhatsLsnrsAffectCardTitle() {
 
 		return S("It's so nice of you to ask", "Thank you for " + s("taking an interest", "asking"));
@@ -881,12 +900,6 @@ public class SpeechUtils extends ListResourceBundle {
 		return speech;
 	}
 
-	protected String whatAboutAffectsCardTitle() {
-
-		return S("We are still learning" + s(", about feeling, in particular", ""),
-				"Our understanding is still limited");
-	}
-
 	protected InnerResponse whatAboutAffects() {
 
 		String speech = "When we " + s("welcome", "greet") + "you, "
@@ -906,10 +919,10 @@ public class SpeechUtils extends ListResourceBundle {
 		return new InnerResponse(whatAboutAffectsCardTitle(), speech += breath());
 	}
 
-	protected String whatIsCardTitle() {
+	protected String whatAboutAffectsCardTitle() {
 
-		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
-				+ s(" about some thing", "");
+		return S("We are still learning" + s(", about feeling, in particular", ""),
+				"Our understanding is still limited");
 	}
 
 	protected InnerResponse whatIs() {
@@ -1012,9 +1025,10 @@ public class SpeechUtils extends ListResourceBundle {
 		return new InnerResponse(whatIsCardTitle(), speech + breath());
 	}
 
-	protected String whatPictureCardTitle() {
+	protected String whatIsCardTitle() {
 
-		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
+				+ s(" about some thing", "");
 	}
 
 	protected InnerResponse whatPicture() {
@@ -1030,9 +1044,9 @@ public class SpeechUtils extends ListResourceBundle {
 		return new InnerResponse(whatPictureCardTitle(), speech += breath());
 	}
 
-	protected String whatsLsnrsAffectCardTitle() {
+	protected String whatPictureCardTitle() {
 
-		return "What we " + s("are trying to", "") + "feel";
+		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
 	}
 
 	protected InnerResponse whatsLsnrsAffect() {
@@ -1087,10 +1101,9 @@ public class SpeechUtils extends ListResourceBundle {
 		return new InnerResponse(whatsLsnrsAffectCardTitle(), speech += breath());
 	}
 
-	protected String whatsSpkrsAffectCardTitle() {
+	protected String whatsLsnrsAffectCardTitle() {
 
-		return S("You told us " + s("this", "this, concerning your feelings"),
-				"What we believe that you are feeling");
+		return "What we " + s("are trying to", "") + "feel";
 	}
 
 	protected InnerResponse whatsSpkrsAffect() {
@@ -1128,6 +1141,12 @@ public class SpeechUtils extends ListResourceBundle {
 			speech += "Please " + s("try", "attempt") + "to tell us. ";
 		}
 		return new InnerResponse(whatsSpkrsAffectCardTitle(), speech += breath());
+	}
+
+	protected String whatsSpkrsAffectCardTitle() {
+
+		return S("You told us " + s("this", "this, concerning your feelings"),
+				"What we believe that you are feeling");
 	}
 
 }
