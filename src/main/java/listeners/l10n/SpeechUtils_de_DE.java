@@ -1095,9 +1095,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			}
 		}
 		else {
-			// TODO for ResponseFinisher
-			boolean interruptable = true;
-
 			speech += affectAsBreathingSpeech();
 			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
 		}

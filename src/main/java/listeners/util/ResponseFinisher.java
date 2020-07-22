@@ -30,7 +30,8 @@ public class ResponseFinisher {
 		if (response.interruptable) {
 			// cardTitle is handled by insertInterruptions()
 			// for interruptable responses
-			response.speech = insertInterruptions(response.speech);
+			this.speech = insertInterruptions(response.speech);
+			this.cardText = removePauseTags(response.speech);
 		}
 		else {
 			if ("".equals(response.preamble))

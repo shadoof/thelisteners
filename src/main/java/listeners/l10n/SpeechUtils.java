@@ -1092,9 +1092,6 @@ public class SpeechUtils extends ListResourceBundle {
 			}
 		}
 		else {
-			// TODO for ResponseFinisher
-			boolean interruptable = true;
-
 			speech += affectAsBreathingSpeech();
 			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
 		}
