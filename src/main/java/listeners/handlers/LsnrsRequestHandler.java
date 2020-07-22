@@ -24,6 +24,7 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
+import listeners.l10n.Welcome;
 import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
@@ -70,7 +71,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 		sessAttributes = Attributes.initSessionAttributes();
 		attributesManager.setSessionAttributes(sessAttributes);
 
-		
 		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
@@ -100,7 +100,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			persAttributes.put(RELATIONSHIP, sessAttributes.get(RELATIONSHIP)); // "sessionStart"
 			sessAttributes.put(RELATIONSHIP, "normal");
 		}
-		
+
 		info("@ListenersRequestHandler, relationship: " + persAttributes.get(RELATIONSHIP));
 
 		// info("@ListenersRequestHandler, sessAttributes: " + sessAttributes);
@@ -111,39 +111,73 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
-			return new LsnrsLaunchResponse(input, (String) persAttributes.get(RELATIONSHIP))
-					.getResponse();
+			return new LsnrsLaunchResponse(input, (String) persAttributes.get(RELATIONSHIP)).getResponse();
 		}
 		else {
-			// must be an Intent request
-			// we deal with STOP and CANCEL AMAZON intents right away, here
-			if (input.matches(intentName("AMAZON.StopIntent").or(intentName("AMAZON.CancelIntent")))) {
+			// ANY Intent request
+			// deal with AMAZON built-in intents here
+			String intentName = ((IntentRequest) input.getRequestEnvelope()
+					.getRequest()).getIntent()
+							.getName();
+			InnerResponse ir;
+			String cardTitle = "";
+			String speech = "";
+			String reprompt = speechUtils.getString("chooseContinue");
+			boolean match = false, endSession = false;
+			switch (intentName) {
+				case "AMAZON.HelpIntent":
+					cardTitle = speechUtils.getString("helpCardTitle");
+					speech = speechUtils.getString("chooseSpeechAssistance");
+					match = true;
+					break;
+				case "AMAZON.RepeatIntent":
+					cardTitle = speechUtils.getString("repeatCardTitle");
+					int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
+					if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
+						// build variant fragments just before they're needed:
+						langConstants.buildFragments();
+						speech = langConstants.fragments[fragmentIndex] + speechUtils.getString("chooseContinueNoAffect");
+					}
+					else {
+						Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
+						speech = ws.getSpeech() + speechUtils.getString("chooseContinueNoAffect");
+					}
+					match = true;
+					break;
+				case "AMAZON.StopIntent":
+				case "AMAZON.CancelIntent":
+					cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
+							: S("That's e", "E") + "nough";
+					speech = speechUtils.getString("getAbandonmentMessage");
+					String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
+					speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
 
-				String cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
-						: S("That's e", "E") + "nough";
-				String speech = speechUtils.getString("getAbandonmentMessage");
-				String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
-				speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
+					// for now, on STOP or CANCEL we clear persistentAttributes
+					// and set relationship to "ask"
+					persAttributes.clear();
+					// comment the following for a firstEncounter or use DEV
+					if (!DEV) persAttributes.put(RELATIONSHIP, "ask");
+					attributesManager.savePersistentAttributes();
+					endSession = true;
+					match = true;
+					break;
+			}
+			if (match) {
 				ResponseFinisher rf = ResponseFinisher.builder()
 						.withSpeech(speech)
+						.withReprompt(reprompt)
 						.build();
-
-				// for now, on STOP or CANCEL we clear persistentAttributes
-				// and set relationship to "ask"
-				persAttributes.clear();
-				// comment the following for a firstEncounter or use DEV
-				if (!DEV) persAttributes.put(RELATIONSHIP, "ask");
-				attributesManager.savePersistentAttributes();
 				return input.getResponseBuilder()
 						.withSpeech(rf.getSpeech())
 						.withSimpleCard(cardTitle, rf.getCardText())
-						.withShouldEndSession(true)
-						.build();
+						.withShouldEndSession(endSession)
+						.build();				
 			}
+
+			// ALL other modeled or Unknown intents
 			try {
 				// *** 4. 5. and 6. ***
-				return new LsnrsIntentResponse(input, (String) persAttributes.get(RELATIONSHIP))
-						.getResponse();
+				return new LsnrsIntentResponse(input, (String) persAttributes.get(RELATIONSHIP)).getResponse();
 			}
 			catch (UnknownIntentException e) {
 				return null;

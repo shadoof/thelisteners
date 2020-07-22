@@ -355,6 +355,12 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected String helpCardTitle() {
+
+		// TODO
+		return S("Assistance", S("A little s", "S") + "upport");
+	}
+
 	protected String myAffectIsCardTitle() {
 
 		return S("Vielen Dank, dass Sie uns sagen, wie Sie sich heute fühlen",
@@ -435,6 +441,28 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		return S("Über etwas Spezifisches sprechen",
 				"Wir werden über das reden, worüber du uns gebeten hast, zu sprechen");
+	}
+
+	protected String buildReallyWantToAbandon() {
+
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+
+		if (!affect.isEmpty() && !attributes.isPositive(affect)) {
+			speech += String.format(
+					"Wir verstehen, " + s("und wir sind  bestürzt,", "") + "dass du von %s erfüllt bist. ",
+					affect);
+			speech += "Aber: " + breath();
+		}
+		speech += "Sicherlich " + s("willst du uns nicht", "bist du nicht so weit getrieben worden, uns")
+				+ "zu verlassen? ";
+		return speech += breath();
+	}
+
+	protected String repeatCardTitle() {
+
+		// TODO
+		return S("Say " + s("it", "that") + "a", "A") + "gain";
 	}
 
 	protected String specificAffectSpeech() {
@@ -884,7 +912,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech += affectAsBreathingSpeech();
 			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
 		}
-		return new InnerResponse(whatsLsnrsAffectCardTitle() ,speech += breath());
+		return new InnerResponse(whatsLsnrsAffectCardTitle(), speech += breath());
 	}
 
 	protected String tiredSpeech() {
@@ -1029,7 +1057,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			speech += s("Although we may learn " + s("about", "to know of") + "it in "
 					+ s("time.", s("the future.", "due course.")), "");
 		}
-		return new InnerResponse (whatIsCardTitle(),speech + breath());
+		return new InnerResponse(whatIsCardTitle(), speech + breath());
 	}
 
 	protected String whatPictureCardTitle() {
@@ -1049,7 +1077,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		speech += s("It is here, " + s("simply,", "") + "to remind us, " + s("and you,", "")
 				+ "of the place, " + s("a home,", "")
 				+ s("within which we are used to dwell.", "where we live.") + s("With you.", ""), "");
-		return new InnerResponse (whatPictureCardTitle(),speech += breath());
+		return new InnerResponse(whatPictureCardTitle(), speech += breath());
 	}
 
 	protected String whatsSpkrsAffectCardTitle() {

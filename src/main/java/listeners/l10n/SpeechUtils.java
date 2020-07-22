@@ -30,11 +30,14 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "getPreamble", buildPreamble() },
 			{ "getAbandonmentMessage", buildAbandonmentMessage() },
 			{ "heardAllFragments", heardAllFragments() },
+			{ "helpCardTitle", helpCardTitle() },
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
 			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
 			{ "preSpeechFeelings", preSpeechFeelings() },
 			{ "previousCardTitle", previousCardTitle() },
 			{ "readPoemCardTitle", readPoemCardTitle() },
+			{ "reallyWantToAbandon", buildReallyWantToAbandon() },
+			{ "repeatCardTitle", repeatCardTitle() },
 			{ "speakFragmentCardTitle", speakFragmentCardTitle() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
@@ -368,6 +371,11 @@ public class SpeechUtils extends ListResourceBundle {
 		return speech += breath();
 	}
 
+	protected String helpCardTitle() {
+		
+		return S("Assistance", S("A little s", "S") + "upport");
+	}
+	
 	protected String peaceSpeech(String word) {
 
 		String speech = "It is a " + s("great", "") + "comfort for us to " + s("know", "be aware")
@@ -435,12 +443,32 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("We recite some verse", "The Listeners read, and adapt, some poetry");
 	}
 
+	protected String buildReallyWantToAbandon() {
+		
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+
+		if (!affect.isEmpty() && !attributes.isPositive(affect)) {
+			speech += String.format(
+					"We understand, " + s("and we are dismayed,", "") + "that you are filled with %s. ",
+					affect);
+			speech += s("But,", "Even so.") + breath();
+		}
+		speech += "Surely you " + s("do not want", "have not been driven") + "to abandon us? ";
+		return speech += breath();
+	}
+	
 	protected String speakFragmentCardTitle() {
 
 		return S("Speaking about something particular",
 				"We will mention what you asked us to speak " + s("about", ""));
 	}
 
+	protected String repeatCardTitle() {
+		
+		return S("Say " + s("it", "that") + "a", "A") + "gain";
+	}
+	
 	protected String specificAffectSpeech() {
 
 		String speech = "";

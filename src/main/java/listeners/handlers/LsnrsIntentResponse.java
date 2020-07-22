@@ -112,9 +112,6 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		// (3) one two-stage also done with this in 2.x
 		Boolean heardPlease = false;
 
-		// actual reponse text construction block:
-		// clear cache before building l10n speeches
-		ResourceBundle.clearCache();
 		// if we adhere to the convention that there are l10n class bundles
 		// for ALL simple intentNames we need no 'switch' or 'else if' logic here.
 		// we just load a bundle with the intent.getName():

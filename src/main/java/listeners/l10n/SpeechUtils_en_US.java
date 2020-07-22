@@ -248,6 +248,21 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		return preSpeech;
 	}
 
+	protected String buildReallyWantToAbandon() {
+		
+		String speech = "";
+		String affect = (String) sessAttributes.get(AFFECT);
+
+		if (!affect.isEmpty() && !attributes.isPositive(affect)) {
+			speech += String.format(
+					"We understand, " + s("and we are dismayed,", "") + "that you are filled with %s. ",
+					affect);
+			speech += s("But,", "Even so.") + breath();
+		}
+		speech += "Surely you " + s("don't want to", "won't") + "abandon us? ";
+		return speech += breath();
+	}
+	
 	protected String specificAffectSpeech() {
 
 		String speech = "";
