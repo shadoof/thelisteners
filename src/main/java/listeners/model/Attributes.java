@@ -32,23 +32,22 @@ public class Attributes {
 		sessAttributes = initSessionAttributes();
 	}
 
-	private Attributes(Locale locale, AttributesManager attributesManager) {
-
-		persAttributes = attributesManager.getPersistentAttributes();
-	}
-
+//	private Attributes(Locale locale, AttributesManager attributesManager) {
+//
+//	}
+//
 	public static Attributes getInstance(Locale locale) {
 
 		if (instance == null) instance = new Attributes(locale);
 		return instance;
 	}
 
-	public static Attributes getInstance(Locale locale, AttributesManager attributesManager) {
-
-		if (instance == null) instance = new Attributes(locale, attributesManager);
-		return instance;
-	}
-
+//	public static Attributes getInstance(Locale locale, AttributesManager attributesManager) {
+//
+//		if (instance == null) instance = new Attributes(locale, attributesManager);
+//		return instance;
+//	}
+//
 	// keys recognizable as static final constants
 	public static final String AFFECT = "affect";
 	public static final String CHALLENGEDAFFECT = "challengedAffect";
@@ -147,6 +146,12 @@ public class Attributes {
 			sessAttributes.put(affectKey, affect);
 		}		
 		return affect;
+	}
+
+	public SessionMap reconcileAttributes() {
+
+		// TODO Auto-generated method stub
+		return sessAttributes;
 	}
 
 }

@@ -30,10 +30,15 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "excuseMarkov", excuseMarkov() },
 			{ "getPreamble", getPreamble() },
 			{ "getAbandonmentMessage", getAbandonmentMessage() },
+			{ "getGuyzAreGone", getGuyzAreGone() },
+			{ "getGuyzMoreQuery", getGuyzMoreQuery() },
+			{ "getReallyWantGuyz", getReallyWantGuyz() },
+			{ "getReallyWantGuyzReprompt", getReallyWantGuyzReprompt() },
 			{ "guyzIrq", guyzIrq() },
 			{ "heardAllFragments", heardAllFragments() },
 			{ "helpCardTitle", helpCardTitle() },
 			{ "noCardTitle", noCardTitle() },
+			{ "pathToGuyzAudio", pathToGuyzAudio() },
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
 			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
 			{ "preSpeechFeelings", preSpeechFeelings() },
@@ -42,6 +47,7 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "reallyWantToAbandon", reallyWantToAbandon() },
 			{ "repeatCardTitle", repeatCardTitle() },
 			{ "speakFragmentCardTitle", speakFragmentCardTitle() },
+			{ "speakGuyzCardTitle", speakGuyzCardTitle() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "SpkrsAffectIsIntent", spkrsAffectIs() },
@@ -335,6 +341,23 @@ public class SpeechUtils extends ListResourceBundle {
 		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
 	}
 
+	protected String getGuyzAreGone() {
+
+		return s("That guy " + s("has", "is"), "The guys " + s("have", "are")) + "gone. " + breath()
+				+ "You will "
+				+ s("not " + s("be able to", "") + "hear " + s("those voices", "that voice") + "any longer.",
+						"no longer hear "
+								+ s("those " + s("voices.", "voices speak."), "that " + s("voice.", "voice speak.")))
+				+ breath();
+	}
+
+	protected String getGuyzMoreQuery() {
+
+		return breath()
+				+ s("More? " + breathShort(), S("Please s", "S") + "ay '" + S("yes", S("go on", "continue"))
+						+ "', " + s(s("if you would like", "") + "to hear more.", "for more."));
+	}
+
 	protected Object[][] getContents() {
 
 		return contents;
@@ -353,6 +376,27 @@ public class SpeechUtils extends ListResourceBundle {
 		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
 				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
 		return preamble += breathLong();
+	}
+
+	protected String getReallyWantGuyz() {
+
+		String speech = s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
+				+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "") + "guys "
+				+ "have to say? " + breath();
+		if (heads()) {
+			speech += "We " + s("hope", "trust") + "that you will not say '" + S("yes", "continue") + "' and "
+					+ s("consent to hearing", "agree to hear")
+					+ s("the " + s("voice of this other.", "other voice."),
+							"these other " + s("voices.", "guys."));
+		}
+		return speech += breath();
+	}
+
+	protected String getReallyWantGuyzReprompt() {
+
+		return s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
+		+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "")
+		+ "guys " + s("has", "have") + "to say? ";
 	}
 
 	protected String guyzIrq() {
@@ -398,6 +442,11 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String noCardTitle() {
 
 		return S("You say goodbye", "You abandon us");
+	}
+
+	protected String pathToGuyzAudio() {
+
+		return "<audio src=\"https://rednoise.org/programmatology/aurality/echo/DeliriumPlea-";
 	}
 
 	protected String peaceSpeech(String word) {
@@ -490,6 +539,11 @@ public class SpeechUtils extends ListResourceBundle {
 
 		return S("Speaking about something particular",
 				"We will mention what you asked us to speak " + s("about", ""));
+	}
+
+	protected String speakGuyzCardTitle() {
+
+		return S("Letting the other speak", "The other voice");
 	}
 
 	protected String specificAffectSpeech() {

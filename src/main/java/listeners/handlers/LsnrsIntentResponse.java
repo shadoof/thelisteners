@@ -1,19 +1,7 @@
 package listeners.handlers;
 
-import static listeners.model.Attributes.AFFECT;
-import static listeners.model.Attributes.GUYZSPEECHINDEX;
-import static listeners.model.Attributes.HEARDNO;
-import static listeners.model.Attributes.LASTINTENT;
-import static listeners.model.Attributes.LISTENERSAFFECT;
-import static listeners.model.Attributes.SPEAKGUYZCONFIRMED;
-import static listeners.model.Attributes.sessAttributes;
-import static listeners.model.Constants.DEV;
-import static listeners.model.Constants.NO_MORE;
-import static listeners.model.Constants.NUMBER_OF_GUYZ;
-import static listeners.model.Constants.NUMBER_OF_GUYZ_PER_BATCH;
-import static listeners.model.Constants.attributes;
-import static listeners.model.Constants.locale;
-import static listeners.model.Constants.speechUtils;
+import static listeners.model.Attributes.*;
+import static listeners.model.Constants.*;
 import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 import static listeners.model.LangConstants.dateString;
 import static listeners.util.Utils.info;
@@ -62,10 +50,16 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 	@Override
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
+	  // every intent increases readSoFar and this
+		// regulates GUYZ interventions & degradation
+		if ((int) sessAttributes.get(READSOFAR) < NUMBER_OF_READABLES) {
+			sessAttributes.justPut(READSOFAR, (int) sessAttributes.get(READSOFAR) + 1);
+		}
+
 		// *** 4. ***
 		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble")
 				: "";
-
+		
 		// *** 5. and 6. *** treated the same
 		// generating variety here (needs assessing for actual effect) TODO
 		// if affect for the session is set

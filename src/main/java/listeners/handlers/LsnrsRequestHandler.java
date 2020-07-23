@@ -64,12 +64,20 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// get the AttributesManager and put it in Constants
 		attributesManager = input.getAttributesManager();
 		// get singleton instance of Attributes and put it in Constants
-		attributes = Attributes.getInstance(locale, attributesManager);
-		// these instances are also housed in Constants:
+		attributes = Attributes.getInstance(locale);
+		// also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
-		// initialize session attributes
-		sessAttributes = Attributes.initSessionAttributes();
+		// get any persistent attributes
+		persAttributes = attributesManager.getPersistentAttributes();
+		// sessAttributes were initialized for the attributes instance
+		// we make sure they're attached to the manager
+		// with their special put() method
 		attributesManager.setSessionAttributes(sessAttributes);
+		
+		// and reconcile them with the persistent attributes TODO
+		sessAttributes = attributes.reconcileAttributes();
+		
+		info("@LsnrsRequestHandler\n" + sessAttributes);
 
 		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances

@@ -5,12 +5,9 @@ import static listeners.model.Constants.speechUtils;
 // for consistency of references
 public class InnerResponse {
 
-	// cardTitle and speeech
-	// shouild not be null so let them
-	// throw this error if coding is wrong
-	private String cardTitle;
-	private String speech;
-	private String reprompt;
+	private String cardTitle = "";
+	private String speech = "";
+	private String reprompt = "";
 	private boolean interruptable = false;
 
 	

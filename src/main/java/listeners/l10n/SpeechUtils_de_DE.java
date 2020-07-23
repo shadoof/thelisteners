@@ -316,6 +316,20 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return amsg += breathShort() + "you " + s("must", "") + "abandon us. " + breath();
 	}
 
+	protected String getGuyzAreGone() {
+
+		return s("Der Kerl ist", "Die Kerle sind") + "weg. " + breath()
+				+ s("Du " + s("kannst", "wirst") + "diese " + s("Stimme", "Stimmen") + "nicht mehr "
+						+ s("sprechen", "") + s("hören.", "hören können.") + breath(), "");
+	}
+
+	protected String getGuyzMoreQuery() {
+
+		return s("Mehr? " + breathShort() + "Sagt bitte ja.",
+				"Macht weiter,  wenn ihr " + s("möchtet,", "wollt,")
+						+ s("dann" + s("hört ihr mehr.", "um mehr zu hören."), "um mehr zu hören."));
+	}
+
 	protected String getPreamble() {
 
 		String preamble = s("Wenn wir uns nicht irren, ist dies", "Scheint dies zu sein")
@@ -332,6 +346,27 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		preamble += s(s("Und bist fertig damit.", ""), "Sie können etwas 'düster' sein. Aber ...")
 				+ s("Wir hoffen es gefällt dir", "Vielen Dank, dass du zuhörst") + "'Den Zuhörern'. ";
 		return preamble += breathLong();
+	}
+
+	protected String getReallyWantGuyz() {
+
+		String speech = s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
+				+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "") + "guys "
+				+ "have to say? " + breath();
+		if (heads()) {
+			speech += "We " + s("hope", "trust") + "that you will not say '" + S("yes", "continue") + "' and "
+					+ s("consent to hearing", "agree to hear")
+					+ s("the " + s("voice of this other.", "other voice."),
+							"these other " + s("voices.", "guys."));
+		}
+		return speech += breath();
+	}
+
+	protected String getReallyWantGuyzReprompt() {
+
+		return s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
+		+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "")
+		+ "guys " + s("has", "have") + "to say? ";
 	}
 
 	protected String guyzIrq() {
@@ -384,6 +419,12 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		return S(S("Sie verabschieden sich", "Du verabschiedest dich"),
 				S("Du verlässt uns", "Sie verlassen uns"));
+	}
+
+	protected String pathToGuyzAudio() {
+
+		// TODO
+		return "<audio src=\"https://rednoise.org/programmatology/aurality/echo/DeliriumPlea-";
 	}
 
 	protected String peaceSpeech(String word) {
@@ -482,6 +523,11 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		return S("Über etwas Spezifisches sprechen",
 				"Wir werden über das reden, worüber du uns gebeten hast, zu sprechen");
+	}
+
+	protected String speakGuyzCardTitle() {
+
+		return S("Die anderen sprechen lassen", "Die andere Stimme");
 	}
 
 	protected String specificAffectSpeech() {
