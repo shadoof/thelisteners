@@ -350,23 +350,22 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String getReallyWantGuyz() {
 
-		String speech = s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
-				+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "") + "guys "
-				+ "have to say? " + breath();
-		if (heads()) {
-			speech += "We " + s("hope", "trust") + "that you will not say '" + S("yes", "continue") + "' and "
-					+ s("consent to hearing", "agree to hear")
-					+ s("the " + s("voice of this other.", "other voice."),
-							"these other " + s("voices.", "guys."));
-		}
-		return speech += breath();
+		return s(
+				"Bist du wirklich sicher, dass du hören willst, was "
+						+ s("einer dieser komischen Kerle sagt?", "diese komischen Kerle sagen?"),
+				"Möchtest du denn wirklich hören, was "
+						+ s("diese unzuverlässigen Kerle sagen?", "dieser unzuverlässige Kerl sagt?"))
+				+ breath();
 	}
 
 	protected String getReallyWantGuyzReprompt() {
 
-		return s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
-		+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "")
-		+ "guys " + s("has", "have") + "to say? ";
+		return s(
+				"Bist du wirklich sicher, dass du hören willst, was "
+						+ s("einer dieser komischen Kerle sagt?", "diese komischen Kerle sagen?"),
+				"Möchtest du denn wirklich hören, was "
+						+ s("diese unzuverlässigen Kerle sagen?", "dieser unzuverlässige Kerl sagt?"))
+				+ breath();
 	}
 
 	protected String guyzIrq() {
