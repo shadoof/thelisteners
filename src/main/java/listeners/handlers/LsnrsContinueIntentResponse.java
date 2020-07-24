@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.model.DialogState;
+import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.Response;
 
 import listeners.util.ResponseFinisher;
@@ -34,13 +36,18 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 			case "NoIntent":
 				ir = new InnerResponse();
 				ir.setCardTitle(speechUtils.getString("noCardTitle"));
-				if ((boolean) sessAttributes.get(HEARDNO)) {
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
+				// [ my home-brewed dialog: ] if ((boolean) sessAttributes.get(HEARDNO)) {
 					isEnd = true;
 					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
 					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
 						ir.setSpeech(
 								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
 					}
+					break;
+				} else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
+					return input.getResponseBuilder()
+							.build(); // does nothing?
 				}
 				// NB: fall-through is possible to:
 			case "ThanksNoIntent":
@@ -50,14 +57,14 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					ir.setSpeech(speechUtils.getString("thanksNoSpeech"));
 				}
 
-				if ((boolean) sessAttributes.get(HEARDNO)) {
-					isEnd = true;
-					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
-					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
-						ir.setSpeech(
-								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
-					}
-				}
+//				if ((boolean) sessAttributes.get(HEARDNO)) {
+//					isEnd = true;
+//					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
+//					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
+//						ir.setSpeech(
+//								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
+//					}
+//				}
 
 				ir.setSpeech(ir.getSpeech() + speechUtils.getString("reallyWantToAbandon"));
 

@@ -47,6 +47,7 @@ public class Constants {
 	public static final String EXCEPTION_MESSAGE = "Sorry, we haven't heard you. Please say more.";
 	public static final String RELATIONSHIP = "relationship"; // key
 	public static final String SPC = " ";
+	public static final HashSet<String> DIALOG_INTENTS;
 	public static final Map<String, String> PAUSES_MAP;
 	public static final Map<Integer, Integer> PROBABILITY_MAP;
 	public static final HashSet<String> NO_MORE;
@@ -68,6 +69,11 @@ public class Constants {
 	public static ResourceBundle speechUtils;
 
 	static {
+		DIALOG_INTENTS = new HashSet<>();
+		DIALOG_INTENTS.add("NoIntent");
+		DIALOG_INTENTS.add("ThanksNoIntent");
+		
+		
 		PAUSES_MAP = new HashMap<>();
 		PAUSES_MAP.put("Shortestbreath", "0.25");
 		PAUSES_MAP.put("Shortbreath", "0.5");

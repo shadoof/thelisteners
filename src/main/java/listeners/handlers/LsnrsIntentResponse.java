@@ -72,7 +72,12 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 			}
 		}
 		
-		// filtering out slotted intents now
+		// filter out dialog intents
+		if (DIALOG_INTENTS.contains(intent.getName())) {
+			return new LsnrsDialogIntentResponse().getResponse();
+		}
+		
+		// filter out slotted intents
 		// just for convenience
 		// since following kludge code does not apply to slotted intents
 		if (intent.getSlots() != null) {
