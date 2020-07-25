@@ -30,40 +30,51 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
 		String intentName = intent.getName();
-		InnerResponse ir = null;
+		InnerResponse ir = (InnerResponse) speechUtils.getObject(intentName);
+		ResponseFinisher rf;
 
+		// TODO
+		// more can be done with this could:
+		// as it is: auto delegation is desabled
+		// to allow custom and l10n confirmations
+		// reference is here:
+		// This is all done properly with:
+		// https://developer.amazon.com/en-US/docs/alexa/custom-skills/dialog-interface-reference.html
+		// note: auto confirmation is done (int the interaction model) with
+		// objects that are Confirm.Indent.<numberID> suggesting
+		// that one can also game this slightly.
 		switch (intentName) {
 			case "NoIntent":
-				info("@LsnrsDialogIntentResponse, NoIntent");
-				ir = new InnerResponse();
-				ir.setCardTitle(speechUtils.getString("noCardTitle"));
+			case "ThanksNoIntent":
 
-				// if (intentRequest.getDialogState() != DialogState.COMPLETED) {
-				// return input.getResponseBuilder()
-				// .addDelegateDirective(intent)
-				// .build();
-				// }
+				info("@LsnrsDialogIntentResponse, " + intentName);
 
-				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					// [ my home-brewed dialog: ] if ((boolean) sessAttributes.get(HEARDNO)) {
-					isEnd = true;
-					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
-					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
-						ir.setSpeech(
-								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
-					}
-					break;
+				String preSpeech = (intentName.contentEquals("ThanksNoIntent"))
+						? speechUtils.getString("yourWelcome")
+						: "";
+
+				rf = ResponseFinisher.builder()
+						.withSpeech(preSpeech + speechUtils.getString("reallyWantToAbandon"))
+						.build();
+
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
+					return input.getResponseBuilder()
+							.addConfirmIntentDirective(intent)
+							.withSpeech(rf.getSpeech())
+							.build();
 				}
 
-//				return input.getResponseBuilder()
-//						.addDelegateDirective(Intent.builder()
-//								.withName("OkIntent")
-//								.build())
-//						.build();
-				
-				ir.setSpeech("Still with us. ");
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
+					info("@LsnrsDialogIntentResponse, CONFIRMED dialogState: " + intentRequest.getDialogState());
+					intent = Intent.builder()
+							.withName("AMAZON.StopIntent")
+							.build();
+					return input.getResponseBuilder()
+							.addDelegateDirective(intent)
+							.build();
+				}
 
-//				ir.setSpeech(ir.getSpeech() + speechUtils.getString("reallyWantToAbandon"));
+				info("@LsnrsDialogIntentResponse, DENIED dialogState: " + intentRequest.getDialogState());
 
 				sessAttributes.justPut(LASTINTENT, intentName);
 				break;
@@ -73,7 +84,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 						"@LsnrsContinueIntentResponse, unknown intent: " + intent.getName());
 		}
 
-		ResponseFinisher rf = ResponseFinisher.builder()
+		rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
 				.withInterruptable(ir.isInterruptable())
 				.withReprompt(ir.getReprompt())

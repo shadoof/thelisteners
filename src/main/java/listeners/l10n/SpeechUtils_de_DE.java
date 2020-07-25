@@ -414,10 +414,22 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				"Jetzt wissen wir, wie Sie sich fühlen");
 	}
 
+	protected InnerResponse no() {
+
+		return new InnerResponse(noCardTitle(), noSpeech());
+	}
+
 	protected String noCardTitle() {
 
 		return S(S("Sie verabschieden sich", "Du verabschiedest dich"),
 				S("Du verlässt uns", "Sie verlassen uns"));
+	}
+
+	protected String noSpeech() {
+
+		// TODO
+		return S("You " + s("were thinking of", "thought about") + s("going.", "leaving us."),
+				s("You're still", "Still") + s("with us.", "here."));
 	}
 
 	protected String pathToGuyzAudio() {
@@ -498,6 +510,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String reallyWantToAbandon() {
 
+		// TODO check!
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 
@@ -507,7 +520,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 					affect);
 			speech += "Aber: " + breath();
 		}
-		speech += "Sicherlich " + s("willst du uns nicht", "bist du nicht so weit getrieben worden, uns")
+		speech += "Sicherlich " + s("willst du uns", "bist du so weit getrieben worden, uns")
 				+ "zu verlassen? ";
 		return speech += breath();
 	}
@@ -914,9 +927,17 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				"Wollt ihr " + s("wirklich gehen?", "uns " + s("wirklich", "") + "verlassen?"));
 	}
 
-	protected String thanksNoSpeech() {
+	protected String yourWelcome() {
 
 		return s("Bitte, bitte.", "") + s("Schon gut.", s("Keine Ursache.", "Gern geschehen.")) + breath();
+	}
+
+	protected InnerResponse thanksNo() {
+
+		// TODO
+		String speech = s("Bitte, bitte.", "") + s("Schon gut.", s("Keine Ursache.", "Gern geschehen."))
+				+ breath();
+		return new InnerResponse(thanksNoCardTitle(), speech);
 	}
 
 	protected String thanksWhatsLsnrsAffectCardTitle() {

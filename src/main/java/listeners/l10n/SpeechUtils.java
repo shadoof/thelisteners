@@ -37,6 +37,7 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "guyzIrq", guyzIrq() },
 			{ "heardAllFragments", heardAllFragments() },
 			{ "helpCardTitle", helpCardTitle() },
+			{ "NoIntent", no() },
 			{ "noCardTitle", noCardTitle() },
 			{ "pathToGuyzAudio", pathToGuyzAudio() },
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
@@ -53,14 +54,15 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "SpkrsAffectIsIntent", spkrsAffectIs() },
 			{ "SpkrsAffectIsNotIntent", spkrsAffectIsNot() },
 			{ "thanksNoCardTitle", thanksNoCardTitle() },
-			{ "thanksNoSpeech", thanksNoSpeech() },
+			{ "ThanksNoIntent", thanksNo() },
 			{ "thanksWhatsLsnrsAffectCardTitle", thanksWhatsLsnrsAffectCardTitle() },
 			{ "thanksWhatsLsnrsAffectPreSpeech", thanksWhatsLsnrsAffectPreSpeech() },
 			{ "WhatAboutAffectsIntent", whatAboutAffects() },
 			{ "WhatIsIntent", whatIs() },
 			{ "WhatPictureIntent", whatPicture() },
 			{ "WhatsLsnrsAffectIntent", whatsLsnrsAffect() },
-			{ "WhatsSpkrsAffectIntent", whatsSpkrsAffect() } };
+			{ "WhatsSpkrsAffectIntent", whatsSpkrsAffect() },
+			{ "yourWelcome", yourWelcome() } };
 
 	protected String affectAsBreathingSpeech() {
 
@@ -394,9 +396,9 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String getReallyWantGuyzReprompt() {
 
-		return s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what "
-		+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "")
-		+ "guys " + s("has", "have") + "to say? ";
+		return s("Do", "Are you sure") + "you " + s("really", "") + "want to hear what " + s("one of", "")
+				+ "the" + s("se", SPC) + s(s("strange", "unreliable"), "") + "guys " + s("has", "have")
+				+ "to say? ";
 	}
 
 	protected String guyzIrq() {
@@ -439,9 +441,20 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("Assistance", S("A little s", "S") + "upport");
 	}
 
+  protected InnerResponse no() {
+  	
+  	return new InnerResponse(noCardTitle(), noSpeech());
+  }
+	
 	protected String noCardTitle() {
 
-		return S("You say goodbye", "You abandon us");
+		return S("Still here", "Do you want to " + s("leave","abandon") + "us?");
+	}
+
+	protected String noSpeech() {
+
+		return S("You " + s("were thinking of", "thought about") + s("going.", "leaving us."),
+				s("You're still", "Still") + s("with us.", "here."));
 	}
 
 	protected String pathToGuyzAudio() {
@@ -524,9 +537,9 @@ public class SpeechUtils extends ListResourceBundle {
 		if (!affect.isEmpty() && !attributes.isPositive(affect)) {
 			speech += String.format(
 					"We understand, " + s("and we are dismayed,", "") + "that you are filled with %s. ", affect);
-			speech += s("But,", "Even so.") + breath();
+			speech += s("Still:", "Even so:") + breath();
 		}
-		speech += "Surely you " + s("do not want", "have not been driven") + "to abandon us? ";
+		speech += "Do you " + s("truly", "really") + "want to " + s("abandon", "leave") + "us? ";
 		return speech += breath();
 	}
 
@@ -922,13 +935,22 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String thanksNoCardTitle() {
 
-		return S("You're welcome to stay with us", "You really want to " + s("abandon us?", "go?"));
+		return S("You're welcome to stay with us", "Did you really want to " + s("abandon us?", "go?"));
 	}
-
-	protected String thanksNoSpeech() {
-
+	
+	protected String yourWelcome() {
+		
 		return s(s("You're", "You are") + s("very", "") + "welcome.",
 				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
+	}
+
+	protected InnerResponse thanksNo() {
+
+		String speech = s(s("You're", "You are") + s("very", "") + "welcome.",
+				s("It's nothing.", s("Please.", "") + "Think nothing of it."));
+		speech += noSpeech();
+
+		return new InnerResponse(thanksNoCardTitle(), speech += breath());
 	}
 
 	protected String thanksWhatsLsnrsAffectCardTitle() {

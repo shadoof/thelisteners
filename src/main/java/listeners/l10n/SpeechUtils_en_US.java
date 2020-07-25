@@ -257,9 +257,9 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			speech += String.format(
 					"We understand, " + s("and we are dismayed,", "") + "that you are filled with %s. ",
 					affect);
-			speech += s("But,", "Even so.") + breath();
+			speech += s("But:", "Even so:") + breath();
 		}
-		speech += "Surely you " + s("don't want to", "won't") + "abandon us? ";
+		speech += "Do you really " + s("want to", "feel like you should") + s("leave", "abandon") + "us? ";
 		return speech += breath();
 	}
 	
