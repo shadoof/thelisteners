@@ -95,7 +95,6 @@ public class Attributes {
 //		m.justPut(GUYZSPEECHINDEX, 1);
 		m.justPut(HEARDALLFRAGMENTS, false);
 		m.justPut(HEARDBREATHAFFECTS, false);
-		m.justPut(HEARDNO, false); // TODO probably no longer needed
 		m.justPut(HEARDWELCOME, true); // TODO probably no longer needed
 		m.justPut(LASTINTENT, "");
 		ArrayList al;
@@ -110,7 +109,6 @@ public class Attributes {
 		m.justPut(PREVIOUSAFFECT, "");
 		m.justPut(THING, "");
 		m.justPut(RELATIONSHIP, "sessionStart");
-		m.justPut(SPEAKGUYZCONFIRMED, false); // TODO probably no longer needed
 		return (SessionMap) m;
 	}
 
@@ -150,7 +148,7 @@ public class Attributes {
 
 	public SessionMap reconcileAttributes() {
 
-		// TODO Auto-generated method stub
+		// TODO
 		return sessAttributes;
 	}
 

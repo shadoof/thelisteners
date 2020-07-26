@@ -64,9 +64,6 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					al.add(fragmentIndex);
 					sessAttributes.justPut(FRAGMENTLIST, al);
 				}
-
-				// TODO in ResponseFinisher:
-				boolean specificFragment = true;
 				break;
 			case "ReadPoemIntent":
 				ir = new InnerResponse();

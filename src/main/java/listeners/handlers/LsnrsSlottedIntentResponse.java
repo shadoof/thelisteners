@@ -47,11 +47,6 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				// does SpeechUtils.getNewBundle()
 				sessAttributes.put(AFFECT, affect);
 				ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
-//				ir = (InnerResponse) speechUtils.getObject(intentName);
-//				cardTitle = ir.getCardTitle(); // TODO remove after testing
-//				cardTitle = speechUtils.getString("spkrsAffectIsCardTitle");
-//				ir = new InnerResponse();
-//				ir.speech = speechUtils.getString("spkrsAffectIsSpeech");
 				ir.setSpeech(ir.getSpeech() + speechUtils.getString("specificAffectSpeech"));
 
 				if (heads()) {

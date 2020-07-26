@@ -417,8 +417,9 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 	protected String moreGuyz() {
 
 		// TODO
-		return s("More" + S("? ", " of this? "),  "Do you " + s("really", "") + s("need", "want") + "to hear " + s("more?", "more from "
-				+ s("the guyz?", "these " + s("strange", "") + "guyz?")));
+		return s("More" + S("? ", " of this? "),
+				"Do you " + s("really", "") + s("need", "want") + "to hear "
+						+ s("more?", "more from " + s("the guyz?", "these " + s("strange", "") + "guyz?")));
 	}
 
 	protected InnerResponse no() {
@@ -437,6 +438,22 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		// TODO
 		return S("You " + s("were thinking of", "thought about") + s("going.", "leaving us."),
 				s("You're still", "Still") + s("with us.", "here."));
+	}
+
+	protected String noToGuyzSpeech() {
+
+		// TODO
+		return s(s("It's probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
+				+ s(s(s("more of", ""), "any of"), "") + "what they have to say." + s(breath() + "Wise.", "")
+				+ breath();
+	}
+
+	protected String noMoreGuyzSpeech() {
+
+		// TODO
+		String[] variations = { "OK", "Understood.", "Wise.", "Prudent.", S("Well, w", "W") + "e're still "
+				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
+		return variations[randInt(0, variations.length - 1)];
 	}
 
 	protected String pathToGuyzAudio() {
@@ -549,6 +566,12 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return S("Die anderen sprechen lassen", "Die andere Stimme");
 	}
 
+	protected String guyzSpeechCardTitle() {
+		
+		// TODO
+		return S("The o","O") + "thers " + S(s("are","") + "speaking ...","speak ...");
+	}
+	
 	protected String specificAffectSpeech() {
 
 		// TODO

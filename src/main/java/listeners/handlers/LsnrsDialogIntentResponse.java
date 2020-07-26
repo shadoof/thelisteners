@@ -28,22 +28,6 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 
 	private boolean isEnd = false;
 
-	// if(("SpeakGuyzIntent".equals((String)sessAttributes.get(LASTINTENT)))&&"ContinueIntent".equals(intent.getName()))
-	//
-	// {
-	// sessAttributes.put(SPEAKGUYZCONFIRMED, true);
-	// intent = Intent.builder()
-	// .withName("SpeakGuyzIntent")
-	// .build();
-	// if ((int) sessAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ -
-	// NUMBER_OF_GUYZ_PER_BATCH))
-	// sessAttributes.put(LASTINTENT, "");
-	// }else if("NoIntent".equals(intent.getName())||"ThanksNoIntent".equals(intent.getName()))
-	// {
-	// sessAttributes.put(SPEAKGUYZCONFIRMED, false);
-	// sessAttributes.put(LASTINTENT, "");
-	// }
-
 	@Override
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
@@ -51,7 +35,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 		InnerResponse ir = new InnerResponse();
 		ResponseFinisher rf;
 
-		// TODO
+		// TODO (longer term)
 		// more can be done with this could:
 		// as it is: auto delegation is desabled
 		// to allow custom and l10n confirmations
@@ -93,7 +77,8 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.build();
 				}
 
-				info("@LsnrsDialogIntentResponse, noIntent DENIED dialogState: " + intentRequest.getDialogState());
+				info("@LsnrsDialogIntentResponse, noIntent DENIED dialogState: "
+						+ intentRequest.getDialogState());
 
 				sessAttributes.justPut(LASTINTENT, intentName);
 				break;
@@ -107,13 +92,9 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					ir.setSpeech(ir.getSpeech() + speechUtils.getString("getGuyzAreGone"));
 					ir.setReprompt(speechUtils.getString("chooseContinue"));
 				}
-				else if (intent
-						.getConfirmationStatus() == IntentConfirmationStatus.NONE/*
-																																			 * && intentRequest.
-																																			 * getDialogState() ==
-																																			 * DialogState.STARTED
-																																			 */) {
-					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent NONE dialogState: " + intentRequest.getDialogState());
+				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
+					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent NONE dialogState: "
+							+ intentRequest.getDialogState());
 
 					rf = ResponseFinisher.builder()
 							.withSpeech(speechUtils.getString("getReallyWantGuyz"))
@@ -125,35 +106,11 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.build();
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					// info("@LsnrsDialogIntentResponse, guyz CONFIRMED dialogState: "
-					// + intentRequest.getDialogState());
-					//
-					// int currentSpeechIndex;
-					// sessAttributes.justPut(GUYZSPEECHINDEX, sessAttributes.get(GUYZINDEX));
-					// int guyzSpeechIndex = (int) sessAttributes.get(GUYZSPEECHINDEX);
-					// for (currentSpeechIndex = guyzSpeechIndex; currentSpeechIndex < guyzSpeechIndex
-					// + (5 - ((guyzSpeechIndex - 1) % 5)); currentSpeechIndex++) {
-					// ir.setSpeech(ir.getSpeech() + speechUtils.getString("pathToGuyzAudio")
-					// + String.format("%03d", currentSpeechIndex) + ".mp3\" /> ");
-					// }
-					// sessAttributes.justPut(GUYZSPEECHINDEX, currentSpeechIndex); // guyzSpeechIndex =
-					// i;
-					// // leave out a group of five in performances
-					// if (PERFORMANCE) {
-					// if ((int) sessAttributes.get(GUYZSPEECHINDEX) > 20
-					// && (int) sessAttributes.get(GUYZSPEECHINDEX) < 26) {
-					// sessAttributes.justPut(GUYZSPEECHINDEX, 26);
-					// }
-					// }
-					// ir.setReprompt(speechUtils.getString("chooseContinueNoAffect"));
-					// sessAttributes.justPut(GUYZINDEX, sessAttributes.get(GUYZSPEECHINDEX));
 					Intent guyzSpeechIntent = Intent.builder()
 							.withName("GuyzSpeechIntent")
+							.withConfirmationStatus(IntentConfirmationStatus.CONFIRMED)
 							.build();
 
-					info("@LsnrsDialogIntentResponse: returning response with intent: " + guyzSpeechIntent);
-
-					
 					return input.getResponseBuilder()
 							.addDelegateDirective(guyzSpeechIntent)
 							.build();
@@ -161,48 +118,34 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
 					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent DENIED dialogState: "
 							+ intentRequest.getDialogState());
-					// moreGuyzConfirmed = !moreGuyzConfirmed;
-					ir.setSpeech("OK"); // TODO
+					ir.setSpeech(speechUtils.getString("noToGuyzSpeech"));
 				}
 
 				sessAttributes.justPut(LASTINTENT, intentName);
 				break;
 			case "GuyzSpeechIntent":
-				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: " + intent.getConfirmationStatus());
-				
-				if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
-					info("@LsnrsDialogIntentResponse, GuyzSpeechIntent NONE dialogState: " + intentRequest.getDialogState());
-					
+				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
+						+ intent.getConfirmationStatus());
+
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
+					info("@LsnrsDialogIntentResponse, GuyzSpeechIntent NONE dialogState: "
+							+ intentRequest.getDialogState());
+
 					ir = new GuyzSpeech();
 
 					rf = ResponseFinisher.builder()
 							.withSpeech(ir.getSpeech())
 							.withPostSpeechPrompt(speechUtils.getString("moreGuyz"))
 							.build();
-					
-					info("@LsnrsDialogIntentResponse, GuyzSpeechIntent NONE rf.getSpeech(): " + rf.getSpeech());
 
 					return input.getResponseBuilder()
 							.addConfirmIntentDirective(intent)
 							.withSpeech(rf.getSpeech())
 							.build();
 				}
-				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					info("@LsnrsDialogIntentResponse, GuyzSpeechIntent CONFIRMED dialogState: "
-							+ intentRequest.getDialogState());
-					
-					intent = Intent.builder()
-							.withName(intentName) // needed
-							.withConfirmationStatus(IntentConfirmationStatus.NONE)
-							.build();
-
-					return input.getResponseBuilder()
-							.addDelegateDirective(intent)
-							.build();
-				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
 					ir = new InnerResponse();
-					ir.setSpeech("OK"); // TODO
+					ir.setSpeech(speechUtils.getString("noMoreGuyzSpeech"));
 				}
 
 				sessAttributes.justPut(LASTINTENT, intentName);
@@ -227,25 +170,24 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				.withShouldEndSession(isEnd)
 				.build();
 	}
-	
+
 	private class GuyzSpeech extends InnerResponse {
-		
+
 		GuyzSpeech() {
-			
-			setCardTitle(speechUtils.getString("speakGuyzCardTitle")); // TODO
+
+			setCardTitle(speechUtils.getString("guyzSpeechCardTitle"));
 
 			int currentIndex;
 			int guyzIndex = (int) sessAttributes.get(GUYZINDEX);
 			for (currentIndex = guyzIndex; currentIndex < guyzIndex
 					+ (5 - ((guyzIndex - 1) % 5)); currentIndex++) {
 				setSpeech(getSpeech() + speechUtils.getString("pathToGuyzAudio")
-						+ String.format("%03d", currentIndex) + ".mp3\" /> ");
+						+ String.format("%03d", currentIndex) + ".mp3\" />");
 			}
 			sessAttributes.justPut(GUYZINDEX, currentIndex); // guyzIndex = i;
 			// leave out a group of five in performances
 			if (PERFORMANCE) {
-				if ((int) sessAttributes.get(GUYZINDEX) > 20
-						&& (int) sessAttributes.get(GUYZINDEX) < 26) {
+				if ((int) sessAttributes.get(GUYZINDEX) > 20 && (int) sessAttributes.get(GUYZINDEX) < 26) {
 					sessAttributes.justPut(GUYZINDEX, 26);
 				}
 			}

@@ -50,7 +50,8 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				: "";
 		
 		// *** 5. and 6. *** treated the same
-		// generating variety here (needs assessing for actual effect) TODO
+		// generating variety here (needs assessing for actual effect)
+		// TODO (longer term)
 		// if affect for the session is set
 		if (!"".equals(sessAttributes.get(AFFECT))) {
 			// change affect roughly 1 of 3 intent requests ...
@@ -63,9 +64,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		
 		// filter out dialog intents
 		if (DIALOG_INTENTS.contains(intent.getName())) {
-			LsnrsDialogIntentResponse ldir = new LsnrsDialogIntentResponse(input, relationship);
-			info("@LsnrsIntentResponse: ldir.intent: " + ldir.intent);
-			return ldir.getResponse();
+			return new LsnrsDialogIntentResponse(input, relationship).getResponse();
 		}
 		
 		// filter out slotted intents

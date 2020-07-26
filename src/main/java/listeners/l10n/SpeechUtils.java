@@ -40,6 +40,8 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "moreGuyz", moreGuyz() },
 			{ "NoIntent", no() },
 			{ "noCardTitle", noCardTitle() },
+			{ "noMoreGuyzSpeech", noMoreGuyzSpeech() },
+			{ "noToGuyzSpeech", noToGuyzSpeech() },
 			{ "pathToGuyzAudio", pathToGuyzAudio() },
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
 			{ "pleaseContinuePreSpeech", pleaseContinuePreSpeech() },
@@ -50,6 +52,7 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "repeatCardTitle", repeatCardTitle() },
 			{ "speakFragmentCardTitle", speakFragmentCardTitle() },
 			{ "speakGuyzCardTitle", speakGuyzCardTitle() },
+			{ "guyzSpeechCardTitle", guyzSpeechCardTitle() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "SpkrsAffectIsIntent", spkrsAffectIs() },
@@ -439,8 +442,9 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String moreGuyz() {
 
-		return s("More" + S("? ", " of this? "),  "Do you " + s("really", "") + s("need", "want") + "to hear " + s("more?", "more from "
-				+ s("the guyz?", "these " + s("strange", "") + "guyz?")));
+		return s("More" + S("? ", " of this? "),
+				"Do you " + s("really", "") + s("need", "want") + "to hear "
+						+ s("more?", "more from " + s("the guyz?", "these " + s("strange", "") + "guyz?")));
 	}
 
 	protected String helpCardTitle() {
@@ -462,6 +466,19 @@ public class SpeechUtils extends ListResourceBundle {
 
 		return S("You " + s("were thinking of", "thought about") + s("going.", "leaving us."),
 				s("You're still", "Still") + s("with us.", "here."));
+	}
+
+	protected String noToGuyzSpeech() {
+
+		return s(s("It's probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
+				+ s(s("more of", "any of"), "") + "what they have to say." + s(breath() + "Wise.", "") + breath();
+	}
+
+	protected String noMoreGuyzSpeech() {
+
+		String[] variations = { "OK", "Understood.", "Wise.", "Prudent.", S("Well, w", "W") + "e're still "
+				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
+		return variations[randInt(0, variations.length - 1)];
 	}
 
 	protected String pathToGuyzAudio() {
@@ -566,6 +583,11 @@ public class SpeechUtils extends ListResourceBundle {
 		return S("Letting the other speak", "The other voice");
 	}
 
+	protected String guyzSpeechCardTitle() {
+		
+		return S("The o","O") + "thers " + S(s("are","") + "speaking ...","speak ...");
+	}
+	
 	protected String specificAffectSpeech() {
 
 		String speech = "";

@@ -17,7 +17,7 @@ public class UnsupportedRequestHandler implements RequestHandler {
 		return true;
 	}
 
-	@Override // TODO
+	@Override
 	public Optional<Response> handle(HandlerInput input) {
 		
 		ResponseFinisher rf = ResponseFinisher.builder()

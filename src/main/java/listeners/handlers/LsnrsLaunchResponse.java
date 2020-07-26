@@ -49,7 +49,6 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 			reprompt = speechUtils.getString("chooseContinue");
 		}
 
-		// TODO l10n for ResponseFinisher
 		ResponseFinisher rf = ResponseFinisher.builder()
 				.withPreamble(preamble)
 				.withSpeech(ws.getSpeech())

@@ -192,6 +192,13 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected String noMoreGuyzSpeech() {
+
+		String[] variations = { "OK", "Right.", "Cool.", "Gotcha.", S("Well, w", "W") + "e're still "
+				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
+		return variations[randInt(0, variations.length - 1)];
+	}
+
 	protected String peaceSpeech(String word) {
 
 		String speech = "It's " + s("really", "") + "good for us to know that you are "
