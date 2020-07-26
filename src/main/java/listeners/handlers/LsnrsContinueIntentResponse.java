@@ -20,11 +20,12 @@ import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 
 public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
-	private boolean isEnd = false;
+	LsnrsContinueIntentResponse(HandlerInput input, String relationship) {
 
-	LsnrsContinueIntentResponse() {
-
+		super(input, relationship);
 	}
+
+	private boolean isEnd = false;
 
 	@Override
 	public Optional<Response> getResponse() throws UnknownIntentException {
@@ -33,44 +34,6 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 		InnerResponse ir = null;
 
 		switch (intentName) {
-			case "NoIntent":
-				ir = new InnerResponse();
-				ir.setCardTitle(speechUtils.getString("noCardTitle"));
-				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-				// [ my home-brewed dialog: ] if ((boolean) sessAttributes.get(HEARDNO)) {
-					isEnd = true;
-					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
-					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
-						ir.setSpeech(
-								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
-					}
-					break;
-				} else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
-					return input.getResponseBuilder()
-							.build(); // does nothing?
-				}
-				// NB: fall-through is possible to:
-			case "ThanksNoIntent":
-				if (ir == null) ir = new InnerResponse();
-				if ("ThanksNoIntent".equals(intentName)) {
-					ir.setCardTitle(speechUtils.getString("thanksNoCardTitle"));
-					ir.setSpeech(speechUtils.getString("thanksNoSpeech"));
-				}
-
-//				if ((boolean) sessAttributes.get(HEARDNO)) {
-//					isEnd = true;
-//					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
-//					if (attributes.isPositive((String) sessAttributes.get(AFFECT))) {
-//						ir.setSpeech(
-//								ir.getSpeech() + ("de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "")));
-//					}
-//				}
-
-				ir.setSpeech(ir.getSpeech() + speechUtils.getString("reallyWantToAbandon"));
-
-				sessAttributes.justPut(HEARDNO, true);
-				sessAttributes.justPut(LASTINTENT, intentName);
-				break;
 			case "PleaseContinueIntent":
 			case "ContinueIntent":
 				ir = new NextFragmentResponse(intentName);

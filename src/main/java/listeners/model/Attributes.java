@@ -90,13 +90,13 @@ public class Attributes {
 		m.justPut(FRAGMENTINDEX, NOT_YET_GREETED);
 		LIST_OF_FRAGMENTS.clear();
 		m.justPut(FRAGMENTLIST, LIST_OF_FRAGMENTS);
-		m.justPut(GUYZINDEX, 0);
+		m.justPut(GUYZINDEX, 1);
 		m.justPut(GUYZIRQ, false);
-		m.justPut(GUYZSPEECHINDEX, 1);
+//		m.justPut(GUYZSPEECHINDEX, 1);
 		m.justPut(HEARDALLFRAGMENTS, false);
 		m.justPut(HEARDBREATHAFFECTS, false);
-		m.justPut(HEARDNO, false);
-		m.justPut(HEARDWELCOME, true);
+		m.justPut(HEARDNO, false); // TODO probably no longer needed
+		m.justPut(HEARDWELCOME, true); // TODO probably no longer needed
 		m.justPut(LASTINTENT, "");
 		ArrayList al;
 		String la = "";
@@ -110,7 +110,7 @@ public class Attributes {
 		m.justPut(PREVIOUSAFFECT, "");
 		m.justPut(THING, "");
 		m.justPut(RELATIONSHIP, "sessionStart");
-		m.justPut(SPEAKGUYZCONFIRMED, false);
+		m.justPut(SPEAKGUYZCONFIRMED, false); // TODO probably no longer needed
 		return (SessionMap) m;
 	}
 

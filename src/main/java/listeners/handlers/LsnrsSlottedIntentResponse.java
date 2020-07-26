@@ -21,8 +21,9 @@ import static listeners.model.LangConstants.*;
 
 public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
-	LsnrsSlottedIntentResponse() {
+	LsnrsSlottedIntentResponse(HandlerInput input, String relationship) {
 
+		super(input, relationship);
 	}
 
 	@Override

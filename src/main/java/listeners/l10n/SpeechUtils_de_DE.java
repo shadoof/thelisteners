@@ -414,6 +414,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				"Jetzt wissen wir, wie Sie sich fühlen");
 	}
 
+	protected String moreGuyz() {
+
+		// TODO
+		return s("More" + S("? ", " of this? "),  "Do you " + s("really", "") + s("need", "want") + "to hear " + s("more?", "more from "
+				+ s("the guyz?", "these " + s("strange", "") + "guyz?")));
+	}
+
 	protected InnerResponse no() {
 
 		return new InnerResponse(noCardTitle(), noSpeech());

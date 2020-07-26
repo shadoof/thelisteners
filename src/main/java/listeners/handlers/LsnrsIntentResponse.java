@@ -22,29 +22,18 @@ import listeners.util.UnknownIntentException;
 
 public class LsnrsIntentResponse implements LsnrsResponse {
 
-	protected static HandlerInput input;
-	protected static IntentRequest intentRequest;
-	protected static Intent intent;
-	protected static String relationship;
+	protected HandlerInput input;
+	protected IntentRequest intentRequest;
+	protected Intent intent;
+	protected String relationship;
 
 	LsnrsIntentResponse(HandlerInput input, String relationship) {
 
 		this.input = input;
-		intentRequest = (IntentRequest) input.getRequestEnvelope()
+		this.intentRequest = (IntentRequest) input.getRequestEnvelope()
 				.getRequest();
-		intent = intentRequest.getIntent();
+		this.intent = intentRequest.getIntent();
 		this.relationship = relationship;
-		// while DEV
-		if (intent.getSlots() != null) {
-			info("@LsnrsIntentResponse, slots: " + intent.getSlots() + (intent.getSlots()
-					.isEmpty() ? " are empty" : ""));
-		}
-		else
-			info("@LsnrsIntentResponse, intent.getSlots() is null ");
-	}
-
-	LsnrsIntentResponse() {
-
 	}
 
 	@Override
@@ -74,42 +63,17 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		
 		// filter out dialog intents
 		if (DIALOG_INTENTS.contains(intent.getName())) {
-			return new LsnrsDialogIntentResponse().getResponse();
+			LsnrsDialogIntentResponse ldir = new LsnrsDialogIntentResponse(input, relationship);
+			info("@LsnrsIntentResponse: ldir.intent: " + ldir.intent);
+			return ldir.getResponse();
 		}
 		
 		// filter out slotted intents
 		// just for convenience
 		// since following kludge code does not apply to slotted intents
 		if (intent.getSlots() != null) {
-			return new LsnrsSlottedIntentResponse().getResponse();
+			return new LsnrsSlottedIntentResponse(input, relationship).getResponse();
 		}
-
-		// The following code block is based on Listeners 2.x,
-		// hacking a 2-stage dialog (3) ways for a few intents.
-		// should be possible to replace this with the new Dialog interface TODO
-		// NB: confirmationStatus is already a field of the Intent class !
-		// (1)
-		if (("SpeakGuyzIntent".equals((String) sessAttributes.get(LASTINTENT)))
-				&& "ContinueIntent".equals(intent.getName())) {
-			sessAttributes.put(SPEAKGUYZCONFIRMED, true);
-			intent = Intent.builder()
-					.withName("SpeakGuyzIntent")
-					.build();
-			if ((int) sessAttributes.get(GUYZSPEECHINDEX) >= (NUMBER_OF_GUYZ - NUMBER_OF_GUYZ_PER_BATCH))
-				sessAttributes.put(LASTINTENT, "");
-		}
-		else if ("NoIntent".equals(intent.getName()) || "ThanksNoIntent".equals(intent.getName())) {
-			sessAttributes.put(SPEAKGUYZCONFIRMED, false);
-			sessAttributes.put(LASTINTENT, "");
-		}
-		// (2) make it a little more difficult to leave session unintentionally
-		// reset HEARD_NO to false unless we really just heard one:
-		info("@LsnrsIntentResponse, sessAttributes.get(HEARDNO): " + sessAttributes.get(HEARDNO));
-		if ((boolean) sessAttributes.get(HEARDNO) && !NO_MORE.contains(intent.getName())) {
-			sessAttributes.put(HEARDNO, false);
-		}
-		// (3) one two-stage also done with this in 2.x
-		Boolean heardPlease = false;
 
 		// if we adhere to the convention that there are l10n class bundles
 		// for ALL simple intentNames we need no 'switch' or 'else if' logic here.
@@ -124,7 +88,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				// and must deal separately with intents that
 				// need to know where they are in the session, etc.
 				// NB: any firstEncounter preamble is NOT passed
-				return new LsnrsContinueIntentResponse().getResponse();
+				return new LsnrsContinueIntentResponse(input, relationship).getResponse();
 			}
 		}
 

@@ -77,8 +77,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// and reconcile them with the persistent attributes TODO
 		sessAttributes = attributes.reconcileAttributes();
 		
-		info("@LsnrsRequestHandler\n" + sessAttributes);
-
 		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
@@ -188,6 +186,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 				return new LsnrsIntentResponse(input, (String) persAttributes.get(RELATIONSHIP)).getResponse();
 			}
 			catch (UnknownIntentException e) {
+				info("@LsnrsRequestHandler, UnknownIntentException: " + e.getMessage());
 				return null;
 			}
 		}
