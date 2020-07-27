@@ -27,6 +27,7 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "continueCardTitle", continueCardTitle() },
 			{ "dontKnowFragmentReprompt", dontKnowFragmentReprompt() },
 			{ "dontKnowFragmentSpeech", dontKnowFragmentSpeech() },
+			{ "exceptionMessage", exceptionMessage() },
 			{ "excuseMarkov", excuseMarkov() },
 			{ "getPreamble", getPreamble() },
 			{ "getAbandonmentMessage", getAbandonmentMessage() },
@@ -323,6 +324,12 @@ public class SpeechUtils extends ListResourceBundle {
 		return speech += breath();
 	}
 
+	protected String exceptionMessage() {
+
+		return s("Sorry.", "Apologies.") + "Either something's wrong or we haven't heard "
+				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
+	}
+
 	protected String excuseMarkov() {
 
 		return breathLong()
@@ -471,7 +478,8 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String noToGuyzSpeech() {
 
 		return s(s("It's probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
-				+ s(s("more of", "any of"), "") + "what they have to say." + s(breath() + "Wise.", "") + breath();
+				+ s(s("more of", "any of"), "") + "what they have to say." + s(breath() + "Wise.", "")
+				+ breath();
 	}
 
 	protected String noMoreGuyzSpeech() {
@@ -584,10 +592,10 @@ public class SpeechUtils extends ListResourceBundle {
 	}
 
 	protected String guyzSpeechCardTitle() {
-		
-		return S("The o","O") + "thers " + S(s("are","") + "speaking ...","speak ...");
+
+		return S("The o", "O") + "thers " + S(s("are", "") + "speaking ...", "speak ...");
 	}
-	
+
 	protected String specificAffectSpeech() {
 
 		String speech = "";

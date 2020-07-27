@@ -3,7 +3,6 @@ package listeners.model;
 import static listeners.model.Constants.attributesManager;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Attributes.AFFECT_SLOT;
-import static listeners.model.Constants.RELATIONSHIP;
 import static listeners.util.Utils.randInt;
 import static listeners.util.Utils.info;
 
@@ -28,26 +27,26 @@ public class Attributes {
 	private static Attributes instance;
 
 	private Attributes(Locale locale) {
-		
+
 		sessAttributes = initSessionAttributes();
 	}
 
-//	private Attributes(Locale locale, AttributesManager attributesManager) {
-//
-//	}
-//
+	// private Attributes(Locale locale, AttributesManager attributesManager) {
+	//
+	// }
+	//
 	public static Attributes getInstance(Locale locale) {
 
 		if (instance == null) instance = new Attributes(locale);
 		return instance;
 	}
 
-//	public static Attributes getInstance(Locale locale, AttributesManager attributesManager) {
-//
-//		if (instance == null) instance = new Attributes(locale, attributesManager);
-//		return instance;
-//	}
-//
+	// public static Attributes getInstance(Locale locale, AttributesManager attributesManager) {
+	//
+	// if (instance == null) instance = new Attributes(locale, attributesManager);
+	// return instance;
+	// }
+	//
 	// keys recognizable as static final constants
 	public static final String AFFECT = "affect";
 	public static final String CHALLENGEDAFFECT = "challengedAffect";
@@ -64,6 +63,7 @@ public class Attributes {
 	public static final String LISTENERSAFFECT = "listenersAffect";
 	public static final String MARKOVIRQ = "markovIRQ";
 	public static final String READSOFAR = "readSoFar";
+	public static final String RELATIONSHIP = "relationship";
 	public static final String PREVIOUSAFFECT = "previousAffect";
 	public static final String THING = "thing";
 	public static final String SPEAKGUYZCONFIRMED = "speakGuyzConfirmed";
@@ -76,7 +76,7 @@ public class Attributes {
 	// attributes objects
 	public static Map<String, Object> persAttributes;
 	public static SessionMap sessAttributes;
-//	public static Map<String, Object> sessAttributes;
+	// public static Map<String, Object> sessAttributes;
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
@@ -92,7 +92,7 @@ public class Attributes {
 		m.justPut(FRAGMENTLIST, LIST_OF_FRAGMENTS);
 		m.justPut(GUYZINDEX, 1);
 		m.justPut(GUYZIRQ, false);
-//		m.justPut(GUYZSPEECHINDEX, 1);
+		// m.justPut(GUYZSPEECHINDEX, 1);
 		m.justPut(HEARDALLFRAGMENTS, false);
 		m.justPut(HEARDBREATHAFFECTS, false);
 		m.justPut(HEARDWELCOME, true); // TODO probably no longer needed
@@ -120,9 +120,8 @@ public class Attributes {
 
 	public boolean isEmptyForSession(String key) {
 
-		return sessAttributes == null 
-			|| sessAttributes.get(key) == null 
-			|| ((String) sessAttributes.get(key)).isEmpty();
+		return sessAttributes == null || sessAttributes.get(key) == null
+				|| ((String) sessAttributes.get(key)).isEmpty();
 	}
 
 	public boolean isPositive(String affect) {
@@ -142,7 +141,7 @@ public class Attributes {
 		if (affect == null || affect.isEmpty()) {
 			affect = getRandomAffect();
 			sessAttributes.put(affectKey, affect);
-		}		
+		}
 		return affect;
 	}
 

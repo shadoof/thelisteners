@@ -2,14 +2,7 @@ package listeners.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.requestType;
-import static listeners.model.Attributes.AFFECT;
-import static listeners.model.Attributes.FRAGMENTINDEX;
-import static listeners.model.Attributes.HEARDNO;
-import static listeners.model.Attributes.LISTENERSAFFECT;
-import static listeners.model.Attributes.NOT_YET_GREETED;
-import static listeners.model.Attributes.initSessionAttributes;
-import static listeners.model.Attributes.persAttributes;
-import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Attributes.*;
 import static listeners.model.Constants.*;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.info;
@@ -20,6 +13,7 @@ import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
@@ -73,10 +67,10 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// we make sure they're attached to the manager
 		// with their special put() method
 		attributesManager.setSessionAttributes(sessAttributes);
-		
+
 		// and reconcile them with the persistent attributes TODO
 		sessAttributes = attributes.reconcileAttributes();
-		
+
 		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
@@ -90,17 +84,15 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// *** 6. normal intent request (most common)
 		//
 
-		if (persAttributes.isEmpty()
-		// TODO remove (this is for dev and debugging):
-		// || (persistentAttributes.get(RELATIONSHIP) != null &&
-		// persistentAttributes.get(RELATIONSHIP)
-		// .equals("ask"))
-		) {
-			// *** 0. ***
-			// deal with ASK relationship here TODO
-
+		if (persAttributes.isEmpty()) {
 			// very first encounter
 			persAttributes.put(RELATIONSHIP, "firstEncounter");
+		}
+		else if (persAttributes.get(RELATIONSHIP) != null && persAttributes.get(RELATIONSHIP)
+				.equals("ask")) {
+			return input.getResponseBuilder()
+					.addDelegateDirective(Intent.builder().withName("AskStartOverIntent").build())
+					.build();
 		}
 		else {
 			persAttributes.put(RELATIONSHIP, sessAttributes.get(RELATIONSHIP)); // "sessionStart"
@@ -142,7 +134,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 					if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
 						// build variant fragments just before they're needed:
 						langConstants.buildFragments();
-						speech = langConstants.fragments[fragmentIndex] + speechUtils.getString("chooseContinueNoAffect");
+						speech = langConstants.fragments[fragmentIndex]
+								+ speechUtils.getString("chooseContinueNoAffect");
 					}
 					else {
 						Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
@@ -158,11 +151,12 @@ public class LsnrsRequestHandler implements RequestHandler {
 					String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
 					speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
 
-					// for now, on STOP or CANCEL we clear persistentAttributes
-					// and set relationship to "ask"
+					// on STOP or CANCEL we set relationship to "ask"
 					persAttributes.clear();
-					// comment the following for a firstEncounter or use DEV
-					if (!DEV) persAttributes.put(RELATIONSHIP, "ask");
+					persAttributes.put(RELATIONSHIP, "ask");
+					if (DEV) {
+						// adjust when developing
+					}
 					attributesManager.savePersistentAttributes();
 					endSession = true;
 					match = true;
@@ -177,7 +171,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 						.withSpeech(rf.getSpeech())
 						.withSimpleCard(cardTitle, rf.getCardText())
 						.withShouldEndSession(endSession)
-						.build();				
+						.build();
 			}
 
 			// ALL other modeled or Unknown intents

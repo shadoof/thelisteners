@@ -43,9 +43,6 @@ public class Constants {
 	public static final int NUMBER_OF_READABLES = 40;
 
 	// for readability
-	// TODO l10n for Exception message
-	public static final String EXCEPTION_MESSAGE = "Sorry, we haven't heard you. Please say more.";
-	public static final String RELATIONSHIP = "relationship"; // key
 	public static final String SPC = " ";
 	public static final HashSet<String> DIALOG_INTENTS;
 	public static final Map<String, String> PAUSES_MAP;

@@ -45,10 +45,44 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 		// note: auto confirmation is done (int the interaction model) with
 		// objects that are Confirm.Indent.<numberID> suggesting
 		// that one can also game this slightly.
+		info("@LsnrsDialogIntentResponse, " + intentName);
 		switch (intentName) {
+			case "AskStartOverIntent":
+				ir = (InnerResponse) speechUtils.getObject(intentName);
+				
+				rf = ResponseFinisher.builder()
+						.withSpeech(ir.getSpeech())
+						.build();
+
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
+					return input.getResponseBuilder()
+							.addConfirmIntentDirective(intent)
+							.withSpeech(rf.getSpeech())
+							.build();
+				}
+
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
+					info(intentName + " confirmed, stopping for now."); // TODO
+					intent = Intent.builder()
+							.withName("AMAZON.StopIntent")
+							.build();
+					return input.getResponseBuilder()
+							.addDelegateDirective(intent)
+							.build();
+				}
+
+				info(intentName + " denied, stopping for now."); // TODO
+				intent = Intent.builder()
+						.withName("AMAZON.StopIntent")
+						.build();
+				return input.getResponseBuilder()
+						.addDelegateDirective(intent)
+						.build();
+
+//				sessAttributes.justPut(LASTINTENT, intentName);
+//				break;
 			case "NoIntent":
 			case "ThanksNoIntent":
-				info("@LsnrsDialogIntentResponse, " + intentName);
 
 				ir = (InnerResponse) speechUtils.getObject(intentName);
 

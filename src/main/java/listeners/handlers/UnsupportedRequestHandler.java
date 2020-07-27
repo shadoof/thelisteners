@@ -1,6 +1,5 @@
 package listeners.handlers;
 
-import static listeners.model.Constants.EXCEPTION_MESSAGE;
 import static listeners.model.Constants.speechUtils;
 import listeners.util.ResponseFinisher;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;

@@ -1,6 +1,5 @@
 package listeners.handlers;
 
-import static listeners.model.Constants.EXCEPTION_MESSAGE;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -32,12 +31,12 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 		throwable.printStackTrace();
 		
 		ResponseFinisher rf = ResponseFinisher.builder()
-				.withSpeech(EXCEPTION_MESSAGE)
+				.withSpeech(speechUtils.getString("exceptionMessaage"))
 				.withReprompt(speechUtils.getString("chooseContinueNoAffect"))
 				.build();
 
 		return input.getResponseBuilder()
-				.withSimpleCard("Not reading you ...", EXCEPTION_MESSAGE)
+				.withSimpleCard("Not reading you ...", rf.getCardText())
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())
 				.build();

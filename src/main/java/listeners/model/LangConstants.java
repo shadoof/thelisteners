@@ -31,7 +31,7 @@ public class LangConstants {
 	public static HashSet<String> ALL_AFFECTS;
 
 	public static String polyVoiceWrapper;
-
+	
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
 	// private static SimpleDateFormat

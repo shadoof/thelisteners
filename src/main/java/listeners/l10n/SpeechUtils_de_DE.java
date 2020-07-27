@@ -291,6 +291,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected String exceptionMessage() {
+
+		// TODO
+		return s("Sorry.", "Apologies.") + "Either something's wrong or we haven't heard "
+				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
+	}
+
 	protected String excuseMarkov() {
 
 		return breathLong() + s(
