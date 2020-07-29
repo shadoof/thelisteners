@@ -16,7 +16,7 @@ public class LsnrsAreNotHumanIntent_de_DE extends LsnrsAreNotHumanIntent {
 	public String buildSpeech() {
 		
 		sessAttributes.put(PREVIOUSAFFECT, sessAttributes.get(AFFECT));
-		sessAttributes.justPut(AFFECT, S("disappointment", "irritation"));
+		sessAttributes.put(AFFECT, S("disappointment", "irritation"));
 
 		String speech = "You must " + s("understand", s("believe", s("know", "know, at heart,")))
 				+ "that we are " + s("trying so hard,", "doing our best,");

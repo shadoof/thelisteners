@@ -775,7 +775,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		}
 		else {
 			speech += affectAsBreathingSpeech();
-			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
+			sessAttributes.put(HEARDBREATHAFFECTS, true);
 		}
 		return new InnerResponse(whatsLsnrsAffectCardTitle() ,speech += breath());
 	}

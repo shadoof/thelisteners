@@ -148,11 +148,11 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				setReprompt(speechUtils.getString("chooseContinue"));
 
 				// set the session fragmentIndex if a valid fragment was found
-				sessAttributes.justPut(FRAGMENTINDEX, fragmentIndex);
+				sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
 				// and add this to the list of fragments that have been heard
 				ArrayList fl = (ArrayList) sessAttributes.get(FRAGMENTLIST);
 				if (!fl.contains(fragmentIndex)) fl.add(fragmentIndex);
-				sessAttributes.justPut(FRAGMENTLIST, fl);
+				sessAttributes.put(FRAGMENTLIST, fl);
 				
 				// do, but not always, the preSpeech
 				if (fragmentIndex > 0 && randInt(0, 3) == 0) 

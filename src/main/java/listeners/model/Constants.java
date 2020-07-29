@@ -71,6 +71,8 @@ public class Constants {
 		DIALOG_INTENTS.add("ThanksNoIntent");
 		DIALOG_INTENTS.add("SpeakGuyzIntent");
 		DIALOG_INTENTS.add("GuyzSpeechIntent");
+		DIALOG_INTENTS.add("AskStartOverIntent");
+		DIALOG_INTENTS.add("AskPersistenceIntent");
 		
 		
 		PAUSES_MAP = new HashMap<>();

@@ -16,7 +16,10 @@ import listeners.handlers.InnerResponse;
 
 public class SpeechUtils extends ListResourceBundle {
 
-	public Object[][] contents = { { "chooseContinue", chooseContinue() },
+	public Object[][] contents = { { "AskPersistenceIntent", askPersistence() },
+			{ "AskStartOverIntent", askStartOver() },
+			{ "askStartOverSpeech", askStartOverSpeech() },
+			{ "chooseContinue", chooseContinue() },
 			{ "chooseContinueNoAffect", chooseContinue(false) },
 			{ "choosePhrase", choosePhrase() },
 			{ "chooseSomeFragmentNames", chooseSomeFragmentNames() },
@@ -58,6 +61,8 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "specificAffectSpeech", specificAffectSpeech() },
 			{ "SpkrsAffectIsIntent", spkrsAffectIs() },
 			{ "SpkrsAffectIsNotIntent", spkrsAffectIsNot() },
+			{ "startOverConfirmed", startOverConfirmed() },
+			{ "startOverDenied", startOverDenied() },
 			{ "thanksNoCardTitle", thanksNoCardTitle() },
 			{ "ThanksNoIntent", thanksNo() },
 			{ "thanksWhatsLsnrsAffectCardTitle", thanksWhatsLsnrsAffectCardTitle() },
@@ -137,6 +142,42 @@ public class SpeechUtils extends ListResourceBundle {
 				+ s("what, should we. " + breath() + "feel?", "");
 
 		return speech += breath();
+	}
+
+	protected Object askPersistence() {
+
+		return new InnerResponse(askPersistenceCardTitle(), askPersistenceSpeech());
+	}
+
+	protected String askPersistenceCardTitle() {
+
+		return S("Save your place?", "Start from scratch?");
+	}
+
+	protected String askPersistenceSpeech() {
+
+		String speech = s("Would you like us to remember something of our conversation?",
+				"Would you like us to remember roughly what we've heard and said to you so far?");
+
+		return speech;
+	}
+
+	protected Object askStartOver() {
+
+		return new InnerResponse(askStartOverCardTitle(), askStartOverSpeech());
+	}
+
+	protected String askStartOverCardTitle() {
+
+		return S("You want to start over?", "Start from scratch?");
+	}
+
+	protected String askStartOverSpeech() {
+
+		String speech = s("Would you like to start over from the beginning?",
+				"Would you like us to forget what we've heard and said to you so far?");
+
+		return speech;
 	}
 
 	protected String chooseContinue() {
@@ -466,19 +507,20 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String noCardTitle() {
 
-		return S("Still here", "Do you want to " + s("leave", "abandon") + "us?");
+		return S("Still here", "Did you want to " + s("leave", "abandon") + "us?");
 	}
 
 	protected String noSpeech() {
 
+		// TODO make better
 		return S("You " + s("were thinking of", "thought about") + s("going.", "leaving us."),
-				s("You're still", "Still") + s("with us.", "here."));
+				s("You're still", "Still") + s("with us.", s("here.", "here with us.")));
 	}
 
 	protected String noToGuyzSpeech() {
 
 		return s(s("It's probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
-				+ s(s("more of", "any of"), "") + "what they have to say." + s(breath() + "Wise.", "")
+				+ s(s("more of", "any of"), "") + "what they have to say. " + s(breath() + "Wise.", "")
 				+ breath();
 	}
 
@@ -981,6 +1023,16 @@ public class SpeechUtils extends ListResourceBundle {
 				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
 	}
 
+	protected String startOverConfirmed() {
+
+		return s("OK.", "") + "We're beginning " + s(s("all over", "") + "again.", "again from the top.");
+	}
+
+	protected String startOverDenied() {
+
+		return s("We're still here, listening to you as before", "Still listening, as before.");
+	}
+
 	protected InnerResponse thanksNo() {
 
 		String speech = s(s("You're", "You are") + s("very", "") + "welcome.",
@@ -1206,7 +1258,7 @@ public class SpeechUtils extends ListResourceBundle {
 		}
 		else {
 			speech += affectAsBreathingSpeech();
-			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
+			sessAttributes.put(HEARDBREATHAFFECTS, true);
 		}
 		return new InnerResponse(whatsLsnrsAffectCardTitle(), speech += breath());
 	}

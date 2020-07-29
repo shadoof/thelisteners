@@ -31,7 +31,7 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 		throwable.printStackTrace();
 		
 		ResponseFinisher rf = ResponseFinisher.builder()
-				.withSpeech(speechUtils.getString("exceptionMessaage"))
+				.withSpeech(speechUtils.getString("exceptionMessage"))
 				.withReprompt(speechUtils.getString("chooseContinueNoAffect"))
 				.build();
 

@@ -7,13 +7,16 @@ import static listeners.model.Constants.*;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.info;
 
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Intent;
+import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
@@ -34,8 +37,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 	@Override
 	public boolean canHandle(HandlerInput input) {
 
-		return input.matches(requestType(LaunchRequest.class))
-				|| input.matches(requestType(IntentRequest.class));
+		return input.matches(requestType(LaunchRequest.class).or(requestType(IntentRequest.class)));
 	}
 
 	@Override
@@ -62,15 +64,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
 		// get any persistent attributes
-		persAttributes = attributesManager.getPersistentAttributes();
-		// sessAttributes were initialized for the attributes instance
-		// we make sure they're attached to the manager
-		// with their special put() method
-		attributesManager.setSessionAttributes(sessAttributes);
-
-		// and reconcile them with the persistent attributes TODO
-		sessAttributes = attributes.reconcileAttributes();
-
 		speechUtils = SpeechUtils.getNewBundle();
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
@@ -82,34 +75,27 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// *** 4. firstEncounter intent request
 		// *** 5. sessionStart intent request
 		// *** 6. normal intent request (most common)
-		//
 
+		persAttributes = attributesManager.getPersistentAttributes();
+		info("@LsnrsRequestHandler, persAttributes: " + persAttributes);
 		if (persAttributes.isEmpty()) {
-			// very first encounter
-			persAttributes.put(RELATIONSHIP, "firstEncounter");
-		}
-		else if (persAttributes.get(RELATIONSHIP) != null && persAttributes.get(RELATIONSHIP)
-				.equals("ask")) {
-			return input.getResponseBuilder()
-					.addDelegateDirective(Intent.builder().withName("AskStartOverIntent").build())
-					.build();
+			// very first encounter 1. and 4.
+			sessAttributes.put(PERSISTENCE, "firstEncounter");
 		}
 		else {
-			persAttributes.put(RELATIONSHIP, sessAttributes.get(RELATIONSHIP)); // "sessionStart"
-			sessAttributes.put(RELATIONSHIP, "normal");
+			// retrieving what was saved from the last session,
+			// has to be done this way because of my SessionMap type:
+			sessAttributes.getValuesFromMap(persAttributes);
 		}
+		
+		attributesManager.setSessionAttributes(sessAttributes);
 
-		info("@ListenersRequestHandler, relationship: " + persAttributes.get(RELATIONSHIP));
 
-		// info("@ListenersRequestHandler, sessAttributes: " + sessAttributes);
-
-		// TODO may have to change once Dialogs are in place
-		// saving relationship:
-		attributesManager.savePersistentAttributes();
+		info("@ListenersRequestHandler, relationship: " + sessAttributes.get(PERSISTENCE));
 
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
-			return new LsnrsLaunchResponse(input, (String) persAttributes.get(RELATIONSHIP)).getResponse();
+			return new LsnrsLaunchResponse(input, (String) sessAttributes.get(PERSISTENCE)).getResponse();
 		}
 		else {
 			// ANY Intent request
@@ -151,13 +137,19 @@ public class LsnrsRequestHandler implements RequestHandler {
 					String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
 					speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
 
-					// on STOP or CANCEL we set relationship to "ask"
-					persAttributes.clear();
-					persAttributes.put(RELATIONSHIP, "ask");
-					if (DEV) {
-						// adjust when developing
+					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
+						info("@LsnrsRequestHandler: direct Stop or Cancel 'ask' persistence next time ...");
+						// on STOP or CANCEL we set relationship to "ask"
+						sessAttributes.put(PERSISTENCE, "ask");
+						attributesManager.setPersistentAttributes((Map) sessAttributes);
+						if (!LIVE) {
+							info("@LsnrsRequestHandler: ... unless LIVE was false and persistence is cleared");
+							// adjust if needed when developing
+							persAttributes.clear();
+							attributesManager.setPersistentAttributes(persAttributes);
+						}
+						attributesManager.savePersistentAttributes();
 					}
-					attributesManager.savePersistentAttributes();
 					endSession = true;
 					match = true;
 					break;
@@ -177,7 +169,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			// ALL other modeled or Unknown intents
 			try {
 				// *** 4. 5. and 6. ***
-				return new LsnrsIntentResponse(input, (String) persAttributes.get(RELATIONSHIP)).getResponse();
+				return new LsnrsIntentResponse(input, (String) sessAttributes.get(PERSISTENCE)).getResponse();
 			}
 			catch (UnknownIntentException e) {
 				info("@LsnrsRequestHandler, UnknownIntentException: " + e.getMessage());

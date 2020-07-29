@@ -47,14 +47,35 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 		// that one can also game this slightly.
 		info("@LsnrsDialogIntentResponse, " + intentName);
 		switch (intentName) {
-			case "AskStartOverIntent":
+			case "AskPersistenceIntent":
 				ir = (InnerResponse) speechUtils.getObject(intentName);
+
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
+					sessAttributes.put(PERSISTENCE, "ask");
+				}
 				
+				// attributesManager.setPersistentAttributes(sessAttributes);
+				attributesManager.savePersistentAttributes();
+				
+				intent = Intent.builder()
+						.withName("AMAZON.StopIntent")
+						.build();
+				return input.getResponseBuilder()
+						.addDelegateDirective(intent)
+						.build();
+				
+			case "AskStartOverIntent":
+				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
+						+ intent.getConfirmationStatus());
+
+				ir = (InnerResponse) speechUtils.getObject(intentName);
+
 				rf = ResponseFinisher.builder()
 						.withSpeech(ir.getSpeech())
 						.build();
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
+					info(intentName + " no confirmation.");
 					return input.getResponseBuilder()
 							.addConfirmIntentDirective(intent)
 							.withSpeech(rf.getSpeech())
@@ -62,25 +83,20 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				}
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					info(intentName + " confirmed, stopping for now."); // TODO
-					intent = Intent.builder()
-							.withName("AMAZON.StopIntent")
-							.build();
-					return input.getResponseBuilder()
-							.addDelegateDirective(intent)
-							.build();
+					info(intentName + " confirmed.");
+
+					sessAttributes = attributes.initSessionAttributes();
+					attributesManager.setSessionAttributes(sessAttributes);
+
+					ir.setSpeech(speechUtils.getString("startOverConfirmed")); // TODO
 				}
 
-				info(intentName + " denied, stopping for now."); // TODO
-				intent = Intent.builder()
-						.withName("AMAZON.StopIntent")
-						.build();
-				return input.getResponseBuilder()
-						.addDelegateDirective(intent)
-						.build();
+				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
+					info(intentName + " denied.");
 
-//				sessAttributes.justPut(LASTINTENT, intentName);
-//				break;
+					ir.setSpeech(speechUtils.getString("startOverDenied")); // TODO
+				}
+				break;
 			case "NoIntent":
 			case "ThanksNoIntent":
 
@@ -103,18 +119,17 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
 					info("@LsnrsDialogIntentResponse, noIntent CONFIRMED: " + intentRequest.getDialogState());
-					intent = Intent.builder()
-							.withName("AMAZON.StopIntent")
+					Intent askPersistenceIntent = Intent.builder()
+							.withName("AskPersistenceIntent")
+							.withConfirmationStatus(IntentConfirmationStatus.CONFIRMED)
 							.build();
 					return input.getResponseBuilder()
-							.addDelegateDirective(intent)
+							.addDelegateDirective(askPersistenceIntent)
 							.build();
 				}
 
 				info("@LsnrsDialogIntentResponse, noIntent DENIED dialogState: "
 						+ intentRequest.getDialogState());
-
-				sessAttributes.justPut(LASTINTENT, intentName);
 				break;
 			case "SpeakGuyzIntent":
 				info("@LsnrsDialogIntentResponse, " + intentName);
@@ -154,8 +169,6 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							+ intentRequest.getDialogState());
 					ir.setSpeech(speechUtils.getString("noToGuyzSpeech"));
 				}
-
-				sessAttributes.justPut(LASTINTENT, intentName);
 				break;
 			case "GuyzSpeechIntent":
 				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
@@ -181,15 +194,14 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					ir = new InnerResponse();
 					ir.setSpeech(speechUtils.getString("noMoreGuyzSpeech"));
 				}
-
-				sessAttributes.justPut(LASTINTENT, intentName);
 				break;
-
 			default:
 				// no intent name case was matched
 				throw new UnknownIntentException(
 						"@LsnrsDialogIntentResponse, unknown intent: " + intent.getName());
 		}
+
+		sessAttributes.put(LASTINTENT, intentName);
 
 		rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
@@ -218,11 +230,11 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				setSpeech(getSpeech() + speechUtils.getString("pathToGuyzAudio")
 						+ String.format("%03d", currentIndex) + ".mp3\" />");
 			}
-			sessAttributes.justPut(GUYZINDEX, currentIndex); // guyzIndex = i;
+			sessAttributes.put(GUYZINDEX, currentIndex); // guyzIndex = i;
 			// leave out a group of five in performances
 			if (PERFORMANCE) {
 				if ((int) sessAttributes.get(GUYZINDEX) > 20 && (int) sessAttributes.get(GUYZINDEX) < 26) {
-					sessAttributes.justPut(GUYZINDEX, 26);
+					sessAttributes.put(GUYZINDEX, 26);
 				}
 			}
 			setReprompt(speechUtils.getString("chooseContinueNoAffect"));

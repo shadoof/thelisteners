@@ -87,8 +87,8 @@ public class ResponseFinisher {
 			insertGuyz = randInt(0, (r < 0) ? 0 : r) == 0;
 		}
 
-		sessAttributes.justPut(GUYZIRQ, insertGuyz);
-		sessAttributes.justPut(MARKOVIRQ, insertMarkov);
+		sessAttributes.put(GUYZIRQ, insertGuyz);
+		sessAttributes.put(MARKOVIRQ, insertMarkov);
 
 		String[] sents = RiTa.splitSentences(speech);
 
@@ -243,7 +243,7 @@ public class ResponseFinisher {
 		{
 			if (guyzIndex > 20 && guyzIndex < 26) guyzIndex = 26;
 		}
-		sessAttributes.justPut(GUYZINDEX, guyzIndex);
+		sessAttributes.put(GUYZINDEX, guyzIndex);
 		return insert;
 	}
 

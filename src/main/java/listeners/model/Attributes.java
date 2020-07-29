@@ -63,7 +63,7 @@ public class Attributes {
 	public static final String LISTENERSAFFECT = "listenersAffect";
 	public static final String MARKOVIRQ = "markovIRQ";
 	public static final String READSOFAR = "readSoFar";
-	public static final String RELATIONSHIP = "relationship";
+	public static final String PERSISTENCE = "persistence";
 	public static final String PREVIOUSAFFECT = "previousAffect";
 	public static final String THING = "thing";
 	public static final String SPEAKGUYZCONFIRMED = "speakGuyzConfirmed";
@@ -85,30 +85,30 @@ public class Attributes {
 	public static SessionMap initSessionAttributes() { // was Map<String, Object>
 
 		SessionMap m = new SessionMap();
-		m.justPut(AFFECT, "");
-		m.justPut(CHALLENGEDAFFECT, "");
-		m.justPut(FRAGMENTINDEX, NOT_YET_GREETED);
+		m.put(AFFECT, "");
+		m.put(CHALLENGEDAFFECT, "");
+		m.put(FRAGMENTINDEX, NOT_YET_GREETED);
 		LIST_OF_FRAGMENTS.clear();
-		m.justPut(FRAGMENTLIST, LIST_OF_FRAGMENTS);
-		m.justPut(GUYZINDEX, 1);
-		m.justPut(GUYZIRQ, false);
-		// m.justPut(GUYZSPEECHINDEX, 1);
-		m.justPut(HEARDALLFRAGMENTS, false);
-		m.justPut(HEARDBREATHAFFECTS, false);
-		m.justPut(HEARDWELCOME, true); // TODO probably no longer needed
-		m.justPut(LASTINTENT, "");
+		m.put(FRAGMENTLIST, LIST_OF_FRAGMENTS);
+		m.put(GUYZINDEX, 1);
+		m.put(GUYZIRQ, false);
+		// m.put(GUYZSPEECHINDEX, 1);
+		m.put(HEARDALLFRAGMENTS, false);
+		m.put(HEARDBREATHAFFECTS, false);
+		m.put(HEARDWELCOME, true); // TODO probably no longer needed
+		m.put(LASTINTENT, "");
 		ArrayList al;
 		String la = "";
 		if (LangConstants.AFFECTS_MAP != null) {
 			al = new ArrayList<>(LangConstants.AFFECTS_MAP.keySet());
 			la = (String) al.get(randInt(0, al.size() - 1));
 		}
-		m.justPut(LISTENERSAFFECT, la);
-		m.justPut(MARKOVIRQ, false);
-		m.justPut(READSOFAR, 0);
-		m.justPut(PREVIOUSAFFECT, "");
-		m.justPut(THING, "");
-		m.justPut(RELATIONSHIP, "sessionStart");
+		m.put(LISTENERSAFFECT, la);
+		m.put(MARKOVIRQ, false);
+		m.put(PERSISTENCE, "normal");
+		m.put(READSOFAR, 0);
+		m.put(PREVIOUSAFFECT, "");
+		m.put(THING, "");
 		return (SessionMap) m;
 	}
 
@@ -143,12 +143,6 @@ public class Attributes {
 			sessAttributes.put(affectKey, affect);
 		}
 		return affect;
-	}
-
-	public SessionMap reconcileAttributes() {
-
-		// TODO
-		return sessAttributes;
 	}
 
 }

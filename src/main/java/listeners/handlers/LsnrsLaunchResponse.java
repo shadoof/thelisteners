@@ -9,18 +9,19 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
+import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.Response;
 
 import listeners.l10n.Welcome;
 import listeners.util.ResponseFinisher;
 
 public class LsnrsLaunchResponse implements LsnrsResponse {
-	
-	HandlerInput input;
-	String relationship;
+
+	private HandlerInput input;
+	private String relationship;
 
 	public LsnrsLaunchResponse(HandlerInput input, String relationship) {
-		
+
 		this.input = input;
 		this.relationship = relationship;
 
@@ -29,7 +30,8 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 	public Optional<Response> getResponse() {
 
 		// *** 1. ***
-		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble") : "";
+		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble")
+				: "";
 
 		// *** 2. and 3. ***
 		ResourceBundle.clearCache();
@@ -41,12 +43,16 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (affect == null || affect.isEmpty()) {
 			// *** 1. or 2. extra help for initial welcome:
-			postSpeechPrompt = speechUtils.getString("chooseSpeechAssistance");
 			reprompt = speechUtils.getString("chooseUnsureAboutAffect");
 		}
-		else {
-			// *** 3. ***
+
+		if ("ask".equals(relationship)) {
+			// *** 0. or 3. ***
+			postSpeechPrompt = speechUtils.getString("askStartOverSpeech");
 			reprompt = speechUtils.getString("chooseContinue");
+		}
+		else {
+			postSpeechPrompt = speechUtils.getString("chooseSpeechAssistance");
 		}
 
 		ResponseFinisher rf = ResponseFinisher.builder()
@@ -58,6 +64,16 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 
 		// ResponseFinisher rf = new ResponseFinisher(localeTag, preamble,
 		// ws.getSpeech(), postSpeechPrompt, reprompt);
+
+		if ("ask".equals(relationship)) {
+			Intent ask = Intent.builder()
+					.withName("AskStartOverIntent")
+					.build();
+			input.getResponseBuilder()
+					.addDelegateDirective(ask)
+					.withSpeech(rf.getSpeech())
+					.build();
+		}
 
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())

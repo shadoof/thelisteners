@@ -110,6 +110,46 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return speech += breath();
 	}
 
+	protected Object askPersistence() {
+
+		return new InnerResponse(askPersistenceCardTitle(), askPersistenceSpeech());
+	}
+
+	protected String askPersistenceCardTitle() {
+
+		// TODO
+		return S("Save your place?", "Start from scratch?");
+	}
+
+	protected String askPersistenceSpeech() {
+
+		// TODO
+		String speech = s("Would you like us to remember something of our conversation?",
+				"Would you like us to remember roughly what we've heard and said to you so far?");
+
+		return speech;
+	}
+
+	protected Object askStartOver() {
+
+		return new InnerResponse(askStartOverCardTitle(), askStartOverSpeech());
+	}
+
+	protected String askStartOverCardTitle() {
+
+		// TODO
+		return S("You want to start over?", "Start from scratch?");
+	}
+
+	protected String askStartOverSpeech() {
+
+		// TODO
+		String speech = s("Would you like to start over from the beginning?",
+				"Would you like us to forget what we've heard and said to you so far?");
+
+		return speech;
+	}
+
 	protected String chooseContinue(boolean promptForAffect) {
 
 		int upperLimit = promptForAffect ? 4 : 3;
@@ -451,7 +491,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		// TODO
 		return s(s("It's probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
-				+ s(s(s("more of", ""), "any of"), "") + "what they have to say." + s(breath() + "Wise.", "")
+				+ s(s(s("more of", ""), "any of"), "") + "what they have to say. " + s(breath() + "Wise.", "")
 				+ breath();
 	}
 
@@ -969,6 +1009,18 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		return s("Bitte, bitte.", "") + s("Schon gut.", s("Keine Ursache.", "Gern geschehen.")) + breath();
 	}
 
+	protected String startOverConfirmed() {
+		
+		// TODO
+		return s("OK.", "") + "We're beginning " + s(s("all over", "") + "again.", "again from the top.");
+	}
+	
+	protected String startOverDenied() {
+		
+		// TODO
+		return s("We're still here, listening to you as before", "Still listening, as before.");
+	}
+	
 	protected InnerResponse thanksNo() {
 
 		// TODO
@@ -1199,7 +1251,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		}
 		else {
 			speech += affectAsBreathingSpeech();
-			sessAttributes.justPut(HEARDBREATHAFFECTS, true);
+			sessAttributes.put(HEARDBREATHAFFECTS, true);
 		}
 		return new InnerResponse(whatsLsnrsAffectCardTitle(), speech += breath());
 	}

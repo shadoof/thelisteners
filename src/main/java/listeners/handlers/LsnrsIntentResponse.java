@@ -41,8 +41,9 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 
 	  // every intent increases readSoFar and this
 		// regulates GUYZ interventions & degradation
+		info("@LsnrsIntentResponse, sessAttributes: " + sessAttributes);
 		if ((int) sessAttributes.get(READSOFAR) < NUMBER_OF_READABLES) {
-			sessAttributes.justPut(READSOFAR, (int) sessAttributes.get(READSOFAR) + 1);
+			sessAttributes.put(READSOFAR, (int) sessAttributes.get(READSOFAR) + 1);
 		}
 
 		// *** 4. ***
@@ -90,6 +91,8 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				return new LsnrsContinueIntentResponse(input, relationship).getResponse();
 			}
 		}
+
+		sessAttributes.put(LASTINTENT, intent.getName());
 
 		// finish assembly of response for an unslotted simple response
 		ResponseFinisher rf = ResponseFinisher.builder()
