@@ -68,16 +68,16 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
 		// possibilities are
-		// *** 0. ask with either request TODO
+		// *** 0. ask with either request
 		// *** 1. firstEncounter launch request
 		// *** 2. sessionStart launch request
-		// *** 3. normal launch request -> ASK TODO
+		// *** 3. normal launch request
 		// *** 4. firstEncounter intent request
 		// *** 5. sessionStart intent request
 		// *** 6. normal intent request (most common)
 
 		persAttributes = attributesManager.getPersistentAttributes();
-		info("@LsnrsRequestHandler, persAttributes: " + persAttributes);
+		// info("@LsnrsRequestHandler, persAttributes: " + persAttributes);
 		if (persAttributes.isEmpty()) {
 			// very first encounter 1. and 4.
 			sessAttributes.put(PERSISTENCE, "firstEncounter");
@@ -140,10 +140,11 @@ public class LsnrsRequestHandler implements RequestHandler {
 					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
 						info("@LsnrsRequestHandler: direct Stop or Cancel 'ask' persistence next time ...");
 						// on STOP or CANCEL we set relationship to "ask"
+						sessAttributes.put(LASTINTENT, intentName);
 						sessAttributes.put(PERSISTENCE, "ask");
 						attributesManager.setPersistentAttributes((Map) sessAttributes);
 						if (!LIVE) {
-							info("@LsnrsRequestHandler: ... unless LIVE was false and persistence is cleared");
+							info("@LsnrsRequestHandler: ... but LIVE was false and persistence has been cleared");
 							// adjust if needed when developing
 							persAttributes.clear();
 							attributesManager.setPersistentAttributes(persAttributes);
@@ -159,6 +160,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 						.withSpeech(speech)
 						.withReprompt(reprompt)
 						.build();
+				sessAttributes.put(LASTINTENT, intentName);
 				return input.getResponseBuilder()
 						.withSpeech(rf.getSpeech())
 						.withSimpleCard(cardTitle, rf.getCardText())

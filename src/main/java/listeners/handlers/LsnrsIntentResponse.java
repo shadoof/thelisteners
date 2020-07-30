@@ -41,7 +41,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 
 	  // every intent increases readSoFar and this
 		// regulates GUYZ interventions & degradation
-		info("@LsnrsIntentResponse, sessAttributes: " + sessAttributes);
+		// info("@LsnrsIntentResponse, sessAttributes: " + sessAttributes);
 		if ((int) sessAttributes.get(READSOFAR) < NUMBER_OF_READABLES) {
 			sessAttributes.put(READSOFAR, (int) sessAttributes.get(READSOFAR) + 1);
 		}
@@ -92,8 +92,6 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 			}
 		}
 
-		sessAttributes.put(LASTINTENT, intent.getName());
-
 		// finish assembly of response for an unslotted simple response
 		ResponseFinisher rf = ResponseFinisher.builder()
 				// the possible firstEncounter preamble
@@ -106,6 +104,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		// while developing replace cardTitle with intentName - dated
 		String ct = DEV ? intent.getName() + " - " + dateString : ls.getCardTitle();
 
+		sessAttributes.put(LASTINTENT, intent.getName());
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())

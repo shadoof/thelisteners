@@ -105,6 +105,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				.withReprompt(ir.getReprompt())
 				.build();
 
+		sessAttributes.put(LASTINTENT, intentName);
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())

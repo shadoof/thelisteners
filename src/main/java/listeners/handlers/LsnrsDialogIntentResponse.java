@@ -7,6 +7,7 @@ import static listeners.model.LangConstants.*;
 import static listeners.util.Utils.*;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -48,22 +49,39 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 		info("@LsnrsDialogIntentResponse, " + intentName);
 		switch (intentName) {
 			case "AskPersistenceIntent":
+				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
+						+ intent.getConfirmationStatus() + " lastIntent: " + sessAttributes.get(LASTINTENT));
+
 				ir = (InnerResponse) speechUtils.getObject(intentName);
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
-					sessAttributes.put(PERSISTENCE, "ask");
+					sessAttributes.put(PERSISTENCE, "normal");
 				}
-				
-				// attributesManager.setPersistentAttributes(sessAttributes);
-				attributesManager.savePersistentAttributes();
-				
-				intent = Intent.builder()
-						.withName("AMAZON.StopIntent")
-						.build();
-				return input.getResponseBuilder()
-						.addDelegateDirective(intent)
-						.build();
-				
+
+				if (intentName.equals(sessAttributes.get(LASTINTENT))) {
+
+					Intent updatedIntent = Intent.builder()
+							.withName("AMAZON.StopIntent")
+							.build();
+
+					attributesManager.setPersistentAttributes((Map) sessAttributes);
+					attributesManager.savePersistentAttributes();
+
+					return input.getResponseBuilder()
+							.addDelegateDirective(updatedIntent)
+							.build();
+				}
+				else {
+					rf = ResponseFinisher.builder()
+							.withSpeech(ir.getSpeech())
+							.build();
+					sessAttributes.put(LASTINTENT, intentName);
+					return input.getResponseBuilder()
+							.addConfirmIntentDirective(intent)
+							.withSpeech(rf.getSpeech())
+							.build();
+				}
+
 			case "AskStartOverIntent":
 				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
 						+ intent.getConfirmationStatus());
@@ -76,6 +94,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
 					info(intentName + " no confirmation.");
+					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addConfirmIntentDirective(intent)
 							.withSpeech(rf.getSpeech())
@@ -121,8 +140,9 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					info("@LsnrsDialogIntentResponse, noIntent CONFIRMED: " + intentRequest.getDialogState());
 					Intent askPersistenceIntent = Intent.builder()
 							.withName("AskPersistenceIntent")
-							.withConfirmationStatus(IntentConfirmationStatus.CONFIRMED)
+							.withConfirmationStatus(IntentConfirmationStatus.NONE)
 							.build();
+					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addDelegateDirective(askPersistenceIntent)
 							.build();
@@ -155,13 +175,14 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.build();
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					Intent guyzSpeechIntent = Intent.builder()
+					Intent updatedIntent = Intent.builder()
 							.withName("GuyzSpeechIntent")
 							.withConfirmationStatus(IntentConfirmationStatus.CONFIRMED)
 							.build();
 
+					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
-							.addDelegateDirective(guyzSpeechIntent)
+							.addDelegateDirective(updatedIntent)
 							.build();
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
@@ -201,14 +222,13 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 						"@LsnrsDialogIntentResponse, unknown intent: " + intent.getName());
 		}
 
-		sessAttributes.put(LASTINTENT, intentName);
-
 		rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
 				.withInterruptable(ir.isInterruptable())
 				.withReprompt(ir.getReprompt())
 				.build();
 
+		sessAttributes.put(LASTINTENT, intentName);
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())

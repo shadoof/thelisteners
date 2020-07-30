@@ -80,53 +80,6 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					sessAttributes.put(FRAGMENTLIST, al);
 				}
 				break;
-			case "SpeakGuyzIntent":
-				sessAttributes.put(HEARDNO, false);
-				ir = new InnerResponse();
-				ir.setCardTitle(speechUtils.getString("speakGuyzCardTitle"));
-				if ((boolean) sessAttributes.get(SPEAKGUYZCONFIRMED)) {
-					int currentSpeechIndex;
-					sessAttributes.put(GUYZSPEECHINDEX, sessAttributes.get(GUYZINDEX));
-					int guyzSpeechIndex = (int) sessAttributes.get(GUYZSPEECHINDEX);
-					for (currentSpeechIndex = guyzSpeechIndex; currentSpeechIndex < guyzSpeechIndex
-							+ (5 - ((guyzSpeechIndex - 1) % 5)) /* NUMBER_OF_GUYZ */; currentSpeechIndex++) {
-						ir.setSpeech(ir.getSpeech() + speechUtils.getString("pathToGuyzAudio")
-								+ String.format("%03d", currentSpeechIndex) + ".mp3\" /> ");
-					}
-					sessAttributes.put(GUYZSPEECHINDEX, currentSpeechIndex); // guyzSpeechIndex = i;
-					// leave out a group of five in performances
-					if (PERFORMANCE) {
-						if ((int) sessAttributes.get(GUYZSPEECHINDEX) > 20
-								&& (int) sessAttributes.get(GUYZSPEECHINDEX) < 26) {
-							sessAttributes.put(GUYZSPEECHINDEX, 26);
-						}
-					}
-					if ((int) sessAttributes.get(GUYZSPEECHINDEX) >= NUMBER_OF_GUYZ) {
-						sessAttributes.put(SPEAKGUYZCONFIRMED, false);
-						// no going back
-						// the guyz are gone!
-					}
-					else {
-						ir.setSpeech(ir.getSpeech() + speechUtils.getString("getGuyzMoreQuery"));
-					}
-					ir.setReprompt(speechUtils.getString("chooseContinueNoAffect"));
-					// guyzIndex = guyzSpeechIndex;
-					sessAttributes.put(GUYZINDEX, sessAttributes.get(GUYZSPEECHINDEX));
-					// session.setAttribute(GUYZ_KEY, guyzIndex);
-				}
-				else // check: really?
-				{
-					if ((int) sessAttributes.get(GUYZSPEECHINDEX) > NUMBER_OF_GUYZ) {
-						ir.setSpeech(ir.getSpeech() + speechUtils.getString("getGuyzAreGone"));
-						ir.setReprompt(speechUtils.getString("chooseContinue"));
-					}
-					else {
-						sessAttributes.put(LASTINTENT, "SpeakGuyzIntent");
-						ir.setSpeech(ir.getSpeech() + speechUtils.getString("getReallyWantGuyz"));
-						ir.setReprompt(speechUtils.getString("getReallyWantGuyzReprompt"));
-					}
-				}
-				break;
 			case "WhatsLsnrsAffectIntent":
 			case "ThanksWhatsLsnrsAffectIntent":
 				ir = (InnerResponse) speechUtils.getObject("WhatsLsnrsAffectIntent");
@@ -158,14 +111,13 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 						"@LsnrsContinueIntentResponse, unknown intent: " + intent.getName());
 		}
 
-		sessAttributes.put(LASTINTENT, intentName);
-
 		ResponseFinisher rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
 				.withInterruptable(ir.isInterruptable())
 				.withReprompt(ir.getReprompt())
 				.build();
 
+		sessAttributes.put(LASTINTENT, intentName);
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())
