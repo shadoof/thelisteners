@@ -1,6 +1,7 @@
 package listeners.handlers;
 
 import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.PERSISTENCE;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
@@ -18,19 +19,17 @@ import listeners.util.ResponseFinisher;
 public class LsnrsLaunchResponse implements LsnrsResponse {
 
 	private HandlerInput input;
-	private String relationship;
 
-	public LsnrsLaunchResponse(HandlerInput input, String relationship) {
+	public LsnrsLaunchResponse(HandlerInput input) {
 
 		this.input = input;
-		this.relationship = relationship;
 
 	}
 
 	public Optional<Response> getResponse() {
 
 		// *** 1. ***
-		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble")
+		String preamble = ("firstEncounter".equals((String) sessAttributes.get(PERSISTENCE))) ? speechUtils.getString("getPreamble")
 				: "";
 
 		// *** 2. and 3. ***
@@ -46,7 +45,7 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 			reprompt = speechUtils.getString("chooseUnsureAboutAffect");
 		}
 
-		if ("ask".equals(relationship)) {
+		if ("ask".equals((String) sessAttributes.get(PERSISTENCE))) {
 			// *** 0. or 3. ***
 			postSpeechPrompt = speechUtils.getString("askStartOverSpeech");
 			reprompt = speechUtils.getString("chooseContinue");
@@ -65,11 +64,11 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 		// ResponseFinisher rf = new ResponseFinisher(localeTag, preamble,
 		// ws.getSpeech(), postSpeechPrompt, reprompt);
 
-		if ("ask".equals(relationship)) {
+		if ("ask".equals((String) sessAttributes.get(PERSISTENCE))) {
 			Intent ask = Intent.builder()
 					.withName("AskStartOverIntent")
 					.build();
-			input.getResponseBuilder()
+			return input.getResponseBuilder()
 					.addDelegateDirective(ask)
 					.withSpeech(rf.getSpeech())
 					.build();

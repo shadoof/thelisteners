@@ -9,6 +9,7 @@ import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.Response;
 
 import listeners.util.ResponseFinisher;
+import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
 
 import static listeners.model.Constants.*;
@@ -24,7 +25,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 		super(input, relationship);
 	}
-
+	
 	private boolean isEnd = false;
 
 	@Override
@@ -82,10 +83,21 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				break;
 			case "WhatsLsnrsAffectIntent":
 			case "ThanksWhatsLsnrsAffectIntent":
-				ir = (InnerResponse) speechUtils.getObject("WhatsLsnrsAffectIntent");
+				// speechUtils = SpeechUtils.getNewBundle(); // TODO
+				ir = new InnerResponse();
 				if (intentName.equals("ThanksWhatsLsnrsAffectIntent")) {
 					ir.setCardTitle(speechUtils.getString("thanksWhatsLsnrsAffectCardTitle"));
 					ir.setSpeech(speechUtils.getString("thanksWhatsLsnrsAffectPreSpeech") + ir.getSpeech());
+				}
+				else {
+					ir.setCardTitle(speechUtils.getString("whatsLsnrsAffectCardTitle"));
+				}
+				if ((boolean) sessAttributes.get(HEARDBREATHAFFECTS) || heads()) {
+					ir.setSpeech(speechUtils.getString("whatsLsnrsAffectSpeech"));
+				}
+				else {
+					ir.setSpeech(speechUtils.getString("affectAsBreathingSpeech"));
+					sessAttributes.put(HEARDBREATHAFFECTS, true);
 				}
 				ir.setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 				break;

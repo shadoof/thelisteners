@@ -75,16 +75,17 @@ public class Attributes {
 
 	// attributes objects
 	public static Map<String, Object> persAttributes;
-	public static SessionMap sessAttributes;
+	public static Map<String, Object> sessAttributes; // SessionMap
 	// public static Map<String, Object> sessAttributes;
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
 	public static ArrayList LIST_OF_FRAGMENTS = new ArrayList();
 
-	public static SessionMap initSessionAttributes() { // was Map<String, Object>
+	public static Map<String, Object> initSessionAttributes() { // was Map<String, Object> or SessionMap
 
-		SessionMap m = new SessionMap();
+		HashMap m = new HashMap();
+		// SessionMap m = new SessionMap();
 		m.put(AFFECT, "");
 		m.put(CHALLENGEDAFFECT, "");
 		m.put(FRAGMENTINDEX, NOT_YET_GREETED);
@@ -105,11 +106,11 @@ public class Attributes {
 		}
 		m.put(LISTENERSAFFECT, la);
 		m.put(MARKOVIRQ, false);
-		m.put(PERSISTENCE, "normal");
+		m.put(PERSISTENCE, "session");
 		m.put(READSOFAR, 0);
 		m.put(PREVIOUSAFFECT, "");
 		m.put(THING, "");
-		return (SessionMap) m;
+		return m;
 	}
 
 	public String getRandomAffect() {

@@ -63,9 +63,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 		attributes = Attributes.getInstance(locale);
 		// also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
-		// get any persistent attributes
+		// refresh speechUtils each time (cache is cleared after bundle is fetched)
 		speechUtils = SpeechUtils.getNewBundle();
-		// speechUtils = SpeechUtils.getInstance(locale); // can make new instances
 
 		// possibilities are
 		// *** 0. ask with either request
@@ -80,22 +79,42 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// info("@LsnrsRequestHandler, persAttributes: " + persAttributes);
 		if (persAttributes.isEmpty()) {
 			// very first encounter 1. and 4.
+			sessAttributes = attributes.initSessionAttributes(); // needed when testing ..
+			// .. otherwise sessAttribute can be carried over *within* a session
+			attributesManager.setSessionAttributes(sessAttributes);
 			sessAttributes.put(PERSISTENCE, "firstEncounter");
 		}
-		else {
-			// retrieving what was saved from the last session,
-			// has to be done this way because of my SessionMap type:
-			sessAttributes.getValuesFromMap(persAttributes);
+		else if ("forget".equals(persAttributes.get(PERSISTENCE))) {
+			sessAttributes = attributes.initSessionAttributes();
+			attributesManager.setSessionAttributes(sessAttributes);
+			sessAttributes.put(PERSISTENCE, "session");
 		}
-		
-		attributesManager.setSessionAttributes(sessAttributes);
+		else if ("remember".equals(persAttributes.get(PERSISTENCE))) {
+			// retrieve what was saved from the last session
+			attributesManager.setSessionAttributes(persAttributes);
+			// had to be done this way because of my SessionMap type: // TODO remove comments
+			// SessionMap version sessAttributes.getValuesFromMap(persAttributes);
+			sessAttributes.put(PERSISTENCE, "session");
+		}
+		else if ("ask".equals(persAttributes.get(PERSISTENCE))) {
+			// persistence will be "ask" at beginning of the session
+			info("@lsnrsRequestHandler, pers persistence is 'ask':"
+					+ "ask".equals(persAttributes.get(PERSISTENCE)));
+			attributesManager.setSessionAttributes(persAttributes);
+			info("@lsnrsRequestHandler, session persistence is 'ask':"
+					+ "ask".equals(sessAttributes.get(PERSISTENCE)));
+		}
+		// to avoid another "firstEncounter"
+		persAttributes.put(PERSISTENCE, "session");
+		attributesManager.savePersistentAttributes();
 
+		attributesManager.setSessionAttributes(sessAttributes);
 
 		info("@ListenersRequestHandler, relationship: " + sessAttributes.get(PERSISTENCE));
 
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
-			return new LsnrsLaunchResponse(input, (String) sessAttributes.get(PERSISTENCE)).getResponse();
+			return new LsnrsLaunchResponse(input).getResponse();
 		}
 		else {
 			// ANY Intent request
@@ -142,7 +161,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 						// on STOP or CANCEL we set relationship to "ask"
 						sessAttributes.put(LASTINTENT, intentName);
 						sessAttributes.put(PERSISTENCE, "ask");
-						attributesManager.setPersistentAttributes((Map) sessAttributes);
+						attributesManager.setPersistentAttributes(sessAttributes);
 						if (!LIVE) {
 							info("@LsnrsRequestHandler: ... but LIVE was false and persistence has been cleared");
 							// adjust if needed when developing

@@ -55,7 +55,10 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				ir = (InnerResponse) speechUtils.getObject(intentName);
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
-					sessAttributes.put(PERSISTENCE, "normal");
+					sessAttributes.put(PERSISTENCE, "forget");
+				}
+				else {
+					sessAttributes.put(PERSISTENCE, "remember");
 				}
 
 				if (intentName.equals(sessAttributes.get(LASTINTENT))) {
@@ -64,7 +67,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.withName("AMAZON.StopIntent")
 							.build();
 
-					attributesManager.setPersistentAttributes((Map) sessAttributes);
+					attributesManager.setPersistentAttributes(sessAttributes);
 					attributesManager.savePersistentAttributes();
 
 					return input.getResponseBuilder()
@@ -75,6 +78,8 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					rf = ResponseFinisher.builder()
 							.withSpeech(ir.getSpeech())
 							.build();
+					
+					info("@LsnrsDialogIntentResponse, confirming AskPersistenceIntent and setting lastIntent to: " + intentName);
 					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addConfirmIntentDirective(intent)
@@ -113,6 +118,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
 					info(intentName + " denied.");
 
+					sessAttributes.put(PERSISTENCE,"session");
 					ir.setSpeech(speechUtils.getString("startOverDenied")); // TODO
 				}
 				break;
@@ -142,6 +148,8 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.withName("AskPersistenceIntent")
 							.withConfirmationStatus(IntentConfirmationStatus.NONE)
 							.build();
+					
+					info("@LsnrsDialogIntentResponse, delegating to AskPersistenceIntent with lastIntent: " + intentName);
 					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addDelegateDirective(askPersistenceIntent)
