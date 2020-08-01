@@ -130,7 +130,7 @@ public class LangConstants {
 		String markovSupply = "";
 		for (int i = 0; i < howManyFragmentSets; i++) {
 			for (int f = 0; f < NUMBER_OF_FRAGMENTS; f++) {
-				markovSupply += fragments[f].replaceAll("'", "");
+				markovSupply += fragments[f].replaceAll("‘", "");
 			}
 		}
 		return removePauses ? removeInterSentencePauses(markovSupply) : markovSupply;

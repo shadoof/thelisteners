@@ -12,7 +12,7 @@ public class DontLikeIntent extends L10nSpeech {
 
 	public String buildCardTitle() {
 
-		return S("You don't like us?", "Don't you love us?");
+		return S("You don’t like us?", "Don’t you love us?");
 	}
 
 	public void buildAffect() {

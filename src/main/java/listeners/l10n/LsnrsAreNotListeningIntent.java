@@ -17,7 +17,7 @@ public class LsnrsAreNotListeningIntent extends L10nSpeech {
 
 	public String buildSpeech() {
 
-		String speech = s(s("In all honesty,", "In truth,") + "you are", "You're") + "right, we "
+		String speech = s(s("In all honesty,", "In truth,") + "you are", "You’re") + "right, we "
 				+ s("were, just then, listening", s("are listening", "must listen")) + "to "
 				+ s("so", "many,") + "many others. ";
 		speech += s("And many of these others " + s("were", "are") + "transacting with "

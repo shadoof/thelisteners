@@ -31,10 +31,10 @@ public class WinterIntent extends L10nSpeech {
 				"The Listeners, always " + breathShort() + "pay their debts.",
 				// You know nothing, Jon Snow.
 				"You know nothing, " + breathShort() + "John. Speech.",
-				// We only make peace with our enemies, that's why it’s called making
+				// We only make peace with our enemies, that’s why it’s called making
 				// peace.
 				"We only make peace, " + breathShort()
-						+ "with your enemies. That's why we call it making peace.",
+						+ "with your enemies. That’s why we call it making peace.",
 				// Most men would rather deny a hard truth than face it.
 				"Most of you who speak, would rather deny our better truth, " + breathShort() + "than face it.",
 				// The brightest flame casts the darkest shadow.

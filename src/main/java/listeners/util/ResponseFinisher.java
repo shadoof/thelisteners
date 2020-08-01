@@ -1,14 +1,28 @@
 package listeners.util;
 
-import static listeners.model.Attributes.*;
-import static listeners.model.Constants.*;
-import static listeners.model.LangConstants.*;
-import static listeners.util.Utils.*;
+import static listeners.model.Attributes.GUYZINDEX;
+import static listeners.model.Attributes.GUYZIRQ;
+import static listeners.model.Attributes.MARKOVIRQ;
+import static listeners.model.Attributes.READSOFAR;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.NUMBER_OF_GUYZ;
+import static listeners.model.Constants.PERFORMANCE;
+import static listeners.model.Constants.PROBABILITY_MAP;
+import static listeners.model.Constants.SPC;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.speechUtils;
 import static listeners.model.LangConstants.dateString;
 import static listeners.model.LangConstants.polyVoiceWrapper;
-import static listeners.util.Utils.*;
-
-import java.util.Map;
+import static listeners.model.LangConstants.rm2;
+import static listeners.model.LangConstants.rm3;
+import static listeners.model.LangConstants.rm5;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.capitalize;
+import static listeners.util.Utils.info;
+import static listeners.util.Utils.insertPauseTags;
+import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.removePauseTags;
+import static listeners.util.Utils.stripSsmlTags;
 
 import rita.RiTa;
 
@@ -27,28 +41,33 @@ public class ResponseFinisher {
 
 	public ResponseFinisher(Builder response) {
 
-		if (response.interruptable) {
-			// cardTitle is handled by insertInterruptions()
+		interruptable = response.irqable;
+		speech = response.speech;
+		reprompt = response.reprompt;
+		cardText = response.cardText;
+
+		info("@ResponseFinisher, interruptable: " + interruptable);
+		if (interruptable) {
 			// for interruptable responses
-			this.speech = insertInterruptions(response.speech);
-			this.cardText = removePauseTags(response.speech);
+			speech = insertInterruptions(speech);
+			cardText = speech.replaceAll("<guyz> ", speechUtils.getString("guyzIrq"));
+			speech = speech.replaceAll("<guyz> ", "");
+			cardText = removePauseTags(cardText);
 		}
 		else {
 			if ("".equals(response.preamble))
-				this.cardText = removePauseTags(response.speech);
+				cardText = removePauseTags(response.speech);
 			else
-				this.cardText = removePauseTags(response.preamble) + "\nTHE LISTENERS ...\n"
-						+ removePauseTags(response.speech);
+				cardText = removePauseTags(response.preamble) + "\nTHE LISTENERS ...\n"
+						+ removePauseTags(speech);
 		}
-		
-		this.cardText = stripSsmlTags(this.cardText);
 
-		this.speech = "<speak>" + insertPauseTags(response.preamble) + polyVoiceWrapper
-				+ insertPauseTags(response.speech.concat(response.postSpeechPrompt))
-				+ "</lang></voice></speak>";
+		cardText = stripSsmlTags(cardText);
 
-		this.reprompt = "<speak>" + polyVoiceWrapper + insertPauseTags(response.reprompt)
-				+ "</lang></voice></speak>";
+		speech = "<speak>" + insertPauseTags(response.preamble) + polyVoiceWrapper
+				+ insertPauseTags(speech.concat(response.postSpeechPrompt)) + "</lang></voice></speak>";
+
+		reprompt = "<speak>" + polyVoiceWrapper + insertPauseTags(reprompt) + "</lang></voice></speak>";
 	}
 
 	public String getCardText() {
@@ -69,9 +88,9 @@ public class ResponseFinisher {
 	private String insertInterruptions(String speech) {
 
 		// Version 2.x had this note:
-		// only interruptable is operative currently
-		// markovable as a property of InnerResponse
-		// is not yet implemented. TODO ?
+		// only ‘interruptable’ is operative currently
+		// ‘markovable’ as a property of InnerResponse
+		// is not yet implemented. TODO in fullness?
 
 		// manipulate speech based on readIndex:
 		int readsofarIndex = (int) sessAttributes.get(READSOFAR);
@@ -90,13 +109,13 @@ public class ResponseFinisher {
 		sessAttributes.put(GUYZIRQ, insertGuyz);
 		sessAttributes.put(MARKOVIRQ, insertMarkov);
 
-		String[] sents = RiTa.splitSentences(speech);
+		String[] sents;
 
 		int mCase = readsofarIndex / 5 + 1;
 		mCase = (mCase > 7) ? 7 : mCase;
 
 		if (insertMarkov) {
-			// set Markov paramaters based on progress
+			// set Markov parameters based on progress
 			int minNumOfSents = 1, maxNumOfSents = 2, nMin = 4, nMax = 5;
 			switch (mCase) {
 				case 2:
@@ -138,14 +157,17 @@ public class ResponseFinisher {
 					break;
 			}
 
+			sents = RiTa.splitSentences(speech);
 			speech = "";
 			int irqPoint = randInt(0, sents.length - 1);
 			int i;
 			for (i = 0; i < irqPoint; i++) {
 				speech += sents[i] + SPC;
 			}
+
 			String[] markovSents = null;
-			switch (randInt(nMin, nMax)) {
+			int markovN = randInt(nMin, nMax);
+			switch (markovN) {
 				case 2:
 					markovSents = rm2.generateSentences(randInt(minNumOfSents, maxNumOfSents));
 					break;
@@ -164,25 +186,31 @@ public class ResponseFinisher {
 
 			if (markovSents != null) {
 
+				// info("@ResponseFinisher, inserting " + markovSents.length + " n" + markovN + "
+				// markovSents[0]: " + markovSents[0]);
 				// TODO for other l10n
 				speech += ("de_DE".equals(localeTag) ? "Äh. " : "Um. ");
 
 				for (int j = 0; j < markovSents.length; j++) {
-					speech += markovSents[j] + SPC;
+					speech += capitalize(markovSents[j]) + SPC;
 				}
 
 				speech += speechUtils.getString("excuseMarkov");
 
 			}
+			else
+				info("@ResponseFinisher, markovSents was null");
 
 			for (i = irqPoint; i < sents.length; i++) {
 				speech += sents[i] + SPC;
 			}
 
-			sents = RiTa.splitSentences(speech);
-		}
+		} // if (insertMarkov) speech now includes Markov insertions incl. for guyz
 
 		if (insertGuyz && ((int) sessAttributes.get(GUYZINDEX) <= NUMBER_OF_GUYZ)) {
+
+			// info("@ResponseFinisher, inserting guyz");
+			sents = RiTa.splitSentences(speech);
 			int irqPoint = randInt(0, sents.length - 1);
 			speech = "";
 			int i;
@@ -199,13 +227,8 @@ public class ResponseFinisher {
 			for (i = irqPoint + 1; i < sents.length; i++) {
 				speech += sents[i] + SPC;
 			}
-		}
 
-		String guyzIrq = speechUtils.getString("guyzIrq");
-
-		cardText = speech.replaceAll("<guyz> ", guyzIrq);
-
-		speech = speech.replaceAll("<guyz> ", "");
+		} // if (insertGuyz) <guyz> tags are now all in the speech
 
 		return speech += breath();
 	}
@@ -236,8 +259,9 @@ public class ResponseFinisher {
 	private String insertGuyz() {
 
 		int guyzIndex = (int) sessAttributes.get(GUYZINDEX);
-		String insert = "<audio src=\"https://rednoise.org/programmatology/aurality/echo/DeliriumPlea-"
-				+ String.format("%03d", guyzIndex) + ".mp3\" /> ";
+		String guyzPath = speechUtils.getString("pathToGuyzAudio");
+
+		String insert = guyzPath + String.format("%03d", guyzIndex) + ".mp3\" /> ";
 		guyzIndex++;
 		if (PERFORMANCE) // leave out a group of five in performance
 		{
@@ -249,11 +273,12 @@ public class ResponseFinisher {
 
 	public static class Builder {
 
-		private String preamble = "";
-		private String speech = "";
-		private String postSpeechPrompt = "";
-		private boolean interruptable = false;
-		private String reprompt = "";
+		String preamble = "";
+		String speech = "";
+		String cardText = "";
+		String postSpeechPrompt = "";
+		boolean irqable = false;
+		String reprompt = "";
 
 		private Builder() {
 
@@ -277,9 +302,9 @@ public class ResponseFinisher {
 			return this;
 		}
 
-		public Builder withInterruptable(boolean interruptable) {
+		public Builder withInterruptable(boolean irq) {
 
-			this.interruptable = interruptable;
+			this.irqable = irq;
 			return this;
 		}
 

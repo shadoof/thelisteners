@@ -164,7 +164,7 @@ public class Fragments_de_DE extends Fragments {
 						"");
 				// occasionally clearing the throat, and a dramatic pause
 				speech += s("Ähem.", "") + breathLong();
-				// first four lines of Walter de La Mare's 'The Listeners'
+				// first four lines of Walter de La Mare’s ‘The Listeners’
 				speech += "«Ist irgendjemand da?» rief der Reisende, " + breath();
 				speech += "Und klopfte an die mondbeschienene Tür; " + breath();
 				speech += "Und in der Stille kaut’ sein Pferd die Gräser, " + breath();
@@ -180,7 +180,7 @@ public class Fragments_de_DE extends Fragments {
 				speech += s("Mit uns. " + breathLonger(), "");
 				// occasionally clearing the throat again with a dramatic pause
 				speech += s("Ähem. " + breathLonger(), "");
-				// The Listeners adaptation of 'The Listeners' lines 27-32
+				// The Listeners adaptation of ‘The Listeners’ lines 27-32
 				speech += "«Sag uns, dass du da warst, und immer Antwort erhieltst, " + breath();
 				speech += "«Dass wir deine Worte erhalten haben.» Wir sagten. " + breath();
 				speech += "Nie scheint ihr Sprecher euch zu rühren, " + breath();

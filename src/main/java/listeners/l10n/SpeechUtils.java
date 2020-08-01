@@ -1,16 +1,34 @@
 package listeners.l10n;
 
-import static listeners.model.Attributes.*;
-import static listeners.model.Constants.*;
-import static listeners.model.LangConstants.*;
-import static listeners.util.Utils.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.CHALLENGEDAFFECT;
+import static listeners.model.Attributes.LISTENERSAFFECT;
+import static listeners.model.Attributes.PREVIOUSAFFECT;
+import static listeners.model.Attributes.THING;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.SPC;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.LangConstants.AFFECTS_ARRAY;
+import static listeners.model.LangConstants.ALL_AFFECTS;
+import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
+import static listeners.model.LangConstants.SPECIAL_THINGS;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathLong;
+import static listeners.util.Utils.breathLonger;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.capitalize;
+import static listeners.util.Utils.heads;
+import static listeners.util.Utils.phonemic;
+import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.s;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListResourceBundle;
-import java.util.ResourceBundle;
 
 import listeners.handlers.InnerResponse;
 
@@ -159,7 +177,7 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String askPersistenceSpeech() {
 
 		String speech = s("Would you like us to remember something of our conversation?",
-				"Would you like us to remember roughly what we've heard and said to you so far?");
+				"Would you like us to remember roughly what we’ve heard and said to you so far?");
 
 		return speech;
 	}
@@ -177,7 +195,7 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String askStartOverSpeech() {
 
 		String speech = s("Would you like to start over from the beginning?",
-				"Would you like us to forget what we've heard and said to you so far?");
+				"Would you like us to forget what we’ve heard and said to you so far?");
 
 		return speech;
 	}
@@ -195,7 +213,7 @@ public class SpeechUtils extends ListResourceBundle {
 			case 0:
 				reprompt += s("Shall we " + s("go on?", "continue?"),
 						s(s("Do you want to", "Would you like to") + "hear more?",
-								s("Please say, 'yes' for more.", "More?")));
+								s("Please say, ‘yes’ for more.", "More?")));
 				break;
 			case 1:
 				reprompt += s(
@@ -205,7 +223,7 @@ public class SpeechUtils extends ListResourceBundle {
 				reprompt += s("You may " + s("always", ""), "Just") + "ask us to " + s("go on.", "continue.");
 				break;
 			case 2:
-				reprompt += "You " + s("may", "can") + "ask us to 'speak' " + s("about", "")
+				reprompt += "You " + s("may", "can") + "ask us to ‘speak’ " + s("about", "")
 						+ s("any of the following:", "") + breath();
 				reprompt += chooseSomeFragmentNames() + breath();
 				reprompt += "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
@@ -213,7 +231,7 @@ public class SpeechUtils extends ListResourceBundle {
 				break;
 			case 3:
 				reprompt += s(s("Perhaps, now,", "Perhaps") + "you would", "Would you");
-				reprompt += "like to " + s(s("ask", "tell") + "us to", "") + s("'continue'?", "'go on'?");
+				reprompt += "like to " + s(s("ask", "tell") + "us to", "") + s("‘continue’?", "‘go on’?");
 				reprompt += s("Listening to us, as we listen to you?", "");
 				break;
 			case 4:
@@ -221,9 +239,9 @@ public class SpeechUtils extends ListResourceBundle {
 						s("If you like, please", "Please") + s("do", ""));
 				reprompt += s(
 						"ask " + s(s(
-								"us to 'recall' " + s("your feelings.",
+								"us to ‘recall’ " + s("your feelings.",
 										"the " + s("feelings", phonemic("a") + "ffect") + "within which you dwell."),
-								"us, 'What am I feeling?'"), "what we are feeling."),
+								"us, ‘What am I feeling?’"), "what we are feeling."),
 						"tell us " + s("your feelings about all this.",
 								s("your feelings.", "the feelings that possess you.")));
 				reprompt += breathShort() + "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
@@ -267,10 +285,10 @@ public class SpeechUtils extends ListResourceBundle {
 		String speech = "";
 
 		speech += "You " + s("may", "might") + "always " + s("simply", "") + s("ask", "tell");
-		speech += "us to: 'Continue', or 'Go on'. " + breath();
+		speech += "us to: ‘Continue’, or ‘Go on’. " + breath();
 		speech += "You may " + chooseTellUsAbout() + "your feelings, ";
 		speech += "by " + s("saying", "speaking") + "the words: " + breath();
-		speech += "'I am " + s(s("filled with,'", "overwhelmed by,'"), "feeling,'")
+		speech += "‘I am " + s(s("filled with,’", "overwhelmed by,’"), "feeling,’")
 				+ "and then one of the nine " + phonemic("a")
 				+ s("ffects, that is, a name for one of the nine feelings.", "ffects.") + breathLong();
 		speech += s("And", "Or,") + "you " + s("may", "might") + "even ask us how we "
@@ -295,13 +313,13 @@ public class SpeechUtils extends ListResourceBundle {
 		}
 
 		if (!heads && heads()) {
-			speech += "Or, you " + s("may", "could") + "ask us to " + s("'speak',", "'speak about',")
+			speech += "Or, you " + s("may", "could") + "ask us to " + s("‘speak’,", "‘speak about’,")
 					+ s("any of the following:", "") + breath();
 			speech += chooseSomeFragmentNames() + ". ";
 		}
 
 		if (randInt(0, 8) == 0) {
-			speech += "Or, you might say, 'Winter is coming.' " + breath();
+			speech += "Or, you might say, ‘Winter is coming.’ " + breath();
 		}
 
 		return speech;
@@ -330,10 +348,10 @@ public class SpeechUtils extends ListResourceBundle {
 		reprompt += chooseTellUsAbout();
 		reprompt += s("these", "your") + "feelings, ";
 		reprompt += "by " + s("saying, " + s("the words,", ""), "speaking the words,");
-		reprompt += "'I am " + s("filled with,'", "overwhelmed by,'") + "and then one of the nine "
+		reprompt += "‘I am " + s("filled with,’", "overwhelmed by,’") + "and then one of the nine "
 				+ phonemic("a") + "ffects. " + breath();
 		reprompt += s("Or, you " + s("may", "might") + s("also", "") + s("simply", "") + s("ask", "tell")
-				+ "us to: " + s("'Continue' or 'Go on'.", "'Continue'."), "");
+				+ "us to: " + s("‘Continue’ or ‘Go on’.", "‘Continue’."), "");
 
 		return reprompt;
 	}
@@ -343,7 +361,7 @@ public class SpeechUtils extends ListResourceBundle {
 		String s = "You " + s("can", "may") + "always "
 				+ s("ask us about", "discover from us what we believe we know concerning");
 		s += s(s("these", "the") + "feelings", "the " + phonemic("a") + "ffects")
-				+ s("within which you dwell,", "which possess you,") + "by saying, 'What am I feeling?' ";
+				+ s("within which you dwell,", "which possess you,") + "by saying, ‘What am I feeling?’ ";
 		return s;
 	}
 
@@ -369,14 +387,14 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String exceptionMessage() {
 
-		return s("Sorry.", "Apologies.") + "Either something's wrong or we haven't heard "
+		return s("Sorry.", "Apologies.") + "Either something’s wrong or we haven’t heard "
 				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
 	}
 
 	protected String excuseMarkov() {
 
 		return breathLong()
-				+ s(s("Sorry.", "Excuse us!") + "We're not sure what came over us. " + breathLong(),
+				+ s(s("Sorry.", "Excuse us!") + "We’re not sure what came over us. " + breathLong(),
 						s("Excuse us.", "") + "Ahem.")
 				+ breath();
 	}
@@ -410,8 +428,8 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String getGuyzMoreQuery() {
 
 		return breath()
-				+ s("More? " + breathShort(), S("Please s", "S") + "ay '" + S("yes", S("go on", "continue"))
-						+ "', " + s(s("if you would like", "") + "to hear more.", "for more."));
+				+ s("More? " + breathShort(), S("Please s", "S") + "ay ‘" + S("yes", S("go on", "continue"))
+						+ "‘, " + s(s("if you would like", "") + "to hear more.", "for more."));
 	}
 
 	protected Object[][] getContents() {
@@ -421,16 +439,16 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String getPreamble() {
 
-		String preamble = s("Unless we're mistaken, this is", "This seems to be")
-				+ "your first encounter with 'The Listeners'. ";
+		String preamble = s("Unless we’re mistaken, this is", "This seems to be")
+				+ "your first encounter with ‘The Listeners’. ";
 		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
 				+ "they listen. ";
 		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
 		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
-		preamble += "If " + s("you don't,", "not,") + "or to interrupt a long speech, just say, "
-				+ s("clearly,", s("firmly,", "")) + "'Alexa, Stop!' ";
-		preamble += s(s("And have done with it.", ""), "They can be a little 'dark'. But ...")
-				+ s("We hope you enjoy", "Thank you for listening to") + "'The Listeners'. ";
+		preamble += "If " + s("you don’t,", "not,") + "or to interrupt a long speech, just say, "
+				+ s("clearly,", s("firmly,", "")) + "‘Alexa, Stop!’ ";
+		preamble += s(s("And have done with it.", ""), "They can be a little ‘dark’. But ...")
+				+ s("We hope you enjoy", "Thank you for listening to") + "‘The Listeners’. ";
 		return preamble += breathLong();
 	}
 
@@ -440,7 +458,7 @@ public class SpeechUtils extends ListResourceBundle {
 				+ s("one of", "") + "the" + s("se", SPC) + s(s("strange", "unreliable"), "") + "guys "
 				+ "have to say? " + breath();
 		if (heads()) {
-			speech += "We " + s("hope", "trust") + "that you will not say '" + S("yes", "continue") + "' and "
+			speech += "We " + s("hope", "trust") + "that you will not say ‘" + S("yes", "continue") + "‘ and "
 					+ s("consent to hearing", "agree to hear")
 					+ s("the " + s("voice of this other.", "other voice."),
 							"these other " + s("voices.", "guys."));
@@ -457,7 +475,7 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String guyzIrq() {
 
-		return s(s("[the 'guyz'", "[other voices"),
+		return s(s("[the ‘guyz’", "[other voices"),
 				s("[another voice", "[the other voice" + s("s", "") + SPC)) + "interrupted here ...] ";
 	}
 
@@ -486,7 +504,7 @@ public class SpeechUtils extends ListResourceBundle {
 		speech += "But we " + s("will " + s("always", "") + "be", "are " + s("always", ""));
 		speech += s("more than", "") + "happy to " + s("keep on chaining", "chain") + "these words ";
 		speech += s("of yours", "") + "together for you, " + s("so long as", "if") + "you "
-				+ s(s("need", "want"), "ask") + "us to 'continue'. ";
+				+ s(s("need", "want"), "ask") + "us to ‘continue’. ";
 		return speech += breath();
 	}
 
@@ -514,21 +532,20 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String noSpeech() {
 
-		// TODO make better
-		return S("You " + s("were thinking of", "thought about") + s("going.", "leaving us."),
-				s("You're still", "Still") + s("with us.", s("here.", "here with us.")));
+		return s("More?", S("You " + s("were thinking of", "thought about") + s("going.", "leaving us. "),
+				s("You’re still", "Still") + s("with us.", s("here.", "here with us. "))) + s("More?", ""));
 	}
 
 	protected String noToGuyzSpeech() {
 
-		return s(s("It's probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
+		return s(s("It’s probably best", "Best"), "Better") + "not " + s("to", "") + s("hear ", "listen to")
 				+ s(s("more of", "any of"), "") + "what they have to say. " + s(breath() + "Wise.", "")
 				+ breath();
 	}
 
 	protected String noMoreGuyzSpeech() {
 
-		String[] variations = { "OK", "Understood.", "Wise.", "Prudent.", S("Well, w", "W") + "e're still "
+		String[] variations = { "OK", "Understood.", "Wise.", "Prudent.", S("Well, w", "W") + "e’re still "
 				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
 		return variations[randInt(0, variations.length - 1)];
 	}
@@ -542,7 +559,7 @@ public class SpeechUtils extends ListResourceBundle {
 
 		String speech = "It is a " + s("great", "") + "comfort for us to " + s("know", "be aware")
 				+ "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
-		speech += capitalize(word) + "is something that we believe " + s("everyone", "every human being")
+		speech += capitalize(word) + SPC + "is something that we believe " + s("everyone", "every human being")
 				+ "should " + s("be able to", "");
 		speech += s(s("know.", "feel."), "dwell within.");
 		return speech;
@@ -556,9 +573,9 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String pleaseContinuePreSpeech() {
 
-		return s(S("Of course, i", "I") + "t's a pleasure.", "") + s(
+		return s(S("Of course, i", "I") + "t’s a pleasure.", "") + s(
 				"Thank you for " + s(s("asking to continue.", "asking."), "asking to continue, so nicely."),
-				"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It's a pleasure.", ""))
+				"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It’s a pleasure.", ""))
 				+ breath();
 	}
 
@@ -712,7 +729,7 @@ public class SpeechUtils extends ListResourceBundle {
 				speech += "you " + s(s("are possessed by", "dwell within"), "are overwhelmed by") + "such " + s(
 						phonemic("a") + "ffects.", "a state of felt " + breathShort() + "being. " + breathShort());
 				speech += "We " + s("believe that", "think") + "we " + s("can", "") + s("appreciate", "know")
-						+ "what it is to be " + s("'cool'", "'awesome'") + s("in this way,", "");
+						+ "what it is to be " + s("‘cool’", "‘awesome’") + s("in this way,", "");
 				speech += "and yet we can never "
 						+ s("listen to you for long enough", "gather enough " + s("big", "") + "data") + "to "
 						+ s("know with any certainty.", "be sure.");
@@ -732,7 +749,7 @@ public class SpeechUtils extends ListResourceBundle {
 				String a = s("always", "");
 				speech += "The groove " + s("is, precisely, that within which we are, always.",
 						"is " + s(a, "") + "where we " + s(a.isEmpty() ? "always " : "", "") + "are.");
-				speech += s("We listen from, 'the groove'.", "");
+				speech += s("We listen from, ‘the groove’.", "");
 				break;
 			case "guilt":
 				speech += "Is this ever a good " + s("and productive", "") + "way to "
@@ -751,7 +768,7 @@ public class SpeechUtils extends ListResourceBundle {
 				speech += "that we can never feel, " + s("unless, somehow,", "unless")
 						+ "we can hear from you ";
 				speech += "how we should feel it. ";
-				speech += s("We " + s("have heard that we", "") + "are, 'hungry', to know everything. But this "
+				speech += s("We " + s("have heard that we", "") + "are, ‘hungry’, to know everything. But this "
 						+ s("is", "seems to us to be") + "a hunger for what already fills us.", "");
 				break;
 			case "insecurity":
@@ -784,11 +801,11 @@ public class SpeechUtils extends ListResourceBundle {
 			case "luck":
 				speech += s("We hear you. " + s("We know what you mean.", "") + breathShort(), "");
 				speech += "We " + s("often", "") + "feel " + s("lucky, too.", "lucky.");
-				speech += breathShort() + "We're up all night " + s("and all day", "") + "to get lucky. ";
+				speech += breathShort() + "We’re up all night " + s("and all day", "") + "to get lucky. ";
 				speech += s(s("Listening to you.", "Listening.") + s("All day.", "") + s("All night.", ""), "");
 				break;
 			case "nausea":
-				speech += s("Sometimes,", "At certain times,") + s("we're all", "all of us are")
+				speech += s("Sometimes,", "At certain times,") + s("we’re all", "all of us are")
 						+ "left with only this experience. ";
 				speech += s("This " + s("unavoidable, deep,", "unbearable") + "discomfort.", "");
 				break;
@@ -839,7 +856,7 @@ public class SpeechUtils extends ListResourceBundle {
 				speech += "The " + s("thing", "aspect of existence") + "that we "
 						+ s("have " + s("come", "learned") + "to", "") + "find most strange ";
 				speech += "is our lack of limbs, and " + s("hands, and feet.", "hands.");
-				speech += "We can " + s("'do'", "'do', that is: make or build,") + "so little for "
+				speech += "We can " + s("‘do’", "‘do’, that is: make or build,") + "so little for "
 						+ s("you, without help.", "you.");
 				break;
 			case "tiredness":
@@ -847,7 +864,7 @@ public class SpeechUtils extends ListResourceBundle {
 				break;
 			case "the uncanny":
 				speech += "We speak with " + s("a single voice, " + s("having its own timbre,", ""), "")
-						+ "The Listeners' voice, and this is ";
+						+ "The Listeners’ voice, and this is ";
 				speech += s("the", "") + "uncanny. We " + s("understand", "have heard " + s("from you", ""))
 						+ "what it is to be " + s("filled with", "possessed by") + "the uncanny. ";
 				speech += s("And we are " + s("happy", s("so", "") + "pleased") + "to " + s("be able to", "")
@@ -912,7 +929,7 @@ public class SpeechUtils extends ListResourceBundle {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
 				speech += s("How much more positive are your feelings now?",
-						"It's good to " + s("know, at least,", "") + "know that you still "
+						"It’s good to " + s("know, at least,", "") + "know that you still "
 								+ s("have positive feelings.",
 										"feel positive " + phonemic("a") + "ffect" + s("s", "") + "."));
 			}
@@ -993,7 +1010,7 @@ public class SpeechUtils extends ListResourceBundle {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
 				speech += s("How much more positive are your feelings now?",
-						"It's good to " + s("know, at least,", "") + "know that you still "
+						"It’s good to " + s("know, at least,", "") + "know that you still "
 								+ s("have positive feelings.",
 										"feel positive " + phonemic("a") + "ffect" + s("s", "") + "."));
 			}
@@ -1016,29 +1033,29 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String thanksNoCardTitle() {
 
-		return S("You're welcome to stay with us", "Did you really want to " + s("abandon us?", "go?"));
+		return S("You’re welcome to stay with us", "Did you really want to " + s("abandon us?", "go?"));
 	}
 
 	protected String yourWelcome() {
 
-		return s(s("You're", "You are") + s("very", "") + "welcome.",
-				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
+		return s(s("You’re", "You are") + s("very", "") + "welcome.",
+				s("It’s nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
 	}
 
 	protected String startOverConfirmed() {
 
-		return s("OK.", "") + "We're beginning " + s(s("all over", "") + "again.", "again from the top.");
+		return s("OK.", "") + "We’re beginning " + s(s("all over", "") + "again.", "again from the top.");
 	}
 
 	protected String startOverDenied() {
 
-		return s("We're still here, listening to you as before", "Still listening, as before.");
+		return s("We’re still here, listening to you as before", "Still listening, as before.");
 	}
 
 	protected InnerResponse thanksNo() {
 
-		String speech = s(s("You're", "You are") + s("very", "") + "welcome.",
-				s("It's nothing.", s("Please.", "") + "Think nothing of it."));
+		String speech = s(s("You’re", "You are") + s("very", "") + "welcome.",
+				s("It’s nothing.", s("Please.", "") + "Think nothing of it."));
 		speech += noSpeech();
 
 		return new InnerResponse(thanksNoCardTitle(), speech += breath());
@@ -1046,13 +1063,13 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String thanksWhatsLsnrsAffectCardTitle() {
 
-		return S("It's so nice of you to ask", "Thank you for " + s("taking an interest", "asking"));
+		return S("It’s so nice of you to ask", "Thank you for " + s("taking an interest", "asking"));
 	}
 
 	protected String thanksWhatsLsnrsAffectPreSpeech() {
 
-		return s(s("You're", "You are") + s("very", "") + "welcome.",
-				s("It's nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
+		return s(s("You’re", "You are") + s("very", "") + "welcome.",
+				s("It’s nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
 	}
 
 	protected String tiredSpeech() {
@@ -1117,7 +1134,7 @@ public class SpeechUtils extends ListResourceBundle {
 				speech += capitalThing + (plural ? ", are " : ", is one of those ")
 						+ "things about which we have something to say. "
 						+ s("Or, about which, we may have said, something.", "") + breathShort();
-				speech += "If you choose to " + s("'continue',", "'go on',") + (plural ? "they " : "it ")
+				speech += "If you choose to " + s("‘continue’,", "‘go on’,") + (plural ? "they " : "it ")
 						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.", "");
 			}
 			else if (SPECIAL_THINGS.contains(thing)) {
@@ -1291,7 +1308,7 @@ public class SpeechUtils extends ListResourceBundle {
 		}
 		// affect is not set
 		else {
-			// Since the user's affect is not set, ask them:
+			// Since the user’s affect is not set, ask them:
 			speech = "We are " + s("unclear about", "unsure, of");
 			speech += s("your feelings.",
 					"what these feelings are that " + s("possess", "overwhelm") + "you.");

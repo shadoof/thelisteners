@@ -16,7 +16,7 @@ public class WhoseAccountIntent extends L10nSpeech {
 	public String buildSpeech() {
 
 		String speech = "These conversations, " + s("and these transactions,", "")
-				+ "take place within the scope of, " + (PERFORMANCE ? "'John's' " : "your ") + "profile. "
+				+ "take place within the scope of, " + (PERFORMANCE ? "‘John’s’ " : "your ") + "profile. "
 				+ breath();
 		speech += PERFORMANCE
 				? s("If we are " + s(s("ever", "") + "part of an installation,", "gallery installed,")

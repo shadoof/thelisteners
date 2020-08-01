@@ -25,7 +25,7 @@ public class UnsupportedRequestHandler implements RequestHandler {
 				.build();
 
 		return input.getResponseBuilder()
-				.withSimpleCard("We're not sure WHAT happened ...", "")
+				.withSimpleCard("We’re not sure WHAT happened ...", "")
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())
 				.build();

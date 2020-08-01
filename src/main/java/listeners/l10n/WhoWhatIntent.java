@@ -11,14 +11,14 @@ public class WhoWhatIntent extends L10nSpeech {
 	public String buildCardTitle() {
 
 		return S("Questions, questions, questions",
-				"We can't know " + s("everything", "everything, where would we put it?"));
+				"We can’t know " + s("everything", "everything, where would we put it?"));
 	}
 
 	public String buildSpeech() {
 
 		String speech = s("We are", "We are, so we believe,") + "The Listeners. " + breath();
 		speech += s(
-				"You " + s("may", "") + "refer to us as: 'The Listeners'. " + s("Or as 'John'.", "")
+				"You " + s("may", "") + "refer to us as: ‘The Listeners’. " + s("Or as ‘John’.", "")
 						+ s(breath() + "We are used " + breathShortest() + "to that.", "") + breathShort(),
 				"");
 		speech += "Whatever we " + s("may", "") + "say is " + s("far", "")

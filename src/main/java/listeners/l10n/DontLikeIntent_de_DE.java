@@ -13,7 +13,7 @@ public class DontLikeIntent_de_DE extends DontLikeIntent {
 	// TODO
 	public String buildCardTitle() {
 
-		return S("You don't like us?", "Don't you love us?");
+		return S("You don’t like us?", "Don’t you love us?");
 	}
 
 	public String buildSpeech() {

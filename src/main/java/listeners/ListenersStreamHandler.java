@@ -6,6 +6,7 @@ import com.amazon.ask.Skills;
 
 import listeners.handlers.ExceptionHandler;
 import listeners.handlers.LsnrsRequestHandler;
+import listeners.handlers.SessionEndedRequestHandler;
 import listeners.handlers.UnsupportedRequestHandler;
 
 public class ListenersStreamHandler extends SkillStreamHandler {
@@ -14,19 +15,12 @@ public class ListenersStreamHandler extends SkillStreamHandler {
 
 		return Skills	.standard()
 									.addRequestHandlers(new LsnrsRequestHandler(),
-											// new LaunchRequestHandler(),
-											// new QuizAndStartOverIntentHandler(),
-											// new NoAnswerIntentHandler(),
-											// new AnswerIntentHandler(),
-											// new RepeatIntentHandler(),
-											// new HelpIntentHandler(),
-											// new ExitSkillHandler(),
-											// new SessionEndedHandler()
+											new SessionEndedRequestHandler(),
 											new UnsupportedRequestHandler())
 									.addExceptionHandler(new ExceptionHandler())
 									.withTableName("TheListeners")
 									.withAutoCreateTable(true)
-									// Add your skill id below : CHANGE BEFORE SHIFTING TO DEPLOY
+									// Add your skill id below : CHANGE BEFORE SHIFTING TO DEPLOY TODO
 									.withSkillId("amzn1.ask.skill.8a8f5701-2a77-48ca-9b77-0088ff3a973b")
 									.build();
 

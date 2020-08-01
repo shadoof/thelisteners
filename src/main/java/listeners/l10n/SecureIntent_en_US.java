@@ -9,7 +9,7 @@ public class SecureIntent_en_US extends SecureIntent {
 
 	public String buildSpeech() {
 
-		String speech = s("We're sure", "We really believe") + "that we are "
+		String speech = s("We’re sure", "We really believe") + "that we are "
 				+ s("safe,", "secure, " + s("within,", "")) + "within this "
 				+ s("container.", "space of ours.");
 		speech += "And that you " + s("too", "") + "will be " + s("secure,", "safe,")

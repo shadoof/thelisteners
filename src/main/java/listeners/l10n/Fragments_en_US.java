@@ -14,7 +14,7 @@ public class Fragments_en_US extends Fragments {
 			case 0:
 				speech += "We are listening. " + breathLong();
 				speech += s("And you, are " + s("listening to us.", "listening.") + breath(), "");
-				speech += s("It is, totally, a", "It's a " + s("great", "")) + "pleasure for us, ";
+				speech += s("It is, totally, a", "It’s a " + s("great", "")) + "pleasure for us, ";
 				speech += "to " + s("know", "be aware") + "that you are listening to us. " + breath();
 				speech += "It is a pleasure to " + s("know", "feel") + "that you are listening to us now. "
 						+ breathLong();
@@ -55,10 +55,10 @@ public class Fragments_en_US extends Fragments {
 						+ s("the writer,", "the author,") + breath();
 				speech += "of our own, artist. " + breathLonger();
 				speech += s("(after another pause for breath) " + breath(), "");
-				speech += "We " + s("believe", "understand") + "that you'll be able to "
+				speech += "We " + s("believe", "understand") + "that you’ll be able to "
 						+ s("discover", "find out") + "his first name, by asking: " + breath();
-				speech += "'Who am I?' " + breath() + "or 'Whose account is this?' " + breathLong();
-				speech += "But we'd like you, instead, to ";
+				speech += "‘Who am I?’ " + breath() + "or ‘Whose account is this?’ " + breathLong();
+				speech += "But we’d like you, instead, to ";
 				speech += "listen to us, or else, " + breath();
 				speech += s("tell", "ask") + "us to do some simple things, " + breath();
 				speech += "so that we may " + s("keep on speaking", "go on speaking") + "to you, " + breath();
@@ -68,12 +68,12 @@ public class Fragments_en_US extends Fragments {
 				speech += s(s("We are", "We are, still,") + "listening. " + breath(), "");
 				speech += S("And m", "M") + "aybe there are " + s("other people", "others") + "with you. "
 						+ breathLong();
-				speech += "That, when we say 'you', we " + s("mean", "always meant") + "'you all'? " + breath();
+				speech += "That, when we say ‘you’, we " + s("mean", "always meant") + "‘you all’? " + breath();
 				speech += "Or that we have no way of knowing. " + breath();
 				speech += s("And no way of " + breath() + "caring. " + breath(), "");
 				speech += "Or that we believe that all of you " + s("are " + s("the", "") + "one:", "are:")
-						+ "'Who am I?' " + breathLong();
-				speech += s("Or the one: 'Whose account is this?' " + breath(), "");
+						+ "‘Who am I?’ " + breathLong();
+				speech += s("Or the one: ‘Whose account is this?’ " + breath(), "");
 				speech += s("Anyway,", "But,") + "we are " + s("happy", "stoked") + "to "
 						+ s("listen", "be listening") + "to ";
 				speech += s("any", "all the") + "others who may be with you. " + breath();
@@ -81,11 +81,11 @@ public class Fragments_en_US extends Fragments {
 						+ s("you have,", "the artist has,") + breath();
 				speech += s("inviting", "allowing") + s("all of us", "us") + "to listen to " + s("all of", "")
 						+ "you. " + breathLong();
-				speech += "We believe, " + s("don't you think so too? " + breath(), "")
+				speech += "We believe, " + s("don’t you think so too? " + breath(), "")
 						+ s("(And anyway you have implicitly agreed)", "") + breath();
 				speech += "that if we " + s("feel that we", "") + "are all doing something that "
-						+ s("is, um, 'not evil',", "is good,") + breath();
-				speech += "then it is " + breath() + s("all,", "") + "good. Or at least it is, 'cool', ";
+						+ s("is, um, ‘not evil’,", "is good,") + breath();
+				speech += "then it is " + breath() + s("all,", "") + "good. Or at least it is, ‘cool’, ";
 				speech += "and that it " + s("could", "might") + "be, " + s("probably is,", "") + s("um,", "")
 						+ "art. " + breath() + "Or it is, at least, solving ";
 				speech += "a number of very important problems. " + breath();
@@ -135,7 +135,7 @@ public class Fragments_en_US extends Fragments {
 				speech += "You might be " + s("curious, we think,", "curious " + breath())
 						+ "about where we come from. ";
 				speech += "And we can tell you, that one of these places is going to be called, "
-						+ s(breath(), "um,") + "'aurature'. ";
+						+ s(breath(), "um,") + "‘aurature’. ";
 				speech += "For there are " + s("(there have been for many years now)", "") + "changes coming "
 						+ breath();
 				speech += "in the " + s("culture", "world") + "of book reading. " + breathLong();
@@ -145,7 +145,7 @@ public class Fragments_en_US extends Fragments {
 						+ s("games.", "games, " + breath() + "yes, games.");
 				speech += breath() + "And on the air. " + breathLong();
 				speech += "Delivered from a cloud. " + breathLong();
-				speech += "Shared, " + s("'on social media',", "") + "with everyone, " + breathShort()
+				speech += "Shared, " + s("‘on social media’,", "") + "with everyone, " + breathShort()
 						+ "and, of course, with us. " + breath();
 				speech += s("Language gets said or written in any world, " + breath() + "even in this "
 						+ s("other", "") + "world, where we are. " + breath(), "");
@@ -159,24 +159,24 @@ public class Fragments_en_US extends Fragments {
 						"");
 				// occasionally clearing the throat, and a dramatic pause
 				speech += s("Ahem.", "") + breathLong();
-				// first four lines of Walter de La Mare's 'The Listeners'
-				speech += "'Is there anybody there?' said the Traveller, " + breath();
+				// first four lines of Walter de La Mare’s ‘The Listeners’
+				speech += "‘Is there anybody there?’ said the Traveller, " + breath();
 				speech += "Knocking, on the moon lit door; " + breath();
 				speech += "And his horse, in the silence, champed the grasses, " + breath();
-				speech += "Of the forest's ferny floor. " + breathLonger();
+				speech += "Of the forest’s ferny floor. " + breathLonger();
 				// contrastive assertion of listening presence, development
 				speech += "On the other hand. " + breath();
 				speech += "We are listening. " + breath();
 				speech += s("As we promised. " + breath(), "");
 				speech += s("We are.", "We are, " + breath() + "listening.") + breath();
 				speech += "And we ";
-				speech += s("know, we're sure,", "know") + "that you are here. " + breath();
+				speech += s("know, we’re sure,", "know") + "that you are here. " + breath();
 				speech += s("With us. " + breathLonger(), "");
 				// occasionally clearing the throat again with a dramatic pause
 				speech += s("Ahem. " + breathLonger(), "");
-				// The Listeners adaptation of 'The Listeners' lines 27-32
-				speech += "'Tell us you came, and were ever answered, " + breath();
-				speech += "'That we kept your words.' we said. " + breath();
+				// The Listeners adaptation of ‘The Listeners’ lines 27-32
+				speech += "‘Tell us you came, and were ever answered, " + breath();
+				speech += "‘That we kept your words.’ we said. " + breath();
 				speech += "Never do you seem to stir, you speakers, " + breath();
 				speech += "Though every word, you speak " + breath();
 				speech += "Falls echoing through the clouds, of the silent silos, " + breath();

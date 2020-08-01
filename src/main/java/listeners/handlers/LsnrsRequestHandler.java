@@ -76,16 +76,20 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// *** 6. normal intent request (most common)
 
 		persAttributes = attributesManager.getPersistentAttributes();
-		// info("@LsnrsRequestHandler, persAttributes: " + persAttributes);
+		info("@LsnrsRequestHandler, pers persistence: " + persAttributes.get(PERSISTENCE));
+
 		if (persAttributes.isEmpty()) {
 			// very first encounter 1. and 4.
 			sessAttributes = attributes.initSessionAttributes(); // needed when testing ..
 			// .. otherwise sessAttribute can be carried over *within* a session
 			attributesManager.setSessionAttributes(sessAttributes);
 			sessAttributes.put(PERSISTENCE, "firstEncounter");
+			persAttributes.put(PERSISTENCE, "forget");
+			attributesManager.savePersistentAttributes();
 		}
 		else if ("forget".equals(persAttributes.get(PERSISTENCE))) {
 			sessAttributes = attributes.initSessionAttributes();
+			sessAttributes.put(LASTINTENT, "AskPersistenceIntent");
 			attributesManager.setSessionAttributes(sessAttributes);
 			sessAttributes.put(PERSISTENCE, "session");
 		}
@@ -98,19 +102,24 @@ public class LsnrsRequestHandler implements RequestHandler {
 		}
 		else if ("ask".equals(persAttributes.get(PERSISTENCE))) {
 			// persistence will be "ask" at beginning of the session
-			info("@lsnrsRequestHandler, pers persistence is 'ask':"
-					+ "ask".equals(persAttributes.get(PERSISTENCE)));
+			// info("@lsnrsRequestHandler, pers persistence is ‘ask’:"
+			// + "ask".equals(persAttributes.get(PERSISTENCE)));
+
 			attributesManager.setSessionAttributes(persAttributes);
-			info("@lsnrsRequestHandler, session persistence is 'ask':"
-					+ "ask".equals(sessAttributes.get(PERSISTENCE)));
+
+			 info("@lsnrsRequestHandler, session persistence is ‘ask’:"
+			 + "ask".equals(sessAttributes.get(PERSISTENCE)));
 		}
-		// to avoid another "firstEncounter"
+		else if (!"session".equals(persAttributes.get(PERSISTENCE))) {
+			info("@lsnrsRequestHandler, bad persistent state: " + persAttributes.get(PERSISTENCE));
+		}
+
 		persAttributes.put(PERSISTENCE, "session");
 		attributesManager.savePersistentAttributes();
 
 		attributesManager.setSessionAttributes(sessAttributes);
 
-		info("@ListenersRequestHandler, relationship: " + sessAttributes.get(PERSISTENCE));
+		info("@ListenersRequestHandler, sess persistence: " + sessAttributes.get(PERSISTENCE));
 
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
@@ -137,7 +146,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 					cardTitle = speechUtils.getString("repeatCardTitle");
 					int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
 					if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
-						// build variant fragments just before they're needed:
+						// build variant fragments just before they’re needed:
 						langConstants.buildFragments();
 						speech = langConstants.fragments[fragmentIndex]
 								+ speechUtils.getString("chooseContinueNoAffect");
@@ -151,13 +160,14 @@ public class LsnrsRequestHandler implements RequestHandler {
 				case "AMAZON.StopIntent":
 				case "AMAZON.CancelIntent":
 					cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
-							: S("That's e", "E") + "nough";
+							: S("That’s e", "E") + "nough";
 					speech = speechUtils.getString("getAbandonmentMessage");
 					String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
 					speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
 
-					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
-						info("@LsnrsRequestHandler: direct Stop or Cancel 'ask' persistence next time ...");
+					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))
+							&& !"launch".equals(sessAttributes.get(LASTINTENT))) {
+						info("@LsnrsRequestHandler: direct Stop or Cancel ‘ask’ persistence next time ...");
 						// on STOP or CANCEL we set relationship to "ask"
 						sessAttributes.put(LASTINTENT, intentName);
 						sessAttributes.put(PERSISTENCE, "ask");

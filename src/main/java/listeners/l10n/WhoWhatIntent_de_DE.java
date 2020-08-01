@@ -10,13 +10,13 @@ public class WhoWhatIntent_de_DE extends WhoWhatIntent {
 	public String buildCardTitle() {
 
 		return S("Questions, questions, questions",
-				"We can't know " + s("everything", "everything, where would we put it?"));
+				"We can’t know " + s("everything", "everything, where would we put it?"));
 	}
 
 	public String buildSpeech() {
 
 		String speech = s("We are", "We are, so we believe,") + "The Listeners. " + breath();
-		speech += s("You " + s("may", "") + "refer to us as: 'The Listeners'. " + s("Or as 'John'.", "")
+		speech += s("You " + s("may", "") + "refer to us as: ‘The Listeners’. " + s("Or as ‘John’.", "")
 				+ s(breath() + "We are used " + breathShortest() + "to that.", "") + breathShort(), "");
 		speech += "Whatever we " + s("may", "") + "say is " + s("far", "") + "less important to us, "
 				+ s("or to you,", "") + "than the fact that we " + s(breathShort() + "listen. " + breathShort(),

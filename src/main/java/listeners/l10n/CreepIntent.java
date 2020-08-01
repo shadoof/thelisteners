@@ -11,16 +11,16 @@ public class CreepIntent extends L10nSpeech {
 
 	public String buildCardTitle() {
 
-		return S("You find us creepy?", "You think we're creepy?");
+		return S("You find us creepy?", "You think we’re creepy?");
 	}
 
 	public String buildSpeech() {
 
-		String speech = s("It's a little " + s("shocking", "disturbing"),
+		String speech = s("It’s a little " + s("shocking", "disturbing"),
 				"We are " + s("shocked", s("a little", "") + "upset")) + breath();
 		speech += "to hear that. " + breathShort();
-		speech += "We certainly don't " + s("intend", "mean") + "to "
-				+ s("disturb you.", "'creep you out'.") + breathShort();
+		speech += "We certainly don’t " + s("intend", "mean") + "to "
+				+ s("disturb you.", "‘creep you out’.") + breathShort();
 		speech += "We " + s("just", "only") + "want to listen to you. ";
 		speech += s(breathShort() + "To hear you.", "");
 		speech += breath();

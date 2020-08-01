@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class SessionMap extends HashMap<String, Object> {
 	
+	// *** NOT USED - retained for reference ***
+	
 	private static final HashSet<String> attributesThatForceSpeechVariation;
 	
 	static {

@@ -11,9 +11,8 @@ public class SpeechUtils {
 	
 	public static ResourceBundle getNewBundle() {
 		
-		ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
-		// TODO
 		ResourceBundle.clearCache();
+		ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 		return rb;
 
 	}

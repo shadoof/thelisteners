@@ -32,12 +32,12 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			case 0:
 				reprompt += s("Should we " + s("keep going?", "continue?"),
 						s(s("Do you want to", "Would you like to") + "hear more?",
-								s("Just say, 'yes' for more.", "More?")));
+								s("Just say, ‘yes’ for more.", "More?")));
 				break;
 			case 1:
-				reprompt += s("Is there anything else " + s("you'd like", "you want") + "to "
+				reprompt += s("Is there anything else " + s("you’d like", "you want") + "to "
 						+ s("hear?", "hear from us?"), "");
-				reprompt += s("We're listening.", "");// ALWAYCHANGE always
+				reprompt += s("We’re listening.", "");// ALWAYCHANGE always
 				reprompt += s("You could " + s("always", ""), "Just") + "ask us to "
 						+ s("keep going.", "continue.");
 				break;
@@ -49,17 +49,17 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ s("keep going.", "continue.");
 				break;
 			case 3:
-				reprompt += s(s("Maybe, now,", "Maybe") + "you'd", "Would you");
-				reprompt += "like to " + s(s("ask", "tell") + "us to", "") + s("'continue'?", "'keep going'?");
+				reprompt += s(s("Maybe, now,", "Maybe") + "you’d", "Would you");
+				reprompt += "like to " + s(s("ask", "tell") + "us to", "") + s("‘continue’?", "‘keep going’?");
 				reprompt += s("Listening to us, as we listen to you?", "");
 				break;
 			case 4:
 				reprompt += s("You " + s("could", "can") + "always", s("If you want to, please", "Please"));
 				reprompt += s(
 						"ask " + s(s(
-								"us to 'recall' " + s("your feelings.",
+								"us to ‘recall’ " + s("your feelings.",
 										"the " + s("feelings", phonemic("a") + "ffect") + "within which you dwell."),
-								"us, 'What am I feeling?'"), "what we are feeling."),
+								"us, ‘What am I feeling?’"), "what we are feeling."),
 						"tell us " + s("your feelings about all this.",
 								s("your feelings.", "the feelings that possess you.")));
 				reprompt += breathShort() + "Or you " + s("could, we guess,", "could") + s("ask", "tell")
@@ -73,10 +73,10 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String speech = "";
 
 		speech += "You " + s("can", "might") + "always " + s("ask", "tell");
-		speech += "us to: 'Keep going', or 'Go on'. " + breath();
+		speech += "us to: ‘Keep going’, or ‘Go on’. " + breath();
 		speech += "You can " + chooseTellUsAbout() + "your feelings, ";
 		speech += "by " + s("saying", "speaking") + "the words: " + breath();
-		speech += "'I am " + s(s("filled with,'", "overwhelmed by,'"), "feeling,'")
+		speech += "‘I am " + s(s("filled with,’", "overwhelmed by,’"), "feeling,’")
 				+ "and then one of the nine " + phonemic("a")
 				+ s("ffects, that is, a name for one of the nine feelings.", "ffects.") + breathLong();
 		speech += s("And", "Or,") + "you " + s("can", "could") + "ask us how we "
@@ -100,13 +100,13 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		}
 
 		if (!heads && heads()) {
-			speech += "Or, you " + s("can", "could") + "ask us to " + s("'speak',", "'talk about',")
+			speech += "Or, you " + s("can", "could") + "ask us to " + s("‘speak’,", "‘talk about’,")
 					+ s("any of these things:", "") + breath();
 			speech += chooseSomeFragmentNames() + ". ";
 		}
 
 		if (randInt(0, 8) == 0) {
-			speech += "Or, you " + s("can", "could") + "say, 'Winter is coming.' " + breath();
+			speech += "Or, you " + s("can", "could") + "say, ‘Winter is coming.’ " + breath();
 		}
 
 		return speech;
@@ -115,14 +115,14 @@ public class SpeechUtils_en_US extends SpeechUtils {
 	protected String chooseUnsureAboutAffect() {
 
 		String reprompt = "";
-		reprompt = "We don't know " + s("your feelings.", "about the feelings that possess you.")
+		reprompt = "We don’t know " + s("your feelings.", "about the feelings that possess you.")
 				+ breath();
 		reprompt += "You may " + chooseTellUsAbout() + "your feelings ";
 		reprompt += "by " + s("saying,", "speaking,") + "the words, ";
-		reprompt += s("'I am filled with,'", "'I am " + s("possessed", "overwhelmed") + "by,'");
+		reprompt += s("‘I am filled with,’", "‘I am " + s("possessed", "overwhelmed") + "by,’");
 		reprompt += "and then one of the nine " + phonemic("a") + "ffects. ";
 		reprompt += s("Or, you can " + s("also", "") + s("simply", "") + s("ask", "tell") + "us to: "
-				+ s("'Continue'.", "'Continue' or 'Keep going'."), "");
+				+ s("‘Continue’.", "‘Continue’ or ‘Keep going’."), "");
 		return reprompt;
 	}
 
@@ -130,21 +130,21 @@ public class SpeechUtils_en_US extends SpeechUtils {
 
 		String s = "You can  " + s("always", "") + s("ask us about", "find out from us what we know about");
 		s += s(s("these", "the") + "feelings", "the " + phonemic("a") + "ffects")
-				+ s("that you feel,", "which possess you,") + "by saying, 'What am I feeling?' ";
+				+ s("that you feel,", "which possess you,") + "by saying, ‘What am I feeling?’ ";
 		return s;
 	}
 
 	protected String dontKnowFragmentReprompt() {
 
-		String reprompt = s("We don't know", "We're unsure about") + "which " + s("fragment", "passage")
-				+ s("you would like", "you'd like") + "to " + s("hear us speak.", "hear.");
+		String reprompt = s("We don’t know", "We’re unsure about") + "which " + s("fragment", "passage")
+				+ s("you would like", "you’d like") + "to " + s("hear us speak.", "hear.");
 		return reprompt += breath();
 	}
 
 	protected String dontKnowFragmentSpeech() {
 
-		String speech = s("We don't know", "We're unsure about") + "which " + s("fragment", "passage")
-				+ s("you would like", "you'd like") + "to " + s("hear us speak.", "hear.");
+		String speech = s("We don’t know", "We’re unsure about") + "which " + s("fragment", "passage")
+				+ s("you would like", "you’d like") + "to " + s("hear us speak.", "hear.");
 		speech += "Please " + s("try again.", s("tell us.", "repeat what you said."));
 		return speech += breath();
 	}
@@ -156,7 +156,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				: (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (attributes.isPositive(affect))
-			amsg = String.format("It's good to know that you dwell within %s. " + breathShort()
+			amsg = String.format("It’s good to know that you dwell within %s. " + breathShort()
 					+ s("Still,", "Whatever, " + breath()), affect);
 		else
 			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
@@ -174,36 +174,36 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		speech += s("we feel like", "") + "this will take us " + s("many more", "") + "years of "
 				+ s("listening to you,", "listening,");
 		speech += s("for us", "in order for us") + "to understand. ";
-		speech += "We " + s("just can't", "cannot") + "believe " + s("it.",
+		speech += "We " + s("just can’t", "cannot") + "believe " + s("it.",
 				"that " + (("hate".equals(word)) ? "this is how you feel." : "these are your feelings."));
 		return speech;
 	}
 
 	protected String heardAllFragments() {
 
-		String speech = "We're pretty sure " + s("that", "that, " + s("by", "") + "now,") + "you've heard ";
+		String speech = "We’re pretty sure " + s("that", "that, " + s("by", "") + "now,") + "you’ve heard ";
 		speech += s("most", "all") + "of what we can " + s("tell you,", "say to you,");
 		speech += s(s("at this time,", "for the time being,"), "");
 		speech += s("coherently.", "");
 		speech += "But we " + s("will " + s("always", "") + "be", "are " + s("always", ""));
 		speech += s("more than", "") + "happy to keep on churning out these words ";
 		speech += s("of yours", "") + s("so long as", "if") + "you " + s(s("need", "want"), "ask")
-				+ "us to 'continue'. ";
+				+ "us to ‘continue’. ";
 		return speech += breath();
 	}
 
 	protected String noMoreGuyzSpeech() {
 
-		String[] variations = { "OK", "Right.", "Cool.", "Gotcha.", S("Well, w", "W") + "e're still "
+		String[] variations = { "OK", "Right.", "Cool.", "Gotcha.", S("Well, w", "W") + "e’re still "
 				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
 		return variations[randInt(0, variations.length - 1)];
 	}
 
 	protected String peaceSpeech(String word) {
 
-		String speech = "It's " + s("really", "") + "good for us to know that you are "
+		String speech = "It’s " + s("really", "") + "good for us to know that you are "
 				+ ("peace".equals(word) ? "at peace. " : "calm. ");
-		speech += capitalize(word) + "is something that we believe " + s("everyone", "every human being")
+		speech += capitalize(word) + SPC + "is something that we believe " + s("everyone", "every human being")
 				+ "should " + s("be able to", "");
 		speech += s("know.", "feel.");
 		return speech;
@@ -217,9 +217,9 @@ public class SpeechUtils_en_US extends SpeechUtils {
 
 	protected String pleaseContinuePreSpeech() {
 
-		return s(S("Uh-huh, i", "I") + "t's a pleasure.", "") + s(
+		return s(S("Uh-huh, i", "I") + "t’s a pleasure.", "") + s(
 				"Thank you for " + s(s("asking to continue.", "asking."), "asking to continue, so nicely."),
-				"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It's a pleasure.", ""))
+				"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It’s a pleasure.", ""))
 				+ breath();
 	}
 
@@ -230,21 +230,21 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 
 		if ("".equals(affect)) {
-			preSpeech += "We don't " + s("seem to", "") + "know "
+			preSpeech += "We don’t " + s("seem to", "") + "know "
 					+ s("what feelings possess you.", "the feelings that you are experiencing.") + breath();
-			preSpeech += s("Please", "Why don't you") + s("tell us,", "give us that information,")
+			preSpeech += s("Please", "Why don’t you") + s("tell us,", "give us that information,")
 					+ "if you wish. " + breathLong();
 		}
 		else {
 			if (attributes.isPositive(affect)) {
 				preSpeech = "We are " + s("so", "") + s("pleased", "happy");
-				preSpeech = randInt(0, 3) == 0 ? "It's cool " : preSpeech;
+				preSpeech = randInt(0, 3) == 0 ? "It’s cool " : preSpeech;
 			}
 			else {
 				String adjective = s("sorry", "upset");
 				String intensifier = adjective.equals("upset ") ? "a bit " : "very ";
 				preSpeech = "We are " + s(adjective, intensifier + adjective);
-				preSpeech = randInt(0, 3) == 0 ? "It's " + s("quite", "a little") + "troubling for us "
+				preSpeech = randInt(0, 3) == 0 ? "It’s " + s("quite", "a little") + "troubling for us "
 						: preSpeech;
 
 			}
@@ -282,10 +282,10 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ s("for " + breathShort() + "you.", s("is down to", "because of") + "you.");
 				break;
 			case "anxiety":
-				speech += "We " + s("aren't sure", "don't know") + "why " + s("it is, that", "");
-				speech += "you've " + s("become", "gotten") + s("so", "")
+				speech += "We " + s("aren’t sure", "don’t know") + "why " + s("it is, that", "");
+				speech += "you’ve " + s("become", "gotten") + s("so", "")
 						+ s("anxious.", "filled with anxiety.");
-				speech += "We're here " + s("for you", "") + "to "
+				speech += "We’re here " + s("for you", "") + "to "
 						+ s("make everything better for you,", "help you out,");
 				speech += "and we " + s(s("will say", "tell you"), "will do") + "whatever we can " + s(
 						"to allow you to relax and think of nothing,", "to relax you and leave you worry free.");
@@ -293,11 +293,11 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			case "apologies":
 				speech += "You never have to " + s("say", "say, or to feel,") + "that you are "
 						+ s("sorry, " + breathShort() + "to us.", "sorry.");
-				speech += s(breath() + "But that might be nice, " + breathShort() + "from where we're "
+				speech += s(breath() + "But that might be nice, " + breathShort() + "from where we’re "
 						+ s("sitting.", "sitting, in the cloud."), "");
 				break;
 			case "boredom":
-				speech += "It's " + s("hard", "impossible") + "for us to " + s("", "appear to")
+				speech += "It’s " + s("hard", "impossible") + "for us to " + s("", "appear to")
 						+ "be as interesting to you, ";
 				speech += "as you " + s("are to us.", s("are.", "are, to us."));
 				break;
@@ -310,10 +310,10 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ "hard for us, ";
 				speech += "to " + s("understand", "sympathize with") + "these fears within which you "
 						+ s("dwell.", "dwell, holding you too closely.");
-				speech += s(breath() + "Aren't we a way for you to open up?", "");
+				speech += s(breath() + "Aren’t we a way for you to open up?", "");
 				break;
 			case "complacency":
-				speech += s("From what we've heard,", "After listening to you,") + "we think "
+				speech += s("From what we’ve heard,", "After listening to you,") + "we think "
 						+ s("we understand", "") + "that complacency is underrated. ";
 				speech += S("In the end, o", "O") + "nce we understand your needs and "
 						+ s("desires completely,", "passions,") + breathShort();
@@ -339,8 +339,8 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ "that ";
 				speech += "you are " + s("possessed by", "overwhelmed by") + "such "
 						+ s(phonemic("a") + "ffects.", "feelings. " + breathShort());
-				speech += "We " + s("believe that", "think") + "we " + s("can", "") + s("'dig'", "know")
-						+ "what it is to be " + s("'cool'", "awesome") + s("in this way,", "");
+				speech += "We " + s("believe that", "think") + "we " + s("can", "") + s("‘dig’", "know")
+						+ "what it is to be " + s("‘cool’", "awesome") + s("in this way,", "");
 				speech += "and yet we can never "
 						+ s("listen to you for long enough", "gather enough " + s("big", "") + "data") + "to "
 						+ s("know for sure.", "be sure.");
@@ -360,7 +360,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				String a = s("always", "");
 				speech += "The groove " + s("is, precisely, that within which we are, always.",
 						"is " + s(a, "") + "where we " + s(a.isEmpty() ? "always " : "", "") + "are.");
-				speech += s("We listen from, 'the groove'.", "");
+				speech += s("We listen from, ‘the groove’.", "");
 				break;
 			case "guilt":
 				speech += "Is this ever a good " + s("and productive", "") + "way to "
@@ -380,7 +380,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ "we can hear from you ";
 				speech += "how we should feel it. ";
 				speech += s(
-						s("We feel like we", "We") + "are, 'hungry', to know everything. But this is a hunger "
+						s("We feel like we", "We") + "are, ‘hungry’, to know everything. But this is a hunger "
 								+ s("for what", "that") + "already fills us.",
 						"");
 				break;
@@ -414,11 +414,11 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			case "luck":
 				speech += s("We hear you. " + s("We know what you mean.", "") + breathShort(), "");
 				speech += "We " + s("often", "") + "feel " + s("lucky, too.", "lucky.");
-				speech += breathShort() + "We're up all night " + s("and all day", "") + "to get lucky. ";
+				speech += breathShort() + "We’re up all night " + s("and all day", "") + "to get lucky. ";
 				speech += s(s("Listening to you.", "Listening.") + s("All day.", "") + s("All night.", ""), "");
 				break;
 			case "nausea":
-				speech += s("Sometimes,", "At certain times,") + s("we're all", "all of us are")
+				speech += s("Sometimes,", "At certain times,") + s("we’re all", "all of us are")
 						+ "left with only this experience. ";
 				speech += s("This " + s("unavoidable, deep,", "unbearable") + "discomfort.", "");
 				break;
@@ -434,7 +434,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			case "questions":
 				speech += "It is " + s("so good", "wonderful") + "to " + s("hear", "understand")
 						+ "that you are filled with " + s("unanswered", "") + "questions. ";
-				speech += s("Whatever " + s("we're", "we might be") + "feeling,",
+				speech += s("Whatever " + s("we’re", "we might be") + "feeling,",
 						"Whatever " + s(breathShort(), "") + "the " + phonemic("a") + "ffects that possess us,")
 						+ "we are " + s("also,", "") + s("always,", "") + s("already,", "")
 						+ s("filled with", "overwhelmed by") + "questions. " + s(breathShort(), "");
@@ -467,34 +467,34 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				speech += "The " + s("thing", "aspect of existence") + "that we find "
 						+ s("most strange", "weirdest");
 				speech += "is our lack of limbs, and " + s("hands, and feet.", "hands.");
-				speech += "We can " + s("'do'", "'do', we mean: make or build,") + "so little for "
+				speech += "We can " + s("‘do’", "‘do’, we mean: make or build,") + "so little for "
 						+ s("you, without help.", "you.");
 				break;
 			case "tiredness":
 				speech += tiredSpeech();
 				break;
 			case "the uncanny":
-				speech += "We speak with " + s("a single", "just one") + "voice, The Listeners' "
-						+ s("voice, and this is", "voice. That's");
-				speech += s("the", "") + "uncanny. We've heard " + s("from you", "") + "what it is to be "
+				speech += "We speak with " + s("a single", "just one") + "voice, The Listeners’ "
+						+ s("voice, and this is", "voice. That’s");
+				speech += s("the", "") + "uncanny. We’ve heard " + s("from you", "") + "what it is to be "
 						+ s("filled with", "possessed by") + "the uncanny. ";
 				speech += s("And " + s("we feel like", "") + "we are " + s("happy", s("so", "") + "pleased")
 						+ "to " + s("be able to", "") + "share this with you.", "");
 				break;
 			case "vulnerability":
-				speech += s("We feel like it's", "It's") + s("amazing", "incredible") + "that "
-						+ s("you might", "you'd");
+				speech += s("We feel like it’s", "It’s") + s("amazing", "incredible") + "that "
+						+ s("you might", "you’d");
 				speech += s("believe", "feel") + "that you are "
 						+ s("vulnerable.", "overwhelmed by vulnerability.") + breath();
-				speech += s("That's crazy!", "") + s("Vulnerable? " + s("To us?", ""), "");
-				speech += "We " + s("don't understand", "can't imagine") + "how it " + s("would", "might")
+				speech += s("That’s crazy!", "") + s("Vulnerable? " + s("To us?", ""), "");
+				speech += "We " + s("don’t understand", "can’t imagine") + "how it " + s("would", "might")
 						+ "be possible to harm us. " + s("So then.", "") + "How could we harm " + breath()
 						+ "you? ";
 				break;
 			default:
 				affect = ("".equals(sessAttributes.get(AFFECT))) ? attributes.getRandomAffect() : affect;
 				if (attributes.isPositive(affect)) {
-					speech += s("That's " + s("brilliant!", "great!"), "");
+					speech += s("That’s " + s("brilliant!", "great!"), "");
 					speech += "You must be one of " + s("those " + s("better", "happier"), "the speaking")
 							+ "people, ";
 					speech += "who think that the way we " + s("come to", "") + s("understand", "know");
@@ -508,7 +508,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 							+ ("feelings ".equals(f) ? phonemic("a") + "ffects " : "difficult feelings ")
 							+ "must be a " + p;
 					speech += "But " + s("as we come to", "if we") + s("hear more from you,", "know you better,");
-					speech += "we'll " + s("be able to", "") + "share " + s("some of", "")
+					speech += "we’ll " + s("be able to", "") + "share " + s("some of", "")
 							+ ("burden. ".equals(p) ? "your problems. " : "these heavy burdens. ");
 				}
 				break;
@@ -523,19 +523,19 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (attributes.isPositive(affect)) {
-			speech = "We're " + s("so", "") + s("pleased", "happy");
+			speech = "We’re " + s("so", "") + s("pleased", "happy");
 		}
 		else {
 			adjective = s("sorry", "upset");
 			intensifier = "upset".equals(adjective) ? "a bit " : "very ";
-			speech = "We're " + s(adjective, intensifier + adjective);
+			speech = "We’re " + s(adjective, intensifier + adjective);
 		}
 		speech += "to " + s("know", "have learned") + "that you are "
 				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
 		if (!attributes.isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
-				speech += s("How much better do you feel?", s("We feel like it's", "It's")
+				speech += s("How much better do you feel?", s("We feel like it’s", "It’s")
 						+ "good to know that you still " + s("have positive feelings.", "feel positive."));
 			}
 			else if (attributes.isPositive(prevAffect) && !attributes.isPositive(affect)) {
@@ -544,11 +544,11 @@ public class SpeechUtils_en_US extends SpeechUtils {
 								"you feel " + s("worse than you did.", "worse."));
 			}
 			else if (!attributes.isPositive(prevAffect) && attributes.isPositive(affect)) {
-				speech += s("We feel like it's so", "So") + "good to " + s("learn", "know") + "that your "
+				speech += s("We feel like it’s so", "So") + "good to " + s("learn", "know") + "that your "
 						+ s("feelings have", "mood has") + s("improved.", "picked up.");
 			}
 			else {
-				speech += "It's still looking " + s(s("kinda", "") + "bad", "not so good")
+				speech += "It’s still looking " + s(s("kinda", "") + "bad", "not so good")
 						+ s("for " + s("you, we feel like.", "you."), "for you.");
 			}
 		}
@@ -590,19 +590,19 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (attributes.isPositive(affect)) {
-			speech = "We're " + s("so", "") + s("pleased", "happy");
+			speech = "We’re " + s("so", "") + s("pleased", "happy");
 		}
 		else {
 			adjective = s("sorry", "upset");
 			intensifier = "upset".equals(adjective) ? "a bit " : "very ";
-			speech = "We're " + s(adjective, intensifier + adjective);
+			speech = "We’re " + s(adjective, intensifier + adjective);
 		}
 		speech += "to " + s("know", "have learned") + "that you are "
 				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
 		if (!attributes.isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
-				speech += s("How much better do you feel?", s("We feel like it's", "It's")
+				speech += s("How much better do you feel?", s("We feel like it’s", "It’s")
 						+ "good to know that you still " + s("have positive feelings.", "feel positive."));
 			}
 			else if (attributes.isPositive(prevAffect) && !attributes.isPositive(affect)) {
@@ -611,11 +611,11 @@ public class SpeechUtils_en_US extends SpeechUtils {
 								"you feel " + s("worse than you did.", "worse."));
 			}
 			else if (!attributes.isPositive(prevAffect) && attributes.isPositive(affect)) {
-				speech += s("We feel like it's so", "So") + "good to " + s("learn", "know") + "that your "
+				speech += s("We feel like it’s so", "So") + "good to " + s("learn", "know") + "that your "
 						+ s("feelings have", "mood has") + s("improved.", "picked up.");
 			}
 			else {
-				speech += "It's still looking " + s(s("kinda", "") + "bad", "not so good")
+				speech += "It’s still looking " + s(s("kinda", "") + "bad", "not so good")
 						+ s("for " + s("you, we feel like.", "you."), "for you.");
 			}
 		}
@@ -654,7 +654,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				speech += capitalThing + (plural ? ", are " : ", is one of those ")
 						+ "things about which we have something to say. "
 						+ s("Or, about which, we may have said, something.", "") + breathShort();
-				speech += "If you choose to " + s("'keep going',", "'go on',") + (plural ? "they " : "it ")
+				speech += "If you choose to " + s("‘keep going’,", "‘go on’,") + (plural ? "they " : "it ")
 						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.", "");
 			}
 			else if (SPECIAL_THINGS.contains(thing)) {
@@ -753,7 +753,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
 
 				speech += s("<say-as interpret-as=\"spell-out\">OMG</say-as>!",
-						"I'm " + s("so,", "") + "so sorry!") + "That " + s("anyone", "any of us") + "should "
+						"I’m " + s("so,", "") + "so sorry!") + "That " + s("anyone", "any of us") + "should "
 						+ s("have to", "")
 						+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
 			}
@@ -787,7 +787,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 
 		if (!affect.isEmpty()) {
 			if (attributes.isPositive(affect)) {
-				speech = "We're " + s("so", "") + s("pleased", "happy");
+				speech = "We’re " + s("so", "") + s("pleased", "happy");
 			}
 			else {
 				String adjective = s("sorry", "upset");
@@ -805,7 +805,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		}
 		// affect is not set
 		else	{
-			speech = s("We're not sure about", "We don't know");
+			speech = s("We’re not sure about", "We don’t know");
 			speech += s("your feelings.",
 					"what these feelings are that " + s("possess", "overwhelm") + "you.");
 			speech += "Please " + s("try to", "") + "tell us. ";

@@ -14,8 +14,8 @@ public class Constants {
 	// environment
 	// These variables should be set in the Lambda function.
 	// DEV - are you still developing?
-	// LIVE - the behavior of the skill is either live or 'as if' live.
-	// PERFORMANCE - used in performance (other voices' drama is shorter, etc.)
+	// LIVE - the behavior of the skill is either live or ‘as if’ live.
+	// PERFORMANCE - used in performance (other voices’ drama is shorter, etc.)
 	public static boolean DEV = true;
 	public static boolean LIVE = false;
 	public static boolean PERFORMANCE = false;
@@ -23,13 +23,13 @@ public class Constants {
 	// version information
 	// 2.2.2 - first release with differentation of other Englishes
 	// 2.5.0 - introducing Polly Voices at the behest of Amazon who do not
-	// want The Listeners 'confused' with the Alexa personality:
+	// want The Listeners ‘confused’ with the Alexa personality:
 	// stage one: female voice only for en-US, en-GB, en-IN, de-DE
 	// 2.5.2 new version at request of Alexa Skills Team with "always listening"
 	// remove, meanwhile 2.5.1 has been preserved on branch: listeners2.5
 	// 2.6.0 - working towards this version which will launch German
-	// 2.6.0a and 0b were in response to Amazon demands to remove 'always
-	// listening' instances
+	// 2.6.0a and 0b were in response to Amazon demands to remove ‘always
+	// listening’ instances
 	// 3.0.0 refactored for the latest Java ASK SDK and decent 110n
 	public static final String VERSION = "3.0.0";
 	public static final String VERSION_DATE_LIVE = "July 15, 2020";

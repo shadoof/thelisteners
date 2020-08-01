@@ -97,7 +97,7 @@ public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 		AFFECTS_MAP.put("die Scham", NEGATIVE);
 		AFFECTS_MAP.put("die Erniedrigung", NEGATIVE);
 		// we only have to add positive recognized affects to this map
-		// special affects' valences are addressed by that map and
+		// special affects’ valences are addressed by that map and
 		// otherwise affects are assumed to be negative
 		AFFECTS_MAP.put("die Apathie", POSITIVE); // deliberate!
 		AFFECTS_MAP.put("ruhig", POSITIVE);

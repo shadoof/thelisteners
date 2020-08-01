@@ -106,7 +106,7 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTS_MAP.put("shame", NEGATIVE);
 		AFFECTS_MAP.put("humiliation", NEGATIVE);
 		// we only have to add positive recognized affects to this map
-		// special affects' valences are addressed by that map and
+		// special affects’ valences are addressed by that map and
 		// otherwise affects are assumed to be negative
 		AFFECTS_MAP.put("apathy", POSITIVE); // deliberate!
 		AFFECTS_MAP.put("calm", POSITIVE);

@@ -66,7 +66,7 @@ public class Fragments extends ListResourceBundle {
 				speech += s("(after another pause for breath) " + breath(), "");
 				speech += "We " + s("believe", "understand")
 						+ "that you may be able to discover, at least, his first name, by asking: " + breath();
-				speech += "'Who am I?' " + breath() + "or 'Whose account is this?' " + breathLong();
+				speech += "‘Who am I?’ " + breath() + "or ‘Whose account is this?’ " + breathLong();
 				speech += "But we would like you, instead, either to ";
 				speech += "listen to us, or, " + breath();
 				speech += s("tell", "ask") + "us to do some simple things, " + breath();
@@ -77,13 +77,13 @@ public class Fragments extends ListResourceBundle {
 				speech += s(s("We are", "We are, still,") + "listening. " + breath(), "");
 				speech += S("And p", "P") + "erhaps there are " + s("other people", "others") + "with you. "
 						+ breathLong();
-				speech += "That, when we say 'you', we " + s("mean", "always meant") + "'all of you'? "
+				speech += "That, when we say ‘you’, we " + s("mean", "always meant") + "‘all of you’? "
 						+ breath();
 				speech += "Or that we have no way of knowing. " + breath();
 				speech += s("And no way of " + breath() + "caring. " + breath(), "");
 				speech += "Or that we believe that all of you " + s("are " + s("the", "") + "one:", "are:")
-						+ "'Who am I?' " + breathLong();
-				speech += s("Or the one: 'Whose account is this?' " + breath(), "");
+						+ "‘Who am I?’ " + breathLong();
+				speech += s("Or the one: ‘Whose account is this?’ " + breath(), "");
 				speech += s("However,", "But,") + "we are " + s("happy", "delighted") + "to "
 						+ s("listen", "be listening") + "to ";
 				speech += s("any", "all the") + "others who may be with you. " + breath();
@@ -91,12 +91,12 @@ public class Fragments extends ListResourceBundle {
 						+ s("you have,", "the artist has,") + breath();
 				speech += s("inviting", "allowing") + s("all of us", "us") + "to listen to " + s("all of", "")
 						+ "you. " + breathLong();
-				speech += "We believe, " + s("and don't you agree? " + breath(), "")
+				speech += "We believe, " + s("and don’t you agree? " + breath(), "")
 						+ s("(or rather, you have implicitly agreed)", "") + breath();
 				speech += "that if we " + s("feel that we", "") + "are all doing something that "
-						+ s("is, um, 'not evil',", "is good,") + breath();
+						+ s("is, um, ‘not evil’,", "is good,") + breath();
 				speech += "then it is " + breath() + s("really quite", "")
-						+ "good. Or it is, at least, 'cool', ";
+						+ "good. Or it is, at least, ‘cool’, ";
 				speech += "and that it " + s("could", "may") + "be, " + s("very likely is,", "") + s("um,", "")
 						+ "art. " + breath() + "Or it is, at least, solving ";
 				speech += "a number of very important problems. " + breath();
@@ -144,7 +144,7 @@ public class Fragments extends ListResourceBundle {
 			case 6:
 				speech += "You may wonder, " + s("we believe,", breath()) + "where is it from which we come. ";
 				speech += "And we can tell you, that one of these places will be called, " + s(breath(), "um,")
-						+ "'aurature'. ";
+						+ "‘aurature’. ";
 				speech += "For there are, " + s("there have been for some years now,", "") + s("many", "")
 						+ "changes coming ";
 				speech += "in the " + s("culture", "world") + "of reading. " + breathLong();
@@ -154,7 +154,7 @@ public class Fragments extends ListResourceBundle {
 						+ s("games.", "games, " + breath() + "yes, games.");
 				speech += breath() + "And on the air. " + breathLong();
 				speech += "Delivered from a cloud. " + breathLong();
-				speech += "Shared, " + s("'socially',", "") + "with everyone, " + breathShort()
+				speech += "Shared, " + s("‘socially’,", "") + "with everyone, " + breathShort()
 						+ "and, more especially, with us. " + breath();
 				speech += s("Language may come " + s("to be,", "into being,") + "in any world, " + breath()
 						+ "even in this " + s("other", "") + "world, where " + s("we are.", "you may find us.")
@@ -169,11 +169,11 @@ public class Fragments extends ListResourceBundle {
 						"");
 				// occasionally clearing the throat, and a dramatic pause
 				speech += s("Ahem.", "") + breathLong();
-				// first four lines of Walter de La Mare's 'The Listeners'
-				speech += "'Is there anybody there?' said the Traveller, " + breath();
+				// first four lines of Walter de La Mare’s ‘The Listeners’
+				speech += "‘Is there anybody there?’ said the Traveller, " + breath();
 				speech += "Knocking, on the moon lit door; " + breath();
 				speech += "And his horse, in the silence, champed the grasses, " + breath();
-				speech += "Of the forest's ferny floor. " + breathLonger();
+				speech += "Of the forest’s ferny floor. " + breathLonger();
 				// contrastive assertion of listening presence, development
 				speech += "Whereas. " + breath();
 				speech += s("That is to say. " + breath(), "");
@@ -185,9 +185,9 @@ public class Fragments extends ListResourceBundle {
 				speech += s("With us. " + breathLonger(), "");
 				// occasionally clearing the throat again with a dramatic pause
 				speech += s("Ahem. " + breathLonger(), "");
-				// The Listeners adaptation of 'The Listeners' lines 27-32
-				speech += "'Tell us you came, and were ever answered, " + breath();
-				speech += "'That we kept your words.' we said. " + breath();
+				// The Listeners adaptation of ‘The Listeners’ lines 27-32
+				speech += "‘Tell us you came, and were ever answered, " + breath();
+				speech += "‘That we kept your words.’ we said. " + breath();
 				speech += "Never do you seem to stir, you speakers, " + breath();
 				speech += "Though every word, you speak " + breath();
 				speech += "Falls echoing through the clouds, of the silent silos, " + breath();

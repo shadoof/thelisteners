@@ -40,13 +40,10 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				affect = getFromSlot(AFFECT_SLOT);
 				info("@LsnrsSlottedIntentResponse, slot affect: " + affect);
 
-				// we need clear cache and get a new bundle:
-				// for speechUtils every round
-				// NOTE this is now done by SessionMap
-				// as extension of HashMap: SessionMap's put()
-				// does SpeechUtils.getNewBundle()
 				sessAttributes.put(AFFECT, affect);
+				// using SpeechUtils.getNewBundle() ensures refresh for affect
 				ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
+				
 				ir.setSpeech(ir.getSpeech() + speechUtils.getString("specificAffectSpeech"));
 
 				if (heads()) {
@@ -66,6 +63,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				sessAttributes.put(CHALLENGEDAFFECT, challengedAffect);
 
 				ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
+				
 				if (affect.equals(challengedAffect)) {
 					// the speaker seems to have denied a previously set affect
 					affect = "";
@@ -132,7 +130,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 			setCardTitle(speechUtils.getString("speakFragmentCardTitle"));
 
-			// build variant fragments just before they're needed:
+			// build variant fragments just before they’re needed:
 			buildFragments();
 
 			// Get slot from the intent
@@ -143,8 +141,6 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 			if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
 				setSpeech(fragments[fragmentIndex]);
-				
-				setInterruptable(true);
 				
 				setReprompt(speechUtils.getString("chooseContinue"));
 
@@ -161,7 +157,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			}
 			else {
 				// After trying to parse the fragmentSlot,
-				// we don't know which fragment is wanted.
+				// we don’t know which fragment is wanted.
 				setSpeech(speechUtils.getString("dontKnowFragmentSpeech"));
 				setReprompt(speechUtils.getString("dontKnowFragmentReprompt"));
 			}

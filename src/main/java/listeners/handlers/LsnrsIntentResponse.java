@@ -47,8 +47,11 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		}
 
 		// *** 4. ***
-		String preamble = ("firstEncounter".equals(relationship)) ? speechUtils.getString("getPreamble")
-				: "";
+		String preamble = "";
+		if ("firstEncounter".equals(relationship)) {
+			preamble = speechUtils.getString("getPreamble");
+			sessAttributes.put(PERSISTENCE, "session");
+		}
 		
 		// *** 5. and 6. *** treated the same
 		// generating variety here (needs assessing for actual effect)
@@ -58,7 +61,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 			// change affect roughly 1 of 3 intent requests ...
 			if (randInt(0, 2) == 0) {
 				sessAttributes.put(AFFECT, attributes.getRandomAffect());
-				// and a third of these times make listeners' affect match
+				// and a third of these times make listeners’ affect match
 				if (randInt(0, 2) == 0) sessAttributes.put(LISTENERSAFFECT, sessAttributes.get(AFFECT));
 			}
 		}
@@ -76,7 +79,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		}
 
 		// if we adhere to the convention that there are l10n class bundles
-		// for ALL simple intentNames we need no 'switch' or 'else if' logic here.
+		// for ALL simple intentNames we need no ‘switch’ or ‘else if’ logic here.
 		// we just load a bundle with the intent.getName():
 		L10nSpeech ls = null;
 		try {

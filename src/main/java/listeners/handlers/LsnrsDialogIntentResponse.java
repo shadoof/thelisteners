@@ -67,6 +67,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.withName("AMAZON.StopIntent")
 							.build();
 
+					info("@LsnrsDialogIntentResponse, setting & saving persistence from " + intentName);
 					attributesManager.setPersistentAttributes(sessAttributes);
 					attributesManager.savePersistentAttributes();
 

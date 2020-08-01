@@ -44,7 +44,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				ir.setCardTitle(speechUtils.getString("previousCardTitle"));
 				// do, but not always, the preSpeech
 
-				// build variant fragments just before they're needed:
+				// build variant fragments just before they’re needed:
 				buildFragments();
 
 				int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX) - 1;
@@ -65,13 +65,14 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 					al.add(fragmentIndex);
 					sessAttributes.put(FRAGMENTLIST, al);
 				}
+				ir.setInterruptable(true);
 				break;
 			case "ReadPoemIntent":
 				ir = new InnerResponse();
 				ir.setCardTitle(speechUtils.getString("readPoemCardTitle"));
 				fragmentIndex = VERSE;
 				sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
-				// build variant fragments just before they're needed:
+				// build variant fragments just before they’re needed:
 				buildFragments();
 				ir.setSpeech(fragments[fragmentIndex]);
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
@@ -83,7 +84,6 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				break;
 			case "WhatsLsnrsAffectIntent":
 			case "ThanksWhatsLsnrsAffectIntent":
-				// speechUtils = SpeechUtils.getNewBundle(); // TODO
 				ir = new InnerResponse();
 				if (intentName.equals("ThanksWhatsLsnrsAffectIntent")) {
 					ir.setCardTitle(speechUtils.getString("thanksWhatsLsnrsAffectCardTitle"));
@@ -142,13 +142,15 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 		NextFragmentResponse(String intentName) {
 
-			// build variant fragments just before they're needed:
+			// build variant fragments just before they’re needed:
 			buildFragments();
 
 			sessAttributes.put(FRAGMENTINDEX, randInt(0, NUMBER_OF_FRAGMENTS - 1));
 
 			ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
-			if (al.size() >= NUMBER_OF_FRAGMENTS && !((boolean) sessAttributes.get(HEARDALLFRAGMENTS))) {
+			if ((al.size() >= NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
+				setInterruptable(false);
+				info("@NextFragmentResponse, setting up heard all");
 				setSpeech(speechUtils.getString("heardAllFragments"));
 
 				// this used to be a trigger that ended the session below
@@ -167,7 +169,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				sessAttributes.put(FRAGMENTLIST, al);
 			}
 
-			// check to see if the speaker has asked about a fragment-name 'thing'
+			// check to see if the speaker has asked about a fragment-name ‘thing’
 			String thing = (String) sessAttributes.get(THING);
 			// is only set to non-empty if the fragment name was indeed asked about
 			if (!"".equals(thing) && FRAGMENTNAME_MAP.get(thing) != null) {
@@ -178,10 +180,12 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				}
 			}
 
-			setSpeech(fragments[(int) sessAttributes.get(FRAGMENTINDEX)]
-					+ speechUtils.getString("chooseContinueNoAffect"));
+			if (getSpeech().isEmpty()) {
+				setInterruptable(true);
+				setSpeech(fragments[(int) sessAttributes.get(FRAGMENTINDEX)]
+						+ speechUtils.getString("chooseContinueNoAffect"));
+			}
 
-			setInterruptable(true);
 
 			if (intentName.equals("PleaseContinueIntent")) {
 				setCardTitle(speechUtils.getString("pleaseContinueCardTitle"));

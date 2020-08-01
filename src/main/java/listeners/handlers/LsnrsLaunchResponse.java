@@ -1,7 +1,6 @@
 package listeners.handlers;
 
-import static listeners.model.Attributes.AFFECT;
-import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.*;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
@@ -15,6 +14,7 @@ import com.amazon.ask.model.Response;
 
 import listeners.l10n.Welcome;
 import listeners.util.ResponseFinisher;
+import static listeners.util.Utils.*;
 
 public class LsnrsLaunchResponse implements LsnrsResponse {
 
@@ -28,9 +28,13 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 
 	public Optional<Response> getResponse() {
 
+		info("@LsnrsLaunchResponse, getResponse(), sessPersistence: " + sessAttributes.get(PERSISTENCE));
 		// *** 1. ***
-		String preamble = ("firstEncounter".equals((String) sessAttributes.get(PERSISTENCE))) ? speechUtils.getString("getPreamble")
-				: "";
+		String preamble = "";
+		if ("firstEncounter".equals((String) sessAttributes.get(PERSISTENCE))) {
+			preamble = speechUtils.getString("getPreamble");
+			sessAttributes.put(PERSISTENCE, "session");
+		}
 
 		// *** 2. and 3. ***
 		ResourceBundle.clearCache();
@@ -63,6 +67,7 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 
 		// ResponseFinisher rf = new ResponseFinisher(localeTag, preamble,
 		// ws.getSpeech(), postSpeechPrompt, reprompt);
+		sessAttributes.put(LASTINTENT, "launch");
 
 		if ("ask".equals((String) sessAttributes.get(PERSISTENCE))) {
 			Intent ask = Intent.builder()
