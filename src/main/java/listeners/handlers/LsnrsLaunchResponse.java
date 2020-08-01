@@ -1,7 +1,6 @@
 package listeners.handlers;
 
 import static listeners.model.Attributes.*;
-import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
 
@@ -42,7 +41,8 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 
 		// Welcome at launch gets special treatment
 		// for postSpeechPrompt and reprompt
-		String postSpeechPrompt = "", reprompt = "";
+		String postSpeechPrompt = "";
+		String reprompt = speechUtils.getString("chooseContinue");;
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (affect == null || affect.isEmpty()) {
 			// *** 1. or 2. extra help for initial welcome:
@@ -51,8 +51,11 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 
 		if ("ask".equals((String) sessAttributes.get(PERSISTENCE))) {
 			// *** 0. or 3. ***
-			postSpeechPrompt = speechUtils.getString("askStartOverSpeech");
-			reprompt = speechUtils.getString("chooseContinue");
+			// no postSpeech because confirmation does not work as expected from launch
+			// postSpeechPrompt = speechUtils.getString("askStartOverSpeech");
+		} else if ("remember".equals(sessAttributes.get(PERSISTENCE))) {
+			postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
+			sessAttributes.put(PERSISTENCE, "session");
 		}
 		else {
 			postSpeechPrompt = speechUtils.getString("chooseSpeechAssistance");

@@ -42,8 +42,9 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 
 				sessAttributes.put(AFFECT, affect);
 				// using SpeechUtils.getNewBundle() ensures refresh for affect
-				ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
-				
+				speechUtils = SpeechUtils.getNewBundle();
+
+				ir = (InnerResponse) speechUtils.getObject(intentName);
 				ir.setSpeech(ir.getSpeech() + speechUtils.getString("specificAffectSpeech"));
 
 				if (heads()) {
@@ -62,8 +63,9 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				info("@LsnrsSlottedIntentResponse, challengedAffect: " + challengedAffect);
 				sessAttributes.put(CHALLENGEDAFFECT, challengedAffect);
 
-				ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
-				
+				speechUtils = SpeechUtils.getNewBundle();
+				ir = (InnerResponse) speechUtils.getObject(intentName);
+
 				if (affect.equals(challengedAffect)) {
 					// the speaker seems to have denied a previously set affect
 					affect = "";
@@ -84,11 +86,12 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			case "WhatIsIntent":
 				String thing = getFromSlot(THING_SLOT);
 				sessAttributes.put(THING, thing);
+				speechUtils = SpeechUtils.getNewBundle();
 				if (PICTURE_WORDS.contains(thing)) {
-					ir = (InnerResponse) SpeechUtils.getNewBundle().getObject("WhatPictureIntent");
+					ir = (InnerResponse) speechUtils.getObject("WhatPictureIntent");
 				}
 				else {
-					ir = (InnerResponse) SpeechUtils.getNewBundle().getObject(intentName);
+					ir = (InnerResponse) speechUtils.getObject(intentName);
 				}
 				break;
 			default:
@@ -116,7 +119,8 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 	private String getFromSlot(String slotKey) {
 
 		String value;
-		Slot slot = intent.getSlots().get(slotKey);
+		Slot slot = intent.getSlots()
+				.get(slotKey);
 		value = (slot == null) ? "" : slot.getValue();
 		if (slotKey.contentEquals(AFFECT_SLOT)) {
 			return langConstants.getNounFromAdjective(value);
@@ -134,14 +138,15 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			buildFragments();
 
 			// Get slot from the intent
-			Slot fragmentSlot = intent.getSlots().get(FRAGMENTNAME_SLOT);
+			Slot fragmentSlot = intent.getSlots()
+					.get(FRAGMENTNAME_SLOT);
 			String fragmentName = (fragmentSlot == null) ? "" : fragmentSlot.getValue();
 
 			int fragmentIndex = langConstants.parseNameToInt(fragmentName);
 
 			if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
 				setSpeech(fragments[fragmentIndex]);
-				
+
 				setReprompt(speechUtils.getString("chooseContinue"));
 
 				// set the session fragmentIndex if a valid fragment was found
@@ -150,9 +155,9 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				ArrayList fl = (ArrayList) sessAttributes.get(FRAGMENTLIST);
 				if (!fl.contains(fragmentIndex)) fl.add(fragmentIndex);
 				sessAttributes.put(FRAGMENTLIST, fl);
-				
+
 				// do, but not always, the preSpeech
-				if (fragmentIndex > 0 && randInt(0, 3) == 0) 
+				if (fragmentIndex > 0 && randInt(0, 3) == 0)
 					setSpeech(speechUtils.getString("preSpeechFeelings") + getSpeech());
 			}
 			else {

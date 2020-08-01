@@ -5,6 +5,7 @@ import static com.amazon.ask.request.Predicates.requestType;
 import static listeners.model.Attributes.*;
 import static listeners.model.Constants.*;
 import static listeners.util.Utils.S;
+import static listeners.util.Utils.s;
 import static listeners.util.Utils.info;
 
 import java.util.Iterator;
@@ -96,9 +97,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 		else if ("remember".equals(persAttributes.get(PERSISTENCE))) {
 			// retrieve what was saved from the last session
 			attributesManager.setSessionAttributes(persAttributes);
-			// had to be done this way because of my SessionMap type: // TODO remove comments
-			// SessionMap version sessAttributes.getValuesFromMap(persAttributes);
-			sessAttributes.put(PERSISTENCE, "session");
+			// session persistence is changed later:
+			// after launch or if the invocation is any intent
 		}
 		else if ("ask".equals(persAttributes.get(PERSISTENCE))) {
 			// persistence will be "ask" at beginning of the session
@@ -107,8 +107,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 			attributesManager.setSessionAttributes(persAttributes);
 
-			 info("@lsnrsRequestHandler, session persistence is ‘ask’:"
-			 + "ask".equals(sessAttributes.get(PERSISTENCE)));
+			info("@lsnrsRequestHandler, session persistence is ‘ask’:"
+					+ "ask".equals(sessAttributes.get(PERSISTENCE)));
 		}
 		else if (!"session".equals(persAttributes.get(PERSISTENCE))) {
 			info("@lsnrsRequestHandler, bad persistent state: " + persAttributes.get(PERSISTENCE));
@@ -128,6 +128,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 		else {
 			// ANY Intent request
 			// deal with AMAZON built-in intents here
+			if ("remember".equals(sessAttributes.get(PERSISTENCE)))
+				sessAttributes.put(PERSISTENCE, "session");
 			String intentName = ((IntentRequest) input.getRequestEnvelope()
 					.getRequest()).getIntent()
 							.getName();
@@ -162,8 +164,11 @@ public class LsnrsRequestHandler implements RequestHandler {
 					cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
 							: S("That’s e", "E") + "nough";
 					speech = speechUtils.getString("getAbandonmentMessage");
-					String bye = "de_DE".equals(localeTag) ? S("Tschüss!", "") : S("Cheerio!", "");
+					String bye = "de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "");
 					speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
+					speech += "remember".equals(sessAttributes.get(PERSISTENCE))
+							? "Until " + s("the", "") + "next time. "
+							: "";
 
 					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))
 							&& !"launch".equals(sessAttributes.get(LASTINTENT))) {
