@@ -29,7 +29,6 @@ import java.util.Collections;
 import java.util.List;
 
 import listeners.handlers.InnerResponse;
-import listeners.model.Constants;
 
 public class SpeechUtils_de_DE extends SpeechUtils {
 
@@ -107,7 +106,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		speech += "was " + s("sollten", "würden") + "wir fühlen? "
 				+ s("was, sollten wir: " + breath() + "fühlen?", "");
 
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object askPersistence() {
@@ -328,7 +327,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				+ "dass wir sprechen. ";
 		speech += "Bitte " + s("versuchen Sie", "probieren Sie") + s("nochmals", "noch einmal")
 				+ "uns das zu sagen. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String exceptionMessage() {
@@ -446,7 +445,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		speech += s("more than", "") + "happy to " + s("keep on chaining", "chain") + "these words ";
 		speech += s("of yours", "") + "together for you, " + s("so long as", "if") + "you "
 				+ s(s("need", "want"), "ask") + "us to ‘continue’. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String helpCardTitle() {
@@ -593,7 +592,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		}
 		speech += "Sicherlich " + s("willst du uns", "bist du so weit getrieben worden, uns")
 				+ "zu verlassen? ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String repeatCardTitle() {
@@ -869,7 +868,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				}
 				break;
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object spkrsAffectIs() {
@@ -995,7 +994,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 						+ s("seems", "appears") + s(", to us.", ".");
 			}
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String thanksNoCardTitle() {
@@ -1010,17 +1009,22 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 	}
 
 	protected String startOverConfirmed() {
-		
+
 		// TODO
-		return s("OK.", "") + "We’re beginning " + s(s("all over", "") + "again.", "again from the top.");
+		return s("OK.", "") + "We’re beginning " + s(s("all over", "") + "again. ", "again from the top. ")
+				+ chooseContinue(false);
 	}
-	
+
 	protected String startOverDenied() {
-		
+
 		// TODO
-		return s("We’re still here, listening to you as before", "Still listening, as before.");
+		return s("We’re still here, listening " + s("to you as", ""), "Still listening as")
+				+ s("before.",
+						"before, and " + s("remembering", "recalling") + "some of what "
+								+ s("was said.", s("you", "we") + "felt."))
+				+ chooseContinue(false);
 	}
-	
+
 	protected InnerResponse thanksNo() {
 
 		// TODO

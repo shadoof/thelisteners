@@ -1,11 +1,10 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.attributes;
-import static listeners.model.Attributes.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.sessAttributes;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.breathLong;
-import static listeners.util.Utils.breathShort;
 import static listeners.util.Utils.s;
 
 public class DontLikeIntent_de_DE extends DontLikeIntent {
@@ -25,7 +24,8 @@ public class DontLikeIntent_de_DE extends DontLikeIntent {
 		String speech = "We are " + s(adjective, intensifier + adjective);
 		speech += "to " + s("know", "have learned") + "that you are "
 				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
-		return speech;
+		speech = String.format(speech, affect);
+		return speech + breath();
 	}
 
 }

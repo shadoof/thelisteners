@@ -1,10 +1,18 @@
 package listeners.handlers;
 
-import static listeners.model.Attributes.*;
-import static listeners.model.Constants.*;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.LASTINTENT;
+import static listeners.model.Attributes.LISTENERSAFFECT;
+import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.READSOFAR;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.DEV;
+import static listeners.model.Constants.DIALOG_INTENTS;
+import static listeners.model.Constants.NUMBER_OF_READABLES;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.locale;
+import static listeners.model.Constants.speechUtils;
 import static listeners.model.LangConstants.dateString;
-import static listeners.util.Utils.info;
 import static listeners.util.Utils.randInt;
 
 import java.util.MissingResourceException;
@@ -25,15 +33,15 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 	protected HandlerInput input;
 	protected IntentRequest intentRequest;
 	protected Intent intent;
-	protected String relationship;
+	protected String will;
 
-	LsnrsIntentResponse(HandlerInput input, String relationship) {
+	LsnrsIntentResponse(HandlerInput input, String will) {
 
 		this.input = input;
 		this.intentRequest = (IntentRequest) input.getRequestEnvelope()
 				.getRequest();
 		this.intent = intentRequest.getIntent();
-		this.relationship = relationship;
+		this.will = will;
 	}
 
 	@Override
@@ -48,7 +56,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 
 		// *** 4. ***
 		String preamble = "";
-		if ("firstEncounter".equals(relationship)) {
+		if ("firstEncounter".equals(will)) {
 			preamble = speechUtils.getString("getPreamble");
 			sessAttributes.put(PERSISTENCE, "session");
 		}
@@ -68,14 +76,14 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		
 		// filter out dialog intents
 		if (DIALOG_INTENTS.contains(intent.getName())) {
-			return new LsnrsDialogIntentResponse(input, relationship).getResponse();
+			return new LsnrsDialogIntentResponse(input, will).getResponse();
 		}
 		
 		// filter out slotted intents
 		// just for convenience
 		// since following kludge code does not apply to slotted intents
 		if (intent.getSlots() != null) {
-			return new LsnrsSlottedIntentResponse(input, relationship).getResponse();
+			return new LsnrsSlottedIntentResponse(input, will).getResponse();
 		}
 
 		// if we adhere to the convention that there are l10n class bundles
@@ -91,7 +99,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				// and must deal separately with intents that
 				// need to know where they are in the session, etc.
 				// NB: any firstEncounter preamble is NOT passed
-				return new LsnrsContinueIntentResponse(input, relationship).getResponse();
+				return new LsnrsContinueIntentResponse(input, will).getResponse();
 			}
 		}
 

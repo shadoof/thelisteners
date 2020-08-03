@@ -1,12 +1,14 @@
 package listeners.handlers;
 
 import static listeners.model.Constants.speechUtils;
-import listeners.util.ResponseFinisher;
+
+import java.util.Optional;
+
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
-import java.util.Optional;
+import listeners.util.ResponseFinisher;
 
 public class UnsupportedRequestHandler implements RequestHandler {
 

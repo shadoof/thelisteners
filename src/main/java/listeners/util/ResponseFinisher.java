@@ -46,7 +46,7 @@ public class ResponseFinisher {
 		reprompt = response.reprompt;
 		cardText = response.cardText;
 
-		info("@ResponseFinisher, interruptable: " + interruptable);
+		// info("@ResponseFinisher, interruptable: " + interruptable);
 		if (interruptable) {
 			// for interruptable responses
 			speech = insertInterruptions(speech);
@@ -230,7 +230,7 @@ public class ResponseFinisher {
 
 		} // if (insertGuyz) <guyz> tags are now all in the speech
 
-		return speech += breath();
+		return speech + breath();
 	}
 
 	private String[] cutOffSentence(String sentence) {

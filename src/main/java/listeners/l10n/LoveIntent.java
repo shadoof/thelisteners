@@ -1,8 +1,9 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
-import static listeners.util.Utils.*;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.s;
 
 public class LoveIntent extends L10nSpeech {
 
@@ -20,7 +21,7 @@ public class LoveIntent extends L10nSpeech {
 		speech += s("other", "") + s("relation with", "feeling for") + "you that we " + s("might", "could") + "have, " + s("apart from that of", "other than") + "love. ";
 		speech += "And the more we " + s("hear of", "listen to") + "you, " + s("the more we know about you,", "") + "the more we " + s("will", "") + "love you. ";
 		speech += s(breathShort() + "This seems " + s("obvious, to us.", "obvious."), "");
-		return speech += breath();
+		return speech + breath();
 	}
 	
 	protected Object[][] getContents() {

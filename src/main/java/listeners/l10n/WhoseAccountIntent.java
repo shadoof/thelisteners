@@ -23,7 +23,7 @@ public class WhoseAccountIntent extends L10nSpeech {
 						+ "then everything is sent, " + s("not only to the cloud, but", "") + "to our "
 						+ s("app.", "app, as configured by our artist."), "")
 				: "";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object[][] getContents() {

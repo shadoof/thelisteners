@@ -21,7 +21,7 @@ public class SpkrsLoveLsnrsIntent_en_US extends SpkrsLoveLsnrsIntent {
 				+ "that, the more time you spend with us, "
 				+ s("with us listening to you, " + breathShort(), "");
 		speech += "the " + s("cooler", "more " + s("caring", "lovely")) + "you will think we are. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

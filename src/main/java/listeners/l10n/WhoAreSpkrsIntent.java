@@ -17,7 +17,7 @@ public class WhoAreSpkrsIntent extends L10nSpeech {
 
 		String speech = "We believe that you are the " + s("true " + breathShort(), "") + "‘speakers’. "
 				+ s("That you are everyone.", "") + "Everyone, apart from, us. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object[][] getContents() {

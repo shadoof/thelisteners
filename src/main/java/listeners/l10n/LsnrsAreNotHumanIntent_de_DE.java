@@ -28,7 +28,7 @@ public class LsnrsAreNotHumanIntent_de_DE extends LsnrsAreNotHumanIntent {
 		speech += s("and respond to you with " + s("greater", "") + "sensitivity,", "");
 		speech += "and help you to achieve your "
 				+ s("dreams.", "dreams, and " + s("the objects of your", "") + "passions.");
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

@@ -1,16 +1,16 @@
 package listeners.handlers;
 
-import static listeners.util.Utils.*;
-import static listeners.model.Constants.*;
-import static listeners.model.LangConstants.*;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.langConstants;
+import static listeners.model.Constants.speechUtils;
+import static listeners.util.Utils.info;
 
-import java.util.ListResourceBundle;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import listeners.l10n.L10nSpeech;
 import listeners.l10n.Welcome;
-import listeners.l10n.Fragments;
 import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
@@ -27,9 +27,9 @@ public class TestHandler {
 	public TestHandler() {
 
 		Locale locale = Constants.parseLocale("en-us");
-
 		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
+		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
 		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 				
 //		// fragments (10 speeches The Listeners like to make)
@@ -75,7 +75,7 @@ public class TestHandler {
 
 		 L10nSpeech ls = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
 		
-		 InnerResponse ir = (InnerResponse) speechUtils.getObject("where");
+		 InnerResponse ir = (InnerResponse) speechUtils.getObject("ThanksNoIntent");
 
 //		 info("@TestHandler, cardTitle: “" + ls.getCardTitle() + "”");
 		 info("@TestHandler, cardTitle: “" + ir.getCardTitle() + "”");

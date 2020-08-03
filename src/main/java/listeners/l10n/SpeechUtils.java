@@ -129,7 +129,7 @@ public class SpeechUtils extends ListResourceBundle {
 		}
 		if (heads()) {
 			s = choosePhrase();
-			f = ("feeling".equals(s) ? s("breath", "dream") : s("feeling", "dream"));
+			f = ("feeling".equals(s) ? S("breath", "dream") : S("feeling", "dream"));
 			speech += "This is a " + s + SPC;
 			speech += breath() + "that was followed by a " + f + ". ";
 			speech += breathLonger();
@@ -142,7 +142,7 @@ public class SpeechUtils extends ListResourceBundle {
 		speech += breathLonger();
 		if (heads()) {
 			s = choosePhrase();
-			f = ("feeling".equals(s) ? s("breath", "dream") : s("feeling", "nightmare"));
+			f = ("feeling".equals(s) ? S("breath", "dream") : S("feeling", "nightmare"));
 			speech += "This is a " + s + SPC;
 			speech += breathLong() + "that was followed by a long " + f + ". ";
 			speech += breathLonger();
@@ -161,7 +161,7 @@ public class SpeechUtils extends ListResourceBundle {
 		speech += "what " + s("would", "should") + "we feel? "
 				+ s("what, should we. " + breath() + "feel?", "");
 
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object askPersistence() {
@@ -382,7 +382,7 @@ public class SpeechUtils extends ListResourceBundle {
 		String speech = "We are " + s("unclear about", "unsure, of") + "which " + s("fragment", "passage")
 				+ "you " + s("would like", "wish") + "to hear us speak. ";
 		speech += "Please " + s("try", "attempt") + s("once more", "again") + "to tell us. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String exceptionMessage() {
@@ -440,7 +440,7 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String getPreamble() {
 
 		String preamble = s("Unless we’re mistaken, this is", "This seems to be")
-				+ "your first encounter with ‘The Listeners’. ";
+				+ "your first encounter with ‘The Listeners’ Version 3. ";
 		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
 				+ "they listen. ";
 		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
@@ -463,7 +463,7 @@ public class SpeechUtils extends ListResourceBundle {
 					+ s("the " + s("voice of this other.", "other voice."),
 							"these other " + s("voices.", "guys."));
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String getReallyWantGuyzReprompt() {
@@ -505,7 +505,7 @@ public class SpeechUtils extends ListResourceBundle {
 		speech += s("more than", "") + "happy to " + s("keep on chaining", "chain") + "these words ";
 		speech += s("of yours", "") + "together for you, " + s("so long as", "if") + "you "
 				+ s(s("need", "want"), "ask") + "us to ‘continue’. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String moreGuyz() {
@@ -545,9 +545,9 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String noMoreGuyzSpeech() {
 
-		String[] variations = { "OK", "Understood.", "Wise.", "Prudent.", S("Well, w", "W") + "e’re still "
+		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W") + "e’re still "
 				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
-		return variations[randInt(0, variations.length - 1)];
+		return variations[randInt(0, variations.length - 1)] + chooseContinue(false);
 	}
 
 	protected String pathToGuyzAudio() {
@@ -559,8 +559,8 @@ public class SpeechUtils extends ListResourceBundle {
 
 		String speech = "It is a " + s("great", "") + "comfort for us to " + s("know", "be aware")
 				+ "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
-		speech += capitalize(word) + SPC + "is something that we believe " + s("everyone", "every human being")
-				+ "should " + s("be able to", "");
+		speech += capitalize(word) + SPC + "is something that we believe "
+				+ s("everyone", "every human being") + "should " + s("be able to", "");
 		speech += s(s("know.", "feel."), "dwell within.");
 		return speech;
 
@@ -633,7 +633,7 @@ public class SpeechUtils extends ListResourceBundle {
 			speech += s("Still:", "Even so:") + breath();
 		}
 		speech += "Do you " + s("truly", "really") + "want to " + s("abandon", "leave") + "us? ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String repeatCardTitle() {
@@ -906,7 +906,7 @@ public class SpeechUtils extends ListResourceBundle {
 				}
 				break;
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object spkrsAffectIs() {
@@ -1028,7 +1028,7 @@ public class SpeechUtils extends ListResourceBundle {
 						+ s("seems", "appears") + s(", to us.", ".");
 			}
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String thanksNoCardTitle() {
@@ -1044,12 +1044,17 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String startOverConfirmed() {
 
-		return s("OK.", "") + "We’re beginning " + s(s("all over", "") + "again.", "again from the top.");
+		return s("OK.", "") + "We’re beginning " + s(s("all over", "") + "again. ", "again from the top. ")
+				+ chooseContinue(false);
 	}
 
 	protected String startOverDenied() {
 
-		return s("We’re still here, listening to you as before", "Still listening, as before.");
+		return s("We’re still here, listening " + s("to you as", ""), "Still listening as")
+				+ s("before.",
+						"before, and " + s("remembering", "recalling") + "some of what "
+								+ s("was said.", s("you", "we") + "felt."))
+				+ chooseContinue(false);
 	}
 
 	protected InnerResponse thanksNo() {
@@ -1272,7 +1277,7 @@ public class SpeechUtils extends ListResourceBundle {
 			speech += s("But " + s("we suppose that", "") + "this cannot " + s("really", "") + "be helped. "
 					+ s("Can it?", ""), "");
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String whatsLsnrsAffectCardTitle() {

@@ -1,20 +1,12 @@
 package listeners.model;
 
-import static listeners.model.Constants.attributesManager;
-import static listeners.model.Constants.langConstants;
-import static listeners.model.Attributes.AFFECT_SLOT;
 import static listeners.util.Utils.randInt;
-import static listeners.util.Utils.info;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
-import com.amazon.ask.attributes.AttributesManager;
-import com.amazon.ask.model.Slot;
-
-import listeners.util.SessionMap;
 
 // keys, slot names, and constant values
 // for The Listeners session state
@@ -28,7 +20,6 @@ public class Attributes {
 
 	private Attributes(Locale locale) {
 
-		sessAttributes = initSessionAttributes();
 	}
 
 	// private Attributes(Locale locale, AttributesManager attributesManager) {
@@ -97,7 +88,7 @@ public class Attributes {
 		m.put(HEARDALLFRAGMENTS, false);
 		m.put(HEARDBREATHAFFECTS, false);
 		m.put(HEARDWELCOME, true); // TODO probably no longer needed
-		m.put(LASTINTENT, "");
+		m.put(LASTINTENT, "AMAZON.StopIntent");
 		ArrayList al;
 		String la = "";
 		if (LangConstants.AFFECTS_MAP != null) {
@@ -144,6 +135,23 @@ public class Attributes {
 			sessAttributes.put(affectKey, affect);
 		}
 		return affect;
+	}
+
+	public HashMap<String, Object> getValuesFrom(Map<String, Object> persAttributes) {
+
+		HashMap<String, Object> hm = new HashMap();
+		for (Map.Entry<String, Object> entry : persAttributes.entrySet()) {
+			String key = entry.getKey();
+			Object value = entry.getValue();
+			if (value instanceof BigDecimal) {
+				// info(key + ": " + ((BigDecimal) value).intValue());
+				hm.put(key, ((BigDecimal) value).intValue());
+			}
+			else
+				hm.put(key, value);
+		}
+
+		return hm;
 	}
 
 }

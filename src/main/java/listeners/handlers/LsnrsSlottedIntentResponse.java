@@ -1,23 +1,36 @@
 package listeners.handlers;
 
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.AFFECT_SLOT;
+import static listeners.model.Attributes.CHALLENGEDAFFECT;
+import static listeners.model.Attributes.FRAGMENTINDEX;
+import static listeners.model.Attributes.FRAGMENTLIST;
+import static listeners.model.Attributes.FRAGMENTNAME_SLOT;
+import static listeners.model.Attributes.LASTINTENT;
+import static listeners.model.Attributes.NOT_YET_GREETED;
+import static listeners.model.Attributes.PREVIOUSAFFECT;
+import static listeners.model.Attributes.THING;
+import static listeners.model.Attributes.THING_SLOT;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
+import static listeners.model.Constants.langConstants;
+import static listeners.model.Constants.speechUtils;
+import static listeners.model.LangConstants.PICTURE_WORDS;
+import static listeners.model.LangConstants.buildFragments;
+import static listeners.model.LangConstants.fragments;
+import static listeners.util.Utils.heads;
+import static listeners.util.Utils.randInt;
+
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
 import listeners.util.ResponseFinisher;
 import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
-
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
-import static listeners.util.Utils.*;
-import static listeners.model.LangConstants.*;
 
 public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
@@ -29,8 +42,6 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 	@Override
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
-		info("@LsnrsSlottedIntentResponse, intent name: " + intent.getName());
-
 		String affect = "";
 		InnerResponse ir;
 
@@ -38,7 +49,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 		switch (intentName) {
 			case "SpkrsAffectIsIntent":
 				affect = getFromSlot(AFFECT_SLOT);
-				info("@LsnrsSlottedIntentResponse, slot affect: " + affect);
+				// info("@LsnrsSlottedIntentResponse, slot affect: " + affect);
 
 				sessAttributes.put(AFFECT, affect);
 				// using SpeechUtils.getNewBundle() ensures refresh for affect
@@ -60,7 +71,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			case "SpkrsAffectIsNotIntent":
 				affect = (String) sessAttributes.get(AFFECT);
 				String challengedAffect = getFromSlot(AFFECT_SLOT);
-				info("@LsnrsSlottedIntentResponse, challengedAffect: " + challengedAffect);
+				// info("@LsnrsSlottedIntentResponse, challengedAffect: " + challengedAffect);
 				sessAttributes.put(CHALLENGEDAFFECT, challengedAffect);
 
 				speechUtils = SpeechUtils.getNewBundle();

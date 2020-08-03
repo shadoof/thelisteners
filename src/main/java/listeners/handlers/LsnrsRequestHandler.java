@@ -1,16 +1,28 @@
 package listeners.handlers;
 
-import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.requestType;
-import static listeners.model.Attributes.*;
-import static listeners.model.Constants.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.FRAGMENTINDEX;
+import static listeners.model.Attributes.LASTINTENT;
+import static listeners.model.Attributes.NOT_YET_GREETED;
+import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.persAttributes;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.DEV;
+import static listeners.model.Constants.LIVE;
+import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
+import static listeners.model.Constants.PERFORMANCE;
+import static listeners.model.Constants.WILL;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.attributesManager;
+import static listeners.model.Constants.langConstants;
+import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.S;
-import static listeners.util.Utils.s;
 import static listeners.util.Utils.info;
+import static listeners.util.Utils.s;
 
-import java.util.Iterator;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -27,13 +39,12 @@ import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
-import listeners.util.SessionMap;
 import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
 
 public class LsnrsRequestHandler implements RequestHandler {
 
-	// private static Logger LOG = getLogger(ListenersRequestHandler.class);
+	// private static Logger LOG = getLogger(LsnrsRequestHandler.class);
 
 	@Override
 	public boolean canHandle(HandlerInput input) {
@@ -60,12 +71,26 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 		// get the AttributesManager and put it in Constants
 		attributesManager = input.getAttributesManager();
+		persAttributes = attributesManager.getPersistentAttributes();
+
+		WILL = System.getenv("WILL");
+		if (WILL == null || WILL.isEmpty()) {
+			WILL = (String) persAttributes.get(PERSISTENCE);
+			// info("@LsnrsRequestHandler, persAttributes" + persAttributes);
+			// info("from persAttributes, PERSISTENCE:" + persAttributes.get(PERSISTENCE));
+			if (WILL == null && LIVE) {
+				// this is a firstEncounter measure
+				persAttributes.put(PERSISTENCE, "remember");
+				attributesManager.savePersistentAttributes();
+			}
+		}
+
+		info("@LsnrsRequestHandler, WILL: " + WILL); // only null on firstEncounter
+
 		// get singleton instance of Attributes and put it in Constants
 		attributes = Attributes.getInstance(locale);
 		// also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
-		// refresh speechUtils each time (cache is cleared after bundle is fetched)
-		speechUtils = SpeechUtils.getNewBundle();
 
 		// possibilities are
 		// *** 0. ask with either request
@@ -76,123 +101,158 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// *** 5. sessionStart intent request
 		// *** 6. normal intent request (most common)
 
-		persAttributes = attributesManager.getPersistentAttributes();
-		info("@LsnrsRequestHandler, pers persistence: " + persAttributes.get(PERSISTENCE));
-
-		if (persAttributes.isEmpty()) {
+		// determining session attributes
+		if (WILL == null || WILL.isEmpty()) {
 			// very first encounter 1. and 4.
-			sessAttributes = attributes.initSessionAttributes(); // needed when testing ..
-			// .. otherwise sessAttribute can be carried over *within* a session
-			attributesManager.setSessionAttributes(sessAttributes);
-			sessAttributes.put(PERSISTENCE, "firstEncounter");
-			persAttributes.put(PERSISTENCE, "forget");
-			attributesManager.savePersistentAttributes();
-		}
-		else if ("forget".equals(persAttributes.get(PERSISTENCE))) {
 			sessAttributes = attributes.initSessionAttributes();
-			sessAttributes.put(LASTINTENT, "AskPersistenceIntent");
-			attributesManager.setSessionAttributes(sessAttributes);
-			sessAttributes.put(PERSISTENCE, "session");
+			WILL = "firstEncounter";
 		}
-		else if ("remember".equals(persAttributes.get(PERSISTENCE))) {
-			// retrieve what was saved from the last session
-			attributesManager.setSessionAttributes(persAttributes);
-			// session persistence is changed later:
-			// after launch or if the invocation is any intent
+		else if ("remember".equals(WILL) || "ask".equals(WILL)) {
+			// either retrieve what was saved from the last closed session
+			// or use what is there if still in the same session
+			if (sessAttributes == null) sessAttributes = attributes.getValuesFrom(persAttributes);
 		}
-		else if ("ask".equals(persAttributes.get(PERSISTENCE))) {
-			// persistence will be "ask" at beginning of the session
-			// info("@lsnrsRequestHandler, pers persistence is ‘ask’:"
-			// + "ask".equals(persAttributes.get(PERSISTENCE)));
-
-			attributesManager.setSessionAttributes(persAttributes);
-
-			info("@lsnrsRequestHandler, session persistence is ‘ask’:"
-					+ "ask".equals(sessAttributes.get(PERSISTENCE)));
+		else if ("forget".equals(WILL)) {
+			// when forget is set, initialized attributes
+			// have been persisted, so
+			// only initialize again if they are null for some reason
+			if (sessAttributes == null) {
+				sessAttributes = attributes.initSessionAttributes();
+				persAttributes.put(PERSISTENCE, "forget");
+				attributesManager.savePersistentAttributes();
+			}
 		}
-		else if (!"session".equals(persAttributes.get(PERSISTENCE))) {
-			info("@lsnrsRequestHandler, bad persistent state: " + persAttributes.get(PERSISTENCE));
-		}
-
-		persAttributes.put(PERSISTENCE, "session");
-		attributesManager.savePersistentAttributes();
-
 		attributesManager.setSessionAttributes(sessAttributes);
 
-		info("@ListenersRequestHandler, sess persistence: " + sessAttributes.get(PERSISTENCE));
+		// speechUtils cannot be fetched until
+		// sessAttributes are initialized or retrieved
+		// refresh speechUtils each time (cache is also cleared)
+		speechUtils = SpeechUtils.getNewBundle();
 
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
+			info("@LsnrsRequestHandler, LaunchRequest");
 			return new LsnrsLaunchResponse(input).getResponse();
 		}
 		else {
 			// ANY Intent request
 			// deal with AMAZON built-in intents here
-			if ("remember".equals(sessAttributes.get(PERSISTENCE)))
-				sessAttributes.put(PERSISTENCE, "session");
-			String intentName = ((IntentRequest) input.getRequestEnvelope()
-					.getRequest()).getIntent()
-							.getName();
+			Intent intent = ((IntentRequest) input.getRequestEnvelope()
+					.getRequest()).getIntent();
+			String intentName = intent.getName();
+			info("@LsnrsRequestHandler, IntentRequest: " + intentName);
 			InnerResponse ir;
+			ResponseFinisher rf;
 			String cardTitle = "";
 			String speech = "";
 			String reprompt = speechUtils.getString("chooseContinue");
-			boolean match = false, endSession = false;
+			boolean match, endSession = false;
 			switch (intentName) {
-				case "AMAZON.HelpIntent":
-					cardTitle = speechUtils.getString("helpCardTitle");
-					speech = speechUtils.getString("chooseSpeechAssistance");
-					match = true;
-					break;
-				case "AMAZON.RepeatIntent":
-					cardTitle = speechUtils.getString("repeatCardTitle");
-					int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
-					if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
-						// build variant fragments just before they’re needed:
-						langConstants.buildFragments();
-						speech = langConstants.fragments[fragmentIndex]
-								+ speechUtils.getString("chooseContinueNoAffect");
-					}
-					else {
-						Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
-						speech = ws.getSpeech() + speechUtils.getString("chooseContinueNoAffect");
-					}
-					match = true;
-					break;
 				case "AMAZON.StopIntent":
 				case "AMAZON.CancelIntent":
-					cardTitle = "de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.")
-							: S("That’s e", "E") + "nough";
-					speech = speechUtils.getString("getAbandonmentMessage");
+					// set up response
+					ir = new InnerResponse();
+					ir.setCardTitle(
+							"de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.") : S("That’s e", "E") + "nough");
+					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
 					String bye = "de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "");
-					speech += attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : "";
-					speech += "remember".equals(sessAttributes.get(PERSISTENCE))
+					ir.setSpeech(
+							ir.getSpeech() + (attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
+					ir.setSpeech(ir.getSpeech() + ("remember".equals(sessAttributes.get(PERSISTENCE))
 							? "Until " + s("the", "") + "next time. "
-							: "";
+							: ""));
 
-					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))
-							&& !"launch".equals(sessAttributes.get(LASTINTENT))) {
+					endSession = true;
+					match = true;
+
+					// check to see if we came here directly
+					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
 						info("@LsnrsRequestHandler: direct Stop or Cancel ‘ask’ persistence next time ...");
-						// on STOP or CANCEL we set relationship to "ask"
-						sessAttributes.put(LASTINTENT, intentName);
+
+						// on direct STOP or CANCEL we set relationship to "ask"
 						sessAttributes.put(PERSISTENCE, "ask");
-						attributesManager.setPersistentAttributes(sessAttributes);
+
+						// this is only used for testing, simulating nothing persisted
+						// usually environment vars are: LIVE true and WILL empty
+						// to clear persistence:
+						// 1. set LIVE false and WILL forget
+						// 2. one AMAZON.StopIntent
+						// 3. set LIVE true and WILL empty
 						if (!LIVE) {
 							info("@LsnrsRequestHandler: ... but LIVE was false and persistence has been cleared");
 							// adjust if needed when developing
 							persAttributes.clear();
 							attributesManager.setPersistentAttributes(persAttributes);
+							attributesManager.savePersistentAttributes();
+							break;
 						}
-						attributesManager.savePersistentAttributes();
 					}
-					endSession = true;
+					// got her from AskPersistence:
+					else {
+						if ("forget".equals(sessAttributes.get(PERSISTENCE))) {
+							sessAttributes = attributes.initSessionAttributes();
+							sessAttributes.put(PERSISTENCE, "forget");
+						}
+					}
+					// this is the only place to savePersistentAttributes
+					sessAttributes.put(LASTINTENT, intentName);
+					attributesManager.setPersistentAttributes(sessAttributes);
+					info("@StopIntent, shld be saving persistents with: " + sessAttributes.get(PERSISTENCE));
+					attributesManager.savePersistentAttributes();
+					break;
+				case "AMAZON.StartOverIntent":
+
+					ir = (InnerResponse) speechUtils.getObject("AskStartOverIntent");
+					rf = ResponseFinisher.builder()
+							.withSpeech(ir.getSpeech())
+							.build();
+
+					if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
+						return input.getResponseBuilder()
+								.addConfirmIntentDirective(intent)
+								.withSpeech(rf.getSpeech())
+								.build();
+					}
+					else if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
+						sessAttributes = attributes.initSessionAttributes();
+						attributesManager.setSessionAttributes(sessAttributes);
+						ir.setSpeech(speechUtils.getString("startOverConfirmed"));
+					}
+					else {
+						ir.setSpeech(speechUtils.getString("startOverDenied"));
+					}
 					match = true;
 					break;
+				case "AMAZON.HelpIntent":
+					ir = new InnerResponse(speechUtils.getString("helpCardTitle"),
+							speechUtils.getString("chooseSpeechAssistance"));
+					match = true;
+					break;
+				case "AMAZON.RepeatIntent":
+					ir = new InnerResponse();
+					ir.setCardTitle(speechUtils.getString("repeatCardTitle"));
+					int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
+					if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
+						// build variant fragments just before they’re needed:
+						langConstants.buildFragments();
+						ir.setSpeech(langConstants.fragments[fragmentIndex]
+								+ speechUtils.getString("chooseContinueNoAffect"));
+					}
+					else {
+						Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
+						ir.setSpeech(ws.getSpeech() + speechUtils.getString("chooseContinueNoAffect"));
+					}
+					match = true;
+					break;
+				default:
+					match = false;
+					ir = null;
 			}
+
 			if (match) {
-				ResponseFinisher rf = ResponseFinisher.builder()
-						.withSpeech(speech)
-						.withReprompt(reprompt)
+				rf = ResponseFinisher.builder()
+						.withSpeech(ir.getSpeech())
+						.withReprompt(ir.getReprompt())
 						.build();
 				sessAttributes.put(LASTINTENT, intentName);
 				return input.getResponseBuilder()
@@ -205,7 +265,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			// ALL other modeled or Unknown intents
 			try {
 				// *** 4. 5. and 6. ***
-				return new LsnrsIntentResponse(input, (String) sessAttributes.get(PERSISTENCE)).getResponse();
+				return new LsnrsIntentResponse(input, WILL).getResponse();
 			}
 			catch (UnknownIntentException e) {
 				info("@LsnrsRequestHandler, UnknownIntentException: " + e.getMessage());

@@ -19,7 +19,7 @@ public class WhereIntent_de_DE extends WhereIntent {
 		speech += "We are in the cloud. " + s(s("Or", "Or, perhaps,") + "in the clouds.",
 				"Or, perhaps, " + s("a bunker.", s("it is a silo.", "they are silos."))) + breathShort();
 		speech += s("And " + s("sometimes", "") + "‘John’ is here, with us.", "");
-		return speech += breath();
+		return speech + breath();
 	}
 	
 }

@@ -19,6 +19,7 @@ public class Constants {
 	public static boolean DEV = true;
 	public static boolean LIVE = false;
 	public static boolean PERFORMANCE = false;
+	public static String WILL = "";
 
 	// version information
 	// 2.2.2 - first release with differentation of other Englishes

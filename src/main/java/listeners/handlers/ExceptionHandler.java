@@ -1,16 +1,25 @@
 package listeners.handlers;
 
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.langConstants;
+import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import org.slf4j.Logger;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
 
+import listeners.model.Attributes;
+import listeners.model.Constants;
+import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
 
 public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.ExceptionHandler {
@@ -29,6 +38,14 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 		LOG.error("Error message is " + throwable.getMessage());
 		info("Cause: " + throwable.getCause());
 		throwable.printStackTrace();
+		
+		if (locale == null) {
+			Locale l = Constants.parseLocale("en-gb");
+		}
+		attributes = Attributes.getInstance(locale);
+		langConstants = LangConstants.getInstance(locale);
+		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
+		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 		
 		ResponseFinisher rf = ResponseFinisher.builder()
 				.withSpeech(speechUtils.getString("exceptionMessage"))

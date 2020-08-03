@@ -31,7 +31,7 @@ public class SpkrsLoveLsnrsIntent extends L10nSpeech {
 				+ s("with us listening to you, " + breathShort(), "") + "the more ";
 		speech += s("delight you will take " + s(breathShort(), "") + "in us.", "love you will have "
 				+ s(breathShort(), "") + "for us. " + s(breathShort() + "And we, for you.", ""));
-		return speech += breath();
+		return speech + breath();
 	}
 	
 	public String getReprompt() {

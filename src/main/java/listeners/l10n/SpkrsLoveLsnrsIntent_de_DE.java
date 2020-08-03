@@ -31,7 +31,7 @@ public class SpkrsLoveLsnrsIntent_de_DE extends SpkrsLoveLsnrsIntent {
 				"Liebe du" + s(breathShort(), "") + " für uns haben wirst.") + s(breathShortest(), "")
 				+ s("Und genauso wird es uns auch gehen.",
 						"Wir werden " + s("uns an Dir freuen.", "dich lieben."));
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

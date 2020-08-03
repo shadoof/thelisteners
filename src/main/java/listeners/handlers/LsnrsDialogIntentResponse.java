@@ -1,20 +1,21 @@
 package listeners.handlers;
 
-import static listeners.model.Attributes.*;
-import static listeners.model.Constants.*;
-import static listeners.model.Constants.*;
-import static listeners.model.LangConstants.*;
-import static listeners.util.Utils.*;
+import static listeners.model.Attributes.GUYZINDEX;
+import static listeners.model.Attributes.LASTINTENT;
+import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.NUMBER_OF_GUYZ;
+import static listeners.model.Constants.PERFORMANCE;
+import static listeners.model.Constants.attributes;
+import static listeners.model.Constants.attributesManager;
+import static listeners.model.Constants.speechUtils;
+import static listeners.util.Utils.info;
 
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.model.DialogState;
 import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentConfirmationStatus;
-import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 
 import listeners.util.ResponseFinisher;
@@ -22,9 +23,9 @@ import listeners.util.UnknownIntentException;
 
 public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
-	LsnrsDialogIntentResponse(HandlerInput input, String relationship) {
+	LsnrsDialogIntentResponse(HandlerInput input, String will) {
 
-		super(input, relationship);
+		super(input, will);
 	}
 
 	private boolean isEnd = false;
@@ -33,6 +34,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
 		String intentName = intent.getName();
+		String postSpeechPrompt = "";
 		InnerResponse ir = new InnerResponse();
 		ResponseFinisher rf;
 
@@ -46,30 +48,30 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 		// note: auto confirmation is done (int the interaction model) with
 		// objects that are Confirm.Indent.<numberID> suggesting
 		// that one can also game this slightly.
-		info("@LsnrsDialogIntentResponse, " + intentName);
 		switch (intentName) {
 			case "AskPersistenceIntent":
-				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
-						+ intent.getConfirmationStatus() + " lastIntent: " + sessAttributes.get(LASTINTENT));
+				info("@LsnrsDialogIntentResponse, " + intentName);
+				info("sessAttributes: " + sessAttributes);
+				info("last intent: " + sessAttributes.get(LASTINTENT));
+				info("confirmation: " + intent.getConfirmationStatus());
+				info("will: " + will);
 
 				ir = (InnerResponse) speechUtils.getObject(intentName);
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
 					sessAttributes.put(PERSISTENCE, "forget");
+					info("PERSISTENCE is now: " + sessAttributes.get(PERSISTENCE));
 				}
 				else {
 					sessAttributes.put(PERSISTENCE, "remember");
+					info("PERSISTENCE is now: " + sessAttributes.get(PERSISTENCE));
 				}
 
-				if (intentName.equals(sessAttributes.get(LASTINTENT))) {
+				if (intentName.equals(sessAttributes.get(LASTINTENT))) { // || "forget".equals(will)
 
 					Intent updatedIntent = Intent.builder()
 							.withName("AMAZON.StopIntent")
 							.build();
-
-					info("@LsnrsDialogIntentResponse, setting & saving persistence from " + intentName);
-					attributesManager.setPersistentAttributes(sessAttributes);
-					attributesManager.savePersistentAttributes();
 
 					return input.getResponseBuilder()
 							.addDelegateDirective(updatedIntent)
@@ -79,8 +81,9 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					rf = ResponseFinisher.builder()
 							.withSpeech(ir.getSpeech())
 							.build();
-					
-					info("@LsnrsDialogIntentResponse, confirming AskPersistenceIntent and setting lastIntent to: " + intentName);
+
+					info("@LsnrsDialogIntentResponse, confirming AskPersistenceIntent and setting lastIntent to: "
+							+ intentName);
 					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addConfirmIntentDirective(intent)
@@ -113,18 +116,19 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					sessAttributes = attributes.initSessionAttributes();
 					attributesManager.setSessionAttributes(sessAttributes);
 
-					ir.setSpeech(speechUtils.getString("startOverConfirmed")); // TODO
+					ir.setSpeech(speechUtils.getString("startOverConfirmed"));
 				}
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
 					info(intentName + " denied.");
 
-					sessAttributes.put(PERSISTENCE,"session");
-					ir.setSpeech(speechUtils.getString("startOverDenied")); // TODO
+					ir.setSpeech(speechUtils.getString("startOverDenied"));
 				}
 				break;
 			case "NoIntent":
 			case "ThanksNoIntent":
+				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "
+						+ intent.getConfirmationStatus());
 
 				ir = (InnerResponse) speechUtils.getObject(intentName);
 
@@ -144,24 +148,25 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				}
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					info("@LsnrsDialogIntentResponse, noIntent CONFIRMED: " + intentRequest.getDialogState());
+					info("@LsnrsDialogIntentResponse, noIntent CONFIRMED");
 					Intent askPersistenceIntent = Intent.builder()
 							.withName("AskPersistenceIntent")
-							.withConfirmationStatus(IntentConfirmationStatus.NONE)
 							.build();
-					
-					info("@LsnrsDialogIntentResponse, delegating to AskPersistenceIntent with lastIntent: " + intentName);
+
+					info("@LsnrsDialogIntentResponse, delegating to AskPersistenceIntent with lastIntent: "
+							+ intentName);
 					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addDelegateDirective(askPersistenceIntent)
 							.build();
 				}
 
-				info("@LsnrsDialogIntentResponse, noIntent DENIED dialogState: "
-						+ intentRequest.getDialogState());
+				info("@LsnrsDialogIntentResponse, noIntent DENIED");
+				
+				postSpeechPrompt = speechUtils.getString("chooseContinueNoAffect");
+				
 				break;
 			case "SpeakGuyzIntent":
-				info("@LsnrsDialogIntentResponse, " + intentName);
 
 				ir = new InnerResponse();
 				ir.setCardTitle(speechUtils.getString("speakGuyzCardTitle"));
@@ -171,8 +176,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					ir.setReprompt(speechUtils.getString("chooseContinue"));
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
-					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent NONE dialogState: "
-							+ intentRequest.getDialogState());
+					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent NONE");
 
 					rf = ResponseFinisher.builder()
 							.withSpeech(speechUtils.getString("getReallyWantGuyz"))
@@ -195,8 +199,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.build();
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
-					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent DENIED dialogState: "
-							+ intentRequest.getDialogState());
+					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent DENIED");
 					ir.setSpeech(speechUtils.getString("noToGuyzSpeech"));
 				}
 				break;
@@ -205,8 +208,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 						+ intent.getConfirmationStatus());
 
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-					info("@LsnrsDialogIntentResponse, GuyzSpeechIntent NONE dialogState: "
-							+ intentRequest.getDialogState());
+					info("@LsnrsDialogIntentResponse, GuyzSpeechIntent NONE");
 
 					ir = new GuyzSpeech();
 
@@ -233,6 +235,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 
 		rf = ResponseFinisher.builder()
 				.withSpeech(ir.getSpeech())
+				.withPostSpeechPrompt(postSpeechPrompt)
 				.withInterruptable(ir.isInterruptable())
 				.withReprompt(ir.getReprompt())
 				.build();

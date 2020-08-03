@@ -26,7 +26,7 @@ public class WhoWhatIntent extends L10nSpeech {
 				+ s(breathShort() + "listen. " + breathShort(),
 						"are listening" + s(", " + breathShort(), SPC) + "to you.");
 		speech += s(breath() + "Here and now.", "") + s(breath() + "Perhaps, forever.", ""); // ALWAYCHANGE - s(breath() + "Always.", "") +
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object[][] getContents() {

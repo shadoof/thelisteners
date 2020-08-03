@@ -7,20 +7,27 @@ import static listeners.model.Attributes.LISTENERSAFFECT;
 import static listeners.model.Attributes.PREVIOUSAFFECT;
 import static listeners.model.Attributes.THING;
 import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.SPC;
+import static listeners.model.Constants.attributes;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.model.LangConstants.ALL_AFFECTS;
 import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 import static listeners.model.LangConstants.SPECIAL_THINGS;
-import static listeners.model.Constants.SPC;
-import static listeners.model.Constants.attributes;
-import static listeners.util.Utils.*;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathLong;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.capitalize;
+import static listeners.util.Utils.heads;
+import static listeners.util.Utils.phonemic;
+import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.s;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import listeners.handlers.InnerResponse;
-import listeners.model.Constants;
 
 public class SpeechUtils_en_US extends SpeechUtils {
 
@@ -146,7 +153,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String speech = s("We don’t know", "We’re unsure about") + "which " + s("fragment", "passage")
 				+ s("you would like", "you’d like") + "to " + s("hear us speak.", "hear.");
 		speech += "Please " + s("try again.", s("tell us.", "repeat what you said."));
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String getAbandonmentMessage() {
@@ -189,7 +196,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		speech += s("more than", "") + "happy to keep on churning out these words ";
 		speech += s("of yours", "") + s("so long as", "if") + "you " + s(s("need", "want"), "ask")
 				+ "us to ‘continue’. ";
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String noMoreGuyzSpeech() {
@@ -267,7 +274,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			speech += s("But:", "Even so:") + breath();
 		}
 		speech += "Do you really " + s("want to", "feel like you should") + s("leave", "abandon") + "us? ";
-		return speech += breath();
+		return speech + breath();
 	}
 	
 	protected String specificAffectSpeech() {
@@ -513,7 +520,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				}
 				break;
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object spkrsAffectIs() {
@@ -619,7 +626,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ s("for " + s("you, we feel like.", "you."), "for you.");
 			}
 		}
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected String tiredSpeech() {

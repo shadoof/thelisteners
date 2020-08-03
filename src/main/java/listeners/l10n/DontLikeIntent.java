@@ -1,12 +1,15 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
-import static listeners.util.Utils.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.speechUtils;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathLong;
+import static listeners.util.Utils.heads;
+import static listeners.util.Utils.s;
 
 public class DontLikeIntent extends L10nSpeech {
-
-	String affect = "";
 
 	public Object[][] contents = { { "cardTitle", buildCardTitle() }, { "speech", buildSpeech() } };
 
@@ -15,15 +18,16 @@ public class DontLikeIntent extends L10nSpeech {
 		return S("You don’t like us?", "Don’t you love us?");
 	}
 
-	public void buildAffect() {
+	public String buildAffect() {
 
-		affect = S(S("hate", S("anger", "anxiety")), S("hatred", "disgust"));
+		String affect = S(S("hate", S("anger", "anxiety")), S("hatred", "disgust"));
 		sessAttributes.put(AFFECT, affect);
+		return affect;
 	}
 
 	public String buildSpeech() {
 
-		buildAffect();
+		String affect = buildAffect();
 		String adjective = s("sorry", "dismayed");
 		String intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
 		String speech = "We are " + s(adjective, intensifier + adjective);

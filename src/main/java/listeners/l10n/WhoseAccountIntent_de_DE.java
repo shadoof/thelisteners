@@ -21,7 +21,7 @@ public class WhoseAccountIntent_de_DE extends WhoseAccountIntent {
 						+ "then everything is sent, " + s("not only to the cloud, but", "") + "to our "
 						+ s("app.", "app, as configured by our artist."), "")
 				: "";
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

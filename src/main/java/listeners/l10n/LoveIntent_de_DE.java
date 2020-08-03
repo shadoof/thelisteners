@@ -28,7 +28,7 @@ public class LoveIntent_de_DE extends LoveIntent {
 						+ "und desto mehr werden wir dich lieben.");
 		speech += s(breathShort() + s("Das ist " + s("uns", "") + "klar.", ""),
 				"Das scheint offensichtlich zu sein.");
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

@@ -23,7 +23,7 @@ public class WhoWhatIntent_de_DE extends WhoWhatIntent {
 						"are listening" + s(", " + breathShort(), SPC) + "to you.");
 		// ALWAYCHANGE - s(breath() + "Always.", "") +
 		speech += s(breath() + "Here and now.", "") + s(breath() + "Perhaps, forever.", "");
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

@@ -1,23 +1,31 @@
 package listeners.handlers;
 
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.FRAGMENTINDEX;
+import static listeners.model.Attributes.FRAGMENTLIST;
+import static listeners.model.Attributes.HEARDALLFRAGMENTS;
+import static listeners.model.Attributes.HEARDBREATHAFFECTS;
+import static listeners.model.Attributes.LASTINTENT;
+import static listeners.model.Attributes.NOT_YET_GREETED;
+import static listeners.model.Attributes.THING;
+import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
+import static listeners.model.Constants.VERSE;
+import static listeners.model.Constants.speechUtils;
+import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
+import static listeners.model.LangConstants.buildFragments;
+import static listeners.model.LangConstants.fragments;
+import static listeners.util.Utils.heads;
+import static listeners.util.Utils.randInt;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
-import com.amazon.ask.model.DialogState;
-import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.Response;
 
 import listeners.util.ResponseFinisher;
-import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
-
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
-import static listeners.util.Utils.*;
-import static listeners.model.LangConstants.buildFragments;
-import static listeners.model.LangConstants.fragments;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 
 public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
 
@@ -150,7 +158,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 			ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
 			if ((al.size() >= NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
 				setInterruptable(false);
-				info("@NextFragmentResponse, setting up heard all");
+				// info("@NextFragmentResponse, setting up heard all");
 				setSpeech(speechUtils.getString("heardAllFragments"));
 
 				// this used to be a trigger that ended the session below

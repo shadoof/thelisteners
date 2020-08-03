@@ -24,7 +24,7 @@ public class LsnrsAreNotListeningIntent_de_DE extends LsnrsAreNotListeningIntent
 						s("us.", "us. " + breathShort() + "Better.")),
 				"");
 		speech += ResourceBundle.getBundle("listeners.l10n.LsnrsAreNotHumanIntent", locale).getString("speech");
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

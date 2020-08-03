@@ -15,7 +15,7 @@ public class LoveIntent_en_US extends LoveIntent {
 		speech += s("We feel like", "And") + "the more we " + s("hear about", "listen to") + "you, "
 				+ s("the more we know about you,", "") + "the more " + s("we’ll", "we") + "love you. ";
 		speech += s(breathShort() + "This feels " + s("obvious, to us.", "like it’s obvious."), "");
-		return speech += breath();
+		return speech + breath();
 	}
 
 }

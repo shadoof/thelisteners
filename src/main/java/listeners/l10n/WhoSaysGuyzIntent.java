@@ -20,7 +20,7 @@ public class WhoSaysGuyzIntent extends L10nSpeech {
 		if (randInt(0, 2) > 0) speech += "We " + s(s("trust", "are confident"), "hope")
 				+ "that you will not " + s("listen", "pay any heed") + "to "
 				+ s("this other voice.", s("these", "") + "other voices.");
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object[][] getContents() {

@@ -25,7 +25,7 @@ public class LsnrsAreNotListeningIntent extends L10nSpeech {
 						s("us.", "us. " + breathShort() + "Better.")),
 				"");
 		speech += ResourceBundle.getBundle("listeners.l10n.LsnrsAreNotHumanIntent", locale).getString("speech");
-		return speech += breath();
+		return speech + breath();
 	}
 
 	protected Object[][] getContents() {
