@@ -81,10 +81,6 @@ public class LsnrsLaunchResponse implements LsnrsResponse {
 					.build();
 			info("@Launch, trying to delegate: ");
 			return input.getResponseBuilder()
-					// NB: this does not work:
-					// .addDelegateDirective(Intent.builder()
-					// .withName("AMAZON.StartOverIntent")
-					// .build())
 					.addDelegateDirective(ask)
 					.withSpeech(rf.getSpeech())
 					.build();

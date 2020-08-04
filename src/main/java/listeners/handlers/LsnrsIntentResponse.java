@@ -34,6 +34,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 	protected IntentRequest intentRequest;
 	protected Intent intent;
 	protected String will;
+	protected String intentName;
 
 	LsnrsIntentResponse(HandlerInput input, String will) {
 
@@ -41,6 +42,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		this.intentRequest = (IntentRequest) input.getRequestEnvelope()
 				.getRequest();
 		this.intent = intentRequest.getIntent();
+		this.intentName = intent.getName();
 		this.will = will;
 	}
 
@@ -75,7 +77,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		}
 		
 		// filter out dialog intents
-		if (DIALOG_INTENTS.contains(intent.getName())) {
+		if (DIALOG_INTENTS.contains(intentName)) {
 			return new LsnrsDialogIntentResponse(input, will).getResponse();
 		}
 		
@@ -91,7 +93,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		// we just load a bundle with the intent.getName():
 		L10nSpeech ls = null;
 		try {
-			ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intent.getName(), locale);
+			ls = (L10nSpeech) ResourceBundle.getBundle("listeners.l10n." + intentName, locale);
 		}
 		catch (Exception e) {
 			if (e instanceof MissingResourceException) {
@@ -113,9 +115,9 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				.build();
 
 		// while developing replace cardTitle with intentName - dated
-		String ct = DEV ? intent.getName() + " - " + dateString : ls.getCardTitle();
+		String ct = DEV ? intentName + " - " + dateString : ls.getCardTitle();
 
-		sessAttributes.put(LASTINTENT, intent.getName());
+		sessAttributes.put(LASTINTENT, intentName);
 		return input.getResponseBuilder()
 				.withSpeech(rf.getSpeech())
 				.withReprompt(rf.getReprompt())

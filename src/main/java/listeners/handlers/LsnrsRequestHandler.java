@@ -132,129 +132,147 @@ public class LsnrsRequestHandler implements RequestHandler {
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
 			info("@LsnrsRequestHandler, LaunchRequest");
+			if ("ask".equals(WILL)) {
+				Intent launchAsk = Intent.builder()
+						.withName("LaunchAskIntent")
+						.build();
+				return input.getResponseBuilder()
+						.addDelegateDirective(launchAsk)
+						.withSpeech("delegating to: LaunchAskIntent")
+						.build();
+			}
 			return new LsnrsLaunchResponse(input).getResponse();
 		}
 		else {
 			// ANY Intent request
-			// deal with AMAZON built-in intents here
-			Intent intent = ((IntentRequest) input.getRequestEnvelope()
-					.getRequest()).getIntent();
-			String intentName = intent.getName();
-			info("@LsnrsRequestHandler, IntentRequest: " + intentName);
-			InnerResponse ir;
-			ResponseFinisher rf;
-			String cardTitle = "";
-			String speech = "";
-			String reprompt = speechUtils.getString("chooseContinue");
-			boolean match, endSession = false;
-			switch (intentName) {
-				case "AMAZON.StopIntent":
-				case "AMAZON.CancelIntent":
-					// set up response
-					ir = new InnerResponse();
-					ir.setCardTitle(
-							"de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.") : S("That’s e", "E") + "nough");
-					ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
-					String bye = "de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "");
-					ir.setSpeech(
-							ir.getSpeech() + (attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
-					ir.setSpeech(ir.getSpeech() + ("remember".equals(sessAttributes.get(PERSISTENCE))
-							? "Until " + s("the", "") + "next time. "
-							: ""));
-
-					endSession = true;
-					match = true;
-
-					// check to see if we came here directly
-					if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
-						info("@LsnrsRequestHandler: direct Stop or Cancel ‘ask’ persistence next time ...");
-
-						// on direct STOP or CANCEL we set relationship to "ask"
-						sessAttributes.put(PERSISTENCE, "ask");
-
-						// this is only used for testing, simulating nothing persisted
-						// usually environment vars are: LIVE true and WILL empty
-						// to clear persistence:
-						// 1. set LIVE false and WILL forget
-						// 2. one AMAZON.StopIntent
-						// 3. set LIVE true and WILL empty
-						if (!LIVE) {
-							info("@LsnrsRequestHandler: ... but LIVE was false and persistence has been cleared");
-							// adjust if needed when developing
-							persAttributes.clear();
-							attributesManager.setPersistentAttributes(persAttributes);
-							attributesManager.savePersistentAttributes();
-							break;
-						}
-					}
-					// got her from AskPersistence:
-					else {
-						if ("forget".equals(sessAttributes.get(PERSISTENCE))) {
-							sessAttributes = attributes.initSessionAttributes();
-							sessAttributes.put(PERSISTENCE, "forget");
-						}
-					}
-					// this is the only place to savePersistentAttributes
-					sessAttributes.put(LASTINTENT, intentName);
-					attributesManager.setPersistentAttributes(sessAttributes);
-					info("@StopIntent, shld be saving persistents with: " + sessAttributes.get(PERSISTENCE));
-					attributesManager.savePersistentAttributes();
-					break;
-				case "AMAZON.StartOverIntent":
-
-					ir = (InnerResponse) speechUtils.getObject("AskStartOverIntent");
-					rf = ResponseFinisher.builder()
-							.withSpeech(ir.getSpeech())
-							.build();
-
-					if (intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
-						return input.getResponseBuilder()
-								.addConfirmIntentDirective(intent)
-								.withSpeech(rf.getSpeech())
-								.build();
-					}
-					else if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-						sessAttributes = attributes.initSessionAttributes();
-						attributesManager.setSessionAttributes(sessAttributes);
-						ir.setSpeech(speechUtils.getString("startOverConfirmed"));
-					}
-					else {
-						ir.setSpeech(speechUtils.getString("startOverDenied"));
-					}
-					match = true;
-					break;
-				case "AMAZON.HelpIntent":
-					ir = new InnerResponse(speechUtils.getString("helpCardTitle"),
-							speechUtils.getString("chooseSpeechAssistance"));
-					match = true;
-					break;
-				case "AMAZON.RepeatIntent":
-					ir = new InnerResponse();
-					ir.setCardTitle(speechUtils.getString("repeatCardTitle"));
-					int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
-					if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
-						// build variant fragments just before they’re needed:
-						langConstants.buildFragments();
-						ir.setSpeech(langConstants.fragments[fragmentIndex]
-								+ speechUtils.getString("chooseContinueNoAffect"));
-					}
-					else {
-						Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
-						ir.setSpeech(ws.getSpeech() + speechUtils.getString("chooseContinueNoAffect"));
-					}
-					match = true;
-					break;
-				default:
-					match = false;
-					ir = null;
+			// dealing with AMAZON built-in intents
+			// and some others here:
+			LsnrsIntentResponse lir = new LsnrsIntentResponse(input, WILL);
+			info("@LsnrsRequestHandler, IntentRequest: " + lir.intentName);
+			// Intent intent = ((IntentRequest) input.getRequestEnvelope()
+			// .getRequest()).getIntent();
+			// String intentName = lir.intent.getName();
+			if ("LaunchAskIntent".equals(lir.intentName)) {
+				info("@LaunchAskIntent: does get here ...");
+				return input.getResponseBuilder()
+						.withSpeech("Worked")
+						.withShouldEndSession(true)
+						.build();
 			}
+			if (lir.intentName.startsWith("AMAZON.")) {
+				InnerResponse ir;
+				ResponseFinisher rf;
+				String cardTitle = "";
+				String speech = "";
+				String reprompt = speechUtils.getString("chooseContinue");
+				boolean endSession = false;
+				switch (lir.intentName) {
+					case "AMAZON.StopIntent":
+					case "AMAZON.CancelIntent":
+						// set up response
+						ir = new InnerResponse();
+						ir.setCardTitle(
+								"de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.") : S("That’s e", "E") + "nough");
+						ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
+						String bye = "de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "");
+						ir.setSpeech(ir.getSpeech()
+								+ (attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
+						ir.setSpeech(ir.getSpeech() + ("remember".equals(sessAttributes.get(PERSISTENCE))
+								? "Until " + s("the", "") + "next time. "
+								: ""));
 
-			if (match) {
+						endSession = true;
+						// match = true;
+
+						// check to see if we came here directly
+						if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
+							info("@LsnrsRequestHandler: direct Stop or Cancel ‘ask’ persistence next time ...");
+
+							// on direct STOP or CANCEL we set relationship to "ask"
+							sessAttributes.put(PERSISTENCE, "ask");
+
+							// this is only used for testing, simulating nothing persisted
+							// usually environment vars are: LIVE true and WILL empty
+							// to clear persistence:
+							// 1. set LIVE false and WILL forget
+							// 2. one AMAZON.StopIntent
+							// 3. set LIVE true and WILL empty
+							if (!LIVE) {
+								info("@LsnrsRequestHandler: ... but LIVE was false and persistence has been cleared");
+								// adjust if needed when developing
+								persAttributes.clear();
+								attributesManager.setPersistentAttributes(persAttributes);
+								attributesManager.savePersistentAttributes();
+								break;
+							}
+						}
+						// got her from AskPersistence:
+						else {
+							if ("forget".equals(sessAttributes.get(PERSISTENCE))) {
+								sessAttributes = attributes.initSessionAttributes();
+								sessAttributes.put(PERSISTENCE, "forget");
+							}
+						}
+						// this is the only place to savePersistentAttributes
+						sessAttributes.put(LASTINTENT, lir.intentName);
+						attributesManager.setPersistentAttributes(sessAttributes);
+						info("@StopIntent, shld be saving persistents with: " + sessAttributes.get(PERSISTENCE));
+						attributesManager.savePersistentAttributes();
+						break;
+					case "AMAZON.StartOverIntent":
+
+						ir = (InnerResponse) speechUtils.getObject("AskStartOverIntent");
+						rf = ResponseFinisher.builder()
+								.withSpeech(ir.getSpeech())
+								.build();
+
+						if (lir.intent.getConfirmationStatus() == IntentConfirmationStatus.NONE) {
+							return input.getResponseBuilder()
+									.addConfirmIntentDirective(lir.intent)
+									.withSpeech(rf.getSpeech())
+									.build();
+						}
+						else if (lir.intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
+							sessAttributes = attributes.initSessionAttributes();
+							attributesManager.setSessionAttributes(sessAttributes);
+							ir.setSpeech(speechUtils.getString("startOverConfirmed"));
+						}
+						else {
+							ir.setSpeech(speechUtils.getString("startOverDenied"));
+						}
+						// match = true;
+						break;
+					case "AMAZON.HelpIntent":
+						ir = new InnerResponse(speechUtils.getString("helpCardTitle"),
+								speechUtils.getString("chooseSpeechAssistance"));
+						// match = true;
+						break;
+					case "AMAZON.RepeatIntent":
+						ir = new InnerResponse();
+						ir.setCardTitle(speechUtils.getString("repeatCardTitle"));
+						int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
+						if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
+							// build variant fragments just before they’re needed:
+							langConstants.buildFragments();
+							ir.setSpeech(langConstants.fragments[fragmentIndex]
+									+ speechUtils.getString("chooseContinueNoAffect"));
+						}
+						else {
+							Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
+							ir.setSpeech(ws.getSpeech() + speechUtils.getString("chooseContinueNoAffect"));
+						}
+						// match = true;
+						break;
+					default:
+						// match = false;
+						ir = null;
+				}
+
 				rf = ResponseFinisher.builder()
 						.withSpeech(ir.getSpeech())
 						.withReprompt(ir.getReprompt())
 						.build();
-				sessAttributes.put(LASTINTENT, intentName);
+				sessAttributes.put(LASTINTENT, lir.intentName);
 				return input.getResponseBuilder()
 						.withSpeech(rf.getSpeech())
 						.withSimpleCard(cardTitle, rf.getCardText())
