@@ -1,5 +1,5 @@
 # _The Listeners_
-John Cayley 2006, 2015, 2020-
+John Cayley 2006, 2016, 2020-
 
 _The Listeners_ is version 3 of a ‘skill’ engineered and composed for Amazon’s Alexa Skills Kit (ASK) framework and its Echo devices. Public-facing details at https://www.amazon.com/Digital-Language-Arts-The-Listeners/dp/B019R2YB7Y
 
