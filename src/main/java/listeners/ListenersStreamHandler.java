@@ -21,7 +21,8 @@ public class ListenersStreamHandler extends SkillStreamHandler {
 				.withTableName("TheListeners")
 				.withAutoCreateTable(true)
 				// Add your skill id below : CHANGE BEFORE SHIFTING TO DEPLOY TODO
-				.withSkillId("amzn1.ask.skill.8a8f5701-2a77-48ca-9b77-0088ff3a973b")
+				// .withSkillId("amzn1.ask.skill.8a8f5701-2a77-48ca-9b77-0088ff3a973b")
+				.withSkillId("amzn1.echo-sdk-ams.app.586aa4c5-12ca-496b-b7f1-3e93880f35de")
 				.build();
 
 	}

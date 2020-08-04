@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "harold wells",
+            "invocationName": "the listeners",
             "intents": [
                 {
                     "name": "ContinueIntent",
@@ -112,26 +112,6 @@
                     ]
                 },
                 {
-                    "name": "SpkrsLoveLsnrsIntent",
-                    "slots": [],
-                    "samples": [
-                        "i like you",
-                        "i like you Alexa",
-                        "i like you Listeners",
-                        "i love you",
-                        "i love you Alexa",
-                        "i love you Listeners",
-                        "you are beautiful",
-                        "you have a beautiful voice",
-                        "we like you",
-                        "we like you Alexa",
-                        "we like you Listeners",
-                        "we love you",
-                        "we love you Alexa",
-                        "we love you Listeners"
-                    ]
-                },
-                {
                     "name": "LoveIntent",
                     "slots": [],
                     "samples": [
@@ -145,81 +125,60 @@
                     ]
                 },
                 {
-                    "name": "SpkrsAffectIsIntent",
-                    "slots": [
-                        {
-                            "name": "Affect",
-                            "type": "LIST_OF_AFFECTS"
-                        }
-                    ],
+                    "name": "LsnrsAreNotHumanIntent",
+                    "slots": [],
                     "samples": [
-                        "i am {Affect}",
-                        "i am {Affect} by this art",
-                        "i am {Affect} by this interactive art",
-                        "i am {Affect} by this piece",
-                        "i am {Affect} by this work",
-                        "i am {Affect} to the listeners",
-                        "i am {Affect} to this work",
-                        "i am {Affect} to you",
-                        "i am at {Affect}",
-                        "i am feeling {Affect}",
-                        "i am filled by {Affect}",
-                        "i am filled with {Affect}",
-                        "i am full of {Affect}",
-                        "i am overcome by {Affect}",
-                        "i am overcome with {Affect}",
-                        "i am overwhelmed by {Affect}",
-                        "i am overwhelmed with {Affect}",
-                        "i am very {Affect}",
-                        "i feel {Affect}",
-                        "i feel very {Affect}",
-                        "i'm {Affect}",
-                        "i'm {Affect} by this art",
-                        "i'm {Affect} by this interactive art",
-                        "i'm {Affect} by this piece",
-                        "i'm {Affect} by this work",
-                        "i'm full of {Affect}",
-                        "i'm very {Affect}",
-                        "we feel {Affect}",
-                        "we feel very {Affect}"
+                        "don't be ashamed",
+                        "don't be dismayed",
+                        "don't be embarrassed",
+                        "don't be sorry",
+                        "I am annoyed",
+                        "I am disappointed",
+                        "I am irritated",
+                        "I'm annoyed",
+                        "I'm disappointed",
+                        "I'm irritated",
+                        "I can't get a word in",
+                        "I can't get a word in edgeways",
+                        "I can't get a word in edgeways",
+                        "may i interrupt",
+                        "may i interrupt you",
+                        "we are annoyed",
+                        "we are disappointed",
+                        "we are irritated",
+                        "we're annoyed",
+                        "we're disappointed",
+                        "we're irritated",
+                        "What is it that you hear",
+                        "You are not hearing me",
+                        "You are so genuine",
+                        "You are stupid",
+                        "You are so stupid",
+                        "You're not hearing me",
+                        "You're so genuine",
+                        "You're stupid",
+                        "You're so stupid",
+                        "You can't understand feelings",
+                        "You can't understand us",
+                        "You cannot understand feelings",
+                        "You cannot understand us",
+                        "You say a lot",
+                        "You talk a lot",
+                        "You talk too much"
                     ]
                 },
                 {
-                    "name": "SpkrsAffectIsNotIntent",
-                    "slots": [
-                        {
-                            "name": "Affect",
-                            "type": "LIST_OF_AFFECTS"
-                        }
-                    ],
+                    "name": "LsnrsAreNotListeningIntent",
+                    "slots": [],
                     "samples": [
-                        "i am not {Affect} by this piece",
-                        "i am not {Affect} of you",
-                        "i am not {Affect}",
-                        "i am not {Affect} by this art",
-                        "i am not {Affect} by this interactive art",
-                        "i am not {Affect} by this work",
-                        "i am not {Affect} to the listeners",
-                        "i am not {Affect} to this work",
-                        "i am not {Affect} to you",
-                        "i am not feeling {Affect}",
-                        "i am not filled by {Affect}",
-                        "i am not filled with {Affect}",
-                        "i am not overcome by {Affect}",
-                        "i am not overcome with {Affect}",
-                        "i am not overwhelmed by {Affect}",
-                        "i am not overwhelmed with {Affect}",
-                        "i do not {Affect} the listeners",
-                        "i do not {Affect} you",
-                        "i do not feel {Affect}",
-                        "i don't feel {Affect}",
-                        "i'm not {Affect}",
-                        "i'm not {Affect} by this art",
-                        "i'm not {Affect} by this interactive art",
-                        "i'm not {Affect} by this piece",
-                        "i'm not {Affect} by this work",
-                        "we do not feel {Affect}",
-                        "we don't feel {Affect}"
+                        "you are not listening",
+                        "you are not listening to me",
+                        "you don't listen",
+                        "you don't listen to me",
+                        "you're not listening",
+                        "you're not listening to me",
+                        "sometimes you don't listen",
+                        "sometimes you don't listen to me"
                     ]
                 },
                 {
@@ -350,7 +309,6 @@
                     "samples": [
                         "can i hear the other voice",
                         "can i hear the other voices",
-                        "can we hear the other voices",
                         "can we hear the other voice",
                         "can we hear the other voices",
                         "i want to hear the other",
@@ -387,18 +345,101 @@
                     ]
                 },
                 {
-                    "name": "StartingOverIntent",
+                    "name": "SpkrsAffectIsIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "i am {Affect}",
+                        "i am {Affect} by this art",
+                        "i am {Affect} by this interactive art",
+                        "i am {Affect} by this piece",
+                        "i am {Affect} by this work",
+                        "i am {Affect} to the listeners",
+                        "i am {Affect} to this work",
+                        "i am {Affect} to you",
+                        "i am at {Affect}",
+                        "i am feeling {Affect}",
+                        "i am filled by {Affect}",
+                        "i am filled with {Affect}",
+                        "i am full of {Affect}",
+                        "i am overcome by {Affect}",
+                        "i am overcome with {Affect}",
+                        "i am overwhelmed by {Affect}",
+                        "i am overwhelmed with {Affect}",
+                        "i am very {Affect}",
+                        "i feel {Affect}",
+                        "i feel very {Affect}",
+                        "i'm {Affect}",
+                        "i'm {Affect} by this art",
+                        "i'm {Affect} by this interactive art",
+                        "i'm {Affect} by this piece",
+                        "i'm {Affect} by this work",
+                        "i'm full of {Affect}",
+                        "i'm very {Affect}",
+                        "we feel {Affect}",
+                        "we feel very {Affect}"
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsNotIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "i am not {Affect} by this piece",
+                        "i am not {Affect} of you",
+                        "i am not {Affect}",
+                        "i am not {Affect} by this art",
+                        "i am not {Affect} by this interactive art",
+                        "i am not {Affect} by this work",
+                        "i am not {Affect} to the listeners",
+                        "i am not {Affect} to this work",
+                        "i am not {Affect} to you",
+                        "i am not feeling {Affect}",
+                        "i am not filled by {Affect}",
+                        "i am not filled with {Affect}",
+                        "i am not overcome by {Affect}",
+                        "i am not overcome with {Affect}",
+                        "i am not overwhelmed by {Affect}",
+                        "i am not overwhelmed with {Affect}",
+                        "i do not {Affect} the listeners",
+                        "i do not {Affect} you",
+                        "i do not feel {Affect}",
+                        "i don't feel {Affect}",
+                        "i'm not {Affect}",
+                        "i'm not {Affect} by this art",
+                        "i'm not {Affect} by this interactive art",
+                        "i'm not {Affect} by this piece",
+                        "i'm not {Affect} by this work",
+                        "we do not feel {Affect}",
+                        "we don't feel {Affect}"
+                    ]
+                },
+                {
+                    "name": "SpkrsLoveLsnrsIntent",
                     "slots": [],
                     "samples": [
-                        "go to beginning",
-                        "go to start",
-                        "go to the beginning",
-                        "go to the start",
-                        "reboot",
-                        "reset",
-                        "restart",
-                        "start again",
-                        "start over"
+                        "i like you",
+                        "i like you Alexa",
+                        "i like you Listeners",
+                        "i love you",
+                        "i love you Alexa",
+                        "i love you Listeners",
+                        "you are beautiful",
+                        "you have a beautiful voice",
+                        "we like you",
+                        "we like you Alexa",
+                        "we like you Listeners",
+                        "we love you",
+                        "we love you Alexa",
+                        "we love you Listeners"
                     ]
                 },
                 {
@@ -555,25 +596,6 @@
                     ]
                 },
                 {
-                    "name": "WhatsSpkrsAffectIntent",
-                    "slots": [],
-                    "samples": [
-                        "how am i feeling",
-                        "how do i feel",
-                        "please recall my affect",
-                        "please recall my affects",
-                        "please recall my feelings",
-                        "recall my affect",
-                        "recall my affects",
-                        "recall my feelings",
-                        "what am i feeling",
-                        "what am i overwhelmed by",
-                        "what am i possessed by",
-                        "what are my feelings",
-                        "what do i feel"
-                    ]
-                },
-                {
                     "name": "WhatsLsnrsAffectAboutIntent",
                     "slots": [
                         {
@@ -615,20 +637,31 @@
                     ]
                 },
                 {
+                    "name": "WhatsSpkrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "how am i feeling",
+                        "how do i feel",
+                        "please recall my affect",
+                        "please recall my affects",
+                        "please recall my feelings",
+                        "recall my affect",
+                        "recall my affects",
+                        "recall my feelings",
+                        "what am i feeling",
+                        "what am i overwhelmed by",
+                        "what am i possessed by",
+                        "what are my feelings",
+                        "what do i feel"
+                    ]
+                },
+                {
                     "name": "WhereIntent",
                     "slots": [],
                     "samples": [
                         "where are the listeners",
                         "where are you",
                         "where is John"
-                    ]
-                },
-                {
-                    "name": "WhoseAccountIntent",
-                    "slots": [],
-                    "samples": [
-                        "whose account",
-                        "whose account is this"
                     ]
                 },
                 {
@@ -640,6 +673,14 @@
                         "who do you take us for",
                         "who do you think we are",
                         "who is we"
+                    ]
+                },
+                {
+                    "name": "WhoseAccountIntent",
+                    "slots": [],
+                    "samples": [
+                        "whose account",
+                        "whose account is this"
                     ]
                 },
                 {
@@ -687,63 +728,6 @@
                     ]
                 },
                 {
-                    "name": "LsnrsAreNotHumanIntent",
-                    "slots": [],
-                    "samples": [
-                        "don't be ashamed",
-                        "don't be dismayed",
-                        "don't be embarrassed",
-                        "don't be sorry",
-                        "I am annoyed",
-                        "I am disappointed",
-                        "I am irritated",
-                        "I'm annoyed",
-                        "I'm disappointed",
-                        "I'm irritated",
-                        "I can't get a word in",
-                        "I can't get a word in edgeways",
-                        "I can't get a word in edgeways",
-                        "may i interrupt",
-                        "may i interrupt you",
-                        "we are annoyed",
-                        "we are disappointed",
-                        "we are irritated",
-                        "we're annoyed",
-                        "we're disappointed",
-                        "we're irritated",
-                        "What is it that you hear",
-                        "You are not hearing me",
-                        "You are so genuine",
-                        "You are stupid",
-                        "You are so stupid",
-                        "You're not hearing me",
-                        "You're so genuine",
-                        "You're stupid",
-                        "You're so stupid",
-                        "You can't understand feelings",
-                        "You can't understand us",
-                        "You cannot understand feelings",
-                        "You cannot understand us",
-                        "You say a lot",
-                        "You talk a lot",
-                        "You talk too much"
-                    ]
-                },
-                {
-                    "name": "LsnrsAreNotListeningIntent",
-                    "slots": [],
-                    "samples": [
-                        "you are not listening",
-                        "you are not listening to me",
-                        "you don't listen",
-                        "you don't listen to me",
-                        "you're not listening",
-                        "you're not listening to me",
-                        "sometimes you don't listen",
-                        "sometimes you don't listen to me"
-                    ]
-                },
-                {
                     "name": "AMAZON.HelpIntent",
                     "samples": []
                 },
@@ -757,6 +741,29 @@
                 },
                 {
                     "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskPersistenceIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
                     "samples": []
                 }
             ],
@@ -2392,6 +2399,133 @@
                     ]
                 }
             ]
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AskPersistenceIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1180095320092"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.313687960101"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1247238094452"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "NoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.942874253322"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1386618593239"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1051037387571"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.942874253322",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1386618593239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1051037387571",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1247238094452",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.313687960101",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start from scratch?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start from the beginning?</lang></voice></speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1180095320092",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            }
+        ]
     }
 }

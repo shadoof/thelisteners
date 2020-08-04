@@ -164,8 +164,10 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
 				// and add this to the list of fragments that have been heard
 				ArrayList fl = (ArrayList) sessAttributes.get(FRAGMENTLIST);
-				if (!fl.contains(fragmentIndex)) fl.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST, fl);
+				if (!fl.contains(fragmentIndex)) {
+					fl.add(fragmentIndex);
+					sessAttributes.put(FRAGMENTLIST, fl);
+				}
 
 				// do, but not always, the preSpeech
 				if (fragmentIndex > 0 && randInt(0, 3) == 0)

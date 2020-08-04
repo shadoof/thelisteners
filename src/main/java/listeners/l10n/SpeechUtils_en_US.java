@@ -203,7 +203,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 
 		String[] variations = { "OK", "Right.", "Cool.", "Gotcha.", S("Well, w", "W") + "e’re still "
 				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
-		return variations[randInt(0, variations.length - 1)];
+		return variations[randInt(0, variations.length - 1)] + chooseContinue(false);
 	}
 
 	protected String peaceSpeech(String word) {

@@ -203,6 +203,9 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				else
 					setSpeech(speechUtils.getString("pleaseContinuePreSpeech") + getSpeech());
 			}
+			else {
+				setCardTitle(speechUtils.getString("continueCardTitle"));
+			}
 		}
 	}
 
