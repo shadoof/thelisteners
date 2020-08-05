@@ -14,6 +14,8 @@
                         "keep going",
                         "tell us more",
                         "more",
+                        "ok",
+                        "okay",
                         "thank you yes",
                         "thank you yes i do",
                         "thank you yes we do",
@@ -112,6 +114,11 @@
                     ]
                 },
                 {
+                    "name": "LaunchAskIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
                     "name": "LoveIntent",
                     "slots": [],
                     "samples": [
@@ -188,10 +195,20 @@
                         "be quiet",
                         "bye",
                         "bye alexa",
+                        "close",
+                        "close skill",
+                        "close this skill",
+                        "end",
+                        "end skill",
+                        "end this skill",
                         "goodbye",
                         "goodbye alexa",
                         "kill",
+                        "kill skill",
+                        "kill them",
                         "kill themselves",
+                        "kill this",
+                        "kill this skill",
                         "no",
                         "no more",
                         "no more please",
@@ -276,6 +293,9 @@
                         "do you feel that this enclosure is secure",
                         "do you feel this enclosure is safe",
                         "do you feel this enclosure is secure",
+                        "maybe",
+                        "perhaps",
+                        "i'm not sure",
                         "is this enclosure safe",
                         "is this enclosure secure"
                     ]
@@ -509,7 +529,7 @@
                         "version",
                         "what version",
                         "what version are you",
-                        "what version is you"
+                        "what version is this"
                     ]
                 },
                 {
@@ -696,11 +716,20 @@
                         "who are these guys",
                         "who are these other guys",
                         "who else is speaking",
+                        "who is that guy",
+                        "who is that other guy",
+                        "who is that other person",
+                        "who is that person",
                         "who is this guy",
                         "who is this other guy",
                         "who is this other person",
                         "who is this person",
-                        "whose voice is that"
+                        "whose voice is that",
+                        "who was that",
+                        "who was that guy",
+                        "who was that other guy",
+                        "who was that other person",
+                        "who was that person"
                     ]
                 },
                 {
@@ -2455,6 +2484,15 @@
                         "confirmation": "Confirm.Intent.1051037387571"
                     },
                     "slots": []
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.972334910313"
+                    },
+                    "slots": []
                 }
             ],
             "delegationStrategy": "SKILL_RESPONSE"
@@ -2519,6 +2557,15 @@
             },
             {
                 "id": "Confirm.Intent.1180095320092",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.972334910313",
                 "variations": [
                     {
                         "type": "PlainText",
