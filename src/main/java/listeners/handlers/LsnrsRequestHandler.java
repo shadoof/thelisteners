@@ -10,6 +10,7 @@ import static listeners.model.Attributes.persAttributes;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.LIVE;
+import static listeners.model.Constants.LSNRS_DATE;
 import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
 import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.WILL;
@@ -62,6 +63,9 @@ public class LsnrsRequestHandler implements RequestHandler {
 		LIVE = (System.getenv("LIVE") == null) ? false : Boolean.parseBoolean(System.getenv("LIVE"));
 		PERFORMANCE = (System.getenv("PERFORMANCE") == null) ? false
 				: Boolean.parseBoolean(System.getenv("PERFORMANCE"));
+		LSNRS_DATE = System.getenv("LSNRS_DATE");
+		LSNRS_DATE = (LSNRS_DATE == null) ? "August 1, 2020" : LSNRS_DATE;
+
 
 		// Attributes and LangConstants depend on locale so
 		// we assemble locale constants in top-level model.Constants:
@@ -132,15 +136,19 @@ public class LsnrsRequestHandler implements RequestHandler {
 		if (input.matches(requestType(LaunchRequest.class))) {
 			// *** 1. 2. and 3. ***
 			info("@LsnrsRequestHandler, LaunchRequest");
-			if ("ask".equals(WILL)) {
-				Intent launchAsk = Intent.builder()
-						.withName("LaunchAskIntent")
-						.build();
-				return input.getResponseBuilder()
-						.addDelegateDirective(launchAsk)
-						.withSpeech("delegating to: LaunchAskIntent")
-						.build();
-			}
+			// *** what we'd like to do
+			// with Auto Delegation disabled 
+			// but ? we can't change
+			// the requestType of any input even for a dialog ***
+			// if ("ask".equals(WILL)) {
+			// 	Intent launchAsk = Intent.builder()
+			// 		.withName("LaunchAskIntent")
+			// 		.build();
+			// 	return input.getResponseBuilder()
+			// 		.addDelegateDirective(launchAsk)
+			// 		.withSpeech("delegating to: LaunchAskIntent")
+			// 		.build();
+			// }
 			return new LsnrsLaunchResponse(input).getResponse();
 		}
 		else {
@@ -149,16 +157,13 @@ public class LsnrsRequestHandler implements RequestHandler {
 			// and some others here:
 			LsnrsIntentResponse lir = new LsnrsIntentResponse(input, WILL);
 			info("@LsnrsRequestHandler, IntentRequest: " + lir.intentName);
-			// Intent intent = ((IntentRequest) input.getRequestEnvelope()
-			// .getRequest()).getIntent();
-			// String intentName = lir.intent.getName();
-			if ("LaunchAskIntent".equals(lir.intentName)) {
-				info("@LaunchAskIntent: does get here ...");
-				return input.getResponseBuilder()
-						.withSpeech("Worked")
-						.withShouldEndSession(true)
-						.build();
-			}
+			// if ("LaunchAskIntent".equals(lir.intentName)) {
+			// info("@LaunchAskIntent: does get here ...");
+			// return input.getResponseBuilder()
+			// .withSpeech("Worked")
+			// .withShouldEndSession(true)
+			// .build();
+			// }
 			if (lir.intentName.startsWith("AMAZON.")) {
 				InnerResponse ir;
 				ResponseFinisher rf;
@@ -182,7 +187,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 								: ""));
 
 						endSession = true;
-						// match = true;
 
 						// check to see if we came here directly
 						if (!"AskPersistenceIntent".equals(sessAttributes.get(LASTINTENT))) {
@@ -240,12 +244,10 @@ public class LsnrsRequestHandler implements RequestHandler {
 						else {
 							ir.setSpeech(speechUtils.getString("startOverDenied"));
 						}
-						// match = true;
 						break;
 					case "AMAZON.HelpIntent":
 						ir = new InnerResponse(speechUtils.getString("helpCardTitle"),
 								speechUtils.getString("chooseSpeechAssistance"));
-						// match = true;
 						break;
 					case "AMAZON.RepeatIntent":
 						ir = new InnerResponse();
@@ -261,10 +263,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 							Welcome ws = (Welcome) ResourceBundle.getBundle("listeners.l10n.Welcome", locale);
 							ir.setSpeech(ws.getSpeech() + speechUtils.getString("chooseContinueNoAffect"));
 						}
-						// match = true;
 						break;
 					default:
-						// match = false;
 						ir = null;
 				}
 

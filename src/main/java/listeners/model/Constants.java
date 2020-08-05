@@ -20,6 +20,7 @@ public class Constants {
 	public static boolean LIVE = false;
 	public static boolean PERFORMANCE = false;
 	public static String WILL = "";
+	public static String LSNRS_DATE = "";
 
 	// version information
 	// 2.2.2 - first release with differentation of other Englishes
@@ -33,8 +34,6 @@ public class Constants {
 	// listening’ instances
 	// 3.0.0 refactored for the latest Java ASK SDK and decent 110n
 	public static final String VERSION = "3.0.0";
-	public static final String VERSION_DATE_LIVE = "July 15, 2020";
-	public static final String VERSION_DATE_DEV = "July 1, 2020";
 
 	// configurable
 	public static final int NUMBER_OF_FRAGMENTS = 10;

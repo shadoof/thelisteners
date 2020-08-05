@@ -5,8 +5,7 @@ import static listeners.model.Constants.DO_NOT_PROMPT_AFFECT;
 import static listeners.model.Constants.LIVE;
 import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.VERSION;
-import static listeners.model.Constants.VERSION_DATE_DEV;
-import static listeners.model.Constants.VERSION_DATE_LIVE;
+import static listeners.model.Constants.LSNRS_DATE;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.breath;
@@ -55,7 +54,7 @@ public class VersionIntent extends L10nSpeech {
 			s = s("Thank you for " + s("your interest.", "the question.") + breath(), "");
 			s += "We " + s("prefer to", "would rather")
 					+ "think of this as the date of our last rebirth, which was ";
-			s += VERSION_DATE_LIVE + ". " + breath();
+			s += LSNRS_DATE + ". " + breath();
 			s += s("It seems always to be very recent. "
 					+ s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
 		}
@@ -64,7 +63,7 @@ public class VersionIntent extends L10nSpeech {
 
 	protected String getVersionLocale() {
 
-		String s = "Development. " + VERSION + ", " + VERSION_DATE_DEV
+		String s = "Development. " + VERSION + ", " + LSNRS_DATE
 				+ (PERFORMANCE ? ". Performance. " : ". ");
 		switch (localeTag) {
 			case "de_DE":
