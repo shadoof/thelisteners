@@ -223,8 +223,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 							.build();
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
-					ir = new InnerResponse();
-					ir.setSpeech(speechUtils.getString("noMoreGuyzSpeech"));
+					ir = (InnerResponse) speechUtils.getObject("noMoreGuyz");
 				}
 				break;
 			default:

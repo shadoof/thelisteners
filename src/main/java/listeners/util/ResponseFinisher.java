@@ -261,7 +261,7 @@ public class ResponseFinisher {
 		int guyzIndex = (int) sessAttributes.get(GUYZINDEX);
 		String guyzPath = speechUtils.getString("pathToGuyzAudio");
 
-		String insert = guyzPath + String.format("%03d", guyzIndex) + ".mp3\" /> ";
+		String insert = guyzPath + String.format("%03d", guyzIndex) + ".mp3\" />";
 		guyzIndex++;
 		if (PERFORMANCE) // leave out a group of five in performance
 		{

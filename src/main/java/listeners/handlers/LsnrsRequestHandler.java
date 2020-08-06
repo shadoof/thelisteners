@@ -167,9 +167,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 			if (lir.intentName.startsWith("AMAZON.")) {
 				InnerResponse ir;
 				ResponseFinisher rf;
-				String cardTitle = "";
-				String speech = "";
-				String reprompt = speechUtils.getString("chooseContinue");
 				boolean endSession = false;
 				switch (lir.intentName) {
 					case "AMAZON.StopIntent":
@@ -275,7 +272,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 				sessAttributes.put(LASTINTENT, lir.intentName);
 				return input.getResponseBuilder()
 						.withSpeech(rf.getSpeech())
-						.withSimpleCard(cardTitle, rf.getCardText())
+						.withSimpleCard(ir.getCardTitle(), rf.getCardText())
 						.withShouldEndSession(endSession)
 						.build();
 			}

@@ -494,12 +494,15 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				+ breath();
 	}
 
-	protected String noMoreGuyzSpeech() {
+	protected Object noMoreGuyz() {
 
 		// TODO
-		String[] variations = { "OK", "Understood.", "Wise.", "Prudent.", S("Well, w", "W") + "e’re still "
+		String speech;
+		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W") + "e’re still "
 				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
-		return variations[randInt(0, variations.length - 1)];
+		speech = variations[randInt(0, variations.length - 1)] + chooseContinue(false);
+		
+		return new InnerResponse("Enough of " + s("them", "that"),speech);
 	}
 
 	protected String pathToGuyzAudio() {

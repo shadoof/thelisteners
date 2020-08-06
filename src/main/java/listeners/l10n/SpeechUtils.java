@@ -63,7 +63,7 @@ public class SpeechUtils extends ListResourceBundle {
 			{ "moreGuyz", moreGuyz() },
 			{ "NoIntent", no() },
 			{ "noCardTitle", noCardTitle() },
-			{ "noMoreGuyzSpeech", noMoreGuyzSpeech() },
+			{ "noMoreGuyz", noMoreGuyz() },
 			{ "noToGuyzSpeech", noToGuyzSpeech() },
 			{ "pathToGuyzAudio", pathToGuyzAudio() },
 			{ "pleaseContinueCardTitle", pleaseContinueCardTitle() },
@@ -543,11 +543,14 @@ public class SpeechUtils extends ListResourceBundle {
 				+ breath();
 	}
 
-	protected String noMoreGuyzSpeech() {
+	protected Object noMoreGuyz() {
 
+		String speech;
 		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W") + "e’re still "
 				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
-		return variations[randInt(0, variations.length - 1)] + chooseContinue(false);
+		speech = variations[randInt(0, variations.length - 1)] + chooseContinue(false);
+		
+		return new InnerResponse("Enough of " + s("them", "that"),speech);
 	}
 
 	protected String pathToGuyzAudio() {
