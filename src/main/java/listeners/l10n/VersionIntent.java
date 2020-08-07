@@ -1,18 +1,13 @@
 package listeners.l10n;
 
 import static listeners.model.Constants.DEV;
-import static listeners.model.Constants.DO_NOT_PROMPT_AFFECT;
-import static listeners.model.Constants.LIVE;
+import static listeners.model.Constants.LSNRS_DATE;
 import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.VERSION;
-import static listeners.model.Constants.LSNRS_DATE;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.s;
-
-import listeners.model.Constants;
-import listeners.model.LangConstants;
 
 public class VersionIntent extends L10nSpeech {
 

@@ -1,7 +1,6 @@
 package listeners.l10n;
 
 import static listeners.model.Constants.DEV;
-import static listeners.model.Constants.LIVE;
 import static listeners.model.Constants.LSNRS_DATE;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.s;

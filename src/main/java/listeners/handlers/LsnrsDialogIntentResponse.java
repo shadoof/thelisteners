@@ -196,6 +196,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					sessAttributes.put(LASTINTENT, intentName);
 					return input.getResponseBuilder()
 							.addDelegateDirective(updatedIntent)
+							.withSpeech(speechUtils.getString("chooseContinueNoAffect")) // TODO ?
 							.build();
 				}
 				else if (intent.getConfirmationStatus() == IntentConfirmationStatus.DENIED) {
