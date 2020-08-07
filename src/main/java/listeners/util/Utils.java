@@ -30,6 +30,11 @@ public class Utils {
 
 	// ***** CONVENIENCE METHODS FOR STRINGS *****
 
+	public static String rS(String[] sa) {
+
+		return sa[randInt(0,sa.length - 1)];
+	}
+
 	public static String breath() {
 
 		return "Abreath "; // pause(1f);

@@ -374,6 +374,7 @@
                     ],
                     "samples": [
                         "i am {Affect}",
+                        "i am very {Affect}",
                         "i am {Affect} by this art",
                         "i am {Affect} by this interactive art",
                         "i am {Affect} by this piece",
@@ -383,6 +384,8 @@
                         "i am {Affect} to you",
                         "i am at {Affect}",
                         "i am feeling {Affect}",
+                        "i am feeling pretty {Affect}",
+                        "i am feeling very {Affect}",
                         "i am filled by {Affect}",
                         "i am filled with {Affect}",
                         "i am full of {Affect}",
@@ -399,8 +402,10 @@
                         "i'm {Affect} by this piece",
                         "i'm {Affect} by this work",
                         "i'm full of {Affect}",
+                        "i'm pretty {Affect}",
                         "i'm very {Affect}",
                         "we feel {Affect}",
+                        "we feel pretty {Affect}",
                         "we feel very {Affect}"
                     ]
                 },
@@ -967,6 +972,11 @@
                         },
                         {
                             "name": {
+                                "value": "bad"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "bewildered"
                             }
                         },
@@ -1152,6 +1162,11 @@
                         },
                         {
                             "name": {
+                                "value": "frivolity"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "good"
                             }
                         },
@@ -1193,6 +1208,31 @@
                         {
                             "name": {
                                 "value": "hatred"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horrified"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hope"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hopeful"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hopeful"
                             }
                         },
                         {
@@ -1472,6 +1512,16 @@
                         },
                         {
                             "name": {
+                                "value": "silliness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silly"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "sorrow"
                             }
                         },
@@ -1487,12 +1537,37 @@
                         },
                         {
                             "name": {
+                                "value": "strength"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "strong"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "strange"
                             }
                         },
                         {
                             "name": {
                                 "value": "strangeness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stupid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stupidity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrible"
                             }
                         },
                         {

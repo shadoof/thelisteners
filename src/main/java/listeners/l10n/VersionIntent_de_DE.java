@@ -11,7 +11,7 @@ public class VersionIntent_de_DE extends VersionIntent {
 	public String buildSpeech() {
 
 		String s;
-		if (DEV && !LIVE) {
+		if (DEV) {
 			s = getVersionLocale();
 		}
 		else {

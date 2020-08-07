@@ -2,8 +2,11 @@ package listeners.l10n;
 
 import static listeners.model.Constants.NEGATIVE;
 import static listeners.model.Constants.POSITIVE;
+import static listeners.model.Constants.SPC;
+import static listeners.util.Utils.rS;
 import static listeners.util.Utils.S;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ListResourceBundle;
@@ -110,12 +113,15 @@ public class LangConstantsBundle extends ListResourceBundle {
 		// otherwise affects are assumed to be negative
 		AFFECTS_MAP.put("apathy", POSITIVE); // deliberate!
 		AFFECTS_MAP.put("calm", POSITIVE);
+		AFFECTS_MAP.put("hope", POSITIVE);
 		AFFECTS_MAP.put("interest", POSITIVE);
 		AFFECTS_MAP.put("invulnerability", POSITIVE);
 		AFFECTS_MAP.put("joy", POSITIVE);
 		AFFECTS_MAP.put("pleasure", POSITIVE);
 		AFFECTS_MAP.put("relaxation", POSITIVE);
 		AFFECTS_MAP.put("safety", POSITIVE);
+		AFFECTS_MAP.put("strength", POSITIVE);
+		AFFECTS_MAP.put("silliness", POSITIVE);
 		AFFECTS_MAP.put("delight", POSITIVE);
 		//
 		SPECIAL_AFFECT_MAP = new HashMap<>();
@@ -161,6 +167,7 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTIVEJJ2NN_MAP.put("apologetic", "apologies");
 		AFFECTIVEJJ2NN_MAP.put("ashamed", "shame");
 		AFFECTIVEJJ2NN_MAP.put("awesome", "cool");
+		AFFECTIVEJJ2NN_MAP.put("bad", rS("anxiety distress shame sadness".split(SPC)));
 		AFFECTIVEJJ2NN_MAP.put("bewildered", "bewilderment");
 		AFFECTIVEJJ2NN_MAP.put("bored", "boredom");
 		AFFECTIVEJJ2NN_MAP.put("claustrophobic", "claustrophobia");
@@ -186,6 +193,8 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTIVEJJ2NN_MAP.put("groovy", "the groove");
 		AFFECTIVEJJ2NN_MAP.put("guilty", "guilt");
 		AFFECTIVEJJ2NN_MAP.put("happy", "happiness");
+		AFFECTIVEJJ2NN_MAP.put("hopeful", "hope");
+		AFFECTIVEJJ2NN_MAP.put("horrified", rS("fear horror distress disgust".split(SPC)));
 		AFFECTIVEJJ2NN_MAP.put("humiliated", "humiliation");
 		AFFECTIVEJJ2NN_MAP.put("hungry", "hunger");
 		AFFECTIVEJJ2NN_MAP.put("indecisive", "indecision");
@@ -209,6 +218,7 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTIVEJJ2NN_MAP.put("peaceful", "peace");
 		AFFECTIVEJJ2NN_MAP.put("pitiful", "pity");
 		AFFECTIVEJJ2NN_MAP.put("pleased", "pleasure");
+		AFFECTIVEJJ2NN_MAP.put("powerful", "strength");
 		AFFECTIVEJJ2NN_MAP.put("relaxed", "calm");
 		AFFECTIVEJJ2NN_MAP.put("sad", "sadness");
 		AFFECTIVEJJ2NN_MAP.put("safe", "safety");
@@ -217,9 +227,13 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTIVEJJ2NN_MAP.put("sexual", "sex");
 		AFFECTIVEJJ2NN_MAP.put("shocked", "surprise");
 		AFFECTIVEJJ2NN_MAP.put("sick", "sickness");
+		AFFECTIVEJJ2NN_MAP.put("silly", S("silliness", "frivolity"));
 		AFFECTIVEJJ2NN_MAP.put("sorry", "distress");
 		AFFECTIVEJJ2NN_MAP.put("strange", "strangeness");
+		AFFECTIVEJJ2NN_MAP.put("strong", "strength");
+		AFFECTIVEJJ2NN_MAP.put("stupid", S("stupidity", "ignorance"));
 		AFFECTIVEJJ2NN_MAP.put("surprised", "surprise");
+		AFFECTIVEJJ2NN_MAP.put("terrible", rS("anxiety distress shame sadness".split(SPC)));
 		AFFECTIVEJJ2NN_MAP.put("terrified", "terror");
 		AFFECTIVEJJ2NN_MAP.put("tired", "fatigue");
 		AFFECTIVEJJ2NN_MAP.put("troubled", "distress");
@@ -242,13 +256,13 @@ public class LangConstantsBundle extends ListResourceBundle {
 		AFFECTIVEJJ2NN_MAP.put("fine", S("apathy", "complacency"));
 		AFFECTIVEJJ2NN_MAP.put("good", S("happiness", "joy"));
 		AFFECTIVEJJ2NN_MAP.put("great", S("happiness", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("nothing", S(S("emptiness", "nothingness"), "complacency"));
+		AFFECTIVEJJ2NN_MAP.put("nothing", rS("emptiness nothingness complacency".split(SPC)));
 		AFFECTIVEJJ2NN_MAP.put("odd", S("the uncanny", "strangeness"));
 		AFFECTIVEJJ2NN_MAP.put("okay", S("apathy", "complacency"));
 		AFFECTIVEJJ2NN_MAP.put("ok", S("apathy", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("relaxed", S("relaxation", S("calm", "cool")));
+		AFFECTIVEJJ2NN_MAP.put("relaxed", rS("relaxation calm cool peace".split(SPC)));
 		AFFECTIVEJJ2NN_MAP.put("sick", S("sickness", "nausea"));
-		AFFECTIVEJJ2NN_MAP.put("sorry", S("distress", S("obligation", S("apologies", "debt"))));
+		AFFECTIVEJJ2NN_MAP.put("sorry", rS("distress obligation apologies debt".split(SPC)));
 		AFFECTIVEJJ2NN_MAP.put("shocked", S("distress", "surprise"));
 		AFFECTIVEJJ2NN_MAP.put("tired", S("fatigue", "tiredness"));
 		AFFECTIVEJJ2NN_MAP.put("troubled", S("distress", "anxiety"));

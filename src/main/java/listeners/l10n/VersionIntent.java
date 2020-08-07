@@ -27,7 +27,7 @@ public class VersionIntent extends L10nSpeech {
 
 	public String buildPostSpeechPrompt() {
 
-		if (DEV && !LIVE) {
+		if (DEV) {
 			return ""; // empty string
 		}
 		else
@@ -36,18 +36,13 @@ public class VersionIntent extends L10nSpeech {
 
 	public String buildReprompt() {
 
-		String s = speechUtils.getString("chooseContinueNoAffect");
-		if (DEV && !LIVE) {
-			return buildSpeech() + " " + breath() + s;
-		}
-		else
 			return speechUtils.getString("chooseContinueNoAffect");
 	}
 
 	public String buildSpeech() {
 
 		String s;
-		if (DEV && !LIVE) {
+		if (DEV) {
 			s = getVersionLocale();
 		}
 		else {
