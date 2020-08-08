@@ -27,7 +27,6 @@ public class TestHandler {
 	public TestHandler() {
 
 		Locale locale = Constants.parseLocale("en-us");
-		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
 		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);

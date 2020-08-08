@@ -18,7 +18,7 @@ public class Attributes {
 
 	private static Attributes instance;
 
-	private Attributes(Locale locale) {
+	private Attributes() {
 
 	}
 
@@ -26,9 +26,9 @@ public class Attributes {
 	//
 	// }
 	//
-	public static Attributes getInstance(Locale locale) {
+	public static Attributes getInstance() {
 
-		if (instance == null) instance = new Attributes(locale);
+		if (instance == null) instance = new Attributes();
 		return instance;
 	}
 
@@ -104,19 +104,19 @@ public class Attributes {
 		return m;
 	}
 
-	public String getRandomAffect() {
+	public static String getRandomAffect() {
 
 		ArrayList al = new ArrayList<>(LangConstants.AFFECTS_MAP.keySet());
 		return (String) al.get(randInt(0, al.size() - 1));
 	}
 
-	public boolean isEmptyForSession(String key) {
+	public static boolean isEmptyForSession(String key) {
 
 		return sessAttributes == null || sessAttributes.get(key) == null
 				|| ((String) sessAttributes.get(key)).isEmpty();
 	}
 
-	public boolean isPositive(String affect) {
+	public static boolean isPositive(String affect) {
 
 		if (affect == null) return false;
 		boolean affectIsPositive = (LangConstants.AFFECTS_MAP.containsKey(affect))
@@ -127,7 +127,7 @@ public class Attributes {
 				: affectIsPositive;
 	}
 
-	public String setAndGetRandomAffectIfEmpty(String affectKey) {
+	public static String setAndGetRandomAffectIfEmpty(String affectKey) {
 
 		String affect = (String) sessAttributes.get(affectKey);
 		if (affect == null || affect.isEmpty()) {
@@ -137,7 +137,7 @@ public class Attributes {
 		return affect;
 	}
 
-	public HashMap<String, Object> getValuesFrom(Map<String, Object> persAttributes) {
+	public static HashMap<String, Object> getValuesFrom(Map<String, Object> persAttributes) {
 
 		HashMap<String, Object> hm = new HashMap();
 		for (Map.Entry<String, Object> entry : persAttributes.entrySet()) {

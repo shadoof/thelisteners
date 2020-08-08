@@ -17,6 +17,7 @@ import static listeners.model.Constants.WILL;
 import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.attributesManager;
 import static listeners.model.Constants.langConstants;
+import static listeners.model.Constants.locale;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.S;
@@ -66,13 +67,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 		LSNRS_DATE = System.getenv("LSNRS_DATE");
 		LSNRS_DATE = (LSNRS_DATE == null) ? "August 1, 2020" : LSNRS_DATE;
 
-
-		// Attributes and LangConstants depend on locale so
-		// we assemble locale constants in top-level model.Constants:
-		Locale locale = Constants.parseLocale(input.getRequestEnvelope()
-				.getRequest()
-				.getLocale());
-
 		// get the AttributesManager and put it in Constants
 		attributesManager = input.getAttributesManager();
 		persAttributes = attributesManager.getPersistentAttributes();
@@ -92,7 +86,21 @@ public class LsnrsRequestHandler implements RequestHandler {
 		info("@LsnrsRequestHandler, WILL: " + WILL); // only null on firstEncounter
 
 		// get singleton instance of Attributes and put it in Constants
-		attributes = Attributes.getInstance(locale);
+		// TODO not necessary everything should static
+		attributes = Attributes.getInstance();
+
+		// ... although Voices are wrapped according to regions
+		// TODO put a note in the documentation, ultimately:
+		// for use in other English speaking regions:
+		// British English, en-gb *text* is the default for this skill:
+		Locale.setDefault(new Locale("en", "GB"));
+		// LangConstants depend on locale so
+		// we assemble locale constants in top-level model.Constants:
+		String ls = input.getRequestEnvelope()
+				.getRequest()
+				.getLocale();
+		info("@LsnrsRequestHandler, setting locale to: " + ls);
+		locale = Constants.parseLocale(ls);
 		// also housed in Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
 
@@ -137,17 +145,17 @@ public class LsnrsRequestHandler implements RequestHandler {
 			// *** 1. 2. and 3. ***
 			info("@LsnrsRequestHandler, LaunchRequest");
 			// *** what we'd like to do
-			// with Auto Delegation disabled 
+			// with Auto Delegation disabled
 			// but ? we can't change
 			// the requestType of any input even for a dialog ***
 			// if ("ask".equals(WILL)) {
-			// 	Intent launchAsk = Intent.builder()
-			// 		.withName("LaunchAskIntent")
-			// 		.build();
-			// 	return input.getResponseBuilder()
-			// 		.addDelegateDirective(launchAsk)
-			// 		.withSpeech("delegating to: LaunchAskIntent")
-			// 		.build();
+			// Intent launchAsk = Intent.builder()
+			// .withName("LaunchAskIntent")
+			// .build();
+			// return input.getResponseBuilder()
+			// .addDelegateDirective(launchAsk)
+			// .withSpeech("delegating to: LaunchAskIntent")
+			// .build();
 			// }
 			return new LsnrsLaunchResponse(input).getResponse();
 		}

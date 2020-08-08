@@ -30,8 +30,6 @@ public class LangConstants {
 	public static HashSet<String> PICTURE_WORDS = new HashSet<>();
 	public static HashSet<String> ALL_AFFECTS;
 
-	public static String polyVoiceWrapper;
-	
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
 	// private static SimpleDateFormat
@@ -51,21 +49,13 @@ public class LangConstants {
 
 	private LangConstants(Locale locale) {
 
-		// ... although Voices are wrapped according to regions
-		// TODO put a note in the documentation, ultimately:
-		// for use in other English speaking regions:
-		// British English, en-gb *text* is the default for this skill:
-		Locale.setDefault(new Locale("en", "GB"));
-
 		// localeTag is actually parsed into Constants by LsnrsRequestHandler
-		info("@LangConstants, localeTag: " + localeTag);
+		info("@LangConstants, constructing singleton: localeTag: " + localeTag);
 
 		final ResourceBundle rb = ResourceBundle.getBundle("listeners.l10n.LangConstantsBundle", locale);
 		// ... and now that the bundled language constants are instantiated
 		// we make a new assumption with respect to l1on bundle preparation:
 		// all languages except German and US English revert to British
-
-		this.polyVoiceWrapper = setPolyVoiceWrappers(localeTag);
 
 		FRAGMENTNUMBER_MAP = (Map<String, Integer>) rb.getObject("fragmentNumberMap");
 		FRAGMENTNAME_MAP = (Map<String, Integer>) rb.getObject("fragmentNameMap");
@@ -134,25 +124,6 @@ public class LangConstants {
 			}
 		}
 		return removePauses ? removeInterSentencePauses(markovSupply) : markovSupply;
-	}
-
-	private static String setPolyVoiceWrappers(String localeTag) {
-
-		switch (localeTag) {
-			case "de_DE":
-				return "<voice name='Marlene'><lang xml:lang='de-DE'>";
-			case "ja_JP":
-				return "<voice name='Mizuki'><lang xml:lang='ja-JP'>";
-			case "en_IN":
-				return "<voice name='Raveena'><lang xml:lang='en-IN'>";
-			case "en_AU":
-				return "<voice name='Nicole'><lang xml:lang='en-AU'>";
-			case "en_US":
-			case "en_CA":
-				return "<voice name='Joanna'><lang xml:lang='en-US'>";
-			default:
-				return "<voice name='Amy'><lang xml:lang='en-GB'>";
-		}
 	}
 
 	public String getNounFromAdjective(String adjective) {

@@ -1190,8 +1190,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 	protected String whatIsCardTitle() {
 
 		// TODO
-		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
-				+ s(" about some thing", "");
+		return s("Trying to tell ", "Telling ") + "you what " + s("little", "") + "we know "
+				+ s("about some thing", "");
 	}
 
 	protected InnerResponse whatPicture() {

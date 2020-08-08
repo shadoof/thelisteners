@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 
 import com.amazon.ask.attributes.AttributesManager;
 
-
 public class Constants {
 
 	// environment
@@ -58,6 +57,7 @@ public class Constants {
 	public static String localeCountry;
 	public static String localeLang;
 	public static String localeTag; // most used
+	public static String polyVoice;
 
 	// some useful instances
 	public static AttributesManager attributesManager;
@@ -73,8 +73,7 @@ public class Constants {
 		DIALOG_INTENTS.add("GuyzSpeechIntent");
 		DIALOG_INTENTS.add("AskStartOverIntent");
 		DIALOG_INTENTS.add("AskPersistenceIntent");
-		
-		
+
 		PAUSES_MAP = new HashMap<>();
 		PAUSES_MAP.put("Shortestbreath", "0.25");
 		PAUSES_MAP.put("Shortbreath", "0.5");
@@ -122,9 +121,30 @@ public class Constants {
 
 		localeLang = localeString.substring(0, 2);
 		localeCountry = localeString.substring(3, 5)
-																.toUpperCase();
+				.toUpperCase();
 		localeTag = localeLang + "_" + localeCountry;
 		locale = new Locale(localeLang, localeCountry);
+		switch (localeTag) {
+			case "de_DE":
+				polyVoice = "<voice name='Marlene'><lang xml:lang='de-DE'>";
+				break;
+			case "ja_JP":
+				polyVoice = "<voice name='Mizuki'><lang xml:lang='ja-JP'>";
+				break;
+			case "en_IN":
+				polyVoice = "<voice name='Raveena'><lang xml:lang='en-IN'>";
+				break;
+			case "en_AU":
+				polyVoice = "<voice name='Nicole'><lang xml:lang='en-AU'>";
+				break;
+			case "en_US":
+			case "en_CA":
+				polyVoice = "<voice name='Joanna'><lang xml:lang='en-US'>";
+				break;
+			default:
+				polyVoice = "<voice name='Amy'><lang xml:lang='en-GB'>";
+		}
+
 		return locale;
 	}
 }

@@ -10,9 +10,9 @@ import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.PROBABILITY_MAP;
 import static listeners.model.Constants.SPC;
 import static listeners.model.Constants.localeTag;
+import static listeners.model.Constants.polyVoice;
 import static listeners.model.Constants.speechUtils;
 import static listeners.model.LangConstants.dateString;
-import static listeners.model.LangConstants.polyVoiceWrapper;
 import static listeners.model.LangConstants.rm2;
 import static listeners.model.LangConstants.rm3;
 import static listeners.model.LangConstants.rm5;
@@ -64,10 +64,10 @@ public class ResponseFinisher {
 
 		cardText = stripSsmlTags(cardText);
 
-		speech = "<speak>" + insertPauseTags(response.preamble) + polyVoiceWrapper
+		speech = "<speak>" + insertPauseTags(response.preamble) + polyVoice
 				+ insertPauseTags(speech.concat(response.postSpeechPrompt)) + "</lang></voice></speak>";
 
-		reprompt = "<speak>" + polyVoiceWrapper + insertPauseTags(reprompt) + "</lang></voice></speak>";
+		reprompt = "<speak>" + polyVoice + insertPauseTags(reprompt) + "</lang></voice></speak>";
 	}
 
 	public String getCardText() {

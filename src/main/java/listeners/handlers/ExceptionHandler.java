@@ -39,10 +39,10 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 		info("Cause: " + throwable.getCause());
 		throwable.printStackTrace();
 		
+		attributes = Attributes.getInstance();
 		if (locale == null) {
 			Locale l = Constants.parseLocale("en-gb");
 		}
-		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
 		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);

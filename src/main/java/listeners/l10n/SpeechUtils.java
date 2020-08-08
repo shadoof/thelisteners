@@ -1219,8 +1219,8 @@ public class SpeechUtils extends ListResourceBundle {
 
 	protected String whatIsCardTitle() {
 
-		return S("Trying to tell", "Telling") + "you what " + s("little", "") + "we know"
-				+ s(" about some thing", "");
+		return s("Trying to tell", "Telling") + "you what " + s("little", "") + "we know "
+				+ s("about some thing", "");
 	}
 
 	protected InnerResponse whatPicture() {

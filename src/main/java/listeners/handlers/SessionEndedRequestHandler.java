@@ -46,10 +46,10 @@ public class SessionEndedRequestHandler implements RequestHandler {
 		info("Session ended with reason: " + sessionEndedRequest.getReason()
 		.toString());
 		
+		attributes = Attributes.getInstance();
 		if (locale == null) {
 			Locale l = Constants.parseLocale("en-us");
 		}
-		attributes = Attributes.getInstance(locale);
 		langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
 		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
