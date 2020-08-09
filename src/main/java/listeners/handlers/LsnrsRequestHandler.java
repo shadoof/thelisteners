@@ -38,7 +38,6 @@ import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
 
 import listeners.l10n.Welcome;
-import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
@@ -86,10 +85,6 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 		info("@LsnrsRequestHandler, WILL: " + WILL); // only null on firstEncounter
 
-		// get singleton instance of Attributes and put it in Constants
-		// TODO not necessary everything should static
-		// attributes = Attributes.getInstance();
-
 		// ... although Voices are wrapped according to regions
 		// TODO put a note in the documentation, ultimately:
 		// for use in other English speaking regions:
@@ -102,7 +97,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 				.getLocale();
 		info("@LsnrsRequestHandler, setting locale to: " + ls);
 		locale = Constants.parseLocale(ls);
-		// also housed in Constants:
+		// langConstants also housed in model.Constants:
 		langConstants = LangConstants.getInstance(locale); // singleton
 
 		// possibilities are

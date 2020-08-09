@@ -60,6 +60,7 @@ public class Attributes {
 		m.put(CHALLENGEDAFFECT, "");
 		m.put(FRAGMENTINDEX, NOT_YET_GREETED);
 		LIST_OF_FRAGMENTS.clear();
+		LIST_OF_FRAGMENTS.add(NOT_YET_GREETED);
 		m.put(FRAGMENTLIST, LIST_OF_FRAGMENTS);
 		m.put(GUYZINDEX, 1);
 		m.put(GUYZIRQ, false);

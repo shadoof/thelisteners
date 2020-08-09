@@ -162,7 +162,9 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 			int fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
 
 			HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
-			if ((hs.size() >= NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
+			// note: the FRAGMENTLIST must be initialized with one value (-1)
+			// due to Amazon persistence issues so size() is +1
+			if ((hs.size() > NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
 				setInterruptable(false);
 				// info("@NextFragmentResponse, setting up heard all");
 				setSpeech(speechUtils.getString("heardAllFragments"));
@@ -172,7 +174,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 			}
 
-			if (hs.size() < NUMBER_OF_FRAGMENTS) {
+			if (hs.size() <= NUMBER_OF_FRAGMENTS) {
 				int i = 0;
 				do {
 					fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
