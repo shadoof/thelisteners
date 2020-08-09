@@ -6,6 +6,9 @@ import static listeners.model.Attributes.FRAGMENTINDEX;
 import static listeners.model.Attributes.LASTINTENT;
 import static listeners.model.Attributes.NOT_YET_GREETED;
 import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.getValuesFrom;
+import static listeners.model.Attributes.initSessionAttributes;
+import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.persAttributes;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.DEV;
@@ -14,7 +17,6 @@ import static listeners.model.Constants.LSNRS_DATE;
 import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
 import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.WILL;
-import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.attributesManager;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.locale;
@@ -30,7 +32,6 @@ import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
@@ -87,7 +88,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 
 		// get singleton instance of Attributes and put it in Constants
 		// TODO not necessary everything should static
-		attributes = Attributes.getInstance();
+		// attributes = Attributes.getInstance();
 
 		// ... although Voices are wrapped according to regions
 		// TODO put a note in the documentation, ultimately:
@@ -116,20 +117,20 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// determining session attributes
 		if (WILL == null || WILL.isEmpty()) {
 			// very first encounter 1. and 4.
-			sessAttributes = attributes.initSessionAttributes();
+			sessAttributes = initSessionAttributes();
 			WILL = "firstEncounter";
 		}
 		else if ("remember".equals(WILL) || "ask".equals(WILL)) {
 			// either retrieve what was saved from the last closed session
 			// or use what is there if still in the same session
-			if (sessAttributes == null) sessAttributes = attributes.getValuesFrom(persAttributes);
+			if (sessAttributes == null) sessAttributes = getValuesFrom(persAttributes);
 		}
 		else if ("forget".equals(WILL)) {
 			// when forget is set, initialized attributes
 			// have been persisted, so
 			// only initialize again if they are null for some reason
 			if (sessAttributes == null) {
-				sessAttributes = attributes.initSessionAttributes();
+				sessAttributes = initSessionAttributes();
 				persAttributes.put(PERSISTENCE, "forget");
 				attributesManager.savePersistentAttributes();
 			}
@@ -186,7 +187,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 						ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
 						String bye = "de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "");
 						ir.setSpeech(ir.getSpeech()
-								+ (attributes.isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
+								+ (isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
 						ir.setSpeech(ir.getSpeech() + ("remember".equals(sessAttributes.get(PERSISTENCE))
 								? "Until " + s("the", "") + "next time. "
 								: ""));
@@ -215,10 +216,10 @@ public class LsnrsRequestHandler implements RequestHandler {
 								break;
 							}
 						}
-						// got her from AskPersistence:
+						// got here from AskPersistence:
 						else {
 							if ("forget".equals(sessAttributes.get(PERSISTENCE))) {
-								sessAttributes = attributes.initSessionAttributes();
+								sessAttributes = initSessionAttributes();
 								sessAttributes.put(PERSISTENCE, "forget");
 							}
 						}
@@ -242,7 +243,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 									.build();
 						}
 						else if (lir.intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
-							sessAttributes = attributes.initSessionAttributes();
+							sessAttributes = initSessionAttributes();
 							attributesManager.setSessionAttributes(sessAttributes);
 							ir.setSpeech(speechUtils.getString("startOverConfirmed"));
 						}

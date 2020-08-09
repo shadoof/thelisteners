@@ -32,7 +32,8 @@ public class Constants {
 	// 2.6.0a and 0b were in response to Amazon demands to remove ‘always
 	// listening’ instances
 	// 3.0.0 refactored for the latest Java ASK SDK and decent 110n
-	public static final String VERSION = "3.0.0";
+	// 3.0.1 uses of Attributes class made all static
+	public static final String VERSION = "3.0.1";
 
 	// configurable
 	public static final int NUMBER_OF_FRAGMENTS = 10;
@@ -61,7 +62,6 @@ public class Constants {
 
 	// some useful instances
 	public static AttributesManager attributesManager;
-	public static Attributes attributes;
 	public static LangConstants langConstants;
 	public static ResourceBundle speechUtils;
 

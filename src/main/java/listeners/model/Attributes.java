@@ -5,6 +5,7 @@ import static listeners.util.Utils.randInt;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
 
@@ -16,28 +17,6 @@ import java.util.Map;
 
 public class Attributes {
 
-	private static Attributes instance;
-
-	private Attributes() {
-
-	}
-
-	// private Attributes(Locale locale, AttributesManager attributesManager) {
-	//
-	// }
-	//
-	public static Attributes getInstance() {
-
-		if (instance == null) instance = new Attributes();
-		return instance;
-	}
-
-	// public static Attributes getInstance(Locale locale, AttributesManager attributesManager) {
-	//
-	// if (instance == null) instance = new Attributes(locale, attributesManager);
-	// return instance;
-	// }
-	//
 	// keys recognizable as static final constants
 	public static final String AFFECT = "affect";
 	public static final String CHALLENGEDAFFECT = "challengedAffect";
@@ -71,7 +50,7 @@ public class Attributes {
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
-	public static ArrayList LIST_OF_FRAGMENTS = new ArrayList();
+	public static HashSet LIST_OF_FRAGMENTS = new HashSet();
 
 	public static Map<String, Object> initSessionAttributes() { // was Map<String, Object> or SessionMap
 

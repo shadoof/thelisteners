@@ -21,7 +21,7 @@ public class Welcome extends L10nSpeech {
 		speech += "We are " + /* s("always", "") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
 		speech += "In so far as we are " + s(breathLong(), "") + "with you, " + breathShort()
 				+ "it is a pleasure. " + breath();
-		speech += S("It is " + S("always s", "S") + "uch a pleasure. " + breath(), "");
+		speech += S("It is " + s("always", "") + "such a pleasure. " + breath(), "");
 		speech += s("It is " + s("such", "") + " a pleasure to be with you. " + breath(), "");
 		speech += "Always. " + s(breath() + "Always.", "") + breathShort() + s("Such a", "A") + "pleasure. "
 				+ breath();

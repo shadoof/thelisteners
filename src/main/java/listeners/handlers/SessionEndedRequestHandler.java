@@ -2,8 +2,8 @@ package listeners.handlers;
 
 import static com.amazon.ask.request.Predicates.requestType;
 import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.model.Attributes.sessAttributes;
-import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.attributesManager;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.locale;
@@ -22,7 +22,6 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.SessionEndedRequest;
 
-import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 
@@ -46,17 +45,16 @@ public class SessionEndedRequestHandler implements RequestHandler {
 		info("Session ended with reason: " + sessionEndedRequest.getReason()
 		.toString());
 		
-		attributes = Attributes.getInstance();
 		if (locale == null) {
 			Locale l = Constants.parseLocale("en-us");
 		}
 		langConstants = LangConstants.getInstance(locale);
-		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
+		if (sessAttributes == null) sessAttributes = initSessionAttributes();
 		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 
 		// save attributes
 		if (sessAttributes != null) {
-			sessAttributes.put(PERSISTENCE, "ask");
+			sessAttributes.put(PERSISTENCE, "forget");
 			attributesManager.setPersistentAttributes(sessAttributes);
 			attributesManager.savePersistentAttributes();
 		}

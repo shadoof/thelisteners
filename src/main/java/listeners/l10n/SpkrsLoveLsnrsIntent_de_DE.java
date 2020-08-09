@@ -1,8 +1,11 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.attributes;
-import static listeners.model.Attributes.*;
-import static listeners.util.Utils.*;
+import static listeners.util.Utils.S;
+import static listeners.util.Utils.breath;
+import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.breathShortest;
+import static listeners.util.Utils.heads;
+import static listeners.util.Utils.s;
 
 public class SpkrsLoveLsnrsIntent_de_DE extends SpkrsLoveLsnrsIntent {
 

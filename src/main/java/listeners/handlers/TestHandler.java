@@ -1,7 +1,7 @@
 package listeners.handlers;
 
+import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.model.Attributes.sessAttributes;
-import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 
 import listeners.l10n.L10nSpeech;
 import listeners.l10n.Welcome;
-import listeners.model.Attributes;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
@@ -28,7 +27,7 @@ public class TestHandler {
 
 		Locale locale = Constants.parseLocale("en-us");
 		langConstants = LangConstants.getInstance(locale);
-		if (sessAttributes == null) sessAttributes = attributes.initSessionAttributes();
+		if (sessAttributes == null) sessAttributes = initSessionAttributes();
 		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 				
 //		// fragments (10 speeches The Listeners like to make)

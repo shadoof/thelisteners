@@ -2,7 +2,6 @@ package listeners.l10n;
 
 import static listeners.model.Attributes.AFFECT;
 import static listeners.model.Attributes.sessAttributes;
-import static listeners.model.Constants.attributes;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.breathShort;

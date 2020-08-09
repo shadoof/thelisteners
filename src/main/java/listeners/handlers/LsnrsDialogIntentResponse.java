@@ -3,10 +3,10 @@ package listeners.handlers;
 import static listeners.model.Attributes.GUYZINDEX;
 import static listeners.model.Attributes.LASTINTENT;
 import static listeners.model.Attributes.PERSISTENCE;
+import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.NUMBER_OF_GUYZ;
 import static listeners.model.Constants.PERFORMANCE;
-import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.attributesManager;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
@@ -113,7 +113,7 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 				if (intent.getConfirmationStatus() == IntentConfirmationStatus.CONFIRMED) {
 					info(intentName + " confirmed.");
 
-					sessAttributes = attributes.initSessionAttributes();
+					sessAttributes = initSessionAttributes();
 					attributesManager.setSessionAttributes(sessAttributes);
 
 					ir.setSpeech(speechUtils.getString("startOverConfirmed"));

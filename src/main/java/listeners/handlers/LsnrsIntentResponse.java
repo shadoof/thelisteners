@@ -5,11 +5,11 @@ import static listeners.model.Attributes.LASTINTENT;
 import static listeners.model.Attributes.LISTENERSAFFECT;
 import static listeners.model.Attributes.PERSISTENCE;
 import static listeners.model.Attributes.READSOFAR;
+import static listeners.model.Attributes.getRandomAffect;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.DIALOG_INTENTS;
 import static listeners.model.Constants.NUMBER_OF_READABLES;
-import static listeners.model.Constants.attributes;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
 import static listeners.model.LangConstants.dateString;
@@ -70,7 +70,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		if (!"".equals(sessAttributes.get(AFFECT))) {
 			// change affect roughly 1 of 3 intent requests ...
 			if (randInt(0, 2) == 0) {
-				sessAttributes.put(AFFECT, attributes.getRandomAffect());
+				sessAttributes.put(AFFECT, getRandomAffect());
 				// and a third of these times make listeners’ affect match
 				if (randInt(0, 2) == 0) sessAttributes.put(LISTENERSAFFECT, sessAttributes.get(AFFECT));
 			}

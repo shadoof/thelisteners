@@ -15,6 +15,7 @@ import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.speechUtils;
+import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 import static listeners.model.LangConstants.PICTURE_WORDS;
 import static listeners.model.LangConstants.buildFragments;
 import static listeners.model.LangConstants.fragments;
@@ -22,6 +23,7 @@ import static listeners.util.Utils.heads;
 import static listeners.util.Utils.randInt;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -152,7 +154,6 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 			Slot fragmentSlot = intent.getSlots()
 					.get(FRAGMENTNAME_SLOT);
 			String fragmentName = (fragmentSlot == null) ? "" : fragmentSlot.getValue();
-
 			int fragmentIndex = langConstants.parseNameToInt(fragmentName);
 
 			if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
@@ -163,23 +164,25 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				// set the session fragmentIndex if a valid fragment was found
 				sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
 				// and add this to the list of fragments that have been heard
-				ArrayList fl = (ArrayList) sessAttributes.get(FRAGMENTLIST);
-				if (!fl.contains(fragmentIndex)) {
-					fl.add(fragmentIndex);
-					sessAttributes.put(FRAGMENTLIST, fl);
-				}
+				HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
+				hs.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST,hs);
+//				ArrayList fl = (ArrayList) sessAttributes.get();
+//				if (!fl.contains(fragmentIndex)) {
+//					fl.add(fragmentIndex);
+//					sessAttributes.put(, fl);
+//				}
 
 				// do, but not always, the preSpeech
 				if (fragmentIndex > 0 && randInt(0, 3) == 0)
 					setSpeech(speechUtils.getString("preSpeechFeelings") + getSpeech());
 			}
 			else {
-				// After trying to parse the fragmentSlot,
+				// After trying to parse the fragment and thing Slots,
 				// we don’t know which fragment is wanted.
 				setSpeech(speechUtils.getString("dontKnowFragmentSpeech"));
 				setReprompt(speechUtils.getString("dontKnowFragmentReprompt"));
 			}
-
 		}
 	}
 

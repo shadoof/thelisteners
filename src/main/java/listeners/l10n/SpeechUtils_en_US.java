@@ -6,9 +6,12 @@ import static listeners.model.Attributes.HEARDBREATHAFFECTS;
 import static listeners.model.Attributes.LISTENERSAFFECT;
 import static listeners.model.Attributes.PREVIOUSAFFECT;
 import static listeners.model.Attributes.THING;
+import static listeners.model.Attributes.getRandomAffect;
+import static listeners.model.Attributes.isEmptyForSession;
+import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
 import static listeners.model.Constants.SPC;
-import static listeners.model.Constants.attributes;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.model.LangConstants.ALL_AFFECTS;
 import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
@@ -159,10 +162,10 @@ public class SpeechUtils_en_US extends SpeechUtils {
 	protected String getAbandonmentMessage() {
 
 		// does not set the sessionAttributes
-		String affect = attributes.isEmptyForSession(AFFECT) ? attributes.getRandomAffect()
+		String affect = isEmptyForSession(AFFECT) ? getRandomAffect()
 				: (String) sessAttributes.get(AFFECT);
 		String amsg;
-		if (attributes.isPositive(affect))
+		if (isPositive(affect))
 			amsg = String.format("It’s good to know that you dwell within %s. " + breathShort()
 					+ s("Still,", "Whatever, " + breath()), affect);
 		else
@@ -245,7 +248,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 					+ "if you wish. " + breathLong();
 		}
 		else {
-			if (attributes.isPositive(affect)) {
+			if (isPositive(affect)) {
 				preSpeech = "We are " + s("so", "") + s("pleased", "happy");
 				preSpeech = randInt(0, 3) == 0 ? "It’s cool " : preSpeech;
 			}
@@ -269,7 +272,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 
-		if (!affect.isEmpty() && !attributes.isPositive(affect)) {
+		if (!affect.isEmpty() && !isPositive(affect)) {
 			speech += String.format(
 					"We understand, " + s("and we are dismayed,", "") + "that you are filled with %s. ",
 					affect);
@@ -501,8 +504,8 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						+ "you? ";
 				break;
 			default:
-				affect = ("".equals(sessAttributes.get(AFFECT))) ? attributes.getRandomAffect() : affect;
-				if (attributes.isPositive(affect)) {
+				affect = ("".equals(sessAttributes.get(AFFECT))) ? getRandomAffect() : affect;
+				if (isPositive(affect)) {
 					speech += s("That’s " + s("brilliant!", "great!"), "");
 					speech += "You must be one of " + s("those " + s("better", "happier"), "the speaking")
 							+ "people, ";
@@ -531,7 +534,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String adjective = "";
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
-		if (attributes.isPositive(affect)) {
+		if (isPositive(affect)) {
 			speech = "We’re " + s("so", "") + s("pleased", "happy");
 		}
 		else {
@@ -541,18 +544,18 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		}
 		speech += "to " + s("know", "have learned") + "that you are "
 				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
-		if (!attributes.isEmptyForSession(PREVIOUSAFFECT)) {
+		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
-			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
+			if (isPositive(affect) && isPositive(prevAffect)) {
 				speech += s("How much better do you feel?", s("We feel like it’s", "It’s")
 						+ "good to know that you still " + s("have positive feelings.", "feel positive."));
 			}
-			else if (attributes.isPositive(prevAffect) && !attributes.isPositive(affect)) {
+			else if (isPositive(prevAffect) && !isPositive(affect)) {
 				speech += "We wonder why "
 						+ s("your feelings have " + s("taken a negative turn.", "turned negative."),
 								"you feel " + s("worse than you did.", "worse."));
 			}
-			else if (!attributes.isPositive(prevAffect) && attributes.isPositive(affect)) {
+			else if (!isPositive(prevAffect) && isPositive(affect)) {
 				speech += s("We feel like it’s so", "So") + "good to " + s("learn", "know") + "that your "
 						+ s("feelings have", "mood has") + s("improved.", "picked up.");
 			}
@@ -572,7 +575,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String adjective;
 		String intensifier;
 		String speech = s(s("Apologies!", "We are ashamed of ourselves."), "We are so sorry.");
-		if (attributes.isPositive(challengedAffect)) {
+		if (isPositive(challengedAffect)) {
 			speech += "We are " + s("pleased", "delighted");
 		}
 		else {
@@ -598,7 +601,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String adjective = "";
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
-		if (attributes.isPositive(affect)) {
+		if (isPositive(affect)) {
 			speech = "We’re " + s("so", "") + s("pleased", "happy");
 		}
 		else {
@@ -608,18 +611,18 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		}
 		speech += "to " + s("know", "have learned") + "that you are "
 				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
-		if (!attributes.isEmptyForSession(PREVIOUSAFFECT)) {
+		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
-			if (attributes.isPositive(affect) && attributes.isPositive(prevAffect)) {
+			if (isPositive(affect) && isPositive(prevAffect)) {
 				speech += s("How much better do you feel?", s("We feel like it’s", "It’s")
 						+ "good to know that you still " + s("have positive feelings.", "feel positive."));
 			}
-			else if (attributes.isPositive(prevAffect) && !attributes.isPositive(affect)) {
+			else if (isPositive(prevAffect) && !isPositive(affect)) {
 				speech += "We wonder why "
 						+ s("your feelings have " + s("taken a negative turn.", "turned negative."),
 								"you feel " + s("worse than you did.", "worse."));
 			}
-			else if (!attributes.isPositive(prevAffect) && attributes.isPositive(affect)) {
+			else if (!isPositive(prevAffect) && isPositive(affect)) {
 				speech += s("We feel like it’s so", "So") + "good to " + s("learn", "know") + "that your "
 						+ s("feelings have", "mood has") + s("improved.", "picked up.");
 			}
@@ -654,7 +657,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				speech += capitalThing + (plural ? ", are " : ", is one of the ")
 						+ s(phonemic("a") + "ffects", "ways of being or feeling")
 						+ "that we are beginning to learn about, " + s(breathShort(), "") + "from you, ";
-				speech += "and that we consider " + (attributes.isPositive(thing)
+				speech += "and that we consider " + (isPositive(thing)
 						? s(s("postive.", "positive, for all of us."), s("wonderful, for all of us.", "wonderful."))
 						: s("negative.", s("bad,", "hard,") + "for all of us."));
 			}
@@ -744,8 +747,8 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 		String listenersAffect = (String) sessAttributes.get(LISTENERSAFFECT);
 
-		affect = attributes.setAndGetRandomAffectIfEmpty(AFFECT);
-		listenersAffect = attributes.setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
+		affect = setAndGetRandomAffectIfEmpty(AFFECT);
+		listenersAffect = setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
 
 		boolean shared = affect.equals(listenersAffect);
 
@@ -754,19 +757,19 @@ public class SpeechUtils_en_US extends SpeechUtils {
 			speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
 					+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "
 					+ breathShort();
-			if (attributes.isPositive(affect) && attributes.isPositive(listenersAffect)) {
+			if (isPositive(affect) && isPositive(listenersAffect)) {
 
 				speech += "It is good " + s("for all of us", "") + "to know that we can "
 						+ (shared ? s("share these feelings.", "empathize with you.") : "have such feelings. ");
 			}
-			else if (!attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+			else if (!isPositive(affect) && !isPositive(listenersAffect)) {
 
 				speech += s("<say-as interpret-as=\"spell-out\">OMG</say-as>!",
 						"I’m " + s("so,", "") + "so sorry!") + "That " + s("anyone", "any of us") + "should "
 						+ s("have to", "")
 						+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
 			}
-			else if (attributes.isPositive(affect) && !attributes.isPositive(listenersAffect)) {
+			else if (isPositive(affect) && !isPositive(listenersAffect)) {
 				speech += "We are" + s(", at least,", SPC) + s("glad", "pleased") + "to "
 						+ s("know", "be aware") + "that the positivity of your "
 						+ s("feelings", phonemic("a") + "ffect") + "betters "
@@ -795,7 +798,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 
 		if (!affect.isEmpty()) {
-			if (attributes.isPositive(affect)) {
+			if (isPositive(affect)) {
 				speech = "We’re " + s("so", "") + s("pleased", "happy");
 			}
 			else {

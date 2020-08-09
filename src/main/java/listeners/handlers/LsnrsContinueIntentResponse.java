@@ -19,6 +19,7 @@ import static listeners.util.Utils.heads;
 import static listeners.util.Utils.randInt;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -33,7 +34,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 		super(input, relationship);
 	}
-	
+
 	private boolean isEnd = false;
 
 	@Override
@@ -68,11 +69,13 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
 
 				// and add this to the list of fragments that have been heard
-				ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
-				if (!al.contains(fragmentIndex)) {
-					al.add(fragmentIndex);
-					sessAttributes.put(FRAGMENTLIST, al);
-				}
+				HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
+				hs.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST, hs);
+				// if (!al.contains(fragmentIndex)) {
+				// al.add(fragmentIndex);
+				// sessAttributes.put(, al);
+				// }
 				ir.setInterruptable(true);
 				break;
 			case "ReadPoemIntent":
@@ -84,11 +87,14 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				buildFragments();
 				ir.setSpeech(fragments[fragmentIndex]);
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
-				al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
-				if (!al.contains(fragmentIndex)) {
-					al.add(fragmentIndex);
-					sessAttributes.put(FRAGMENTLIST, al);
-				}
+				hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
+				hs.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST, hs);
+				// al = (ArrayList) sessAttributes.get();
+				// if (!al.contains(fragmentIndex)) {
+				// al.add(fragmentIndex);
+				// sessAttributes.put(, al);
+				// }
 				break;
 			case "WhatsLsnrsAffectIntent":
 			case "ThanksWhatsLsnrsAffectIntent":
@@ -153,10 +159,10 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 			// build variant fragments just before they’re needed:
 			buildFragments();
 
-			sessAttributes.put(FRAGMENTINDEX, randInt(0, NUMBER_OF_FRAGMENTS - 1));
+			int fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
 
-			ArrayList al = (ArrayList) sessAttributes.get(FRAGMENTLIST);
-			if ((al.size() >= NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
+			HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
+			if ((hs.size() >= NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
 				setInterruptable(false);
 				// info("@NextFragmentResponse, setting up heard all");
 				setSpeech(speechUtils.getString("heardAllFragments"));
@@ -166,34 +172,27 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 			}
 
-			if (al.size() < NUMBER_OF_FRAGMENTS) {
-				int fragmentIndex = 0;
+			if (hs.size() < NUMBER_OF_FRAGMENTS) {
+				int i = 0;
 				do {
 					fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
+					i++;
 				}
-				while (al.contains(fragmentIndex));
+				while (hs.contains(fragmentIndex) && i < 500); // safety
 
-				al.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST, al);
+				hs.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST, hs);
 			}
 
-			// check to see if the speaker has asked about a fragment-name ‘thing’
-			String thing = (String) sessAttributes.get(THING);
-			// is only set to non-empty if the fragment name was indeed asked about
-			if (!"".equals(thing) && FRAGMENTNAME_MAP.get(thing) != null) {
-				int thingFragmentNumber = FRAGMENTNAME_MAP.get(thing);
-				if (thingFragmentNumber > NOT_YET_GREETED && thingFragmentNumber <= NUMBER_OF_FRAGMENTS) {
-					sessAttributes.put(FRAGMENTINDEX, thingFragmentNumber);
-					sessAttributes.put(THING, "");
-				}
-			}
+			sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
 
+			// speech is only not empty if the "heard everything" message has been given
+			// if it has been given, a random fragment will be heard
 			if (getSpeech().isEmpty()) {
 				setInterruptable(true);
 				setSpeech(fragments[(int) sessAttributes.get(FRAGMENTINDEX)]
 						+ speechUtils.getString("chooseContinueNoAffect"));
 			}
-
 
 			if (intentName.equals("PleaseContinueIntent")) {
 				setCardTitle(speechUtils.getString("pleaseContinueCardTitle"));
