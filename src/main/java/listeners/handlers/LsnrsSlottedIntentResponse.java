@@ -24,6 +24,7 @@ import static listeners.util.Utils.randInt;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -164,9 +165,9 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				// set the session fragmentIndex if a valid fragment was found
 				sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
 				// and add this to the list of fragments that have been heard
-				HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
-				hs.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST,hs);
+				LinkedHashSet listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+				listOfFragments.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST,listOfFragments);
 //				ArrayList fl = (ArrayList) sessAttributes.get();
 //				if (!fl.contains(fragmentIndex)) {
 //					fl.add(fragmentIndex);

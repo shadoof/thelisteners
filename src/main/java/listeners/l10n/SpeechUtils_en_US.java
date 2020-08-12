@@ -272,7 +272,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 
-		if (!affect.isEmpty() && !isPositive(affect)) {
+		if (affect != null && !affect.isEmpty() && !isPositive(affect)) {
 			speech += String.format(
 					"We understand, " + s("and we are dismayed,", "") + "that you are filled with %s. ",
 					affect);
@@ -649,7 +649,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String speech = "";
 		String thing = (String) sessAttributes.get(THING);
 		String capitalThing = capitalize(thing);
-		if (!thing.isEmpty()) {
+		if (thing != null && !thing.isEmpty()) {
 			boolean plural = "s".equals(thing.substring(thing.length() - 1))
 					&& !"ss".equals(thing.substring(thing.length() - 2));
 			if (ALL_AFFECTS.contains(thing)) {
@@ -797,7 +797,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 
-		if (!affect.isEmpty()) {
+		if (affect != null && !affect.isEmpty()) {
 			if (isPositive(affect)) {
 				speech = "We’re " + s("so", "") + s("pleased", "happy");
 			}

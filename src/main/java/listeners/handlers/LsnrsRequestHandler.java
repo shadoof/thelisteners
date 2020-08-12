@@ -32,6 +32,7 @@ import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
+import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
@@ -115,7 +116,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			sessAttributes = initSessionAttributes();
 			WILL = "firstEncounter";
 		}
-		else if ("remember".equals(WILL) || "ask".equals(WILL)) {
+		else if ("remember".equals(WILL) || "ask".equals(WILL) || "session".equals(WILL)) {
 			// either retrieve what was saved from the last closed session
 			// or use what is there if still in the same session
 			if (sessAttributes == null) sessAttributes = getValuesFrom(persAttributes);

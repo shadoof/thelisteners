@@ -20,6 +20,7 @@ import static listeners.util.Utils.randInt;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -46,6 +47,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 		switch (intentName) {
 			case "PleaseContinueIntent":
 			case "ContinueIntent":
+				// intentName = null; TESTING ERROR GENERATOR
 				ir = new NextFragmentResponse(intentName);
 				break;
 			case "PreviousIntent":
@@ -69,9 +71,9 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
 
 				// and add this to the list of fragments that have been heard
-				HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
-				hs.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST, hs);
+				LinkedHashSet listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+				listOfFragments.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST, listOfFragments);
 				// if (!al.contains(fragmentIndex)) {
 				// al.add(fragmentIndex);
 				// sessAttributes.put(, al);
@@ -87,9 +89,9 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				buildFragments();
 				ir.setSpeech(fragments[fragmentIndex]);
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
-				hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
-				hs.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST, hs);
+				listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+				listOfFragments.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST, listOfFragments);
 				// al = (ArrayList) sessAttributes.get();
 				// if (!al.contains(fragmentIndex)) {
 				// al.add(fragmentIndex);
@@ -161,10 +163,10 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 			int fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
 
-			HashSet hs = (HashSet) sessAttributes.get(FRAGMENTLIST);
+			LinkedHashSet listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
 			// note: the FRAGMENTLIST must be initialized with one value (-1)
 			// due to Amazon persistence issues so size() is +1
-			if ((hs.size() > NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
+			if ((listOfFragments.size() > NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {
 				setInterruptable(false);
 				// info("@NextFragmentResponse, setting up heard all");
 				setSpeech(speechUtils.getString("heardAllFragments"));
@@ -174,16 +176,16 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 			}
 
-			if (hs.size() <= NUMBER_OF_FRAGMENTS) {
+			if (listOfFragments.size() <= NUMBER_OF_FRAGMENTS) {
 				int i = 0;
 				do {
 					fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
 					i++;
 				}
-				while (hs.contains(fragmentIndex) && i < 500); // safety
+				while (listOfFragments.contains(fragmentIndex) && i < 500); // safety
 
-				hs.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST, hs);
+				listOfFragments.add(fragmentIndex);
+				sessAttributes.put(FRAGMENTLIST, listOfFragments);
 			}
 
 			sessAttributes.put(FRAGMENTINDEX, fragmentIndex);

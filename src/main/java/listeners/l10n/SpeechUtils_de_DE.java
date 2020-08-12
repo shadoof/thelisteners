@@ -590,7 +590,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 
-		if (!affect.isEmpty() && !isPositive(affect)) {
+		if (affect != null && !affect.isEmpty() && !isPositive(affect)) {
 			speech += String.format(
 					"Wir verstehen, " + s("und wir sind  bestürzt,", "") + "dass du von %s erfüllt bist. ",
 					affect);
@@ -1098,7 +1098,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		String speech = "";
 		String thing = (String) sessAttributes.get(THING);
 		String capitalThing = capitalize(thing);
-		if (!thing.isEmpty()) {
+		if (thing != null && !thing.isEmpty()) {
 			boolean plural = "s".equals(thing.substring(thing.length() - 1))
 					&& !"ss".equals(thing.substring(thing.length() - 2));
 			if (ALL_AFFECTS.contains(thing)) {
@@ -1278,7 +1278,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 
-		if (!affect.isEmpty()) {
+		if (affect != null && !affect.isEmpty()) {
 			if (isPositive(affect)) {
 				speech = "We are " + s("so", "") + s("pleased", "delighted");
 			}

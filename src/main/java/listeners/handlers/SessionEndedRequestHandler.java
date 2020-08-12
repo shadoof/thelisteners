@@ -48,13 +48,13 @@ public class SessionEndedRequestHandler implements RequestHandler {
 		if (locale == null) {
 			Locale l = Constants.parseLocale("en-us");
 		}
-		langConstants = LangConstants.getInstance(locale);
+		if (langConstants == null) langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = initSessionAttributes();
-		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
 
+		info("@SessionEndedRequestHandler: trying to save attributes with PERSISTENCE 'ask'");
 		// save attributes
 		if (sessAttributes != null) {
-			sessAttributes.put(PERSISTENCE, "forget");
+			sessAttributes.put(PERSISTENCE, "ask");
 			attributesManager.setPersistentAttributes(sessAttributes);
 			attributesManager.savePersistentAttributes();
 		}

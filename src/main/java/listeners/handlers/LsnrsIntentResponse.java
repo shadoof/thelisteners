@@ -15,6 +15,7 @@ import static listeners.model.Constants.speechUtils;
 import static listeners.model.LangConstants.dateString;
 import static listeners.util.Utils.randInt;
 
+import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
 
 import listeners.l10n.L10nSpeech;
 import listeners.util.ResponseFinisher;
@@ -82,9 +84,9 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 		}
 		
 		// filter out slotted intents
-		// just for convenience
-		// since following kludge code does not apply to slotted intents
-		if (intent.getSlots() != null) {
+		Map<String, Slot> slots = intent.getSlots();
+		boolean slotted = (slots == null) ? false : !slots.isEmpty();
+		if (slotted) {
 			return new LsnrsSlottedIntentResponse(input, will).getResponse();
 		}
 

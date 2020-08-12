@@ -32,7 +32,8 @@ public class Constants {
 	// 2.6.0a and 0b were in response to Amazon demands to remove ‘always
 	// listening’ instances
 	// 3.0.0 refactored for the latest Java ASK SDK and decent 110n
-	// 3.0.1 uses of Attributes class made all static
+	// 3.0.1 uses of Attributes class is static
+	// 3.0.2 version with de_DE
 	public static final String VERSION = "3.0.1";
 
 	// configurable

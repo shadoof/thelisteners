@@ -4,22 +4,6 @@
             "invocationName": "die zuhörer",
             "intents": [
                 {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.RepeatIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": []
-                },
-                {
                     "name": "ContinueIntent",
                     "slots": [],
                     "samples": [
@@ -114,20 +98,9 @@
                     ]
                 },
                 {
-                    "name": "SpkrsLoveLsnrsIntent",
+                    "name": "LaunchAskIntent",
                     "slots": [],
-                    "samples": [
-                        "Ich mag dich",
-                        "Ich mag dich Alexa",
-                        "Ich liebe dich",
-                        "Ich liebe dich Alexa",
-                        "Du bist schön",
-                        "Du hast eine schöne Stimme",
-                        "Wir mögen dich",
-                        "Wir mögen dich Alexa",
-                        "Wir lieben dich",
-                        "Wir lieben dich Alexa"
-                    ]
+                    "samples": []
                 },
                 {
                     "name": "LoveIntent",
@@ -143,78 +116,57 @@
                     ]
                 },
                 {
-                    "name": "SpkrsAffectIsIntent",
-                    "slots": [
-                        {
-                            "name": "Affect",
-                            "type": "LIST_OF_AFFECTS"
-                        }
-                    ],
+                    "name": "LsnrsAreNotHumanIntent",
+                    "slots": [],
                     "samples": [
-                        "Ich bin {Affect}",
-                        "Diese Kunst {Affect} mich",
-                        "Ich bin {Affect} von dieser interaktiven Kunst",
-                        "Ich bin {Affect} von diesem Stück",
-                        "Ich bin {Affect} von diesem Werk",
-                        "Ich bin den Lauschern {Affect}",
-                        "Ich bin den Zuhörern {Affect}",
-                        "Ich bin von diesem Werk {Affect}",
-                        "Ich bin von dir {Affect}",
-                        "Ich bin am {Affect}",
-                        "Ich fühle mich {Affect}",
-                        "Ich bin voller {Affect}",
-                        "Ich bin erfüllt von {Affect}",
-                        "Ich bin voll von {Affect}",
-                        "Ich bin überwältigt von {Affect}",
-                        "Ich bin ergriffen von {Affect}",
-                        "Ich bin beeindruckt von {Affect}",
-                        "Ich bin aufgewühlt von {Affect}",
-                        "Ich bin sehr {Affect}",
-                        "Ich fühle mich",
-                        "Ich fühle mich sehr {Affect}",
-                        "Ich bin {Affect} von dieser Kunst",
-                        "Wir fühlen uns {Affect}",
-                        "Wir fühlen uns sehr {Affect}"
+                        "Schäm dich nicht",
+                        "Sei nicht schockiert",
+                        "Sei nicht verlegen",
+                        "Sei nicht traurig",
+                        "Ich bin ärgerlich",
+                        "Ich bin enttäuscht",
+                        "Ich bin irritiert",
+                        "Das ärgert mich",
+                        "Das enttäuscht mich",
+                        "Das irritiert mich",
+                        "Ich komme nicht zu Wort",
+                        "Ich bringe kein Wort rein",
+                        "Ich kann kein Wort sagen",
+                        "Darf ich unterbrechen",
+                        "Darf ich dich unterbrechen",
+                        "Wir sind verärgert",
+                        "Wir sind enttäuscht",
+                        "Wir sind irritiert",
+                        "Wir sind ärgerlich",
+                        "Das enttäuscht uns",
+                        "Das irritiert uns",
+                        "Was hörst du",
+                        "Du bist so aufrichtig",
+                        "Du bist blöd",
+                        "Du bist so blöd",
+                        "Du bist so authentisch",
+                        "Du bist dumm",
+                        "Du bist so dumm",
+                        "Ich kann Gefühle nicht verstehen",
+                        "Du kannst uns nicht verstehen",
+                        "Du kannst Gefühle nicht verstehen",
+                        "Du sagst viel",
+                        "Du redest viel",
+                        "Du redest zu viel"
                     ]
                 },
                 {
-                    "name": "SpkrsAffectIsNotIntent",
-                    "slots": [
-                        {
-                            "name": "Affect",
-                            "type": "LIST_OF_AFFECTS"
-                        }
-                    ],
+                    "name": "LsnrsAreNotListeningIntent",
+                    "slots": [],
                     "samples": [
-                        "Ich bin nicht {Affect} von diesem Stück",
-                        "Ich bin nicht {Affect} von dir",
-                        "Ich bin nicht {Affect}",
-                        "Ich bin nicht {Affect} von dieser Kunst",
-                        "Ich bin nicht {Affect} von dieser interaktiven Kunst",
-                        "Ich bin nicht {Affect} von diesem Werk",
-                        "Ich bin nicht {Affect} von den Zuhörern",
-                        "Ich bin nicht {Affect} von den Lauschern",
-                        "Ich bin von diesem Werk nicht {Affect}",
-                        "Ich fühle mich nicht {Affect}",
-                        "Ich bin nicht erfüllt von {Affect}",
-                        "Ich bin nicht voller {Affect}",
-                        "Ich bin nicht erfreut über {Affect}",
-                        "Ich bin nicht erfreut von {Affect}",
-                        "Ich bin nicht überwältigt von {Affect}",
-                        "Das überwältigt mich nicht",
-                        "Ich {Affect} die Lauscher nicht",
-                        "Ich {Affect} dich nicht",
-                        "Ich fühle kein {Affect}",
-                        "Ich fühle een {Affect}",
-                        "Das macht mir kein {Affect}",
-                        "Das macht mir een {Affect}",
-                        "Bin nicht {Affect}",
-                        "Bin nicht {Affect} von dieser Kunst",
-                        "Bin nicht {Affect} von dieser interaktiven Kunst",
-                        "Bin nicht {Affect} von diesem Stück",
-                        "Bin nicht {Affect} von diesem Werk",
-                        "Wir fühlen uns nicht {Affect}",
-                        "Wir sind nicht {Affect}"
+                        "Du hörst nicht zu",
+                        "Du hörst mir nicht zu",
+                        "Du hörst nicht hin",
+                        "Du hörst mich nicht",
+                        "Du verstehst nicht",
+                        "Du verstehst mich nicht",
+                        "Manchmal hörst du nicht zu",
+                        "Manchmal hörst du mir nicht zu"
                     ]
                 },
                 {
@@ -387,16 +339,94 @@
                     ]
                 },
                 {
-                    "name": "StartingOverIntent",
+                    "name": "SpkrsAffectIsIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "Ich bin {Affect}",
+                        "Diese Kunst {Affect} mich",
+                        "Ich bin {Affect} von dieser interaktiven Kunst",
+                        "Ich bin {Affect} von diesem Stück",
+                        "Ich bin {Affect} von diesem Werk",
+                        "Ich bin den Lauschern {Affect}",
+                        "Ich bin den Zuhörern {Affect}",
+                        "Ich bin von diesem Werk {Affect}",
+                        "Ich bin von dir {Affect}",
+                        "Ich bin am {Affect}",
+                        "Ich fühle mich {Affect}",
+                        "Ich bin voller {Affect}",
+                        "Ich bin erfüllt von {Affect}",
+                        "Ich bin voll von {Affect}",
+                        "Ich bin überwältigt von {Affect}",
+                        "Ich bin ergriffen von {Affect}",
+                        "Ich bin beeindruckt von {Affect}",
+                        "Ich bin aufgewühlt von {Affect}",
+                        "Ich bin sehr {Affect}",
+                        "Ich fühle mich",
+                        "Ich fühle mich sehr {Affect}",
+                        "Ich bin {Affect} von dieser Kunst",
+                        "Wir fühlen uns {Affect}",
+                        "Wir fühlen uns sehr {Affect}"
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsNotIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "Ich bin nicht {Affect} von diesem Stück",
+                        "Ich bin nicht {Affect} von dir",
+                        "Ich bin nicht {Affect}",
+                        "Ich bin nicht {Affect} von dieser Kunst",
+                        "Ich bin nicht {Affect} von dieser interaktiven Kunst",
+                        "Ich bin nicht {Affect} von diesem Werk",
+                        "Ich bin nicht {Affect} von den Zuhörern",
+                        "Ich bin nicht {Affect} von den Lauschern",
+                        "Ich bin von diesem Werk nicht {Affect}",
+                        "Ich fühle mich nicht {Affect}",
+                        "Ich bin nicht erfüllt von {Affect}",
+                        "Ich bin nicht voller {Affect}",
+                        "Ich bin nicht erfreut über {Affect}",
+                        "Ich bin nicht erfreut von {Affect}",
+                        "Ich bin nicht überwältigt von {Affect}",
+                        "Das überwältigt mich nicht",
+                        "Ich {Affect} die Lauscher nicht",
+                        "Ich {Affect} dich nicht",
+                        "Ich fühle kein {Affect}",
+                        "Ich fühle een {Affect}",
+                        "Das macht mir kein {Affect}",
+                        "Das macht mir een {Affect}",
+                        "Bin nicht {Affect}",
+                        "Bin nicht {Affect} von dieser Kunst",
+                        "Bin nicht {Affect} von dieser interaktiven Kunst",
+                        "Bin nicht {Affect} von diesem Stück",
+                        "Bin nicht {Affect} von diesem Werk",
+                        "Wir fühlen uns nicht {Affect}",
+                        "Wir sind nicht {Affect}"
+                    ]
+                },
+                {
+                    "name": "SpkrsLoveLsnrsIntent",
                     "slots": [],
                     "samples": [
-                        "Geh zum Anfang zurück",
-                        "Zurück zum Anfang",
-                        "Neu starten",
-                        "Auf null stellen",
-                        "Neu beginnen",
-                        "Fang noch einmal an",
-                        "Fang nochmal an"
+                        "Ich mag dich",
+                        "Ich mag dich Alexa",
+                        "Ich liebe dich",
+                        "Ich liebe dich Alexa",
+                        "Du bist schön",
+                        "Du hast eine schöne Stimme",
+                        "Wir mögen dich",
+                        "Wir mögen dich Alexa",
+                        "Wir lieben dich",
+                        "Wir lieben dich Alexa"
                     ]
                 },
                 {
@@ -548,31 +578,6 @@
                     ]
                 },
                 {
-                    "name": "WhatsSpkrsAffectIntent",
-                    "slots": [],
-                    "samples": [
-                        "Wie fühle ich mich",
-                        "Wie fühl ich mich",
-                        "Bitte merk dir an meine Stimmung",
-                        "Bitte merk denke an meine Stimmung",
-                        "Bitte merk dir an meine Stimmungen",
-                        "Bitte merk denke an meine Stimmungen",
-                        "Bitte merk dir an meine Gefühle",
-                        "Bitte merk denke an meine Gefühle",
-                        "Merk dir an meine Stimmung",
-                        "Merk denke an meine Stimmung",
-                        "Merk dir an meine Stimmungen",
-                        "Merk denke an meine Stimmungen",
-                        "Merk dir an meine Gefühle",
-                        "Merk denke an meine Gefühle",
-                        "Was fühle ich",
-                        "Was überfordert mich",
-                        "Wovon bin ich besessen",
-                        "Was sind meine Gefühle",
-                        "Was fühl ich"
-                    ]
-                },
-                {
                     "name": "WhatsLsnrsAffectAboutIntent",
                     "slots": [
                         {
@@ -619,6 +624,31 @@
                     ]
                 },
                 {
+                    "name": "WhatsSpkrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wie fühle ich mich",
+                        "Wie fühl ich mich",
+                        "Bitte merk dir an meine Stimmung",
+                        "Bitte merk denke an meine Stimmung",
+                        "Bitte merk dir an meine Stimmungen",
+                        "Bitte merk denke an meine Stimmungen",
+                        "Bitte merk dir an meine Gefühle",
+                        "Bitte merk denke an meine Gefühle",
+                        "Merk dir an meine Stimmung",
+                        "Merk denke an meine Stimmung",
+                        "Merk dir an meine Stimmungen",
+                        "Merk denke an meine Stimmungen",
+                        "Merk dir an meine Gefühle",
+                        "Merk denke an meine Gefühle",
+                        "Was fühle ich",
+                        "Was überfordert mich",
+                        "Wovon bin ich besessen",
+                        "Was sind meine Gefühle",
+                        "Was fühl ich"
+                    ]
+                },
+                {
                     "name": "WhereIntent",
                     "slots": [],
                     "samples": [
@@ -626,14 +656,6 @@
                         "Wo sind die Lauscher",
                         "Wo bist du",
                         "Wo ist John"
-                    ]
-                },
-                {
-                    "name": "WhoseAccountIntent",
-                    "slots": [],
-                    "samples": [
-                        "Wessen Konto",
-                        "Wessen Konto ist das"
                     ]
                 },
                 {
@@ -645,6 +667,14 @@
                         "Für wen hältst du uns",
                         "Was glaubst du wer wir sind",
                         "Wer ist wir"
+                    ]
+                },
+                {
+                    "name": "WhoseAccountIntent",
+                    "slots": [],
+                    "samples": [
+                        "Wessen Konto",
+                        "Wessen Konto ist das"
                     ]
                 },
                 {
@@ -694,61 +724,42 @@
                     ]
                 },
                 {
-                    "name": "LsnrsAreNotHumanIntent",
-                    "slots": [],
-                    "samples": [
-                        "Schäm dich nicht",
-                        "Sei nicht schockiert",
-                        "Sei nicht verlegen",
-                        "Sei nicht traurig",
-                        "Ich bin ärgerlich",
-                        "Ich bin enttäuscht",
-                        "Ich bin irritiert",
-                        "Das ärgert mich",
-                        "Das enttäuscht mich",
-                        "Das irritiert mich",
-                        "Ich komme nicht zu Wort",
-                        "Ich bringe kein Wort rein",
-                        "Ich kann kein Wort sagen",
-                        "Darf ich unterbrechen",
-                        "Darf ich dich unterbrechen",
-                        "Wir sind verärgert",
-                        "Wir sind enttäuscht",
-                        "Wir sind irritiert",
-                        "Wir sind ärgerlich",
-                        "Das enttäuscht uns",
-                        "Das irritiert uns",
-                        "Was hörst du",
-                        "Du bist so aufrichtig",
-                        "Du bist blöd",
-                        "Du bist so blöd",
-                        "Du bist so authentisch",
-                        "Du bist dumm",
-                        "Du bist so dumm",
-                        "Ich kann Gefühle nicht verstehen",
-                        "Du kannst uns nicht verstehen",
-                        "Du kannst Gefühle nicht verstehen",
-                        "Du sagst viel",
-                        "Du redest viel",
-                        "Du redest zu viel"
-                    ]
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
                 },
                 {
-                    "name": "LsnrsAreNotListeningIntent",
-                    "slots": [],
-                    "samples": [
-                        "Du hörst nicht zu",
-                        "Du hörst mir nicht zu",
-                        "Du hörst nicht hin",
-                        "Du hörst mich nicht",
-                        "Du verstehst nicht",
-                        "Du verstehst mich nicht",
-                        "Manchmal hörst du nicht zu",
-                        "Manchmal hörst du mir nicht zu"
-                    ]
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
                 },
                 {
                     "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskPersistenceIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
                     "samples": []
                 }
             ],

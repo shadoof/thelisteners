@@ -6,7 +6,9 @@ import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import listeners.l10n.L10nSpeech;
@@ -14,12 +16,17 @@ import listeners.l10n.Welcome;
 import listeners.model.Constants;
 import listeners.model.LangConstants;
 import listeners.util.ResponseFinisher;
+import listeners.util.SpeechUtils;
 
 public class TestHandler {
 
 	public static void main(String[] args) {
+		
+		Map<String, String> slots = new HashMap();
+	  slots.put("s","s");
+		boolean slotted = (slots == null) ? false : !slots.isEmpty();
 
-		new TestHandler();
+		if (slotted) new TestHandler();
 
 	}
 
@@ -28,7 +35,7 @@ public class TestHandler {
 		Locale locale = Constants.parseLocale("en-us");
 		langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = initSessionAttributes();
-		speechUtils = ResourceBundle.getBundle("listeners.l10n.SpeechUtils", locale);
+		speechUtils = SpeechUtils.getNewBundle();
 				
 //		// fragments (10 speeches The Listeners like to make)
 //		// have been built and stored in LangConstants instance

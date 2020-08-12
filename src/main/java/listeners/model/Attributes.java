@@ -1,11 +1,14 @@
 package listeners.model;
 
 import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.info;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -50,9 +53,10 @@ public class Attributes {
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
-	public static HashSet LIST_OF_FRAGMENTS = new HashSet();
+	public static LinkedHashSet LIST_OF_FRAGMENTS = new LinkedHashSet();
 
-	public static Map<String, Object> initSessionAttributes() { // was Map<String, Object> or SessionMap
+	public static Map<String, Object> initSessionAttributes() { // was Map<String, Object> or
+																															// SessionMap
 
 		HashMap m = new HashMap();
 		// SessionMap m = new SessionMap();
@@ -77,7 +81,7 @@ public class Attributes {
 		}
 		m.put(LISTENERSAFFECT, la);
 		m.put(MARKOVIRQ, false);
-		m.put(PERSISTENCE, "session");
+		m.put(PERSISTENCE, "remember");
 		m.put(READSOFAR, 0);
 		m.put(PREVIOUSAFFECT, "");
 		m.put(THING, "");
@@ -123,9 +127,14 @@ public class Attributes {
 		for (Map.Entry<String, Object> entry : persAttributes.entrySet()) {
 			String key = entry.getKey();
 			Object value = entry.getValue();
+			// info(value.getClass().toString());
 			if (value instanceof BigDecimal) {
 				// info(key + ": " + ((BigDecimal) value).intValue());
 				hm.put(key, ((BigDecimal) value).intValue());
+			}
+			else if (value instanceof List || value instanceof HashSet) {
+				info("found a List or HashSet");
+				hm.put(key, ((LinkedHashSet) value));
 			}
 			else
 				hm.put(key, value);
