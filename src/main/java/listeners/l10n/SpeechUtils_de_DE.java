@@ -352,8 +352,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		// TODO
 		// does not set the sessionAttributes
-		String affect = isEmptyForSession(AFFECT) ? getRandomAffect()
-				: (String) sessAttributes.get(AFFECT);
+		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
 			amsg = String.format("It’s good to know that you dwell within %s. " + breathShort()
@@ -501,11 +500,11 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 		// TODO
 		String speech;
-		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W") + "e’re still "
-				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
-		speech = variations[randInt(0, variations.length - 1)] + chooseContinue(false);
-		
-		return new InnerResponse("Enough of " + s("them", "that"),speech);
+		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W")
+				+ "e’re still " + S(S("here for you.", "here."), S("listening.", "listening to you.")) };
+		speech = variations[randInt(0, variations.length - 1)] + SPC + chooseContinue(false);
+
+		return new InnerResponse("Enough of " + s("them", "that"), speech);
 	}
 
 	protected String pathToGuyzAudio() {
@@ -519,8 +518,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		// TODO
 		String speech = "It is a " + s("great", "") + "comfort for us to " + s("know", "be aware")
 				+ "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
-		speech += capitalize(word) + SPC + "is something that we believe " + s("everyone", "every human being")
-				+ "should " + s("be able to", "");
+		speech += capitalize(word) + SPC + "is something that we believe "
+				+ s("everyone", "every human being") + "should " + s("be able to", "");
 		speech += s(s("know.", "feel."), "dwell within.");
 		return speech;
 
@@ -619,11 +618,11 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 	}
 
 	protected String guyzSpeechCardTitle() {
-		
+
 		// TODO
-		return S("The o","O") + "thers " + S(s("are","") + "speaking ...","speak ...");
+		return S("The o", "O") + "thers " + S(s("are", "") + "speaking ...", "speak ...");
 	}
-	
+
 	protected String specificAffectSpeech() {
 
 		// TODO

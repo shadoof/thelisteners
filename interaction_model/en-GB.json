@@ -312,6 +312,8 @@
                         "{FragmentName}",
                         "can you speak {FragmentName}",
                         "can you speak about {FragmentName}",
+                        "can you talk {FragmentName}",
+                        "can you talk about {FragmentName}",
                         "go {FragmentName}",
                         "go fragment {FragmentName}",
                         "go to {FragmentName}",
@@ -320,7 +322,9 @@
                         "say fragment {FragmentName}",
                         "speak {FragmentName}",
                         "speak about {FragmentName}",
-                        "speak fragment {FragmentName}"
+                        "speak fragment {FragmentName}",
+                        "talk about {FragmentName}",
+                        "talk fragment {FragmentName}"
                     ]
                 },
                 {

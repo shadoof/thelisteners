@@ -550,8 +550,8 @@ public class SpeechUtils extends ListResourceBundle {
 
 		String speech;
 		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W") + "e’re still "
-				+ s(s("here for you.", "here."), s("listening.", "listening to you.")) };
-		speech = variations[randInt(0, variations.length - 1)] + chooseContinue(false);
+				+ S(S("here for you.", "here."), S("listening.", "listening to you.")) };
+		speech = variations[randInt(0, variations.length - 1)] + SPC + chooseContinue(false);
 		
 		return new InnerResponse("Enough of " + s("them", "that"),speech);
 	}
