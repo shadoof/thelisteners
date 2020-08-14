@@ -1630,6 +1630,151 @@
                     ]
                 }
             ]
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AskPersistenceIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1180095320092"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.313687960101"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1247238094452"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "NoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.942874253322"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1386618593239"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1051037387571"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.972334910313"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.942874253322",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1386618593239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1051037387571",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1247238094452",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.313687960101",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start from scratch?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start from the beginning?</lang></voice></speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1180095320092",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.972334910313",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            }
+        ]
     }
 }

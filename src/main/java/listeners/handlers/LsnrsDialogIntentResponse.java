@@ -203,6 +203,9 @@ public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements Ls
 					info("@LsnrsDialogIntentResponse, SpeakGuyzIntent DENIED");
 					ir.setSpeech(speechUtils.getString("noToGuyzSpeech"));
 				}
+				// fallback measure: may help with certification
+				ir.setSpeech(ir.getSpeech() + speechUtils.getString("getGuyzAreGone"));
+				ir.setReprompt(speechUtils.getString("chooseContinueNoAffect"));
 				break;
 			case "GuyzSpeechIntent":
 				info("@LsnrsDialogIntentResponse, " + intentName + ", confirmation: "

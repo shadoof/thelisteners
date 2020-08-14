@@ -79,7 +79,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			// info("from persAttributes, PERSISTENCE:" + persAttributes.get(PERSISTENCE));
 			if (WILL == null && LIVE) {
 				// this is a firstEncounter measure
-				persAttributes.put(PERSISTENCE, "remember");
+				persAttributes.put(PERSISTENCE, "forget");
 				attributesManager.savePersistentAttributes();
 			}
 		}

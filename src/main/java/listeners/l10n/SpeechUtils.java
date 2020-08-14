@@ -405,8 +405,7 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String getAbandonmentMessage() {
 
 		// does not set the sessionAttributes
-		String affect = isEmptyForSession(AFFECT) ? getRandomAffect()
-				: (String) sessAttributes.get(AFFECT);
+		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
 			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
@@ -549,11 +548,11 @@ public class SpeechUtils extends ListResourceBundle {
 	protected Object noMoreGuyz() {
 
 		String speech;
-		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W") + "e’re still "
-				+ S(S("here for you.", "here."), S("listening.", "listening to you.")) };
+		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W")
+				+ "e’re still " + S(S("here for you.", "here."), S("listening.", "listening to you.")) };
 		speech = variations[randInt(0, variations.length - 1)] + SPC + chooseContinue(false);
-		
-		return new InnerResponse("Enough of " + s("them", "that"),speech);
+
+		return new InnerResponse("Enough of " + s("them", "that"), speech);
 	}
 
 	protected String pathToGuyzAudio() {
