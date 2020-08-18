@@ -11,6 +11,7 @@ import static listeners.model.Attributes.isEmptyForSession;
 import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
+import static listeners.model.Constants.GRV;
 import static listeners.model.Constants.SPC;
 import static listeners.model.LangConstants.AFFECTS_ARRAY;
 import static listeners.model.LangConstants.ALL_AFFECTS;
@@ -25,6 +26,7 @@ import static listeners.util.Utils.capitalize;
 import static listeners.util.Utils.heads;
 import static listeners.util.Utils.phonemic;
 import static listeners.util.Utils.randInt;
+import static listeners.util.Utils.rS;
 import static listeners.util.Utils.s;
 
 import java.util.Arrays;
@@ -404,6 +406,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				"Möchtest du denn wirklich hören, was "
 						+ s("diese unzuverlässigen Kerle sagen?", "dieser unzuverlässige Kerl sagt?"))
 				+ breath();
+
 	}
 
 	protected String getReallyWantGuyzReprompt() {
@@ -1046,9 +1049,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String thanksWhatsLsnrsAffectPreSpeech() {
 
-		// TODO
-		return s(s("You’re", "You are") + s("very", "") + "welcome.",
-				s("It’s nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
+		return rS("Bitte. `Bitte, bitte. `Gar nicht für. `Gern geschehen. `Ist schon gut. ")
+				+ breath();
 	}
 
 	protected String tiredSpeech() {

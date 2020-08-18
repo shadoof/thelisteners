@@ -2,9 +2,11 @@ package listeners.handlers;
 
 import static listeners.model.Attributes.initSessionAttributes;
 import static listeners.model.Attributes.sessAttributes;
+import static listeners.model.Constants.GRV;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
+import static listeners.util.Utils.rS;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -25,6 +27,8 @@ public class TestHandler {
 		Map<String, String> slots = new HashMap();
 	  slots.put("s","s");
 		boolean slotted = (slots == null) ? false : !slots.isEmpty();
+		
+		info(rS("Bitte. `Bitte, bitte. `Gar nicht für. `Gern geschehen. `Ist schon gut. ") + "`");
 
 		if (slotted) new TestHandler();
 

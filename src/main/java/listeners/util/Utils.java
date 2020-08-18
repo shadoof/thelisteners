@@ -1,6 +1,7 @@
 package listeners.util;
 
 import static listeners.model.Constants.PAUSES_MAP;
+import static listeners.model.Constants.GRV;
 import static listeners.model.Constants.SPC;
 import static listeners.model.Constants.DEV;
 
@@ -30,8 +31,14 @@ public class Utils {
 
 	// ***** CONVENIENCE METHODS FOR STRINGS *****
 
-	public static String rS(String[] sa) {
+	public static String rS(String s) {
+		
+		return rS(s, GRV);
+	}
 
+	public static String rS(String s, String d) {
+
+		String [] sa = s.split(d);
 		return sa[randInt(0,sa.length - 1)];
 	}
 
