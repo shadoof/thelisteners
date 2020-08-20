@@ -15,11 +15,11 @@ public class CreepIntent_en_US extends CreepIntent {
 	public String buildSpeech() {
 
 		String speech = s("It’s " + s("upsetting", "disturbing"),
-				"We’re " + s("shocked", s("a bit", "") + "upset")) + breath();
+				"We’re " + s("shocked", s("a bit") + "upset")) + breath();
 		speech += "to hear that. " + breathShort();
 		speech += "We don’t " + s("want", "mean") + "to creep you out. " + breathShort();
 		speech += "We " + s("just", "only") + "want to listen to you. ";
-		speech += s(breathShort() + "To hear you.", "");
+		speech += s(breathShort() + "To hear you.");
 		speech += breath();
 		return speech;
 	}

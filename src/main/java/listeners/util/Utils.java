@@ -1,6 +1,7 @@
 package listeners.util;
 
 import static listeners.model.Constants.PAUSES_MAP;
+import static listeners.model.Constants.EQL;
 import static listeners.model.Constants.GRV;
 import static listeners.model.Constants.SPC;
 import static listeners.model.Constants.DEV;
@@ -31,15 +32,15 @@ public class Utils {
 
 	// ***** CONVENIENCE METHODS FOR STRINGS *****
 
-	public static String rS(String s) {
-		
-		return rS(s, GRV);
+	public static String r(String s) {
+
+		return r(s, GRV);
 	}
 
-	public static String rS(String s, String d) {
+	public static String r(String s, String d) {
 
-		String [] sa = s.split(d);
-		return sa[randInt(0,sa.length - 1)];
+		String[] sa = s.split(d);
+		return sa[randInt(0, sa.length - 1)];
 	}
 
 	public static String breath() {
@@ -74,11 +75,9 @@ public class Utils {
 
 	public static String capitalize(String s) {
 
-		if (s == null || s.isEmpty())
-			return "";
+		if (s == null || s.isEmpty()) return "";
 		return s.substring(0, 1)
-						.toUpperCase()
-				+ s.substring(1);
+				.toUpperCase() + s.substring(1);
 	}
 
 	public static String insertPauseTags(String speech) {
@@ -131,10 +130,19 @@ public class Utils {
 		return speech.replaceAll("\\s{2,}", SPC);
 	}
 
+	public static String s(String phrase) {
+
+		return heads() ? phrase + SPC : "";
+	}
+
 	public static String s(String firstAlternative, String secondAlternative) {
 
-		return heads() ? "".equals(firstAlternative) ? firstAlternative : firstAlternative + SPC
-				: "".equals(secondAlternative) ? secondAlternative : secondAlternative + SPC;
+		if (heads()) {
+			return "".equals(firstAlternative) ? firstAlternative : firstAlternative + SPC;
+		}
+		else {
+			return "".equals(secondAlternative) ? secondAlternative : secondAlternative + SPC;
+		}
 	}
 
 	public static String S(String firstAlternative, String secondAlternative) {

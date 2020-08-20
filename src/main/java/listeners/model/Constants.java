@@ -44,7 +44,7 @@ public class Constants {
 	public static final int NUMBER_OF_READABLES = 40;
 
 	// for readability
-	public static final String SPC = " ", GRV = "`";
+	public static final String SPC = " ", GRV = "`", EQL = "=";
 	public static final HashSet<String> DIALOG_INTENTS;
 	public static final Map<String, String> PAUSES_MAP;
 	public static final Map<Integer, Integer> PROBABILITY_MAP;

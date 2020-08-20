@@ -6,18 +6,15 @@ import static listeners.util.Utils.*;
 
 public class ThankIntent_de_DE extends ThankIntent {
 	
-	// TODO
 	public String buildCardTitle() {
 
-		return "You’re " + s("very", "") + "welcome";
+		return r("Bitte.`Gar nicht für.`Gern geschehen.");
 	}
 
 	public String buildSpeech() {
 
-		String speech = s(s("You’re", "You are") + s("very", "") + "welcome.",
-				s("It’s nothing.", s("Please.", "") + "Think nothing of it.")) + breath();
-		speech += s("We do work tirelessly to try and " + s("understand", "understand, and to believe in,")
-				+ "you.", "");
+		String speech = r("Bitte. `Bitte, bitte. `Ist schon gut.") + breath();
+		speech += S("Wir arbeiten dauernd daran, dich zu verstehen", s(" und an dich zu glauben.", "."));
 		return speech + breath();
 
 	}

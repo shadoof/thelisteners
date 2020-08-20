@@ -18,10 +18,10 @@ public class DontCareIntent_en_US extends DontCareIntent {
 	public String buildSpeech() {
 
 		sessAttributes.put(AFFECT, "indifference");
-		String speech = "We’re " + s(s("very", "") + "sorry", s("a bit", "") + "upset") + "that you feel " + s("this", "that") + "way. ";
+		String speech = "We’re " + s(s("very") + "sorry", s("a bit") + "upset") + "that you feel " + s("this", "that") + "way. ";
 		speech += "And we " + s("feel like", "guess that") + "you are filled with ‘indifference’. " + breathShort();
 		speech += "We " + s("hope, nonetheless,", "hope") + "that we can " + s("keep", "go on")
-				+ "listening to you, "/* + s("always,", "") */; // ALWAYCHANGE
+				+ "listening to you, "/* + s("always,") */; // ALWAYCHANGE
 		speech += "and that you will come to care about us, like we care about you. ";
 		speech += breath();
 		return speech;

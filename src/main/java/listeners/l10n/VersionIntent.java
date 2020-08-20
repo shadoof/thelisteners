@@ -41,12 +41,12 @@ public class VersionIntent extends L10nSpeech {
 			s = getVersionLocale();
 		}
 		else {
-			s = s("Thank you for " + s("your interest.", "the question.") + breath(), "");
+			s = s("Thank you for " + s("your interest.", "the question.") + breath());
 			s += "We " + s("prefer to", "would rather")
 					+ "think of this as the date of our last rebirth, which was ";
 			s += LSNRS_DATE + ". " + breath();
 			s += s("It seems always to be very recent. "
-					+ s("But we " + s("certainly", "") + "were not born yesterday.", "") + breath(), "");
+					+ s("But we " + s("certainly") + "were not born yesterday.") + breath());
 		}
 		return s += breath();
 	}

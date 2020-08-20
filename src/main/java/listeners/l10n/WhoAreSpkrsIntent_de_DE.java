@@ -9,13 +9,13 @@ public class WhoAreSpkrsIntent_de_DE extends WhoAreSpkrsIntent {
 
 	public String buildCardTitle() {
 
-		return "Who " + s("do", "") + "we think you are";
+		return "Who " + s("do") + "we think you are";
 	}
 
 	public String buildSpeech() {
 
-		String speech = "We believe that you are the " + s("true " + breathShort(), "") + "‘speakers’. "
-				+ s("That you are everyone.", "") + "Everyone, apart from, us. ";
+		String speech = "We believe that you are the " + s("true " + breathShort()) + "‘speakers’. "
+				+ s("That you are everyone.") + "Everyone, apart from, us. ";
 		return speech + breath();
 	}
 

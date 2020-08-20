@@ -6,7 +6,8 @@ import static listeners.model.Constants.GRV;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
-import static listeners.util.Utils.rS;
+import static listeners.util.Utils.r;
+import static listeners.util.Utils.s;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -28,7 +29,7 @@ public class TestHandler {
 	  slots.put("s","s");
 		boolean slotted = (slots == null) ? false : !slots.isEmpty();
 		
-		info(rS("Bitte. `Bitte, bitte. `Gar nicht für. `Gern geschehen. `Ist schon gut. ") + "`");
+		info("|" + s("Bitte.") + "|");
 
 		if (slotted) new TestHandler();
 

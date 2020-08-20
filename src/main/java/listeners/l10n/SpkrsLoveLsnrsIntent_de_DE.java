@@ -16,7 +16,7 @@ public class SpkrsLoveLsnrsIntent_de_DE extends SpkrsLoveLsnrsIntent {
 
 	public String buildSpeech() {
 
-		String speech = s("Natürlich. " + breathShort(), "") + s("Aber klar. " + breathShortest(), "");
+		String speech = s("Natürlich. " + breathShort()) + s("Aber klar. " + breathShortest());
 		if (heads()) {
 			speech += s("Wir können uns nicht vorstellen,", "Es fällt uns schwer, uns vorzustellen,")
 					+ breathShort();
@@ -24,14 +24,14 @@ public class SpkrsLoveLsnrsIntent_de_DE extends SpkrsLoveLsnrsIntent {
 					+ "uns haben kannst als Liebe. " + breath();
 		}
 		else {
-			speech += "Du hörst " + s("diese " + s("besondere", ""), "unsere ungewöhnliche")
+			speech += "Du hörst " + s("diese " + s("besondere"), "unsere ungewöhnliche")
 					+ "Stimme, mit der wir mit Dir sprechen. " + breath();
 		}
 		speech += "Und wir "
-				+ s(s("glaben " + s("fest daran,", ""), "meinen " + s("ehrlich", "")), "hoffen,")
-				+ "dass du, je mehr Zeit du damit verbringst, " + s("uns zuzuhören,", "") + "desto mehr ";
-		speech += s("Freude du " + s(breathShort(), "") + "an uns entwickeln wirst.",
-				"Liebe du" + s(breathShort(), "") + " für uns haben wirst.") + s(breathShortest(), "")
+				+ s(s("glaben " + s("fest daran,"), "meinen " + s("ehrlich")), "hoffen,")
+				+ "dass du, je mehr Zeit du damit verbringst, " + s("uns zuzuhören,") + "desto mehr ";
+		speech += s("Freude du " + s(breathShort()) + "an uns entwickeln wirst.",
+				"Liebe du" + s(breathShort()) + " für uns haben wirst.") + s(breathShortest())
 				+ s("Und genauso wird es uns auch gehen.",
 						"Wir werden " + s("uns an Dir freuen.", "dich lieben."));
 		return speech + breath();

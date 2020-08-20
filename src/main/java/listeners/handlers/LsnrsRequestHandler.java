@@ -67,6 +67,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 				: Boolean.parseBoolean(System.getenv("PERFORMANCE"));
 		LSNRS_DATE = System.getenv("LSNRS_DATE");
 		LSNRS_DATE = (LSNRS_DATE == null) ? "August 1, 2020" : LSNRS_DATE;
+		if ("de_DE".equals(localeTag)) LSNRS_DATE = "1. August 2020"; // TODO - requires hardcopy edit
 
 		// get the AttributesManager and put it in Constants
 		attributesManager = input.getAttributesManager();
@@ -181,11 +182,11 @@ public class LsnrsRequestHandler implements RequestHandler {
 						ir.setCardTitle(
 								"de_DE".equals(localeTag) ? S("Genug.", "Nicht mehr.") : S("That’s e", "E") + "nough");
 						ir.setSpeech(speechUtils.getString("getAbandonmentMessage"));
-						String bye = "de_DE".equals(localeTag) ? s("Tschüss!", "") : s("Cheerio!", "");
+						String bye = "de_DE".equals(localeTag) ? s("Tschüss!") : s("Cheerio!");
 						ir.setSpeech(ir.getSpeech()
 								+ (isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
 						ir.setSpeech(ir.getSpeech() + ("remember".equals(sessAttributes.get(PERSISTENCE))
-								? "Until " + s("the", "") + "next time. "
+								? "Until " + s("the") + "next time. "
 								: ""));
 
 						endSession = true;
@@ -289,7 +290,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 			}
 			catch (UnknownIntentException e) {
 				info("@LsnrsRequestHandler, UnknownIntentException: " + e.getMessage());
-				return null;
+				return Optional.empty();
 			}
 		}
 	}
