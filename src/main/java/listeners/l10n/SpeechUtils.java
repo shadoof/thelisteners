@@ -24,6 +24,7 @@ import static listeners.util.Utils.breathShort;
 import static listeners.util.Utils.capitalize;
 import static listeners.util.Utils.heads;
 import static listeners.util.Utils.phonemic;
+import static listeners.util.Utils.r;
 import static listeners.util.Utils.randInt;
 import static listeners.util.Utils.s;
 
@@ -548,10 +549,8 @@ public class SpeechUtils extends ListResourceBundle {
 	protected Object noMoreGuyz() {
 
 		String speech;
-		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W")
-				+ "e’re still " + S(S("here for you.", "here."), S("listening.", "listening to you.")) };
-		speech = variations[randInt(0, variations.length - 1)] + SPC + chooseContinue(false);
-
+		speech = r("OK. `Understood. `Wise. `Prudent. `" + S("Well, w", "W") + "e’re still "
+				+ s(s("here for you.", "here."), s("listening.", "listening to you."))) + chooseContinue(false);
 		return new InnerResponse("Enough of " + s("them", "that"), speech);
 	}
 

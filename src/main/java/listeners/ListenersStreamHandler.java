@@ -1,6 +1,7 @@
 package listeners;
 
 import static listeners.model.Constants.DEV;
+import static listeners.util.Utils.info;
 
 import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
@@ -18,7 +19,13 @@ public class ListenersStreamHandler extends SkillStreamHandler {
 		// skill ID should be in this environment variable for xeno 'other voices'
 		String skillID = System.getenv("SKILL_ID");
 		// ID for Live or Development Listeners
-		if (skillID == null) skillID = "amzn1.echo-sdk-ams.app.586aa4c5-12ca-496b-b7f1-3e93880f35de";
+		if (skillID == null) {
+			skillID = "amzn1.echo-sdk-ams.app.586aa4c5-12ca-496b-b7f1-3e93880f35de";
+			info("environment was null, from The Listeners: " + skillID);
+		}
+		else {
+			info("skillID taken from enviroment, normally Listeners Xeno: " + skillID);
+		}
 
 		return Skills.standard()
 				.addRequestHandlers(new LsnrsRequestHandler(),

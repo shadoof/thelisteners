@@ -127,9 +127,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String askPersistenceSpeech() {
 
-		// TODO
-		String speech = s("Would you like us to remember something of our conversation?",
-				"Would you like us to remember roughly what we’ve heard and said to you so far?");
+		String speech = s("Möchten Sie, dass wir uns an etwas von unserem Gespräch erinnern?",
+				"Möchten Sie, dass wir uns ungefähr an das erinnern, was wir Ihnen bisher gehört und gesagt haben?");
 
 		return speech;
 	}
@@ -141,15 +140,13 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String askStartOverCardTitle() {
 
-		// TODO
-		return S("You want to start over?", "Start from scratch?");
+		return S("Du willst von vorne anfangen?", "Von vorne beginnen?");
 	}
 
 	protected String askStartOverSpeech() {
 
-		// TODO
-		String speech = s("Would you like to start over from the beginning?",
-				"Would you like us to forget what we’ve heard and said to you so far?");
+		String speech = s("Möchten Sie von vorne beginnen?",
+				"Möchten Sie, dass wir vergessen, was wir Ihnen bisher gehört und gesagt haben?");
 
 		return speech;
 	}
@@ -349,18 +346,17 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String getAbandonmentMessage() {
 
-		// TODO
 		// does not set the sessionAttributes
 		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
-			amsg = String.format("It’s good to know that you dwell within %s. " + breathShort()
-					+ s("Still,", "Whatever, " + breath()), affect);
+			amsg = String.format("Es ist gut, " + r("zu wissen`dir bewusst zu sein") + ", dass du "
+					+ r("in der `im `in ") + "%s lebst. " + breathShort() + "Und " + r("doch `dennoch "), affect);
 		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must") + "abandon us. " + breath();
+			amsg = String.format("Tut es uns " + r("im Endeffekt `schliesslich ") + "leid "
+					+ r("zu wissen `erfahren zu haben ") + "dass du " + r("erfüllt von `besessen von ")
+					+ "%s bist. Und jetzt ", affect);
+		return amsg += breathShort() + s("must") + "du dich von uns trennen. " + breath();
 	}
 
 	protected String getGuyzAreGone() {
@@ -464,9 +460,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String moreGuyz() {
 
-		// TODO
-		return s("More" + S("? ", " of this? "), "Do you " + s("really") + s("need", "want") + "to hear "
-				+ s("more?", "more from " + s("the guyz?", "these " + s("strange") + "guyz?")));
+		return s("Mehr" + r("? `davon? "),
+				r("Willst du wirklich `Möchten Sie ") + "mehr von dieser seltsamer Kerle hören? ");
 	}
 
 	protected InnerResponse no() {
@@ -482,27 +477,26 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String noSpeech() {
 
-		// TODO
-		return s("More?", S("You " + s("were thinking of", "thought about") + s("going.", "leaving us. "),
-				s("You’re still", "Still") + s("with us.", s("here.", "here with us. "))) + s("More?"));
+		return s("Mehr?",
+				r(r("Du hast darüber nachgedacht zu gehen? `Sie haben darüber nachgedacht, uns zu verlassen? ")
+						+ "`Du bist immer noch bei uns? ") + s("Mehr?"));
 	}
 
 	protected String noToGuyzSpeech() {
 
-		// TODO
-		return s(s("It’s probably best", "Best"), "Better") + "not " + s("to") + s("hear ", "listen to")
-				+ s(s(s("more of"), "any of")) + "what they have to say. " + s(breath() + "Wise.") + breath();
+		return "Es ist wahrscheinlich besser"
+				+ r(". `, nicht zuzuhören. `, nicht auf das zu hören, was sie zu sagen haben. ")
+				+ s(breathShort() + "Weise.") + breath();
 	}
 
 	protected Object noMoreGuyz() {
 
-		// TODO
 		String speech;
-		String[] variations = { "OK. ", "Understood. ", "Wise. ", "Prudent. ", S("Well, w", "W")
-				+ "e’re still " + S(S("here for you.", "here."), S("listening.", "listening to you.")) };
-		speech = variations[randInt(0, variations.length - 1)] + SPC + chooseContinue(false);
+		speech = r("OK. `Verstanden. `Weise. `Umsichtig. `Nun, wir "
+				+ r("hören dir immer noch zu. `sind immer noch " + r("hier bei dir. `für Sie da. ")))
+				+ chooseContinue(false);
 
-		return new InnerResponse("Enough of " + s("them", "that"), speech);
+		return new InnerResponse(r("Genug davon`Genug von ihnen"), speech);
 	}
 
 	protected String pathToGuyzAudio() {
@@ -616,8 +610,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String guyzSpeechCardTitle() {
 
-		// TODO
-		return S("The o", "O") + "thers " + S(s("are") + "speaking ...", "speak ...");
+		return S("Die anderen sprechen lassen", "Die andere Stimme");
 	}
 
 	protected String specificAffectSpeech() {
@@ -1009,19 +1002,15 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String startOverConfirmed() {
 
-		// TODO
-		return s("OK.") + "We’re beginning " + s(s("all over") + "again. ", "again from the top. ")
+		return s("OK.") + "Wir fangen wieder " + r("an. `von vorne an. `von oben an. ")
 				+ chooseContinue(false);
 	}
 
 	protected String startOverDenied() {
 
-		// TODO
-		return s("We’re still here, listening " + s("to you as", "as"), "Still listening as")
-				+ s("before.",
-						"before, and " + s("remembering", "recalling") + "some of what "
-								+ s("was said.", s("you", "we") + "felt."))
-				+ chooseContinue(false);
+		return "Wir hören " + r("Ihnen immer noch zu. `immer noch zu wie zuvor. ")
+				+ "Und wir erinnern uns an etwas von dem, was "
+				+ r("gesagt wurde. `" + r("Sie gefühlt haben. `wir fühlten. ")) + chooseContinue(false);
 	}
 
 	protected InnerResponse thanksNo() {
@@ -1296,7 +1285,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String whatsSpkrsAffectCardTitle() {
 
-		return S("Sie haben uns das" + s("über Ihre Gefühle") + "gesagt", "Was wir glauben, dass Sie fühlen");
+		return S("Sie haben uns das" + s("über Ihre Gefühle") + "gesagt",
+				"Was wir glauben, dass Sie fühlen");
 	}
 
 }
