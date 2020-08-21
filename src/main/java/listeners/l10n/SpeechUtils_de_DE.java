@@ -61,14 +61,14 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 			do {
 				s = choosePhrase();
 			}
-			while ("word".equals(s));
+			while ("ein Wort".equals(s));
 			speech += "Dies ist " + s + ". ";
 			speech += "Als " + ("ein Gefühl".equals(s) ? "ein Satz. " : s("ein Gefühl.", "ein Satz."));
 			speech += breathLonger();
 		}
 		if (heads()) {
 			s = choosePhrase();
-			speech += "<p>Dies ist " + s + ".</p> ";
+			speech += "Dies ist " + s + ". ";
 			speech += "Als "
 					+ ("ein Gefühl".equals(s) ? "ein Paragraph. " : s("ein Gefühl.", "ein Paragraph."));
 			speech += breathLonger();
@@ -1180,28 +1180,26 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String whatIsCardTitle() {
 
-		// TODO
-		return s("Trying to tell ", "Telling ") + "you what " + s("little") + "we know "
-				+ s("about some thing");
+		return "Wir " + s("versuchen") + r("zu sagen `sagen ") + "was immer wir " + s("über etwas")
+				+ "wissen";
 	}
 
 	protected InnerResponse whatPicture() {
 
-		// TODO
-		String speech = "This " + s("image,", "picture,") + "which is often "
-				+ s("mounted", "framed and hung") + "close to us, "
-				+ s("is", "is, " + s("actually,", "in fact,")) + "a papercut facsimile ";
-		speech += "of " + s("artificial") + "flowers that adorn " + s("ancient")
-				+ "Chinese Buddhist shrines. ";
-		speech += s("It is here, " + s("simply,") + "to remind us, " + s("and you,") + "of the place, "
-				+ s("a home,") + s("within which we are used to dwell.", "where we live.") + s("With you."));
+		String speech = "Dieses " + r("Bild `Photo ") + "wird oft " + r("gerahmt `eingerahmt ")
+				+ "und in unserer Nähe" + r(" aufgehängt. `. ") + "Es ist " + r("eigentlich `tatsächlich ")
+				+ "ein Bildfaksimile aus Papier ";
+		speech += "von " + s("künstlichen") + "Blumen, die " + s("antike")
+				+ "chinesische buddhistiche Schreine zieren. ";
+		speech += s(
+				"Es ist hier " + s("nur,") + "um uns " + r("und Sie `dich ") + "an den Ort " + s("ein Zuhause")
+						+ "zu erinnern, " + r("in dem wir gewohnt haben. `wo wir wohnen. ") + s("Mit dir."));
 		return new InnerResponse(whatPictureCardTitle(), speech += breath());
 	}
 
 	protected String whatPictureCardTitle() {
 
-		// TODO
-		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+		return r("Ein Bild `Ein Photo ") + r("das uns an zuhause erinnert`das wir gern haben");
 	}
 
 	protected InnerResponse whatsLsnrsAffect() {
@@ -1255,8 +1253,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String whatsLsnrsAffectCardTitle() {
 
-		// TODO
-		return "What we " + s("are trying to") + "feel";
+		return "Was wir " + s("versuchen, zu") + "fühlen";
 	}
 
 	protected InnerResponse whatsSpkrsAffect() {
@@ -1299,9 +1296,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String whatsSpkrsAffectCardTitle() {
 
-		// TODO
-		return S("You told us " + s("this", "this, concerning your feelings"),
-				"What we believe that you are feeling");
+		return S("Sie haben uns das" + s("über Ihre Gefühle") + "gesagt", "Was wir glauben, dass Sie fühlen");
 	}
 
 }

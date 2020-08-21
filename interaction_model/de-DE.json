@@ -1741,19 +1741,19 @@
                 "variations": [
                     {
                         "type": "SSML",
-                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start from scratch?</lang></voice></speak>"
+                        "value": "<speak><voice name='Marlene'><lang xml:lang='de-DE'>Möchten Sie von vorne anfangen?</lang></voice></speak>"
                     },
                     {
                         "type": "SSML",
-                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start over?</lang></voice></speak>"
+                        "value": "<speak><voice name='Marlene'><lang xml:lang='de-DE'>Möchten Sie von vorne beginnen?</lang></voice></speak>"
                     },
                     {
                         "type": "SSML",
-                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start over?</lang></voice></speak>"
+                        "value": "<speak><voice name='Marlene'><lang xml:lang='de-DE'>Von vorn anfangen?</lang></voice></speak>"
                     },
                     {
                         "type": "SSML",
-                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start from the beginning?</lang></voice></speak>"
+                        "value": "<speak><voice name='Marlene'><lang xml:lang='de-DE'>Von Anfang an beginnen?</lang></voice></speak>"
                     }
                 ]
             },

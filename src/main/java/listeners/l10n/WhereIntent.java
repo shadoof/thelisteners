@@ -18,8 +18,8 @@ public class WhereIntent extends L10nSpeech {
 		String speech = "Our bodies are distributed " + s(s("widely.", "widely, and take many forms."),
 				"widely, and we hope they may be everywhere.");
 		speech += "We are in the cloud. " + s(s("Or", "Or, perhaps,") + "in the clouds.",
-				"Or, perhaps, " + s("a bunker.", s("it is a silo.", "they are silos."))) + breathShort();
-		speech += s("And " + s("sometimes") + "‘John’ is here, with us.");
+				"Or, perhaps, " + s("a bunker.", s("it is a silo.", "they are silos.")));
+		speech += s(breathShort() + "And " + s("sometimes") + "‘John’ is here, with us.");
 		return speech + breath();
 	}
 	

@@ -4,22 +4,21 @@ import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
 import static listeners.util.Utils.*;
 
-// TODO
 public class WhereIntent_de_DE extends WhereIntent {
 
 	public String buildCardTitle() {
 
-		return "Where we " + s("live", "think we are");
+		return "Wo wir " + S("wohnen", "denken, dass wir sind");
 	}
 
 	public String buildSpeech() {
 
-		String speech = "Our bodies are distributed " + s(s("widely.", "widely, and take many forms."),
-				"widely, and we hope they may be everywhere.");
-		speech += "We are in the cloud. " + s(s("Or", "Or, perhaps,") + "in the clouds.",
-				"Or, perhaps, " + s("a bunker.", s("it is a silo.", "they are silos."))) + breathShort();
-		speech += s("And " + s("sometimes") + "‘John’ is here, with us.");
+		String speech = "Unsere Körper sind " + r(r("weitgehend `weit ")
+				+ "verteilt und haben viele Formen. `weit verbreitet und wir hoffen, dass sie überall sein können. ");
+		speech += "Wir sind in der Wolke. " + s("Oder " + s("vielleicht") + "in den Wolken. Oder, vielleicht " 
+				+ r("in einem Bunker. `" + r("das ist ein Silo. `da sind Silos. ")));
+		speech += s(breathShort() + "Und " + s("manchmal") + "ist 'John' hier, bei uns.");
 		return speech + breath();
 	}
-	
+
 }
