@@ -7,19 +7,15 @@ import static listeners.model.Attributes.HEARDALLFRAGMENTS;
 import static listeners.model.Attributes.HEARDBREATHAFFECTS;
 import static listeners.model.Attributes.LASTINTENT;
 import static listeners.model.Attributes.NOT_YET_GREETED;
-import static listeners.model.Attributes.THING;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
 import static listeners.model.Constants.VERSE;
 import static listeners.model.Constants.speechUtils;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
 import static listeners.model.LangConstants.buildFragments;
 import static listeners.model.LangConstants.fragments;
 import static listeners.util.Utils.heads;
 import static listeners.util.Utils.randInt;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 

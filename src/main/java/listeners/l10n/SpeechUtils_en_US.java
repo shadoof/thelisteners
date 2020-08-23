@@ -12,10 +12,7 @@ import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
 import static listeners.model.Constants.SPC;
-import static listeners.model.LangConstants.AFFECTS_ARRAY;
-import static listeners.model.LangConstants.ALL_AFFECTS;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
-import static listeners.model.LangConstants.SPECIAL_THINGS;
+import static listeners.model.Constants.langConstants;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.breathLong;
@@ -97,7 +94,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		if (heads) {
 			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can "
 					+ s("hear,", "recognize,") + "include: " + breath();
-			List list = (List) Arrays.asList(AFFECTS_ARRAY);
+			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
 			int limit = 5;
@@ -113,7 +110,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		if (!heads && heads()) {
 			speech += "Or, you " + s("can", "could") + "ask us to " + s("‘speak’,", "‘talk about’,")
 					+ s("any of these things:") + breath();
-			speech += chooseSomeFragmentNames() + ". ";
+			speech += chooseSomeFragmentNames();
 		}
 
 		if (randInt(0, 8) == 0) {
@@ -647,7 +644,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		if (thing != null && !thing.isEmpty()) {
 			boolean plural = "s".equals(thing.substring(thing.length() - 1))
 					&& !"ss".equals(thing.substring(thing.length() - 2));
-			if (ALL_AFFECTS.contains(thing)) {
+			if (langConstants.ALL_AFFECTS.contains(thing)) {
 
 				speech += capitalThing + (plural ? ", are " : ", is one of the ")
 						+ s(phonemic("a") + "ffects", "ways of being or feeling")
@@ -656,7 +653,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 						? s(s("postive.", "positive, for all of us."), s("wonderful, for all of us.", "wonderful."))
 						: s("negative.", s("bad,", "hard,") + "for all of us."));
 			}
-			else if (FRAGMENTNAME_MAP.keySet()
+			else if (langConstants.FRAGMENTNAME_MAP.keySet()
 					.contains(thing)) {
 				speech += capitalThing + (plural ? ", are " : ", is one of those ")
 						+ "things about which we have something to say. "
@@ -664,7 +661,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 				speech += "If you choose to " + s("‘keep going’,", "‘go on’,") + (plural ? "they " : "it ")
 						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.");
 			}
-			else if (SPECIAL_THINGS.contains(thing)) {
+			else if (langConstants.SPECIAL_THINGS.contains(thing)) {
 				switch (thing) {
 					case "dream":
 						speech += capitalThing + ", thanks to you, " + breathShort()

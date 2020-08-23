@@ -2,6 +2,7 @@ package listeners.model;
 
 import static listeners.util.Utils.randInt;
 import static listeners.util.Utils.info;
+import static listeners.model.Constants.langConstants;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -75,8 +76,8 @@ public class Attributes {
 		m.put(LASTINTENT, "AMAZON.StopIntent");
 		ArrayList al;
 		String la = "";
-		if (LangConstants.AFFECTS_MAP != null) {
-			al = new ArrayList<>(LangConstants.AFFECTS_MAP.keySet());
+		if (langConstants.AFFECTS_MAP != null) {
+			al = new ArrayList<>(langConstants.AFFECTS_MAP.keySet());
 			la = (String) al.get(randInt(0, al.size() - 1));
 		}
 		m.put(LISTENERSAFFECT, la);
@@ -90,7 +91,7 @@ public class Attributes {
 
 	public static String getRandomAffect() {
 
-		ArrayList al = new ArrayList<>(LangConstants.AFFECTS_MAP.keySet());
+		ArrayList al = new ArrayList<>(langConstants.AFFECTS_MAP.keySet());
 		return (String) al.get(randInt(0, al.size() - 1));
 	}
 
@@ -103,11 +104,11 @@ public class Attributes {
 	public static boolean isPositive(String affect) {
 
 		if (affect == null) return false;
-		boolean affectIsPositive = (LangConstants.AFFECTS_MAP.containsKey(affect))
-				? LangConstants.AFFECTS_MAP.get(affect)
+		boolean affectIsPositive = (langConstants.AFFECTS_MAP.containsKey(affect))
+				? langConstants.AFFECTS_MAP.get(affect)
 				: false;
-		return affectIsPositive = (LangConstants.SPECIAL_AFFECT_MAP.containsKey(affect))
-				? LangConstants.SPECIAL_AFFECT_MAP.get(affect)
+		return affectIsPositive = (langConstants.SPECIAL_AFFECT_MAP.containsKey(affect))
+				? langConstants.SPECIAL_AFFECT_MAP.get(affect)
 				: affectIsPositive;
 	}
 
@@ -133,7 +134,7 @@ public class Attributes {
 				hm.put(key, ((BigDecimal) value).intValue());
 			}
 			else if (value instanceof List || value instanceof HashSet) {
-				info("found a List or HashSet");
+				// info("found a List or HashSet");
 				hm.put(key, ((LinkedHashSet) value));
 			}
 			else

@@ -15,8 +15,6 @@ import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.speechUtils;
-import static listeners.model.LangConstants.FRAGMENTNAME_MAP;
-import static listeners.model.LangConstants.PICTURE_WORDS;
 import static listeners.model.LangConstants.buildFragments;
 import static listeners.model.LangConstants.fragments;
 import static listeners.util.Utils.heads;
@@ -101,7 +99,7 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				String thing = getFromSlot(THING_SLOT);
 				sessAttributes.put(THING, thing);
 				speechUtils = SpeechUtils.getNewBundle();
-				if (PICTURE_WORDS.contains(thing)) {
+				if (langConstants.PICTURE_WORDS.contains(thing)) {
 					ir = (InnerResponse) speechUtils.getObject("WhatPictureIntent");
 				}
 				else {

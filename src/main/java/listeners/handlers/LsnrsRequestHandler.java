@@ -100,7 +100,10 @@ public class LsnrsRequestHandler implements RequestHandler {
 		info("@LsnrsRequestHandler, setting locale to: " + ls);
 		locale = Constants.parseLocale(ls);
 		// langConstants also housed in model.Constants:
-		langConstants = LangConstants.getInstance(locale); // singleton
+		if (input.getRequestEnvelope().getSession().getNew()) {
+			info("@LsnrsRequestHandler: New session, new langConstants.");
+			langConstants = LangConstants.getInstance(locale);
+		}
 
 		// possibilities are
 		// *** 0. ask with either request
@@ -186,7 +189,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 						ir.setSpeech(ir.getSpeech()
 								+ (isPositive((String) sessAttributes.get(AFFECT)) ? bye : ""));
 						ir.setSpeech(ir.getSpeech() + ("remember".equals(sessAttributes.get(PERSISTENCE))
-								? "Until " + s("the") + "next time. "
+								? speechUtils.getString("untilNextTime")
 								: ""));
 
 						endSession = true;

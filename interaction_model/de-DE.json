@@ -598,7 +598,7 @@
                     ]
                 },
                 {
-                    "name": "WhatsLnsrsAffectIntent",
+                    "name": "WhatsLsnrsAffectIntent",
                     "slots": [],
                     "samples": [
                         "Hast du Angst",

@@ -37,7 +37,7 @@ public class TestHandler {
 
 	public TestHandler() {
 
-		Locale locale = Constants.parseLocale("en-us");
+		Locale locale = Constants.parseLocale("en-US");
 		langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = initSessionAttributes();
 		speechUtils = SpeechUtils.getNewBundle();

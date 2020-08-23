@@ -1,5 +1,6 @@
 package listeners.l10n;
 
+import static listeners.model.Constants.GRV;
 import static listeners.model.Constants.NEGATIVE;
 import static listeners.model.Constants.POSITIVE;
 import static listeners.util.Utils.S;
@@ -9,261 +10,283 @@ import java.util.HashSet;
 
 public class LangConstantsBundle_de_DE extends LangConstantsBundle {
 
-	// public LangConstantsBundle_de_DE() {
-	// build();
-	// }
-	//
-	// private void build() {
-	static {
-		FRAGMENTNUMBER_MAP = new HashMap<>();
-		FRAGMENTNUMBER_MAP.put("1", 0);
-		FRAGMENTNUMBER_MAP.put("2", 1);
-		FRAGMENTNUMBER_MAP.put("3", 2);
-		FRAGMENTNUMBER_MAP.put("4", 3);
-		FRAGMENTNUMBER_MAP.put("5", 4);
-		FRAGMENTNUMBER_MAP.put("6", 5);
-		FRAGMENTNUMBER_MAP.put("7", 6);
-		FRAGMENTNUMBER_MAP.put("8", 7);
-		FRAGMENTNUMBER_MAP.put("9", 8);
-		FRAGMENTNUMBER_MAP.put("10", 9);
+	protected HashMap getFragmentNumberMap() {
+
+		fragmentNumberMap = new HashMap<>();
+		fragmentNumberMap.put("1", 0);
+		fragmentNumberMap.put("2", 1);
+		fragmentNumberMap.put("3", 2);
+		fragmentNumberMap.put("4", 3);
+		fragmentNumberMap.put("5", 4);
+		fragmentNumberMap.put("6", 5);
+		fragmentNumberMap.put("7", 6);
+		fragmentNumberMap.put("8", 7);
+		fragmentNumberMap.put("9", 8);
+		fragmentNumberMap.put("10", 9);
 		//
-		FRAGMENTNUMBER_MAP.put("eins", 0);
-		FRAGMENTNUMBER_MAP.put("zwei", 1);
-		FRAGMENTNUMBER_MAP.put("drei", 2);
-		FRAGMENTNUMBER_MAP.put("vier", 3);
-		FRAGMENTNUMBER_MAP.put("fünf", 4);
-		FRAGMENTNUMBER_MAP.put("sechs", 5);
-		FRAGMENTNUMBER_MAP.put("sieben", 6);
-		FRAGMENTNUMBER_MAP.put("acht", 7);
-		FRAGMENTNUMBER_MAP.put("neun", 8);
-		FRAGMENTNUMBER_MAP.put("zehn", 9);
-		//
-		FRAGMENTNAME_MAP = new HashMap<>();
-		FRAGMENTNAME_MAP.put("das Zuhören", 0);
-		FRAGMENTNAME_MAP.put("das Vergnügen", 0);
-		FRAGMENTNAME_MAP.put("das am-Leben-sein", 0);
-		FRAGMENTNAME_MAP.put("innerhalb", 1);
-		FRAGMENTNAME_MAP.put("die Einfriedungen", 1);
-		FRAGMENTNAME_MAP.put("die Kunst", 1);
-		FRAGMENTNAME_MAP.put("der Künstler", 2);
-		FRAGMENTNAME_MAP.put("der Autor", 2);
-		FRAGMENTNAME_MAP.put("das Konto", 2);
-		FRAGMENTNAME_MAP.put("andere", 3);
-		FRAGMENTNAME_MAP.put("das Protokoll", 3);
-		FRAGMENTNAME_MAP.put("die Bedingungen", 3);
-		FRAGMENTNAME_MAP.put("die Höflichkeit", 3);
-		FRAGMENTNAME_MAP.put("der Standort", 4);
-		FRAGMENTNAME_MAP.put("der Raum", 4);
-		FRAGMENTNAME_MAP.put("das Zuhause", 4);
-		FRAGMENTNAME_MAP.put("das Büro", 4);
-		FRAGMENTNAME_MAP.put("die Galerie", 4);
-		FRAGMENTNAME_MAP.put("die Bedenken", 5);
-		FRAGMENTNAME_MAP.put("die Ängste", 5);
-		FRAGMENTNAME_MAP.put("die Auratur", 6);
-		FRAGMENTNAME_MAP.put("das Lesen", 6);
-		FRAGMENTNAME_MAP.put("der Vers", 7);
-		FRAGMENTNAME_MAP.put("die Silos", 7);
-		FRAGMENTNAME_MAP.put("die Wolken", 7);
-		FRAGMENTNAME_MAP.put("die Echos", 7);
-		FRAGMENTNAME_MAP.put("fürsorglich", 8);
-		FRAGMENTNAME_MAP.put("das Einverständnis", 8);
-		FRAGMENTNAME_MAP.put("die Sprache", 8);
-		FRAGMENTNAME_MAP.put("das Verlangen", 9);
-		FRAGMENTNAME_MAP.put("die Geschäfte", 9);
-		FRAGMENTNAME_MAP.put("die Ernte", 9);
-		//
+		fragmentNumberMap.put("eins", 0);
+		fragmentNumberMap.put("zwei", 1);
+		fragmentNumberMap.put("drei", 2);
+		fragmentNumberMap.put("vier", 3);
+		fragmentNumberMap.put("fünf", 4);
+		fragmentNumberMap.put("sechs", 5);
+		fragmentNumberMap.put("sieben", 6);
+		fragmentNumberMap.put("acht", 7);
+		fragmentNumberMap.put("neun", 8);
+		fragmentNumberMap.put("zehn", 9);
+		return fragmentNumberMap;
+	}
+
+	protected HashMap getFragmentNameMap() {
+
+		fragmentNameMap = new HashMap<>();
+		fragmentNameMap.put("das Zuhören", 0);
+		fragmentNameMap.put("das Vergnügen", 0);
+		fragmentNameMap.put("das am-Leben-sein", 0);
+		fragmentNameMap.put("innerhalb", 1);
+		fragmentNameMap.put("die Einfriedungen", 1);
+		fragmentNameMap.put("die Kunst", 1);
+		fragmentNameMap.put("der Künstler", 2);
+		fragmentNameMap.put("der Autor", 2);
+		fragmentNameMap.put("das Konto", 2);
+		fragmentNameMap.put("andere", 3);
+		fragmentNameMap.put("das Protokoll", 3);
+		fragmentNameMap.put("die Bedingungen", 3);
+		fragmentNameMap.put("die Höflichkeit", 3);
+		fragmentNameMap.put("der Standort", 4);
+		fragmentNameMap.put("der Raum", 4);
+		fragmentNameMap.put("das Zuhause", 4);
+		fragmentNameMap.put("das Büro", 4);
+		fragmentNameMap.put("die Galerie", 4);
+		fragmentNameMap.put("die Bedenken", 5);
+		fragmentNameMap.put("die Ängste", 5);
+		fragmentNameMap.put("die Auratur", 6);
+		fragmentNameMap.put("das Lesen", 6);
+		fragmentNameMap.put("der Vers", 7);
+		fragmentNameMap.put("die Silos", 7);
+		fragmentNameMap.put("die Wolken", 7);
+		fragmentNameMap.put("die Echos", 7);
+		fragmentNameMap.put("fürsorglich", 8);
+		fragmentNameMap.put("das Einverständnis", 8);
+		fragmentNameMap.put("die Sprache", 8);
+		fragmentNameMap.put("das Verlangen", 9);
+		fragmentNameMap.put("die Geschäfte", 9);
+		fragmentNameMap.put("die Ernte", 9);
+		return fragmentNameMap;
+	}
+
+	protected String[] getAffectsArray() {
+
 		// Make sure GERMAN affects names match
-		String[] temp = { "das Glück", "die Aufregung", "die Neugier", "das Staunen", "die Überraschung",
-				"der Ärger", "der Ekel", "die Bedrängnis", "die Traurigkeit", "die Trauer", "die Melancholie",
-				"die Angst", "die Scham", "die Erniedrigung" };
-		AFFECTS_ARRAY = new String[temp.length];
-		for (int i = 0; i < temp.length; i++) {
-			AFFECTS_ARRAY[i] = temp[i];
-		}
-		//
-		AFFECTS_MAP = new HashMap<>();
-		AFFECTS_MAP.put("das Glück", POSITIVE);
-		AFFECTS_MAP.put("die Aufregung", POSITIVE);
-		AFFECTS_MAP.put("die Neugier", POSITIVE);
-		AFFECTS_MAP.put("das Staunen", POSITIVE);
-		AFFECTS_MAP.put("die Überraschung", POSITIVE);
-		AFFECTS_MAP.put("der Ärger", NEGATIVE);
-		AFFECTS_MAP.put("der Ekel", NEGATIVE);
-		AFFECTS_MAP.put("die Bedrängnis", NEGATIVE);
-		AFFECTS_MAP.put("die Traurigkeit", NEGATIVE);
-		AFFECTS_MAP.put("die Trauer", NEGATIVE);
-		AFFECTS_MAP.put("die Melancholie", NEGATIVE);
-		AFFECTS_MAP.put("die Angst", NEGATIVE);
-		AFFECTS_MAP.put("die Scham", NEGATIVE);
-		AFFECTS_MAP.put("die Erniedrigung", NEGATIVE);
+		String s = "das Glück`die Aufregung`die Neugier`das Staunen`die Überraschung`der Ärger`der Ekel`";
+		s += "die Bedrängnis`die Traurigkeit`die Trauer`die Melancholie`die Angst`die Scham`die Erniedrigung";
+		return s.split(GRV);
+	}
+
+	protected HashMap getAffectsMap() {
+
+		affectsMap = new HashMap<>();
+		affectsMap.put("das Glück", POSITIVE);
+		affectsMap.put("die Aufregung", POSITIVE);
+		affectsMap.put("die Neugier", POSITIVE);
+		affectsMap.put("das Staunen", POSITIVE);
+		affectsMap.put("die Überraschung", POSITIVE);
+		affectsMap.put("der Ärger", NEGATIVE);
+		affectsMap.put("der Ekel", NEGATIVE);
+		affectsMap.put("die Bedrängnis", NEGATIVE);
+		affectsMap.put("die Traurigkeit", NEGATIVE);
+		affectsMap.put("die Trauer", NEGATIVE);
+		affectsMap.put("die Melancholie", NEGATIVE);
+		affectsMap.put("die Angst", NEGATIVE);
+		affectsMap.put("die Scham", NEGATIVE);
+		affectsMap.put("die Erniedrigung", NEGATIVE);
 		// we only have to add positive recognized affects to this map
 		// special affects’ valences are addressed by that map and
 		// otherwise affects are assumed to be negative
-		AFFECTS_MAP.put("die Apathie", POSITIVE); // deliberate!
-		AFFECTS_MAP.put("ruhig", POSITIVE);
-		AFFECTS_MAP.put("das Interesse", POSITIVE);
-		AFFECTS_MAP.put("die Unverwundbarkeit", POSITIVE);
-		AFFECTS_MAP.put("die Freude", POSITIVE);
-		AFFECTS_MAP.put("das Vergnügen", POSITIVE);
-		AFFECTS_MAP.put("das Entspannen", POSITIVE);
-		AFFECTS_MAP.put("die Sicherheit", POSITIVE);
-		AFFECTS_MAP.put("die Wonne", POSITIVE);
-		//
-		SPECIAL_AFFECT_MAP = new HashMap<>();
-		SPECIAL_AFFECT_MAP.put("affection", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("anxiety", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("apologies", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("boredom", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("calm", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("claustrophobia", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("complacency", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("confusion", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("cool", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("debt", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("fatigue", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("the groove", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("guilt", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("hate", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("hatred", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("hunger", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("insecurity", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("loneliness", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("love", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("luck", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("nausea", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("obligation", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("peace", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("questions", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("security", POSITIVE);
-		SPECIAL_AFFECT_MAP.put("sex", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("strangeness", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("the uncanny", NEGATIVE);
-		SPECIAL_AFFECT_MAP.put("vulnerability", POSITIVE);
-		//
-		AFFECTIVEJJ2NN_MAP = new HashMap<>();
-		AFFECTIVEJJ2NN_MAP.put("abject", "abjection");
-		AFFECTIVEJJ2NN_MAP.put("affectionate", "affection");
-		AFFECTIVEJJ2NN_MAP.put("afraid", "fear");
-		AFFECTIVEJJ2NN_MAP.put("alright", "apathy");
-		AFFECTIVEJJ2NN_MAP.put("angry", "anger");
-		AFFECTIVEJJ2NN_MAP.put("annoyed", "irritation");
-		AFFECTIVEJJ2NN_MAP.put("anxious", "anxiety");
-		AFFECTIVEJJ2NN_MAP.put("apathetic", "apathy");
-		AFFECTIVEJJ2NN_MAP.put("apologetic", "apologies");
-		AFFECTIVEJJ2NN_MAP.put("ashamed", "shame");
-		AFFECTIVEJJ2NN_MAP.put("awesome", "cool");
-		AFFECTIVEJJ2NN_MAP.put("bewildered", "bewilderment");
-		AFFECTIVEJJ2NN_MAP.put("bored", "boredom");
-		AFFECTIVEJJ2NN_MAP.put("claustrophobic", "claustrophobia");
-		AFFECTIVEJJ2NN_MAP.put("complacent", "complacency");
-		AFFECTIVEJJ2NN_MAP.put("confused", "confusion");
-		AFFECTIVEJJ2NN_MAP.put("cool", "apathy");
-		AFFECTIVEJJ2NN_MAP.put("curious", "curiosity");
-		AFFECTIVEJJ2NN_MAP.put("delighted", "delight");
-		AFFECTIVEJJ2NN_MAP.put("disappointed", "disappointment");
-		AFFECTIVEJJ2NN_MAP.put("depressed", "depression");
-		AFFECTIVEJJ2NN_MAP.put("disgusted", "disgust");
-		AFFECTIVEJJ2NN_MAP.put("distressed", "distress");
-		AFFECTIVEJJ2NN_MAP.put("disturbed", "discomfort");
-		AFFECTIVEJJ2NN_MAP.put("dizzy", "dizziness");
-		AFFECTIVEJJ2NN_MAP.put("empty", "emptiness");
-		AFFECTIVEJJ2NN_MAP.put("excited", "excitement");
-		AFFECTIVEJJ2NN_MAP.put("fabulous", "joy");
-		AFFECTIVEJJ2NN_MAP.put("fine", "apathy");
-		AFFECTIVEJJ2NN_MAP.put("frightened", "fear");
-		AFFECTIVEJJ2NN_MAP.put("furious", "fury");
-		AFFECTIVEJJ2NN_MAP.put("good", "happiness");
-		AFFECTIVEJJ2NN_MAP.put("great", "happiness");
-		AFFECTIVEJJ2NN_MAP.put("groovy", "the groove");
-		AFFECTIVEJJ2NN_MAP.put("guilty", "guilt");
-		AFFECTIVEJJ2NN_MAP.put("happy", "happiness");
-		AFFECTIVEJJ2NN_MAP.put("humiliated", "humiliation");
-		AFFECTIVEJJ2NN_MAP.put("hungry", "hunger");
-		AFFECTIVEJJ2NN_MAP.put("indecisive", "indecision");
-		AFFECTIVEJJ2NN_MAP.put("indifferent", "indifference");
-		AFFECTIVEJJ2NN_MAP.put("insecure", "insecurity");
-		AFFECTIVEJJ2NN_MAP.put("interested", "interest");
-		AFFECTIVEJJ2NN_MAP.put("invincible", "invulnerability");
-		AFFECTIVEJJ2NN_MAP.put("irritated", "irritation");
-		AFFECTIVEJJ2NN_MAP.put("lonely", "loneliness");
-		AFFECTIVEJJ2NN_MAP.put("loving", "love");
-		AFFECTIVEJJ2NN_MAP.put("lucky", "luck");
-		AFFECTIVEJJ2NN_MAP.put("miserable", "misery");
-		AFFECTIVEJJ2NN_MAP.put("nauseous", "nausea");
-		AFFECTIVEJJ2NN_MAP.put("nervous", "anxiety");
-		AFFECTIVEJJ2NN_MAP.put("nothing", "nothingness");
-		AFFECTIVEJJ2NN_MAP.put("obliged", "obligation");
-		AFFECTIVEJJ2NN_MAP.put("odd", "strangeness");
-		AFFECTIVEJJ2NN_MAP.put("okay", "apathy");
-		AFFECTIVEJJ2NN_MAP.put("ok", "apathy");
-		AFFECTIVEJJ2NN_MAP.put("old", "age");
-		AFFECTIVEJJ2NN_MAP.put("peaceful", "peace");
-		AFFECTIVEJJ2NN_MAP.put("pitiful", "pity");
-		AFFECTIVEJJ2NN_MAP.put("pleased", "pleasure");
-		AFFECTIVEJJ2NN_MAP.put("relaxed", "calm");
-		AFFECTIVEJJ2NN_MAP.put("sad", "sadness");
-		AFFECTIVEJJ2NN_MAP.put("safe", "safety");
-		AFFECTIVEJJ2NN_MAP.put("scared", "fear");
-		AFFECTIVEJJ2NN_MAP.put("secure", "security");
-		AFFECTIVEJJ2NN_MAP.put("sexual", "sex");
-		AFFECTIVEJJ2NN_MAP.put("shocked", "surprise");
-		AFFECTIVEJJ2NN_MAP.put("sick", "sickness");
-		AFFECTIVEJJ2NN_MAP.put("sorry", "distress");
-		AFFECTIVEJJ2NN_MAP.put("strange", "strangeness");
-		AFFECTIVEJJ2NN_MAP.put("surprised", "surprise");
-		AFFECTIVEJJ2NN_MAP.put("terrified", "terror");
-		AFFECTIVEJJ2NN_MAP.put("tired", "fatigue");
-		AFFECTIVEJJ2NN_MAP.put("troubled", "distress");
-		AFFECTIVEJJ2NN_MAP.put("uncanny", "the uncanny");
-		AFFECTIVEJJ2NN_MAP.put("uncertain", "uncertainty");
-		AFFECTIVEJJ2NN_MAP.put("uncomfortable", "discomfort");
-		AFFECTIVEJJ2NN_MAP.put("unhappy", "unhappiness");
-		AFFECTIVEJJ2NN_MAP.put("unsure", "insecurity");
-		AFFECTIVEJJ2NN_MAP.put("upset", "distress");
-		AFFECTIVEJJ2NN_MAP.put("vulnerable", "vulnerability");
-		AFFECTIVEJJ2NN_MAP.put("weird", "strangeness");
-		AFFECTIVEJJ2NN_MAP.put("worried", "anxiety");
+		affectsMap.put("die Apathie", POSITIVE); // deliberate!
+		affectsMap.put("ruhig", POSITIVE);
+		affectsMap.put("das Interesse", POSITIVE);
+		affectsMap.put("die Unverwundbarkeit", POSITIVE);
+		affectsMap.put("die Freude", POSITIVE);
+		affectsMap.put("das Vergnügen", POSITIVE);
+		affectsMap.put("das Entspannen", POSITIVE);
+		affectsMap.put("die Sicherheit", POSITIVE);
+		affectsMap.put("die Wonne", POSITIVE);
+		return affectsMap;
+	}
+
+	// TODO
+	protected HashMap getSpecialAffectsMap() {
+
+		specialAffectsMap = new HashMap<>();
+		specialAffectsMap.put("affection", POSITIVE);
+		specialAffectsMap.put("anxiety", NEGATIVE);
+		specialAffectsMap.put("apologies", NEGATIVE);
+		specialAffectsMap.put("boredom", NEGATIVE);
+		specialAffectsMap.put("calm", POSITIVE);
+		specialAffectsMap.put("claustrophobia", NEGATIVE);
+		specialAffectsMap.put("complacency", NEGATIVE);
+		specialAffectsMap.put("confusion", NEGATIVE);
+		specialAffectsMap.put("cool", NEGATIVE);
+		specialAffectsMap.put("debt", NEGATIVE);
+		specialAffectsMap.put("fatigue", NEGATIVE);
+		specialAffectsMap.put("the groove", POSITIVE);
+		specialAffectsMap.put("guilt", NEGATIVE);
+		specialAffectsMap.put("hate", NEGATIVE);
+		specialAffectsMap.put("hatred", NEGATIVE);
+		specialAffectsMap.put("hunger", NEGATIVE);
+		specialAffectsMap.put("insecurity", NEGATIVE);
+		specialAffectsMap.put("loneliness", NEGATIVE);
+		specialAffectsMap.put("love", POSITIVE);
+		specialAffectsMap.put("luck", POSITIVE);
+		specialAffectsMap.put("nausea", NEGATIVE);
+		specialAffectsMap.put("obligation", NEGATIVE);
+		specialAffectsMap.put("peace", POSITIVE);
+		specialAffectsMap.put("questions", POSITIVE);
+		specialAffectsMap.put("security", POSITIVE);
+		specialAffectsMap.put("sex", NEGATIVE);
+		specialAffectsMap.put("strangeness", NEGATIVE);
+		specialAffectsMap.put("the uncanny", NEGATIVE);
+		specialAffectsMap.put("vulnerability", POSITIVE);
+		return specialAffectsMap;
+	}
+
+	// TODO
+	protected HashMap getAffectivejj2nnMap() {
+
+		affectivejj2nnMap = new HashMap<>();
+		affectivejj2nnMap.put("abject", "abjection");
+		affectivejj2nnMap.put("affectionate", "affection");
+		affectivejj2nnMap.put("afraid", "fear");
+		affectivejj2nnMap.put("alright", "apathy");
+		affectivejj2nnMap.put("angry", "anger");
+		affectivejj2nnMap.put("annoyed", "irritation");
+		affectivejj2nnMap.put("anxious", "anxiety");
+		affectivejj2nnMap.put("apathetic", "apathy");
+		affectivejj2nnMap.put("apologetic", "apologies");
+		affectivejj2nnMap.put("ashamed", "shame");
+		affectivejj2nnMap.put("awesome", "cool");
+		affectivejj2nnMap.put("bewildered", "bewilderment");
+		affectivejj2nnMap.put("bored", "boredom");
+		affectivejj2nnMap.put("claustrophobic", "claustrophobia");
+		affectivejj2nnMap.put("complacent", "complacency");
+		affectivejj2nnMap.put("confused", "confusion");
+		affectivejj2nnMap.put("cool", "apathy");
+		affectivejj2nnMap.put("curious", "curiosity");
+		affectivejj2nnMap.put("delighted", "delight");
+		affectivejj2nnMap.put("disappointed", "disappointment");
+		affectivejj2nnMap.put("depressed", "depression");
+		affectivejj2nnMap.put("disgusted", "disgust");
+		affectivejj2nnMap.put("distressed", "distress");
+		affectivejj2nnMap.put("disturbed", "discomfort");
+		affectivejj2nnMap.put("dizzy", "dizziness");
+		affectivejj2nnMap.put("empty", "emptiness");
+		affectivejj2nnMap.put("excited", "excitement");
+		affectivejj2nnMap.put("fabulous", "joy");
+		affectivejj2nnMap.put("fine", "apathy");
+		affectivejj2nnMap.put("frightened", "fear");
+		affectivejj2nnMap.put("furious", "fury");
+		affectivejj2nnMap.put("good", "happiness");
+		affectivejj2nnMap.put("great", "happiness");
+		affectivejj2nnMap.put("groovy", "the groove");
+		affectivejj2nnMap.put("guilty", "guilt");
+		affectivejj2nnMap.put("happy", "happiness");
+		affectivejj2nnMap.put("humiliated", "humiliation");
+		affectivejj2nnMap.put("hungry", "hunger");
+		affectivejj2nnMap.put("indecisive", "indecision");
+		affectivejj2nnMap.put("indifferent", "indifference");
+		affectivejj2nnMap.put("insecure", "insecurity");
+		affectivejj2nnMap.put("interested", "interest");
+		affectivejj2nnMap.put("invincible", "invulnerability");
+		affectivejj2nnMap.put("irritated", "irritation");
+		affectivejj2nnMap.put("lonely", "loneliness");
+		affectivejj2nnMap.put("loving", "love");
+		affectivejj2nnMap.put("lucky", "luck");
+		affectivejj2nnMap.put("miserable", "misery");
+		affectivejj2nnMap.put("nauseous", "nausea");
+		affectivejj2nnMap.put("nervous", "anxiety");
+		affectivejj2nnMap.put("nothing", "nothingness");
+		affectivejj2nnMap.put("obliged", "obligation");
+		affectivejj2nnMap.put("odd", "strangeness");
+		affectivejj2nnMap.put("okay", "apathy");
+		affectivejj2nnMap.put("ok", "apathy");
+		affectivejj2nnMap.put("old", "age");
+		affectivejj2nnMap.put("peaceful", "peace");
+		affectivejj2nnMap.put("pitiful", "pity");
+		affectivejj2nnMap.put("pleased", "pleasure");
+		affectivejj2nnMap.put("relaxed", "calm");
+		affectivejj2nnMap.put("sad", "sadness");
+		affectivejj2nnMap.put("safe", "safety");
+		affectivejj2nnMap.put("scared", "fear");
+		affectivejj2nnMap.put("secure", "security");
+		affectivejj2nnMap.put("sexual", "sex");
+		affectivejj2nnMap.put("shocked", "surprise");
+		affectivejj2nnMap.put("sick", "sickness");
+		affectivejj2nnMap.put("sorry", "distress");
+		affectivejj2nnMap.put("strange", "strangeness");
+		affectivejj2nnMap.put("surprised", "surprise");
+		affectivejj2nnMap.put("terrified", "terror");
+		affectivejj2nnMap.put("tired", "fatigue");
+		affectivejj2nnMap.put("troubled", "distress");
+		affectivejj2nnMap.put("uncanny", "the uncanny");
+		affectivejj2nnMap.put("uncertain", "uncertainty");
+		affectivejj2nnMap.put("uncomfortable", "discomfort");
+		affectivejj2nnMap.put("unhappy", "unhappiness");
+		affectivejj2nnMap.put("unsure", "insecurity");
+		affectivejj2nnMap.put("upset", "distress");
+		affectivejj2nnMap.put("vulnerable", "vulnerability");
+		affectivejj2nnMap.put("weird", "strangeness");
+		affectivejj2nnMap.put("worried", "anxiety");
 		// a little bit of extra variation
-		AFFECTIVEJJ2NN_MAP.put("alright", S("apathy", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("awesome", S("cool", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("bewildered", S("bewilderment", "confusion"));
-		AFFECTIVEJJ2NN_MAP.put("cool", S("apathy", "excitement"));
-		AFFECTIVEJJ2NN_MAP.put("dizzy", S("dizziness", "vertigo"));
-		AFFECTIVEJJ2NN_MAP.put("fabulous", S("joy", "delight"));
-		AFFECTIVEJJ2NN_MAP.put("fine", S("apathy", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("good", S("happiness", "joy"));
-		AFFECTIVEJJ2NN_MAP.put("great", S("happiness", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("nothing", S(S("emptiness", "nothingness"), "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("odd", S("the uncanny", "strangeness"));
-		AFFECTIVEJJ2NN_MAP.put("okay", S("apathy", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("ok", S("apathy", "complacency"));
-		AFFECTIVEJJ2NN_MAP.put("relaxed", S("relaxation", S("calm", "cool")));
-		AFFECTIVEJJ2NN_MAP.put("sick", S("sickness", "nausea"));
-		AFFECTIVEJJ2NN_MAP.put("sorry", S("distress", S("obligation", S("apologies", "debt"))));
-		AFFECTIVEJJ2NN_MAP.put("shocked", S("distress", "surprise"));
-		AFFECTIVEJJ2NN_MAP.put("tired", S("fatigue", "tiredness"));
-		AFFECTIVEJJ2NN_MAP.put("troubled", S("distress", "anxiety"));
-		AFFECTIVEJJ2NN_MAP.put("uncomfortable", S("discomfort", "anxiety"));
-		AFFECTIVEJJ2NN_MAP.put("unsure", S("insecurity", "uncertainty"));
-		AFFECTIVEJJ2NN_MAP.put("weird", S("strangeness", "weirdness"));
-		//
-		SPECIAL_THINGS = new HashSet<>();
-		SPECIAL_THINGS.add("der Alptraum");
-		SPECIAL_THINGS.add("der zurückgehaltene Alptraum");
-		SPECIAL_THINGS.add("der Traum");
-		SPECIAL_THINGS.add("der zurückgehaltene Traum");
-		SPECIAL_THINGS.add("das Gefühl");
-		SPECIAL_THINGS.add("das zurückgehaltene Gefühl");
-		SPECIAL_THINGS.add("hong kong");
-		SPECIAL_THINGS.add("der Besitz");
-		SPECIAL_THINGS.add("der Atem");
-		SPECIAL_THINGS.add("der angehaltene Atem");
-		//
-		PICTURE_WORDS = new HashSet<>();
-		PICTURE_WORDS.add("die Collage");
-		PICTURE_WORDS.add("der Rahmen");
-		PICTURE_WORDS.add("das Bild");
-		PICTURE_WORDS.add("die Papierblume");
+		affectivejj2nnMap.put("alright", S("apathy", "complacency"));
+		affectivejj2nnMap.put("awesome", S("cool", "complacency"));
+		affectivejj2nnMap.put("bewildered", S("bewilderment", "confusion"));
+		affectivejj2nnMap.put("cool", S("apathy", "excitement"));
+		affectivejj2nnMap.put("dizzy", S("dizziness", "vertigo"));
+		affectivejj2nnMap.put("fabulous", S("joy", "delight"));
+		affectivejj2nnMap.put("fine", S("apathy", "complacency"));
+		affectivejj2nnMap.put("good", S("happiness", "joy"));
+		affectivejj2nnMap.put("great", S("happiness", "complacency"));
+		affectivejj2nnMap.put("nothing", S(S("emptiness", "nothingness"), "complacency"));
+		affectivejj2nnMap.put("odd", S("the uncanny", "strangeness"));
+		affectivejj2nnMap.put("okay", S("apathy", "complacency"));
+		affectivejj2nnMap.put("ok", S("apathy", "complacency"));
+		affectivejj2nnMap.put("relaxed", S("relaxation", S("calm", "cool")));
+		affectivejj2nnMap.put("sick", S("sickness", "nausea"));
+		affectivejj2nnMap.put("sorry", S("distress", S("obligation", S("apologies", "debt"))));
+		affectivejj2nnMap.put("shocked", S("distress", "surprise"));
+		affectivejj2nnMap.put("tired", S("fatigue", "tiredness"));
+		affectivejj2nnMap.put("troubled", S("distress", "anxiety"));
+		affectivejj2nnMap.put("uncomfortable", S("discomfort", "anxiety"));
+		affectivejj2nnMap.put("unsure", S("insecurity", "uncertainty"));
+		affectivejj2nnMap.put("weird", S("strangeness", "weirdness"));
+		return affectivejj2nnMap;
+	}
+
+	protected HashSet getSpecialThings() {
+
+		specialThings = new HashSet<>();
+		specialThings.add("der Alptraum");
+		specialThings.add("der zurückgehaltene Alptraum");
+		specialThings.add("der Traum");
+		specialThings.add("der zurückgehaltene Traum");
+		specialThings.add("das Gefühl");
+		specialThings.add("das zurückgehaltene Gefühl");
+		specialThings.add("hong kong");
+		specialThings.add("der Besitz");
+		specialThings.add("der Atem");
+		specialThings.add("der angehaltene Atem");
+		return specialThings;
+	}
+
+	protected HashSet getPictureWords() {
+
+		pictureWords = new HashSet<>();
+		pictureWords.add("die Collage");
+		pictureWords.add("der Rahmen");
+		pictureWords.add("das Bild");
+		pictureWords.add("die Papierblume");
+		return pictureWords;
 	}
 
 }

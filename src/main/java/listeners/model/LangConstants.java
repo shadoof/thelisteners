@@ -1,6 +1,7 @@
 package listeners.model;
 
 import static listeners.model.Attributes.NOT_YET_GREETED;
+import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.NUMBER_OF_FRAGMENTS;
 import static listeners.model.Constants.HOW_MANY_FRAGMENT_SETS;
 import static listeners.model.Constants.locale;
@@ -22,13 +23,13 @@ import rita.RiMarkov;
 
 public class LangConstants {
 
-	public static Map<String, Integer> FRAGMENTNUMBER_MAP, FRAGMENTNAME_MAP;
-	public static String[] AFFECTS_ARRAY;
-	public static Map<String, Boolean> AFFECTS_MAP, SPECIAL_AFFECT_MAP;
-	public static Map<String, String> AFFECTIVEJJ2NN_MAP;
-	public static HashSet<String> SPECIAL_THINGS = new HashSet<>();
-	public static HashSet<String> PICTURE_WORDS = new HashSet<>();
-	public static HashSet<String> ALL_AFFECTS;
+	public Map<String, Integer> FRAGMENTNUMBER_MAP, FRAGMENTNAME_MAP;
+	public String[] AFFECTS_ARRAY;
+	public Map<String, Boolean> AFFECTS_MAP, SPECIAL_AFFECT_MAP;
+	public Map<String, String> AFFECTIVEJJ2NN_MAP;
+	public HashSet<String> SPECIAL_THINGS = new HashSet<>();
+	public HashSet<String> PICTURE_WORDS = new HashSet<>();
+	public HashSet<String> ALL_AFFECTS;
 
 	private static Date date;
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("E d MMM, y, h:mm a");
@@ -43,7 +44,7 @@ public class LangConstants {
 
 	public static LangConstants getInstance(Locale locale) {
 
-		if (instance == null) instance = new LangConstants(locale);
+		instance = new LangConstants(locale); // can't be a singleton if (instance == null) 
 		return instance;
 	}
 
@@ -68,6 +69,8 @@ public class LangConstants {
 
 		ALL_AFFECTS = buildAffects();
 
+		info("@LangConstants, AFFECTS_ARRAY[0] (for language check): " + AFFECTS_ARRAY[0]);
+
 		date = new Date();
 		dateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
 		this.dateString = dateFormat.format(date);
@@ -90,7 +93,7 @@ public class LangConstants {
 
 	}
 
-	private static HashSet buildAffects() {
+	private HashSet buildAffects() {
 
 		HashSet<String> hs = new HashSet();
 		for (int i = 0; i < AFFECTS_ARRAY.length; i++) {
