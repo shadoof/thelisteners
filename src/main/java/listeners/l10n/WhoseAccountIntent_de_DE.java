@@ -8,18 +8,18 @@ public class WhoseAccountIntent_de_DE extends WhoseAccountIntent {
 
 	public String buildCardTitle() {
 
-		return S("Our profile", "This " + s("little") + "account of ours");
+		return S("Unser Profil", "Dieses " + s("kleine") + "Konto von uns");
 	}
 
 	public String buildSpeech() {
 
-		String speech = "These conversations, " + s("and these transactions,")
-				+ "take place within the scope of, " + (PERFORMANCE ? "‘John’s’ " : "your ") + "profile. "
+		String speech = "Diese Konversationen, " + s("und diese Transaktionen,")
+				+ "finden innerhalb " + (PERFORMANCE ? "‘John’s’ " : "Ihres ") + "Profil statt. "
 				+ breath();
 		speech += PERFORMANCE
-				? s("If we are " + s(s("ever") + "part of an installation,", "gallery installed,")
-						+ "then everything is sent, " + s("not only to the cloud, but") + "to our "
-						+ s("app.", "app, as configured by our artist."))
+				? s("Wenn wir " + s(s("je") + "Teil einer Installierung,", "einer installierten Galerie sind,")
+						+ "dann wird alles, " + s("nicht nur in die Wolke, sondern") + "auch zu unserer "
+						+ s("App", "der App, die von unserem Künstler konfiguriert wurde") + "geschickt.")
 				: "";
 		return speech + breath();
 	}

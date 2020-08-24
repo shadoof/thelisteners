@@ -4,25 +4,25 @@ import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
 import static listeners.util.Utils.*;
 
-// TODO
 public class WhoWhatIntent_de_DE extends WhoWhatIntent {
 
 	public String buildCardTitle() {
 
-		return S("Questions, questions, questions",
-				"We can’t know " + s("everything", "everything, where would we put it?"));
+		return S("Fragen, Fragen, Fragen",
+				"Wir können nicht alles wissen. " + s("Wohin würden wir alles tun?"));
 	}
 
 	public String buildSpeech() {
 
-		String speech = s("We are", "We are, so we believe,") + "The Listeners. " + breath();
-		speech += s("You " + s("may") + "refer to us as: ‘The Listeners’. " + s("Or as ‘John’.")
-				+ s(breath() + "We are used " + breathShortest() + "to that.") + breathShort());
-		speech += "Whatever we " + s("may") + "say is " + s("far") + "less important to us, "
-				+ s("or to you,") + "than the fact that we " + s(breathShort() + "listen. " + breathShort(),
-						"are listening" + s(", " + breathShort(), SPC) + "to you.");
+		String speech = s("Wir sind", "Wir glauben, wir sind") + "die " + s("Lauschenden.", "Zuhörer.")
+				+ breath();
+		speech += s("Sie können uns: ‘Die Zuhörer’ nennen. " + s("Oder ‘John’.")
+				+ s(breath() + "Wir sind das " + breathShortest() + "gewohnt.") + breathShort());
+		speech += s("Was wir auch", "Was immer wir") + "sagen ist uns " + s("oder Ihnen")
+				+ "viel wichtiger als die Tatsache, dass "
+				+ breathShort() + s("wir Ihnen zuhören.", "wir hören, " + breathShort() + "was Sie sagen.");
 		// ALWAYCHANGE - s(breath() + "Always.") +
-		speech += s(breath() + "Here and now.") + s(breath() + "Perhaps, forever.");
+		speech += s(breath() + "Hier und jetzt.") + s(breath() + "Vielleicht für immer.      s");
 		return speech + breath();
 	}
 

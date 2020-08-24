@@ -4,21 +4,20 @@ import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
 import static listeners.util.Utils.*;
 
-// TODO
 public class WhoSaysGuyzIntent_de_DE extends WhoSaysGuyzIntent {
 
 	public String buildCardTitle() {
 
-		return "Who " + s("is this guy?", "are these " + s("others?", "guys?"));
+		return "Wer " + S("ist der Typ?", "sind diese " + S("Typen?", "diese anderen?"));
 	}
 
 	public String buildSpeech() {
 
-		String speech = s(s("He is", "It is"), "They are") + "nothing. ";
-		speech += s("Just as " + s("you", "we") + "are nothing.");
-		if (randInt(0, 2) > 0) speech += "We " + s(s("trust", "are confident"), "hope")
-				+ "that you will not " + s("listen", "pay any heed") + "to "
-				+ s("this other voice.", s("these") + "other voices.");
+		String speech = r("Er ist `Es ist `Sie sind ") + "nichts. ";
+		speech += s("Genau wie " + s("Sie", "wir") + "nichts sind.");
+		if (randInt(0, 2) > 0) speech += "Wir " + r("vertrauen darauf`sind uns sicher`hoffen")
+				+ ", dass Sie " + s("dieser anderen Stimme", "diesen anderen Stimmen")
+				+ s("nicht zuhören.", "kein Gehör schenken.");
 		return speech + breath();
 	}
 
