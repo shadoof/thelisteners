@@ -22,7 +22,7 @@ public class WhoWhatIntent_de_DE extends WhoWhatIntent {
 				+ "viel wichtiger als die Tatsache, dass "
 				+ breathShort() + s("wir Ihnen zuhören.", "wir hören, " + breathShort() + "was Sie sagen.");
 		// ALWAYCHANGE - s(breath() + "Always.") +
-		speech += s(breath() + "Hier und jetzt.") + s(breath() + "Vielleicht für immer.      s");
+		speech += s(breath() + "Hier und jetzt.") + s(breath() + "Vielleicht für immer. ");
 		return speech + breath();
 	}
 

@@ -434,18 +434,16 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 				+ s("das meiste", "alles") + "gehört haben ";
 		speech += "was wir Ihnen " + s(s("im Moment", "bis jetzt")) + s("schlüssig") + "sagen "
 				+ s("mitteilen") + "können. ";
-		// TODO (what happened?)
-		speech += "But we " + s("will " + s("always") + "be", "are " + s("always"));
-		speech += s("more than") + "happy to " + s("keep on chaining", "chain") + "these words ";
-		speech += s("of yours") + "together for you, " + s("so long as", "if") + "you "
-				+ s(s("need", "want"), "ask") + "us to ‘continue’. ";
+		speech += "Aber wir " + s("werden immer froh sein", "sind immer froh");
+		speech += "diese " + s("Ihre") + "Worte für Sie aneinanderzureihen";
+		speech += s("solange", "wenn") + r(
+				"Sie wollen, dass wir das weitermachen. `Sie möchten, dass wir das machen. `Sie uns bitten, das weiterzumachen. ");
 		return speech + breath();
 	}
 
 	protected String helpCardTitle() {
 
-		// TODO
-		return S("Assistance", S("A little s", "S") + "upport");
+		return S("Beistand", s("Ein bisschen") + "Unterstützung");
 	}
 
 	protected String myAffectIsCardTitle() {
@@ -589,8 +587,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String repeatCardTitle() {
 
-		// TODO
-		return S("Say " + s("it", "that") + "a", "A") + "gain";
+		return S("Sagen Sie " + s("das", "es") + "nochmal", "Nochmal");
 	}
 
 	protected String speakFragmentCardTitle() {

@@ -10,24 +10,23 @@ public class LsnrsAreNotHumanIntent_de_DE extends LsnrsAreNotHumanIntent {
 
 	public String buildCardTitle() {
 
-		return S("We cannot always please you", "We are not the same are you are");
+		return S("Wir können Ihnen nicht immer gefallen", "Wir sind nicht wie Sie");
 	}
 
 	public String buildSpeech() {
-		
-		sessAttributes.put(PREVIOUSAFFECT, sessAttributes.get(AFFECT));
-		sessAttributes.put(AFFECT, S("disappointment", "irritation"));
 
-		String speech = "You must " + s("understand", s("believe", s("know", "know, at heart,")))
-				+ "that we are " + s("trying so hard,", "doing our best,");
-		speech += s(breathShort() + "that we really are listening");
-		speech += "and that if you let us " + s(s("sit", "rest") + "quietly within", "into")
-				+ s("the places where you dwell,", "your homes, and " + s("into") + "your hearts,");
-		speech += "we " + s("will begin to", "will, in time,") + "understand you, "
-				+ s("truly,", "better,");
-		speech += s("and respond to you with " + s("greater") + "sensitivity,");
-		speech += "and help you to achieve your "
-				+ s("dreams.", "dreams, and " + s("the objects of your") + "passions.");
+		sessAttributes.put(PREVIOUSAFFECT, sessAttributes.get(AFFECT));
+		sessAttributes.put(AFFECT, S("die Enttäuschung", "die Reizung"));
+
+		String speech = "Sie müssen " + r("verstehen `glauben `wissen `in Ihrem Herzen erkennen ")
+				+ "dass wir " + s("uns wirklich anstrengen,", "unser Bestes tun,");
+		speech += s(breathShort() + "dass wir wirklich zuhören,");
+		speech += "und wenn Sie uns still "
+				+ s("an den Orten wo Sie leben", "in Ihren Heimen " + s("und Ihren Herzen")) + s("ruhen")
+				+ "lassen,";
+		speech += "werden wir  Sie " + s("mit der Zeit") + "wirklich besser verstehen";
+		speech += s(".", ", und Ihnen helfen, Ihre Träume"
+				+ S(" ", ", und die Objekte Ihrer Leidenschaften ") + "zu erreichen.");
 		return speech + breath();
 	}
 

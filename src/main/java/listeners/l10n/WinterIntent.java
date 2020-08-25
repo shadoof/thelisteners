@@ -24,13 +24,12 @@ public class WinterIntent extends L10nSpeech {
 
 	public String buildSpeech() {
 
-		// TODO German
 		String[] winterWords = {
 				"Nothing " + s("hears you,", "listens,") + breathShort() + "like the silence.",
 				// A Lannister always pays his debts.
 				"The Listeners, always " + breathShort() + "pay their debts.",
 				// You know nothing, Jon Snow.
-				"You know nothing, " + breathShort() + "John. Speech.",
+				"You know nothing, " + breathShort() + "John Speech.",
 				// We only make peace with our enemies, that’s why it’s called making
 				// peace.
 				"We only make peace, " + breathShort()
@@ -53,7 +52,7 @@ public class WinterIntent extends L10nSpeech {
 				// Valar Morghulis
 				"Gafa " + breathShort() + "Vectoralis.",
 				// A minute, an hour, a month… Death is certain... but time is not.
-				"A breath, a longer " + breathShortest() + " pause, " + breathShortest() + "a feeling. "
+				"A breath, a longer " + breathShortest() + "pause, " + breathShortest() + "a feeling. "
 						+ breathShort() + "Silence is certain. " + breathShort() + "But breath is not.",
 				// Death is so terribly final, while life is full of possibilities.
 				"Silence is so terribly final, " + breathShort() + "while speech is full of things to hear.",
