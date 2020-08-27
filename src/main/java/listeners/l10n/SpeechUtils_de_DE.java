@@ -117,8 +117,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String askPersistenceCardTitle() {
 
-		// TODO
-		return S("Save your place?", "Start from scratch?");
+		return S("Speichern Sie Ihren Platz?", "Von vorne beginnen?");
 	}
 
 	protected String askPersistenceSpeech() {
@@ -327,9 +326,9 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String exceptionMessage() {
 
-		// TODO
-		return s("Sorry.", "Apologies.") + "Either something’s wrong or we haven’t heard "
-				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
+		return s("Es tut uns leid.", "Entschuldigung!")
+				+ "Entweder stimmt etwas nicht oder wir haben nicht klar gehört. "
+				+ s("Bitte sagen Sie mehr.", "Bitte versuche es erneut.");
 	}
 
 	protected String excuseMarkov() {
@@ -860,40 +859,41 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected Object spkrsAffectIs() {
 
-		// TODO
 		String speech = "";
 		String adjective = "";
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "We are " + s("so") + s("pleased", "delighted");
+			speech = "Wir sind " + s("so") + s("froh", "erfreut");
 		}
 		else {
-			adjective = s("sorry", "dismayed");
-			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("bestürzt");
+			if ("bestürzt ".equals(adjective)) {
+				intensifier = r("ein bisschen `etwas `sehr ");
+				speech = "Wir sind " + s(adjective, intensifier + adjective);
+			}
+			else
+				speech = "Es tut uns Leid ";
 		}
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		speech += "dass Sie von %s " + r("erfüllt `besessen `überwältigt ") + "sind. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
-				speech += s("How much more positive are your feelings now?", "It’s good to "
-						+ s("know, at least,") + "know that you still "
-						+ s("have positive feelings.", "feel positive " + phonemic("a") + "ffect" + s("s") + "."));
+				speech += S("Wie vie positiver sind Ihre Gefühle jetzt? ", "Es ist gut, " + s("zumindest")
+						+ "zu wissen, dass Sie immer noch " + s("positive Gefühle haben.", "sich positiv fühlen."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
-						+ s("taken a negative turn.", "taken a down turn.");
+				speech += "Wir fragen uns, warum Ihre " + s("Gefühle", "Affekte")
+						+ s("jetzt eher negativ sind.", "negativ geworden sind.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "So good to " + s("learn", "become aware") + "that your "
-						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("improved.", "become better.");
+				speech += "Es ist gut zu " + s("wissen", "lernen") + "dass Ihre "
+						+ r("Gefühle `Stimmung `Laune ") + "sich " + s("gebessert", "verbessert")
+						+ s("haben.", "hat.");
 			}
 			else {
-				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
-						+ s("seems", "appears") + s(", to us.", ".");
+				speech += "Immer noch ein negativer " + s("Ausblick für Sie.", "Ausblick.") + "Es "
+						+ s("scheint", "sieht so aus") + "als" + S(". ", "ob. ");
 			}
 		}
 
@@ -902,8 +902,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String spkrsAffectIsCardTitle() {
 
-		// TODO
-		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
+		return S("Vielen Dank, dass Sie uns sagen, wie Sie sich heute fühlen", "Jetzt wissen wir, wie Sie sich fühlen");
 	}
 
 	protected InnerResponse spkrsAffectIsNot() {
@@ -1008,7 +1007,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected InnerResponse thanksNo() {
 
-		// TODO
 		String speech = s("Bitte, bitte.") + s("Schon gut.", s("Keine Ursache.", "Gern geschehen."))
 				+ breath();
 		return new InnerResponse(thanksNoCardTitle(), speech);
