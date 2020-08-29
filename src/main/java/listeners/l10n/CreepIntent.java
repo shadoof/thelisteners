@@ -3,6 +3,7 @@ package listeners.l10n;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.r;
 import static listeners.util.Utils.s;
 
 public class CreepIntent extends L10nSpeech {
@@ -16,7 +17,7 @@ public class CreepIntent extends L10nSpeech {
 
 	public String buildSpeech() {
 
-		String speech = s("It’s a little " + s("shocking", "disturbing"),
+		String speech = s("It’s a little " + r("shocking `disturbing `troubling "),
 				"We are " + s("shocked", s("a little") + "upset")) + breath();
 		speech += "to hear that. " + breathShort();
 		speech += "We certainly don’t " + s("intend", "mean") + "to "
