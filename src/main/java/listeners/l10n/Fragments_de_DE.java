@@ -212,12 +212,9 @@ public class Fragments_de_DE extends Fragments {
 						+ breath();
 				speech += s("alle") + "diese Dinge, die du " + s("hören und") + "wissen wolltest, "
 						+ breath();
-				// needs checking:
 				speech += s("korreliert mit unserem Hauptzweck, sollen, " + breath(), "sollen, " + breath());
 				speech += s("in normalisierter Form,")
 						+ "die am öftesten ausgesprochenen menschlichen Wünsche repräsentieren, " + breath();
-				speech += "such that advertisement " + s("may", "shall") + "be " + s("intimately")
-						+ "associated, " + breath();
 				speech += "so dass Werbung "
 						+ s(s("eng") + "verbunden sein kann", "zugeordnet werden soll, ") + breath();
 				speech += "mit all Ihren geernteten Phrasen, " + s("idealerweise,")
