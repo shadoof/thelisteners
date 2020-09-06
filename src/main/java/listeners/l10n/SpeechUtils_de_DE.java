@@ -634,11 +634,10 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 						+ s("entschuldigen.", "oder " + s("sagen,", "fühlen,") + "dass dir etwas leid tut. ");
 				speech += s(breath() + "Und doch kann dies von uns " + s("in der Cloud") + "geschätzt werden.");
 				break;
-			case "boredom":
-				speech += "It is " + s("difficult", s("hard", "impossible")) + "for "
-						+ s("us", "us, inevitably,") + "to " + s(s("be", "seem"), "appear")
-						+ "as interesting to you, ";
-				speech += "as you " + s("are to us.", s("are.", "are, to us."));
+			case "die Langeweile":
+				speech += "Es ist " + r("schwer `schwierig `unmöglich ") + "für " + s("uns,", "uns, natürlich,")
+						+ "so interessant für dich " + r("zu sein, `zu scheinen, `zu erscheinen, ") + "wie ";
+				speech += "du " + s("es für uns.", "für uns bist.");
 				break;
 			case "calm":
 				speech += peaceSpeech("calm");
