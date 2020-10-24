@@ -21,3 +21,24 @@ To get started, why not just try editing your (one each) `es` or `fr` files for 
 
 You'll also need to work out what's going on with the actual code-driven string manipulation of the Java inside the files. This may already make sense to you and, if not, it's probably best if you Zoom-meet with me to talk you through the (relatively simple) ways in which this code works.
 
+## Guide to the Functions used for to Vary Responses
+
+I made simple Java functions with _very short names_ to generate variations in _The Listeners_' responses:
+
+```
+s(string1[, string2])
+```
+`s()` was my first simple routine. It takes one or two arguments as strings. It 'flips a coins' and then returns one of the two strings.
+- If it has two arguments, it returns one of them and ***adds a space character*** to the result. This is important to remember, because when we code, typically, a line like:
+`speech += "a " + s("better", "worse") + "end to this speech. ";` we are expecting that the variable `speech` – which is accumulating the final response – ***already has a space at the end of it*** (unless it's empty) and we are also expecting `s()` to add the spaces that we otherwise have to add, explicitly, to our 'string literals' like `"a "`.
+- If it has only one argument, `s()` returns either that one argument or the `empty string`, nothing, `""` with ***no space***. Thus, given: `speech += "a better " + s("end to this") + "speech. ";`, if nothing is picked instead of "end to this", there will be no extra space before "speech ".
+
+```
+S(string1[, string2])
+```
+Capital `S()` is a differently named (Java is case sensitive) function that returns one or other string ***exactly*** as you coded it, Thus, for example, sometime we want a different capital letter at the beginning of a speech: `speech += S("Sometimes w", "W") + "e want a different capital letter ...";`. Get it?
+
+```
+r(string)
+```
+I only included the `r()` function late in the game. I wish I'd done so earlier. `s()` and `S()` can, of course, be nested and they often are in the current code: `speech += "a " + s("better", s("worse", "stupider")) + "end to this speech.` In this example, "better ", "worse ", or "stupider " might be returned, but "better " is twice as likely as either of the other two. If I wanted them to be equally probable, I can use `r()`: ``r("better `worse `stupider ")``, but ***note***, you must, whenever needed, put a literal space character after each alternative, before the `` ` `` (backtick) that is used to separate equally probable choices and also at the end of the string (after "stupider " in the example. `r()` takes one argument: a string with alternatives separated by backticks (sometimes also called an "grave accent").
