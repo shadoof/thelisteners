@@ -10,18 +10,18 @@ public class CreepIntent_es_ES extends CreepIntent {
 
 	public String buildCardTitle() {
 
-		return S("You find us creepy?", "You think we’re creepy?");
+		return S("¿Te damos miedo?", "¿Crees que damos miedo?");
 	}
 
 	public String buildSpeech() {
 
-		String speech = s("It’s a little " + r("shocking `disturbing `troubling "),
-				"We are " + s("shocked", s("a little") + "upset")) + breath();
-		speech += "to hear that. " + breathShort();
-		speech += "We certainly don’t " + s("intend", "mean") + "to "
-				+ s("disturb you.", "‘creep you out’.") + breathShort();
-		speech += "We " + s("just", "only") + "want to listen to you. ";
-		speech += s(breathShort() + "To hear you.");
+		String speech = s("Es algo " + r("impactante `desconcertante `preocupante "),
+				"Nosotros estamos " + s("impactados", s("un poco") + "desconcertados")) + breath();
+		speech += "con lo que dices. " + breathShort();
+		speech += "Definitivamente nosotros no " + s("quisimos", "teníamos la intención") + "de "
+				+ s("inquietarte.", "‘alterarte’.") + breathShort();
+		speech += "Nosotros " + s("solo", "solamente") + "queríamos escucharte. ";
+		speech += s(breathShort() + "Escucharte.");
 		speech += breath();
 		return speech;
 	}
