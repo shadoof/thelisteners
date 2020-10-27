@@ -6,17 +6,15 @@ import static listeners.util.Utils.breathShort;
 import static listeners.util.Utils.r;
 import static listeners.util.Utils.s;
 
-public class CreepIntent_es_ES extends CreepIntent {
+public class CreepIntent_es_MX extends CreepIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
 		return S("¿Te damos miedo?", "¿Crees que damos miedo?");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
 		String speech = s("Es algo " + r("impactante `desconcertante `preocupante "),
 				"Nosotros estamos " + s("impactados", s("un poco") + "desconcertados")) + breath();
 		speech += "con lo que dices. " + breathShort();
