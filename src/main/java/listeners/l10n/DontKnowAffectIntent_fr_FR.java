@@ -11,26 +11,24 @@ public class DontKnowAffectIntent_fr_FR extends DontKnowAffectIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("We don’t know", "We’re unsure about") + s("how you feel",
-				"the feelings " + s("that " + s("possess", "overwhelm") + "you", "within which you dwell"));
+		return S("Nous ne savons pas", "Nous ne connaissons pas", "Nous ne sommes pas certaines de") + s("les sentiments",
+				"les émotions " + s("qui vous " + s("habitent", "traversent", "animate") + "dont vous êtes tributaire"));
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String s = S("uncertainty", "insecurity");
+		String s = S("incertitude", "insécurité");
 		sessAttributes.put(AFFECT, s);
-		String speech = s("We are " + s("somewhat") + "distressed to",
-				"It is a " + s("little") + s("troubling", "disturbing") + "for us to")
-				+ s("have become aware", "know") + "that you are unsure of how you feel. ";
-		speech += s(breathShort() + "It "
-				+ s("will be important for us to", "is of " + s("some") + "concern to us that we come to")
-				+ "understand " + s("all") + "your feelings.");
-		speech += breathShort() + "We will suppose that you are filled with ‘" + s + "’. " + breathShort();
-		speech += "When you do " + s("come to understand", "know") + "how you " + s("may") + "feel, we "
-				+ s("hope", "trust and believe") + "that you will " + s("choose to") + "tell us. "
-				+ s("For all our sakes.");
+		String speech = s("nous sommes " + s("quelquepeu") + "atterrées",
+				"Il est " + s("un peu") + s("troublant", "perturbant") + "pour nous")
+				+ s("d'apprendre", "de savoir", "de découvrir",) + "que vous n'êtes pas certain de savoir comment vous vous" + s("sentez", "portez"). ";
+		speech += s(breathShort() + "Il "
+				+ s("sera d'une grande importante que", "faut que " + s("du moins nous semble-t-il") + "est crucial à nos yeux que")
+				+ "nous comprenions " + s("l'ensemble de") + s("vos émotions.", "vos sentiments.");
+		speech += breathShort() + "Nous supposerons que vous êtes remplis de ‘" + s + "’. " + breathShort();
+		speech += "Lorsque vous " + s("finirez par comprendre", "saurez") + "comment vous vous sentez" + s("potentiellement"), + "nous "
+				+ s("espérons que", "comptons sur vous pour que" + "avons foi que" + "vous faisons confiance pour que") + s("vous nous le direz", "vous choisirez de nous en faire part") 
+				+ s("Pour le bien de tous.");
 		speech += breath();
 		return speech;
 	}
