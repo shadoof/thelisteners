@@ -11,20 +11,18 @@ public class DontCareIntent_fr_FR extends DontCareIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("You don’t care how we feel?", "Are you indifferent to us?");
+		return S("Vous n'avez que faire de nos sentiments?", "Êtes-vous indifférent à notre égard?");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		sessAttributes.put(AFFECT, "indifference");
-		String speech = "We are " + s(s("very") + "sorry", s("somewhat") + "distressed")
-				+ "that you feel " + s("this", "that") + "way. ";
-		speech += "And we will suppose that you are filled with ‘indifference’. " + breathShort();
-		speech += "We " + s("hope, nonetheless,", s("trust", "hope")) + "that we may "
-				+ s("continue", "go on") + "listening to you, "/* + s("always,") */; // ALWAYCHANGE
-		speech += "and that you may come to care for us, as we care for you. ";
+		sessAttributes.put(AFFECT, "indifférence");
+		String speech = "Nous sommes " + s(s("très") + "désolées", s("quelquepeu") + "affligées")
+				+ "que vous ressentiez " + s("ce", "un tel", "pareil") + "vide. ";
+		speech += "Et nous supposerons " + s("donc", "ainsi", "dès lors") + "que vous nous témoignez de 'l'indifférence'. " + breathShort();
+		speech += "Nous " + s("espérons, tout de même,", s("souhaitons", "croyons")) + "que nous pourrons encore "
+				+ s("continuer", "poursuivre") + "notre écoute de vous, "/* + s("always,") */; // ALWAYCHANGE
+		speech += "et que vous en " + s("viendrez", "arriverez") + "à porter attention à nous, de la même manière que nous le faisons pour vous. ";
 		speech += breath();
 		return speech;
 	}
