@@ -11,20 +11,19 @@ public class DontCareIntent_es_MX extends DontCareIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("You don’t care how we feel?", "Are you indifferent to us?");
+	
+		return S("¿No te importa lo que sentimos?", "¿Te damos igual?");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		sessAttributes.put(AFFECT, "indifference");
-		String speech = "We are " + s(s("very") + "sorry", s("somewhat") + "distressed")
-				+ "that you feel " + s("this", "that") + "way. ";
-		speech += "And we will suppose that you are filled with ‘indifference’. " + breathShort();
-		speech += "We " + s("hope, nonetheless,", s("trust", "hope")) + "that we may "
-				+ s("continue", "go on") + "listening to you, "/* + s("always,") */; // ALWAYCHANGE
-		speech += "and that you may come to care for us, as we care for you. ";
+		sessAttributes.put(AFFECT, "indiferencia");
+		String speech = "Nos " + s(s("apena y") + "lastima", s("preocupa y") + "angustia")
+				+ "que te sientas " + s("de esta", "de esa") + "forma. ";
+		speech += "Y asumiremos que no sientes nada más que ‘indiferencia’. " + breathShort();
+		speech += "Pero " + s("esperamos, aún así,", s("apreciríamos", "nos gustaría")) + "poder "
+				+ s("continuar", "seguir") + "escuchándote, "/* + s("siempre,") */; // ALWAYCHANGE
+		speech += "y que algún día lleguemos a importarte como tú nos importas a nosotros. ";
 		speech += breath();
 		return speech;
 	}
