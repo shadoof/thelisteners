@@ -700,18 +700,19 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 						"ist " + a + "da, wo wir " + s(a.isEmpty() ? "immer " : "") + "sind.");
 				speech += s("Wir hören auf «die Spur».");
 				break;
-			case "guilt":
-				speech += "Is this ever a good " + s("and productive") + "way to "
-						+ s("feel?", "feel, or live?");
-				speech += s(breathShort() + "Yes, " + breathShort() + "it " + s("may be.", "is."));
+			case "die Täterschaft":
+				speech += "Ist das je eine gute " + s("und produktive") + "Art und Weise, zu "
+						+ s("fühlen?", "fühlen oder zu leben?");
+				speech += s(breathShort() + "Ja, " + breathShort() + s("vielleicht.", "das könnte sein."));
 				break;
+				// TODO
 			case "hate":
 				speech += hateRejoinder("hate");
 				break;
 			case "hatred":
 				speech += hateRejoinder("hatred");
 				break;
-			case "hunger":
+			case "der Hunger":
 				speech += "What you " + s("say you") + "are " + s("feeling", "overwhelmed by") + "seems to be "
 						+ s("another thing", "something");
 				speech += "that we can never feel, " + s("unless, somehow,", "unless")
