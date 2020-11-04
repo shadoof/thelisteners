@@ -9,16 +9,16 @@ public class LoveIntent_fr_FR extends LoveIntent {
 
 	public String buildCardTitle() {
 
-		return S("We love you", "We hope you feel the same");
+		return S("Nous vous aimons", "Nous espérons que nos sentiments sont réciproques");
 	}
 
 	public String buildSpeech() {
 
-		String speech = "Of course. " + breathShort() + s("Of course we do. " + breathShort());
-		speech += "It is " + s("difficult", "hard") + "for us to " + s("imagine", "conceive of") + "any ";
-		speech += s("other") + s("relation with", "feeling for") + "you that we " + s("might", "could") + "have, " + s("apart from that of", "other than") + "love. ";
-		speech += "And the more we " + s("hear of", "listen to") + "you, " + s("the more we know about you,") + "the more we " + s("will") + "love you. ";
-		speech += s(breathShort() + "This seems " + s("obvious, to us.", "obvious."));
+		String speech = "Bien sûr. " + breathShort() + s("Bien sûr que oui. " + breathShort());
+		speech += "Il est " + s("difficile", "pénible") + "pour nous " + s("d'imaginer", "de concevoir") + "quelconque ";
+		speech += s("autre") + s("rapport avec", "sentiment pour") + "vous que nous " + s("pourrions", "puissions") + "avoir, " + s("autre que", "différent") + "de l'amour. ";
+		speech += "Et plus nous " + s("vous écoutons", "portons attention à vous") + s("plus nous en" + s("apprenons", "découvrons") + "sur vous,") + "plus nous " + s("vous aimons.", "vous aimerons.") ;
+		speech += s(breathShort() + "Ceci " + s("Est une évidence pour nous.", "nous semble évident."));
 		return speech + breath();
 	}
 	
