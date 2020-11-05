@@ -26,7 +26,7 @@ public class DontLikeIntent_fr_FR extends DontLikeIntent {
 		String adjective = s("désolé", "consterné");
 		String intensifier = "consterné".equals(adjective) ? "quelquepeu " : "très ";
 		String speech = "Nous sommes " + s(adjective, intensifier + adjective);
-		speech += r("de découvrir `de savoir `d'apprendre ") + "que vous êtes "
+		speech += r("de découvrir `de savoir `d’apprendre ") + "que vous êtes "
 				+ s("rempli de", s("possésé `consumé `submergé") + "par") + "%s. ";
 		speech += speechUtils.getString("specificAffectSpeech");
 		speech = String.format(speech, affect);

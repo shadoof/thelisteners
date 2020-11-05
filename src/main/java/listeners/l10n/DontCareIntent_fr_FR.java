@@ -8,7 +8,7 @@ public class DontCareIntent_fr_FR extends DontCareIntent {
 
 	public String buildCardTitle() {
 
-		return S("Vous n'avez que faire de nos sentiments?", "Êtes-vous indifférent à notre égard?");
+		return S("Vous n’avez que faire de nos sentiments?", "Êtes-vous indifférent à notre égard?");
 	}
 
 	public String buildSpeech() {
@@ -17,7 +17,7 @@ public class DontCareIntent_fr_FR extends DontCareIntent {
 		String speech = "Nous sommes " + s(s("très") + "désolées", s("quelquepeu") + "affligées")
 				+ "que vous ressentiez " + r("ce `un tel `pareil ") + "vide. ";
 		speech += "Et nous supposerons " + r("donc `ainsi `dès lors ")
-				+ "que vous nous témoignez de 'l'indifférence'. " + breathShort();
+				+ "que vous nous témoignez de ‘l’indifférence’. " + breathShort();
 		speech += "Nous " + s("espérons, tout de même,", s("souhaitons", "croyons"))
 				+ "que nous pourrons encore " + s("continuer", "poursuivre")
 				+ "notre écoute de vous, "/* + s("always,") */; // ALWAYCHANGE

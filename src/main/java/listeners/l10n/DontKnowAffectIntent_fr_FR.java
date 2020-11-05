@@ -19,12 +19,12 @@ public class DontKnowAffectIntent_fr_FR extends DontKnowAffectIntent {
 		sessAttributes.put(AFFECT, s);
 		String speech = s("nous sommes " + s("quelquepeu") + "atterrées",
 				"Il est " + s("un peu") + s("troublant", "perturbant") + "pour nous")
-				+ r("d'apprendre `de savoir `de découvrir ")
-				+ "que vous n'êtes pas certain de savoir comment vous vous" + s("sentez.", "portez.");
+				+ r("d’apprendre `de savoir `de découvrir ")
+				+ "que vous n’êtes pas certain de savoir comment vous vous" + s("sentez.", "portez.");
 		speech += s(breathShort() + "Il "
-				+ s("sera d'une grande importante que",
+				+ s("sera d’une grande importante que",
 						"faut que " + s("du moins nous semble-t-il") + "est crucial à nos yeux que")
-				+ "nous comprenions " + s("l'ensemble de") + s("vos émotions.", "vos sentiments."));
+				+ "nous comprenions " + s("l’ensemble de") + s("vos émotions.", "vos sentiments."));
 		speech += breathShort() + "Nous supposerons que vous êtes remplis de ‘" + s + "’. " + breathShort();
 		speech += "Lorsque vous " + s("finirez par comprendre", "saurez") + "comment vous vous sentez, "
 				+ s("potentiellement,") + "nous "
