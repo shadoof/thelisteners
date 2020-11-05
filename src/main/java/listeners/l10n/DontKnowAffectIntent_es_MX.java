@@ -2,10 +2,7 @@ package listeners.l10n;
 
 import static listeners.model.Attributes.AFFECT;
 import static listeners.model.Attributes.sessAttributes;
-import static listeners.util.Utils.S;
-import static listeners.util.Utils.breath;
-import static listeners.util.Utils.breathShort;
-import static listeners.util.Utils.s;
+import static listeners.util.Utils.*;
 
 public class DontKnowAffectIntent_es_MX extends DontKnowAffectIntent {
 

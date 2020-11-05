@@ -6,8 +6,7 @@ import static listeners.model.Constants.PERFORMANCE;
 import static listeners.model.Constants.VERSION;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
-import static listeners.util.Utils.breath;
-import static listeners.util.Utils.s;
+import static listeners.util.Utils.*;
 
 // TODO
 public class VersionIntent_fr_FR extends VersionIntent {

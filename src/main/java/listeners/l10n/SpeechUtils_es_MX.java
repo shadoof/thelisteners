@@ -13,17 +13,7 @@ import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
 import static listeners.model.Constants.SPC;
 import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.langConstants;
-import static listeners.util.Utils.S;
-import static listeners.util.Utils.breath;
-import static listeners.util.Utils.breathLong;
-import static listeners.util.Utils.breathLonger;
-import static listeners.util.Utils.breathShort;
-import static listeners.util.Utils.capitalize;
-import static listeners.util.Utils.heads;
-import static listeners.util.Utils.phonemic;
-import static listeners.util.Utils.r;
-import static listeners.util.Utils.randInt;
-import static listeners.util.Utils.s;
+import static listeners.util.Utils.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

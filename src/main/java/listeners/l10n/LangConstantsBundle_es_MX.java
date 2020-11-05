@@ -3,8 +3,7 @@ package listeners.l10n;
 import static listeners.model.Constants.NEGATIVE;
 import static listeners.model.Constants.POSITIVE;
 import static listeners.model.Constants.SPC;
-import static listeners.util.Utils.S;
-import static listeners.util.Utils.r;
+import static listeners.util.Utils.*;
 
 import java.util.HashMap;
 import java.util.HashSet;

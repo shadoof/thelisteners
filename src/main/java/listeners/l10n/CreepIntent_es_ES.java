@@ -1,10 +1,6 @@
 package listeners.l10n;
 
-import static listeners.util.Utils.S;
-import static listeners.util.Utils.breath;
-import static listeners.util.Utils.breathShort;
-import static listeners.util.Utils.r;
-import static listeners.util.Utils.s;
+import static listeners.util.Utils.*;
 
 public class CreepIntent_es_ES extends CreepIntent {
 
