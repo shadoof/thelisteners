@@ -8,9 +8,8 @@ public class DontKnowAffectIntent_es_MX extends DontKnowAffectIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("We don’t know", "We’re unsure about") + s("how you feel",
-				"the feelings " + s("that " + s("possess", "overwhelm") + "you", "within which you dwell"));
+		return S("No sabemos", "No estamos seguros de") + s("cómo te sientes",
+				"las emociones " + s("que " + s("te agobian", "te inundan");
 	}
 
 	public String buildSpeech() {
