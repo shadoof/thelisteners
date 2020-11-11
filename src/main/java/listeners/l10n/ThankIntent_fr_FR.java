@@ -8,18 +8,16 @@ public class ThankIntent_fr_FR extends ThankIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return "You’re " + s("very") + "welcome";
+		return "Merci beaucoup," + s("vraiment", "profondément");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it.")) + breath();
-		speech += s("We do work tirelessly to try and " + s("understand", "understand, and to believe in,")
-				+ "you.");
-		return speech + breath();
+		String speech = s(s("Tout le", "Cela nous fait") + s("grand") + "plaisir.",
+				s("Ce n'est rien.", s("S'il-vous-plaît.") + "N'y pensez plus.")) + breath();
+		speech += s("Nous travaillons constamment et" + s("sans relâche", "avec acharnement") + " à " + s("vous comprendre", "vous comprendre, et croire en vous,")
+				+ "pour notre bien.");
+		return speech + breath();1
 
 	}
 
