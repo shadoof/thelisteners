@@ -15,7 +15,7 @@ public class LsnrsAreNotListeningIntent_fr_FR extends LsnrsAreNotListeningIntent
 
 	public String buildSpeech() {
 
-		// TODO
+	
 		String speech = s(s("Pour être honnête,", "En vérité,") + "vous avez raison", "vous avez vu juste") + "nous "
 				+ s("écoutions, à l'instant,", s("écoutons", "devons écouter")) + s("beaucoup", "un grand nombre,")
 				+ "d'autres gens. ";
