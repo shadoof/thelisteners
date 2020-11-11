@@ -10,13 +10,13 @@ public class DontLikeIntent_es_MX extends DontLikeIntent {
 	public String buildCardTitle() {
 
 		// TODO
-		return S("You don’t like us?", "Don’t you love us?");
+		return S("¿No te gustamos?You don’t like us?", "¿No nos amas?Don’t you love us?");
 	}
 
 	public String buildAffect() {
 
 		// TODO
-		String affect = S(S("hate", S("anger", "anxiety")), S("hatred", "disgust"));
+		String affect = S(S("odiohate", S("enojoanger", "ansiedadanxiety")), S("aborreccimientohatred", "disgustodisgust"));
 		sessAttributes.put(AFFECT, affect);
 		return affect;
 	}
@@ -25,10 +25,10 @@ public class DontLikeIntent_es_MX extends DontLikeIntent {
 
 		// TODO
 		String affect = buildAffect();
-		String adjective = s("sorry", "dismayed");
+		String adjective = s("perdónsorry", "dismayed");
 		String intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
 		String speech = "We are " + s(adjective, intensifier + adjective);
-		speech += "to " + s("know", "have learned") + "that you are "
+		speech += "to " + s("sabemosknow", "aprendimoshave learned") + "que tú eresthat you are "
 				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. ";
 		speech += speechUtils.getString("specificAffectSpeech");
 		speech = String.format(speech, affect);
