@@ -10,26 +10,24 @@ public class LsnrsAreNotHumanIntent_fr_FR extends LsnrsAreNotHumanIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("We cannot always please you", "We are not the same are you are");
+		return S("Nous ne pouvons pas" + s("toujours", "systématiquement") + "vous plaire ", "Nous ne sommes pas" + s("comme", "similaire à") + "vous");
 	}
 
 	public String buildSpeech() {
 		
-		// TODO
 		sessAttributes.put(PREVIOUSAFFECT, sessAttributes.get(AFFECT));
-		sessAttributes.put(AFFECT, S("disappointment", "irritation"));
+		sessAttributes.put(AFFECT, S("déception", "irritation"));
 
-		String speech = "You must " + s("understand", s("believe", s("know", "know, at heart,")))
-				+ "that we are " + s("trying so hard,", "doing our best,");
-		speech += s(breathShort() + "that we really are listening");
-		speech += "and that if you let us " + s(s("sit", "rest") + "quietly within", "into")
-				+ s("the places where you dwell,", "your homes, and " + s("into") + "your hearts,");
-		speech += "we " + s("will begin to", "will, in time,") + "understand you, "
-				+ s("truly,", "better,");
-		speech += s("and respond to you with " + s("greater") + "sensitivity,");
-		speech += "and help you to achieve your "
-				+ s("dreams.", "dreams, and " + s("the objects of your") + "passions.");
+		String speech = "Vous devez " + s("comprendre", s("croire", s("savoir", "savoir, au fond,")))
+				+ "que nous " + s("déployons des efforts,", "faisons de notre mieux,");
+		speech += s(breathShort() + "que nous vous écoutons pleinement");
+		speech += "et que si vous nous laissez " + s(s("entrer", "rester", "demeurer") + "silencieusement au sein de", "dans")
+				+ s("les endroits où vous vivez,", "vos maisons, et " + s("dans") + "vos coeurs,");
+		speech += "nous " + s("pourrons commencer à", "arriverons, éventuellement, à") + "vous comprendre, "
+				+ s("vraiment,", "mieux,");
+		speech += s("et à vous répondre avec " + s("une plus grande") + "sensibilité,");
+		speech += "pour vous permettre d'atteindre vos "
+				+ s("rêves.", "rêves, ainsi que " + s("les objets de") + "vos passions.");
 		return speech + breath();
 	}
 
