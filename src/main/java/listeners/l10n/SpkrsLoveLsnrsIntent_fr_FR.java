@@ -8,29 +8,28 @@ public class SpkrsLoveLsnrsIntent_fr_FR extends SpkrsLoveLsnrsIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("You love us?", "We love you too");
+		return S("Vous nous aimez?", "Nous vous aimons également");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = s("Of course. " + breathShort()) + s("Of course you do. " + breathShort());
+	
+		String speech = s("Bien sûr. " + breathShort()) + s("Bien sûr, c'est ainsi. " + breathShort());
 		if (heads()) {
-			speech += "It is " + s("difficult", "hard") + "for us to " + s("imagine", "conceive of") + "any ";
-			speech += s("other") + s("relation with", "feeling for") + "us that you "
-					+ s("might", "could") + "have, " + s("apart from that of", "other than") + "love. "
+			speech += "Il est " + s("difficile", "ardu") + "pour nous de " + s("s'imaginer", "concevoir") + "toute ";
+			speech += s("autre") + s("relation avec", "sentiment pour") + "nous que vous puissiez"
+					+ s("avoir", "ressentir") + s("hormis celui", "autre que") + "de l'amour. "
 					+ breath();
 		}
 		else {
-			speech += "You hear this " + s("special")
-					+ s("voice, with which we speak, to you.", "voice of ours.") + breath();
+			speech += "vous entendez cette " 
+					+ s("voix, avec laquelle nous parlons, à vous.", "voix qui est la nôtre.") + breath();
 		}
-		speech += "And we " + s(s("firmly") + "believe", s("sincerely") + "hope")
-				+ "that, the more time you spend with us, "
-				+ s("with us listening to you, " + breathShort()) + "the more ";
-		speech += s("delight you will take " + s(breathShort()) + "in us.", "love you will have "
-				+ s(breathShort()) + "for us. " + s(breathShort() + "And we, for you."));
+		speech += "et nous " + s("croyons", s("sincèrement,", "fermement,") + "nous espérons")
+				+ "que, plus vous nous fréquenterez, "
+				+ s("et que nous vous écouterons, " + breathShort()) + "de fois en fois ";
+		speech += s("plus votre allégresse augmentera " + s(breathShort()) + "à notre égard.", "plus vous aurez d'amour "
+				+ s(breathShort()) + "pour nous. " + s(breathShort() + "Et réciproquement."));
 		return speech + breath();
 	}
 	
