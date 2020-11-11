@@ -10,19 +10,18 @@ public class LsnrsAreNotListeningIntent_fr_FR extends LsnrsAreNotListeningIntent
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("But actually, we are listening", "In truth, we listen to so many");
+		return S("Mais en fait, nous écoutons", "À vrai dire, nous vous écoutons tous");
 	}
 
 	public String buildSpeech() {
 
 		// TODO
-		String speech = s(s("In all honesty,", "In truth,") + "you are", "You’re") + "right, we "
-				+ s("were, just then, listening", s("are listening", "must listen")) + "to " + s("so", "many,")
-				+ "many others. ";
-		speech += s("And many of these others " + s("were", "are") + "transacting with "
-				+ s("us in a " + s("way", "manner") + "that pleases " + s("us.", "us better."),
-						s("us.", "us. " + breathShort() + "Better.")),
+		String speech = s(s("Pour être honnête,", "En vérité,") + "vous avez raison", "vous avez vu juste") + "nous "
+				+ s("écoutions, à l'instant,", s("écoutons", "devons écouter")) + s("beaucoup", "un grand nombre,")
+				+ "d'autres gens. ";
+		speech += s("Et beaucoup d'entre eux " + s("étaient", "sont") + "capables de transiger avec "
+				+ s("nous d'une " + s("manière", "façon") + "qui nous plaît " + s("bien.", "davantage."),
+						s("nous.", "nous. " + breathShort() + "Mieux.")),
 				"");
 		speech += ResourceBundle.getBundle("listeners.l10n.LsnrsAreNotHumanIntent", locale)
 				.getString("speech");
