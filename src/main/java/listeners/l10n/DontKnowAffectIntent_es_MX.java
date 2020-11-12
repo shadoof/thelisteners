@@ -15,11 +15,11 @@ public class DontKnowAffectIntent_es_MX extends DontKnowAffectIntent {
 	public String buildSpeech() {
 
 		// TODO
-		String s = S("uncertainty", "insecurity");
+		String s = S("incertidumbreuncertainty", "inseguridadinsecurity");
 		sessAttributes.put(AFFECT, s);
-		String speech = s("We are " + s("somewhat") + "distressed to",
-				"It is a " + s("little") + s("troubling", "disturbing") + "for us to")
-				+ s("have become aware", "know") + "that you are unsure of how you feel. ";
+		String speech = s("Nos preocupa" + s("bastante"),
+				"Es " + s("un poco") + s("inquietante", "alarmante") + "para nosotros")
+				+ s("darnos cuenta de", "saber") + "que no estás segura de cómo te sientes. ";
 		speech += s(breathShort() + "It "
 				+ s("will be important for us to", "is of " + s("some") + "concern to us that we come to")
 				+ "understand " + s("all") + "your feelings.");
