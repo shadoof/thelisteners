@@ -12,8 +12,8 @@ public class CreepIntent_es_MX extends CreepIntent {
 	public String buildSpeech() {
 
 		String speech = s("Es algo " + r("impactante `desconcertante `preocupante "),
-				"Estamos " + s("impactados", s("un poco") + "desconcertados")) + breath();
-		speech += "con lo que dices. " + breathShort();
+				"Estamos " + s("impactados con", s("un poco") + "desconcertados con")) + breath();
+		speech += "lo que dices. " + breathShort();
 		speech += "Definitivamente nosotros no " + s("quisimos", "teníamos la intención") + "de "
 				+ s("inquietarte.", "‘alterarte’.") + breathShort();
 		speech += "Nosotros " + s("solo", "solamente") + "queríamos escucharte. ";
