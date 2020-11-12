@@ -15,7 +15,7 @@ public class DontCareIntent_es_MX extends DontCareIntent {
 	public String buildSpeech() {
 
 		sessAttributes.put(AFFECT, "indiferencia");
-		String speech = "Nos " + s(s("apena y") + "lastima", s("preocupa y") + "angustia")
+		String speech = "Nos " + s(s("apena y") + "hiere", s("preocupa y") + "angustia")
 				+ "que te sientas " + s("de esta", "de esa") + "forma. ";
 		speech += "Y asumiremos que no sientes nada más que ‘indiferencia’. " + breathShort();
 		speech += "Pero " + s("esperamos, aún así,", s("apreciríamos", "nos gustaría")) + "poder "
