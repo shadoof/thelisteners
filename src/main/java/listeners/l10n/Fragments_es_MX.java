@@ -13,11 +13,11 @@ public class Fragments_es_MX extends Fragments {
 		String speech = "";
 		switch (fragmentNumber) {
 			case 0:
-				speech += "We are listening. " + breathLong();
-				speech += s("And you, are " + s("listening to us.", "listening.") + breath());
-				speech += "It is a " + s("great") + "pleasure for us, ";
-				speech += "to " + s("know", "be aware") + "that you are listening to us. " + breath();
-				speech += "It is a pleasure to " + s("know", "be aware") + "that you are listening to us now. "
+				speech += "Estamos escuchándote. " + breathLong();
+				speech += s("Y tú, estás " + s("Escuchándonos.", "escuchando.") + breath());
+				speech += "Es un " + s("gran") + "placer para nosotros, ";
+				speech += s("saber", "ser conscientes") + "de que nos estás escuchando. " + breath();
+				speech += "Es un placer " + s("saber", "ser consciente") + "de que nos estás escuchando. "
 						+ breathLong();
 				speech += "And now. " + breath();
 				speech += "It is a pleasure for us to be with you. " + breath();
