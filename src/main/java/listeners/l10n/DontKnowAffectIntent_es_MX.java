@@ -15,7 +15,7 @@ public class DontKnowAffectIntent_es_MX extends DontKnowAffectIntent {
 	public String buildSpeech() {
 
 		// TODO
-		String s = S("incertidumbreuncertainty", "inseguridadinsecurity");
+		String s = S("incertidumbre", "inseguridad");
 		sessAttributes.put(AFFECT, s);
 		String speech = s("Nos preocupa" + s("bastante"),
 				"Es " + s("un poco") + s("inquietante", "alarmante") + "para nosotros")
