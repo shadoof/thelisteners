@@ -9,7 +9,7 @@ public class DontKnowAffectIntent_es_MX extends DontKnowAffectIntent {
 	public String buildCardTitle() {
 
 		return S("No conocemos", "No estamos seguros de") + s("cómo te sientes",
-				"las emociones que " + ("te agobian", "te inundan"));
+				"las emociones que " + S("te agobian", "te inundan"));
 	}
 
 	public String buildSpeech() {

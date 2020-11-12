@@ -21,7 +21,7 @@ public class LsnrsAreNotHumanIntent_fr_FR extends LsnrsAreNotHumanIntent {
 		String speech = "Vous devez " + s("comprendre", s("croire", s("savoir", "savoir, au fond,")))
 				+ "que nous " + s("déployons des efforts,", "faisons de notre mieux,");
 		speech += s(breathShort() + "que nous vous écoutons pleinement");
-		speech += "et que si vous nous laissez " + s(s("entrer", "rester", "demeurer") + "silencieusement au sein de", "dans")
+		speech += "et que si vous nous laissez " + s(r("entrer `rester `demeurer ") + "silencieusement au sein de", "dans")
 				+ s("les endroits où vous vivez,", "vos maisons, et " + s("dans") + "vos coeurs,");
 		speech += "nous " + s("pourrons commencer à", "arriverons, éventuellement, à") + "vous comprendre, "
 				+ s("vraiment,", "mieux,");
