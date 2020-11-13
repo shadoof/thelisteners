@@ -37,12 +37,12 @@ public class VersionIntent_fr_FR extends VersionIntent {
 			s = getVersionLocale();
 		}
 		else {
-			s = s("Thank you for " + s("your interest.", "the question.") + breath());
-			s += "We " + s("prefer to", "would rather")
-					+ "think of this as the date of our last rebirth, which was ";
+			s = s("Merci de votre " + s("intérêt.", "question.") + breath());
+			s += "Nous " + s("préférons", "aimerions davantage")
+					+ "que vous considériez cette date comme celle de notre plus récente réincarnation, qui était ";
 			s += LSNRS_DATE + ". " + breath();
-			s += s("It seems always to be very recent. "
-					+ s("But we " + s("certainly") + "were not born yesterday.") + breath());
+			s += s("Il nous semble toujours que c'est très récent. "
+					+ s("Mais nous ne sommes " + s("certainement") + "pas nées de la dernière pluie.") + breath());
 		}
 		return s += breath();
 	}
