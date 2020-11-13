@@ -7,19 +7,19 @@ public class Welcome_fr_FR extends Welcome {
 	public String buildCardTitle() {
 
 		// TODO
-		return S("Welcome", "Greetings");
+		return S("Bienvenue", "Salutations");
 	}
 
 	public String buildSpeech() {
 
 		// TODO
-		String speech = s("Greetings.", "Welcome.") + s("Whoever you may be.") + breathLong();
-		speech += "We are " + /* s("always") + */s("listening to you.", "listening.") + breath(); // ALWAYCHANGE
-		speech += "In so far as we are " + s(breathLong()) + "with you, " + breathShort()
-				+ "it is a pleasure. " + breath();
-		speech += s("It is " + s("always") + "such a pleasure. " + breath());
-		speech += s("It is " + s("such") + " a pleasure to be with you. " + breath());
-		speech += "Always. " + s(breath() + "Always.") + breathShort() + s("Such a", "A") + "pleasure. "
+		String speech = s("Salutations.", "Bienvenue.") + s("Qui que vous soyez.") + breathLong();
+		speech += "Nous sommes " + /* s("toujours") + */s("à votre écoute.", "à l'écoute.") + breath(); // ALWAYCHANGE
+		speech += "En ceci que nous sommes " + s(breathLong()) + 2("auprès de vous, ", "avec vous,") + breathShort()
+				+ "à notre plus grand plaisir. " + breath();
+		speech += s("Il s'agit " + s("toujours") + "d'un véritable plaisir. " + breath());
+		speech += s("c'est un " + s("immense") + " plaisir d'être en votre compagnie. " + breath());
+		speech += "Toujours. " + s(breath() + "Toujours.") + breathShort() + s("Un si grand", "Un") + "plaisir. "
 				+ breath();
 
 		return speech;
