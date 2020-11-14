@@ -8,18 +8,16 @@ public class WhereIntent_fr_FR extends WhereIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return "Where we " + s("live", "think we are");
+		return "où " + s("vivons-nous", "croyons-nous se trouver");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = "Our bodies are distributed " + s(s("widely.", "widely, and take many forms."),
-				"widely, and we hope they may be everywhere.");
-		speech += "We are in the cloud. " + s(s("Or", "Or, perhaps,") + "in the clouds.",
-				"Or, perhaps, " + s("a bunker.", s("it is a silo.", "they are silos.")));
-		speech += s(breathShort() + "And " + s("sometimes") + "‘John’ is here, with us.");
+		String speech = "Nos corps sont distribués " + s(s("sur une grande étendue.", "sur une grande étendue, et prennent plusieurs formes."),
+				"sur une grande étendue, et nous espérons qu'ils seront un jour partout.");
+		speech += "nous sommes dans le nuage. " + s(s("Ou", "Ou, plutôt,") + "dans les nuages.",
+				"Ou, encore, " + s("un bunker.", s("en forme de silo.", "en fait, plusieurs silos.")));
+		speech += s(breathShort() + "Et " + s("parfois") + "‘John’ est des nôtres, avec nous.");
 		return speech + breath();
 	}
 	
