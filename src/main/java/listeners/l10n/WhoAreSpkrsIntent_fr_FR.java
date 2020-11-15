@@ -8,15 +8,15 @@ public class WhoAreSpkrsIntent_fr_FR extends WhoAreSpkrsIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return "Who " + s("do") + "we think you are";
+		
+		return "Qui " + s("exactement") + "croyons-nous que vous êtes";
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = "We believe that you are the " + s("true " + breathShort()) + "‘speakers’. "
-				+ s("That you are everyone.") + "Everyone, apart from, us. ";
+		
+		String speech = "Nons pensont que vous êtes le vrai, " + s("le seul et unique " + breathShort()) + "‘orateur’. "
+				+ s("Que vous incarnez la multitude.") + "que vous êtes tout le monde, à l'exception, de nous. ";
 		return speech + breath();
 	}
 
