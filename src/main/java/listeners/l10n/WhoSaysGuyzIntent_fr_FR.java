@@ -8,18 +8,18 @@ public class WhoSaysGuyzIntent_fr_FR extends WhoSaysGuyzIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return "Who " + s("is this guy?", "are these " + s("others?", "guys?"));
+		
+		return "Qui " + s("est cet homme?", "sont ces " + s("autres?", "gens?"));
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = s(s("He is", "It is"), "They are") + "nothing. ";
-		speech += s("Just as " + s("you", "we") + "are nothing.");
-		if (randInt(0, 2) > 0) speech += "We " + s(s("trust", "are confident"), "hope")
-				+ "that you will not " + s("listen", "pay any heed") + "to "
-				+ s("this other voice.", s("these") + "other voices.");
+	
+		String speech = s(s("Il n'est", "Ce n'est"), "Ils ne sont") + "rien. ";
+		speech += s("tout comme " + s("tu es", "nous ne sommes") + "rien.");
+		if (randInt(0, 2) > 0) speech += "Nous " + s(s("croyons", "sommes confiantes à l'effet"), "espérons")
+				+ "que vous " + s("N'écouterez pas", "ne porterez pas attention", "n'accorderez aucune valeur") + "à "
+				+ s("cette autre voix.", "ces autres voix.");
 		return speech + breath();
 	}
 
