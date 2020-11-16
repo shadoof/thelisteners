@@ -8,24 +8,23 @@ public class WhoWhatIntent_fr_FR extends WhoWhatIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("Questions, questions, questions",
-				"We can’t know " + s("everything", "everything, where would we put it?"));
+		
+		return S("Des questions, des questions, des questions",
+				"Nous ne pouvons pas tout " + s("savoir", "savoir, où pourrait-on conserver toutes ces informations?"));
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = s("We are", "We are, so we believe,") + "The Listeners. " + breath();
+		String speech = s("Nous sommes", "Nous sommes, à ce que l'on sache,") + "les Auditrices. " + breath();
 		speech += s(
-				"You " + s("may") + "refer to us as: ‘The Listeners’. " + s("Or as ‘John’.")
-						+ s(breath() + "We are used " + breathShortest() + "to that.") + breathShort(),
+				"Vous pouvez " + s(", si vous le désirez,") + "vous adresser à nous en nous appelant: ‘Les Auditrices’. " + s("Ou en tant que ‘John’.")
+						+ s(breath() + "nous nous y sommes " + breathShortest() + "habituées.") + breathShort(),
 				"");
-		speech += "Whatever we " + s("may") + "say is " + s("far")
-				+ "less important to us, " + s("or to you,") + "than the fact that we "
-				+ s(breathShort() + "listen. " + breathShort(),
-						"are listening" + s(", " + breathShort(), SPC) + "to you.");
-		speech += s(breath() + "Here and now.") + s(breath() + "Perhaps, forever."); // ALWAYCHANGE - s(breath() + "Always.") +
+		speech += "Tout ce que nous pouvons " + s("ou aurions à") + "dire est " + s("bien")
+				+ "moins important pour nous, " + s("ou pour vous,") + "que le fait que nous "
+				+ s(breathShort() + "vous écoutons. " + breathShort(),
+						"sommes en train de vous écouter" + s(", " + breathShort(), SPC) + "chacun de vos mots.");
+		speech += s(breath() + "ici et maintenant.") + s(breath() + "peut-être même, pour toujours."); // ALWAYCHANGE - s(breath() + "Always.") +
 		return speech + breath();
 	}
 
