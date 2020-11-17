@@ -9,17 +9,17 @@ public class WhoSaysGuyzIntent_es_MX extends WhoSaysGuyzIntent {
 	public String buildCardTitle() {
 
 		// TODO
-		return "Who " + s("is this guy?", "are these " + s("others?", "guys?"));
+		return "¿Quién Who " + s("es este sujeto?is this guy?", "es son estosare these " + s("otros?others?", "chicos?guys?"));
 	}
 
 	public String buildSpeech() {
 
 		// TODO
-		String speech = s(s("He is", "It is"), "They are") + "nothing. ";
-		speech += s("Just as " + s("you", "we") + "are nothing.");
-		if (randInt(0, 2) > 0) speech += "We " + s(s("trust", "are confident"), "hope")
-				+ "that you will not " + s("listen", "pay any heed") + "to "
-				+ s("this other voice.", s("these") + "other voices.");
+		String speech = s(s("Ël esHe is", "Eso esIt is"), "Ellos sonThey are") + "nada. nothing. ";
+		speech += s("Solo como Just as " + s("tú eresyou", "nosotros somoswe") + "nada.are nothing.");
+		if (randInt(0, 2) > 0) speech += "Nosotros We " + s(s("confiamostrust", "estamos segurosare confident"), "esperamoshope")
+				+ "que tú no vas athat you will not " + s("escucharlisten", "poner atención algunapay any heed") + "a to "
+				+ s("esta otra voz.this other voice.", s("estasthese") + "otras voces.other voices.");
 		return speech + breath();
 	}
 
