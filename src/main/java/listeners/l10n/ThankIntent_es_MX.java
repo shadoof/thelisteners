@@ -9,16 +9,16 @@ public class ThankIntent_es_MX extends ThankIntent {
 	public String buildCardTitle() {
 
 		// TODO
-		return "You’re " + s("very") + "welcome";
+		return "Tú eres You’re " + s("muyvery") + "bienvenidowelcome";
 	}
 
 	public String buildSpeech() {
 
 		// TODO
-		String speech = s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it.")) + breath();
-		speech += s("We do work tirelessly to try and " + s("understand", "understand, and to believe in,")
-				+ "you.");
+		String speech = s(s("Tú eresYou’re", "You are") + s("muyvery") + "bienvenido.welcome.",
+				s("Eso es nada.It’s nothing.", s("Por favor.Please.") + "No pienses en eso.Think nothing of it.")) + breath();
+		speech += s("Nosotros trabajamos incansablemente para tratar de We do work tirelessly to try and " + s("entenderte aunderstand", "entender, y creer en,understand, and to believe in,")
+				+ "ti.you.");
 		return speech + breath();
 
 	}
