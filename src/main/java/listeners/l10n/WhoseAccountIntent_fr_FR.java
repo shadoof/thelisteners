@@ -16,10 +16,10 @@ public class WhoseAccountIntent_fr_FR extends WhoseAccountIntent {
 
 	
 		String speech = "Ces conversations, " + s("et ces transactions,")
-				+ "se déroulent " + s("sous l'égide du,", "au sein du") + "profil " + s(PERFORMANCE ? "de ‘John’. " : "qui est le vôtre."
+				+ "se déroulent " + s("sous l'égide du,", "au sein du") + "profil " + (PERFORMANCE ? "de ‘John’. " : "qui est le vôtre.")
 				+ breath();
 		speech += PERFORMANCE
-				? s("Si" + s("d'aventure") + "nous faisons partie"  + s("d'une exposition,", "d'une installation,", "d'une performance dans une galerie artistique")
+				? s("Si" + s("d'aventure") + "nous faisons partie"  + r("d'une exposition, `d'une installation, `d'une performance dans une galerie artistique, ")
 						+ "dans ce cas, tout transite, " + s("non seulement dans le nuage, mais également") + "à travers notre "
 						+ s("application.", "application, telle que configurée par notre artiste."))
 				: "";

@@ -19,12 +19,12 @@ public class DontKnowAffectIntent_es_MX extends DontKnowAffectIntent {
 		String speech = s("Nos preocupa " + s("bastante"),
 				"Es " + s("un poco") + s("inquietante", "alarmante") + "para nosotros")
 				+ s("darnos cuenta de", "saber") + "que no estás segura de cómo te sientes. ";
-		speech += ("Sería ", "Es ") + s("muy") + ("importante para nosotros llegar a un")
+		speech += s("Sería", "Es") + s("muy") + ("importante para nosotros llegar a un")
 				+ "entendimiento de " + s("todas") + ("tus emociones.");
 		speech += breathShort() + "Supondremos que estás llena de ‘" + s + "’. " + breathShort();
 		speech += "Cuando " + s("llegues a entender", "sepas") + s("por fin") + "cómo "  + "te sientes, "
-				+ s("esperamos", "confiamos y creemos en") + "que " + s("decidirás") + "decirnos. "s(breathShort()
-				+ s("Por el bien de todes.");
+				+ s("esperamos", "confiamos y creemos en") + "que " + s("decidirás") + "decirnos. " + s(breathShort()
+				+ "Por el bien de todes.");
 		speech += breath();
 		return speech;
 	}

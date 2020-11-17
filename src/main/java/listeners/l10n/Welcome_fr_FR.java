@@ -15,7 +15,7 @@ public class Welcome_fr_FR extends Welcome {
 		// TODO
 		String speech = s("Salutations.", "Bienvenue.") + s("Qui que vous soyez.") + breathLong();
 		speech += "Nous sommes " + /* s("toujours") + */s("à votre écoute.", "à l'écoute.") + breath(); // ALWAYCHANGE
-		speech += "En ceci que nous sommes " + s(breathLong()) + 2("auprès de vous, ", "avec vous,") + breathShort()
+		speech += "En ceci que nous sommes " + s(breathLong()) + s("auprès de vous,", "avec vous,") + breathShort()
 				+ "à notre plus grand plaisir. " + breath();
 		speech += s("Il s'agit " + s("toujours") + "d'un véritable plaisir. " + breath());
 		speech += s("c'est un " + s("immense") + " plaisir d'être en votre compagnie. " + breath());
