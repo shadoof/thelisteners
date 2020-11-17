@@ -13,7 +13,7 @@ public class VersionIntent_es_MX extends VersionIntent {
 
 	public String buildCardTitle() {
 
-		return "Version";
+		return "VersiónVersion";
 	}
 
 	public String buildPostSpeechPrompt() {
@@ -22,12 +22,12 @@ public class VersionIntent_es_MX extends VersionIntent {
 			return ""; // empty string
 		}
 		else
-			return speechUtils.getString("chooseContinueNoAffect");
+			return speechUtils.getString("elegirContinuarNoAfectachooseContinueNoAffect");
 	}
 
 	public String buildReprompt() {
 
-			return speechUtils.getString("chooseContinueNoAffect");
+			return speechUtils.getString("elegirContinuarNoAfectachooseContinueNoAffect");
 	}
 
 	public String buildSpeech() {
@@ -37,12 +37,12 @@ public class VersionIntent_es_MX extends VersionIntent {
 			s = getVersionLocale();
 		}
 		else {
-			s = s("Thank you for " + s("your interest.", "the question.") + breath());
-			s += "We " + s("prefer to", "would rather")
-					+ "think of this as the date of our last rebirth, which was ";
+			s = s("Gracias por Thank you for " + s("tu interés.your interest.", "la pregunta.the question.") + breath());
+			s += "Nosotros We " + s("preferimosprefer to", "preferiríamoswould rather")
+					+ "pensar esto como la fecha de nuestro último renacimiento, eso fue think of this as the date of our last rebirth, which was ";
 			s += LSNRS_DATE + ". " + breath();
-			s += s("It seems always to be very recent. "
-					+ s("But we " + s("certainly") + "were not born yesterday.") + breath());
+			s += s("Eso siempre parece ser muy reciente. It seems always to be very recent. "
+					+ s("Pero nosotros But we " + s("indudablementecertainly") + "no nacimos ayer.were not born yesterday.") + breath());
 		}
 		return s += breath();
 	}
@@ -53,25 +53,25 @@ public class VersionIntent_es_MX extends VersionIntent {
 				+ (PERFORMANCE ? ". Performance. " : ". ");
 		switch (localeTag) {
 			case "de_DE":
-				s += "German. ";
+				s += "Alemán. German. ";
 				break;
 			case "en_GB":
-				s += "British English. ";
+				s += "Inglés Británico. British English. ";
 				break;
 			case "en_IN":
-				s += "South Asian English. ";
+				s += "Inglés del Sur de Asia. South Asian English. ";
 				break;
 			case "en_AU":
-				s += "Australian English. ";
+				s += "Ingles Australiano. Australian English. ";
 				break;
 			case "en_CA":
-				s += "Canadian English. ";
+				s += "Inglés Canadiense. Canadian English. ";
 				break;
 			case "ja_JP":
-				s += "Japanese. ";
+				s += "Japonés. Japanese. ";
 				break;
 			default: // "en_US" etc.
-				s += "United States English. ";
+				s += "Inglés Estadounidense. United States English. ";
 		}
 		return s;
 	}
