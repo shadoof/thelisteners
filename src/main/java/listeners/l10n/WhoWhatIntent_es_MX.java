@@ -8,9 +8,8 @@ public class WhoWhatIntent_es_MX extends WhoWhatIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("Preguntas, preguntas, preguntasQuestions, questions, questions",
-				"Nosotros no podemos saber We can’t know " + s("todoeverything", "todo, ¿dónde lo pondríamos?everything, where would we put it?"));
+		return S("Preguntas, preguntas, preguntas",
+				"Nosotros no podemos saber " + s("todo", "todo, ¿dónde lo pondríamos?"));
 	}
 
 	public String buildSpeech() {
