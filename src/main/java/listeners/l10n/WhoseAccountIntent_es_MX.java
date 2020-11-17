@@ -8,14 +8,13 @@ public class WhoseAccountIntent_es_MX extends WhoseAccountIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("Nuestro perfil es unaOur profile", "Esta es una This " + s("pequeñalittle") + "cuenta de nosotrosaccount of ours");
+		return S("Nuestro perfil", "Esta" + s("pequeña") + "cuenta nuestra");
 	}
 
 	public String buildSpeech() {
 
 		// TODO
-		String speech = "Estas conversaciones, These conversations, " + s("y estas transacciones,and these transactions,")
+		String speech = "Estas conversaciones, " + s("y estas transacciones")
 				+ "toman lugar dentro del alcance de, take place within the scope of, " + (PERFORMANCE ? "‘John’s’ " : "tu your ") + "perfil. profile. "
 				+ breath();
 		speech += PERFORMANCE
