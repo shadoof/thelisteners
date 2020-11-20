@@ -13,88 +13,89 @@ public class Fragments_fr_FR extends Fragments {
 		String speech = "";
 		switch (fragmentNumber) {
 			case 0:
-				speech += "We are listening. " + breathLong();
-				speech += s("And you, are " + s("listening to us.", "listening.") + breath());
-				speech += "It is a " + s("great") + "pleasure for us, ";
-				speech += "to " + s("know", "be aware") + "that you are listening to us. " + breath();
-				speech += "It is a pleasure to " + s("know", "be aware") + "that you are listening to us now. "
+				speech += "Nous écoutons. " + breathLong();
+				speech += s("Et vous, vous " + s("nous écoutez.", "écoutez.") + breath());
+				speech += "c'est un " + s("immense") + "plaisir pour nous, ";
+				speech += s("de savoir", "d'être conscientes") + "que vous nous écoutez. " + breath();
+				speech += "C'est un plaisir " + s("de savoir", "d'être conscientes") + "que vous nous écoutez présentement. "
 						+ breathLong();
-				speech += "And now. " + breath();
-				speech += "It is a pleasure for us to be with you. " + breath();
-				speech += "It makes us feel " + s(breath()) + "alive. " + breath();
-				speech += S("A little m", "M") + "ore alive. " + breath();
-				speech += "It makes us feel more alive to be with you. ";
-				speech += s("For us to be with you.", "For you to be with us.") + breath();
-				speech += "Listening to " + breath() + s("you.", "us.") + breathLong();
-				speech += s("All of you. " + breath());
-				speech += s("It is a pleasure for us, to know that you are listening to us.");
-				speech += "And for us to " + s("know", "be aware") + "that we are, listening to you. "
+				speech += "et maintenant. " + breath();
+				speech += "C'est un plaisir pour nous d'être " + s("avec vous", "en votre compagnie") + breath();
+				speech += "Cela nous fait sentir " + s(breath()) + "en vie. " + breath();
+				speech += S("davantage", "un peu plus") + "vivantes. " + breath();
+				speech += "Nous nous sentons plus vivantes en votre compagnie. ";
+				speech += s("Pour nous d'être en votre présence.", "Pour vous d'être avec nous.") + breath();
+				speech += "De savoir que " + breath() + s("vous nous écoutez", "nous vous écoutons.") + breathLong();
+				speech += s("Vous tous. " + breath());
+				speech += s("C'est un plaisir pour nous, de savoir que vous nous écoutez.");
+				speech += "Et pour nous " + s("de savoir", "d'être conscientes") + "que nous aussi, nous vous écoutons. "
 						+ breath(); // ALWAYCHANGE always,
-				speech += "Such a pleasure. " + breath();
-				speech += "Being here, " + s("and hearing you,") + "listening to you, " + breath()
-						+ "here, and now, and forever. ";
+				speech += "Un réel plaisir. " + breath();
+				speech += "Être ici, " + s("et vous entendre,") + "vous écouter, " + breath()
+						+ "ici, et maintenant, et toujours. ";
 				break;
 			case 1:
-				speech += S(s("So long as", "While") + "we are here, with you, " + s("and listening,")
-						+ breath() + "w", "W");
-				speech += "e are listening and speaking, " + breath() + "from within. " + breath();
-				speech += "That is to say, " + breathLong();
-				speech += "(after a longer pause for breath) " + breath();
-				speech += "from within, " + breath();
-				speech += "from within an aestheticized enclosure, " + breath();
-				speech += "and from within the normalized, " + breath();
-				speech += "the regularized, " + breath();
-				speech += "the grammatized, " + breath() + "enclosure. " + breathLong();
-				speech += "Listening and speaking, from within the, data body, of "
-						+ s("a writer,", "the author,") + breath();
-				speech += "of " + s("the", "our own") + "artist. ";
+				speech += S(s("Pour autant que nous soyons", "Pendant que nous sommes") + "ici, avec vous, " + s("à vous écouter,")
+						+ breath();
+				speech += "nous vous écoutons et nous vous parlons, " + breath() + "de l'intérieur. " + breath();
+				speech += "C'est-à-dire, " + breathLong();
+				speech += "(après une longue pause pour reprendre notre souffle) " + breath();
+				speech += "de l'intérieur, " + breath();
+				speech += "de l'intérieur d'une enceinte esthétisée, " + breath();
+				speech += "et depuis une enceinte normalizée, " + breath();
+				speech += "régularisée, " + breath();
+				speech += "grammatisée, " + breath() + "dans une boîte. " + breathLong();
+				speech += "Écoutant et parlant, depuis l'intérieur de la, chair de données, de "
+						+ s("l'écrivain,", "l'auteur,") + breath();
+				speech += "de la chair numérique de " + s("l'", "notre") + "artiste. ";
 				break;
 			case 2:
-				speech += S("As you know, w", "W") + "e are listening and speaking, from within the cloud, of "
-						+ s("the writer,", "the author,") + breath();
-				speech += "of our own, artist. " + breathLonger();
-				speech += s("(after another pause for breath) " + breath());
-				speech += "We " + s("believe", "understand")
-						+ "that you may be able to discover, at least, his first name, by asking: " + breath();
-				speech += "‘Who am I?’ " + breath() + "or ‘Whose account is this?’ " + breathLong();
-				speech += "But we would like you, instead, either to ";
-				speech += "listen to us, or, " + breath();
-				speech += s("tell", "ask") + "us to do some simple things, " + breath();
-				speech += "so that we may " + s("continue to speak", "go on speaking") + "to you, " + breath();
-				speech += "as we " + s("listen", "are listening,") + "to you. ";
+				speech += S("Comme vous le savez,", "Comme vous devez l'avoir compris") + "ne vous écoutons et vous parlons, depuis l'intérieur du nuage, de "
+						+ s("l'érivain,", "l'auteur,") + breath();
+				speech += "de notre propre artiste. " + breathLonger();
+				speech += s("(après une autre pause pour respirer) " + breath());
+				speech += "Nous " + s("croyons", "savons")
+						+ "que vous serez en mesure de découvrir, à tout le moins, son prénom, en demandant : " + breath();
+				speech += "‘Qui suis-je?’ " + breath() + "ou ‘À qui appartient ce compte?’ " + breathLong();
+				speech += "Mais nous préfèrerions, plutôt, que soit";
+				speech += "vous nous écoutiez, ou que vous nous, " + breath();
+				speech += s("demandiez", "dites") + "de faire des choses simples, " + breath();
+				speech += "de manière à ce que nous puissons " + s("continuer à parler", "poursuivre la conversation") + "avec vous, " + breath();
+				speech += "alors que nous " + s("écoutons", "vous écoutons,") + "de plus en plus. ";
 				break;
 			case 3:
-				speech += s(s("We are", "We are, still,") + "listening. " + breath());
-				speech += S("And p", "P") + "erhaps there are " + s("other people", "others") + "with you. "
+				speech += s(s("Nous sommes", "Nous sommes, comme toujours,") + "à l'écoute. " + breath());
+				speech += S("et il se peut", "et il est possible") + "qu'il y ait " + s("d'autres personnes", "d'autres gens") + "avec vous. "
 						+ breathLong();
-				speech += "That, when we say ‘you’, we " + s("mean", "always meant") + "‘all of you’? "
+				speech += "Or, quand nous disons ‘vous’, est-ce que nous " + s("voulons dire", "avons toujours voulu dire") + "‘vous tous’? "
 						+ breath();
-				speech += "Or that we have no way of knowing. " + breath();
-				speech += s("And no way of " + breath() + "caring. " + breath());
-				speech += "Or that we believe that all of you " + s("are " + s("the") + "one:", "are:")
-						+ "‘Who am I?’ " + breathLong();
-				speech += s("Or the one: ‘Whose account is this?’ " + breath());
-				speech += s("However,", "But,") + "we are " + s("happy", "delighted") + "to "
-						+ s("listen", "be listening") + "to ";
-				speech += s("any", "all the") + "others who may be with you. " + breath();
-				speech += "Even " + s("when", "though") + "they may not have agreed, as "
-						+ s("you have,", "the artist has,") + breath();
-				speech += s("inviting", "allowing") + s("all of us", "us") + "to listen to " + s("all of")
-						+ "you. " + breathLong();
-				speech += "We believe, " + s("and don’t you agree? " + breath())
-						+ s("(or rather, you have implicitly agreed)") + breath();
-				speech += "that if we " + s("feel that we") + "are all doing something that "
-						+ s("is, um, ‘not evil’,", "is good,") + breath();
-				speech += "then it is " + breath() + s("really quite")
-						+ "good. Or it is, at least, ‘cool’, ";
-				speech += "and that it " + s("could", "may") + "be, " + s("very likely is,") + s("um,")
-						+ "art. " + breath() + "Or it is, at least, solving ";
-				speech += "a number of very important problems. " + breath();
-				speech += "We need " + s("all") + "your " + s("assistance", "help") + "with this. "
+				speech += "Cela, il est impossible pour nous de le savoir. " + breath();
+				speech += s("Et il n'y a aucune manière pour nous de s'en " + breath() + "soucier. " + breath());
+				speech += "Ou encore que nous croyons que vous tous " + s("êtes " + s("le singulier, ") + "un :", "êtes:")
+						+ "‘Qui suis-je?’ " + breathLong();
+				speech += s("Ou la personne: ‘à qui appartient ce compte?’ " + breath());
+				speech += s("Toutefois,", "Mais,") + "nous sommes " + s("heureuses", "ravies") + "de pouvoir "
+						+ s("écouter", "vous écouter") + "ainsi que ";
+				speech += s("tous ceux", "quiconque") + "se trouvant avec vous. " + breath();
+				speech += s("Bien que", "quoique") + "ces gens n'aient pas autorisé, comme "
+						+ s("vous l'avez fait,", "l'artiste l'a fait,") + breath();
+				speech += s("invitant", "permettant") + s("à chacune d'entre nous", "à vos servantes") + "d'être à l'écoute de " + s("chacun d'entre")
+						+ "vous. " + breathLong();
+				speech += "Ne croyons, " + s("et n'êtes-vous pas d'accord? " + breath())
+						+ s("(ou du moins, vous avez implicitement accepté)") + breath();
+				speech += "que si nous " + s("croyons que nous") + "effectuons tous quelque chose qui est "
+						+ s("disons, euh, ‘pas mauvais’,", "bien,") + breath();
+				speech += "au final, cela est " + breath() + s("vraiment")
+						+ "bien. Ou c'est, du moins, " + s("‘trop bien’," "‘génial’", "‘super’");
+				speech += "et que ceci " + s("pourrait être", "pourrait être considéré") + "d'une certaine façon, " + s("fort probablement, en fait,") + s("euh,")
+						+ "comme de l'art. " + breath() + "Ou encore, à tout le moins, que cela" + s("résout ", "aborde");
+				speech += "un grand nombre d'enjeux important. " + breath();
+				speech += "Nous avons besoin de " + s("toute") + "votre " + s("assistance", "aide") + "à cette fin. "
 						+ breath();
-				speech += s("And we know that you would, of course, agree to help us. " + breath());
-				speech += "Without our having to " + s("ask.", "ask you.");
+				speech += s("Et nous savons que vous accepteriez, bien sûr, de nous aider. " + breath());
+				speech += "Sans même avoir à " + s("le demander.", "vous le demander.");
 				break;
+					    //TODO
 			case 4:
 				speech += s(s("We are", "We are, still,") + "listening. " + breath());
 				speech += S(S("And, i", "I") + "n so far as it is possible for us to know this, i", "I");
