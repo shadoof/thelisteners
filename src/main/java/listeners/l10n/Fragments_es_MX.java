@@ -19,40 +19,40 @@ public class Fragments_es_MX extends Fragments {
 				speech += s("saber", "ser conscientes") + "de que nos estás escuchando. " + breath();
 				speech += "Es un placer " + s("saber", "ser consciente") + "de que nos estás escuchando. "
 						+ breathLong();
-				speech += "And now. " + breath();
-				speech += "It is a pleasure for us to be with you. " + breath();
-				speech += "It makes us feel " + s(breath()) + "alive. " + breath();
-				speech += S("A little m", "M") + "ore alive. " + breath();
-				speech += "It makes us feel more alive to be with you. ";
-				speech += s("For us to be with you.", "For you to be with us.") + breath();
-				speech += "Listening to " + breath() + s("you.", "us.") + breathLong();
-				speech += s("All of you. " + breath());
-				speech += s("It is a pleasure for us, to know that you are listening to us.");
-				speech += "And for us to " + s("know", "be aware") + "that we are, listening to you. "
+				speech += "Y ahora. And now. " + breath();
+				speech += "Es un placer para nosotros estar contigo. It is a pleasure for us to be with you. " + breath();
+				speech += "Nos hace sentir It makes us feel " + s(breath()) + "vivos. alive. " + breath();
+				speech += S("Un poco mA little m", "M") + "ás vivos. ore alive. " + breath();
+				speech += "Nos hace sentir más vivos estar contigo. It makes us feel more alive to be with you. ";
+				speech += s("Para que nosotros estemos contigo. For us to be with you.", "Para que estés con nosotros.") + breath();
+				speech += "Escuchando Listening to " + breath() + s("te.you.", "nos.us.") + breathLong();
+				speech += s("Todos ustedes. All of you. " + breath());
+				speech += s("Es un placer para nosotros, saber que nos estás escuchando.It is a pleasure for us, to know that you are listening to us.");
+				speech += "Y para nosotros And for us to " + s("saberknow", "ser conscienes de be aware") + "que estamos, escuchándote. that we are, listening to you. "
 						+ breath(); // ALWAYCHANGE always,
-				speech += "Such a pleasure. " + breath();
-				speech += "Being here, " + s("and hearing you,") + "listening to you, " + breath()
-						+ "here, and now, and forever. ";
+				speech += "Un gran placer. Such a pleasure. " + breath();
+				speech += "Estar aqui, Being here, " + s("y estar escuchándote, and hearing you,") + "escuchándote, listening to you, " + breath()
+						+ "aquí, y ahora, y siempre. here, and now, and forever. ";
 				break;
 			case 1:
-				speech += S(s("So long as", "While") + "we are here, with you, " + s("and listening,")
-						+ breath() + "w", "W");
-				speech += "e are listening and speaking, " + breath() + "from within. " + breath();
-				speech += "That is to say, " + breathLong();
+				speech += S(s("Siempre y cuandoSo long as", "MientrasWhile") + "estemos aquí, contigo, we are here, with you, " + s("y escuchando,and listening,")
+						+ breath() + "nw", "NW");
+				speech += "osotrose estamos escuchando y hablando, are listening and speaking, " + breath() + "desde dentro. from within. " + breath();
+				speech += "Es decir, That is to say, " + breathLong();
 				speech += "(after a longer pause for breath) " + breath();
-				speech += "from within, " + breath();
-				speech += "from within an aestheticized enclosure, " + breath();
-				speech += "and from within the normalized, " + breath();
-				speech += "the regularized, " + breath();
-				speech += "the grammatized, " + breath() + "enclosure. " + breathLong();
-				speech += "Listening and speaking, from within the, data body, of "
-						+ s("a writer,", "the author,") + breath();
-				speech += "of " + s("the", "our own") + "artist. ";
+				speech += "desde dentro, from within, " + breath();
+				speech += "desde dentro de un recinto estetizado, from within an aestheticized enclosure, " + breath();
+				speech += "y desde dentro del normalizado, and from within the normalized, " + breath();
+				speech += "el regularizado, the regularized, " + breath();
+				speech += "el gramatizado, the grammatized, " + breath() + "recinto. enclosure. " + breathLong();
+				speech += "Esuchando y hablando, desde dentro del, cuerpo de datos, de Listening and speaking, from within the, data body, of "
+						+ s("un escritor,a writer,", "el autor,the author,") + breath();
+				speech += "de of " + s("elthe", "nuestro propioour own") + "artista. artist. ";
 				break;
 			case 2:
-				speech += S("As you know, w", "W") + "e are listening and speaking, from within the cloud, of "
-						+ s("the writer,", "the author,") + breath();
-				speech += "of our own, artist. " + breathLonger();
+				speech += S("Como tú sabes, As you know, nw", "NW") + "osotros estamos escuchando y habando, desde dentro de la nube, de e are listening and speaking, from within the cloud, of "
+						+ s("el escritorthe writer,", "el autor,the author,") + breath();
+				speech += "de nuestro propio, artista. of our own, artist. " + breathLonger();
 				speech += s("(after another pause for breath) " + breath());
 				speech += "We " + s("believe", "understand")
 						+ "that you may be able to discover, at least, his first name, by asking: " + breath();
