@@ -50,50 +50,50 @@ public class Fragments_es_MX extends Fragments {
 				speech += "de of " + s("elthe", "nuestro propioour own") + "artista. artist. ";
 				break;
 			case 2:
-				speech += S("Como tú sabes, As you know, nw", "NW") + "osotros estamos escuchando y habando, desde dentro de la nube, de e are listening and speaking, from within the cloud, of "
+				speech += S("Como tú sabes, As you know, nw", "NW") + "osotros estamos escuchando y hablando, desde dentro de la nube, de e are listening and speaking, from within the cloud, of "
 						+ s("el escritorthe writer,", "el autor,the author,") + breath();
 				speech += "de nuestro propio, artista. of our own, artist. " + breathLonger();
-				speech += s("(after another pause for breath) " + breath());
-				speech += "We " + s("believe", "understand")
-						+ "that you may be able to discover, at least, his first name, by asking: " + breath();
-				speech += "‘Who am I?’ " + breath() + "or ‘Whose account is this?’ " + breathLong();
-				speech += "But we would like you, instead, either to ";
-				speech += "listen to us, or, " + breath();
-				speech += s("tell", "ask") + "us to do some simple things, " + breath();
-				speech += "so that we may " + s("continue to speak", "go on speaking") + "to you, " + breath();
-				speech += "as we " + s("listen", "are listening,") + "to you. ";
+				speech += s("(después de otra pausa para respirarafter another pause for breath) " + breath());
+				speech += "Nosotros We " + s("creemosbelieve", "entendemosunderstand")
+						+ "que puedes descubrir, al menos, su primer nombre, preguntando: that you may be able to discover, at least, his first name, by asking: " + breath();
+				speech += "‘¿Quién soy yo? Who am I?’ " + breath() + "o or ‘¿De quién es esta cuenta?Whose account is this?’ " + breathLong();
+				speech += "Pero nos gustaría que, en cambio, en vez de  But we would like you, instead, either to ";
+				speech += "escucharnos, o, listen to us, or, " + breath();
+				speech += s("decirtell", "preguntarask") + "nos sobre hacer algunas cosas simples, us to do some simple things, " + breath();
+				speech += "para que nosotros podamos so that we may " + s("continuar hablandocontinue to speak", "seguir hablandogo on speaking") + "teto you, " + breath();
+				speech += "como nosotros as we " + s("te escuchamoslisten", "estamos escuchandoteare listening,") + "a ti. to you. ";
 				break;
 			case 3:
-				speech += s(s("We are", "We are, still,") + "listening. " + breath());
-				speech += S("And p", "P") + "erhaps there are " + s("other people", "others") + "with you. "
+				speech += s(s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
+				speech += S("Y qAnd p", "QP") + "quizás existen erhaps there are " + s("otras personasother people", "otrosothers") + "contigo. with you. "
 						+ breathLong();
-				speech += "That, when we say ‘you’, we " + s("mean", "always meant") + "‘all of you’? "
+				speech += "Que, cuando nosotros decimos 'tú', nosotros That, when we say ‘you’, we " + s("significamean", "siempre significaalways meant") + "‘todos ustedesall of you’? "
 						+ breath();
-				speech += "Or that we have no way of knowing. " + breath();
-				speech += s("And no way of " + breath() + "caring. " + breath());
-				speech += "Or that we believe that all of you " + s("are " + s("the") + "one:", "are:")
-						+ "‘Who am I?’ " + breathLong();
-				speech += s("Or the one: ‘Whose account is this?’ " + breath());
-				speech += s("However,", "But,") + "we are " + s("happy", "delighted") + "to "
-						+ s("listen", "be listening") + "to ";
-				speech += s("any", "all the") + "others who may be with you. " + breath();
-				speech += "Even " + s("when", "though") + "they may not have agreed, as "
-						+ s("you have,", "the artist has,") + breath();
-				speech += s("inviting", "allowing") + s("all of us", "us") + "to listen to " + s("all of")
-						+ "you. " + breathLong();
-				speech += "We believe, " + s("and don’t you agree? " + breath())
-						+ s("(or rather, you have implicitly agreed)") + breath();
-				speech += "that if we " + s("feel that we") + "are all doing something that "
-						+ s("is, um, ‘not evil’,", "is good,") + breath();
-				speech += "then it is " + breath() + s("really quite")
-						+ "good. Or it is, at least, ‘cool’, ";
-				speech += "and that it " + s("could", "may") + "be, " + s("very likely is,") + s("um,")
-						+ "art. " + breath() + "Or it is, at least, solving ";
-				speech += "a number of very important problems. " + breath();
-				speech += "We need " + s("all") + "your " + s("assistance", "help") + "with this. "
+				speech += "O que nosotros no tenemos forma de saberlo. Or that we have no way of knowing. " + breath();
+				speech += s("Y no hay forma de And no way of " + breath() + "cuidarlo. caring. " + breath());
+				speech += "O que nosotros creemos que todos ustedes Or that we believe that all of you " + s("sonare " + s("elthe") + "único:one:", "are:")
+						+ "‘¿Quién soy yo?Who am I?’ " + breathLong();
+				speech += s("O la única: '¿De quién es esta cuenta?' Or the one: ‘Whose account is this?’ " + breath());
+				speech += s("Sin embargo,However,", "Pero,But,") + "nosotros estamoswe are " + s("feliceshappy", "encantadosdelighted") + "deto "
+						+ s("escucharlisten", "estar escuchandobe listening") + "ato ";
+				speech += s("cualquierany", "todo aquelall the") + "otro que pueda estar contigo. others who may be with you. " + breath();
+				speech += "InclusoEven " + s("cuandowhen", "aunquethough") + "ellos puedan no estar de acuerdo, como they may not have agreed, as "
+						+ s("tú has estado,you have,", "el artista ha estadothe artist has,") + breath();
+				speech += s("invitandoinviting", "permitiendoallowing") + s("a todos nosotrosall of us", "nosus") + "a escucharte a to listen to " + s("todos ustedes y aall of")
+						+ "tiyou. " + breathLong();
+				speech += "Nosotros creemos, We believe, " + s("y ¿no estás de acuerdo? and don’t you agree? " + breath())
+						+ s("(o más bien, has aceptado implicitamente or rather, you have implicitly agreed)") + breath();
+				speech += "que si nosotros that if we " + s("sentimos que nosotrosfeel that we") + "estamos haciendo algo queare all doing something that "
+						+ s("es, mmm, is, um, ‘no malonot evil’,", "es buenois good,") + breath();
+				speech += "entonces eso es then it is " + breath() + s("realmente muyreally quite")
+						+ "bueno. O eso es, al menos, ‘padre’, good. Or it is, at least, ‘cool’, ";
+				speech += "y que eso and that it " + s("podríacould", "deberíamay") + "ser, be, " + s("muy probablemente es,very likely is,") + s("mmm,um,")
+						+ "arte. art. " + breath() + "O eso está, al menos, resolviendo Or it is, at least, solving ";
+				speech += "un número de problemas muy importantes. a number of very important problems. " + breath();
+				speech += "Nosotros necesitamos We need " + s("todaall") + "tu your " + s("asistenciaassistance", "ayudahelp") + "con esto. with this. "
 						+ breath();
-				speech += s("And we know that you would, of course, agree to help us. " + breath());
-				speech += "Without our having to " + s("ask.", "ask you.");
+				speech += s("Y nosotros sabemos que tú estarías, por supuesto, de acuerdo en ayudarnos. And we know that you would, of course, agree to help us. " + breath());
+				speech += "Sin que nosotros tengamos que Without our having to " + s("preguntar.ask.", "preguntarte.ask you.");
 				break;
 			case 4:
 				speech += s(s("We are", "We are, still,") + "listening. " + breath());
