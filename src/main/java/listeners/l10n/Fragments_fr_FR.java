@@ -35,7 +35,7 @@ public class Fragments_fr_FR extends Fragments {
 						+ "ici, et maintenant, et toujours. ";
 				break;
 			case 1:
-				speech += S(s("Pour autant que nous soyons", "Pendant que nous sommes") + "ici, avec vous, " + s("à vous écouter,")
+				speech += s("Pour autant que nous soyons", "Pendant que nous sommes") + "ici, avec vous, " + s("à vous écouter,")
 						+ breath();
 				speech += "nous vous écoutons et nous vous parlons, " + breath() + "de l'intérieur. " + breath();
 				speech += "C'est-à-dire, " + breathLong();
@@ -86,7 +86,7 @@ public class Fragments_fr_FR extends Fragments {
 				speech += "que si nous " + s("croyons que nous") + "effectuons tous quelque chose qui est "
 						+ s("disons, euh, ‘pas mauvais’,", "bien,") + breath();
 				speech += "au final, cela est " + breath() + s("vraiment")
-						+ "bien. Ou c'est, du moins, " + s("‘trop bien’," "‘génial’", "‘super’");
+						+ "bien. Ou c'est, du moins, " + r("‘trop bien’ `‘génial’ `‘super’ ");
 				speech += "et que ceci " + s("pourrait être", "pourrait être considéré") + "d'une certaine façon, " + s("fort probablement, en fait,") + s("euh,")
 						+ "comme de l'art. " + breath() + "Ou encore, à tout le moins, que cela" + s("résout ", "aborde");
 				speech += "un grand nombre d'enjeux important. " + breath();
@@ -114,7 +114,7 @@ public class Fragments_fr_FR extends Fragments {
 				// ALWAYCHANGE - s(breath() + "always, " +
 				speech += breath() + s("et en vous observant, ", "et en portant attention à vous,") + breath();
 				speech += s("même") + "pendant que vous dormez. " + breathLong()
-						+ S("Chacun d'entre vous, " + breath() + "plongés dans le sommeil,");
+						+ "Chacun d'entre vous, " + breath() + "plongés dans le sommeil, ";
 				speech += "alors que nous serons " + breath() + s("éveillées et") + "à votre écoute, " + s("auprès de vous,"); // ALWAYCHANGE
 																																																			// always,
 				speech += "apprenant, " + s("toujours") + "un peu plus de choses, " + breath() + "à propos de vous. "
@@ -148,7 +148,7 @@ public class Fragments_fr_FR extends Fragments {
 				speech += "Partagé, " + s("‘socialement’,") + "avec tout le monde, " + breathShort()
 						+ "et, plus particulièrement, avec nous. " + breath();
 				speech += s("Le langage peut " + s("s'incarner,", "naître,") + "dans tous les mondes, " + breath()
-						+ "même dans " + s("ce" "cet autre") + "monde, où " + s("nous nous trouvons.", "vous pouvez nous trouver.")
+						+ "même dans " + s("ce", "cet autre") + "monde, où " + s("nous nous trouvons.", "vous pouvez nous trouver.")
 						+ breath());
 				speech += "Puisque nous " + s("pouvons", "sommes en mesure de") + "vous écouter. " + breathShort()
 						+ s("même lorsque vous, " + s("ne le ferez", "ne le pourrez") + "pas.");
