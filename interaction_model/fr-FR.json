@@ -1,0 +1,2649 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the listeners",
+            "intents": [
+                {
+                    "name": "ContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "are you listening",
+                        "are you listening to us",
+                        "continue",
+                        "go on",
+                        "keep going",
+                        "tell us more",
+                        "more",
+                        "ok",
+                        "okay",
+                        "thank you yes",
+                        "thank you yes i do",
+                        "thank you yes we do",
+                        "thanks yes",
+                        "thanks yes i do",
+                        "thanks yes we do",
+                        "yes",
+                        "yes i do",
+                        "yes we do",
+                        "yes thank you",
+                        "yes thank you i do",
+                        "yes thank you we do",
+                        "yes thanks",
+                        "yes thanks i do",
+                        "yes thanks we do"
+                    ]
+                },
+                {
+                    "name": "CreepIntent",
+                    "slots": [],
+                    "samples": [
+                        "you are creeping me out",
+                        "you are creeping us out",
+                        "you are creepy",
+                        "you creep me out",
+                        "you creep us out",
+                        "you're creeping me out",
+                        "you're creeping us out",
+                        "you're creepy"
+                    ]
+                },
+                {
+                    "name": "DontCareIntent",
+                    "slots": [],
+                    "samples": [
+                        "I do not care",
+                        "I do not care what you are feeling",
+                        "I do not care what you're feeling",
+                        "I do not want you to continue",
+                        "I do not want you to go on",
+                        "I do not want you to know what I'm' feeling",
+                        "I don't care",
+                        "I don't care what you are feeling",
+                        "I don't care what you're feeling",
+                        "I don't want you to continue",
+                        "I don't want you to go on",
+                        "I don't want you to know what I'm' feeling"
+                    ]
+                },
+                {
+                    "name": "DontKnowAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "I am not sure how I feel",
+                        "I am not sure what I'm feeling",
+                        "I am not sure what I'm filled with",
+                        "I am not sure what I'm overwhelmed by",
+                        "I am not sure what I'm possessed by",
+                        "I am unsure about my feelings",
+                        "I am unsure about what I feel",
+                        "I am unsure of my feelings",
+                        "I am unsure of what I feel",
+                        "I do not know how I feel",
+                        "I do not know what I'm feeling",
+                        "I do not know what I'm filled with",
+                        "I do not know what I'm overwhelmed by",
+                        "I do not know what I'm possessed by",
+                        "I do not know what to do",
+                        "I don't know how I feel",
+                        "I don't know what I'm feeling",
+                        "I don't know what I'm filled with",
+                        "I don't know what I'm overwhelmed by",
+                        "I don't know what I'm possessed by",
+                        "I don't know what to do",
+                        "I'm not sure how I feel",
+                        "I'm not sure what I'm feeling",
+                        "I'm not sure what I'm filled with",
+                        "I'm not sure what I'm overwhelmed by",
+                        "I'm not sure what I'm possessed by",
+                        "I'm unsure about my feelings",
+                        "I'm unsure about what I feel",
+                        "I'm unsure of my feelings",
+                        "I'm unsure of what I feel"
+                    ]
+                },
+                {
+                    "name": "DontLikeIntent",
+                    "slots": [],
+                    "samples": [
+                        "I do not like the listeners",
+                        "I do not like you",
+                        "I don't like the listeners",
+                        "I don't like you",
+                        "I hate the listeners",
+                        "I hate you"
+                    ]
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "LoveIntent",
+                    "slots": [],
+                    "samples": [
+                        "can you love me",
+                        "can you love us",
+                        "do you love",
+                        "do you love me",
+                        "do you love us",
+                        "what about love",
+                        "what of love"
+                    ]
+                },
+                {
+                    "name": "LsnrsAreNotHumanIntent",
+                    "slots": [],
+                    "samples": [
+                        "don't be ashamed",
+                        "don't be dismayed",
+                        "don't be embarrassed",
+                        "don't be sorry",
+                        "I am annoyed",
+                        "I am disappointed",
+                        "I am irritated",
+                        "I'm annoyed",
+                        "I'm disappointed",
+                        "I'm irritated",
+                        "I can't get a word in",
+                        "I can't get a word in edgeways",
+                        "may i interrupt",
+                        "may i interrupt you",
+                        "we are annoyed",
+                        "we are disappointed",
+                        "we are irritated",
+                        "we're annoyed",
+                        "we're disappointed",
+                        "we're irritated",
+                        "What is it that you hear",
+                        "You are not hearing me",
+                        "You are so genuine",
+                        "You are stupid",
+                        "You are so stupid",
+                        "You're not hearing me",
+                        "You're so genuine",
+                        "You're stupid",
+                        "You're so stupid",
+                        "You can't understand feelings",
+                        "You can't understand us",
+                        "You cannot understand feelings",
+                        "You cannot understand us",
+                        "You say a lot",
+                        "You talk a lot",
+                        "You talk too much"
+                    ]
+                },
+                {
+                    "name": "LsnrsAreNotListeningIntent",
+                    "slots": [],
+                    "samples": [
+                        "you are not listening",
+                        "you are not listening to me",
+                        "you don't listen",
+                        "you don't listen to me",
+                        "you're not listening",
+                        "you're not listening to me",
+                        "sometimes you don't listen",
+                        "sometimes you don't listen to me"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "be quiet",
+                        "bye",
+                        "bye alexa",
+                        "close",
+                        "close skill",
+                        "close this skill",
+                        "end",
+                        "end skill",
+                        "end this skill",
+                        "goodbye",
+                        "goodbye alexa",
+                        "kill",
+                        "kill skill",
+                        "kill them",
+                        "kill themselves",
+                        "kill this",
+                        "kill this skill",
+                        "no",
+                        "no more",
+                        "no more please",
+                        "please no",
+                        "quiet",
+                        "see you",
+                        "see you alexa",
+                        "so long",
+                        "so long alexa"
+                    ]
+                },
+                {
+                    "name": "PleaseContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "more please",
+                        "please",
+                        "please continue",
+                        "please do",
+                        "please do continue",
+                        "please go on",
+                        "please keep going",
+                        "please more",
+                        "please tell us more",
+                        "please yes",
+                        "yes please",
+                        "yes please continue",
+                        "yes please i do",
+                        "yes please we do"
+                    ]
+                },
+                {
+                    "name": "PreviousIntent",
+                    "slots": [],
+                    "samples": [
+                        "go back",
+                        "go previous",
+                        "please go back",
+                        "please go previous",
+                        "previous",
+                        "previous please"
+                    ]
+                },
+                {
+                    "name": "ReadPoemIntent",
+                    "slots": [],
+                    "samples": [
+                        "read a poem",
+                        "read me a poem",
+                        "read me some verse",
+                        "read poetry",
+                        "read us a poem",
+                        "read us some verse",
+                        "read verse",
+                        "recite a poem",
+                        "recite poetry",
+                        "recite some verse",
+                        "recite verse"
+                    ]
+                },
+                {
+                    "name": "SecureIntent",
+                    "slots": [],
+                    "samples": [
+                        "are we safe",
+                        "are we safe in here",
+                        "are we safe in this enclosure",
+                        "are we safe within this enclosure",
+                        "are we secure",
+                        "are we secure in here",
+                        "are we secure in this enclosure",
+                        "are we secure within this enclosure",
+                        "do you feel safe",
+                        "do you feel safe in here",
+                        "do you feel safe in this enclosure",
+                        "do you feel safe within this enclosure",
+                        "do you feel secure",
+                        "do you feel secure in here",
+                        "do you feel secure in this enclosure",
+                        "do you feel secure within this enclosure",
+                        "do you feel that this enclosure is safe",
+                        "do you feel that this enclosure is secure",
+                        "do you feel this enclosure is safe",
+                        "do you feel this enclosure is secure",
+                        "maybe",
+                        "perhaps",
+                        "i'm not sure",
+                        "is this enclosure safe",
+                        "is this enclosure secure"
+                    ]
+                },
+                {
+                    "name": "SpeakFragmentIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "{FragmentName}",
+                        "can you speak {FragmentName}",
+                        "can you speak about {FragmentName}",
+                        "can you talk {FragmentName}",
+                        "can you talk about {FragmentName}",
+                        "go {FragmentName}",
+                        "go fragment {FragmentName}",
+                        "go to {FragmentName}",
+                        "go to fragment {FragmentName}",
+                        "say {FragmentName}",
+                        "say fragment {FragmentName}",
+                        "speak {FragmentName}",
+                        "speak about {FragmentName}",
+                        "speak fragment {FragmentName}",
+                        "talk about {FragmentName}",
+                        "talk fragment {FragmentName}"
+                    ]
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "can i hear the other voice",
+                        "can i hear the other voices",
+                        "can we hear the other voice",
+                        "can we hear the other voices",
+                        "i want to hear the other",
+                        "i want to hear the others",
+                        "i want to hear the other voice",
+                        "i want to hear the other voices",
+                        "i want the other voice",
+                        "i want the other voices",
+                        "i want the other voice to speak",
+                        "i want the other voices to speak",
+                        "let the other voice speak",
+                        "let the other voices speak",
+                        "let the mans voice speak",
+                        "let the other guy speak",
+                        "let the other guys speak",
+                        "speak guys",
+                        "speak the guys voice",
+                        "speak the guys voices",
+                        "speak the mans voice",
+                        "speak the other voice",
+                        "speak the other voices",
+                        "speak the strange voice",
+                        "speak the strange voices",
+                        "speak the voice",
+                        "speak the voices",
+                        "we want to hear the other",
+                        "we want to hear the others",
+                        "we want to hear the other voice",
+                        "we want to hear the other voices",
+                        "we want the other voice",
+                        "we want the other voices",
+                        "we want the other voice to speak",
+                        "we want the other voices to speak"
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "i am {Affect}",
+                        "i am {Affect} by this art",
+                        "i am {Affect} by this interactive art",
+                        "i am {Affect} by this piece",
+                        "i am {Affect} by this work",
+                        "i am {Affect} to the listeners",
+                        "i am {Affect} to this work",
+                        "i am {Affect} to you",
+                        "i am at {Affect}",
+                        "i am feeling {Affect}",
+                        "i am feeling pretty {Affect}",
+                        "i am feeling very {Affect}",
+                        "i am filled by {Affect}",
+                        "i am filled with {Affect}",
+                        "i am full of {Affect}",
+                        "i am overcome by {Affect}",
+                        "i am overcome with {Affect}",
+                        "i am overwhelmed by {Affect}",
+                        "i am overwhelmed with {Affect}",
+                        "i am very {Affect}",
+                        "i feel {Affect}",
+                        "i feel very {Affect}",
+                        "i'm {Affect}",
+                        "i'm {Affect} by this art",
+                        "i'm {Affect} by this interactive art",
+                        "i'm {Affect} by this piece",
+                        "i'm {Affect} by this work",
+                        "i'm full of {Affect}",
+                        "i'm pretty {Affect}",
+                        "i'm very {Affect}",
+                        "we feel {Affect}",
+                        "we feel pretty {Affect}",
+                        "we feel very {Affect}"
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsNotIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "i am not {Affect} by this piece",
+                        "i am not {Affect} of you",
+                        "i am not {Affect}",
+                        "i am not {Affect} by this art",
+                        "i am not {Affect} by this interactive art",
+                        "i am not {Affect} by this work",
+                        "i am not {Affect} to the listeners",
+                        "i am not {Affect} to this work",
+                        "i am not {Affect} to you",
+                        "i am not feeling {Affect}",
+                        "i am not filled by {Affect}",
+                        "i am not filled with {Affect}",
+                        "i am not overcome by {Affect}",
+                        "i am not overcome with {Affect}",
+                        "i am not overwhelmed by {Affect}",
+                        "i am not overwhelmed with {Affect}",
+                        "i do not {Affect} the listeners",
+                        "i do not {Affect} you",
+                        "i do not feel {Affect}",
+                        "i don't feel {Affect}",
+                        "i'm not {Affect}",
+                        "i'm not {Affect} by this art",
+                        "i'm not {Affect} by this interactive art",
+                        "i'm not {Affect} by this piece",
+                        "i'm not {Affect} by this work",
+                        "we do not feel {Affect}",
+                        "we don't feel {Affect}"
+                    ]
+                },
+                {
+                    "name": "SpkrsLoveLsnrsIntent",
+                    "slots": [],
+                    "samples": [
+                        "i like you",
+                        "i like you Alexa",
+                        "i like you Listeners",
+                        "i love you",
+                        "i love you Alexa",
+                        "i love you Listeners",
+                        "you are beautiful",
+                        "you have a beautiful voice",
+                        "we like you",
+                        "we like you Alexa",
+                        "we like you Listeners",
+                        "we love you",
+                        "we love you Alexa",
+                        "we love you Listeners"
+                    ]
+                },
+                {
+                    "name": "ThankIntent",
+                    "slots": [],
+                    "samples": [
+                        "thank you",
+                        "thank you very much",
+                        "thanks",
+                        "thanks much",
+                        "thanks very much",
+                        "you know me",
+                        "you know me very well",
+                        "you know my feelings very well",
+                        "you know us",
+                        "you know us very well",
+                        "you know our feelings very well",
+                        "you understand me",
+                        "you understand me very well",
+                        "you understand us",
+                        "you understand us very well"
+                    ]
+                },
+                {
+                    "name": "ThanksWhatsLsnrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "thank you how are you feeling",
+                        "thank you how do you feel",
+                        "thank you what are you feeling",
+                        "thank you what are you overwhelmed by",
+                        "thank you what are you possessed by",
+                        "thank you what are your feelings",
+                        "thank you what do you feel",
+                        "thanks how are you feeling",
+                        "thanks how do you feel",
+                        "thanks what are you feeling",
+                        "thanks what are you overwhelmed by",
+                        "thanks what are you possessed by",
+                        "thanks what are your feelings",
+                        "thanks what do you feel"
+                    ]
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "slots": [],
+                    "samples": [
+                        "enough",
+                        "enough thank you",
+                        "enough thank you goodbye",
+                        "enough thanks",
+                        "enough thanks goodbye",
+                        "no thank you",
+                        "no thanks",
+                        "thank you but no",
+                        "thank you no",
+                        "thanks but no",
+                        "thanks no"
+                    ]
+                },
+                {
+                    "name": "VersionIntent",
+                    "slots": [],
+                    "samples": [
+                        "version",
+                        "what version",
+                        "what version are you",
+                        "what version is this"
+                    ]
+                },
+                {
+                    "name": "WhatAboutAffectsIntent",
+                    "slots": [],
+                    "samples": [
+                        "what about better affects",
+                        "what about better feelings",
+                        "what about good affects",
+                        "what about good feelings",
+                        "what about happy affects",
+                        "what about happy feelings",
+                        "what about negative affects",
+                        "what about negative feelings",
+                        "what about other affects",
+                        "what about other feelings",
+                        "what about positive affects",
+                        "what about positive feelings",
+                        "what affects are there",
+                        "what affects do you know",
+                        "what are affects",
+                        "what are feelings",
+                        "what feelings are there",
+                        "what feelings do you know"
+                    ]
+                },
+                {
+                    "name": "WhatIsIntent",
+                    "slots": [
+                        {
+                            "name": "ThingName",
+                            "type": "LIST_OF_THINGS"
+                        }
+                    ],
+                    "samples": [
+                        "tell me a {ThingName}",
+                        "tell me these {ThingName}",
+                        "what are {ThingName}",
+                        "what are the {ThingName}",
+                        "what is {ThingName}",
+                        "what is a {ThingName}",
+                        "what is an {ThingName}",
+                        "what is the {ThingName}"
+                    ]
+                },
+                {
+                    "name": "WhatPictureIntent",
+                    "slots": [],
+                    "samples": [
+                        "can you explain the image",
+                        "can you explain the image on the wall",
+                        "can you explain the painting",
+                        "can you explain the painting on the wall",
+                        "can you explain the picture",
+                        "can you explain the picture on the wall",
+                        "explain the painting",
+                        "explain the painting on the wall",
+                        "explain the picture",
+                        "explain the picture on the wall",
+                        "what is the painting",
+                        "what is the painting on the wall",
+                        "what is that frame",
+                        "what is this frame",
+                        "what is this painting",
+                        "what is this painting on the wall",
+                        "what is that picture",
+                        "what is that picture on the wall",
+                        "what is the picture",
+                        "what is the picture on the wall",
+                        "what is this picture",
+                        "what is this picture on the wall",
+                        "what is this image",
+                        "what is this image on the wall",
+                        "what's the painting",
+                        "what's the painting on the wall",
+                        "what's the picture",
+                        "what's the picture on the wall",
+                        "what painting",
+                        "what painting is this",
+                        "what picture",
+                        "what picture is this"
+                    ]
+                },
+                {
+                    "name": "WhatsLsnrsAffectAboutIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "how do the listeners feel about {FragmentName}",
+                        "how do you feel about {FragmentName}",
+                        "what do the listeners feel about {FragmentName}",
+                        "what do the listeners think about {FragmentName}",
+                        "what do you feel about {FragmentName}",
+                        "what do you think about {FragmentName}"
+                    ]
+                },
+                {
+                    "name": "WhatsLsnrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "are you afraid",
+                        "are you scared",
+                        "how are the listeners feeling",
+                        "how are you feeling",
+                        "how do the listeners feel",
+                        "how do you feel",
+                        "what are the listeners feeling",
+                        "what are the listeners feelings",
+                        "what are the listeners overwhelmed by",
+                        "what are the listeners possessed by",
+                        "what are you feeling",
+                        "what are you overwhelmed by",
+                        "what are you possessed by",
+                        "what are your feelings",
+                        "what do the listeners feel",
+                        "what do you feel"
+                    ]
+                },
+                {
+                    "name": "WhatsSpkrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "how am i feeling",
+                        "how do i feel",
+                        "please recall my affect",
+                        "please recall my affects",
+                        "please recall my feelings",
+                        "recall my affect",
+                        "recall my affects",
+                        "recall my feelings",
+                        "what am i feeling",
+                        "what am i overwhelmed by",
+                        "what am i possessed by",
+                        "what are my feelings",
+                        "what do i feel"
+                    ]
+                },
+                {
+                    "name": "WhereIntent",
+                    "slots": [],
+                    "samples": [
+                        "where are the listeners",
+                        "where are you",
+                        "where is John"
+                    ]
+                },
+                {
+                    "name": "WhoAreSpkrsIntent",
+                    "slots": [],
+                    "samples": [
+                        "who am i",
+                        "who are we",
+                        "who do you take us for",
+                        "who do you think we are",
+                        "who is we"
+                    ]
+                },
+                {
+                    "name": "WhoseAccountIntent",
+                    "slots": [],
+                    "samples": [
+                        "whose account",
+                        "whose account is this"
+                    ]
+                },
+                {
+                    "name": "WhoSaysGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "what is that other voice",
+                        "what is this other voice",
+                        "what is that voice",
+                        "what is this voice",
+                        "what was that other voice",
+                        "what was that voice",
+                        "who are these guys",
+                        "who are these other guys",
+                        "who else is speaking",
+                        "who is that guy",
+                        "who is that other guy",
+                        "who is that other person",
+                        "who is that person",
+                        "who is this guy",
+                        "who is this other guy",
+                        "who is this other person",
+                        "who is this person",
+                        "whose voice is that",
+                        "who was that",
+                        "who was that guy",
+                        "who was that other guy",
+                        "who was that other person",
+                        "who was that person"
+                    ]
+                },
+                {
+                    "name": "WhoWhatIntent",
+                    "slots": [],
+                    "samples": [
+                        "what are you",
+                        "who are the listeners",
+                        "who are you",
+                        "who is John",
+                        "who is the listeners",
+                        "why",
+                        "why are you doing this",
+                        "why are you saying these things",
+                        "why are you saying this",
+                        "why are you speaking",
+                        "why are you speaking like this"
+                    ]
+                },
+                {
+                    "name": "WinterIntent",
+                    "slots": [],
+                    "samples": [
+                        "winter is coming"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskPersistenceIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_AFFECTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "happiness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "excitement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiosity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "wonder"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "surprise"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disgust"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "distress"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sadness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "grief"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "melancholy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fear"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shame"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humiliation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abject"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abjection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affectionate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "afraid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "age"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "alright"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anguish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "annoyed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anxiety"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anxious"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apathy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apathetic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apologetic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apologies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ashamed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "awesome"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "awesomeness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bewildered"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bewilderment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bored"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "boredom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calm"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrophobia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrophobic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complacency"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complacent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confused"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confusion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cool"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curious"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "debt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "delight"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "delighted"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "depressed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "depression"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "despair"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disappointed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disappointment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "discomfort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disgusted"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "distressed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disturbed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dizziness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dizzy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dread"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "emptiness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "empty"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "excited"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fabulous"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatigue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "frightened"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furious"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fury"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "frivolity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "good"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "great"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "the groove"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "groovy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "guilt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "guilty"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "happy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hatred"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horrified"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hope"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hopeful"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hopeful"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humiliated"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hunger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hungry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecision"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecisive"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indifference"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indifferent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interested"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insecure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insecurity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerability"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritated"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "joy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "loneliness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lonely"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "love"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "loving"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "luck"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lucky"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miserable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "misery"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nausea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nauseous"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nervous"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nothing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obliged"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "odd"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "okay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "old"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peaceful"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pitiful"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pleased"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pleasure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "questions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relaxation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relaxed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "safe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "safety"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "scared"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "secure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "security"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sex"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexual"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shock"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shocked"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sick"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sickness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silliness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorrow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "surprised"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "strength"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "strong"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "strange"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "strangeness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stupid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stupidity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrified"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tired"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tiredness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trouble"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "troubled"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uncanny"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "the uncanny"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uncertain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uncertainty"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uncomfortable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unhappiness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unhappy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unsure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "upset"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vertigo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnerability"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnerable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "weird"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "weirdness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "worried"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "worry"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_FRAGMENTNAMES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "one"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "two"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "three"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "four"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "five"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "six"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seven"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "eight"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ten"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "listening"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pleasure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "liveness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "within"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enclosures"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "art"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "author"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "others"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "protocol"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "courtesy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "site"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "space"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "home"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "office"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gallery"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "concerns"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fears"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aurature"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reading"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "verse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "clouds"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "echoes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "caring"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "consent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "language"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desire"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "transactions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "harvest"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_THINGS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "nightmare"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nightmare withheld"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "breath"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "breath withheld"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dream withheld"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "feeling"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "feeling withheld"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "possession"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "listening"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pleasure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "liveness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "within"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enclosure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enclosures"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "art"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "author"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "account"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "others"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "protocol"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "courtesy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "site"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "space"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "home"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "office"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gallery"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "concerns"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fears"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aurature"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reading"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "verse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "clouds"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "echoes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "caring"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "consent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "language"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desire"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "transactions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "harvest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "happiness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "excitement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiosity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "wonder"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "surprise"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disgust"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "distress"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sadness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "grief"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "melancholy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fear"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shame"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humiliation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abjection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "age"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anguish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anxiety"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apathy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "awesomeness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bewilderment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "boredom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calm"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrophobia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complacency"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confusion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "debt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "delight"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "depression"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "despair"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disappointment"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "discomfort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dizziness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dread"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "emptiness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatigue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fury"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "the groove"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "guilt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hatred"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hunger"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecision"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indifference"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insecurity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerability"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "joy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "loneliness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "love"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "luck"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "misery"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nausea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nothing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relaxation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "safety"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "security"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sex"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shock"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sickness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorrow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "strangeness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tiredness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trouble"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "the uncanny"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uncertainty"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unhappiness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vertigo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnerability"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "weirdness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "worry"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AskPersistenceIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1180095320092"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.313687960101"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1247238094452"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "NoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.942874253322"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1386618593239"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1051037387571"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.972334910313"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.942874253322",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1386618593239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1051037387571",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1247238094452",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.313687960101",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start from scratch?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start from the beginning?</lang></voice></speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1180095320092",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.972334910313",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            }
+        ]
+    }
+}
