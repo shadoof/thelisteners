@@ -129,6 +129,18 @@ public class Constants {
 			case "de_DE":
 				polyVoice = "<voice name='Marlene'><lang xml:lang='de-DE'>";
 				break;
+			case "fr_CA":
+				polyVoice = "<voice name='Chantal'><lang xml:lang='fr-CA'>";
+				break;
+			case "fr_FR":
+				polyVoice = "<voice name='Celine'><lang xml:lang='fr-FR'>";
+				break;
+			case "es_ES":
+				polyVoice = "<voice name='Marlene'><lang xml:lang='es-ES'>";
+				break;
+			case "es_MX":
+				polyVoice = "<voice name='Marlene'><lang xml:lang='es-MX'>";
+				break;
 			case "ja_JP":
 				polyVoice = "<voice name='Mizuki'><lang xml:lang='ja-JP'>";
 				break;
