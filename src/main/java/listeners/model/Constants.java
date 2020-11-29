@@ -136,10 +136,10 @@ public class Constants {
 				polyVoice = "<voice name='Celine'><lang xml:lang='fr-FR'>";
 				break;
 			case "es_ES":
-				polyVoice = "<voice name='Marlene'><lang xml:lang='es-ES'>";
+				polyVoice = "<voice name='Conchita'><lang xml:lang='es-ES'>";
 				break;
 			case "es_MX":
-				polyVoice = "<voice name='Marlene'><lang xml:lang='es-MX'>";
+				polyVoice = "<voice name='Mia'><lang xml:lang='es-MX'>";
 				break;
 			case "ja_JP":
 				polyVoice = "<voice name='Mizuki'><lang xml:lang='ja-JP'>";
