@@ -23,7 +23,7 @@ public class DontLikeIntent_es_MX extends DontLikeIntent {
 
 		String affect = buildAffect();
 		String adjective = s("apena", "consterna");
-		String intensifier = "consternado".equals(adjective) ? "un poco " : "muy ";
+		String intensifier = "consterna".equals(adjective) ? "un poco " : "bastante ";
 		String speech = "Nos " + s(adjective, adjective + intensifier);
 		speech += s("saber", "escuchar") + "que te sientes "
 				+ s("llena de", s("poseída", "sobrepasada") + "por") + "%s. ";
