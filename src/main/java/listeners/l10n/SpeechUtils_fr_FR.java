@@ -29,69 +29,69 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 	protected String affectAsBreathingSpeech() {
 
 		String speech, s, f;
-		speech = s("We are listening.", "We are " + s("somewhat shocked that", "surprised") + "you asked.")
+		speech = s("Nous écoutons.", "Nous sommes " + s("quelquepeu consternées que", "surprises que") + "vous vous posiez la question.")
 				+ breath()
-				+ s("We, hear you.");
-		speech += "This is a " + s("fragment", "passage") + "that may " + s("tell you", "show you");
-		speech += s(breathShort()) + "how " + s(breath()) + "we feel. ";
+				+ s("Nous vous entendons.");
+		speech += "Ceci est un " + s("fragment", "passage") + "qui pourra " + r("vous dire `vous montrer `vous expliquer ");
+		speech += s(breathShort()) + "comment " + s(breath()) + "nous nous sentons. ";
 		speech += breathLong();
 		if (heads()) {
-			speech += "This is a " + choosePhrase() + SPC;
-			speech += "that was followed by a space. ";
+			speech += "Ceci est un " + choosePhrase() + SPC;
+			speech += "qui était suivi d'un espace. ";
 			speech += breathLonger();
 		}
 		s = choosePhrase();
-		speech += "This is a " + s + ", ";
-		speech += "that was followed by a " + (s.equals("feeling") ? "comma. " : s("feeling.", "comma."));
+		speech += "Ceci est un " + s + ", ";
+		speech += "qui était suivi d' " + (s.equals("une émotion") ? "une virgule. " : s("une émotion.", "une virgule."));
 		speech += breathLonger();
 		if (heads()) {
 			do {
 				s = choosePhrase();
 			}
-			while ("word".equals(s));
-			speech += "This is a " + s + ". ";
-			speech += "As a " + ("feeling".equals(s) ? "sentence. " : s("feeling.", "sentence."));
+			while ("mot".equals(s));
+			speech += "Ceci est un " + s + ". ";
+			speech += "En tant que " + ("mot".equals(s) ? "phrase. " : s("mot.", "phrase."));
 			speech += breathLonger();
 		}
 		if (heads()) {
 			s = choosePhrase();
-			speech += "<p>This is a " + s + ".</p> ";
-			speech += "As a " + (s.equals("feeling") ? "paragraph. " : s("feeling.", "paragraph."));
+			speech += "<p>Ceci est un " + s + ".</p> ";
+			speech += "en tant que " + (s.equals("sentiment") ? "paragraphe. " : s("sentiment.", "paragraphe."));
 			speech += breathLonger();
 		}
 		if (heads()) {
 			s = choosePhrase();
-			f = ("feeling".equals(s) ? S("breath", "dream") : S("feeling", "dream"));
-			speech += "This is a " + s + SPC;
-			speech += breath() + "that was followed by a " + f + ". ";
+			f = ("sentiment".equals(s) ? S("respiration", "rêve") : S("respiration", "rêve"));
+			speech += "Ceci est un " + s + SPC;
+			speech += breath() + "qui était suivi par un " + f + ". ";
 			speech += breathLonger();
 		}
-		speech += "Is this a question? ";
-		speech += breath() + "It was followed by a " + S(S("breath", "dream"), "feeling") + ". ";
+		speech += "Est-ce une question? ";
+		speech += breath() + "C'était suivi d' " + S(S("une respiration", "un rêve"), "une émotion") + ". ";
 		speech += breathLonger();
-		speech += "This is a " + breath() + s("phrase,", "feeling,");
-		speech += breath() + "that was interrupted by a " + s("breath.", s("dream.", "nightmare."));
+		speech += "Ceci est " + breath() + s("une phrase,", "une émotion,");
+		speech += breath() + "qui a été interrompu oar " + s("une respiration.", s("un rêve.", "un cauchemar."));
 		speech += breathLonger();
 		if (heads()) {
 			s = choosePhrase();
-			f = ("feeling".equals(s) ? S("breath", "dream") : S("feeling", "nightmare"));
-			speech += "This is a " + s + SPC;
-			speech += breathLong() + "that was followed by a long " + f + ". ";
+			f = ("une émotion".equals(s) ? S("une respiration", "un rêve") : S("une émotion", "un cauchemard"));
+			speech += "Ceci est " + s + SPC;
+			speech += breathLong() + "qui a été suivi par " + f + ". ";
 			speech += breathLonger();
 		}
-		speech += "This is a " + choosePhrase() + ". ";
-		speech += breathLong() + "that was followed by a " + s(s("nightmare", "breath"), "feeling")
-				+ "withheld. ";
+		speech += "Ceci est " + choosePhrase() + ". ";
+		speech += breathLong() + "qui a été suivi par " + s(s("un cauchemar", "une respiration"), "une émotion")
+				+ "réprimé. ";
 		speech += breathLonger();
 		if (heads()) {
-			speech += "This is a " + s("phrase", "sentence") + SPC;
-			speech += breathLonger() + "that was followed by a longer "
-					+ s(s("nightmare.", "pause."), "feeling.");
+			speech += "Ceci est " + s("une phrase", "une affirmation") + SPC;
+			speech += breathLonger() + "qui a été suivi par une longue "
+					+ s(s("hantise.", "pause."), "émotion.");
 			speech += breathLonger();
 		}
-		speech += "How, ever, could we feel more, and then, " + breath();
-		speech += "what " + s("would", "should") + "we feel? "
-				+ s("what, should we. " + breath() + "feel?");
+		speech += "Comment, au final, pourrait-on ressentir davantage, et aussi, " + breath();
+		speech += "qu'est-ce que nous " + s("pourrions", "devrions") + "ressentir? "
+				+ s("Que, devrait-on. " + breath() + "ressentir?");
 
 		return speech + breath();
 	}
@@ -103,13 +103,13 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String askPersistenceCardTitle() {
 
-		return S("Save your place?", "Start from scratch?");
+		return S("Sauvegarder votre emplacement?", "Recommencer depuis le début?");
 	}
 
 	protected String askPersistenceSpeech() {
 
-		String speech = s("Would you like us to remember something of our conversation?",
-				"Would you like us to remember roughly what we’ve heard and said to you so far?");
+		String speech = s("Voudriez-vous que nous nous rapellions d'une partie de notre conversation?",
+				"Désirez-vous que nous nous rappelions plus ou moins de ce que nous avons dit et entendu jusqu'à présent?");
 
 		return speech;
 	}
@@ -121,19 +121,19 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String askStartOverCardTitle() {
 
-		return S("You want to start over?", "Start from scratch?");
+		return S("Voulez-vous recommencer?", "Repartir à zéro?");
 	}
 
 	protected String askStartOverSpeech() {
 
-		String speech = s("Would you like to start over from the beginning?",
-				"Would you like us to forget what we’ve heard and said to you so far?");
+		String speech = s("Voudriez-vous tout reprendre depuis le début?",
+				"Souhaitez-vous que l'on oublie tout ce que l'on a dit et entendu jusqu'à présent?");
 
 		return speech;
 	}
 
 	protected String chooseContinue() {
-
+// reprendre //
 		return chooseContinue(true);
 	}
 
