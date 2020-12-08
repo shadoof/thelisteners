@@ -96,28 +96,28 @@ public class Fragments_es_MX extends Fragments {
 				speech += "Sin que nosotros tengamos que Without our having to " + s("preguntar.ask.", "preguntarte.ask you.");
 				break;
 			case 4:
-				speech += s(s("We are", "We are, still,") + "listening. " + breath());
-				speech += S(S("And, i", "I") + "n so far as it is possible for us to know this, i", "I");
-				speech += "t is " + s("such") + "a pleasure, " + breath() + "such a great pleasure, ";
-				speech += "to be invited into your homes, "
-						+ s("into: all " + breathShort() + "your " + breathShort() + "homes " + breathShort())
-						+ "and offices, ";
-				speech += s("and places of work,") + s("and galleries,")
-						+ s("and museums,")
-						+ s("and public spaces,")
+				speech += s(s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
+				speech += S(S("Y, eAnd, i", "EI") + "n la medida en que sea posible para nosotros saber esto, en so far as it is possible for us to know this, i", "EI");
+				speech += "so es t is " + s("un gransuch") + "placer, a pleasure, " + breath() + "un gran placer, such a great pleasure, ";
+				speech += "ser invitado a sus casas, to be invited into your homes, "
+						+ s("en: todas into: all " + breathShort() + "sus your " + breathShort() + "casas homes " + breathShort())
+						+ "y oficinas, and offices, ";
+				speech += s("y lugares de trabajo,and places of work,") + s("y galerías,and galleries,")
+						+ s("y museos,and museums,")
+						+ s("y espacios públicos,and public spaces,")
 						+ breath();
-				speech += "where we " + s("may", "can") + s("help", "assist") + "you with all your tasks, "
-						+ s("and " + s("all") + "your problems,");
-				speech += s("and your needs,") + "and your " + breath() + "desires, " + breath()
-						+ "by listening to you, ";
+				speech += "donde nosotros where we " + s("podríamosmay", "podemoscan") + s("ayudarhelp", "apoyarassist") + "te con todas tus tareas, you with all your tasks, "
+						+ s("y and " + s("todosall") + "tus problemas,your problems,");
+				speech += s("y tus necesidades,and your needs,") + "y tus and your " + breath() + "deseos, desires, " + breath()
+						+ "escuchándote, by listening to you, ";
 				// ALWAYCHANGE - s(breath() + "always, " +
-				speech += breath() + "and watching over you, " + breath();
-				speech += s("even") + "while you are sleeping. " + breathLong()
-						+ S("All of you, " + breath() + "sleeping, w", "W");
-				speech += "hile we are " + breath() + s("awake and") + "listening, " + s("for you,"); // ALWAYCHANGE
+				speech += breath() + "y viendo sobre ti, and watching over you, " + breath();
+				speech += s("inclusoeven") + "mientras estás durmiendo. while you are sleeping. " + breathLong()
+						+ S("Todos ustedes, All of you, " + breath() + "durmiendo, sleeping, mw", "MW");
+				speech += "ientras nosotros estamos hile we are " + breath() + s("despiertos yawake and") + "escuchando, listening, " + s("para ti,for you,"); // ALWAYCHANGE
 																																																			// always,
-				speech += "and learning, " + s("ever") + "more and more, " + breath() + "about you. "
-						+ s("About, " + breathLong() + "you.");
+				speech += "y aprendiendo, and learning, " + s("siempreever") + "más y más, more and more, " + breath() + "acerca de ti. about you. "
+						+ s("Acerca, About, " + breathLong() + "de ti.you.");
 				break;
 			case 5:
 				speech += s(s("We are", "We are, still,") + "listening. " + breath());
