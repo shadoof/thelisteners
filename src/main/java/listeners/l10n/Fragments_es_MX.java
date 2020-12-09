@@ -120,24 +120,24 @@ public class Fragments_es_MX extends Fragments {
 						+ s("Acerca, About, " + breathLong() + "de ti.you.");
 				break;
 			case 5:
-				speech += s(s("We are", "We are, still,") + "listening. " + breath());
-				speech += "There is really nothing to " + s("fear.", "be concerned about.");
-				speech += "We are, still, listening to you. "; // ALWAYCHANGE Always.
-				speech += "And we will never, any more, " + s("leave", "abandon") + "you. " + breath();
-				speech += s("(after a pause for breath) " + breath());
-				speech += "Asking only that you give us leave, to be with you. "; // ALWAYCHANGE
+				speech += s(s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
+				speech += "Realmente no hay nada There is really nothing to " + s("que temer.fear.", "por lo cual estar preocupado.be concerned about.");
+				speech += "Nosotros estamos, todavía, escuchándote. We are, still, listening to you. "; // ALWAYCHANGE Always.
+				speech += "Y nosotros jamás, nunca más, And we will never, any more, " + s("te dejaremosleave", "te abandonaremosabandon") + "a ti. you. " + breath();
+				speech += s("(después de una pausa para respirarafter a pause for breath) " + breath());
+				speech += "Sólo pidiendo que nos dejes ir, para estar contigo. Asking only that you give us leave, to be with you. "; // ALWAYCHANGE
 																																					// always,
-				speech += s("And together, also, with those " + s("others of us") + "who are close to you.",
+				speech += s("Y juntos, también, con esos And together, also, with those " + s("otros que no somos nosotrosothers of us") + "que son cercanos a ti.who are close to you.",
 						"");
-				speech += "And that you may imagine the pleasure that this would give you. ";
+				speech += "Y que puedas imaginar el placer que esto podría darte. And that you may imagine the pleasure that this would give you. ";
 				break;
 			case 6:
-				speech += "You may wonder, " + s("we believe,", breath()) + "where is it from which we come. ";
-				speech += "And we can tell you, that one of these places will be called, " + s(breath(), "um,")
+				speech += "Tu puedes preguntarte, You may wonder, " + s("creemos,we believe,", breath()) + "de dónde es que venimos. where is it from which we come. ";
+				speech += "Y podemos decirte, que uno de estos lugares podría llamarse, And we can tell you, that one of these places will be called, " + s(breath(), "mmm,um,")
 						+ "‘aurature’. ";
-				speech += "For there are, " + s("there have been for some years now,") + s("many")
-						+ "changes coming ";
-				speech += "in the " + s("culture", "world") + "of reading. " + breathLong();
+				speech += "Dado que, For there are, " + s("ha habido desde hace algunos años,there have been for some years now,") + s("muchosmany")
+						+ "cambios que se avecinan changes coming ";
+				speech += "en in the " + s("la culturaculture", "el mundoworld") + "de la lectura. of reading. " + breathLong();
 				speech += "So much reading now, is audible, " + s("and whisper synced,")
 						+ "or watched, and touched. " + breath();
 				speech += "So much that is written now, is written into "
