@@ -215,21 +215,21 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 //reprendre//
 		String speech = "";
 
-		speech += "You " + s("may", "might") + "always " + s("simply") + s("ask", "tell");
-		speech += "us to: ‘Continue’, or ‘Go on’. " + breath();
-		speech += "You may " + chooseTellUsAbout() + "your feelings, ";
-		speech += "by " + s("saying", "speaking") + "the words: " + breath();
-		speech += "‘I am " + s(s("filled with,’", "overwhelmed by,’"), "feeling,’")
-				+ "and then one of the nine " + phonemic("a")
-				+ s("ffects, that is, a name for one of the nine feelings.", "ffects.") + breathLong();
-		speech += s("And", "Or,") + "you " + s("may", "might") + "even ask us how we "
-				+ s(s("feel.", "are feeling."), "feel, ourselves.") + breath();
+		speech += "Vous " + s("pouvez", "pourrez") + "toujours " + s("simplement") + "nous" + s("demander", "dire");
+		speech += "de: ‘Continuer’, ou ‘Poursuivre’. " + breath();
+		speech += "Vous pouvez " + chooseTellUsAbout() + "vos émotions, ";
+		speech += "en " + s("prononçant", "disant") + "les mots suivants: " + breath();
+		speech += "‘Je suis " + s(s("rempli,’", "subjugué,’"), "par une émotion,’")
+				+ "et ensuite l'un des neuf " + phonemic("a")
+				+ s("ffects, c'est-à-dire, le nom de l'une parmi neuf émotions.", "ffects.") + breathLong();
+		speech += s("Et", "Ou,") + "vous " + s("pourriez", "pouvez") + "même nous demander "
+				+ s(s("comment nous nous sentons.", "ce que nous ressentons."), "ce que nous éprouvons, nous-mêmes.") + breath();
 
 		boolean heads = heads();
 
 		if (heads) {
-			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can "
-					+ s("hear,", "recognize,") + "include: " + breath();
+			speech +=  "Les noms des neuf " + phonemic("a") + "ffects, que nous pouvons "
+					+ s("entendre,", "reconnaître,") + "includent : " + breath();
 			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
@@ -238,24 +238,24 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 				if (i != (limit - 1))
 					speech += list.get(i) + ", " + breathShort();
 				else
-					speech += "and " + list.get(i) + ". ";
+					speech += "et " + list.get(i) + ". ";
 			}
 			speech += breath();
 		}
 
 		if (!heads && heads()) {
-			speech += "Or, you " + s("may", "could") + "ask us to " + s("‘speak’,", "‘speak about’,")
-					+ s("any of the following:") + breath();
+			speech += "Ou encore, vous " + s("pourriez", "pouvez") + "nous demander de " + s("‘parler’,", "‘parler à propos’,")
+					+ s(" de tous les sujets suivants:") + breath();
 			speech += chooseSomeFragmentNames();
 		}
 
 		if (randInt(0, 8) == 0) {
-			speech += "Or, you might say, ‘Winter is coming.’ " + breath();
+			speech += "Ou, vous pourriez déclarer, ‘L'hiver est à nos portes.’ " + breath();
 		}
 
 		return speech;
 	}
-
+//reprendre//
 	protected String chooseTellUsAbout() {
 
 		String phrase;
