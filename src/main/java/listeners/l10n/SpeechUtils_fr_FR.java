@@ -143,41 +143,41 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String reprompt = "";
 		switch (randInt(0, upperLimit)) {
 			case 0:
-				reprompt += s("Shall we " + s("go on?", "continue?"),
-						s(s("Do you want to", "Would you like to") + "hear more?",
-								s("Please say, ‘yes’ for more.", "More?")));
+				reprompt += s("Devrions-nous " + s("poursuivre?", "continuer?"),
+						s(s("Voudriez-vous", "Aimeriez-vous") + "en entendre davantage?",
+								s("S'il-vous-plaît, dites 'oui' pour en entendre davantage.", "Davantage?")));
 				break;
 			case 1:
 				reprompt += s(
-						"Is there more that you would " + s("like", "care") + "to " + s("hear?", "hear from us?"),
+						"Est-ce qu'il y a autre chose que vous " + r("`aimeriez `voudriez `désireriez ") + "apprendre " + s("de nous?", "de notre part?"),
 						"");
-				reprompt += s("We are listening."); // ALWAYCHANGE Always.
-				reprompt += s("You may " + s("always"), "Just") + "ask us to " + s("go on.", "continue.");
+				reprompt += s("Nous écoutons."); // ALWAYCHANGE Always.
+				reprompt += s("Vous pouvez " + s("toujours"), "simplement") + "nous demander de " + s("poursuivre.", "continuer.");
 				break;
 			case 2:
-				reprompt += "You " + s("may", "can") + "ask us to ‘speak’ " + s("about")
-						+ s("any of the following:") + breath();
+				reprompt += "Vous " + s("pouvez", "devez") + "nous demander de ‘parler’ " + s("à propos de")
+						+ s("de l'un des sujets suivants:") + breath();
 				reprompt += chooseSomeFragmentNames() + breath();
-				reprompt += "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
-						+ s("go on.", "continue.");
+				reprompt += "Ou vous " + s("pouvez, tout simplement,", "pouvez") + s("demander", "nous dire") + "de "
+						+ s("poursuivre.", "continuer.");
 				break;
 			case 3:
-				reprompt += s(s("Perhaps, now,", "Perhaps") + "you would", "Would you");
-				reprompt += "like to " + s(s("ask", "tell") + "us to") + s("‘continue’?", "‘go on’?");
-				reprompt += s("Listening to us, as we listen to you?");
+				reprompt += s(s("Il se peut, maintenant, que", "Il se peut que") + "vous veuillez", "vous désireriez");
+				reprompt += "à ce stade-ci " + s(s("nous demander", "nous dire") + "de") + s("‘continuer’?", "‘poursuivre’?");
+				reprompt += s("En nous écoutant, tout comme nous vous écoutons?");
 				break;
 			case 4:
-				reprompt += s("You " + s("may", "can") + "always",
-						s("If you like, please", "Please") + s("do"));
+				reprompt += s("Vous " + s("pourriez", "pouvez") + "toujours",
+						s("si vous le souhaitez, bien sûr", "bien sûr") + s("nous"));
 				reprompt += s(
-						"ask " + s(s(
-								"us to ‘recall’ " + s("your feelings.",
-										"the " + s("feelings", phonemic("a") + "ffect") + "within which you dwell."),
-								"us, ‘What am I feeling?’"), "what we are feeling."),
-						"tell us " + s("your feelings about all this.",
-								s("your feelings.", "the feelings that possess you.")));
-				reprompt += breathShort() + "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
-						+ s("go on.", "continue.");
+						"demander " + s(s(
+								"de nous ‘rappeler’ " + s("vos émotions.",
+										"les " + s("émotions", phonemic("a") + "ffect") + "qui vous habitent."),
+								"la question, ‘Quelle émotion m'habite?’"), "ce que nous ressentons."),
+						"dites-nous " + s("ce que vous ressentez par rapport à tout ceci.",
+								s("ce que vous ressentez.", "les émotions qui vous traversent.")));
+				reprompt += breathShort() + "Ou vous " + s("pouvez, tout simplement,", "pouvez") + s("nous demander", "nous dire") + "de "
+						+ s("poursuivre.", "continuer.");
 		}
 		return reprompt;
 	}
@@ -187,13 +187,13 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String phrase = "phrase";
 		switch (randInt(0, 3)) {
 			case 0:
-				phrase = "word";
+				phrase = "mot";
 				break;
 			case 1:
-				phrase = "sentence";
+				phrase = "phrase";
 				break;
 			case 2:
-				phrase = "feeling";
+				phrase = "émotion";
 		}
 		return phrase;
 	}
@@ -212,7 +212,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 	}
 
 	protected String chooseSpeechAssistance() {
-
+//reprendre//
 		String speech = "";
 
 		speech += "You " + s("may", "might") + "always " + s("simply") + s("ask", "tell");
