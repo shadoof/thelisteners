@@ -255,16 +255,16 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 		return speech;
 	}
-//reprendre//
+
 	protected String chooseTellUsAbout() {
 
 		String phrase;
-		phrase = "tell us about ";
+		phrase = "parlez-nous de ";
 		switch (randInt(0, 2)) {
 			case 0:
-				phrase = "inform us of ";
+				phrase = "informez-nous de ";
 			case 1:
-				phrase = "describe ";
+				phrase = "décrivez ";
 			case 2:
 		}
 		return phrase;
@@ -273,41 +273,41 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 	protected String chooseUnsureAboutAffect() {
 
 		String reprompt = "";
-		reprompt += "We are " + s("unsure", "unclear") + "about " + s("any", "the") + "feelings "
-				+ s("that " + s("may") + "possess you.", "within which you " + s("may") + "dwell.");
-		reprompt += "You " + s("may", "might");
+		reprompt += "Nous ne sommes pas " + r("`certaines ,`convaincues, `confiantes, ") + "de bien reconnaître " + r("`les `toutes les `vos ") + "émotions "
+				+ s("qui " + s("possiblement") + "vous habitent.", "qui peuvent résider " + s("à quelconque titre") + "en vous.");
+		reprompt += "Vous " + s("pouvez", "pourriez");
 		reprompt += chooseTellUsAbout();
-		reprompt += s("these", "your") + "feelings, ";
-		reprompt += "by " + s("saying, " + s("the words,"), "speaking the words,");
-		reprompt += "‘I am " + s("filled with,’", "overwhelmed by,’") + "and then one of the nine "
+		reprompt += s("ces", "vos") + "émotions, ";
+		reprompt += "en " + s("disant, " + s("les mots,"), "en prononçant les mots suivants,");
+		reprompt += "‘Je suis " + s("comblé par,’", "subjugué par,’") + "et ensuite nommer l'un des neuf "
 				+ phonemic("a") + "ffects. " + breath();
-		reprompt += s("Or, you " + s("may", "might") + s("also") + s("simply") + s("ask", "tell")
-				+ "us to: " + s("‘Continue’ or ‘Go on’.", "‘Continue’."));
+		reprompt += s("Ou encore, vous " + s("pourriez", "pouvez") + s("aussi") + s("simplement") + s("demander", "dire")
+				+ "les mots suivants: " + s("‘Continuez’ ou ‘Poursuivez’.", "‘Continuez’."));
 
 		return reprompt;
 	}
 
 	protected String chooseYouCanFindOutAffect() {
 
-		String s = "You " + s("can", "may") + "always "
-				+ s("ask us about", "discover from us what we believe we know concerning");
-		s += s(s("these", "the") + "feelings", "the " + phonemic("a") + "ffects")
-				+ s("within which you dwell,", "which possess you,") + "by saying, ‘What am I feeling?’ ";
+		String s = "Vous " + s("pouvez", "pourriez") + "toujours "
+				+ s("nous interroger à propos de", "découvrir, en nous le demandant, ce que nous croyons à propos");
+		s += s(s("de ces", "des") + "émotions", "les " + phonemic("a") + "ffects")
+				+ r("`qui vous habitent , `qui vous possèdent, `qui vous traversent,") + "en disant, ‘Comment me sens-je?’ ";
 		return s;
 	}
 
 	protected String continueCardTitle() {
 
-		return S("Continue ...", S("Go on ...", S("Always m", "M") + "ore ..."));
+		return S("Continuez ...", S("Poursuivez ...", S("Toujours p", "P") + "lus ..."));
 	}
 
 	protected String dontKnowFragmentReprompt() {
 
-		String reprompt = "We are " + s("unclear about", "unsure, of") + "which fragment you "
-				+ s("would like", "wish") + "to hear us speak. ";
+		String reprompt = "Nous ne sommes pas " + s("sûres", "certaines") + "de savoir quel fragments vous "
+				+ s("voudriez", "souhaiteriez") + "que l'on vous parle. ";
 		return reprompt += breath();
 	}
-
+//reprendre//
 	protected String dontKnowFragmentSpeech() {
 
 		String speech = "We are " + s("unclear about", "unsure, of") + "which " + s("fragment", "passage")
