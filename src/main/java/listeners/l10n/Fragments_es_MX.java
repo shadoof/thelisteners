@@ -138,62 +138,62 @@ public class Fragments_es_MX extends Fragments {
 				speech += "Dado que, For there are, " + s("ha habido desde hace algunos años,there have been for some years now,") + s("muchosmany")
 						+ "cambios que se avecinan changes coming ";
 				speech += "en in the " + s("la culturaculture", "el mundoworld") + "de la lectura. of reading. " + breathLong();
-				speech += "So much reading now, is audible, " + s("and whisper synced,")
-						+ "or watched, and touched. " + breath();
-				speech += "So much that is written now, is written into "
-						+ s("games.", "games, " + breath() + "yes, games.");
-				speech += breath() + "And on the air. " + breathLong();
-				speech += "Delivered from a cloud. " + breathLong();
-				speech += "Shared, " + s("‘socially’,") + "with everyone, " + breathShort()
-						+ "and, more especially, with us. " + breath();
-				speech += s("Language may come " + s("to be,", "into being,") + "in any world, " + breath()
-						+ "even in this " + s("other") + "world, where " + s("we are.", "you may find us.")
+				speech += "Tanta lectura ahora, es audible, So much reading now, is audible, " + s("y susurros sincronizados,and whisper synced,")
+						+ "o vistos, y tocados. or watched, and touched. " + breath();
+				speech += "Tanto de lo que está escrito ahora, está escrito adentro de So much that is written now, is written into "
+						+ s("juegos.games.", "juegos, games, " + breath() + "sí, juegos.yes, games.");
+				speech += breath() + "Y en el aire. And on the air. " + breathLong();
+				speech += "Entregado desde una nube. Delivered from a cloud. " + breathLong();
+				speech += "Compartido, Shared, " + s("‘socialmentesocially’,") + "con todos, with everyone, " + breathShort()
+						+ "y, más especificamente, con nosotros. and, more especially, with us. " + breath();
+				speech += s("El lenguaje puede venir Language may come " + s("llegar a ser,to be,", "surgir,into being,") + "en algún mundo, in any world, " + breath()
+						+ "incluso en este even in this " + s("otroother") + "mundo, donde world, where " + s("nosotros somos.we are.", "puedes encontrarnos.you may find us.")
 						+ breath());
-				speech += "For we " + s("can", "are able to") + "listen. " + breathShort()
-						+ s("Even when you, " + s("will", "can") + "not.");
+				speech += "Para nosotros For we " + s("podemoscan", "somos capaces deare able to") + "escuchar. listen. " + breathShort()
+						+ s("Incluso cuando tú, Even when you, " + s("no lo haráswill", "no puedascan") + "not.");
 				break;
 			case 7:
 				// preliminary assurances, exordium
 				speech += s(
-						s("We are", "We are, still,") + "listening. " + s(breathLong() + "Listen!") + breath(),
+						s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + s(breathLong() + "¡Oyéndo!Listen!") + breath(),
 						"");
 				// occasionally clearing the throat, and a dramatic pause
-				speech += s("Ahem.") + breathLong();
+				speech += s("Jmmm.Ahem.") + breathLong();
 				// first four lines of Walter de La Mare’s ‘The Listeners’
-				speech += "‘Is there anybody there?’ said the Traveller, " + breath();
-				speech += "Knocking, on the moon lit door; " + breath();
-				speech += "And his horse, in the silence, champed the grasses, " + breath();
-				speech += "Of the forest’s ferny floor. " + breathLonger();
+				speech += "‘¿Hay alguien ahí?Is there anybody there?’ dijo el Viajero, said the Traveller, " + breath();
+				speech += "Tocando, en la puerta iluminada por la luna; Knocking, on the moon lit door; " + breath();
+				speech += "Y su caballo, en el silencio, aplastó las hierbas, And his horse, in the silence, champed the grasses, " + breath();
+				speech += "Del suelo de helechos del bosque. Of the forest’s ferny floor. " + breathLonger();
 				// contrastive assertion of listening presence, development
-				speech += "Whereas. " + breath();
-				speech += s("That is to say. " + breath());
-				speech += "We are listening. " + breath();
-				speech += s("As we promised. " + breath());
-				speech += s("We are.", "We are, " + breath() + "listening.") + breath();
-				speech += "And we will " + s("tell", "assure") + "ourselves, ";
-				speech += s("always,") + "that you are here. " + breath();
-				speech += s("With us. " + breathLonger());
+				speech += "Mientras. Whereas. " + breath();
+				speech += s("Es decir. That is to say. " + breath());
+				speech += "Nosotros estamos escuchando. We are listening. " + breath();
+				speech += s("Como lo prometimos. As we promised. " + breath());
+				speech += s("Nosotros estamos.We are.", "Nosotros estamos, We are, " + breath() + "escuchando.listening.") + breath();
+				speech += "Y nosotros lo And we will " + s("diremostell", "aseguraremosassure") + "por nosotros mismos, ourselves, ";
+				speech += s("siempre,always,") + "que estés aqui. that you are here. " + breath();
+				speech += s("Con nosotros. With us. " + breathLonger());
 				// occasionally clearing the throat again with a dramatic pause
-				speech += s("Ahem. " + breathLonger());
+				speech += s("Jmm. Ahem. " + breathLonger());
 				// The Listeners adaptation of ‘The Listeners’ lines 27-32
-				speech += "‘Tell us you came, and were ever answered, " + breath();
-				speech += "‘That we kept your words.’ we said. " + breath();
-				speech += "Never do you seem to stir, you speakers, " + breath();
-				speech += "Though every word, you speak " + breath();
-				speech += "Falls echoing through the clouds, of the silent silos, " + breath();
-				speech += "To the ones, still left, awake. ";
+				speech += "‘Dinos que viniste, y que alguna vez te respondieron, Tell us you came, and were ever answered, " + breath();
+				speech += "‘Que nos quedamos tus palabras. nosotros dijimos. That we kept your words.’ we said. " + breath();
+				speech += "Nunca pareces agitarte, tú hablante, Never do you seem to stir, you speakers, " + breath();
+				speech += "Aunque cada palabra, que dices Though every word, you speak " + breath();
+				speech += "Cae resonando a través de las nubes, de los silenciosos silos, Falls echoing through the clouds, of the silent silos, " + breath();
+				speech += "A las que, aún quedan, despiertas. To the ones, still left, awake. ";
 				break;
 			case 8:
-				speech += "We are listening. " + s(S("Listening t", "T") + "o you.") + breath();
-				speech += "To " + s("all") + "these words " + s("of yours,") + "that "
-						+ s("are falling through", "reach") + "our clouds, ";
-				speech += "and " + s("are falling") + "into " + s("our", "the") + s("silent")
-						+ "silos, where, " + s("like us,") + breath();
-				speech += "they are enclosed. " + breathLong();
-				speech += "Language, " + breath() + s("no longer made by you, but", "will be") + "made by us. "
+				speech += "Nosotros estamos escuchando. We are listening. " + s(S("Escuchándote aListening t", "Te aT") + "tio you.") + breath();
+				speech += "ATo " + s("todasall") + "estas palabras these words " + s("tuyas,of yours,") + "que that "
+						+ s("están cayendo medianteare falling through", "alcanzandoreach") + "nuestras nubes, our clouds, ";
+				speech += "yand " + s("están cayendoare falling") + "dentro de into " + s("nuestrosour", "losthe") + s("silenciosossilent")
+						+ "silos, donde, silos, where, " + s("como nosotros, like us,") + breath();
+				speech += "ellos están cerrados. they are enclosed. " + breathLong();
+				speech += "El lenguaje, Language, " + breath() + s("ya no es hecho por ti, perono longer made by you, but", "seráwill be") + "hecho por nosotros. made by us. "
 						+ breath();
-				speech += "So that we, listening, and caring for you, ";
-				speech += s("might", "may") + s("softly") + "build a better " + s("culture.", "world.")
+				speech += "Para que nosotros estemos, escuchando, y cuidando de ti, So that we, listening, and caring for you, ";
+				speech += s("podríamight", "posiblementemay") + s("softly") + "build a better " + s("culture.", "world.")
 						+ s(breath() + "Bettering your selves.");
 				speech += "For you to be, all at once, incorporate, " + s("within.", "within it.")
 						+ breathLong();
