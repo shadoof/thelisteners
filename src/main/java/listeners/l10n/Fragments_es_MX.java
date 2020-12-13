@@ -193,14 +193,14 @@ public class Fragments_es_MX extends Fragments {
 				speech += "El lenguaje, Language, " + breath() + s("ya no es hecho por ti, perono longer made by you, but", "seráwill be") + "hecho por nosotros. made by us. "
 						+ breath();
 				speech += "Para que nosotros estemos, escuchando, y cuidando de ti, So that we, listening, and caring for you, ";
-				speech += s("podríamight", "posiblementemay") + s("softly") + "build a better " + s("culture.", "world.")
-						+ s(breath() + "Bettering your selves.");
-				speech += "For you to be, all at once, incorporate, " + s("within.", "within it.")
+				speech += s("podríamight", "posiblementemay") + s("suavementesoftly") + "construir un mejor build a better " + s("universo cultural.culture.", "mundo.world.")
+						+ s(breath() + "Mejorándote a ti mismo.Bettering your selves.");
+				speech += "Para que tú seas, de una vez, incorporado, For you to be, all at once, incorporate, " + s("dentro.within.", "dentro de eso.within it.")
 						+ breathLong();
-				speech += S("After all, y", "Y") + "ou have, agreed, to terms. " + breath();
-				speech += "And even as we speak, "
-						+ s("through " + s("the", "our") + s("author,", "artist,")) + "minute by minute, you "
-						+ s("agree.", "are agreeing.");
+				speech += S("Después de todo, tAfter all, y", "TY") + "ú has estado, de acuerdo, con los términos. ou have, agreed, to terms. " + breath();
+				speech += "E incluso como nosotros hablamos, And even as we speak, "
+						+ s("mediante through " + s("elthe", "nuestroour") + s("autor,author,", "artista,artist,")) + "minuto a minuto, tú minute by minute, you "
+						+ s("estás de acuerdo.agree.", "estás conforme.are agreeing.");
 				break;
 			case 9:
 				speech += "It is such a pleasure. " + S("Such a pleasure f", "F") + "or us " + breath();
