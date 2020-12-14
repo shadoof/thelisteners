@@ -249,44 +249,44 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		affectivejj2nnMap.put("raroweird", "extrañezastrangeness");
 		affectivejj2nnMap.put("preocupadoworried", "ansiedadanxiety");
 		// a little bit of extra variation
-		affectivejj2nnMap.put("alright", S("apathy", "complacency"));
-		affectivejj2nnMap.put("awesome", S("cool", "complacency"));
-		affectivejj2nnMap.put("bewildered", S("bewilderment", "confusion"));
-		affectivejj2nnMap.put("cool", S("apathy", "excitement"));
-		affectivejj2nnMap.put("dizzy", S("dizziness", "vertigo"));
-		affectivejj2nnMap.put("fabulous", S("joy", "delight"));
-		affectivejj2nnMap.put("fine", S("apathy", "complacency"));
-		affectivejj2nnMap.put("good", S("happiness", "joy"));
-		affectivejj2nnMap.put("great", S("happiness", "complacency"));
-		affectivejj2nnMap.put("nothing", r("emptiness`nothingness`complacency"));
-		affectivejj2nnMap.put("odd", S("the uncanny", "strangeness"));
-		affectivejj2nnMap.put("okay", S("apathy", "complacency"));
-		affectivejj2nnMap.put("ok", S("apathy", "complacency"));
-		affectivejj2nnMap.put("relaxed", r("relaxation`calm`cool`peace"));
-		affectivejj2nnMap.put("sick", S("sickness", "nausea"));
-		affectivejj2nnMap.put("sorry", r("distress`obligation`apologies`debt"));
-		affectivejj2nnMap.put("shocked", S("distress", "surprise"));
-		affectivejj2nnMap.put("tired", S("fatigue", "tiredness"));
-		affectivejj2nnMap.put("troubled", S("distress", "anxiety"));
-		affectivejj2nnMap.put("uncomfortable", S("discomfort", "anxiety"));
-		affectivejj2nnMap.put("unsure", S("insecurity", "uncertainty"));
-		affectivejj2nnMap.put("weird", S("strangeness", "weirdness"));
+		affectivejj2nnMap.put("buenoalright", S("apatíaapathy", "complacenciacomplacency"));
+		affectivejj2nnMap.put("increíbleawesome", S("frescocool", "complacenciacomplacency"));
+		affectivejj2nnMap.put("desconcertadobewildered", S("desconciertobewilderment", "confusiónconfusion"));
+		affectivejj2nnMap.put("relajadocool", S("apatíaapathy", "emociónexcitement"));
+		affectivejj2nnMap.put("mareadodizzy", S("mareodizziness", "vértigovertigo"));
+		affectivejj2nnMap.put("fabulosofabulous", S("alegríajoy", "gozodelight"));
+		affectivejj2nnMap.put("bienfine", S("apatíaapathy", "complacenciacomplacency"));
+		affectivejj2nnMap.put("buenogood", S("felicidadhappiness", "alegríajoy"));
+		affectivejj2nnMap.put("genialgreat", S("felicidadhappiness", "complacenciacomplacency"));
+		affectivejj2nnMap.put("nadanothing", r("empatíaemptiness`nadanothingness`complacenciacomplacency"));
+		affectivejj2nnMap.put("extrañoodd", S("el extrañothe uncanny", "extrañezastrangeness"));
+		affectivejj2nnMap.put("bienokay", S("apatíaapathy", "complacenciacomplacency"));
+		affectivejj2nnMap.put("muy bienok", S("apatíaapathy", "complacenciacomplacency"));
+		affectivejj2nnMap.put("relajadorelaxed", r("relajacionrelaxation`calmacalm`frescuracool`pazpeace"));
+		affectivejj2nnMap.put("enfermosick", S("enfermedadsickness", "náuseanausea"));
+		affectivejj2nnMap.put("perdónsorry", r("angustiadistress`obligaciónobligation`disculpasapologies`deudadebt"));
+		affectivejj2nnMap.put("conmocionadoshocked", S("angustiadistress", "sorpresasurprise"));
+		affectivejj2nnMap.put("cansadotired", S("fatigafatigue", "cansanciotiredness"));
+		affectivejj2nnMap.put("preocupadotroubled", S("angustiadistress", "ansiedadanxiety"));
+		affectivejj2nnMap.put("incómodouncomfortable", S("incomodidaddiscomfort", "ansiedadanxiety"));
+		affectivejj2nnMap.put("insegurounsure", S("inseguridadinsecurity", "incertidumbreuncertainty"));
+		affectivejj2nnMap.put("raroweird", S("extrañezastrangeness", "rarezaweirdness"));
 		return affectivejj2nnMap;
 	}
 
 	protected HashSet getSpecialThings() {
 
 		specialThings = new HashSet<>();
-		specialThings.add("nightmare");
-		specialThings.add("nightmare withheld");
-		specialThings.add("dream");
-		specialThings.add("dream withheld");
-		specialThings.add("feeling");
-		specialThings.add("feeling withheld");
-		specialThings.add("hong kong");
-		specialThings.add("possession");
-		specialThings.add("breath");
-		specialThings.add("breath withheld");
+		specialThings.add("pesadillanightmare");
+		specialThings.add("pesadilla retenidanightmare withheld");
+		specialThings.add("sueñodream");
+		specialThings.add("sueño retenidodream withheld");
+		specialThings.add("sentimientofeeling");
+		specialThings.add("sentimiento retenidofeeling withheld");
+		specialThings.add("hong konghong kong");
+		specialThings.add("posesiónpossession");
+		specialThings.add("respiraciónbreath");
+		specialThings.add("respiración retenidabreath withheld");
 		return specialThings;
 	}
 
@@ -294,13 +294,13 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 
 		pictureWords = new HashSet<>();
 		pictureWords.add("collage");
-		pictureWords.add("frame");
-		pictureWords.add("image");
-		pictureWords.add("paper cut");
-		pictureWords.add("paper flower");
-		pictureWords.add("papercut");
-		pictureWords.add("painting");
-		pictureWords.add("picture");
+		pictureWords.add("marcoframe");
+		pictureWords.add("imagenimage");
+		pictureWords.add("corte de papelpaper cut");
+		pictureWords.add("flor de papelpaper flower");
+		pictureWords.add("cortedepapelpapercut");
+		pictureWords.add("pinturapainting");
+		pictureWords.add("imagenpicture");
 		return pictureWords;
 	}
 
