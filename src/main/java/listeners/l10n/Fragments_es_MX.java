@@ -213,20 +213,20 @@ public class Fragments_es_MX extends Fragments {
 						"para representar, to represent, " + breath());
 				speech += s("en una forma normalizada,in a normalized form,") + "la más frecuentemente expresada, the most frequently expressed, " + breath();
 				speech += "y and " + s("potencialmentepotentially") + "los más provechosos, deseos humanos, most profitable, human desires, " + breath();
-				speech += "tal que los publicistas such that advertisement " + s("may", "shall") + "estar be " + s("intimamenteintimately")
+				speech += "tal que los publicistas such that advertisement " + s("debenmay", "tienen queshall") + "estar be " + s("intimamenteintimately")
 						+ "asociados, associated, " + breath();
-				speech += "with all your harvested phrases, " + s("ideally,") + "at the " + s("very")
-						+ "moment ";
-				speech += "of harvesting itself, " + breathShort() + "with your hearing thought, "
-						+ breathShort() + s("with us, now,", "present,") + s("also,") + "to read, "
-						+ s("and understand,") + breath();
-				speech += "not only a desired " + s("passage", "fragment") + "of " + s("speech,", "language,")
-						+ "but an intimately associated, " + breath();
-				speech += "an immediately transactable, new desire. " + breathLonger();
-				// ALWAYCHANGE s(breath() + "always, " + breath()) +
-				speech += "That is to say, we are listening to you. " + breath();
-				speech += s("Promising, " + breath(), "Promising") + "to hear "
-						+ s("whatever it is that", "whatever") + "you long to tell us. "; // ALWAYCHANGE
+				speech += "con todas tus frases recolectadas, with all your harvested phrases, " + s("idealmente,ideally,") + "en el at the " + s("mismovery")
+						+ "momento moment ";
+				speech += "de cosechar por sí mismo, of harvesting itself, " + breathShort() + "escuchando tus pensamientos, with your hearing thought, "
+						+ breathShort() + s("con nosotros, ahora,with us, now,", "en presente,present,") + s("también,also,") + "para leer,  to read, "
+						+ s("y entender,and understand,") + breath();
+				speech += "no solo un deseado not only a desired " + s("cachopassage", "fragmentofragment") + "del of " + s("discurso,speech,", "lenguaje,language,")
+						+ "pero uno intimamente asociado, but an intimately associated, " + breath();
+				speech += "un nuevo deseo, inmediatamente negociable. an immediately transactable, new desire. " + breathLonger();
+				// ALWAYCHANGE s(breath() + "siempre, always, " + breath()) +
+				speech += "Eso es para decir, que te estamos escuchando a ti. That is to say, we are listening to you. " + breath();
+				speech += s("Prometiendo, Promising, " + breath(), "PrometiendoPromising") + "escuchar to hear "
+						+ s("lo que sea que sea esowhatever it is that", "lo que seawhatever") + "que anhelas decirnos. you long to tell us. "; // ALWAYCHANGE
 																																							// always,
 				break;
 		}
