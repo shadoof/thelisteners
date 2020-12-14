@@ -307,26 +307,26 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 				+ s("voudriez", "souhaiteriez") + "que l'on vous parle. ";
 		return reprompt += breath();
 	}
-//reprendre//
+
 	protected String dontKnowFragmentSpeech() {
 
-		String speech = "We are " + s("unclear about", "unsure, of") + "which " + s("fragment", "passage")
-				+ "you " + s("would like", "wish") + "to hear us speak. ";
-		speech += "Please " + s("try", "attempt") + s("once more", "again") + "to tell us. ";
+		String speech = "Nous ne sommes " + s("pas certaines de savoir", "plus certaines de nous rappeler") + "lequel des " + s("fragments", "passages")
+				+ "vous " + r("`voudriez , `souhaitez `voulez") + "que nous prononcions. ";
+		speech += "Pourriez-vous s'il-vous-plaît " + s("tenter", "essayer") + s("une fois de plus", "encore") + "de nous le dire. ";
 		return speech + breath();
 	}
 
 	protected String exceptionMessage() {
 
-		return s("Sorry.", "Apologies.") + "Either something’s wrong or we haven’t heard "
-				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
+		return s("Nous sommes désolées.", "Toutes nos excuses.") + "Soit il y a quelque chose qui cloche ou nous ne vous avons pas "
+				+ s("entendu clairement.", "entendu correctement.") + s("s'il-vous plaît, dites-nous en plus.", "Veuillez essayer à nouveau.");
 	}
 
 	protected String excuseMarkov() {
 
 		return breathLong()
-				+ s(s("Sorry.", "Excuse us!") + "We’re not sure what came over us. " + breathLong(),
-						s("Excuse us.") + "Ahem.")
+				+ s(s("Pardon.", "Toutes nos excuses!") + "Nous ne savons pas ce qui nous a pris. " + breathLong(),
+						s("Excuses-nous.") + "Ahem.")
 				+ breath();
 	}
 
@@ -336,30 +336,30 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
-			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
-					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
+			amsg = String.format("Il est agréable " + s("de savoir", "d'être conscientes") + "que vous vous plongez en nous. "
+					+ breathShort() + "Bien que, " + s("tout de même,", "malgré tout,"), affect);
 		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must") + "abandon us. " + breath();
+			amsg = String.format("Nous sommes désolées, " + s("au final,", "après tout,") 
+					+ s("de savoir", "d'avoir pris conscience") + "que vous êtes " + s("remplies par", "possédées par") + "nous. "
+					+ breathShort() + "Dès lors, ", affect);
+		return amsg += breathShort() + "vous " + s("n'avez pas le choix et") + "devez nous abandonner. " + breath();
 	}
 
 	protected String getGuyzAreGone() {
 
-		return s("That guy " + s("has", "is"), "The guys " + s("have", "are")) + "gone. " + breath()
-				+ "You will "
-				+ s("not " + s("be able to") + "hear " + s("those voices", "that voice") + "any longer.",
-						"no longer hear "
-								+ s("those " + s("voices.", "voices speak."), "that " + s("voice.", "voice speak.")))
+		return s("Ce gars " + s("a", "est"), "Ces gars " + s("ont quitté", "sont partis")) + breath()
+				+ "Vous "
+				+ s("ne devriez plus" + s("être capable d'") + " entendre " + s("ces voix", "cette voix") + "à nouveau.",
+						"Vous n'entendrez plus"
+								+ s("ces" + s("voix.", "voix parler."), "cette " + s("voix.", "voix parler.")))
 				+ breath();
 	}
 
 	protected String getGuyzMoreQuery() {
 
 		return breath()
-				+ s("More? " + breathShort(), S("Please s", "S") + "ay ‘" + S("yes", S("go on", "continue"))
-						+ "‘, " + s(s("if you would like") + "to hear more.", "for more."));
+				+ s("Davantage? " + breathShort(), S("S'il-vous-plaît, d", "D") + "dites ‘" + S("oui", S("poursuivre", "continuer"))
+						+ "‘, " + s(s("si vous voulez") + "en entendre davantage.", "plus."));
 	}
 
 	protected Object[][] getContents() {
@@ -368,7 +368,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 	}
 
 	protected String getPreamble() {
-
+///reprendre///
 		String preamble = s("Unless we’re mistaken, this is", "This seems to be")
 				+ "your first encounter with ‘The Listeners’ Version 3. ";
 		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
