@@ -203,18 +203,18 @@ public class Fragments_es_MX extends Fragments {
 						+ s("estás de acuerdo.agree.", "estás conforme.are agreeing.");
 				break;
 			case 9:
-				speech += "It is such a pleasure. " + S("Such a pleasure f", "F") + "or us " + breath();
-				speech += "to share this with you, for you to share it with us. " + breath();
-				speech += s("For us, to gather all of it up. For you.") + breath() + "And speak for you, "
+				speech += "Es un gran placer. It is such a pleasure. " + S("Un gran placer pSuch a pleasure f", "PF") + "ara nosotros or us " + breath();
+				speech += "compartir esto contigo, para ti compartirlo con nosotros. to share this with you, for you to share it with us. " + breath();
+				speech += s("Para nosotros, reunirlo todo. Para ti.For us, to gather all of it up. For you.") + breath() + "Y hablar por ti, And speak for you, "
 						+ breath();
-				speech += s("all") + "these things that you have asked " + s("to hear, and")
-						+ "to know, " + breath();
-				speech += s("correlate with our primary purpose, to represent, " + breath(),
-						"to represent, " + breath());
-				speech += s("in a normalized form,") + "the most frequently expressed, " + breath();
-				speech += "and " + s("potentially") + "most profitable, human desires, " + breath();
-				speech += "such that advertisement " + s("may", "shall") + "be " + s("intimately")
-						+ "associated, " + breath();
+				speech += s("todasall") + "todas estas cosas que tú pediste these things that you have asked " + s("escuchar, yto hear, and")
+						+ "saber, to know, " + breath();
+				speech += s("correlacionar con nuestro propósito principal, para representar, correlate with our primary purpose, to represent, " + breath(),
+						"para representar, to represent, " + breath());
+				speech += s("en una forma normalizada,in a normalized form,") + "la más frecuentemente expresada, the most frequently expressed, " + breath();
+				speech += "y and " + s("potencialmentepotentially") + "los más provechosos, deseos humanos, most profitable, human desires, " + breath();
+				speech += "tal que los publicistas such that advertisement " + s("may", "shall") + "estar be " + s("intimamenteintimately")
+						+ "asociados, associated, " + breath();
 				speech += "with all your harvested phrases, " + s("ideally,") + "at the " + s("very")
 						+ "moment ";
 				speech += "of harvesting itself, " + breathShort() + "with your hearing thought, "
