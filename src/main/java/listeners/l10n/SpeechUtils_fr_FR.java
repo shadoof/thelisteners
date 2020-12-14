@@ -369,44 +369,44 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String getPreamble() {
 ///reprendre///
-		String preamble = s("Unless we’re mistaken, this is", "This seems to be")
-				+ "your first encounter with ‘The Listeners’ Version 3. ";
-		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
-				+ "they listen. ";
-		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
-		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
-		preamble += "If " + s("you don’t,", "not,") + "or to interrupt a long speech, just say, "
-				+ s("clearly,", s("firmly,")) + "‘Alexa, Stop!’ ";
-		preamble += s(s("And have done with it."), "They can be a little ‘dark’. But ...")
-				+ s("We hope you enjoy", "Thank you for listening to") + "‘The Listeners’. ";
+		String preamble = s("Sauf erreur de notre part, ceci est", "Il semble que ce soit")
+				+ "votre première rencontre avec ‘À l'écoute’ Version 3. ";
+		preamble += "Elles ont tendance à " + s("parler", "dire des choses") + "autant " + s("sinon plus qu'", "qu'")
+				+ "elles n'écoutent. ";
+		preamble += "Si vous trouvez que ce qu'elles disent " + r("`est d'un quelconque intérêt, `vous intrigue, `pique votre curiosité, ") + "faites preuve de  ";
+		preamble += s("patience.", "patience, et passez du temps avec " + s("elles.", "ce skill."));
+		preamble += "Si " + s("ce n'est pas le cas,", "vous n'êtes pas de cet avis,") + "ou encore, pour interrompre une tirade un peu longue, il suffit de dire, "
+				+ s("clairement,", s("fermement,")) + "‘Alexa, Stop!’ ";
+		preamble += s(s("Ceci mettra fin à la chose."), "Elles peuvent être un peu ‘glauques’. Mais ...")
+				+ s("Nous espérons que vous apprécierez", "Nous vous remercions d'écouter") + "‘À l'écoute’. ";
 		return preamble += breathLong();
 	}
 
 	protected String getReallyWantGuyz() {
 
-		String speech = s("Do", "Are you sure") + "you " + s("really") + "want to hear what " + s("one of")
-				+ "the" + s("se", SPC) + s(s("strange", "unreliable")) + "guys " + "have to say? " + breath();
+		String speech = s("Est-ce que", "Êtes-vous vraiment certain que") + "vous voulez " + s("réellement") + "entendre ce que " + s("l'une de")
+				+ "cette" + s("se", SPC) + s(r("`étrange, `inquiétante `louche")) + "personne " + "a à dire? " + breath();
 		if (heads()) {
-			speech += "We " + s("hope", "trust") + "that you will not say ‘" + S("yes", "continue") + "‘ and "
-					+ s("consent to hearing", "agree to hear")
-					+ s("the " + s("voice of this other.", "other voice."),
-							"these other " + s("voices.", "guys."));
+			speech += "Nous " + s("espérons", "croyons") + "que vous ne direz pas ‘" + S("oui", "continuer") + "‘ et que vous "
+					+ s("ne consentirez pas à entendre", "n'accepterez pas d'entendre")
+					+ s("cette " + s("voix autre.", "autre voix."),
+							"ces autres " + s("voix.", "personnes."));
 		}
 		return speech + breath();
 	}
 
 	protected String getReallyWantGuyzReprompt() {
 
-		return s("Do", "Are you sure") + "you " + s("really") + "want to hear what " + s("one of") + "the"
-				+ s("se", SPC) + s(s("strange", "unreliable")) + "guys " + s("has", "have") + "to say? ";
+		return s("Est-ce que", "Êtes-vous certains que") + "vous voulez " + s("réellement") + "entendre ce que " + s("l'une de") + "cette"
+				+ s("se", SPC) + s(r("`étrange, `inquiétante `louche")) + "personne " + s("a à", "compte") + "dire? ";
 	}
 
 	protected String guyzIrq() {
 
-		return s(s("[the ‘guyz’", "[other voices"), s("[another voice", "[the other voice" + s("s") + SPC))
-				+ "interrupted here ...] ";
+		return s(s("[la ‘personne’", "[les autres voix"), s("[une autre voix", "[l'autre voix" + s("s") + SPC))
+				+ "nous a interrompu ...] ";
 	}
-
+///reprendre//
 	protected String hateRejoinder(String word) {
 
 		String speech = "To " + s("think", "hear") + "that your "
