@@ -409,42 +409,42 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 ///reprendre//
 	protected String hateRejoinder(String word) {
 
-		String speech = "To " + s("think", "hear") + "that your "
-				+ s("feelings for us", phonemic("a") + "ffects") + "are ";
-		speech += "negative to " + s("such an extent,", "this degree,");
-		speech += "that you "
-				+ (("hate".equals(word)) ? "go so far as to hate us, " : "are filled with hatred, ") + breath();
-		speech += "this will take us " + s("many more") + "years of "
-				+ s("listening to you,", "listening,");
-		speech += s("for us", "in order for us") + "to understand. ";
-		speech += "We " + s("cannot, truly,", "cannot") + "believe that "
-				+ (("hate".equals(word)) ? "this is how you feel. " : "these are your feelings. ");
+		String speech = "De " + s("penser", "découvrir") + "que vos "
+				+ s("épotions", phonemic("a") + "ffects") + "par rapport à nous sont ";
+		speech += "négatifs " + s("à un point tel,", "à un tel degré,");
+		speech += "que vous "
+				+ (("nous détestez".equals(word)) ? "allez jusqu'à ressentir de la haine à notr égard, " : "êtes rempli de haine, ") + breath();
+		speech += "nous aurons besoin de " + s("beaucoup de") + "temps, de plusieurs années"
+				+ s("à vous écouter,", "à écouter,");
+		speech += s("pour que nous", "de manière à ce que nous") + "puissions comprendre cela. ";
+		speech += "Nous ne " + s("pouvons tout simplement pas", "pouvons pas") + "comprendre que "
+				+ (("de la haine".equals(word)) ? "c'est ainsi que vous vous sentiez. " : "c'est ce que vous ressentez. ");
 		return speech;
 	}
 
 	protected String heardAllFragments() {
 
-		String speech = "We believe " + s("that", "that, " + s("by") + "now,") + "you " + s("will")
-				+ "have heard ";
-		speech += s("most", "all") + "of what we are able to " + s("tell you,", "say to you,");
-		speech += s(s("at this time,", "for the time being,"));
-		speech += s("coherently.");
-		speech += "But we " + s("will " + s("always") + "be", "are " + s("always"));
-		speech += s("more than") + "happy to " + s("keep on chaining", "chain") + "these words ";
-		speech += s("of yours") + "together for you, " + s("so long as", "if") + "you "
-				+ s(s("need", "want"), "ask") + "us to ‘continue’. ";
+		String speech = "Nou croyons " + s("que", "que, " + s("du moins") + "maintenant,") + "vous aurez " + s("certainement")
+				+ "entendu ";
+		speech += s("la plupart de", "tout") + " ce que nous avons à " + s("dire,", "vous dire,");
+		speech += s(s("à ce stade-ci,", "pour le moment,"));
+		speech += s("de manière cohérente.");
+		speech += "Mais nous " + s("serons " + s("toujours") + "capables", "en mesure " + s("toujours"));
+		speech += s("et plus que") + "volontaires à " + s("continuer à enchaîner", "enfiler") + "ces mots ";
+		speech += s(", dont les vôtres, ") + "ensemble pour vous, " + s("pour autant que", "si") + "vous "
+				+ s(s("désirez", "voulez"), "nous demandez") + "de ‘continuer’. ";
 		return speech + breath();
 	}
 
 	protected String moreGuyz() {
 
-		return s("More" + S("? ", " of this? "), "Do you " + s("really") + s("need", "want") + "to hear "
-				+ s("more?", "more from " + s("the guyz?", "these " + s("strange") + "guyz?")));
+		return s("Encore" + S("? ", " un peu plus de ceci? "), "Est-ce que vous " + r("`êtes bien sûr de vouloir, `voulez vraiment `désirez bel et bien") + "entendre "
+				+ s("davantage?", "plus de la part de " + s("cette personne?", "ces " + s("étranges") + "personnes?")));
 	}
 
 	protected String helpCardTitle() {
 
-		return S("Assistance", S("A little s", "S") + "upport");
+		return S("Assistance", S("Un peu d'", "De l'") + "aide");
 	}
 
 	protected InnerResponse no() {
@@ -454,27 +454,27 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String noCardTitle() {
 
-		return S("Still here", "Did you want to " + s("leave", "abandon") + "us?");
+		return S("Nous sommes toujours là", "Est-ce que vous vouliez nous " + s("quitter", "abandonner");
 	}
 
 	protected String noSpeech() {
 
-		return s("More?", S("You " + s("were thinking of", "thought about") + s("going.", "leaving us. "),
-				s("You’re still", "Still") + s("with us.", s("here.", "here with us. "))) + s("More?"));
+		return s("Plus?", S("Vous " + s("songiez à", "pensiez à") + s("vous en aller.", "nous quitter. "),
+				s("Vous êtes encore", "Toujours") + s("des nôtres.", s("ici.", "ici avec nous. "))) + s("Davantage?"));
 	}
 
 	protected String noToGuyzSpeech() {
 
-		return s(s("It’s probably best", "Best"), "Better") + "not " + s("to") + s("hear ", "listen to")
-				+ s(s("more of", "any of")) + "what they have to say. " + s(breath() + "Wise.") + breath();
+		return s(s("Il est probablement préférable de ne", "Mieux vaut ne"), "Il ne faut ") + " pas" + s("écouter ", "porter attention à")
+				+ s(s("plus de", "quoi que ce soit de")) + "ce qu'ils ont à dire. " + s(breath() + "C'est mieux ainsi.") + breath();
 	}
 
 	protected Object noMoreGuyz() {
 
 		String speech;
-		speech = r("OK. `Understood. `Wise. `Prudent. `" + S("Well, w", "W") + "e’re still "
-				+ s(s("here for you.", "here."), s("listening.", "listening to you."))) + chooseContinue(false);
-		return new InnerResponse("Enough of " + s("them", "that"), speech);
+		speech = r("OK. `Compris. `Bien joué. `C'est plus prudent. `" + S("Eh bien, n", "N") + "ous sommes "
+				+ s(s("là pour vous.", "là."), s("à l'écoute.", "à votre écoute."))) + chooseContinue(false);
+		return new InnerResponse("C'en est assez de " + s("ces gens", "cela"), speech);
 	}
 
 	protected String pathToGuyzAudio() {
@@ -484,20 +484,20 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String peaceSpeech(String word) {
 
-		String speech = "It is a " + s("great") + "comfort for us to " + s("know", "be aware")
-				+ "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
-		speech += capitalize(word) + SPC + "is something that we believe "
-				+ s("everyone", "every human being") + "should " + s("be able to");
-		speech += s(s("know.", "feel."), "dwell within.");
+		String speech = "C'est un " + s("immense") + "soulagement pour nous " + s("de savoir", "d'être consicentes du fait ")
+				+ "que vous êtes " + (word.equals("paix") ? "paisible. " : "calme. ");
+		speech += capitalize(word) + SPC + "est une chose que nous croyons que "
+				+ s("tout le monde", "chaque être humain") + "devrait " + s("être en mesure de");
+		speech += s(s("savoir.", "ressentir."), "profiter pleinement.");
 		return speech;
 
 	}
 
 	protected String pleaseContinueCardTitle() {
 
-		return S("Going on, with thanks ...", "Continuing, grateful for your courtesy ...");
+		return S("Nous poursuivons donc, en vous remerciant ...", "Nous continuons, en étant reconnaissances de votre courtoisie ...");
 	}
-
+///reprendre///
 	protected String pleaseContinuePreSpeech() {
 
 		return s(S("Of course, i", "I") + "t’s a pleasure.")
