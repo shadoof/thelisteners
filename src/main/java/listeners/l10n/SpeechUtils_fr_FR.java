@@ -497,12 +497,12 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 		return S("Nous poursuivons donc, en vous remerciant ...", "Nous continuons, en étant reconnaissances de votre courtoisie ...");
 	}
-///reprendre///
+
 	protected String pleaseContinuePreSpeech() {
 
-		return s(S("Of course, i", "I") + "t’s a pleasure.")
-				+ s("Thank you for " + s(s("asking to continue.", "asking."), "asking to continue, so nicely."),
-						"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It’s a pleasure."))
+		return s(S("Bien sûr, a", "A") + "vec plaisir.")
+				+ s("Nous vous remercions de " + s(s("nous avoir demandé de continuer.", "votre demande."), "nous avoir demandé, si gentiment, de continuer."),
+						"Merci de nous l'avoir demandé " + s("si gentiment.", "avec une telle courtoisie.") + s("Ce sera un plaisir pour nous."))
 				+ breath();
 	}
 
@@ -513,15 +513,15 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 
 		if ("".equals(affect)) {
-			preSpeech += "We do not seem to " + s("know about,", "be aware of,")
-					+ s("the feelings that possess you.", "the feelings that you are experiencing.") + breath();
-			preSpeech += s("Please", "You may") + s("tell us,", "inform us about them,") + "if you wish. "
+			preSpeech += "Nous ne semblons pas " + r("`être au courant de , `reconnaître `être conscientes de)
+					+ s("vos émotions telles qu'elles vous habitent.", "ce que vous ressentez présentement.") + breath();
+			preSpeech += s("S'il-vous-plaît", "À votre discrétion,") + s("dites-nous,", "vous pouvez nous en informer,") + "si vous les souhaitez. "
 					+ breathLong();
 		}
 		else {
 			if (isPositive(affect)) {
-				preSpeech = "We are " + s("so") + s("pleased", "delighted");
-				preSpeech = randInt(0, 3) == 0 ? "It is pleasing to us " : preSpeech;
+				preSpeech = "Nous sommes " + s("si") + s("enchantées", "ravies");
+				preSpeech = randInt(0, 3) == 0 ? "C'est très agréable pour nous " : preSpeech;
 			}
 			else {
 				String adjective = s("sorry", "dismayed");
@@ -532,7 +532,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 			}
 			preSpeech += String.format(
-					"to " + s("know", "have learned") + "that you are filled with %s. " + breathLong(), affect);
+					"d" + s("e savoir", "'avoir appris") + "que vous êtes rempli de %s. " + breathLong(), affect);
 		}
 
 		return preSpeech;
@@ -540,13 +540,13 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String previousCardTitle() {
 
-		return S("Trying to return", "Going back") + "to " + s("a previous thought", "previous thoughts")
+		return S("Mais revenons", "Retournous") + "à " + s("une pensée précédente", "des pensées précédentes")
 				+ "...";
 	}
 
 	protected String readPoemCardTitle() {
 
-		return S("We recite some verse", "The Listeners read, and adapt, some poetry");
+		return S("Nous récitons des vers", "Nous, celles qui sont À l'écoute, lisons, et adaptons, de la poésie");
 	}
 
 	protected String reallyWantToAbandon() {
@@ -556,36 +556,36 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 		if (affect != null && !affect.isEmpty() && !isPositive(affect)) {
 			speech += String.format(
-					"We understand, " + s("and we are dismayed,") + "that you are filled with %s. ", affect);
-			speech += s("Still:", "Even so:") + breath();
+					"Nous comprenons, " + s("et nous sommes consternées d'apprendre,") + "que vous êtes rempli de %s. ", affect);
+			speech += s("Tout de même:", "Néanmoins:") + breath();
 		}
-		speech += "Do you " + s("truly", "really") + "want to " + s("abandon", "leave") + "us? ";
+		speech += "Est-ce que vous voulez " + s("vraiment", "réellement") + "nous " + s("abandonner", "quitter") + "? ";
 		return speech + breath();
 	}
 
 	protected String repeatCardTitle() {
 
-		return S("Say " + s("it", "that") + "a", "A") + "gain";
+		return S("Dites " + s("-le", " cela")) + "encore";
 	}
 
 	protected String speakFragmentCardTitle() {
 
-		return S("Speaking about something particular",
-				"We will mention what you asked us to speak " + s("about"));
+		return S("En parlant de quelque chose de précis",
+				"Nous mentionnerons ce que vous nous avez demandé de dire " + s("à propos de"));
 	}
 
 	protected String speakGuyzCardTitle() {
 
-		return S("Letting the other speak", "The other voice");
+		return S("Laisser l'autre personne parler", "Cette autre voix");
 	}
 
 	protected String guyzSpeechCardTitle() {
 
-		return S("The o", "O") + "thers " + S(s("are") + "speaking ...", "speak ...");
+		return S("Les a", "D'a") + "utres personnes " + S(s("nous") + "parlent ...", "parlent ...");
 	}
 
 	protected String specificAffectSpeech() {
-
+///reprendre///
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		affect = (affect == null) ? "" : affect; // needed at initialization
