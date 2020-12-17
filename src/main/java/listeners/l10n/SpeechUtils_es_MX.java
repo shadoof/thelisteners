@@ -29,9 +29,9 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String affectAsBreathingSpeech() {
 
 		String speech, s, f;
-		speech = s("Nosotros estamos escuchando.We are listening.", "We are " + s("somewhat shocked that", "surprised") + "you asked.")
+		speech = s("Nosotros estamos escuchando.We are listening.", "Nosotros estamos We are " + s("algo sorprendidos de quesomewhat shocked that", "sorprendidos de quesurprised") + "hayas preguntado.you asked.")
 				+ breath()
-				+ s("We, hear you.");
+				+ s("Nosotros, te escuchamos.We, hear you.");
 		speech += "This is a " + s("fragment", "passage") + "that may " + s("tell you", "show you");
 		speech += s(breathShort()) + "how " + s(breath()) + "we feel. ";
 		speech += breathLong();
