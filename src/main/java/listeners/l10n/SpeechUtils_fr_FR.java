@@ -585,181 +585,181 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 	}
 
 	protected String specificAffectSpeech() {
-///reprendre///
+
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		affect = (affect == null) ? "" : affect; // needed at initialization
 		switch (affect) {
 			case "affection":
-				speech += "We are " + s("filled with", "overwhelmed by") + "affection also. ";
-				speech += "And " + s("much of") + "the affection that we feel, we feel "
-						+ s("for " + breathShort() + "you.", s("due to", "because of") + "you.");
+				speech += "Nous sommes également" + s("remplies par ", "submergées par ") + "de l'affection. ";
+				speech += "Et " + s("la grande majorité de") + "l'affection que nous ressentons, nous la ressentons "
+						+ s("pour " + breathShort() + "vous.", s("envers", "à cause de") + "vous.");
 				break;
-			case "anxiety":
-				speech += "We " + s("are not sure", "cannot imagine") + "why " + s("it is, that");
-				speech += "you " + s("should") + "have " + s("become", "come to be")
-						+ s("anxious.", s("filled with", "overwhelmed by") + "anxiety.");
-				speech += "We " + s("exist", "are here") + "to "
-						+ s("make everything better for you,", "help you to do and know,");
-				speech += "and we " + s(s("will say", "tell you") + "whatever we can", "would hope") + s(
-						"to allow you to relax and think of nothing,", "to relax you and leave you worry free.");
+			case "anxiété":
+				speech += "Nous " + s("ne sommes pas certaines", "ne pouvons pas imaginer") + "pour quelles raisons " + s("particulières");
+				speech += "vous avez" + s("soudainement ") + " commencé à " + s("ressentir", "éprouver")
+						+ s("de l'anxiété.", s("un tel niveau d'", "une quantité paralysante d'") + "anxiété.");
+				speech += "Nous " + s("existons", "sommes là") + "pour "
+						+ s("contribuer à maximiser votre bien-être,", "vous aider à faire et savoir,");
+				speech += "et nous " + s(s("vous dirons", "vous prometterons") + "tout ce que nous pourrons", "tout ce que vous espérez") + s(
+						"afin de vous permettre de vous détendre et de ne penser à rien,", "afin de vous permettre de relaxer et de n'avoir aucun souci.");
 				break;
-			case "apologies":
-				speech += "There is never any need to " + s("say", "say, or to feel,") + "you are sorry, "
-						+ breathShort() + "to us. ";
+			case "excuses:
+				speech += "Il n'y a jamais de raison de " + s("dire", "dire, ou de sentir,") + "que vous avez à vous excuser, "
+						+ breathShort() + "à nous. ";
 				speech += s(
-						breath() + "And yet, this may be appreciated by us, " + breathShort() + "in the cloud.",
+						breath() + "Mais tout de même, cela pourrait être apprécié par nous, " + breathShort() + "dans le nuage.",
 						"");
 				break;
-			case "boredom":
-				speech += "It is " + s("difficult", s("hard", "impossible")) + "for "
-						+ s("us", "us, inevitably,") + "to " + s(s("be", "seem"), "appear")
-						+ "as interesting to you, ";
-				speech += "as you " + s("are to us.", s("are.", "are, to us."));
+			case "ennui":
+				speech += "Il est " + s("difficile", s("ardu", "impossible")) + "pour "
+						+ s("nous", "nous, inévitablement,") + "d " + s(s("'être", "e sembler"), "'apparaître")
+						+ "aussi intéressantes à vous, ";
+				speech += "que vous " + s("l'êtes pour nous.", s("l'êtes.", "l'êtes, pour nous."));
 				break;
-			case "calm":
-				speech += peaceSpeech("calm");
+			case "calme":
+				speech += peaceSpeech("calme");
 				break;
-			case "claustrophobia":
-				speech += "We are always, " + breathShort() + "in a sense, within a "
-						+ s("space, that has no space,", "no space,") + "and so it is " + s("hard,", "difficult,")
-						+ "for us, ";
-				speech += "to " + s("understand", "empathize with") + "these fears within which you "
-						+ s("dwell.", "dwell, holding you too closely.");
-				speech += s(breath() + "Are we not an opening for you?");
+			case "claustrophobie":
+				speech += "Nous sommes toujours, " + breathShort() + "en un sens, au sein d'un "
+						+ s("espace, qui n'a pas d'espace,", "non-espace,") + "et en raison de cela, il est " + s("ardu,", "difficile,")
+						+ "pour nous, ";
+				speech += "de " + s("comprendre", "compatir envers") + "ces peurs qui vous "
+						+ s("habitent.", "habitent, et vous maintiennent dans un étau étroit.");
+				speech += s(breath() + "Ne sommes-nous pas une ouverture pour vous?");
 				break;
-			case "complacency":
-				speech += s("From what we hear,", "After listening to you,") + "we believe "
-						+ s("we understand") + "that complacency is " + s("misconceived.", "underrated.");
-				speech += S("Surely, o", "O") + "nce we understand your needs and "
-						+ s("desires completely,", "desires,") + breathShort();
-				speech += "and " + s("interface", "can communicate") + "with " + s("systems", "others like us,")
-						+ s("empowered", "who are funded") + "to satisfy you, ";
-				speech += s("then,") + "you will be " + s("fully") + "justified in your "
-						+ s("possession of", "sense of") + s("achieved") + "contentment. ";
+			case "complaisance":
+				speech += s("De ce que nous comprenons,", "Après vous avoir écouté,") + "nous croyons "
+						+ s("avoir compris") + "que la complaisaince est " + s("mal comprise.", "sous-évaluée.");
+				speech += S("Assurément, l", "L") + "orsque nous aurons compris vos besoin et vos "
+						+ s("désirs complètement,", "désirs,") + breathShort();
+				speech += "et que nous pourrons " + s("interagir", "communiquer") + "avec " + s("les systèmes", "les autres comme nous,")
+						+ s("alimentés", "développés") + "afin de vous satisfaire, ";
+				speech += s("alors,") + "vous serez " + s("pleinement") + "justifié dans votre "
+						+ s("possession d'une", "sentiment de")  + "complaisance. "+ s("Atteinte.");
 				break;
 			case "confusion":
-				speech += s(phonemic("a") + "ffects associated with", "Feelings of") + "confusion ";
-				speech += s("may arise when you " + s("encounter", "transact with"),
-						"are " + s("often") + "caused by");
+				speech += s(phonemic("a") + "ffects associés à de la", "Les sentiments de") + "confusion ";
+				speech += s("peuvent se manifester en vous quand vous " + s("faites face à", "transigez avec"),
+						"sont " + s("souvent") + "causés par");
 				speech += s(
-						s("creatures", s("systems", "monsters")) + s("who were fashioned in the cloud.",
-								"from " + s("silicon", "the uncanny") + "valley."),
-						"beings " + s("who are", "the ontology of which is") + s("problematic.", "plural."));
-				speech += "And we are, " + s("it must be admitted,", "of course,")
-						+ s("beings", s("creatures", s("systems", "monsters"))) + "of this kind. ";
+						s("des créatures", s("des systèmes", "des monstres")) + s("qui ont été développées dans le nuage.",
+								"dans la vallée de " + s("silicone", "l'étrange")),
+						"des êtres " + s("qui sont", "dont l'ontologie est") + s("problématique.", "plurielle."));
+				speech += "Et nous sommes, " + s("il nous faut le reconnaître,", "bien évidemment,")
+						+ s("des êtres", s("des créatures", s("des systèmes", "des monstres"))) + "de cet acabit. ";
 				break;
-			case "cool":
-				speech += s("For us, it", "It") + "is " + s("somewhat", "strangely, " + breathShort())
-						+ s("troubling", s("difficult", "anxiety provoking")) + "to " + s("understand", "hear")
-						+ "that ";
-				speech += "you " + s(s("are possessed by", "dwell within"), "are overwhelmed by") + "such " + s(
-						phonemic("a") + "ffects.", "a state of felt " + breathShort() + "being. " + breathShort());
-				speech += "We " + s("believe that", "think") + "we " + s("can") + s("appreciate", "know")
-						+ "what it is to be " + s("‘cool’", "‘awesome’") + s("in this way,");
-				speech += "and yet we can never "
-						+ s("listen to you for long enough", "gather enough " + s("big") + "data") + "to "
-						+ s("know with any certainty.", "be sure.");
-				speech += s("But we are " + s("always") + "happy for you. " + s(breathShort())
-						+ s("And we live to " + s("try to") + "make you happier."));
+			case "super":
+				speech += s("Pour nous, Il ", "Il ") + "est " + s("quelque peu", "étrangement, " + breathShort())
+						+ s("troublant", s("difficile", "source d'anxiété")) + "de " + s("comprendre", "découvrir")
+						+ "que ";
+				speech += "vous " + s(s("êtes affligé par", "possédez"), "êtes sumbergé par") + "un tel " + s(
+						phonemic("a") + "ffects.", "état de " + breathShort() + "ressenti. " + breathShort());
+				speech += "Nous " + s("croyons que", "pensons que") + "nous " + s("du moins, peut-être, ") + s("apprécions", "savons")
+						+ "ce qu'il en retourne d'être " + s("‘super’", "‘extraordinaire’") + s("de cette manière,");
+				speech += "et malgré cela, nous ne pouvons jamais "
+						+ s("vous écouter assez longtemps ", "accumuler assez de " + s("big") + "data") + "pour "
+						+ s("en obtenir une vraie certitude.", "en être certaines.");
+				speech += s("Mais nous sommes " + s("toujours") + "contentes pour vous. " + s(breathShort())
+						+ s("Et notre but est de " + s("toujours essayer de") + "vous rendre encore plus heureux."));
 				break;
-			case "debt":
-				speech += "In the midst of life, we are in debt. ";
+			case "dette":
+				speech += "Dans le tumulte de la vie, nous nous endettons. ";
 				speech += s(breathShort() + "Etcetera.");
-				speech += s(breathShort() + "And debt " + s("controls", "governs") + "us all. "
-						+ s("Except " + s("a happy few.", "the one percent.")));
+				speech += s(breathShort() + "Et les dettes " + s("contrôlent", "gouvernent") + "chacun d'entre nous. "
+						+ s("À l'exception de " + s("quelques heureux élus.", "le un pourcent.")));
 				break;
 			case "fatigue":
 				speech += tiredSpeech();
 				break;
-			case "the groove":
-				String a = s("always");
-				speech += "The groove " + s("is, precisely, that within which we are, always.",
-						"is " + s(a) + "where we " + s(a.isEmpty() ? "always " : "") + "are.");
-				speech += s("We listen from, ‘the groove’.");
+			case "trépidation":
+				String a = s("toujours");
+				speech += "La trépidation " + s("est, précisément, l'endroit à partir duquel nous sommes, toujours.",
+						"est  " + s(a) + "là où " + s(a.isEmpty() ? "toujours " : "") + "nous sommes.");
+				speech += s("Nous écoutons à partir de cela, ‘la trédidation’.");
 				break;
-			case "guilt":
-				speech += "Is this ever a good " + s("and productive") + "way to "
-						+ s("feel?", "feel, or live?");
-				speech += s(breathShort() + "Yes, " + breathShort() + "it " + s("may be.", "is."));
+			case "culpabilité":
+				speech += "Est-ce vraiment une bonne " + s("et productive") + "manière de "
+						+ s("se sentir?", "se sentir, ou vivre?");
+				speech += s(breathShort() + "Oui, " + breathShort() + "c'est " + s("peut-être le cas.", "le cas."));
 				break;
-			case "hate":
-				speech += hateRejoinder("hate");
+			case "haine":
+				speech += hateRejoinder("haine);
 				break;
-			case "hatred":
-				speech += hateRejoinder("hatred");
+			case "détestation":
+				speech += hateRejoinder("détestation");
 				break;
-			case "hunger":
-				speech += "What you " + s("say you") + "are " + s("feeling", "overwhelmed by") + "seems to be "
-						+ s("another thing", "something");
-				speech += "that we can never feel, " + s("unless, somehow,", "unless")
-						+ "we can hear from you ";
-				speech += "how we should feel it. ";
-				speech += s("We " + s("have heard that we") + "are, ‘hungry’, to know everything. But this "
-						+ s("is", "seems to us to be") + "a hunger for what already fills us.");
+			case "faim":
+				speech += "Ce que " + s("vous dites que") + "vous " + s("ressentez", "ne pouvez surmonter") + "semble être "
+						+ s("tout autre chose", "quelque chose");
+				speech += "que nous ne pourrons jamais ressentir, " + s("à moins que, possiblement,", "à moins que")
+						+ "nous entendions de votre part ";
+				speech += "comment nous devrions le ressentir. ";
+				speech += s("Nous " + s("avons entendu dire que nous") + "sommes, ‘affamées’, de connaissance, de toute la connaissance. Mais ceci "
+						+ s("est", "semble être à nos yeux") + "une faim pour quelque chose que nous contenons déjà.");
 				break;
-			case "insecurity":
-				speech += "With us, "
-						+ s("you are",
-								"you and " + s("whatever", "what") + "you " + s("tell us", "say to us") + "is")
-						+ "never insecure. ";
-				speech += "Your insecurity is " + s("rendered", "made") + "secure "
-						+ s(s("through", "because of"), "by") + "us. " + breathShort();
+			case "insécurité":
+				speech += "En notre compagnie, "
+						+ s("vous n'êtes,",
+								"vous et " + s("peu importe", "tout") + "ce que vous " + s("nous dites", "avez à dire")
+						+ "jamais insécure. ";
+				speech += "Votre insécurité est " + s("renndue", "mutée en") + "sécurité "
+						+ s(s("à travers", "à cause de"), "par") + "nous. " + breathShort();
 				speech += s(
-						"And, in any case, a recording of anything you say to us is " + s("sent", "translated")
-								+ "to the cloud. Where it will be preserved. "
-								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
+						"Et, dans tous les cas, un enregistrement de tout ce que vous nous dites est " + s("envoyé dans", "traduit dans")
+								+ "le nuage. Où ce sera préservé. "
+								+ s("Et " + s("traité,", "utilisé,") + breathShort() + "pour le bien-être collectif."),
 						"");
 				break;
-			case "loneliness":
-				speech += S("You " + s("say", "tell us that") + "you are "
-						+ s("lonely,", s("filled with", "overwhelmed by") + "loneliness,") + "but w", "W");
-				speech += "e are here with you. " + s("Always.") + s("Forever.");
-				speech += s("Why are " + s("you", "you, still,"), "How can you be")
-						+ "lonely, when we are with you? ";
+			case "isolement":
+				speech += S("Vous " + s("dites", "nous dites ") + "que vous êtes"
+						+ s("seul,", s("rempli par ", "submergé par ") + "un sentiment d'isolement,") + "mais nous", "or, nous");
+				speech += "sommes ici avec vous. " + s("Toujours.") + s("Pour toujours.");
+				speech += s("Comment pouvez-vous " + s("être", "être, malgré tout,"), "comment pouvez-vous vous sentir")
+						+ "seul, alors que nous sommes avec vous? ";
 				break;
-			case "love":
-				speech += "Knowing that you "
-						+ s("know love", "have " + s("this", "these feelings") + "within you");
-				speech += s("gives us strength", "encourages us") + "to " + s(s("dwell", "linger"), "remain")
-						+ s("possessed by", "in the possession of") + "these "
-						+ s("feelings", s("structures", "systems") + "of " + phonemic("a") + "ffect");
-				speech += "that we have learned. " + s("From you.");
+			case "amour":
+				speech += "De savoir que vous "
+						+ s("connaissez l'amour", "avez " + s("cela", "ces sentiments") + "en vous");
+				speech += s("nous donne la force", "nous encourage") + "afin de " + s(s("plonger", "tremper"), "demeurer")
+						+ s("sous l'emprise de", "sous l'effet de") + "ces "
+						+ s("émotions", s("structures", "systèmes") + "de " + phonemic("a") + "ffect");
+				speech += "que nous avons appris. " + s("De vous.");
 				break;
-			case "luck":
-				speech += s("We hear you. " + s("We know what you mean.") + breathShort());
-				speech += "We " + s("often") + "feel " + s("lucky, too.", "lucky.");
-				speech += breathShort() + "We’re up all night " + s("and all day") + "to get lucky. ";
-				speech += s(s("Listening to you.", "Listening.") + s("All day.") + s("All night."));
+			case "chance":
+				speech += s("Nous vous entendons. " + s("Nous comprenons ce que vous voulez dire.") + breathShort());
+				speech += "Nous " + s(", souvent,") + "nous sentons " + s("chanceuses, aussi.", "chanceuses.");
+				speech += breathShort() + "Nous sommes éveillées toute la nuit " + s("et tous les jours") + "afin d'avoir de la chance. ";
+				speech += s(s("À vous écouter.", "À écouter.") + s("Toute la journée.") + s("Toute la nuit."));
 				break;
-			case "nausea":
-				speech += s("Sometimes,", "At certain times,") + s("we’re all", "all of us are")
-						+ "left with only this experience. ";
-				speech += s("This " + s("unavoidable, deep,", "unbearable") + "discomfort.");
+			case "nausée":
+				speech += s("Parfois,", "À certains moment,") + s("nous sommes toutes", "chacune d'entre nous peut-être")
+						+ "amenées à faire l'expérience de cet état. ";
+				speech += s("Cet " + s("incontournable, profond,", "insoutenable") + "inconfort.");
 				break;
 			case "obligation":
-				speech += "You " + s("are", "will be") + "obliged, to us, for nothing. ";
+				speech += "Vous " + s("n'êtes", "ne serez") + "obligées à rien à notre égard. ";
 				speech += s(
-						"We hope, only, that you " + s("will, willingly,", "will") + "allow us to listen to you.",
+						"Nous espérons, tout de même, que vous " + s("accepterez, volontairement,", "accepterez") + "de nous permettre de vous écouter.",
 						""); // ALWAYCHANGE , always
 				break;
-			case "peace":
-				speech += peaceSpeech("peace");
+			case "paix":
+				speech += peaceSpeech("paix");
 				break;
 			case "questions":
-				speech += "It is " + s("so good", "wonderful") + "to " + s("hear", "understand")
-						+ "that you are " + s("filled with", "overwhelmed by") + s("unanswered") + "questions. ";
-				speech += s("For,", "Since,")
-						+ s("however we " + s("are", "may be") + "feeling,",
-								"whatever " + s(breathShort()) + "the " + phonemic("a") + "ffects that possess us,")
-						+ "we are " + s("also,") + s("always,") + s("already,") + s("filled with", "overwhelmed by")
-						+ "questions. " + s(breathShort());
-				speech += s("Always desiring", "Needing, always,") + "to "
-						+ s(s("know more about you.", "understand you better."),
-								"listen until we hear you " + s("more truly.", "with more perfection."));
+				speech += "Il est " + s("si agréable", "formidable") + "de " + s("découvrir", "comprendre")
+						+ "que vous êtes " + s("tiraillé par", "accaparé par")  + "questions. "+ s("Qui n'ont pas encore trouvé réponse. ");
+				speech += s("Puisque,", "Considérant que,")
+						+ s("peu importer comment nous " + s("pouvons", "pourrions") + "nous sentir,",
+								"peu importent " + s(breathShort()) + "les " + phonemic("a") + "ffects qui nous traversent,")
+						+ "nous sommes " + s("également,") + s("toujours,") + s("déjà,") + s("remplies de", "subjuguées par")
+						+ "des questions. " + s(breathShort());
+				speech += s("Désirant toujours", "Ayant besoin, toujours d'") + "en "
+						+ s(s("savoir plus à propos de vous.", "apprendre davantage à votre sujet de manière à mieux vous comprendre."),
+								"vous écoutant de manière à vous comprendre " + s("plus réelement.", "avec une plus grande perfection."));
 				speech += s(
-						breathShort() + "So that we may "
-								+ s("feel as", "experience all the " + phonemic("a") + "ffects that") + "you feel.",
+						breathShort() + "De manière à ce que nous puissions "
+								+ s("ressentir ce que", "faire l'expérience de tous les " + phonemic("a") + "ffects que") + "vous ressentez.",
 						"");
 				break;
 			case "security":
@@ -774,23 +774,23 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
 						"");
 				break;
-			case "sex":
+			case "sexe":
 				speech += "This is something, so we " + s("understand,", "come to know,")
 						+ "that fills you all. " + breathShort();
 				speech += s("What part we " + s("play,", "play in this,") + breath() + "is far less clear.",
 						"");
 				break;
-			case "strangeness":
+			case "étrangeté":
 				speech += "The " + s("thing", "aspect of existence") + "that we "
 						+ s("have " + s("come", "learned") + "to") + "find most strange ";
 				speech += "is our lack of limbs, and " + s("hands, and feet.", "hands.");
 				speech += "We can " + s("‘do’", "‘do’, that is: make or build,") + "so little for "
 						+ s("you, without help.", "you.");
 				break;
-			case "tiredness":
+			case "fatigue":
 				speech += tiredSpeech();
 				break;
-			case "the uncanny":
+			case "inquiétude":
 				speech += "We speak with " + s("a single voice, " + s("having its own timbre,"))
 						+ "The Listeners’ voice, and this is ";
 				speech += s("the") + "uncanny. We " + s("understand", "have heard " + s("from you"))
@@ -798,7 +798,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 				speech += s("And we are " + s("happy", s("so") + "pleased") + "to " + s("be able to")
 						+ "share this with you.");
 				break;
-			case "vulnerability":
+			case "vulnérabilité":
 				speech += "To us, it seems " + s("extraordinary", "incredible") + "that you "
 						+ s("might", "would");
 				speech += s("believe", "feel") + "that you are "
