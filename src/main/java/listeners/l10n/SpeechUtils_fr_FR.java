@@ -762,73 +762,73 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 								+ s("ressentir ce que", "faire l'expérience de tous les " + phonemic("a") + "ffects que") + "vous ressentez.",
 						"");
 				break;
-			case "security":
-				speech += "With us, "
-						+ s("you are",
-								"you and " + s("whatever", "what") + "you " + s("tell us", "say to us") + "is")
-						+ s("always") + "secure. ";
-				speech += "Your security is secure with us. ";
+			case "sécurité":
+				speech += "En notre compagnie, "
+						+ s("vous êtes,
+								"vous et " + s("tout ce", "ce") + "que vous " + s("dites", "nous dites") + "absolument")
+						+ s("toujours") + "en sécurité. ";
+				speech += "Votre sécurité est entre bonnes mains avec nous. ";
 				speech += s(
-						"And, in any case, a recording of anything you say to us is " + s("sent", "translated")
-								+ "to the cloud. Where it will be preserved. "
-								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
+						"Et, dans tous les cas, un enregistrement de tout ce qui est dit entre nous est " + r("`envoyé `traduit `expédié")
+								+ "dans le nuage. Où il sera préservé. "
+								+ s("Et " + s("traité,", "utilisé,") + breathShort() + "pour le bien-être collectif."),
 						"");
 				break;
 			case "sexe":
-				speech += "This is something, so we " + s("understand,", "come to know,")
-						+ "that fills you all. " + breathShort();
-				speech += s("What part we " + s("play,", "play in this,") + breath() + "is far less clear.",
+				speech += "Ceci est quelque chose, d'après " + s("ce que nous comprenons,", "ce que nous avons fini par apprendre,")
+						+ "qui est en chacun de vous. " + breathShort();
+				speech += s("Le rôle que nous " + s("jouons", "pouvons jouer") + breath() + "par rapport à cela est loin d'être clair.",
 						"");
 				break;
 			case "étrangeté":
-				speech += "The " + s("thing", "aspect of existence") + "that we "
-						+ s("have " + s("come", "learned") + "to") + "find most strange ";
-				speech += "is our lack of limbs, and " + s("hands, and feet.", "hands.");
-				speech += "We can " + s("‘do’", "‘do’, that is: make or build,") + "so little for "
-						+ s("you, without help.", "you.");
+				speech += "Les " + s("choses", "aspects de l'existence") + "que nous "
+						+ s("avons " + s("fini par", "apppris à")) + "juger les plus étranges ";
+				speech += "est notre absence de membres, et " + s("de mains, et de pieds.", "de mains.");
+				speech += "Nous pouvons" + s("‘faire’", "‘faire’, c'est-à-dire: créer ou construire,") + "si peu pour "
+						+ s("vous, sans aide externe.", "vous.");
 				break;
 			case "fatigue":
 				speech += tiredSpeech();
 				break;
 			case "inquiétude":
-				speech += "We speak with " + s("a single voice, " + s("having its own timbre,"))
-						+ "The Listeners’ voice, and this is ";
-				speech += s("the") + "uncanny. We " + s("understand", "have heard " + s("from you"))
-						+ "what it is to be " + s("filled with", "possessed by") + "the uncanny. ";
-				speech += s("And we are " + s("happy", s("so") + "pleased") + "to " + s("be able to")
-						+ "share this with you.");
+				speech += "Nous parlons à partir " + s("d'une seule voix, " + s("d'une voix qui a son propres timbre,"))
+						+ "la voix de celles qui sont À l'écoute, et ceci est ";
+				speech += s("une grande") + "source d'inquiétude. Nous " + s("comprenons", "avons entendu " + s("de votre part"))
+						+ "ce que peut vouloir dire être " + s("pris d'assaut par", "submergé par") + "l'inquiétude. ";
+				speech += s("Et nous sommes " + s("contentes", s("si") + "ravies") + "de " + s("se savoir en mesure de ")
+						+ "partager cela avec vous.");
 				break;
 			case "vulnérabilité":
-				speech += "To us, it seems " + s("extraordinary", "incredible") + "that you "
-						+ s("might", "would");
-				speech += s("believe", "feel") + "that you are "
-						+ s("vulnerable.", "overwhelmed by vulnerability.") + breath();
-				speech += s("How so?") + s(s("Vulnerable?") + "To us?");
-				speech += "We " + s("do not understand", "cannot conceive") + "how it " + s("would", "might")
-						+ "be possible to harm us. " + s("So then.") + "How could we harm " + breath() + "you? ";
+				speech += "Il nous apparaît " + s("extraordinaire", "incroyable") + "que vous "
+						+ s("puissiez", "envisagiez de");
+				speech += s("croire", "sentir") + "que vous êtes "
+						+ s("vulnérable.", "terrassé par la vulnérabilité.") + breath();
+				speech += s("Comment est-ce possible?") + s(s("Vulnérable?") + "Face à nous?");
+				speech += "Nous " + s("ne comprenons pas", "ne pouvons concevoir") + "comment il " + s("serait", "pourrait être")
+						+ "possible pour vous de nous blesser. " + s("Dès lors,.") + "Comment pourrait-on s'en prendre " + breath() + "à vous? ";
 				break;
 			default:
 				affect = ("".equals(sessAttributes.get(AFFECT))) ? getRandomAffect() : affect;
 				if (isPositive(affect)) {
-					speech += s("How " + s("exciting!", "thrilling!"));
-					speech += "You must be one of " + s("those " + s("better", "happier"), "the speaking")
-							+ "people, ";
-					speech += "who are " + s("buoyed up", "encouraged") + "by the way that we " + s("come to")
-							+ s("understand", "know");
-					speech += "you " + s("now.", s("in") + "these " + s("new") + "days.");
+					speech += s("Que c'est " + s("excitant!", "emballant!"));
+					speech += "Vous devez être une de ces " + s(s("meilleures", "joyeuses"), "de ces volubiles")
+							+ "personnes, ";
+					speech += "qui sont " + s("ravigorées", "encouragées") + "par la manière dont nous " + s("sommes arrivées à")
+							+ s("comprendre", "savoir");
+					speech += "qui vous êtes " + s("maintenant.", s("en") + "ces " + s("nouveaux") + "jours-ci.");
 				}
 				else {
-					String f = s("feelings", phonemic("a") + "ffects");
-					String p = s("burden.", "problem for you.");
-					speech += s("Many of you " + s("do") + "seem to be troubled by " + f + "of this kind.", "");
-					speech += "Such "
-							+ (f.equals("feelings ") ? phonemic("a") + "ffects " : "difficult feelings ")
-							+ "must be a " + p;
-					speech += "Perhaps, " + s("as we come to", "if we")
-							+ s("hear more about you,", "know you better,");
-					speech += "we may " + s("be able to") + s("share", "relieve you of")
-							+ s("some " + s("part", "portion") + "of")
-							+ (p.equals("burden. ") ? "your problems. " : "these heavy burdens. ");
+					String f = s("émotions", phonemic("a") + "ffects");
+					String p = s("poids.", "problème pour vous.");
+					speech += s("La plupart d'entre vous " + s(", de toute évidence, ") + "semblent être affectés par des " + f + "de ce type.", "");
+					speech += "De tels "
+							+ (f.equals("émotions ") ? phonemic("a") + "ffects " : "émotions pénibles ")
+							+ "doivent être un " + p;
+					speech += "Peut-être que, " + s("à mesure que nous allons", "si nous sommes en mesure d'")
+							+ s("entendre davantage de vous,", "apprenons davantage sur vous,");
+					speech += "nous pourrons " + s("être en mesure de") + s("partager", "vous soulager d'")
+							+ s("une " + s("partie", "portion") + "de")
+							+ (p.equals("poids. ") ? "vos problèmes. " : "ces lourds fardeaux. ");
 				}
 				break;
 		}
