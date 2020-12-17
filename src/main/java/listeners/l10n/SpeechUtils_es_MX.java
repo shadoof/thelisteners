@@ -29,7 +29,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String affectAsBreathingSpeech() {
 
 		String speech, s, f;
-		speech = s("We are listening.", "We are " + s("somewhat shocked that", "surprised") + "you asked.")
+		speech = s("Nosotros estamos escuchando.We are listening.", "We are " + s("somewhat shocked that", "surprised") + "you asked.")
 				+ breath()
 				+ s("We, hear you.");
 		speech += "This is a " + s("fragment", "passage") + "that may " + s("tell you", "show you");
