@@ -32,8 +32,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		speech = s("Nosotros estamos escuchando.We are listening.", "Nosotros estamos We are " + s("algo sorprendidos de quesomewhat shocked that", "sorprendidos de quesurprised") + "hayas preguntado.you asked.")
 				+ breath()
 				+ s("Nosotros, te escuchamos.We, hear you.");
-		speech += "This is a " + s("fragment", "passage") + "that may " + s("tell you", "show you");
-		speech += s(breathShort()) + "how " + s(breath()) + "we feel. ";
+		speech += "Esto es un This is a " + s("fragentofragment", "pasajepassage") + "que debothat may " + s("decirtetell you", "mostrarteshow you");
+		speech += s(breathShort()) + "cómohow " + s(breath()) + "lo sentimos. we feel. ";
 		speech += breathLong();
 		if (heads()) {
 			speech += "This is a " + choosePhrase() + SPC;
