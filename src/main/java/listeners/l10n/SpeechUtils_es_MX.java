@@ -79,19 +79,19 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			speech += breathLong() + "que fue seguido por un largo that was followed by a long " + f + ". ";
 			speech += breathLonger();
 		}
-		speech += "This is a " + choosePhrase() + ". ";
-		speech += breathLong() + "that was followed by a " + s(s("nightmare", "breath"), "feeling")
-				+ "withheld. ";
+		speech += "Esto es un This is a " + choosePhrase() + ". ";
+		speech += breathLong() + "que fue seguido por una that was followed by a " + s(s("pesadillanightmare", "respiraciónbreath"), "emociónfeeling")
+				+ "pausadawithheld. ";
 		speech += breathLonger();
 		if (heads()) {
-			speech += "This is a " + s("phrase", "sentence") + SPC;
-			speech += breathLonger() + "that was followed by a longer "
-					+ s(s("nightmare.", "pause."), "feeling.");
+			speech += "Esto es una This is a " + s("frasephrase", "oraciónsentence") + SPC;
+			speech += breathLonger() + "que fue seguida por una larga that was followed by a longer "
+					+ s(s("pesadilla.nightmare.", "pausa.pause."), "emociónfeeling.");
 			speech += breathLonger();
 		}
-		speech += "How, ever, could we feel more, and then, " + breath();
-		speech += "what " + s("would", "should") + "we feel? "
-				+ s("what, should we. " + breath() + "feel?");
+		speech += "¿Cómo, alguna vez, podríamos sentir más, y luego, How, ever, could we feel more, and then, " + breath();
+		speech += "quéwhat " + s("podríamoswould", "deberíamosshould") + "nosotros sentir? we feel? "
+				+ s("¿Qué, deberíamos. what, should we. " + breath() + "sentirfeel?");
 
 		return speech + breath();
 	}
@@ -103,13 +103,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String askPersistenceCardTitle() {
 
-		return S("Save your place?", "Start from scratch?");
+		return S("¿Guardar tu lugar?Save your place?", "¿Empezar desde cero?Start from scratch?");
 	}
 
 	protected String askPersistenceSpeech() {
 
-		String speech = s("Would you like us to remember something of our conversation?",
-				"Would you like us to remember roughly what we’ve heard and said to you so far?");
+		String speech = s("¿Te gustaría que recordemos algo de tu conversación?Would you like us to remember something of our conversation?",
+				"¿Te gustaría que recordemos aproximadamente lo que hemos escuchado y dicho hasta ahora?Would you like us to remember roughly what we’ve heard and said to you so far?");
 
 		return speech;
 	}
@@ -121,13 +121,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String askStartOverCardTitle() {
 
-		return S("You want to start over?", "Start from scratch?");
+		return S("¿Quieres empezar de nuevo?You want to start over?", "¿Empezar desde el principio?Start from scratch?");
 	}
 
 	protected String askStartOverSpeech() {
 
-		String speech = s("Would you like to start over from the beginning?",
-				"Would you like us to forget what we’ve heard and said to you so far?");
+		String speech = s("¿Te gustaría empezar de nuevo desde el principio?Would you like to start over from the beginning?",
+				"¿Te gustaría que olvidemos lo que hemos escuchado y dicho hasta ahora?Would you like us to forget what we’ve heard and said to you so far?");
 
 		return speech;
 	}
@@ -143,28 +143,28 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String reprompt = "";
 		switch (randInt(0, upperLimit)) {
 			case 0:
-				reprompt += s("Shall we " + s("go on?", "continue?"),
-						s(s("Do you want to", "Would you like to") + "hear more?",
-								s("Please say, ‘yes’ for more.", "More?")));
+				reprompt += s("¿Nosotros vamos a Shall we " + s("seguir?go on?", "continuar?continue?"),
+						s(s("¿QuieresDo you want to", "¿Te gustaríaWould you like to") + "escuchar máshear more?",
+								s("Por favor diPlease say, ‘síyes’ para escuchar más.for more.", "¿Más?More?")));
 				break;
 			case 1:
 				reprompt += s(
-						"Is there more that you would " + s("like", "care") + "to " + s("hear?", "hear from us?"),
+						"¿Hay más de lo que te Is there more that you would " + s("gustaríalike", "importaríacare") + "to " + s("escucharhear?", "escuchar de nosotroshear from us?"),
 						"");
-				reprompt += s("We are listening."); // ALWAYCHANGE Always.
-				reprompt += s("You may " + s("always"), "Just") + "ask us to " + s("go on.", "continue.");
+				reprompt += s("Nosotros estamos escuchando.We are listening."); // ALWAYCHANGE Always.
+				reprompt += s("Tú puedesYou may " + s("siemprealways"), "SoloJust") + "pedir queask us to " + s("sigamos.go on.", "continuemos.continue.");
 				break;
 			case 2:
-				reprompt += "You " + s("may", "can") + "ask us to ‘speak’ " + s("about")
-						+ s("any of the following:") + breath();
+				reprompt += "TúYou " + s("debesmay", "puedescan") + "pedirnos que ask us to ‘hablemosspeak’ " + s("acerca deabout")
+						+ s("cualquiera de los siguientes puntos:any of the following:") + breath();
 				reprompt += chooseSomeFragmentNames() + breath();
-				reprompt += "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
-						+ s("go on.", "continue.");
+				reprompt += "O tú Or you " + s("debes, simplemente,may, simply,", "debesmay") + s("pedirask", "decirtell") + "nos queus to "
+						+ s("sigamosgo on.", "continuemoscontinue.");
 				break;
 			case 3:
-				reprompt += s(s("Perhaps, now,", "Perhaps") + "you would", "Would you");
-				reprompt += "like to " + s(s("ask", "tell") + "us to") + s("‘continue’?", "‘go on’?");
-				reprompt += s("Listening to us, as we listen to you?");
+				reprompt += s(s("Quizás, ahora,Perhaps, now,", "QuizásPerhaps") + "a tiyou would", "Would you");
+				reprompt += "te gustaríalike to " + s(s("pedirask", "decirtell") + "nos queus to") + s("‘continuemoscontinue’?", "‘sigamosgo on’?");
+				reprompt += s("Escuchándonos a nosotros, como nosotros te escuchamos a ti?Listening to us, as we listen to you?");
 				break;
 			case 4:
 				reprompt += s("You " + s("may", "can") + "always",
