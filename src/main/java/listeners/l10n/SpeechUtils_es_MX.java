@@ -32,51 +32,51 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		speech = s("Nosotros estamos escuchando.We are listening.", "Nosotros estamos We are " + s("algo sorprendidos de quesomewhat shocked that", "sorprendidos de quesurprised") + "hayas preguntado.you asked.")
 				+ breath()
 				+ s("Nosotros, te escuchamos.We, hear you.");
-		speech += "Esto es un This is a " + s("fragentofragment", "pasajepassage") + "que debothat may " + s("decirtetell you", "mostrarteshow you");
+		speech += "Esto es un This is a " + s("fragentofragment", "pasajepassage") + "que puede that may " + s("decirtetell you", "mostrarteshow you");
 		speech += s(breathShort()) + "cómohow " + s(breath()) + "lo sentimos. we feel. ";
 		speech += breathLong();
 		if (heads()) {
-			speech += "This is a " + choosePhrase() + SPC;
-			speech += "that was followed by a space. ";
+			speech += "Esto es un This is a " + choosePhrase() + SPC;
+			speech += "que fue seguido por un espacio. that was followed by a space. ";
 			speech += breathLonger();
 		}
 		s = choosePhrase();
-		speech += "This is a " + s + ", ";
-		speech += "that was followed by a " + (s.equals("feeling") ? "comma. " : s("feeling.", "comma."));
+		speech += "Esto es un This is a " + s + ", ";
+		speech += "que fue seguido por un that was followed by a " + (s.equals("sentimientofeeling") ? "coma. comma. " : s("sentimiento.feeling.", "coma.comma."));
 		speech += breathLonger();
 		if (heads()) {
 			do {
 				s = choosePhrase();
 			}
-			while ("word".equals(s));
-			speech += "This is a " + s + ". ";
-			speech += "As a " + ("feeling".equals(s) ? "sentence. " : s("feeling.", "sentence."));
+			while ("palabraword".equals(s));
+			speech += "Esto es un This is a " + s + ". ";
+			speech += "Como un As a " + ("sentimientofeeling".equals(s) ? "oración. sentence. " : s("sentimiento.feeling.", "frase.sentence."));
 			speech += breathLonger();
 		}
 		if (heads()) {
 			s = choosePhrase();
-			speech += "<p>This is a " + s + ".</p> ";
-			speech += "As a " + (s.equals("feeling") ? "paragraph. " : s("feeling.", "paragraph."));
+			speech += "<p>Esto es un This is a " + s + ".</p> ";
+			speech += "Como un As a " + (s.equals("sentimientofeeling") ? "párrafo. paragraph. " : s("sentimiento.feeling.", "párrafo.paragraph."));
 			speech += breathLonger();
 		}
 		if (heads()) {
 			s = choosePhrase();
-			f = ("feeling".equals(s) ? S("breath", "dream") : S("feeling", "dream"));
-			speech += "This is a " + s + SPC;
-			speech += breath() + "that was followed by a " + f + ". ";
+			f = ("sentimientofeeling".equals(s) ? S("respiraciónbreath", "sueñodream") : S("sentimientofeeling", "sueñodream"));
+			speech += "Esto es un This is a " + s + SPC;
+			speech += breath() + "que fue seguido por un that was followed by a " + f + ". ";
 			speech += breathLonger();
 		}
-		speech += "Is this a question? ";
-		speech += breath() + "It was followed by a " + S(S("breath", "dream"), "feeling") + ". ";
+		speech += "¿Es esta la pregunta? Is this a question? ";
+		speech += breath() + "Eso fue seguido por unIt was followed by a " + S(S("suspirobreath", "sueñodream"), "sentimientofeeling") + ". ";
 		speech += breathLonger();
-		speech += "This is a " + breath() + s("phrase,", "feeling,");
-		speech += breath() + "that was interrupted by a " + s("breath.", s("dream.", "nightmare."));
+		speech += "Esto es una This is a " + breath() + s("frasephrase,", "emociónfeeling,");
+		speech += breath() + "que fue interrumpida por un that was interrupted by a " + s("suspiro.breath.", s("sueño.dream.", "pesadilla.nightmare."));
 		speech += breathLonger();
 		if (heads()) {
 			s = choosePhrase();
-			f = ("feeling".equals(s) ? S("breath", "dream") : S("feeling", "nightmare"));
-			speech += "This is a " + s + SPC;
-			speech += breathLong() + "that was followed by a long " + f + ". ";
+			f = ("sentimientofeeling".equals(s) ? S("respiraciónbreath", "sueñodream") : S("sentimientofeeling", "pesadillanightmare"));
+			speech += "Esto es un This is a " + s + SPC;
+			speech += breathLong() + "que fue seguido por un largo that was followed by a long " + f + ". ";
 			speech += breathLonger();
 		}
 		speech += "This is a " + choosePhrase() + ". ";
