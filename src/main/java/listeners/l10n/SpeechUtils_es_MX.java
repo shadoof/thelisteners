@@ -167,33 +167,33 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				reprompt += s("Escuchándonos a nosotros, como nosotros te escuchamos a ti?Listening to us, as we listen to you?");
 				break;
 			case 4:
-				reprompt += s("You " + s("may", "can") + "always",
-						s("If you like, please", "Please") + s("do"));
+				reprompt += s("TúYou " + s("debesmay", "puedescan") + "siemprealways",
+						s("Si tú quieres, por favorIf you like, please", "Por favorPlease") + s("hacernosdo"));
 				reprompt += s(
-						"ask " + s(s(
-								"us to ‘recall’ " + s("your feelings.",
-										"the " + s("feelings", phonemic("a") + "ffect") + "within which you dwell."),
-								"us, ‘What am I feeling?’"), "what we are feeling."),
-						"tell us " + s("your feelings about all this.",
-								s("your feelings.", "the feelings that possess you.")));
-				reprompt += breathShort() + "Or you " + s("may, simply,", "may") + s("ask", "tell") + "us to "
-						+ s("go on.", "continue.");
+						"peticionesask " + s(s(
+								"para us to ‘recordarrecall’ " + s("tus sentimmientosyour feelings.",
+										"the " + s("sentimientosfeelings", phonemic("a") + "ffect") + "dentro de los cuales habitas.within which you dwell."),
+								"nosotros,us, ‘¿Qué estoy sintiendo?What am I feeling?’"), "Lo que nosotros estamos sintiendo.what we are feeling."),
+						"dinostell us " + s("tus sentimientos acerca de todo esto.your feelings about all this.",
+								s("tus sentimientosyour feelings.", "los sentimientos que te poseenthe feelings that possess you.")));
+				reprompt += breathShort() + "O tú Or you " + s("puedes, simplemente,may, simply,", "puedesmay") + s("pedirask", "decirtell") + "nos que us to "
+						+ s("sigamos.go on.", "continuemos.continue.");
 		}
 		return reprompt;
 	}
 
 	protected String choosePhrase() {
 
-		String phrase = "phrase";
+		String phrase = "frasephrase";
 		switch (randInt(0, 3)) {
 			case 0:
-				phrase = "word";
+				phrase = "palabraword";
 				break;
 			case 1:
-				phrase = "sentence";
+				phrase = "oraciónsentence";
 				break;
 			case 2:
-				phrase = "feeling";
+				phrase = "sentimientofeeling";
 		}
 		return phrase;
 	}
@@ -215,21 +215,21 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 		String speech = "";
 
-		speech += "You " + s("may", "might") + "always " + s("simply") + s("ask", "tell");
-		speech += "us to: ‘Continue’, or ‘Go on’. " + breath();
-		speech += "You may " + chooseTellUsAbout() + "your feelings, ";
-		speech += "by " + s("saying", "speaking") + "the words: " + breath();
-		speech += "‘I am " + s(s("filled with,’", "overwhelmed by,’"), "feeling,’")
-				+ "and then one of the nine " + phonemic("a")
-				+ s("ffects, that is, a name for one of the nine feelings.", "ffects.") + breathLong();
-		speech += s("And", "Or,") + "you " + s("may", "might") + "even ask us how we "
-				+ s(s("feel.", "are feeling."), "feel, ourselves.") + breath();
+		speech += "TúYou " + s("puedesmay", "podríasmight") + "siemprealways " + s("simplementesimply") + s("pedirask", "decirtell");
+		speech += "nos que: us to: ‘continuemosContinue’, oor ‘sigamosGo on’. " + breath();
+		speech += "Tú puedes You may " + chooseTellUsAbout() + "tus sentimientosyour feelings, ";
+		speech += "by " + s("diciendosaying", "hablandospeaking") + "las palabrasthe words: " + breath();
+		speech += "‘Yo estoy I am " + s(s("lleno de, filled with,’", "abrumado por, overwhelmed by,’"), "sentimiento,feeling,’")
+				+ "y luego uno los nueveand then one of the nine " + phonemic("a")
+				+ s("fectos, que es, un nombre para uno de los nueve sentimientos.ffects, that is, a name for one of the nine feelings.", "fectos.ffects.") + breathLong();
+		speech += s("YAnd", "OOr,") + "tú you " + s("puedesmay", "podríasmight") + "incluso preguntarnos cómo nosotros even ask us how we "
+				+ s(s("nos sentimos.feel.", "nos estamos sientiendo.are feeling."), "nos sentimos, a nosotros mismos.feel, ourselves.") + breath();
 
 		boolean heads = heads();
 
 		if (heads) {
-			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can "
-					+ s("hear,", "recognize,") + "include: " + breath();
+			speech += S("Algunos de los nSome of the n", "NN") + "ombres para los nueve ames for the nine " + phonemic("a") + "fectos, que nosotros podemos ffects, that we can "
+					+ s("escuchar,hear,", "reconocer,recognize,") + "incluyen: include: " + breath();
 			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
@@ -238,19 +238,19 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				if (i != (limit - 1))
 					speech += list.get(i) + ", " + breathShort();
 				else
-					speech += "and " + list.get(i) + ". ";
+					speech += "y and " + list.get(i) + ". ";
 			}
 			speech += breath();
 		}
 
 		if (!heads && heads()) {
-			speech += "Or, you " + s("may", "could") + "ask us to " + s("‘speak’,", "‘speak about’,")
-					+ s("any of the following:") + breath();
+			speech += "O, tú Or, you " + s("puedesmay", "podríascould") + "pedirnos que ask us to " + s("‘hablemosspeak’,", "‘hablemos acerca despeak about’,")
+					+ s("cualquiera de los siguientes:any of the following:") + breath();
 			speech += chooseSomeFragmentNames();
 		}
 
 		if (randInt(0, 8) == 0) {
-			speech += "Or, you might say, ‘Winter is coming.’ " + breath();
+			speech += "o, tú podrías decir, Or, you might say, ‘El invierno ya viene. Winter is coming.’ " + breath();
 		}
 
 		return speech;
@@ -259,10 +259,10 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String chooseTellUsAbout() {
 
 		String phrase;
-		phrase = "tell us about ";
+		phrase = "dinos acerca de tell us about ";
 		switch (randInt(0, 2)) {
 			case 0:
-				phrase = "inform us of ";
+				phrase = "infórmanos de inform us of ";
 			case 1:
 				phrase = "describe ";
 			case 2:
@@ -273,60 +273,60 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String chooseUnsureAboutAffect() {
 
 		String reprompt = "";
-		reprompt += "We are " + s("unsure", "unclear") + "about " + s("any", "the") + "feelings "
-				+ s("that " + s("may") + "possess you.", "within which you " + s("may") + "dwell.");
-		reprompt += "You " + s("may", "might");
+		reprompt += "Nosotros estamos We are " + s("insegurosunsure", "poco clarosunclear") + "acerca de about " + s("cualquiera de losany", "losthe") + "sentimientosfeelings "
+				+ s("quethat " + s("puedenmay") + "poseerte.possess you.", "dentro del cual túwithin which you " + s("puedesmay") + "habitar.dwell.");
+		reprompt += "TúYou " + s("puedesmay", "podríasmight");
 		reprompt += chooseTellUsAbout();
-		reprompt += s("these", "your") + "feelings, ";
-		reprompt += "by " + s("saying, " + s("the words,"), "speaking the words,");
-		reprompt += "‘I am " + s("filled with,’", "overwhelmed by,’") + "and then one of the nine "
-				+ phonemic("a") + "ffects. " + breath();
-		reprompt += s("Or, you " + s("may", "might") + s("also") + s("simply") + s("ask", "tell")
-				+ "us to: " + s("‘Continue’ or ‘Go on’.", "‘Continue’."));
+		reprompt += s("estosthese", "tusyour") + "sentimientos, feelings, ";
+		reprompt += "by " + s("diciendosaying, " + s("las palabras,the words,"), "pronunciando las palabras, speaking the words,");
+		reprompt += "‘Yo estoy I am " + s("lleno defilled with,’", "abrumado por, overwhelmed by,’") + "y luego uno de los nueve and then one of the nine "
+				+ phonemic("a") + "fectos. ffects. " + breath();
+		reprompt += s("O, tú Or, you " + s("puedesmay", "podríasmight") + s("tambiénalso") + s("simplementesimply") + s("pedirask", "decirtell")
+				+ "nos que: us to: " + s("‘ContinuemosContinue’ o or ‘sigamosGo on’.", "‘ContinuemosContinue’."));
 
 		return reprompt;
 	}
 
 	protected String chooseYouCanFindOutAffect() {
 
-		String s = "You " + s("can", "may") + "always "
-				+ s("ask us about", "discover from us what we believe we know concerning");
-		s += s(s("these", "the") + "feelings", "the " + phonemic("a") + "ffects")
-				+ s("within which you dwell,", "which possess you,") + "by saying, ‘What am I feeling?’ ";
+		String s = "Tú You " + s("puedescan", "podríasmay") + "siempre always "
+				+ s("pedirnos queask us about", "descubrir de nosotros lo que creemos saber sobrediscover from us what we believe we know concerning");
+		s += s(s("estosthese", "losthe") + "sentimientosfeelings", "losthe " + phonemic("a") + "fectosffects")
+				+ s("dentro de los cuales podrías habitar,within which you dwell,", "que te poseen,which possess you,") + "diciendo,by saying, ‘¿Qué estoy sintiendo?What am I feeling?’ ";
 		return s;
 	}
 
 	protected String continueCardTitle() {
 
-		return S("Continue ...", S("Go on ...", S("Always m", "M") + "ore ..."));
+		return S("Conrinúa ...Continue ...", S("Sigue ...Go on ...", S("Siempre mAlways m", "MM") + "ás ...ore ..."));
 	}
 
 	protected String dontKnowFragmentReprompt() {
 
-		String reprompt = "We are " + s("unclear about", "unsure, of") + "which fragment you "
-				+ s("would like", "wish") + "to hear us speak. ";
+		String reprompt = "Nosotros estamos We are " + s("poco claros acerca de unclear about", "inseguros, deunsure, of") + "cuál fragmento which fragment you "
+				+ s("te podría gustarwould like", "deseaswish") + "escucharnos hablar. to hear us speak. ";
 		return reprompt += breath();
 	}
 
 	protected String dontKnowFragmentSpeech() {
 
-		String speech = "We are " + s("unclear about", "unsure, of") + "which " + s("fragment", "passage")
-				+ "you " + s("would like", "wish") + "to hear us speak. ";
-		speech += "Please " + s("try", "attempt") + s("once more", "again") + "to tell us. ";
+		String speech = "Nosotros estamos We are " + s("poco claros acerca de unclear about", "inseguros, deunsure, of") + "cuálwhich " + s("fragmentofragment", "pasajepassage")
+				+ "teyou " + s("gustaríawould like", "deseaswish") + "escucharnos hablar. to hear us speak. ";
+		speech += "Por favor Please " + s("tratatry", "intentaattempt") + s("una vez másonce more", "otra vezagain") + "de decirnos. to tell us. ";
 		return speech + breath();
 	}
 
 	protected String exceptionMessage() {
 
-		return s("Sorry.", "Apologies.") + "Either something’s wrong or we haven’t heard "
-				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
+		return s("Perdón.Sorry.", "Disculpa.Apologies.") + "O algo anda mal o nosotros no pudimos escuchar Either something’s wrong or we haven’t heard "
+				+ s("te.you.", "te claramente.you clearly.") + s("Por favor dilo una vez más.Please say more.", "Por favor inténtalo otra vez.Please try again.");
 	}
 
 	protected String excuseMarkov() {
 
 		return breathLong()
-				+ s(s("Sorry.", "Excuse us!") + "We’re not sure what came over us. " + breathLong(),
-						s("Excuse us.") + "Ahem.")
+				+ s(s("Perdón.Sorry.", "¡Discúulpanos!Excuse us!") + "No estamos seguros de qué nos pasó. We’re not sure what came over us. " + breathLong(),
+						s("Discúlpanos.Excuse us.") + "Jmm.Ahem.")
 				+ breath();
 	}
 
