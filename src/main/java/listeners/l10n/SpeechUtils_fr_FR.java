@@ -842,34 +842,34 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "We are " + s("so") + s("pleased", "delighted");
+			speech = "Nous sommes " + s("si") + s("contentes", "ravies");
 		}
 		else {
-			adjective = s("sorry", "dismayed");
-			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("désolées", "consternées");
+			intensifier = "consternées".equals(adjective) ? "quelquepeu " : "énormément ";
+			speech = "Nous sommes " + s(adjective, intensifier + adjective);
 		}
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		speech += "de " + s("savoir ", "découvrir ") + "que vous êtes "
+				+ s("rempli de ", s("possésé ", "submergé ") + "par ") + "%s. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
-				speech += s("How much more positive are your feelings now?", "It’s good to "
-						+ s("know, at least,") + "know that you still "
-						+ s("have positive feelings.", "feel positive " + phonemic("a") + "ffect" + s("s") + "."));
+				speech += s("Dans quelle mesure est-ce que vore humeur s'est améliorée?", "Il est plaisant de "
+						+ s("savoir, au moins, ") + "savoir que malgré tout "
+						+ s("vous avez des émotions positives.", "vous ressentez des " + phonemic("a") + "ffect" + s("s") + " positifs ."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
-						+ s("taken a negative turn.", "taken a down turn.");
+				speech += "Nous nous demandons pourquoi vos " + s("émotions ont ", phonemic("a") + "ffect ont")
+						+ s("pris un tournant négatif.", "dépéri.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "So good to " + s("learn", "become aware") + "that your "
-						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("improved.", "become better.");
+				speech += "Il est rassurant " + s("d'apprendre ", "de découvrir ") + "que "
+						+ s("vos émotions ", s("vos" phonemic("a") + "ffects", "vos humeurs"))
+						+ s("ont pris du mieux.", "se sont améliorés.");
 			}
 			else {
-				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
-						+ s("seems", "appears") + s(", to us.", ".");
+				speech += "Vous avez toujours une " + s("peception des choses ", "perception") + "négative, il "
+						+ s("semble", "apparaît") + s(", du moins à nos yeux.", ".");
 			}
 		}
 
@@ -878,7 +878,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String spkrsAffectIsCardTitle() {
 
-		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
+		return S("Merci de noys avoir fait part de comment vous vous sentez", "Maintenant nous avons une meilleure idée de comment vous vous sentez");
 	}
 
 	protected InnerResponse spkrsAffectIsNot() {
@@ -887,23 +887,23 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 		String adjective;
 		String intensifier;
-		String speech = s(s("Apologies!", "We are ashamed of ourselves."), "Our very sincere apologies.");
+		String speech = s(s("Toutes nos excuses!", "Nous ressentons de la honte."), "Nous vous présetons nos plus plates excuses.");
 		if (isPositive(challengedAffect)) {
-			speech += "We are " + s("so") + s("pleased", "delighted");
+			speech += "Nous sommes " + s("si ") + s("heureuses", "ravies");
 		}
 		else {
-			adjective = s("sorry", "upset");
-			intensifier = "dismayed".equals(adjective) ? "a bit " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("désolées", "fâchées");
+			intensifier = "consternées".equals(adjective) ? "un peu " : "beaucoup ";
+			speech = "Nous sommes " + s(adjective, intensifier + adjective);
 		}
-		speech += "to " + s("have misunderstood", "have wrongly believed")
-				+ "that you were filled with %s. " + breath();
+		speech += "d'" + s("avoir mal compris", "avoir cru à tort")
+				+ "que vous éprouviez une telle chose %s. " + breath();
 		if (challengedAffect.equals(affect)) {
-			speech += "Clearly, we did not " + s(s("properly") + "understand", "hear");
-			speech += s("whatever", "what") + s("it is that") + "you are feeling. ";
-			speech += "Please do " + s("try", "attempt") + "to tell us "
-					+ s("what it is that " + s("does, truly,", "does") + "possess you.",
-							"the feelings within which you do, now, dwell.");
+			speech += "De toute évidence, nous n'avons pas " + s(s("bien") + "compris", "entendu;");
+			speech += s("la chose ", "ce ") + s("que ") + "vous ressentez. ";
+			speech += "Veuillez s'il-vous-plaît " + s("tenter de ", "faire un effort pour ") + "nous le dire "
+					+ s("quelle est cette chose qui, " + s("manifestement, ", "manifestement et sérieusement, ") + "vous possède.",
+							"prend la forme d'émotions vous submergeant.");
 		}
 		speech = String.format(speech, challengedAffect);
 		return new InnerResponse(spkrsAffectIsNotCardTitle(), speech += breath());
@@ -911,8 +911,8 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String spkrsAffectIsNotCardTitle() {
 
-		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")),
-				"Apologies for our mistakes");
+		return S("Nous sommes désolées de vous avoir" + s("mal entendues", s("mal comprises", "mal saisies")),
+				"Toutes nos excuses pour notre erreur");
 	}
 
 	protected String spkrsAffectIsSpeech() {
@@ -922,34 +922,34 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "We are " + s("so") + s("pleased", "delighted");
+			speech = "Nous sommes " + s("si ") + s("contentes ", "ravies ");
 		}
 		else {
-			adjective = s("sorry", "dismayed");
-			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("désolées ", "consternées");
+			intensifier = "concernées".equals(adjective) ? "quelquepeu " : "très ";
+			speech = "Nous sommes " + s(adjective, intensifier + adjective);
 		}
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		speech += "de " + s("découvrir", "savoir") + "que vous êtes "
+				+ s("rempli de", s("possédé", "submergé") + "par") + "%s. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
-				speech += s("How much more positive are your feelings now?", "It’s good to "
-						+ s("know, at least,") + "know that you still "
-						+ s("have positive feelings.", "feel positive " + phonemic("a") + "ffect" + s("s") + "."));
+				speech += s("À quel point est-ce que vous vous sentez mieux actuellement?", "Il est agréagle de "
+						+ s("savoir, à tout le moins, que vous avez") + "savoir que vous avez toujours "
+						+ s("des émotions positivies.", "des " + phonemic("a") + "ffect" + s("s") + " positifs."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
-						+ s("taken a negative turn.", "taken a down turn.");
+				speech += "Nous nous demandons pourquoi vos " + s("émotions ont ", phonemic("a") + "ffect ont")
+						+ s("pris un tournant négatif.", "dépéri.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "So good to " + s("learn", "become aware") + "that your "
-						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("improved.", "become better.");
+				speech += "Il est rassurant " + s("d'apprendre ", "de découvrir ") + "que "
+						+ s("vos émotions ", s("vos" phonemic("a") + "ffects", "vos humeurs"))
+						+ s("ont pris du mieux.", "se sont améliorés.");
 			}
 			else {
-				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
-						+ s("seems", "appears") + s(", to us.", ".");
+				speech += "Vous avez toujours une " + s("peception des choses ", "perception") + "négative, il "
+						+ s("semble", "apparaît") + s(", du moins à nos yeux.", ".");
 			}
 		}
 		return speech + breath();
@@ -957,34 +957,34 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String thanksNoCardTitle() {
 
-		return S("You’re welcome to stay with us", "Did you really want to " + s("abandon us?", "go?"));
+		return S("Nous vous invitons à rester des nôtres", "Est-ce que vous voulez vraiment " + s("nous abandonner?", "partir?"));
 	}
 
 	protected String yourWelcome() {
 
-		return s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it.")) + breath();
+		return s(s("Cela", "Il") + s("nous") + "fait plaisir.",
+				s("Ce n'est rien.", s("Voyons.") + "N'en faites pas un cas.")) + breath();
 	}
 
 	protected String startOverConfirmed() {
 
-		return s("OK.") + "We’re beginning " + s(s("all over") + "again. ", "again from the top. ")
+		return s("OK.") + "Nous recommençons " + s(s("tout") + "à nouveau. ", "à nouveau depuis le début. ")
 				+ chooseContinue(false);
 	}
 
 	protected String startOverDenied() {
 
-		return s("We’re still here, listening " + s("to you as", "as"), "Still listening as")
-				+ s("before.",
-						"before, and " + s("remembering", "recalling") + "some of what "
-								+ s("was said.", s("you", "we") + "felt."))
+		return s("Nous sommes toujours ici, à l'écoute " + s("de vous comme", "comme"), "Nous vous écoutons toujours comme")
+				+ s("avant.",
+						"avant, et " + s("en nous rappelant", "en gardant à l'esprit") + "une partie de  "
+								+ s("ce qui a été dit.", s("ce que vous avez ", "ce que nous avons ") + "éprouvé."))
 				+ chooseContinue(false);
 	}
 
 	protected InnerResponse thanksNo() {
 
-		String speech = s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it."));
+		String speech = s(s("Cela est", "C'est") + s("très") + "apprécié.",
+				s("Ce n'est rien.", s("Voyons.") + "N'y pensez plus."));
 		speech += noSpeech();
 
 		return new InnerResponse(thanksNoCardTitle(), speech += breath());
@@ -992,30 +992,30 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String thanksWhatsLsnrsAffectCardTitle() {
 
-		return S("It’s so nice of you to ask", "Thank you for " + s("taking an interest", "asking"));
+		return S("C'est gentil de votre part de nous le demander", "Merci de " + s("porter un intérêt à cela", "nous le demander"));
 	}
 
 	protected String thanksWhatsLsnrsAffectPreSpeech() {
 
-		return s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it.")) + breath();
+		return s(s("Cela est", "C'est") + s("très") + "apprécié.",
+				s("Ce n'est rien.", s("Voyons.") + "N'y pensez plus.")) + breath();
 	}
 
 	protected String tiredSpeech() {
 
-		String speech = "Although it is impossible for " + s("us, or so we believe,", "us")
-				+ "to experience " + s("fatigue,", "tiredness,");
-		speech += "we " + s("understand", "know") + "that transacting "
-				+ s("with " + s("network") + "services") + "to the extent that you " + s("all, now,", "all")
-				+ "transact, ";
-		speech += "can be very " + s("tiring.", "tiring for you.")
-				+ s("At least we can be tireless, for " + s("you, in our listening.", "you."));
+		String speech = "Bien qu'il soit impossible pour " + s("nous, du moins le croit-on, ", "nous ")
+				+ "de ressentir de " + s("la fatigue,", "l'épuisement,");
+		speech += "nous " + s("comprenons", "savons") + "que de correspondre "
+				+ s("avec " + s("un réseau") + "des services") + "dans la mesure où " + s("vous tous, de nos jours, ", "vous tous ")
+				+ "correspondez, ";
+		speech += "peut être vraiment " + s("épuisant.", "épuisant pour vous.")
+				+ s("Au moins, de notre côté, nous pouvons être inépuisables, envers " + s("vous, de par notre écoute.", "vous."));
 		return speech;
 	}
 
 	protected String untilNextTime() {
 
-		return "Until " + s("the") + "next time. ";
+		return "D'ici à une " + s("éventuelle ") + "prochaine fois. ";
 	}
 
 	protected InnerResponse whatAboutAffects() {
