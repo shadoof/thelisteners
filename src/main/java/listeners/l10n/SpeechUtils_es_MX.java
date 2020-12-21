@@ -298,7 +298,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String continueCardTitle() {
 
-		return S("Conrinúa ...Continue ...", S("Sigue ...Go on ...", S("Siempre mAlways m", "MM") + "ás ...ore ..."));
+		return S("Continúa ...Continue ...", S("Sigue ...Go on ...", S("Siempre mAlways m", "MM") + "ás ...ore ..."));
 	}
 
 	protected String dontKnowFragmentReprompt() {
@@ -336,7 +336,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
-			amsg = String.format("It is good to " + s("know", "be aware") + "that you dwell within %s. "
+			amsg = String.format("ESo es bueno It is good to " + s("know", "be aware") + "that you dwell within %s. "
 					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
 		else
 			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
