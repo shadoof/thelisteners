@@ -325,7 +325,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String excuseMarkov() {
 
 		return breathLong()
-				+ s(s("Perdón.Sorry.", "¡Discúulpanos!Excuse us!") + "No estamos seguros de qué nos pasó. We’re not sure what came over us. " + breathLong(),
+				+ s(s("Perdón.Sorry.", "¡Discúlpanos!Excuse us!") + "No estamos seguros de qué nos pasó. We’re not sure what came over us. " + breathLong(),
 						s("Discúlpanos.Excuse us.") + "Jmm.Ahem.")
 				+ breath();
 	}
@@ -336,22 +336,22 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
-			amsg = String.format("ESo es bueno It is good to " + s("know", "be aware") + "that you dwell within %s. "
-					+ breathShort() + "And yet, " + s("still,", "even so,"), affect);
+			amsg = String.format("Es bueno It is good to " + s("saberknow", "ser consciente debe aware") + "que tú habitas dentro de esos %s. that you dwell within %s. "
+					+ breathShort() + "Y sin embargo, And yet, " + s("todavía,still,", "aún así,even so,"), affect);
 		else
-			amsg = String.format("We are sorry, " + s("finally,", "in the end,") + "to "
-					+ s("know", "have become aware") + "that you are " + s("filled with", "possessed by") + "%s. "
-					+ breathShort() + "And now, ", affect);
-		return amsg += breathShort() + "you " + s("must") + "abandon us. " + breath();
+			amsg = String.format("Lamentamos, We are sorry, " + s("finalmente,finally,", "al final,in the end,") + "el to "
+					+ s("saberknow", "haber tomado concienciahave become aware") + "de que tú estás that you are " + s("lleno defilled with", "poseido porpossessed by") + "%s. "
+					+ breathShort() + "Y ahora, And now, ", affect);
+		return amsg += breathShort() + "tú you " + s("debesmust") + "abandonarnos.  abandon us. " + breath();
 	}
 
 	protected String getGuyzAreGone() {
 
-		return s("That guy " + s("has", "is"), "The guys " + s("have", "are")) + "gone. " + breath()
-				+ "You will "
-				+ s("not " + s("be able to") + "hear " + s("those voices", "that voice") + "any longer.",
-						"no longer hear "
-								+ s("those " + s("voices.", "voices speak."), "that " + s("voice.", "voice speak.")))
+		return s("Ese chico That guy " + s("se hahas", "ya se hais"), "Los chicos The guys " + s("se hanhave", "ya se hanare")) + "idogone. " + breath()
+				+ "Tú You will "
+				+ s("no vas a not " + s("ser capaz debe able to") + "escucharhear " + s("esas vocesthose voices", "esa vozthat voice") + "no más.any longer.",
+						"no más escuchar no longer hear "
+								+ s("esasthose " + s("voces.voices.", "voces hablando.voices speak."), "esa that " + s("vozvoice.", "voz hablar.voice speak.")))
 				+ breath();
 	}
 
