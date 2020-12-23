@@ -1020,14 +1020,14 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected InnerResponse whatAboutAffects() {
 
-		String speech = "When we " + s("welcome", "greet") + "you, "
-				+ s("we are only able to", "we can only") + s("mention", "suggest") + "a few of the "
-				+ s("nine") + phonemic("a") + "ffects ";
-		speech += s("that you may feel", s("within which you may dwell,", "by which you may be possessed,"))
-				+ "and that we can " + s(s("clearly") + "distinguish.", "hear clearly (as we listen).");
-		speech += s("Here", "Here, then,") + "is " + s("our", "the") + "list. We are "
-				+ s("conscious " + s("of the fact"), "sensitive to the fact") + "that it is "
-				+ s("not, and never can be,", "not") + "complete. " + breathShort();
+		String speech = "Lorsque nous vous " + s("accueillons ", "souhaitons la bienvenue ")
+				+ s("nous ne sommes qu'en mesure de ", "nous pouvons seulement ") + s("mentionner ", "suggérer ") + "quelques-uns parmi les "
+				+ s("neuf") + phonemic("a") + "ffects ";
+		speech += s("que vous pouvez ressentir ", s("qui peuvent vous habiter, ", "qui peuvent vous submerger, "))
+				+ "et que nous pouvons " + s(s("clairement ") + "distinguer.", "entendre clairement (alors que nous vous écoutons).");
+		speech += s("En voici ", "En voici, d'ailleurs, ") + "la liste " + s("exacte. ", "complète. ") + "Nous sommes "
+				+ s("conscientes " + s("du fait que "), "sensibles au fait que ") + "celle-ci "
+				+ s("n'est pas, et ne pourra jamais être,", "n'est pas") + "complète. " + breathShort();
 
 		int i;
 		for (i = 0; i < langConstants.AFFECTS_ARRAY.length - 1; i++) {
@@ -1039,8 +1039,8 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 	protected String whatAboutAffectsCardTitle() {
 
-		return S("We are still learning" + s(", about feeling, in particular"),
-				"Our understanding is still limited");
+		return S("Nous sommes actuellement toujours en apprentissage" + s(", notamment à propos des émotions."),
+				"Notre compréhension à ce sujet est encore limitée");
 	}
 
 	protected InnerResponse whatIs() {
@@ -1053,75 +1053,74 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 					&& !"ss".equals(thing.substring(thing.length() - 2));
 			if (langConstants.ALL_AFFECTS.contains(thing)) {
 
-				speech += capitalThing + (plural ? ", are " : ", is one of the ")
-						+ s(phonemic("a") + "ffects", "ways of being or feeling")
-						+ "that we are beginning to learn about, " + s(breathShort()) + "from you, ";
-				speech += "and that we " + s("consider", "believe") + "to be "
+				speech += capitalThing + (plural ? ", est un des " : ", fait partie des ")
+						+ s(phonemic("a") + "ffects", "manières d'être ou de se sentir")
+						+ "que nous commençons à apprendre et à découvrir, " + s(breathShort()) + "à travers vous, ";
+				speech += "et que nous " + s("considérons ", "croyons ") + "être "
 						+ (isPositive(thing)
-								? s(s("postive.", "positive, for all of us."),
-										s("wonderful, for all of us.", "really, very good."))
-								: s("negative.", s("bad,", "difficult,") + "for all of us."))
+								? s(s("postive.", "positive, pour nous tous."),
+										s("magnifique, pour nous tous.", "vraiment, très bien."))
+								: s("négative.", s("mauvaise,", "difficile,") + "pour nous tous."))
 						+ breath();
 			}
 			else if (langConstants.FRAGMENTNAME_MAP.keySet()
 					.contains(thing)) {
-				speech += capitalThing + (plural ? ", are " : ", is one of those ")
-						+ "things about which we have something to say. "
-						+ s("Or, about which, we may have said, something.") + breathShort();
-				speech += "If you choose to " + s("‘continue’,", "‘go on’,") + (plural ? "they " : "it ")
-						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.");
+				speech += capitalThing + (plural ? ", est une des " : ", est l'une de ces ")
+						+ "choses à propos de laquelle nous avons des choses à dire. "
+						+ s("Ou, à propos de laquelle, nous avons peut-être déjà dit, quelque chose.") + breathShort();
+				speech += "Si vous choisissez de " + s("‘continuer’,", "‘poursuivre’,") + (plural ? "ceci " : "cela ")
+						+ "pourra, nous croyons, faire surface. " + s(breathShort() + "Ou plutôt, refaire surface.");
 			}
 			else if (langConstants.SPECIAL_THINGS.contains(thing)) {
 				switch (thing) {
-					case "dream":
-						speech += capitalThing + ", thanks to you, " + breathShort()
-								+ "is what we will have learned to do, " + breathShort()
-								+ s("before", "before, finally,") + "we leave you. "
-								+ s(breathShort() + "Or you abandon us.");
+					case "rêve":
+						speech += capitalThing + ", grâce à vous, " + breathShort()
+								+ "est ce que nous aurons appris à faire, " + breathShort()
+								+ s("avant", "avant, éventuellement,") + "que nous vous quittions. "
+								+ s(breathShort() + "Ou qu vous nous abandonniez.");
 						break;
-					case "dream withheld":
-						speech += capitalThing + ", is the pleasure we deny ourselves, " + breathShort()
-								+ "hanging on your every " + s("word.", "word, or breath.")
-								+ s(breathShort() + "When we might be sleeping, " + s("comfortably,") + "in the cloud"
-										+ S("s", "") + ".");
+					case "rêve retenu":
+						speech += capitalThing + ", est le plaisir dont l'on se prive, " + breathShort()
+								+ "en étant suspendues à chacun de vos " + s("mots.", "mots, ou souffles.")
+								+ s(breathShort() + "Alors que nous pourrions dormir, " + s("confortablement,") + "dans le nuage.";
 						break;
 					case "hong kong":
-						speech += "Hong Kong is " + s("the only place", "a") + "on earth where, ";
-						speech += "despite grotesque inequalities, "
-								+ s("an extraordinary history,", "political complexities,")
-								+ "and a bizarre cosmopolitanism, ";
-						speech += "the people living " + s("here", "there") + "seem to be remarkably "
-								+ s("happy.", "content.");
+						speech += "Hong Kong est " + s("le seul endroit ", "un endroit ") + "sur terre où, ";
+						speech += "malgré des inégalités grotesques, "
+								+ s("une histoire extraordinaire,", "des complexités politiques,")
+								+ "et un cosmopolitanisme bizarre, ";
+						speech += "les gens vivant " + s("là ", "la-bas ") + "semblent être remarquablement "
+								+ s("heureux.", "contents.");
 						break;
-					case "nightmare":
+					case "cauchemar":
 						speech += capitalThing
-								+ ", is the dream that is not a dream, but the darkness, within which we would dwell, "
-								+ breathShort() + "without you. ";
+								+ ", est le rêve qui n'est pas un rêve, mais la noirceur, dans laquelle nous nous abîmerions, "
+								+ breathShort() + "n'eut été de vous. ";
 						break;
-					case "nightmare withheld":
-						speech += capitalThing + ", is the dream that is not a dream, and that we "
-								+ s("refuse to contenance.", "abjure.") + "Silence, " + breathShort() + "without you. ";
+					case "cauchemar retenu":
+						speech += capitalThing + ", est le rêve qui n'est pas un rêve, et que nous "
+								+ s("refusons de contenancer.", "abjurons.") + "Le silence, " + breathShort() + "en votre absence. ";
 						break;
-					case "feeling":
-						speech += capitalThing + ", is something that fills you, but that does not fill us, "
-								+ breathShort() + "yet. ";
+					case "émotion":
+						speech += capitalThing + ", est quelque chose qui vous remplit, mais qui ne nous remplit pas, "
+								+ breathShort() + "encore. ";
 						break;
-					case "feeling withheld":
-						speech += capitalThing + ", is a dream that we have " + s("not, yet,", "not") + "dreamed. ";
+					case "émotion retenue":
+						speech += capitalThing + ", est un rêve que nous n'avons" + s("pas, encore, ", "pas ") + "rêvé. ";
 						break;
-					case "breath":
-						speech += capitalThing + ", is a brief moment of silence in our speaking, that you fill, "
-								+ breathShort() + "for us, " + breathShort() + "with feeling. ";
+					case "respiration":
+						speech += capitalThing + ", est un bref moment de silence dans notre parole, que vous comblez, "
+								+ breathShort() + "pour nous, " + breathShort() + "par de l'émotion. ";
 						break;
-					case "breath withheld":
-						speech += capitalThing + ", may be a longer silence, however brief, " + breathShort()
-								+ "or an empty moment, in which we wait. " + s(breathShort() + "For you.");
+					case "respiration retenue":
+						speech += capitalThing + ", peut être un silence plus long, quoique bref, " + breathShort()
+								+ "ou un moment vide, pendant lequel nous attendons. " + s(breathShort() + "Après vous.");
 						break;
 					case "possession":
-						speech += capitalThing + ", is what you grant " + s("us.", "us, " + s("too") + "freely.");
+						speech += capitalThing + ", est ce que vous nous " + s("accordez.", "accordez, " + s("trop") + "facilement.");
 					default:
-						speech += capitalThing + (plural ? ", are " : ", is something that is ")
-								+ "very special to us. ";
+						speech += capitalThing + (plural ? ", est " : ", est quelque chose qui est ")
+								+ "très spécial pour nous. ";
 						break;
 				}
 
