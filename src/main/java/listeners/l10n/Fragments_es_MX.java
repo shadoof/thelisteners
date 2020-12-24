@@ -62,20 +62,22 @@ public class Fragments_es_MX extends Fragments {
 				speech += s("decir", "pedir") + "nos que hagamos algunas cosas simples, " + breath();
 				speech += "para que podamos " + s("continuar hablando", "seguir hablando") + "te, " + breath();
 				speech += "como nosotres " + s("te escuchamos", "estamos escuchándote") + "a ti. ";
-				break; ", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
-				speech += S("Y qAnd p", "QP") + "quizás existen erhaps there are " + s("otras personasother people", "otrosothers") + "contigo. with you. "
+				break; 
+			case 3:
+				speech += s(s("Estamos", "Estamos, todavía,") + "escuchando. " + breath());
+				speech += S("Y t", "T") + "al vez hay " + s("otras personas", "otres") + "contigo. "
 						+ breathLong();
-				speech += "Que, cuando nosotros decimos 'tú', nosotros That, when we say ‘you’, we " + s("significamean", "siempre significaalways meant") + "‘todos ustedesall of you’? "
+				speech += "Que, cuando decimos 'tú', queremos " + s("decir", "siempre decir") + "‘todes ustedes’? "
 						+ breath();
-				speech += "O que nosotros no tenemos forma de saberlo. Or that we have no way of knowing. " + breath();
-				speech += s("Y no hay forma de And no way of " + breath() + "cuidarlo. caring. " + breath());
-				speech += "O que nosotros creemos que todos ustedes Or that we believe that all of you " + s("sonare " + s("elthe") + "único:one:", "are:")
-						+ "‘¿Quién soy yo?Who am I?’ " + breathLong();
-				speech += s("O la única: '¿De quién es esta cuenta?' Or the one: ‘Whose account is this?’ " + breath());
-				speech += s("Sin embargo,However,", "Pero,But,") + "nosotros estamoswe are " + s("feliceshappy", "encantadosdelighted") + "deto "
-						+ s("escucharlisten", "estar escuchandobe listening") + "ato ";
-				speech += s("cualquierany", "todo aquelall the") + "otro que pueda estar contigo. others who may be with you. " + breath();
-				speech += "InclusoEven " + s("cuandowhen", "aunquethough") + "ellos puedan no estar de acuerdo, como they may not have agreed, as "
+				speech += "O que no tenemos forma de saberlo. " + breath();
+				speech += s("Y que no hay forma de " + breath() + "que nos importe. " + breath());
+				speech += "O que creemos que todes ustedes " + s("son " + s("el") + "único:", "son:")
+						+ "‘¿Quién soy yo?’ " + breathLong();
+				speech += s("O la única: '¿De quién es esta cuenta?' " + breath());
+				speech += s("Sin embargo,", "Pero,") + "estamos " + s("felices", "encantades") + "de "
+						+ s("escuchar", "estar escuchando") + "a ";
+				speech += s("cualquier", "todo aquel") + "otro que pueda estar contigo. " + breath();
+				speech += "Incluso" + s("cuando", "aunque") + "elles puedan no estar de acuerdo, como "
 						+ s("tú has estado,you have,", "el artista ha estadothe artist has,") + breath();
 				speech += s("invitandoinviting", "permitiendoallowing") + s("a todos nosotrosall of us", "nosus") + "a escucharte a to listen to " + s("todos ustedes y aall of")
 						+ "tiyou. " + breathLong();
