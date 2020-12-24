@@ -1126,42 +1126,42 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 			}
 			else {
-				speech += S("We are " + s("very sorry", s("dismayed", "embarrassed")) + "to "
-						+ s("confess", "say") + "that t", "T");
-				speech += "here is " + s("very little", "nothing") + "that "
-						+ s("we, " + breathShort() + "The Listeners,", "we") + "can tell you about " + thing + ". ";
+				speech += S("Nous sommes " + s("vraiment désolées ", s("consternées ", "gênées ")) + "de vous "
+						+ s("confesser ", "dire ") + "qu'il ");
+				speech += "y a " + s("très peu", "à peu près rien") + "que "
+						+ s("nous, " + breathShort() + "celles qui sont À l'écoute,", "nous") + "pouvons vous dire à propos de " + thing + ". ";
 			}
 		}
 		else { // thing is empty
-			speech += "We are " + s("afraid", "sorry to say") + "that " + s("the thing", "whatever")
-					+ "you have asked about is " + s("unknown", "not known") + "to us. " + breathShort();
-			speech += s("Although we may learn " + s("about", "to know of") + "it in "
-					+ s("time.", s("the future.", "due course.")));
+			speech += "Nous sommes " + s("au regret de vous apprendre ", "désolées de vous dire ") + "que " + s("la chose", "peu importe")
+					+ "au sujet de laquelle vous nous avez interrogées nous est " + s("inconnue.", "méconnue.") + breathShort();
+			speech += s("Bien que nous pourrions " + s("apprendre ", "découvrir ") + "du nouveau à ce sujet "
+					+ s("avec le temps.", s("dans l'avenir.", "éventuellement.")));
 		}
 		return new InnerResponse(whatIsCardTitle(), speech + breath());
 	}
 
 	protected String whatIsCardTitle() {
 
-		return s("Trying to tell", "Telling") + "you what " + s("little") + "we know "
-				+ s("about some thing");
+		return s("Nous essayons de vous dire ", "Nous vous disons ") + s("le peu de") + "ce que nous savons "
+				+ s("à propos de quelque chose");
 	}
 
 	protected InnerResponse whatPicture() {
 
-		String speech = "This " + s("image,", "picture,") + "which is often "
-				+ s("mounted", "framed and hung") + "close to us, "
-				+ s("is", "is, " + s("actually,", "in fact,")) + "a papercut facsimile ";
-		speech += "of " + s("artificial") + "flowers that adorn " + s("ancient")
-				+ "Chinese Buddhist shrines. ";
-		speech += s("It is here, " + s("simply,") + "to remind us, " + s("and you,") + "of the place, "
-				+ s("a home,") + s("within which we are used to dwell.", "where we live.") + s("With you."));
+		String speech = "Cette " + s("image,", "illustration,") + "qui est souvent "
+				+ s("encadrée ", "affichée ") + "près de nous, "
+				+ s("est ", "est, " + s("en vérité,", "en fait,")) + " un facsimilé en carton ";
+		speech += "de fleurs " + s("artificielles") + "qui ornent les " + s(" anciens ")
+				+ "temples bouddhistes chinois. ";
+		speech += s("Elle est ici, " + s("tout simplement,") + "pour nous rappeler, " + s("mais à vous également,") + "de l'endroit, "
+				+ s("une maison,") + s("où nous avons l'habitude d'évoluer.", "où nous demeurons.") + s("Avec vous."));
 		return new InnerResponse(whatPictureCardTitle(), speech += breath());
 	}
 
 	protected String whatPictureCardTitle() {
 
-		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+		return S("Une image", "Une illustration") + s("qui nous rappelle notre maison.", "à laquelle nous sommes attachées.");
 	}
 
 	protected String whatsLsnrsAffectSpeech() {
@@ -1176,39 +1176,39 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		boolean shared = affect.equals(listenersAffect);
 		boolean halfTheTime = heads();
 
-		speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
-				+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "
+		speech += "Nous, " + (shared ? s("aussi,", "également,") : "") + "sommes "
+				+ s("remplies par", s("traversées par", "submergées par")) + listenersAffect + ". "
 				+ breathShort();
 		if (isPositive(affect) && isPositive(listenersAffect)) {
 
-			speech += "It is good " + s("for all of us") + "to know that we can "
-					+ (shared ? s("share these feelings.", "empathize with you.") : "have such feelings. ");
+			speech += "Il est bien " + s("pour nous tous") + "de savoir que nous pouvons "
+					+ (shared ? s("partager ces émotions.", "faire preuve d'empathie à votre égard.") : "connaître ces émotions. ");
 		}
 		else if (!isPositive(affect) && !isPositive(listenersAffect)) {
 
-			speech += s(s("My", "Oh") + "heavens!", s("Oh goodness!", "Oh my word!")) + "That "
-					+ s("anyone", "any " + s("one") + "of us") + "should " + s("have to")
-					+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
+			speech += s(s("Ça alors, ", "Oh, ") + "grand cieux!", s("Seigneur Dieu!", "Ma parole!")) + "Que "
+					+ s("quiconque", "n'importe qui " + s("l'un") + "d'entre nous") + "puisse " + s("avoir à")
+					+ s("faire l'expérience de tels " + phonemic("a") + "ffects.", "vivre de telles émotions.");
 		}
 		else if (isPositive(affect) && !isPositive(listenersAffect)) {
-			speech += "We are" + s(", at least,", SPC) + s("glad", "pleased") + "to " + s("know", "be aware")
-					+ "that the positivity of your " + s("feelings", phonemic("a") + "ffect") + "betters "
-					+ s("that of ourselves.", "our negative feelings.");
+			speech += "Nous sommes" + s(", à tout le moins,", SPC) + s("soulagées", "ravies") + "de " + s("savoir", "découvrir")
+					+ "que la positivité de vos " + s("émotions", phonemic("a") + "ffect") + "dépasse "
+					+ s("les nôtres.", "nos propres sentiments négatifs.");
 		}
 		else // speaker negative; listeners positive
 		{
-			speech += "It is " + s("embarrassing", "awkward")
-					+ "for us to be experiencing positive feelings when you are "
-					+ s("possessed by " + s("relative") + "negativity.", "not.");
+			speech += "Il est " + s("embarrassant", "gênant")
+					+ "pour nous de faire l'expérience d'émotions positives alors que vous êtes "
+					+ s("sous l'effet d'une " + s("certaine") + " dose de négativité.", "dans un état inverse.");
 			speech += s(
-					"But " + s("we suppose that") + "this cannot " + s("really") + "be helped. " + s("Can it?"));
+					"Mais " + s("nous croyons que") + "cela ne peut pas " + s("vraiment") + "être modifié. " + s("Est-ce le cas?"));
 		}
 		return speech + breath();
 	}
 
 	protected String whatsLsnrsAffectCardTitle() {
 
-		return "What we " + s("are trying to") + "feel";
+		return "Ce que nous allons " + s(", et sommes peut-être en train de déjà ") + "ressentir.";
 	}
 
 	protected InnerResponse whatsSpkrsAffect() {
@@ -1218,40 +1218,40 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 
 		if (affect != null && !affect.isEmpty()) {
 			if (isPositive(affect)) {
-				speech = "We are " + s("so") + s("pleased", "delighted");
+				speech = "Nous sommes " + s("si") + s("heureuses", "ravies");
 			}
 			else {
 				String adjective, intensifier;
-				adjective = s("sorry", "dismayed");
-				intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-				speech = "We are " + s(adjective, intensifier + adjective);
+				adjective = s("désolées", "consternées");
+				intensifier = "consternées".equals(adjective) ? "quelquepeu " : "très ";
+				speech = "Nous sommes " + s(adjective, intensifier + adjective);
 			}
-			speech += "to " + s("know", s("recall", "remember")) + "that ";
+			speech += "de " + s("savoir", s("nous rappeler", "nous remémorer")) + "que ";
 			// make it brief 1 in 4 times:
 			if (randInt(0, 3) == 0)
-				speech = "Y";
+				speech = "V";
 			else
-				speech += "y";
+				speech += "v";
 			speech += String
-					.format("ou are " + s("filled with", s("possessed", "overwhelmed") + "by") + "%s. ", affect);
+					.format("ous êtes " + s("rempli par", s("possédé par", "submergé par")) + "%s. ", affect);
 
 			speech += s(breath() + specificAffectSpeech());
 		}
 		// affect is not set
 		else {
 			// Since the user’s affect is not set, ask them:
-			speech = "We are " + s("unclear about", "unsure, of");
-			speech += s("your feelings.",
-					"what these feelings are that " + s("possess", "overwhelm") + "you.");
-			speech += "Please " + s("try", "attempt") + "to tell us. ";
+			speech = "Nous ne sommes " + s("pas certaines de connaître", "pas convaincues d'avoir correctement identifié");
+			speech += s("vos émotions.",
+					"les émotions qui vous " + s("possèdent", "submergent"));
+			speech += "S'il-vous-plaît, veuillez " + s("tenter ", "essayer ") + "de nous le communiquer. ";
 		}
 		return new InnerResponse(whatsSpkrsAffectCardTitle(), speech += breath());
 	}
 
 	protected String whatsSpkrsAffectCardTitle() {
 
-		return S("You told us " + s("this", "this, concerning your feelings"),
-				"What we believe that you are feeling");
+		return S("Vous nous avez dit " + s("cela", "cela, à propos de vos émotions"),
+				"Ce que nous croyons que vous ressentez);
 	}
 
 }
