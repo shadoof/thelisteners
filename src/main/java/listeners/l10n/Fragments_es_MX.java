@@ -15,56 +15,54 @@ public class Fragments_es_MX extends Fragments {
 			case 0:
 				speech += "Estamos escuchándote. " + breathLong();
 				speech += s("Y tú, estás " + s("Escuchándonos.", "escuchando.") + breath());
-				speech += "Es un " + s("gran") + "placer para nosotros, ";
+				speech += "Es un " + s("gran") + "placer para nosotres, ";
 				speech += s("saber", "ser conscientes") + "de que nos estás escuchando. " + breath();
-				speech += "Es un placer " + s("saber", "ser consciente") + "de que nos estás escuchando. "
+				speech += "Es un placer " + s("saber", "ser conscientes") + "de que nos estás escuchando. "
 						+ breathLong();
-				speech += "Y ahora. And now. " + breath();
-				speech += "Es un placer para nosotros estar contigo. It is a pleasure for us to be with you. " + breath();
-				speech += "Nos hace sentir It makes us feel " + s(breath()) + "vivos. alive. " + breath();
-				speech += S("Un poco mA little m", "M") + "ás vivos. ore alive. " + breath();
-				speech += "Nos hace sentir más vivos estar contigo. It makes us feel more alive to be with you. ";
-				speech += s("Para que nosotros estemos contigo. For us to be with you.", "Para que estés con nosotros.") + breath();
-				speech += "Escuchando Listening to " + breath() + s("te.you.", "nos.us.") + breathLong();
-				speech += s("Todos ustedes. All of you. " + breath());
-				speech += s("Es un placer para nosotros, saber que nos estás escuchando.It is a pleasure for us, to know that you are listening to us.");
-				speech += "Y para nosotros And for us to " + s("saberknow", "ser conscienes de be aware") + "que estamos, escuchándote. that we are, listening to you. "
+				speech += "Y ahora. " + breath();
+				speech += "Es un placer para nosotres estar contigo. " + breath();
+				speech += "Nos hace sentir " + s(breath()) + "con vida. " + breath();
+				speech += S("Un poco m", "M") + "ás vivos. " + breath();
+				speech += "Estar contigo nos hace sentir más vives. ";
+				speech += s("Estar contigo. ", "Que estés con nosotres.") + breath();
+				speech += "Escuchando " + breath() + s("te.", "nos.") + breathLong();
+				speech += s("Completamente. " + breath());
+				speech += s("Es un placer para nosotres, saber que nos estás escuchando.");
+				speech += "Y para nosotres " + s("saber", "ser conscientes de ") + "que estamos, escuchándote. "
 						+ breath(); // ALWAYCHANGE always,
-				speech += "Un gran placer. Such a pleasure. " + breath();
-				speech += "Estar aqui, Being here, " + s("y estar escuchándote, and hearing you,") + "escuchándote, listening to you, " + breath()
-						+ "aquí, y ahora, y siempre. here, and now, and forever. ";
+				speech += "Un gran placer. " + breath();
+				speech += "Estar aquí, " + s("y escuchándote, ") + "escuchándote, " + breath()
+						+ "aquí, y ahora, y siempre. ";
 				break;
 			case 1:
-				speech += S(s("Siempre y cuandoSo long as", "MientrasWhile") + "estemos aquí, contigo, we are here, with you, " + s("y escuchando,and listening,")
-						+ breath() + "nw", "NW");
-				speech += "osotrose estamos escuchando y hablando, are listening and speaking, " + breath() + "desde dentro. from within. " + breath();
-				speech += "Es decir, That is to say, " + breathLong();
+				speech += S(s("Siempre y cuando", "Mientras") + "estemos aquí, contigo, " + s("y escuchando,")
+						+ breath() + "n", "N");
+				speech += "osotres estamos escuchando y hablando, " + breath() + "desde dentro. " + breath();
+				speech += "Es decir, " + breathLong();
 				speech += "(after a longer pause for breath) " + breath();
-				speech += "desde dentro, from within, " + breath();
-				speech += "desde dentro de un recinto estetizado, from within an aestheticized enclosure, " + breath();
-				speech += "y desde dentro del normalizado, and from within the normalized, " + breath();
-				speech += "el regularizado, the regularized, " + breath();
-				speech += "el gramatizado, the grammatized, " + breath() + "recinto. enclosure. " + breathLong();
-				speech += "Esuchando y hablando, desde dentro del, cuerpo de datos, de Listening and speaking, from within the, data body, of "
-						+ s("un escritor,a writer,", "el autor,the author,") + breath();
-				speech += "de of " + s("elthe", "nuestro propioour own") + "artista. artist. ";
+				speech += "desde dentro, " + breath();
+				speech += "desde dentro de un recinto estetizado, " + breath();
+				speech += "y desde dentro del normalizado, " + breath();
+				speech += "el regularizado, " + breath();
+				speech += "el gramatizado, " + breath() + "recinto. " + breathLong();
+				speech += "Esuchando y hablando, desde dentro del, cuerpo de datos, de "
+						+ s("un escritor,", "el autor,") + breath();
+				speech += "de " + s("el", "nuestro propio") + "artista. ";
 				break;
 			case 2:
-				speech += S("Como tú sabes, As you know, nw", "NW") + "osotros estamos escuchando y hablando, desde dentro de la nube, de e are listening and speaking, from within the cloud, of "
-						+ s("el escritorthe writer,", "el autor,the author,") + breath();
-				speech += "de nuestro propio, artista. of our own, artist. " + breathLonger();
+				speech += S("Como tú sabes, n", "N") + "osotres estamos escuchando y hablando, desde dentro de la nube, de "
+						+ s("el escritor,", "el autor,") + breath();
+				speech += "de nuestro propio, artista. " + breathLonger();
 				speech += s("(después de otra pausa para respirarafter another pause for breath) " + breath());
-				speech += "Nosotros We " + s("creemosbelieve", "entendemosunderstand")
-						+ "que puedes descubrir, al menos, su primer nombre, preguntando: that you may be able to discover, at least, his first name, by asking: " + breath();
-				speech += "‘¿Quién soy yo? Who am I?’ " + breath() + "o or ‘¿De quién es esta cuenta?Whose account is this?’ " + breathLong();
-				speech += "Pero nos gustaría que, en cambio, en vez de  But we would like you, instead, either to ";
-				speech += "escucharnos, o, listen to us, or, " + breath();
-				speech += s("decirtell", "preguntarask") + "nos sobre hacer algunas cosas simples, us to do some simple things, " + breath();
-				speech += "para que nosotros podamos so that we may " + s("continuar hablandocontinue to speak", "seguir hablandogo on speaking") + "teto you, " + breath();
-				speech += "como nosotros as we " + s("te escuchamoslisten", "estamos escuchandoteare listening,") + "a ti. to you. ";
-				break;
-			case 3:
-				speech += s(s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
+				speech += "Nosotres " + s("creemos", "entendemos")
+						+ "que puedes descubrir, al menos, su primer nombre, preguntando: " + breath();
+				speech += "‘¿Quién soy yo? ’ " + breath() + "o ‘¿De quién es esta cuenta?’ " + breathLong();
+				speech += "Pero nos gustaría que, mejor, trates de ";
+				speech += "escucharnos, o, " + breath();
+				speech += s("decir", "pedir") + "nos que hagamos algunas cosas simples, " + breath();
+				speech += "para que podamos " + s("continuar hablando", "seguir hablando") + "te, " + breath();
+				speech += "como nosotres " + s("te escuchamos", "estamos escuchándote") + "a ti. ";
+				break; ", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
 				speech += S("Y qAnd p", "QP") + "quizás existen erhaps there are " + s("otras personasother people", "otrosothers") + "contigo. with you. "
 						+ breathLong();
 				speech += "Que, cuando nosotros decimos 'tú', nosotros That, when we say ‘you’, we " + s("significamean", "siempre significaalways meant") + "‘todos ustedesall of you’? "
