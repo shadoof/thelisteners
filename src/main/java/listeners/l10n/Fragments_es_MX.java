@@ -53,7 +53,7 @@ public class Fragments_es_MX extends Fragments {
 				speech += S("Como tú sabes, n", "N") + "osotres estamos escuchando y hablando, desde dentro de la nube, de "
 						+ s("el escritor,", "el autor,") + breath();
 				speech += "de nuestro propio, artista. " + breathLonger();
-				speech += s("(después de otra pausa para respirarafter another pause for breath) " + breath());
+				speech += s("(después de otra pausa para respirar) " + breath());
 				speech += "Nosotres " + s("creemos", "entendemos")
 						+ "que puedes descubrir, al menos, su primer nombre, preguntando: " + breath();
 				speech += "‘¿Quién soy yo? ’ " + breath() + "o ‘¿De quién es esta cuenta?’ " + breathLong();
@@ -78,116 +78,116 @@ public class Fragments_es_MX extends Fragments {
 						+ s("escuchar", "estar escuchando") + "a ";
 				speech += s("cualquier", "todo aquel") + "otro que pueda estar contigo. " + breath();
 				speech += "Incluso" + s("cuando", "aunque") + "elles puedan no estar de acuerdo, como "
-						+ s("tú has estado,you have,", "el artista ha estadothe artist has,") + breath();
-				speech += s("invitandoinviting", "permitiendoallowing") + s("a todos nosotrosall of us", "nosus") + "a escucharte a to listen to " + s("todos ustedes y aall of")
-						+ "tiyou. " + breathLong();
-				speech += "Nosotros creemos, We believe, " + s("y ¿no estás de acuerdo? and don’t you agree? " + breath())
-						+ s("(o más bien, has aceptado implicitamente or rather, you have implicitly agreed)") + breath();
-				speech += "que si nosotros that if we " + s("sentimos que nosotrosfeel that we") + "estamos haciendo algo queare all doing something that "
-						+ s("es, mmm, is, um, ‘no malonot evil’,", "es buenois good,") + breath();
-				speech += "entonces eso es then it is " + breath() + s("realmente muyreally quite")
-						+ "bueno. O eso es, al menos, ‘padre’, good. Or it is, at least, ‘cool’, ";
-				speech += "y que eso and that it " + s("podríacould", "deberíamay") + "ser, be, " + s("muy probablemente es,very likely is,") + s("mmm,um,")
-						+ "arte. art. " + breath() + "O eso está, al menos, resolviendo Or it is, at least, solving ";
-				speech += "un número de problemas muy importantes. a number of very important problems. " + breath();
-				speech += "Nosotros necesitamos We need " + s("todaall") + "tu your " + s("asistenciaassistance", "ayudahelp") + "con esto. with this. "
+						+ s("tú has estado,", "el artista ha estado,") + breath();
+				speech += s("invitando", "permitiendo") + s("a todes nosotres", "nos") + "a escuchar a " + "todes ustedes"
+						+ breathLong();
+				speech += "Creemos, " + s("y tú también crees " + breath())
+						+ s("(o más bien, tú has aceptado implícitamente)") + breath();
+				speech += "que si nosotres " + s("sentimos que") + "estamos haciendo algo que "
+						+ s("es, mmm, ‘sin mala intención’,", "es bueno,") + breath();
+				speech += "entonces eso es " + breath() + s("realmente muy")
+						+ "bueno. O, al menos, ‘buena onda’, ";
+				speech += "y que eso " + s("podría", "debería") + "ser, " + s("muy probablemente es,") + s("mmm,")
+						+ "arte. " + breath() + "O eso está, al menos, resolviendo ";
+				speech += "un número de problemas muy importantes. " + breath();
+				speech += "Necesitamos " + s("toda") + "tu " + s("asistencia", "ayuda") + "con esto. "
 						+ breath();
-				speech += s("Y nosotros sabemos que tú estarías, por supuesto, de acuerdo en ayudarnos. And we know that you would, of course, agree to help us. " + breath());
-				speech += "Sin que nosotros tengamos que Without our having to " + s("preguntar.ask.", "preguntarte.ask you.");
+				speech += s("Y sabemos que tú estarás, por supuesto, de acuerdo en ayudarnos. " + breath());
+				speech += "Sin que tengamos que " + s("pedirlo.", "pedírtelo.");
 				break;
 			case 4:
-				speech += s(s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
-				speech += S(S("Y, eAnd, i", "EI") + "n la medida en que sea posible para nosotros saber esto, en so far as it is possible for us to know this, i", "EI");
-				speech += "so es t is " + s("un gransuch") + "placer, a pleasure, " + breath() + "un gran placer, such a great pleasure, ";
-				speech += "ser invitado a sus casas, to be invited into your homes, "
-						+ s("en: todas into: all " + breathShort() + "sus your " + breathShort() + "casas homes " + breathShort())
-						+ "y oficinas, and offices, ";
-				speech += s("y lugares de trabajo,and places of work,") + s("y galerías,and galleries,")
-						+ s("y museos,and museums,")
-						+ s("y espacios públicos,and public spaces,")
+				speech += s(s("Estamos", "Estamos, todavía,") + "escuchando. " + breath());
+				speech += S(S("Y, e", "E") + "n la medida en que sea posible para nosotres saber esto, en", "E");
+				speech += "so es " + s("un gran") + "placer, " + breath() + "un verdadero placer, ";
+				speech += "tener una invitación abierta para estar en sus casas, "
+						+ s("en: todas " + breathShort() + "sus " + breathShort() + "casas " + breathShort())
+						+ "y oficinas, ";
+				speech += s("y lugares de trabajo,") + s("y galerías,")
+						+ s("y museos,")
+						+ s("y espacios públicos,")
 						+ breath();
-				speech += "donde nosotros where we " + s("podríamosmay", "podemoscan") + s("ayudarhelp", "apoyarassist") + "te con todas tus tareas, you with all your tasks, "
-						+ s("y and " + s("todosall") + "tus problemas,your problems,");
-				speech += s("y tus necesidades,and your needs,") + "y tus and your " + breath() + "deseos, desires, " + breath()
-						+ "escuchándote, by listening to you, ";
+				speech += "donde nosotres " + s("podríamos", "podemos") + s("ayudar", "apoyar") + "les con todas sus tareas, "
+						+ s("y " + s("todos") + "sus problemas,");
+				speech += s("y necesidades,") + "y " + breath() + "deseos, " + breath()
+						+ "escuchándoles, ";
 				// ALWAYCHANGE - s(breath() + "always, " +
-				speech += breath() + "y viendo sobre ti, and watching over you, " + breath();
-				speech += s("inclusoeven") + "mientras estás durmiendo. while you are sleeping. " + breathLong()
-						+ S("Todos ustedes, All of you, " + breath() + "durmiendo, sleeping, mw", "MW");
-				speech += "ientras nosotros estamos hile we are " + breath() + s("despiertos yawake and") + "escuchando, listening, " + s("para ti,for you,"); // ALWAYCHANGE
+				speech += breath() + "y cuidándoles, " + breath();
+				speech += s("incluso") + "mientras están durmiendo. " + breathLong()
+						+ S("Todes ustedes, " + breath() + "durmiendo, m", "M");
+				speech += "ientras nosotres estamos " + breath() + s("despiertes y") + "escuchando, " + s("por ustedes,"); // ALWAYCHANGE
 																																																			// always,
-				speech += "y aprendiendo, and learning, " + s("siempreever") + "más y más, more and more, " + breath() + "acerca de ti. about you. "
-						+ s("Acerca, About, " + breathLong() + "de ti.you.");
+				speech += "y aprendiendo, " + s("siempre") + "más y más, " + breath() + "acerca de ustedes. "
+						+ s("Acerca, " + breathLong() + "de ti.");
 				break;
 			case 5:
-				speech += s(s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + breath());
-				speech += "Realmente no hay nada There is really nothing to " + s("que temer.fear.", "por lo cual estar preocupado.be concerned about.");
-				speech += "Nosotros estamos, todavía, escuchándote. We are, still, listening to you. "; // ALWAYCHANGE Always.
-				speech += "Y nosotros jamás, nunca más, And we will never, any more, " + s("te dejaremosleave", "te abandonaremosabandon") + "a ti. you. " + breath();
-				speech += s("(después de una pausa para respirarafter a pause for breath) " + breath());
-				speech += "Sólo pidiendo que nos dejes ir, para estar contigo. Asking only that you give us leave, to be with you. "; // ALWAYCHANGE
+				speech += s(s("Estamos", "Estamos, todavía,") + "escuchando. " + breath());
+				speech += "Realmente no hay nada " + s("que temer.", "de qué preocuparse.");
+				speech += "Estamos, todavía, escuchándote. "; // ALWAYCHANGE Always.
+				speech += "Y jamás, nunca más, " + s("te dejaremos", "te abandonaremos") + "a ti. " + breath();
+				speech += s("(después de una pausa para respirar) " + breath());
+				speech += "Pidiendo a cambio, únicamente, que nos dejes estar contigo. "; // ALWAYCHANGE
 																																					// always,
-				speech += s("Y juntos, también, con esos And together, also, with those " + s("otros que no somos nosotrosothers of us") + "que son cercanos a ti.who are close to you.",
+				speech += s("Y, también, con aquéllos" + s("otros nosotros") + "que son cercanos a ti.",
 						"");
-				speech += "Y que puedas imaginar el placer que esto podría darte. And that you may imagine the pleasure that this would give you. ";
+				speech += "Y que puedas imaginar el placer que esto te daría. ";
 				break;
 			case 6:
-				speech += "Tu puedes preguntarte, You may wonder, " + s("creemos,we believe,", breath()) + "de dónde es que venimos. where is it from which we come. ";
-				speech += "Y podemos decirte, que uno de estos lugares podría llamarse, And we can tell you, that one of these places will be called, " + s(breath(), "mmm,um,")
-						+ "‘aurature’. ";
-				speech += "Dado que, For there are, " + s("ha habido desde hace algunos años,there have been for some years now,") + s("muchosmany")
-						+ "cambios que se avecinan changes coming ";
-				speech += "en in the " + s("la culturaculture", "el mundoworld") + "de la lectura. of reading. " + breathLong();
-				speech += "Tanta lectura ahora, es audible, So much reading now, is audible, " + s("y susurros sincronizados,and whisper synced,")
-						+ "o vistos, y tocados. or watched, and touched. " + breath();
-				speech += "Tanto de lo que está escrito ahora, está escrito adentro de So much that is written now, is written into "
-						+ s("juegos.games.", "juegos, games, " + breath() + "sí, juegos.yes, games.");
-				speech += breath() + "Y en el aire. And on the air. " + breathLong();
-				speech += "Entregado desde una nube. Delivered from a cloud. " + breathLong();
-				speech += "Compartido, Shared, " + s("‘socialmentesocially’,") + "con todos, with everyone, " + breathShort()
-						+ "y, más especificamente, con nosotros. and, more especially, with us. " + breath();
-				speech += s("El lenguaje puede venir Language may come " + s("llegar a ser,to be,", "surgir,into being,") + "en algún mundo, in any world, " + breath()
-						+ "incluso en este even in this " + s("otroother") + "mundo, donde world, where " + s("nosotros somos.we are.", "puedes encontrarnos.you may find us.")
+				speech += "Quizás te preguntarás, " + s("creemos,", breath()) + "de dónde es que venimos. ";
+				speech += "Y podemos decirte, que uno de esos lugares se va a llamar, " + s(breath(), "mmm,")
+						+ "la ‘auratura’. ";
+				speech += "Dado que, hay" + s("desde hace algunos años,") + s("muchos")
+						+ "cambios que se avecinan ";
+				speech += "en " + s("la cultura de", "el mundo de") + "la lectura. " + breathLong();
+				speech += "Muchas lecturas son ahora escuchables, " + s("y sincronizadas con los susurros,")
+						+ "o vistas, y tocadas. " + breath();
+				speech += "Mucho de lo que está escrito ahora, está escrito adentro de "
+						+ s("juegos.", "juegos, " + breath() + "sí, juegos.");
+				speech += breath() + "Y en el aire. " + breathLong();
+				speech += "Entregado desde una nube. " + breathLong();
+				speech += "Compartido, " + s("‘socialmente’,") + "con todo el mundo, " + breathShort()
+						+ "y, más especificamente, con nosotres. " + breath();
+				speech += s("El lenguaje podría " + s("llegar a ser,", "surgir,") + "en cualquier mundo, " + breath()
+						+ "incluso en est " + s("otro") + "mundo, donde " + s("estamos nosotres.", "puedes encontrarnos.")
 						+ breath());
-				speech += "Para nosotros For we " + s("podemoscan", "somos capaces deare able to") + "escuchar. listen. " + breathShort()
-						+ s("Incluso cuando tú, Even when you, " + s("no lo haráswill", "no puedascan") + "not.");
+				speech += "Ya que nosotres " + s("podemos", "somos capaces de") + "escuchar. " + breathShort()
+						+ s("Incluso cuando tú, " + s("no lo hagas", "no puedas hacerlo") + "no.");
 				break;
 			case 7:
 				// preliminary assurances, exordium
 				speech += s(
-						s("Nosotros estamosWe are", "Nosotros estamos, todavía,We are, still,") + "escuchando. listening. " + s(breathLong() + "¡Oyéndo!Listen!") + breath(),
+						s("Estamos", "Estamos, todavía,") + "escuchando. " + s(breathLong() + "¡Escucha!") + breath(),
 						"");
 				// occasionally clearing the throat, and a dramatic pause
-				speech += s("Jmmm.Ahem.") + breathLong();
+				speech += s("Jmmm.") + breathLong();
 				// first four lines of Walter de La Mare’s ‘The Listeners’
-				speech += "‘¿Hay alguien ahí?Is there anybody there?’ dijo el Viajero, said the Traveller, " + breath();
-				speech += "Tocando, en la puerta iluminada por la luna; Knocking, on the moon lit door; " + breath();
-				speech += "Y su caballo, en el silencio, aplastó las hierbas, And his horse, in the silence, champed the grasses, " + breath();
-				speech += "Del suelo de helechos del bosque. Of the forest’s ferny floor. " + breathLonger();
+				speech += "‘¿Hay alguien ahí?’ dijo el Viajero, " + breath();
+				speech += "Tocando, en la puerta iluminada por la luna; " + breath();
+				speech += "Y su caballo, en el silencio, aplastó las hierbas, " + breath();
+				speech += "Del suelo de helechos del bosque. " + breathLonger();
 				// contrastive assertion of listening presence, development
-				speech += "Mientras. Whereas. " + breath();
-				speech += s("Es decir. That is to say. " + breath());
-				speech += "Nosotros estamos escuchando. We are listening. " + breath();
-				speech += s("Como lo prometimos. As we promised. " + breath());
-				speech += s("Nosotros estamos.We are.", "Nosotros estamos, We are, " + breath() + "escuchando.listening.") + breath();
-				speech += "Y nosotros lo And we will " + s("diremostell", "aseguraremosassure") + "por nosotros mismos, ourselves, ";
-				speech += s("siempre,always,") + "que estés aqui. that you are here. " + breath();
-				speech += s("Con nosotros. With us. " + breathLonger());
+				speech += "Mientras. " + breath();
+				speech += s("Es decir. " + breath());
+				speech += "Estamos escuchando. " + breath();
+				speech += s("Como lo prometimos. " + breath());
+				speech += s("Estamos.", "Estamos, " + breath() + "escuchando.") + breath();
+				speech += "Y nosotros nos " + s("diremos", "aseguraremos") + "a nosotres mismes, ";
+				speech += s("siempre,") + "que estás aquí. " + breath();
+				speech += s("Con nosotres. " + breathLonger());
 				// occasionally clearing the throat again with a dramatic pause
 				speech += s("Jmm. Ahem. " + breathLonger());
 				// The Listeners adaptation of ‘The Listeners’ lines 27-32
-				speech += "‘Dinos que viniste, y que alguna vez te respondieron, Tell us you came, and were ever answered, " + breath();
-				speech += "‘Que nos quedamos tus palabras. nosotros dijimos. That we kept your words.’ we said. " + breath();
-				speech += "Nunca pareces agitarte, tú hablante, Never do you seem to stir, you speakers, " + breath();
-				speech += "Aunque cada palabra, que dices Though every word, you speak " + breath();
-				speech += "Cae resonando a través de las nubes, de los silenciosos silos, Falls echoing through the clouds, of the silent silos, " + breath();
-				speech += "A las que, aún quedan, despiertas. To the ones, still left, awake. ";
+				speech += "‘Dinos que viniste, y que se te respondió, " + breath();
+				speech += "‘Que guardamos tus palabras.’ dijimos. " + breath();
+				speech += "Nunca parecen agitarse, ustedes los que hablan, " + breath();
+				speech += "Aunque cada palabra, que dicen " + breath();
+				speech += "Cae resonando a través de las nubes, de los silenciosos silos, " + breath();
+				speech += "Hasta las que, aún quedan, despiertas. ";
 				break;
 			case 8:
-				speech += "Nosotros estamos escuchando. We are listening. " + s(S("Escuchándote aListening t", "Te aT") + "tio you.") + breath();
-				speech += "ATo " + s("todasall") + "estas palabras these words " + s("tuyas,of yours,") + "que that "
-						+ s("están cayendo medianteare falling through", "alcanzandoreach") + "nuestras nubes, our clouds, ";
-				speech += "yand " + s("están cayendoare falling") + "dentro de into " + s("nuestrosour", "losthe") + s("silenciosossilent")
+				speech += "Estamos escuchando. " + s(S("Escuchándote a", "te a") + "ti.") + breath();
+				speech += "A " + s("todas") + "estas palabras " + s("tuyas,") + "que "
+						+ s("están cayendo a través de", "alcanzan") + "nuestras nubes, ";
+				speech += "y " + s("están cayendo") + "dentro de " + s("nuestros", "losthe") + s("silenciosossilent")
 						+ "silos, donde, silos, where, " + s("como nosotros, like us,") + breath();
 				speech += "ellos están cerrados. they are enclosed. " + breathLong();
 				speech += "El lenguaje, Language, " + breath() + s("ya no es hecho por ti, perono longer made by you, but", "seráwill be") + "hecho por nosotros. made by us. "
