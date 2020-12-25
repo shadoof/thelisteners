@@ -187,32 +187,32 @@ public class Fragments_es_MX extends Fragments {
 				speech += "Estamos escuchando. " + s(S("Escuchándote a", "te a") + "ti.") + breath();
 				speech += "A " + s("todas") + "estas palabras " + s("tuyas,") + "que "
 						+ s("están cayendo a través de", "alcanzan") + "nuestras nubes, ";
-				speech += "y " + s("están cayendo") + "dentro de " + s("nuestros", "losthe") + s("silenciosossilent")
-						+ "silos, donde, silos, where, " + s("como nosotros, like us,") + breath();
-				speech += "ellos están cerrados. they are enclosed. " + breathLong();
-				speech += "El lenguaje, Language, " + breath() + s("ya no es hecho por ti, perono longer made by you, but", "seráwill be") + "hecho por nosotros. made by us. "
+				speech += "y " + s("están cayendo") + "dentro de " + s("nuestros", "los") + s("silenciosos")
+						+ "silos, donde, " + s("como nosotros,") + breath();
+				speech += "están contenidos. " + breathLong();
+				speech += "El lenguaje, " + breath() + s("ya no hecho por ti, pero", "será") + "hecho por nosotres. "
 						+ breath();
-				speech += "Para que nosotros estemos, escuchando, y cuidando de ti, So that we, listening, and caring for you, ";
-				speech += s("podríamight", "posiblementemay") + s("suavementesoftly") + "construir un mejor build a better " + s("universo cultural.culture.", "mundo.world.")
-						+ s(breath() + "Mejorándote a ti mismo.Bettering your selves.");
-				speech += "Para que tú seas, de una vez, incorporado, For you to be, all at once, incorporate, " + s("dentro.within.", "dentro de eso.within it.")
+				speech += "Para que, escuchándote, y cuidando de ti, ";
+				speech += s("podamos", "podamos, tal vez") + s("suavemente") + "construir " + s("una cultura mejor.", "un mejor mundo.")
+						+ s(breath() + "Mejorándose a ustedes mismes.");
+				speech += "Para que sean, de una vez, incorporades, " + s("dentro.", "aquí dentro.")
 						+ breathLong();
-				speech += S("Después de todo, tAfter all, y", "TY") + "ú has estado, de acuerdo, con los términos. ou have, agreed, to terms. " + breath();
-				speech += "E incluso como nosotros hablamos, And even as we speak, "
-						+ s("mediante through " + s("elthe", "nuestroour") + s("autor,author,", "artista,artist,")) + "minuto a minuto, tú minute by minute, you "
-						+ s("estás de acuerdo.agree.", "estás conforme.are agreeing.");
+				speech += S("Después de todo, t", "T") + "ú has aceptado los términos. " + breath();
+				speech += "E incluso mientras hablamos, "
+						+ s("a través de " + s("el", "nuestro") + s("autor,", "artista,")) + "minuto a minuto, tú "
+						+ s("estás de acuerdo.", "aceptas.");
 				break;
 			case 9:
-				speech += "Es un gran placer. It is such a pleasure. " + S("Un gran placer pSuch a pleasure f", "PF") + "ara nosotros or us " + breath();
-				speech += "compartir esto contigo, para ti compartirlo con nosotros. to share this with you, for you to share it with us. " + breath();
-				speech += s("Para nosotros, reunirlo todo. Para ti.For us, to gather all of it up. For you.") + breath() + "Y hablar por ti, And speak for you, "
+				speech += "Es un verdadero placer. " + S("Un verdadero placer p", "P") + "ara nosotres " + breath();
+				speech += "compartir esto contigo, que compartas esto con nosotres. " + breath();
+				speech += s("Reunirlo todo, nosotres. Para ti.") + breath() + "Y hablar por ti, "
 						+ breath();
-				speech += s("todasall") + "todas estas cosas que tú pediste these things that you have asked " + s("escuchar, yto hear, and")
-						+ "saber, to know, " + breath();
-				speech += s("correlacionar con nuestro propósito principal, para representar, correlate with our primary purpose, to represent, " + breath(),
-						"para representar, to represent, " + breath());
-				speech += s("en una forma normalizada,in a normalized form,") + "la más frecuentemente expresada, the most frequently expressed, " + breath();
-				speech += "y and " + s("potencialmentepotentially") + "los más provechosos, deseos humanos, most profitable, human desires, " + breath();
+				speech += s("todas") + "todas estas cosas que has pedido " + s("escuchar, y")
+						+ "saber, " + breath();
+				speech += s("correlacionar con nuestro propósito principal, para representar, " + breath(),
+						"para representar, " + breath());
+				speech += s("en una forma normalizada,") + "la más frecuentemente expresada, " + breath();
+				speech += "y " + s("potencialmente") + "la más rentable, deseos humanos, " + breath();
 				speech += "tal que los publicistas such that advertisement " + s("debenmay", "tienen queshall") + "estar be " + s("intimamenteintimately")
 						+ "asociados, associated, " + breath();
 				speech += "con todas tus frases recolectadas, with all your harvested phrases, " + s("idealmente,ideally,") + "en el at the " + s("mismovery")
