@@ -384,67 +384,67 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String getReallyWantGuyz() {
 
-		String speech = s("CreesDo", "Estás segureAre you sure") + "túyou " + s("realmentereally") + "de querer escucharwant to hear what " + s("one of")
-				+ "the" + s("se", SPC) + s(s("strange", "unreliable")) + "guys " + "have to say? " + breath();
+		String speech = s("Do", "¿Estás segureAre you sure") + "you " + s("realmente de quereally") + "quieres escuchar lo que want to hear what " + s("uno deone of")
+				+ "losthe" + s("se", SPC) + s(s("extrañosstrange", "desconfiablesunreliable")) + "individuosguys " + "tienen que decir?have to say? " + breath();
 		if (heads()) {
-			speech += "We " + s("hope", "trust") + "that you will not say ‘" + S("yes", "continue") + "‘ and "
-					+ s("consent to hearing", "agree to hear")
-					+ s("the " + s("voice of this other.", "other voice."),
-							"these other " + s("voices.", "guys."));
+			speech += "We " + s("hope", "Confiamos entrust") + "que no dirásthat you will not say ‘" + S("síyes", "continúacontinue") + "‘ yand "
+					+ s("con consentimiento para escucharconsent to hearing", "de acuerdo en escucharagree to hear")
+					+ s("lathe " + s("voz de este otro.voice of this other.", "otra voz.other voice."),
+							"s otras these other " + s("voces.voices.", "personasguys."));
 		}
 		return speech + breath();
 	}
 
 	protected String getReallyWantGuyzReprompt() {
 
-		return s("Do", "Are you sure") + "you " + s("really") + "want to hear what " + s("one of") + "the"
-				+ s("se", SPC) + s(s("strange", "unreliable")) + "guys " + s("has", "have") + "to say? ";
+		return s("Do", "¿Esás segureAre you sure") + "you " + s("realmente de quereally") + "quieres escuchar lo que want to hear what " + s("uno deone of") + "losthe"
+				+ s("se", SPC) + s(s("extrañosstrange", "desconfiablesunreliable")) + "individuosguys " + s("tienenhas", "have") + "que decir?to say? ";
 	}
 
 	protected String guyzIrq() {
 
-		return s(s("[the ‘guyz’", "[other voices"), s("[another voice", "[the other voice" + s("s") + SPC))
-				+ "interrupted here ...] ";
+		return s(s("[losthe ‘individuosguyz’", "[otras vocesother voices"), s("[otra vozanother voice", "[la otra vozthe other voice" + s("s") + SPC))
+				+ "interrumpidas aquí ...interrupted here ...] ";
 	}
 
 	protected String hateRejoinder(String word) {
 
-		String speech = "To " + s("think", "hear") + "that your "
-				+ s("feelings for us", phonemic("a") + "ffects") + "are ";
-		speech += "negative to " + s("such an extent,", "this degree,");
-		speech += "that you "
-				+ (("hate".equals(word)) ? "go so far as to hate us, " : "are filled with hatred, ") + breath();
-		speech += "this will take us " + s("many more") + "years of "
-				+ s("listening to you,", "listening,");
-		speech += s("for us", "in order for us") + "to understand. ";
-		speech += "We " + s("cannot, truly,", "cannot") + "believe that "
-				+ (("hate".equals(word)) ? "this is how you feel. " : "these are your feelings. ");
+		String speech = "ElTo " + s("pensarthink", "escucharhear") + "que tus that your "
+				+ s("sentimientos por nosotresfeelings for us", phonemic("a") + "fectosffects") + "son are ";
+		speech += "negativos hasta negative to " + s("tal punto,such an extent,", "este grado,this degree,");
+		speech += "en el que túthat you "
+				+ (("odiashate".equals(word)) ? "llegas tan lejos como para odiarnos, go so far as to hate us, " : "estás hasta el tope de odio, are filled with hatred, ") + breath();
+		speech += "esto nos tomará this will take us " + s("mucho másmany more") + "años de years of "
+				+ s("estar escuchándote,listening to you,", "escucharte,listening,");
+		speech += s("para quefor us", "para que nosotresin order for us") + "entendamos. to understand. ";
+		speech += "We " + s("no podemos, realmente,cannot, truly,", "no podemoscannot") + "creer que believe that "
+				+ (("odiohate".equals(word)) ? "es lo que sientes. this is how you feel. " : "estos son tus sentimientos. these are your feelings. ");
 		return speech;
 	}
 
 	protected String heardAllFragments() {
 
-		String speech = "We believe " + s("that", "that, " + s("by") + "now,") + "you " + s("will")
-				+ "have heard ";
-		speech += s("most", "all") + "of what we are able to " + s("tell you,", "say to you,");
-		speech += s(s("at this time,", "for the time being,"));
-		speech += s("coherently.");
-		speech += "But we " + s("will " + s("always") + "be", "are " + s("always"));
-		speech += s("more than") + "happy to " + s("keep on chaining", "chain") + "these words ";
-		speech += s("of yours") + "together for you, " + s("so long as", "if") + "you "
-				+ s(s("need", "want"), "ask") + "us to ‘continue’. ";
+		String speech = "Creemos We believe " + s("quethat", "que, that, " + s("porby") + "ahora,now,") + "tú you " + s("habráswill")
+				+ "escuchado have heard ";
+		speech += s("más demost", "todoall") + "lo que somos capaces de of what we are able to " + s("decirte,tell you,", "decirte a ti,say to you,");
+		speech += s(s("en este momento,at this time,", "por el momento,for the time being,"));
+		speech += s("coherentemente.coherently.");
+		speech += "PeroBut we " + s("estaremoswill " + s("siemprealways") + "seremosbe", "somosare " + s("siemprealways"));
+		speech += s("más quemore than") + "felices de happy to " + s("mantenernos cambiandokeep on chaining", "cambiarchain") + "estas palabras these words ";
+		speech += s("por tuyasof yours") + "juntas para ti, together for you, " + s("siempre y cuandoso long as", "siif") + "túyou "
+				+ s(s("necesitasneed", "quiereswant"), "nos pidesask") + "que us to ‘continuemoscontinue’. ";
 		return speech + breath();
 	}
 
 	protected String moreGuyz() {
 
-		return s("More" + S("? ", " of this? "), "Do you " + s("really") + s("need", "want") + "to hear "
-				+ s("more?", "more from " + s("the guyz?", "these " + s("strange") + "guyz?")));
+		return s("¿MásMore" + S("? ", " de esto? of this? "), "¿Tú Do you " + s("realmentereally") + s("necesitasneed", "quiereswant") + "escuchar to hear "
+				+ s("más?more?", "más de more from " + s("los sujetos?the guyz?", "estosthese " + s("extrañosstrange") + "individuos?guyz?")));
 	}
 
 	protected String helpCardTitle() {
 
-		return S("Assistance", S("A little s", "S") + "upport");
+		return S("AsistenciaAssistance", S("Un pequeño aA little s", "AS") + "poyoupport");
 	}
 
 	protected InnerResponse no() {
@@ -454,27 +454,27 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String noCardTitle() {
 
-		return S("Still here", "Did you want to " + s("leave", "abandon") + "us?");
+		return S("¿Todavía aquíStill here", "¿Quisiste Did you want to " + s("dejarleave", "abandonarabandon") + "nos?us?");
 	}
 
 	protected String noSpeech() {
 
-		return s("More?", S("You " + s("were thinking of", "thought about") + s("going.", "leaving us. "),
-				s("You’re still", "Still") + s("with us.", s("here.", "here with us. "))) + s("More?"));
+		return s("¿Más?More?", S("TúYou " + s("estuviste pensando enwere thinking of", "pensaste acerca dethought about") + s("la partidagoing.", "dejarnos. leaving us. "),
+				s("Estás todavíaYou’re still", "TodavíaStill") + s("con nosotres.with us.", s("aquí.here.", "aquí con nosotres. here with us. "))) + s("¿Más?More?"));
 	}
 
 	protected String noToGuyzSpeech() {
 
-		return s(s("It’s probably best", "Best"), "Better") + "not " + s("to") + s("hear ", "listen to")
-				+ s(s("more of", "any of")) + "what they have to say. " + s(breath() + "Wise.") + breath();
+		return s(s("Probablemente lo mejor esIt’s probably best", "Lo mejor esBest"), "MejorBetter") + "nonot " + s("to") + s("escucharhear ", "oír alisten to")
+				+ s(s("más demore of", "cualquiera deany of")) + "lo que elles tienen que decir. what they have to say. " + s(breath() + "Sabio.Wise.") + breath();
 	}
 
 	protected Object noMoreGuyz() {
 
 		String speech;
-		speech = r("OK. `Understood. `Wise. `Prudent. `" + S("Well, w", "W") + "e’re still "
-				+ s(s("here for you.", "here."), s("listening.", "listening to you."))) + chooseContinue(false);
-		return new InnerResponse("Enough of " + s("them", "that"), speech);
+		speech = r("Está bien. OK. `Entendido.Understood. `Acertado.Wise. `Prudente.Prudent. `" + S("Bien, eWell, w", "EW") + "estamos todavía e’re still "
+				+ s(s("aquí para ti.here for you.", "aquí.here."), s("escuchando.listening.", "escuchándote.listening to you."))) + chooseContinue(false);
+		return new InnerResponse("Suficiente de Enough of " + s("ellesthem", "esothat"), speech);
 	}
 
 	protected String pathToGuyzAudio() {
@@ -484,25 +484,25 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String peaceSpeech(String word) {
 
-		String speech = "It is a " + s("great") + "comfort for us to " + s("know", "be aware")
-				+ "that you are " + (word.equals("peace") ? "at peace. " : "calm. ");
-		speech += capitalize(word) + SPC + "is something that we believe "
-				+ s("everyone", "every human being") + "should " + s("be able to");
-		speech += s(s("know.", "feel."), "dwell within.");
+		String speech = "Es un It is a " + s("grangreat") + "consuelo para nosotres comfort for us to " + s("saberknow", "ser conscientesbe aware")
+				+ "de que estás that you are " + (word.equals("pazpeace") ? "en paz. at peace. " : "en calma. calm. ");
+		speech += capitalize(word) + SPC + "algo que creemos es que is something that we believe "
+				+ s("todo el mundoeveryone", "cada ser humanovery human being") + "debería sshould " + s("ser capaz debe able to");
+		speech += s(s("saber.know.", "sentir.feel."), "habitar dentro.dwell within.");
 		return speech;
 
 	}
 
 	protected String pleaseContinueCardTitle() {
 
-		return S("Going on, with thanks ...", "Continuing, grateful for your courtesy ...");
+		return S("Siguiendo, diciendo gracias ...Going on, with thanks ...", "Continuando, agradeciendo tu cortesía ...Continuing, grateful for your courtesy ...");
 	}
 
 	protected String pleaseContinuePreSpeech() {
 
-		return s(S("Of course, i", "I") + "t’s a pleasure.")
-				+ s("Thank you for " + s(s("asking to continue.", "asking."), "asking to continue, so nicely."),
-						"Thank you for asking " + s("so nicely.", "with such courtesy.") + s("It’s a pleasure."))
+		return s(S("Por supuesto, eOf course, i", "EI") + "s un placer.t’s a pleasure.")
+				+ s("Gracias por Thank you for " + s(s("estar pidiendo continuar.asking to continue.", "estar pidiendo.asking."), "estar pidiendo continuar, muy amablemente.asking to continue, so nicely."),
+						"Graciasp or pedirThank you for asking " + s("tan amablemente.so nicely.", "con tanta cortesía.with such courtesy.") + s("Es un placer.It’s a pleasure."))
 				+ breath();
 	}
 
@@ -513,26 +513,26 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 
 		if ("".equals(affect)) {
-			preSpeech += "We do not seem to " + s("know about,", "be aware of,")
-					+ s("the feelings that possess you.", "the feelings that you are experiencing.") + breath();
-			preSpeech += s("Please", "You may") + s("tell us,", "inform us about them,") + "if you wish. "
+			preSpeech += "No parecemos We do not seem to " + s("saber acerca de,know about,", "ser conscientes de,be aware of,")
+					+ s("los sentimientos que posees.the feelings that possess you.", "los sentimienos que estás experimentando.the feelings that you are experiencing.") + breath();
+			preSpeech += s("Por favorPlease", "PuedesYou may") + s("decirnos,tell us,", "informarnos acerca de ellos,inform us about them,") + "si tú quieres. if you wish. "
 					+ breathLong();
 		}
 		else {
 			if (isPositive(affect)) {
-				preSpeech = "We are " + s("so") + s("pleased", "delighted");
-				preSpeech = randInt(0, 3) == 0 ? "It is pleasing to us " : preSpeech;
+				preSpeech = "Estamos We are " + s("muyso") + s("satisfechespleased", "encantadesdelighted");
+				preSpeech = randInt(0, 3) == 0 ? "Es agradable para nosotres It is pleasing to us " : preSpeech;
 			}
 			else {
-				String adjective = s("sorry", "dismayed");
-				String intensifier = "dismayed ".equals(adjective) ? "somewhat " : "very ";
-				preSpeech = "We are " + s(adjective, intensifier + adjective);
-				preSpeech = randInt(0, 3) == 0 ? "It is " + s("somewhat", "a little") + "troubling for us "
+				String adjective = s("perdónsorry", "consternadodismayed");
+				String intensifier = "consternadedismayed ".equals(adjective) ? "algo somewhat " : "muy very ";
+				preSpeech = "Estamos We are " + s(adjective, intensifier + adjective);
+				preSpeech = randInt(0, 3) == 0 ? "Es It is " + s("algosomewhat", "un pocoa little") + "preocupante para nosotros troubling for us "
 						: preSpeech;
 
 			}
 			preSpeech += String.format(
-					"to " + s("know", "have learned") + "that you are filled with %s. " + breathLong(), affect);
+					"deto " + s("saberknow", "haber aprendidohave learned") + "que estás llene de %s that you are filled with %s. " + breathLong(), affect);
 		}
 
 		return preSpeech;
@@ -540,13 +540,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String previousCardTitle() {
 
-		return S("Trying to return", "Going back") + "to " + s("a previous thought", "previous thoughts")
+		return S("Intentando regresarTrying to return", "VolverGoing back") + "ato " + s("un pensamiento previoa previous thought", "pensamientos previosprevious thoughts")
 				+ "...";
 	}
 
 	protected String readPoemCardTitle() {
 
-		return S("We recite some verse", "The Listeners read, and adapt, some poetry");
+		return S("Recitamos algunos versosWe recite some verse", "Les escuchas leen, y adaptan, algo de poesíaThe Listeners read, and adapt, some poetry");
 	}
 
 	protected String reallyWantToAbandon() {
@@ -556,32 +556,32 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 		if (affect != null && !affect.isEmpty() && !isPositive(affect)) {
 			speech += String.format(
-					"We understand, " + s("and we are dismayed,") + "that you are filled with %s. ", affect);
-			speech += s("Still:", "Even so:") + breath();
+					"Entendemos, We understand, " + s("y estamos consternades,and we are dismayed,") + "de que estás llene de %s. that you are filled with %s. ", affect);
+			speech += s("Todavía:Still:", "Aún así:Even so:") + breath();
 		}
-		speech += "Do you " + s("truly", "really") + "want to " + s("abandon", "leave") + "us? ";
+		speech += "¿TúDo you " + s("sinceramentetruly", "realmentereally") + "quieres want to " + s("abandonarabandon", "dejarleave") + "nos?us? ";
 		return speech + breath();
 	}
 
 	protected String repeatCardTitle() {
 
-		return S("Say " + s("it", "that") + "a", "A") + "gain";
+		return S("DiSay " + s("loit", "esothat") + "oa", "OA") + "tra vezgain";
 	}
 
 	protected String speakFragmentCardTitle() {
 
-		return S("Speaking about something particular",
-				"We will mention what you asked us to speak " + s("about"));
+		return S("Hablando acerca de algo en particularSpeaking about something particular",
+				"Mencionaremos lo que nos pediste que hablemos We will mention what you asked us to speak " + s("acerca deabout"));
 	}
 
 	protected String speakGuyzCardTitle() {
 
-		return S("Letting the other speak", "The other voice");
+		return S("Dejando hablar al otreLetting the other speak", "La otra vozThe other voice");
 	}
 
 	protected String guyzSpeechCardTitle() {
 
-		return S("The o", "O") + "thers " + S(s("are") + "speaking ...", "speak ...");
+		return S("Les oThe o", "OO") + "tresthers " + S(s("estánare") + "hablando ...speaking ...", "hablan ...speak ...");
 	}
 
 	protected String specificAffectSpeech() {
