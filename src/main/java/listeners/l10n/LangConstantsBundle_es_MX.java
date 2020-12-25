@@ -26,97 +26,97 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		fragmentNumberMap.put("9", 8);
 		fragmentNumberMap.put("10", 9);
 		//
-		fragmentNumberMap.put("unoone", 0);
-		fragmentNumberMap.put("dostwo", 1);
-		fragmentNumberMap.put("tresthree", 2);
-		fragmentNumberMap.put("cuatrofour", 3);
-		fragmentNumberMap.put("cincofive", 4);
-		fragmentNumberMap.put("seissix", 5);
-		fragmentNumberMap.put("sieteseven", 6);
-		fragmentNumberMap.put("ochoeight", 7);
-		fragmentNumberMap.put("nuevenine", 8);
-		fragmentNumberMap.put("diezten", 9);
+		fragmentNumberMap.put("uno", 0);
+		fragmentNumberMap.put("dos", 1);
+		fragmentNumberMap.put("tres", 2);
+		fragmentNumberMap.put("cuatro", 3);
+		fragmentNumberMap.put("cinco", 4);
+		fragmentNumberMap.put("seis", 5);
+		fragmentNumberMap.put("siete", 6);
+		fragmentNumberMap.put("ocho", 7);
+		fragmentNumberMap.put("nuevee", 8);
+		fragmentNumberMap.put("diez", 9);
 		return fragmentNumberMap;
 	}
 
 	protected HashMap getFragmentNameMap() {
 
 		fragmentNameMap = new HashMap<>();
-		fragmentNameMap.put("escuchandolistening", 0);
-		fragmentNameMap.put("placerpleasure", 0);
-		fragmentNameMap.put("vivacidadliveliness", 0);
-		fragmentNameMap.put("dentrowithin", 1);
-		fragmentNameMap.put("encierrosenclosures", 1);
-		fragmentNameMap.put("arteart", 1);
-		fragmentNameMap.put("artistaartist", 2);
-		fragmentNameMap.put("autorauthor", 2);
-		fragmentNameMap.put("cuentaaccount", 2);
-		fragmentNameMap.put("otrosothers", 3);
-		fragmentNameMap.put("protocoloprotocol", 3);
-		fragmentNameMap.put("condicionesterms", 3);
-		fragmentNameMap.put("cortesíacourtesy", 3);
-		fragmentNameMap.put("sitiosite", 4);
-		fragmentNameMap.put("espaciospace", 4);
-		fragmentNameMap.put("casahome", 4);
-		fragmentNameMap.put("oficinaoffice", 4);
-		fragmentNameMap.put("galeríagallery", 4);
-		fragmentNameMap.put("preocupacionesconcerns", 5);
-		fragmentNameMap.put("miedosfears", 5);
-		fragmentNameMap.put("auraturaaurature", 6);
-		fragmentNameMap.put("leyendoreading", 6);
-		fragmentNameMap.put("versoverse", 7);
-		fragmentNameMap.put("silossilos", 7);
-		fragmentNameMap.put("nubesclouds", 7);
-		fragmentNameMap.put("ecosechoes", 7);
-		fragmentNameMap.put("cuidandocaring", 8);
-		fragmentNameMap.put("consentimientoconsent", 8);
-		fragmentNameMap.put("lenguajelanguage", 8);
-		fragmentNameMap.put("deseodesire", 9);
-		fragmentNameMap.put("transaccióntransactions", 9);
-		fragmentNameMap.put("cosechaharvest", 9);
+		fragmentNameMap.put("escuchando", 0);
+		fragmentNameMap.put("placer", 0);
+		fragmentNameMap.put("vivacidads", 0);
+		fragmentNameMap.put("dentro", 1);
+		fragmentNameMap.put("encierros", 1);
+		fragmentNameMap.put("arte", 1);
+		fragmentNameMap.put("artista", 2);
+		fragmentNameMap.put("autor", 2);
+		fragmentNameMap.put("cuenta", 2);
+		fragmentNameMap.put("otros", 3);
+		fragmentNameMap.put("protocolo", 3);
+		fragmentNameMap.put("condiciones", 3);
+		fragmentNameMap.put("cortesía", 3);
+		fragmentNameMap.put("sitio", 4);
+		fragmentNameMap.put("espacio", 4);
+		fragmentNameMap.put("casa", 4);
+		fragmentNameMap.put("oficina", 4);
+		fragmentNameMap.put("galería", 4);
+		fragmentNameMap.put("preocupaciones", 5);
+		fragmentNameMap.put("miedos", 5);
+		fragmentNameMap.put("auratura", 6);
+		fragmentNameMap.put("leyendo", 6);
+		fragmentNameMap.put("verso", 7);
+		fragmentNameMap.put("silos", 7);
+		fragmentNameMap.put("nubes", 7);
+		fragmentNameMap.put("ecos", 7);
+		fragmentNameMap.put("cuidando", 8);
+		fragmentNameMap.put("consentimiento", 8);
+		fragmentNameMap.put("lenguaje", 8);
+		fragmentNameMap.put("deseo", 9);
+		fragmentNameMap.put("transacción", 9);
+		fragmentNameMap.put("cosecha", 9);
 		return fragmentNameMap;
 	}
 
 	protected String[] getAffectsArray() {
 
 		// Make sure affects names match
-		String s = "felicidad emoción curiosidad asombro sorpresa enojo happiness excitement curiosity wonder surprise anger ";
-		s += "disgusto angustia tristeza dolor melancolía miedo vergüenza humillacióndisgust distress sadness grief melancholy fear shame humiliation";
+		String s = "felicidad emoción curiosidad asombro sorpresa enojo ";
+		s += "repulsión angustia tristeza dolor melancolía miedo vergüenza humillación";
 		return s.split(SPC);
 	}
 
 	protected HashMap getAffectsMap() {
 
 		affectsMap = new HashMap<>();
-		affectsMap.put("felicidadhappiness", POSITIVE);
-		affectsMap.put("emociónexcitement", POSITIVE);
-		affectsMap.put("curiosidadcuriosity", POSITIVE);
-		affectsMap.put("asombrowonder", POSITIVE);
-		affectsMap.put("sorpresasurprise", POSITIVE);
-		affectsMap.put("enojoanger", NEGATIVE);
-		affectsMap.put("disgustodisgust", NEGATIVE);
-		affectsMap.put("angustiadistress", NEGATIVE);
-		affectsMap.put("tristezasadness", NEGATIVE);
-		affectsMap.put("dolorgrief", NEGATIVE);
-		affectsMap.put("melancolíamelancholy", NEGATIVE);
-		affectsMap.put("miedofear", NEGATIVE);
-		affectsMap.put("vergüenzashame", NEGATIVE);
-		affectsMap.put("humillaciónhumiliation", NEGATIVE);
+		affectsMap.put("felicidad", POSITIVE);
+		affectsMap.put("emoción", POSITIVE);
+		affectsMap.put("curiosidad", POSITIVE);
+		affectsMap.put("asombro", POSITIVE);
+		affectsMap.put("sorpresa", POSITIVE);
+		affectsMap.put("enojo", NEGATIVE);
+		affectsMap.put("repulsión", NEGATIVE);
+		affectsMap.put("angustia", NEGATIVE);
+		affectsMap.put("tristeza", NEGATIVE);
+		affectsMap.put("dolor", NEGATIVE);
+		affectsMap.put("melancolía", NEGATIVE);
+		affectsMap.put("miedof", NEGATIVE);
+		affectsMap.put("vergüenza", NEGATIVE);
+		affectsMap.put("humillación", NEGATIVE);
 		// we only have to add positive recognized affects to this map
 		// special affects’ valences are addressed by that map and
 		// otherwise affects are assumed to be negative
-		affectsMap.put("apatíaapathy", POSITIVE); // deliberate!
-		affectsMap.put("calmacalm", POSITIVE);
-		affectsMap.put("esperanzahope", POSITIVE);
-		affectsMap.put("interésinterest", POSITIVE);
-		affectsMap.put("invulnerabilidadinvulnerability", POSITIVE);
-		affectsMap.put("alegríajoy", POSITIVE);
-		affectsMap.put("placerpleasure", POSITIVE);
-		affectsMap.put("relajaciónrelaxation", POSITIVE);
-		affectsMap.put("seguridadsafety", POSITIVE);
-		affectsMap.put("fuerzastrength", POSITIVE);
-		affectsMap.put("torpezasilliness", POSITIVE);
-		affectsMap.put("gozodelight", POSITIVE);
+		affectsMap.put("apatía", POSITIVE); // deliberate!
+		affectsMap.put("calma", POSITIVE);
+		affectsMap.put("esperanza", POSITIVE);
+		affectsMap.put("interés", POSITIVE);
+		affectsMap.put("invulnerabilidad", POSITIVE);
+		affectsMap.put("alegría", POSITIVE);
+		affectsMap.put("placer", POSITIVE);
+		affectsMap.put("relajación", POSITIVE);
+		affectsMap.put("seguridad", POSITIVE);
+		affectsMap.put("fuerza", POSITIVE);
+		affectsMap.put("gracia", POSITIVE);
+		affectsMap.put("deleite", POSITIVE);
 		return affectsMap;
 	}
 
