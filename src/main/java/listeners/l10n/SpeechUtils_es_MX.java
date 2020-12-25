@@ -358,8 +358,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String getGuyzMoreQuery() {
 
 		return breath()
-				+ s("More? " + breathShort(), S("Please s", "S") + "ay ‘" + S("yes", S("go on", "continue"))
-						+ "‘, " + s(s("if you would like") + "to hear more.", "for more."));
+				+ s("¿Más? More? " + breathShort(), S("Por favor dPlease s", "DS") + "iay ‘" + S("síyes", S("prosiguego on", "continúacontinue"))
+						+ "‘, " + s(s("si gustasif you would like") + "escuchar más.to hear more.", "para más.for more."));
 	}
 
 	protected Object[][] getContents() {
@@ -369,22 +369,22 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String getPreamble() {
 
-		String preamble = s("Unless we’re mistaken, this is", "This seems to be")
-				+ "your first encounter with ‘The Listeners’ Version 3. ";
-		preamble += "They tend to " + s("talk", "speak") + "as much " + s("if not more than", "as")
-				+ "they listen. ";
-		preamble += "If you find what they say " + s("at all interesting,", "intriguing,") + "please be ";
-		preamble += s("patient.", "patient, and spend some time with " + s("them.", "the skill."));
-		preamble += "If " + s("you don’t,", "not,") + "or to interrupt a long speech, just say, "
-				+ s("clearly,", s("firmly,")) + "‘Alexa, Stop!’ ";
-		preamble += s(s("And have done with it."), "They can be a little ‘dark’. But ...")
-				+ s("We hope you enjoy", "Thank you for listening to") + "‘The Listeners’. ";
+		String preamble = s("A menos que estemos equivocados, esto esUnless we’re mistaken, this is", "Esto parecer serThis seems to be")
+				+ "tu primer encuentro con ‘Les que escuchan’ Versión 3. your first encounter with ‘The Listeners’ Version 3. ";
+		preamble += "Elles tienden a They tend to " + s("hablartalk", "verbalizaespeak") + "tanto as much " + s("más de lo queif not more than", "comoas")
+				+ "escuchan. they listen. ";
+		preamble += "Si tú encuentras lo que elles dicen If you find what they say " + s("interesante por completo,at all interesting,", "intrigante,intriguing,") + "por favor se please be ";
+		preamble += s("paciente.patient.", "paciente, y dedica un poco de tiempo con patient, and spend some time with " + s("elles.them.", "esta posibilidad.the skill."));
+		preamble += "Si If " + s("tú no,you don’t,", "nonot,") + "o para interrumpir un discurso largo, sólo di, or to interrupt a long speech, just say, "
+				+ s("claramente,clearly,", s("firmemente,firmly,")) + "‘Alexa, Para!Alexa, Stop!’ ";
+		preamble += s(s("Y has terminado con eso.And have done with it."), "Elles pueden ser un poco ‘oscuros’. But ..."They can be a little ‘dark’. But ...")
+				+ s("Esperamos que disfrutesWe hope you enjoy", "Gracias por estar escuchando aThank you for listening to") + "‘Les que escuchanThe Listeners’. ";
 		return preamble += breathLong();
 	}
 
 	protected String getReallyWantGuyz() {
 
-		String speech = s("Do", "Are you sure") + "you " + s("really") + "want to hear what " + s("one of")
+		String speech = s("CreesDo", "Estás segureAre you sure") + "túyou " + s("realmentereally") + "de querer escucharwant to hear what " + s("one of")
 				+ "the" + s("se", SPC) + s(s("strange", "unreliable")) + "guys " + "have to say? " + breath();
 		if (heads()) {
 			speech += "We " + s("hope", "trust") + "that you will not say ‘" + S("yes", "continue") + "‘ and "
