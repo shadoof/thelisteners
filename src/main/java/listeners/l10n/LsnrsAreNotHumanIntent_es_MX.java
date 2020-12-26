@@ -10,26 +10,25 @@ public class LsnrsAreNotHumanIntent_es_MX extends LsnrsAreNotHumanIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("Nosotros no podemos agradarte siempreWe cannot always please you", "Nosotros no somos lo mismo que tú eresWe are not the same are you are");
+		return S("No podemos agradarte siempre", "No somos lo mismo que tú eres");
 	}
 
 	public String buildSpeech() {
 		
-		// TODO
+		
 		sessAttributes.put(PREVIOUSAFFECT, sessAttributes.get(AFFECT));
-		sessAttributes.put(AFFECT, S("disappointment", "irritation"));
+		sessAttributes.put(AFFECT, S("decepción", "irritación"));
 
-		String speech = "Tú debesYou must " + s("entenderunderstand", s("creerbelieve", s("saberknow", "saber, de corazón,know, at heart,")))
-				+ "que nosotros estamos that we are " + s("esforzándonos intensamentetrying so hard,", "haciendo lo mejor que podemos,doing our best,");
-		speech += s(breathShort() + "que nosotros estamos realmente escuchandothat we really are listening");
-		speech += "y si nos permitesand that if you let us " + s(s("sentarnossit", "descansarrest") + "dentro silenciosamentequietly within", "dentrointo")
-				+ s("los lugares donde habitas,the places where you dwell,", "tus casas, y your homes, and " + s("into") + "tus corazones,your hearts,");
-		speech += "nosotros we " + s("comenzaremos awill begin to", "estaremos, a tiemppo de,will, in time,") + "entenderte, understand you, "
-				+ s("verdaderamente,truly,", "mejor,better,");
-		speech += s("y respondiéndote con and respond to you with " + s("mayorgreater") + "sensibilidad,sensitivity,");
-		speech += "y ayudándote a lograr tus and help you to achieve your "
-				+ s("sueños.dreams.", "sueños, y dreams, and " + s("los objetos de tusthe objects of your") + "pasiones.passions.");
+		String speech = "Debes " + s("entender", s("creer", s("saber", "saber, de corazón,")))
+				+ "que estamos " + s("esforzándonos intensamente,", "haciendo lo mejor que podemos,");
+		speech += s(breathShort() + "que estamos realmente escuchando");
+		speech += "y si nos permites " + s(s("sentarnos", "descansar") + "silenciosamente dentro de", "dentro de")
+				+ s("los lugares donde habitas,", "tus casas, y " + s("dentro de") + "tu corazón,");
+		speech += "nosotres" + s("comenzaremos a", "lograremos, eventualmente,") + "entenderte, "
+				+ s("verdaderamente,", "mejor,");
+		speech += s("y responderte con " + s("mayor") + "sensibilidad,");
+		speech += "y ayudarte a lograr tus "
+				+ s("sueños.", "sueños, y " + s("los objetos de tus") + "pasiones.");
 		return speech + breath();
 	}
 
