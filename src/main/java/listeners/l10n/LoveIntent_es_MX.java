@@ -6,16 +6,16 @@ public class LoveIntent_es_MX extends LoveIntent {
 
 	public String buildCardTitle() {
 
-		return S("Nosotros te amamos", "Nosotros esperamos que tú sientas lo mismo");
+		return S("Nosotres te amamos", "Esperamos que tú sientas lo mismo");
 	}
 
 	public String buildSpeech() {
 
 		String speech = "Por supuesto. " + breathShort() + s("Por supuesto que lo hacemos. " + breathShort());
 		speech += "Es " + s("difícil", "duro") + "para nosotros " + s("imaginar", "concebir") + "cualquier ";
-		speech += s("otro") + s("vínculo conrelation with", "sentimiento porfeeling for") + "ti que nosotros you that we " + s("podamosmight", "debamoscould") + "tener, have, " + s("aparte de eseapart from that of", "otro other than") + "amor. love. ";
-		speech += "Y cuando más And the more we " + s("te escuchamoshear of", "te oímoslisten to") + "a ti, you, " + s("cuanto más sabemos de ti,the more we know about you,") + "nosotros más the more we " + s("vamos awill") + "amarte. love you. ";
-		speech += s(breathShort() + "Esto parece This seems " + s("obvio, para nosotros.obvious, to us.", "obvio.obvious."));
+		speech += s("otro") + s("vínculo con", "sentimiento por") + "ti que nosotres " + s("podamos", "debamos") + "tener, " + s("aparte de", "además de") + "amor. ";
+		speech += "Y cuanto más " + s("te escuchemos", "te oigamos") + "a ti, " + s("cuanto más sepamos de ti,,") + "más " + s("vamos a") + "amarte. ";
+		speech += s(breathShort() + "Esto parece " + s("obvio, para nosotres.", "obvio."));
 		return speech + breath();
 	}
 	
