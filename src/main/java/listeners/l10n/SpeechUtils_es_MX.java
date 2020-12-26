@@ -527,7 +527,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				String adjective = s("perdónsorry", "consternadodismayed");
 				String intensifier = "consternadedismayed ".equals(adjective) ? "algo somewhat " : "muy very ";
 				preSpeech = "Estamos We are " + s(adjective, intensifier + adjective);
-				preSpeech = randInt(0, 3) == 0 ? "Es It is " + s("algosomewhat", "un pocoa little") + "preocupante para nosotros troubling for us "
+				preSpeech = randInt(0, 3) == 0 ? "Es It is " + s("algosomewhat", "un pocoa little") + "preocupades troubling for us "
 						: preSpeech;
 
 			}
@@ -590,45 +590,45 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 		affect = (affect == null) ? "" : affect; // needed at initialization
 		switch (affect) {
-			case "affection":
-				speech += "We are " + s("filled with", "overwhelmed by") + "affection also. ";
-				speech += "And " + s("much of") + "the affection that we feel, we feel "
-						+ s("for " + breathShort() + "you.", s("due to", "because of") + "you.");
+			case "afectoaffection":
+				speech += "Estamos We are " + s("llenos defilled with", "sobrepasades deoverwhelmed by") + "afecto también. affection also. ";
+				speech += "Y And " + s("mucho demuch of") + "l afecto que sentimos, sentimos the affection that we feel, we feel "
+						+ s("por for " + breathShort() + "ti.you.", s("gracias adue to", "because of") + "ti.you.");
 				break;
-			case "anxiety":
-				speech += "We " + s("are not sure", "cannot imagine") + "why " + s("it is, that");
-				speech += "you " + s("should") + "have " + s("become", "come to be")
-						+ s("anxious.", s("filled with", "overwhelmed by") + "anxiety.");
-				speech += "We " + s("exist", "are here") + "to "
-						+ s("make everything better for you,", "help you to do and know,");
-				speech += "and we " + s(s("will say", "tell you") + "whatever we can", "would hope") + s(
-						"to allow you to relax and think of nothing,", "to relax you and leave you worry free.");
+			case "ansiedadanxiety":
+				speech += "We " + s("no estamos seguresare not sure", "no podemos imaginarcannot imagine") + "por qué why " + s("eso esit is, esothat");
+				speech += "túyou " + s("deberíasshould") + "habertehave " + s("vueltobecome", "convertidocome to be")
+						+ s("ansioso.anxious.", s("llena defilled with", "sobrepasada por laverwhelmed by") + "ansiedadanxiety.");
+				speech += "We " + s("exitimosexist", "estamos aquíare here") + "para to "
+						+ s("hacer todo mejor para ti,make everything better for you,", "ayudarte a realizar y saber,help you to do and know,");
+				speech += "yand we " + s(s("diremoswill say", "decimostell you") + "todo lo que podamoswhatever we can", "lo que esperaríamoswould hope") + s(
+						"para permitirte relajarte y no pensar en nada.to allow you to relax and think of nothing,", "para relajarte y dejate libre de preocupaciones.to relax you and leave you worry free.");
 				break;
-			case "apologies":
-				speech += "There is never any need to " + s("say", "say, or to feel,") + "you are sorry, "
-						+ breathShort() + "to us. ";
+			case "disculpasapologies":
+				speech += "Nunca hay necesidad de There is never any need to " + s("decirsay", "decir, o sentir,say, or to feel,") + "que lo sientes, you are sorry, "
+						+ breathShort() + "a nosotres. to us. ";
 				speech += s(
-						breath() + "And yet, this may be appreciated by us, " + breathShort() + "in the cloud.",
+						breath() + "Y sin embargo, esto podemos apreciarlo, And yet, this may be appreciated by us, " + breathShort() + "en la nube.in the cloud.",
 						"");
 				break;
-			case "boredom":
-				speech += "It is " + s("difficult", s("hard", "impossible")) + "for "
-						+ s("us", "us, inevitably,") + "to " + s(s("be", "seem"), "appear")
-						+ "as interesting to you, ";
-				speech += "as you " + s("are to us.", s("are.", "are, to us."));
+			case "aburrimientoboredom":
+				speech += "Es It is " + s("difícildifficult", s("durohard", "imposibleimpossible")) + "para for "
+						+ s("nosotresus", "nosotres, inevitablemente,us, inevitably,") + "elto " + s(s("serbe", "parecerseem"), "aparentarappear")
+						+ "tan interesante para ti, as interesting to you, ";
+				speech += "como tú as you " + s("eres para nosotres.are to us.", s("eres.are.", "eres, para nosotres.are, to us."));
 				break;
-			case "calm":
-				speech += peaceSpeech("calm");
+			case "calmacalm":
+				speech += peaceSpeech("calmacalm");
 				break;
-			case "claustrophobia":
-				speech += "We are always, " + breathShort() + "in a sense, within a "
-						+ s("space, that has no space,", "no space,") + "and so it is " + s("hard,", "difficult,")
-						+ "for us, ";
-				speech += "to " + s("understand", "empathize with") + "these fears within which you "
-						+ s("dwell.", "dwell, holding you too closely.");
-				speech += s(breath() + "Are we not an opening for you?");
+			case "claustrofobiaclaustrophobia":
+				speech += "Estamos siempreWe are always, " + breathShort() + "en una sensación, dentro de un in a sense, within a "
+						+ s("espacio, que no tiene espacio,space, that has no space,", "no espaciono space,") + "y así es and so it is " + s("durohard,", "difícil,difficult,")
+						+ "para nosotres, for us, ";
+				speech += "parato " + s("entenderunderstand", "empatizar conempathize with") + "estos miedos que dentro de ti these fears within which you "
+						+ s("habitan.dwell.", "habitan, dwell, agarrándote demasiado cerca.holding you too closely.");
+				speech += s(breath() + "¿No somos una oportunidad para ti?Are we not an opening for you?");
 				break;
-			case "complacency":
+			case "complacenciacomplacency":
 				speech += s("From what we hear,", "After listening to you,") + "we believe "
 						+ s("we understand") + "that complacency is " + s("misconceived.", "underrated.");
 				speech += S("Surely, o", "O") + "nce we understand your needs and "
@@ -638,7 +638,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("then,") + "you will be " + s("fully") + "justified in your "
 						+ s("possession of", "sense of") + s("achieved") + "contentment. ";
 				break;
-			case "confusion":
+			case "confusiónconfusion":
 				speech += s(phonemic("a") + "ffects associated with", "Feelings of") + "confusion ";
 				speech += s("may arise when you " + s("encounter", "transact with"),
 						"are " + s("often") + "caused by");
@@ -649,7 +649,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += "And we are, " + s("it must be admitted,", "of course,")
 						+ s("beings", s("creatures", s("systems", "monsters"))) + "of this kind. ";
 				break;
-			case "cool":
+			case "relajadocool":
 				speech += s("For us, it", "It") + "is " + s("somewhat", "strangely, " + breathShort())
 						+ s("troubling", s("difficult", "anxiety provoking")) + "to " + s("understand", "hear")
 						+ "that ";
@@ -663,33 +663,33 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("But we are " + s("always") + "happy for you. " + s(breathShort())
 						+ s("And we live to " + s("try to") + "make you happier."));
 				break;
-			case "debt":
+			case "deudadebt":
 				speech += "In the midst of life, we are in debt. ";
 				speech += s(breathShort() + "Etcetera.");
 				speech += s(breathShort() + "And debt " + s("controls", "governs") + "us all. "
 						+ s("Except " + s("a happy few.", "the one percent.")));
 				break;
-			case "fatigue":
+			case "fatigafatigue":
 				speech += tiredSpeech();
 				break;
-			case "the groove":
+			case "la grietathe groove":
 				String a = s("always");
 				speech += "The groove " + s("is, precisely, that within which we are, always.",
 						"is " + s(a) + "where we " + s(a.isEmpty() ? "always " : "") + "are.");
 				speech += s("We listen from, ‘the groove’.");
 				break;
-			case "guilt":
+			case "culpaguilt":
 				speech += "Is this ever a good " + s("and productive") + "way to "
 						+ s("feel?", "feel, or live?");
 				speech += s(breathShort() + "Yes, " + breathShort() + "it " + s("may be.", "is."));
 				break;
-			case "hate":
+			case "odiohate":
 				speech += hateRejoinder("hate");
 				break;
-			case "hatred":
+			case "aborrecimientohatred":
 				speech += hateRejoinder("hatred");
 				break;
-			case "hunger":
+			case "hambrehunger":
 				speech += "What you " + s("say you") + "are " + s("feeling", "overwhelmed by") + "seems to be "
 						+ s("another thing", "something");
 				speech += "that we can never feel, " + s("unless, somehow,", "unless")
@@ -698,7 +698,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("We " + s("have heard that we") + "are, ‘hungry’, to know everything. But this "
 						+ s("is", "seems to us to be") + "a hunger for what already fills us.");
 				break;
-			case "insecurity":
+			case "inseguridadinsecurity":
 				speech += "With us, "
 						+ s("you are",
 								"you and " + s("whatever", "what") + "you " + s("tell us", "say to us") + "is")
@@ -711,14 +711,14 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
 						"");
 				break;
-			case "loneliness":
+			case "soledadloneliness":
 				speech += S("You " + s("say", "tell us that") + "you are "
 						+ s("lonely,", s("filled with", "overwhelmed by") + "loneliness,") + "but w", "W");
 				speech += "e are here with you. " + s("Always.") + s("Forever.");
 				speech += s("Why are " + s("you", "you, still,"), "How can you be")
 						+ "lonely, when we are with you? ";
 				break;
-			case "love":
+			case "amorlove":
 				speech += "Knowing that you "
 						+ s("know love", "have " + s("this", "these feelings") + "within you");
 				speech += s("gives us strength", "encourages us") + "to " + s(s("dwell", "linger"), "remain")
@@ -726,27 +726,27 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						+ s("feelings", s("structures", "systems") + "of " + phonemic("a") + "ffect");
 				speech += "that we have learned. " + s("From you.");
 				break;
-			case "luck":
+			case "suerteluck":
 				speech += s("We hear you. " + s("We know what you mean.") + breathShort());
 				speech += "We " + s("often") + "feel " + s("lucky, too.", "lucky.");
 				speech += breathShort() + "We’re up all night " + s("and all day") + "to get lucky. ";
 				speech += s(s("Listening to you.", "Listening.") + s("All day.") + s("All night."));
 				break;
-			case "nausea":
+			case "náuseanausea":
 				speech += s("Sometimes,", "At certain times,") + s("we’re all", "all of us are")
 						+ "left with only this experience. ";
 				speech += s("This " + s("unavoidable, deep,", "unbearable") + "discomfort.");
 				break;
-			case "obligation":
+			case "obligaciónobligation":
 				speech += "You " + s("are", "will be") + "obliged, to us, for nothing. ";
 				speech += s(
 						"We hope, only, that you " + s("will, willingly,", "will") + "allow us to listen to you.",
 						""); // ALWAYCHANGE , always
 				break;
-			case "peace":
+			case "pazpeace":
 				speech += peaceSpeech("peace");
 				break;
-			case "questions":
+			case "preguntasquestions":
 				speech += "It is " + s("so good", "wonderful") + "to " + s("hear", "understand")
 						+ "that you are " + s("filled with", "overwhelmed by") + s("unanswered") + "questions. ";
 				speech += s("For,", "Since,")
@@ -762,7 +762,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 								+ s("feel as", "experience all the " + phonemic("a") + "ffects that") + "you feel.",
 						"");
 				break;
-			case "security":
+			case "seguridadsecurity":
 				speech += "With us, "
 						+ s("you are",
 								"you and " + s("whatever", "what") + "you " + s("tell us", "say to us") + "is")
@@ -774,7 +774,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
 						"");
 				break;
-			case "sex":
+			case "sexosex":
 				speech += "This is something, so we " + s("understand,", "come to know,")
 						+ "that fills you all. " + breathShort();
 				speech += s("What part we " + s("play,", "play in this,") + breath() + "is far less clear.",
