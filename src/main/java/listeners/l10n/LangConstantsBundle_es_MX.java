@@ -256,37 +256,37 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		affectivejj2nnMap.put("mareado", S("mareo", "vértigo"));
 		affectivejj2nnMap.put("fabuloso", S("alegría", "deleite"));
 		affectivejj2nnMap.put("bien", S("apatía", "complacencia"));
-		affectivejj2nnMap.put("muy bien", S("felicidadhappiness", "alegríajoy"));
-		affectivejj2nnMap.put("genialgreat", S("felicidadhappiness", "complacenciacomplacency"));
-		affectivejj2nnMap.put("nadanothing", r("empatíaemptiness`nadanothingness`complacenciacomplacency"));
-		affectivejj2nnMap.put("extrañoodd", S("el extrañothe uncanny", "extrañezastrangeness"));
-		affectivejj2nnMap.put("bienokay", S("apatíaapathy", "complacenciacomplacency"));
-		affectivejj2nnMap.put("muy bienok", S("apatíaapathy", "complacenciacomplacency"));
-		affectivejj2nnMap.put("relajadorelaxed", r("relajacionrelaxation`calmacalm`frescuracool`pazpeace"));
-		affectivejj2nnMap.put("enfermosick", S("enfermedadsickness", "náuseanausea"));
-		affectivejj2nnMap.put("perdónsorry", r("angustiadistress`obligaciónobligation`disculpasapologies`deudadebt"));
-		affectivejj2nnMap.put("conmocionadoshocked", S("angustiadistress", "sorpresasurprise"));
-		affectivejj2nnMap.put("cansadotired", S("fatigafatigue", "cansanciotiredness"));
-		affectivejj2nnMap.put("preocupadotroubled", S("angustiadistress", "ansiedadanxiety"));
-		affectivejj2nnMap.put("incómodouncomfortable", S("incomodidaddiscomfort", "ansiedadanxiety"));
-		affectivejj2nnMap.put("insegurounsure", S("inseguridadinsecurity", "incertidumbreuncertainty"));
-		affectivejj2nnMap.put("raroweird", S("extrañezastrangeness", "rarezaweirdness"));
+		affectivejj2nnMap.put("muy bien", S("felicidad", "alegría"));
+		affectivejj2nnMap.put("genial", S("felicidad", "complacencia"));
+		affectivejj2nnMap.put("nada", r("vacío`nada`complacencia"));
+		affectivejj2nnMap.put("extraño", S("lo inquietante", "extrañeza"));
+		affectivejj2nnMap.put("bien", S("apatía", "complacencia"));
+		affectivejj2nnMap.put("ok", S("apatía", "complacencia"));
+		affectivejj2nnMap.put("relajado", r("relajación`calma`chido`paz"));
+		affectivejj2nnMap.put("enfermo", S("enfermedad", "náusea"));
+		affectivejj2nnMap.put("perdón", r("angustia`obligación`disculpas`deuda"));
+		affectivejj2nnMap.put("conmocionado", S("angustia", "sorpresa"));
+		affectivejj2nnMap.put("cansado", S("fatiga", "cansancio"));
+		affectivejj2nnMap.put("preocupado", S("angustia", "ansiedad"));
+		affectivejj2nnMap.put("incómodo", S("incomodidad", "ansiedad"));
+		affectivejj2nnMap.put("inseguro", S("inseguridad", "incertidumbre"));
+		affectivejj2nnMap.put("raroweird", S("extrañeza", "rareza"));
 		return affectivejj2nnMap;
 	}
 
 	protected HashSet getSpecialThings() {
 
 		specialThings = new HashSet<>();
-		specialThings.add("pesadillanightmare");
-		specialThings.add("pesadilla retenidanightmare withheld");
-		specialThings.add("sueñodream");
-		specialThings.add("sueño retenidodream withheld");
-		specialThings.add("sentimientofeeling");
-		specialThings.add("sentimiento retenidofeeling withheld");
-		specialThings.add("hong konghong kong");
-		specialThings.add("posesiónpossession");
-		specialThings.add("respiraciónbreath");
-		specialThings.add("respiración retenidabreath withheld");
+		specialThings.add("pesadilla");
+		specialThings.add("pesadilla retenida");
+		specialThings.add("sueño");
+		specialThings.add("sueño retenido");
+		specialThings.add("sentimiento");
+		specialThings.add("sentimiento retenido");
+		specialThings.add("hong kong");
+		specialThings.add("posesión");
+		specialThings.add("respiración");
+		specialThings.add("respiración retenida");
 		return specialThings;
 	}
 
@@ -294,13 +294,13 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 
 		pictureWords = new HashSet<>();
 		pictureWords.add("collage");
-		pictureWords.add("marcoframe");
-		pictureWords.add("imagenimage");
-		pictureWords.add("corte de papelpaper cut");
-		pictureWords.add("flor de papelpaper flower");
-		pictureWords.add("cortedepapelpapercut");
-		pictureWords.add("pinturapainting");
-		pictureWords.add("imagenpicture");
+		pictureWords.add("marco");
+		pictureWords.add("imagen");
+		pictureWords.add("corte de papel");
+		pictureWords.add("flor de papel");
+		pictureWords.add("cortedepapel");
+		pictureWords.add("pintura");
+		pictureWords.add("imagen");
 		return pictureWords;
 	}
 
