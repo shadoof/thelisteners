@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ListResourceBundle;
 
-// TODO
 public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 
 	protected HashMap getFragmentNumberMap() {
