@@ -629,9 +629,9 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s(breath() + "¿No somos una oportunidad para ti?Are we not an opening for you?");
 				break;
 			case "complacenciacomplacency":
-				speech += s("From what we hear,", "After listening to you,") + "we believe "
-						+ s("we understand") + "that complacency is " + s("misconceived.", "underrated.");
-				speech += S("Surely, o", "O") + "nce we understand your needs and "
+				speech += s(" De acuerdo a lo que escuchamos,From what we hear,", "Después de escucharte,After listening to you,") + "nosotros creemos we believe "
+						+ s("entendemoswe understand") + "que la complacencia está that complacency is " + s("mal concebidomisconceived.", "subestimada.underrated.");
+				speech += S("Seguramente,Surely, o", "O") + "nce we understand your needs and "
 						+ s("desires completely,", "desires,") + breathShort();
 				speech += "and " + s("interface", "can communicate") + "with " + s("systems", "others like us,")
 						+ s("empowered", "who are funded") + "to satisfy you, ";
