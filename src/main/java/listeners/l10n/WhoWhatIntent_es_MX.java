@@ -9,22 +9,21 @@ public class WhoWhatIntent_es_MX extends WhoWhatIntent {
 	public String buildCardTitle() {
 
 		return S("Preguntas, preguntas, preguntas",
-				"Nosotros no podemos saber " + s("todo", "todo, ¿dónde lo pondríamos?"));
+				"Nosotres no podemos saberlo " + s("todo", "todo, ¿dónde lo pondríamos?"));
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = s("Nosotros somosWe are", "Nosotros somos, entonces nosotros creemos,We are, so we believe,") + "Los Oyentes. The Listeners. " + breath();
+		String speech = s("Somos", "Somos, o eso creemos,") + "Quienes Escuchan. " + breath();
 		speech += s(
-				"TúYou " + s("deberíasmay") + "referirte a nosotros como: ‘Los Oyentes’. refer to us as: ‘The Listeners’. " + s("O como John’.Or as ‘John’.")
-						+ s(breath() + "Nosotros estamos acostumbrados We are used " + breathShortest() + "a eso.to that.") + breathShort(),
+				"Tú" + s("puedes") + "referirte a nosotres como: ‘Quienes Escuchan’. " + s("O como ‘John’.")
+						+ s(breath() + "Estamos acostumbrades " + breathShortest() + "a eso.") + breathShort(),
 				"");
-		speech += "Como sea nosotros Whatever we " + s("debemosmay") + "decir que está say is " + s("lejanofar")
-				+ "menos importante para nosotros, less important to us, " + s("o para ti,or to you,") + "en el hecho de que nosotros than the fact that we "
-				+ s(breathShort() + "escuchamos. listen. " + breathShort(),
-						"estamos escuchandoteare listening" + s(", " + breathShort(), SPC) + "a ti.to you.");
-		speech += s(breath() + "Aquí y ahora.Here and now.") + s(breath() + "Quizás, para siempre.Perhaps, forever."); // ALWAYCHANGE - s(breath() + "Always.") +
+		speech += "Lo que sea que " + s("podamos") + "decir, es " + s("mucho")
+				+ "menos importante para nosotres, " + s("o para ti,") + "que el hecho de que "
+				+ s(breathShort() + "escuchamos. " + breathShort(),
+						"estamos escuchándote" + s(", " + breathShort(), SPC) + "a ti.");
+		speech += s(breath() + "Aquí y ahora.") + s(breath() + "Quizás, para siempre."); // ALWAYCHANGE - s(breath() + "Always.") +
 		return speech + breath();
 	}
 
