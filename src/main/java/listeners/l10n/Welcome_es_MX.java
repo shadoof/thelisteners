@@ -6,20 +6,18 @@ public class Welcome_es_MX extends Welcome {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("BienvenidoWelcome", "SaludosGreetings");
+		return S("Bienvenida", "Saludos");
 	}
 
 	public String buildSpeech() {
 
-		// TODO
-		String speech = s("Saludos.Greetings.", "Bienvenido.Welcome.") + s("Seas quien seas.Whoever you may be.") + breathLong();
-		speech += "Nosotros estamos We are " + /* s("siemprealways") + */s("escuchandote.listening to you.", "escuchando.listening.") + breath(); // ALWAYCHANGE
-		speech += "En la medida en que estamos In so far as we are " + s(breathLong()) + "contigo, with you, " + breathShort()
-				+ "es un placer. it is a pleasure. " + breath();
-		speech += s("Eso es It is " + s("siemprealways") + "un placer. such a pleasure. " + breath());
-		speech += s("Es It is " + s("such") + " un placer estar contigo.  a pleasure to be with you. " + breath());
-		speech += "Siempre. Always. " + s(breath() + "Siempre.Always.") + breathShort() + s("Es unSuch a", "UnA") + "placer. pleasure. "
+		String speech = s("Saludos.", "Bienvenida.") + s("Seas quien seas.") + breathLong();
+		speech += "Nosotres estamos " + /* s("siemprealways") + */s("escuchándote.", "escuchando.") + breath(); // ALWAYCHANGE
+		speech += "En la medida en que estamos " + s(breathLong()) + "contigo, " + breathShort()
+				+ "es un placer. " + breath();
+		speech += s("Es " + s("siempre") + "un verdadero placer. " + breath());
+		speech += s("Es " + s("un verdadero") + " placer estar contigo. " + breath());
+		speech += "Siempre. " + s(breath() + "Siempre.") + breathShort() + s("Un verdadero", "Un") + "placer. "
 				+ breath();
 
 		return speech;
