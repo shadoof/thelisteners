@@ -13,14 +13,13 @@ public class WhoseAccountIntent_es_MX extends WhoseAccountIntent {
 
 	public String buildSpeech() {
 
-		// TODO
 		String speech = "Estas conversaciones, " + s("y estas transacciones")
 				+ "toman lugar dentro del alcance de, take place within the scope of, " + (PERFORMANCE ? "‘John’s’ " : "tu your ") + "perfil. profile. "
 				+ breath();
 		speech += PERFORMANCE
-				? s("Si nosotros somos If we are " + s(s("siempreever") + "parte de una instalación,part of an installation,", "una galería instalada,gallery installed,")
-						+ "entonces todo está enviado, then everything is sent, " + s("no solo a la nube, peronot only to the cloud, but") + "a nuestrato our "
-						+ s("aplicación.app.", "aplicación, app, según lo configurado por nuestro artista.as configured by our artist."))
+				? s("Si somos " + s(s("alguna vez") + "parte de una instalación,", "instalades en una galería,")
+						+ "entonces todo se envía, " + s("no sólo a la nube, sino") + "a nuestra "
+						+ s("aplicación.", "aplicación, según lo configurado por nuestro artista."))
 				: "";
 		return speech + breath();
 	}
