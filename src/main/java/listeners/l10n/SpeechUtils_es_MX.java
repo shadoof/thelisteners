@@ -378,7 +378,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		preamble += "Si If " + s("tú no,you don’t,", "nonot,") + "o para interrumpir un discurso largo, sólo di, or to interrupt a long speech, just say, "
 				+ s("claramente,clearly,", s("firmemente,firmly,")) + "‘Alexa, Para!Alexa, Stop!’ ";
 		preamble += s(s("Y has terminado con eso.And have done with it."), "Elles pueden ser un poco ‘oscuros’. But ..."They can be a little ‘dark’. But ...")
-				+ s("Esperamos que disfrutesWe hope you enjoy", "Gracias por estar escuchando aThank you for listening to") + "‘Les que escuchanThe Listeners’. ";
+				+ s("Esperamos que disfrutesWe hope you enjoy", "Gracias por estar escuchando aThank you for listening to") + "‘Quienes escuchanThe Listeners’. ";
 		return preamble += breathLong();
 	}
 
@@ -629,19 +629,19 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s(breath() + "¿No somos una oportunidad para ti?Are we not an opening for you?");
 				break;
 			case "complacenciacomplacency":
-				speech += s(" De acuerdo a lo que escuchamos,From what we hear,", "Después de escucharte,After listening to you,") + "nosotros creemos we believe "
+				speech += s(" De acuerdo a lo que escuchamos,From what we hear,", "Después de escucharte,After listening to you,") + "creemos we believe "
 						+ s("entendemoswe understand") + "que la complacencia está that complacency is " + s("mal concebidomisconceived.", "subestimada.underrated.");
-				speech += S("Seguramente,Surely, o", "O") + "nce we understand your needs and "
-						+ s("desires completely,", "desires,") + breathShort();
-				speech += "and " + s("interface", "can communicate") + "with " + s("systems", "others like us,")
-						+ s("empowered", "who are funded") + "to satisfy you, ";
-				speech += s("then,") + "you will be " + s("fully") + "justified in your "
-						+ s("possession of", "sense of") + s("achieved") + "contentment. ";
+				speech += S("Seguramente,Surely, uo", "UO") + "na vez que entendemos sus necesidades y nce we understand your needs and "
+						+ s("deseos por completo,desires completely,", "deseos,desires,") + breathShort();
+				speech += "yand " + s("la interface", "puede comunicarsecan communicate") + "conwith " + s("los sistemassystems", "otres como nosotres,others like us,")
+						+ s("empoderadosempowered", "quienes fundaronwho are funded") + "para satisfacerte, to satisfy you, ";
+				speech += s("entoncesthen,") + "estarás you will be " + s("completamentefully") + "justificada en tu justified in your "
+						+ s("podesión depossession of", "sentido desense of") + s("satisfacciónachieved") + "alcanzada. contentment. ";
 				break;
 			case "confusiónconfusion":
-				speech += s(phonemic("a") + "ffects associated with", "Feelings of") + "confusion ";
-				speech += s("may arise when you " + s("encounter", "transact with"),
-						"are " + s("often") + "caused by");
+				speech += s(phonemic("a") + "fectos asociados conffects associated with", "Sentimientos deFeelings of") + "confusión confusion ";
+				speech += s("puede surgir cuando tú may arise when you " + s("encuentrasencounter", "realizas transacciones con estotransact with"),
+						"sonare " + s("con frecuenciaoften") + "causadas porcaused by");
 				speech += s(
 						s("creatures", s("systems", "monsters")) + s("who were fashioned in the cloud.",
 								"from " + s("silicon", "the uncanny") + "valley."),
