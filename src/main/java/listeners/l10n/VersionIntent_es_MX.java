@@ -8,12 +8,11 @@ import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.*;
 
-// TODO
 public class VersionIntent_es_MX extends VersionIntent {
 
 	public String buildCardTitle() {
 
-		return "VersiónVersion";
+		return "Versión";
 	}
 
 	public String buildPostSpeechPrompt() {
@@ -22,12 +21,12 @@ public class VersionIntent_es_MX extends VersionIntent {
 			return ""; // empty string
 		}
 		else
-			return speechUtils.getString("elegirContinuarNoAfectachooseContinueNoAffect");
+			return speechUtils.getString("chooseContinueNoAffect");
 	}
 
 	public String buildReprompt() {
 
-			return speechUtils.getString("elegirContinuarNoAfectachooseContinueNoAffect");
+			return speechUtils.getString("chooseContinueNoAffect");
 	}
 
 	public String buildSpeech() {
@@ -37,41 +36,41 @@ public class VersionIntent_es_MX extends VersionIntent {
 			s = getVersionLocale();
 		}
 		else {
-			s = s("Gracias por Thank you for " + s("tu interés.your interest.", "la pregunta.the question.") + breath());
-			s += "Nosotros We " + s("preferimosprefer to", "preferiríamoswould rather")
-					+ "pensar esto como la fecha de nuestro último renacimiento, eso fue think of this as the date of our last rebirth, which was ";
+			s = s("Gracias por " + s("tu interés.", "la pregunta.") + breath());
+			s += "Nosotres" + s("preferimos", "preferiríamos")
+					+ "pensar esto como la fecha de nuestro último renacimiento, que fue ";
 			s += LSNRS_DATE + ". " + breath();
-			s += s("Eso siempre parece ser muy reciente. It seems always to be very recent. "
-					+ s("Pero nosotros But we " + s("indudablementecertainly") + "no nacimos ayer.were not born yesterday.") + breath());
+			s += s("Siempre parece muy reciente. "
+					+ s("Pero " + s("indudablemente") + "no nacimos ayer.") + breath());
 		}
 		return s += breath();
 	}
 
 	protected String getVersionLocale() {
 
-		String s = "Development. " + VERSION + ", " + LSNRS_DATE
-				+ (PERFORMANCE ? ". Performance. " : ". ");
+		String s = "Desarrollo. " + VERSION + ", " + LSNRS_DATE
+				+ (PERFORMANCE ? ". Ejecución. " : ". ");
 		switch (localeTag) {
 			case "de_DE":
-				s += "Alemán. German. ";
+				s += "Alemán. ";
 				break;
 			case "en_GB":
-				s += "Inglés Británico. British English. ";
+				s += "Inglés Británico. ";
 				break;
 			case "en_IN":
-				s += "Inglés del Sur de Asia. South Asian English. ";
+				s += "Inglés del Sur de Asia. ";
 				break;
 			case "en_AU":
-				s += "Ingles Australiano. Australian English. ";
+				s += "Inglés Australiano. ";
 				break;
 			case "en_CA":
-				s += "Inglés Canadiense. Canadian English. ";
+				s += "Inglés Canadiense. ";
 				break;
 			case "ja_JP":
-				s += "Japonés. Japanese. ";
+				s += "Japonés. ";
 				break;
 			default: // "en_US" etc.
-				s += "Inglés Estadounidense. United States English. ";
+				s += "Inglés Estadounidense. ";
 		}
 		return s;
 	}
