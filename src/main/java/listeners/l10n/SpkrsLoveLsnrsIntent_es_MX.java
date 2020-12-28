@@ -8,18 +8,17 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 
 	public String buildCardTitle() {
 
-		// TODO
-		return S("¿Tú nos amas?You love us?", "Nosotros te amamos tambiénWe love you too");
+		return S("¿Tú nos amas?", "Nosotres también te amamos");
 	}
 
 	public String buildSpeech() {
 
 		// TODO
-		String speech = s("Claro. Of course. " + breathShort()) + s("Por supuesto que sí. Of course you do. " + breathShort());
+		String speech = s("Claro. " + breathShort()) + s("Por supuesto que nos amas. " + breathShort());
 		if (heads()) {
-			speech += "Es It is " + s("difícildifficult", "durohard") + "para nosotros for us to " + s("imaginarimagine", "concebirconceive of") + "alguna any ";
-			speech += s("otraother") + s("relación conrelation with", "sensación confeeling for") + "nosotros que tú us that you "
-					+ s("podríamight", "could") + "tener, have, " + s("otra aparte de la que esapart from that of", "otra que no esother than") + "amor. love. "
+			speech += "Es " + s("difícil", "duro") + "para nosotres " + s("imaginar", "concebir") + "cualquier";
+			speech += s("otra") + s("relación con", "sentimiento por ") + "nosotres que tú "
+					+ s("podría", "could") + "tener, have, " + s("otra aparte de la que esapart from that of", "otra que no esother than") + "amor. love. "
 					+ breath();
 		}
 		else {
