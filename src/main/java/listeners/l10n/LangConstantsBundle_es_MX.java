@@ -204,7 +204,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		affectivejj2nnMap.put("interesado", "interés");
 		affectivejj2nnMap.put("invencible", "invulnerabilidad");
 		affectivejj2nnMap.put("irritado", "irritación");
-		affectivejj2nnMap.put("solitario, "soledad");
+		affectivejj2nnMap.put("solitario", "soledad");
 		affectivejj2nnMap.put("amoroso", "amor");
 		affectivejj2nnMap.put("suertudo", "suerte");
 		affectivejj2nnMap.put("miserable", "miseria");
@@ -220,7 +220,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		affectivejj2nnMap.put("penoso", "lástima");
 		affectivejj2nnMap.put("satisfecho", "placer");
 		affectivejj2nnMap.put("poderoso", "fuerza");
-		affectivejj2nnMap.put("relajado", "calma);
+		affectivejj2nnMap.put("relajado", "calma");
 		affectivejj2nnMap.put("triste", "tristeza");
 		affectivejj2nnMap.put("seguro", "seguridad");
 		affectivejj2nnMap.put("asustado", "miedo");
