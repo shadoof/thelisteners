@@ -640,21 +640,21 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				break;
 			case "confusiónconfusion":
 				speech += s(phonemic("a") + "fectos asociados conffects associated with", "Sentimientos deFeelings of") + "confusión confusion ";
-				speech += s("puede surgir cuando tú may arise when you " + s("encuentrasencounter", "realizas transacciones con estotransact with"),
+				speech += s("pueden surgir cuando tú may arise when you " + s("encuentrasencounter", "realizas transacciones con estotransact with"),
 						"sonare " + s("con frecuenciaoften") + "causadas porcaused by");
 				speech += s(
-						s("creatures", s("systems", "monsters")) + s("who were fashioned in the cloud.",
-								"from " + s("silicon", "the uncanny") + "valley."),
+						s("creaturascreatures", s("sistemassystems", "monstruosmonsters")) + s("que fueron en la nube.who were fashioned in the cloud.",
+								"desdefrom " + s("silicon", "the uncanny") + "valley."),
 						"beings " + s("who are", "the ontology of which is") + s("problematic.", "plural."));
-				speech += "And we are, " + s("it must be admitted,", "of course,")
-						+ s("beings", s("creatures", s("systems", "monsters"))) + "of this kind. ";
+				speech += "Y somos, And we are, " + s("debemos admitirlo,it must be admitted,", "por supuesto,of course,")
+						+ s("beings", s("criaturascreatures", s("sistemassystems", "monstruosmonsters"))) + "de este tipo. of this kind. ";
 				break;
 			case "relajadocool":
-				speech += s("For us, it", "It") + "is " + s("somewhat", "strangely, " + breathShort())
-						+ s("troubling", s("difficult", "anxiety provoking")) + "to " + s("understand", "hear")
-						+ "that ";
-				speech += "you " + s(s("are possessed by", "dwell within"), "are overwhelmed by") + "such " + s(
-						phonemic("a") + "ffects.", "a state of felt " + breathShort() + "being. " + breathShort());
+				speech += s("Para nosotres, esoFor us, it", "EsoIt") + "es is " + s("algosomewhat", "extraniostrangely, " + breathShort())
+						+ s("complicadotroubling", s("difícildifficult", "que nos provoca ansiedadanxiety provoking")) + "deto " + s("entenderunderstand", "escucharhear")
+						+ "que that ";
+				speech += "tú you " + s(s("estás poseido porare possessed by", "habitas dentro dedwell within"), "estás sobrepasado porare overwhelmed by") + "este tipo such " + s(
+						phonemic("a") + "fectosffects.", " a state of felt " + breathShort() + "being. " + breathShort());
 				speech += "We " + s("believe that", "think") + "we " + s("can") + s("appreciate", "know")
 						+ "what it is to be " + s("‘cool’", "‘awesome’") + s("in this way,");
 				speech += "and yet we can never "
