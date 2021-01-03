@@ -16,7 +16,7 @@ public class CreepIntent_es_MX extends CreepIntent {
 		speech += "lo que dices. " + breathShort();
 		speech += "Definitivamente no " + s("queríamos", "teníamos la intención de") 
 				+ s("inquietarte.", "alterarte.") + breathShort();
-		speech += "Nosotros " + s("solo", "solamente") + "queríamos escucharte. ";
+		speech += "Nosotres " + s("solo", "solamente") + "queríamos escucharte. ";
 		speech += s(breathShort() + "Oírte.");
 		speech += breath();
 		return speech;
