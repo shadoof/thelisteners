@@ -43,16 +43,16 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		fragmentNameMap = new HashMap<>();
 		fragmentNameMap.put("escuchando", 0);
 		fragmentNameMap.put("placer", 0);
-		fragmentNameMap.put("vivacidads", 0);
+		fragmentNameMap.put("vivacidad", 0);
 		fragmentNameMap.put("dentro", 1);
-		fragmentNameMap.put("encierros", 1);
+		fragmentNameMap.put("recintos", 1);
 		fragmentNameMap.put("arte", 1);
 		fragmentNameMap.put("artista", 2);
 		fragmentNameMap.put("autor", 2);
 		fragmentNameMap.put("cuenta", 2);
 		fragmentNameMap.put("otros", 3);
 		fragmentNameMap.put("protocolo", 3);
-		fragmentNameMap.put("condiciones", 3);
+		fragmentNameMap.put("términos", 3);
 		fragmentNameMap.put("cortesía", 3);
 		fragmentNameMap.put("sitio", 4);
 		fragmentNameMap.put("espacio", 4);
@@ -62,7 +62,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		fragmentNameMap.put("preocupaciones", 5);
 		fragmentNameMap.put("miedos", 5);
 		fragmentNameMap.put("auratura", 6);
-		fragmentNameMap.put("leyendo", 6);
+		fragmentNameMap.put("lectura", 6);
 		fragmentNameMap.put("verso", 7);
 		fragmentNameMap.put("silos", 7);
 		fragmentNameMap.put("nubes", 7);
@@ -71,7 +71,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		fragmentNameMap.put("consentimiento", 8);
 		fragmentNameMap.put("lenguaje", 8);
 		fragmentNameMap.put("deseo", 9);
-		fragmentNameMap.put("transacción", 9);
+		fragmentNameMap.put("transacciones", 9);
 		fragmentNameMap.put("cosecha", 9);
 		return fragmentNameMap;
 	}
