@@ -20,7 +20,7 @@ public class DontCareIntent_es_MX extends DontCareIntent {
 		speech += "Y asumiremos que no sientes nada más que ‘indiferencia’. " + breathShort();
 		speech += "Pero " + s("esperamos, aún así,", s("apreciríamos", "nos gustaría")) + "poder "
 				+ s("continuar", "seguir") + "escuchándote, "/* + s("siempre,") */; // CAMBIARSIEMPRE
-		speech += "y que algún día lleguemos a importarte como tú nos importas a nosotros. ";
+		speech += "y que algún día lleguemos a importarte como tú nos importas a nosotres. ";
 		speech += breath();
 		return speech;
 	}
