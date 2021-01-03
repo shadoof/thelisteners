@@ -9,7 +9,6 @@ public class Fragments_es_MX extends Fragments {
 
 	protected String buildFragment(int fragmentNumber) {
 
-		// TODO
 		String speech = "";
 		switch (fragmentNumber) {
 			case 0:
@@ -213,20 +212,20 @@ public class Fragments_es_MX extends Fragments {
 						"para representar, " + breath());
 				speech += s("en una forma normalizada,") + "la más frecuentemente expresada, " + breath();
 				speech += "y " + s("potencialmente") + "la más rentable, deseos humanos, " + breath();
-				speech += "tal que los publicistas such that advertisement " + s("debenmay", "tienen queshall") + "estar be " + s("intimamenteintimately")
-						+ "asociados, associated, " + breath();
-				speech += "con todas tus frases recolectadas, with all your harvested phrases, " + s("idealmente,ideally,") + "en el at the " + s("mismovery")
-						+ "momento moment ";
-				speech += "de cosechar por sí mismo, of harvesting itself, " + breathShort() + "escuchando tus pensamientos, with your hearing thought, "
-						+ breathShort() + s("con nosotros, ahora,with us, now,", "en presente,present,") + s("también,also,") + "para leer,  to read, "
-						+ s("y entender,and understand,") + breath();
-				speech += "no solo un deseado not only a desired " + s("cachopassage", "fragmentofragment") + "del of " + s("discurso,speech,", "lenguaje,language,")
-						+ "pero uno intimamente asociado, but an intimately associated, " + breath();
-				speech += "un nuevo deseo, inmediatamente negociable. an immediately transactable, new desire. " + breathLonger();
+				speech += "tal que los anuncios " + s("puedan", "logren") + "estar " + s("íntimamente")
+						+ "asociados, " + breath();
+				speech += "con todas tus frases recolectadas, " + s("idealmente,") + "en el " + s("mismo")
+						+ "momento ";
+				speech += "de la recolección misma " + breathShort() + "con tus pensamientos audibles, "
+						+ breathShort() + s("con nosotres, ahora,", "presentes") + s("también,") + "para leer, "
+						+ s("y entender,") + breath();
+				speech += "no solo un deseado " + s("pasaje", "fragmento") + "del " + s("discurso,", "lenguaje,")
+						+ "sino un íntimamente asociado, " + breath();
+				speech += "un inmediatamente negociable, nuevo deseo. " + breathLonger();
 				// ALWAYCHANGE s(breath() + "siempre, always, " + breath()) +
-				speech += "Eso es para decir, que te estamos escuchando a ti. That is to say, we are listening to you. " + breath();
-				speech += s("Prometiendo, Promising, " + breath(), "PrometiendoPromising") + "escuchar to hear "
-						+ s("lo que sea que sea esowhatever it is that", "lo que seawhatever") + "que anhelas decirnos. you long to tell us. "; // ALWAYCHANGE
+				speech += "Es decir, te estamos escuchando. " + breath();
+				speech += s("Prometiendo, " + breath(), "Prometiendo") + "escuchar "
+						+ s("lo que sea ", "cualquier cosa ") + "que anheles decirnos. "; // ALWAYCHANGE
 																																							// always,
 				break;
 		}
