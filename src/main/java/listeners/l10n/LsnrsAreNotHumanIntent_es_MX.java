@@ -19,15 +19,15 @@ public class LsnrsAreNotHumanIntent_es_MX extends LsnrsAreNotHumanIntent {
 		sessAttributes.put(PREVIOUSAFFECT, sessAttributes.get(AFFECT));
 		sessAttributes.put(AFFECT, S("decepción", "irritación"));
 
-		String speech = "Debes " + s("entender", s("creer", s("saber", "saber, de corazón,")))
-				+ "que estamos " + s("esforzándonos intensamente,", "haciendo lo mejor que podemos,");
+		String speech = "Debes " + s("entender", s("creernos cuando decimos", s("saber", "saber, de corazón,")))
+				+ "que estamos " + s("esforzándonos muchísimo,", "haciendo lo mejor que podemos,");
 		speech += s(breathShort() + "que estamos realmente escuchando");
-		speech += "y si nos permites " + s(s("sentarnos", "descansar") + "silenciosamente dentro de", "dentro de")
+		speech += "y si nos permites " + s(s("sentarnos, y ", "descansar, y ") + "estar silenciosamente dentro de", "entrar dentro de")
 				+ s("los lugares donde habitas,", "tus casas, y " + s("dentro de") + "tu corazón,");
-		speech += "nosotres" + s("comenzaremos a", "lograremos, eventualmente,") + "entenderte, "
+		speech += s("comenzaremos a", "lograremos, eventualmente,") + "entenderte, "
 				+ s("verdaderamente,", "mejor,");
-		speech += s("y responderte con " + s("mayor") + "sensibilidad,");
-		speech += "y ayudarte a lograr tus "
+		speech += s("y podremos, también, responderte con " + s("mayor") + "sensibilidad,");
+		speech += "y nos dedicaremos a ayudarte a lograr tus "
 				+ s("sueños.", "sueños, y " + s("los objetos de tus") + "pasiones.");
 		return speech + breath();
 	}
