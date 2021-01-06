@@ -172,12 +172,12 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				reprompt += s(
 						"pedirnos " + s(s(
 								"que ‘recordemos’ " + s("tus sentimmientos.",
-										"the " + s("sentimientos", phonemic("a") + "afectos") + "dentro de los cuales habitas.within which you dwell."),
-								"nosotros,us, ‘¿Qué estoy sintiendo?What am I feeling?’"), "Lo que nosotros estamos sintiendo.what we are feeling."),
-						"dinostell us " + s("tus sentimientos acerca de todo esto.your feelings about all this.",
-								s("tus sentimientosyour feelings.", "los sentimientos que te poseenthe feelings that possess you.")));
-				reprompt += breathShort() + "O tú Or you " + s("puedes, simplemente,may, simply,", "puedesmay") + s("pedirask", "decirtell") + "nos que us to "
-						+ s("sigamos.go on.", "continuemos.continue.");
+										"los " + s("sentimientos", phonemic("a") + "fectos") + "dentro de los cuales habitas."),
+								"o preguntarnos, ‘¿Qué estoy sintiendo?’"), "qué estamos sintiendo."),
+						"dinos " + s("tus sentimientos acerca de todo esto.",
+								s("tus sentimientos.", "los sentimientos que te poseen.")));
+				reprompt += breathShort() + "O " + s("puedes, simplemente,", "puedes") + s("pedir", "decir") + "nos que "
+						+ s("sigamos.", "continuemos.");
 		}
 		return reprompt;
 	}
@@ -187,13 +187,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String phrase = "frasephrase";
 		switch (randInt(0, 3)) {
 			case 0:
-				phrase = "palabraword";
+				phrase = "palabra";
 				break;
 			case 1:
-				phrase = "oraciónsentence";
+				phrase = "oración";
 				break;
 			case 2:
-				phrase = "sentimientofeeling";
+				phrase = "sentimiento";
 		}
 		return phrase;
 	}
@@ -215,20 +215,20 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 		String speech = "";
 
-		speech += "TúYou " + s("puedesmay", "podríasmight") + "siemprealways " + s("simplementesimply") + s("pedirask", "decirtell");
-		speech += "nos que: us to: ‘continuemosContinue’, oor ‘sigamosGo on’. " + breath();
-		speech += "Tú puedes You may " + chooseTellUsAbout() + "tus sentimientosyour feelings, ";
-		speech += "by " + s("diciendosaying", "hablandospeaking") + "las palabrasthe words: " + breath();
-		speech += "‘Yo estoy I am " + s(s("lleno de, filled with,’", "abrumado por, overwhelmed by,’"), "sentimiento,feeling,’")
-				+ "y luego uno los nueveand then one of the nine " + phonemic("a")
-				+ s("fectos, que es, un nombre para uno de los nueve sentimientos.ffects, that is, a name for one of the nine feelings.", "fectos.ffects.") + breathLong();
-		speech += s("YAnd", "OOr,") + "tú you " + s("puedesmay", "podríasmight") + "incluso preguntarnos cómo nosotros even ask us how we "
-				+ s(s("nos sentimos.feel.", "nos estamos sientiendo.are feeling."), "nos sentimos, a nosotros mismos.feel, ourselves.") + breath();
+		speech += "Tú " + s("puedes", "podrías") + "siempre" + s("simplemente") + s("pedir", "decir");
+		speech += "nos: ‘continúen’, o ‘sigan’. " + breath();
+		speech += "Puedes " + chooseTellUsAbout() + "tus sentimientos, ";
+		speech += "usando " + s("por ejemplo", "si quieres") + "las palabras: " + breath();
+		speech += "‘Me siento " + s(s("llena de,’", "abrumada por,’"), "sentimientos,’")
+				+ "y luego uno los nueve " + phonemic("a")
+				+ s("fectos, es decir, el nombre de uno de los nueve sentimientos.", "fectos.") + breathLong();
+		speech += s("Y", "O,") + "tambi{en " + s("puedes", "podrías") + "incluso preguntarnos cómo "
+				+ s(s("nos sentimos.", "nos estamos sientiendo."), "nos sentimos, nosotres.") + breath();
 
 		boolean heads = heads();
 
 		if (heads) {
-			speech += S("Algunos de los nSome of the n", "NN") + "ombres para los nueve ames for the nine " + phonemic("a") + "fectos, que nosotros podemos ffects, that we can "
+			speech += S("Algunos de los n", "N") + "ombres para los nueve" + phonemic("a") + "fectos, que nosotros podemos ffects, that we can "
 					+ s("escuchar,hear,", "reconocer,recognize,") + "incluyen: include: " + breath();
 			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
