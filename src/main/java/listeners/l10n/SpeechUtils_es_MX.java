@@ -32,16 +32,16 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		speech = s("Estamos escuchando.", "Estamos " + s("algo sorprendides de que", "sorprendides de que") + "hayas preguntado.")
 				+ breath()
 				+ s("Te entendemos.");
-		speech += "Esto es un " + s("fragento", "pasaje") + "que quizá pueda " + s("enseñarte", "mostrarte");
+		speech += "Éste es un " + s("fragento", "pasaje") + "que quizá pueda " + s("enseñarte", "mostrarte");
 		speech += s(breathShort()) + "cómo " + s(breath()) + "nos sentimos. ";
 		speech += breathLong();
 		if (heads()) {
-			speech += "Esto es un " + choosePhrase() + SPC;
+			speech += "Éste es un " + choosePhrase() + SPC;
 			speech += "que fue seguido por un espacio. ";
 			speech += breathLonger();
 		}
 		s = choosePhrase();
-		speech += "Esto es un " + s + ", ";
+		speech += "Éste es un " + s + ", ";
 		speech += "que fue seguido por un " + (s.equals("sentimiento") ? "coma. " : s("sentimiento.", "coma."));
 		speech += breathLonger();
 		if (heads()) {
@@ -67,7 +67,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			speech += breathLonger();
 		}
 		speech += "¿Ésta es una pregunta? ";
-		speech += breath() + "Fue seguida por un " + S(S("suspiro", "sueño"), "sentimiento") + ". ";
+		speech += breath() + "Fue seguida por un " + r("suspiro `sueño `sentimiento") + ". ";
 		speech += breathLonger();
 		speech += "Esto es " + breath() + s("una frase,", "una emoción,");
 		speech += breath() + "que fue interrumpida por " + s("un suspiro.", s("un sueño.", "una pesadilla."));
@@ -149,7 +149,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				break;
 			case 1:
 				reprompt += s(
-						"¿Hay algo más que te " + s("gustaría", "importaría") + s("escuchar?", "escuchar de nosotres?"),
+						"¿Hay algo más que te " + s("gustaría", "importaría") + s("escuchar?", "que te digamos?"),
 						"");
 				reprompt += s("Estamos escuchando."); // ALWAYCHANGE Always.
 				reprompt += s("Tú puedes " + s("siempre"), "Solo") + "pedirnos que " + s("sigamos.", "continuemos.");
@@ -158,21 +158,21 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				reprompt += "Tú " + s("debes", "puedes") + "pedirnos que ‘hablemos’ " + s("acerca de")
 						+ s("cualquiera de los siguientes puntos:") + breath();
 				reprompt += chooseSomeFragmentNames() + breath();
-				reprompt += "O tú Or you " + s("debes, simplemente,", "debes") + s("pedir", "decir") + "nos que "
+				reprompt += "O tú " + s("debes, simplemente,", "debes") + s("pedir", "decir") + "nos que "
 						+ s("sigamos.", "continuemos.");
 				break;
 			case 3:
-				reprompt += s(s("Quizás, ahora,", "Quizás") + "a ti", "Would you");
-				reprompt += "te gustaría " + s(s("pedir", "decir") + "nos que") + s("‘continuemos’?", "‘sigamos’?");
-				reprompt += s("Escuchándonos a nosotros, como nosotros te escuchamos a ti?Listening to us, as we listen to you?");
+				reprompt += s(s("Quizás, ahora,", "Quizás") + "a ti te", "te");
+				reprompt += "gustaría " + s(s("pedirnos", "decirnos")) + s("que ‘continuemos’?", "que ‘sigamos’?");
+				reprompt += s("Escuchándonos a nosotres, como nosotres te escuchamos a ti?");
 				break;
 			case 4:
-				reprompt += s("Tú " + s("tienes derecho a", "puedes") + "siempre",
-						s("Si tú quieres, por favor", "Por favor") + s("hacernos"));
+				reprompt += ("Tú " + s("podrías", "puedes") + "siempre",
+						s("Si tú quieres));
 				reprompt += s(
-						"peticiones " + s(s(
-								"para us to ‘recordar’ " + s("tus sentimmientos.",
-										"the " + s("sentimientos", phonemic("a") + "ffect") + "dentro de los cuales habitas.within which you dwell."),
+						"pedirnos " + s(s(
+								"que ‘recordemos’ " + s("tus sentimmientos.",
+										"the " + s("sentimientos", phonemic("a") + "afectos") + "dentro de los cuales habitas.within which you dwell."),
 								"nosotros,us, ‘¿Qué estoy sintiendo?What am I feeling?’"), "Lo que nosotros estamos sintiendo.what we are feeling."),
 						"dinostell us " + s("tus sentimientos acerca de todo esto.your feelings about all this.",
 								s("tus sentimientosyour feelings.", "los sentimientos que te poseenthe feelings that possess you.")));
