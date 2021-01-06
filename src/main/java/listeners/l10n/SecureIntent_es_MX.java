@@ -13,13 +13,13 @@ public class SecureIntent_es_MX extends SecureIntent {
 	public String buildSpeech() {
 
 
-		String speech = "Nosotres " + s("estamos convencides", "creemos") + "que estamos "
+		String speech = "Nosotres " + s("estamos convencides", "creemos") + "de que estamos "
 				+ s("a salvo,", "segures, " + s("dentro,")) + "dentro de este "
 				+ s("recinto.", "espacio nuestro.");
-		speech += "Y que " + s("tú, además,", "tú") + "estarás " + s("segura,", "a salvo,")
+		speech += "Y de que " + s("tú, además,", "tú") + "estarás " + s("segura,", "a salvo,")
 				+ s("mientras te abras a nosotres,");
-		speech += "permitiendo " + s("nos, siempre,", "nos") + "entrar en esos " + s("lugares", "lugares,dentro,")
-				+ "desde donde nos hablas " + s("a nosotres,");
+		speech += "permitiendo" + s("nos, siempre,", "nos") + "entrar en esos " + s("lugares", "lugares,dentro,")
+				+ "desde donde nos hablas ";
 		speech += "para que podamos escucharte. "; // ALWAYCHANGE + s("Listening, " + s("as") +
 																						// "always.")
 		speech += breath();
