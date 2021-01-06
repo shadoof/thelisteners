@@ -167,8 +167,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				reprompt += s("Escuchándonos a nosotres, como nosotres te escuchamos a ti?");
 				break;
 			case 4:
-				reprompt += ("Tú " + s("podrías", "puedes") + "siempre",
-						s("Si tú quieres));
+				reprompt += s("Tú " + s("podrías", "puedes") + "siempre",
+						s("Si tú quieres"));
 				reprompt += s(
 						"pedirnos " + s(s(
 								"que ‘recordemos’ " + s("tus sentimmientos.",
