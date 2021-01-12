@@ -1241,8 +1241,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		// affect is not set
 		else {
 			// Since the user’s affect is not set, ask them:
-			speech = "We are " + s("unclear about", "unsure, of");
-			speech += s("your feelings.",
+			speech = "We are" + s("no tenemos claridad acerca de", "dudamos, acerca de");
+			speech += s("tus sentimientos.your feelings.",
 					"what these feelings are that " + s("possess", "overwhelm") + "you.");
 			speech += "Please " + s("try", "attempt") + "to tell us. ";
 		}
@@ -1251,8 +1251,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String whatsSpkrsAffectCardTitle() {
 
-		return S("You told us " + s("this", "this, concerning your feelings"),
-				"What we believe that you are feeling");
+		return S("Tú nos dijiste " + s("this", "esto, acerca de tus sentimientos"),
+				"Lo que creemos que estás sintiendo");
 	}
 
 }
