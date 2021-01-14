@@ -303,14 +303,14 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String dontKnowFragmentReprompt() {
 
-		String reprompt = "Nosotros estamos We are " + s("poco claros acerca de unclear about", "inseguros, deunsure, of") + "cuál fragmento which fragment you "
-				+ s("te podría gustarwould like", "deseaswish") + "escucharnos hablar. to hear us speak. ";
+		String reprompt = "No " + s("estamos segures ", "sabemos") + "acerca de cuál fragmento "
+				+ s("te gustaría", "deseas") + "escucharnos hablar. ";
 		return reprompt += breath();
 	}
 
 	protected String dontKnowFragmentSpeech() {
 
-		String speech = "Nosotros estamos We are " + s("poco claros acerca de unclear about", "inseguros, deunsure, of") + "cuálwhich " + s("fragmentofragment", "pasajepassage")
+		String speech = "No " + s("estamos segures", "sabemos") + "acerca de cuál " + s("fragmento", "parte")
 				+ "teyou " + s("gustaríawould like", "deseaswish") + "escucharnos hablar. to hear us speak. ";
 		speech += "Por favor Please " + s("tratatry", "intentaattempt") + s("una vez másonce more", "otra vezagain") + "de decirnos. to tell us. ";
 		return speech + breath();
