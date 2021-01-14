@@ -29,10 +29,10 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String affectAsBreathingSpeech() {
 
 		String speech, s, f;
-		speech = s("Estamos escuchando.", "Estamos " + s("algo sorprendides de que", "sorprendides de que") + "hayas preguntado.")
+		speech = s("Estamos escuchando.", "Estamos " + s("sorprendides de que", "sorprendides de que") + "hayas preguntado.")
 				+ breath()
 				+ s("Te entendemos.");
-		speech += "Éste es un " + s("fragento", "pasaje") + "que quizá pueda " + s("enseñarte", "mostrarte");
+		speech += "Éste es " + s("un fragmento", "una parte") + "que quizá pueda " + s("enseñarte", "mostrarte");
 		speech += s(breathShort()) + "cómo " + s(breath()) + "nos sentimos. ";
 		speech += breathLong();
 		if (heads()) {
@@ -184,7 +184,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String choosePhrase() {
 
-		String phrase = "frasephrase";
+		String phrase = "frase";
 		switch (randInt(0, 3)) {
 			case 0:
 				phrase = "palabra";
@@ -222,14 +222,14 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		speech += "‘Me siento " + s(s("llena de,’", "abrumada por,’"), "sentimientos,’")
 				+ "y luego uno los nueve " + phonemic("a")
 				+ s("fectos, es decir, el nombre de uno de los nueve sentimientos.", "fectos.") + breathLong();
-		speech += s("Y", "O,") + "tambi{en " + s("puedes", "podrías") + "incluso preguntarnos cómo "
+		speech += s("Y", "O,") + "también " + s("puedes", "podrías") + "incluso preguntarnos cómo "
 				+ s(s("nos sentimos.", "nos estamos sientiendo."), "nos sentimos, nosotres.") + breath();
 
 		boolean heads = heads();
 
 		if (heads) {
-			speech += S("Algunos de los n", "N") + "ombres para los nueve" + phonemic("a") + "fectos, que nosotros podemos ffects, that we can "
-					+ s("escuchar,hear,", "reconocer,recognize,") + "incluyen: include: " + breath();
+			speech += S("Algunos de los n", "N") + "ombres para los nueve" + phonemic("a") + "fectos, que nosotros podemos "
+					+ s("escuchar,", "reconocer,") + "son: " + breath();
 			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
@@ -238,19 +238,19 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				if (i != (limit - 1))
 					speech += list.get(i) + ", " + breathShort();
 				else
-					speech += "y and " + list.get(i) + ". ";
+					speech += "y " + list.get(i) + ". ";
 			}
 			speech += breath();
 		}
 
 		if (!heads && heads()) {
-			speech += "O, tú Or, you " + s("puedesmay", "podríascould") + "pedirnos que ask us to " + s("‘hablemosspeak’,", "‘hablemos acerca despeak about’,")
-					+ s("cualquiera de los siguientes:any of the following:") + breath();
+			speech += "O, tú " + s("puedes", "podrías") + "pedirnos que " + s("‘hablemos’,", "‘hablemos acerca de’,")
+					+ s("cualquiera de estos:") + breath();
 			speech += chooseSomeFragmentNames();
 		}
 
 		if (randInt(0, 8) == 0) {
-			speech += "o, tú podrías decir, Or, you might say, ‘El invierno ya viene. Winter is coming.’ " + breath();
+			speech += "o, tú podrías decir, ‘Se acerca el invierno’ " + breath();
 		}
 
 		return speech;
@@ -262,7 +262,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		phrase = "dinos acerca de ";
 		switch (randInt(0, 2)) {
 			case 0:
-				phrase = "infórmanos sobre";
+				phrase = "cuéntanos sobre";
 			case 1:
 				phrase = "describe ";
 			case 2:
@@ -273,32 +273,32 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String chooseUnsureAboutAffect() {
 
 		String reprompt = "";
-		reprompt += "No entendemos " + s("muy bien", "totalmente") + "acerca de " + s("cualquiera de los", "los") + "sentimientos "
-				+ s("que " + s("tal vez") + "te posean.", "dentro de los cuales " + s("tal vez") + "habites.");
+		reprompt += "No entendemos " + s("muy bien", "totalmente") + " " + s("", "los") + "sentimientos "
+				+ s("que " + s("tal vez") + "te inundan.", "dentro de los cuales " + s("tal vez") + "habitas.");
 		reprompt += "Tú " + s("puedes", "podrías");
 		reprompt += chooseTellUsAbout();
 		reprompt += s("estos", "tus") + "sentimientos, ";
-		reprompt += "by " + s("diciendosaying, " + s("las palabras,the words,"), "pronunciando las palabras, speaking the words,");
-		reprompt += "‘Yo estoy I am " + s("lleno defilled with,’", "abrumado por, overwhelmed by,’") + "y luego uno de los nueve and then one of the nine "
-				+ phonemic("a") + "fectos. ffects. " + breath();
-		reprompt += s("O, tú Or, you " + s("puedesmay", "podríasmight") + s("tambiénalso") + s("simplementesimply") + s("pedirask", "decirtell")
-				+ "nos que: us to: " + s("‘ContinuemosContinue’ o or ‘sigamosGo on’.", "‘ContinuemosContinue’."));
+		reprompt += " " + s("diciendo, " + s("las palabras,"), "pronunciando las palabras,");
+		reprompt += "‘Yo estoy " + s("llena de’", "abrumada por,’") + "y luego uno de los nueve "
+				+ phonemic("a") + "fectos. " + breath();
+		reprompt += s("O, tú " + s("puedes", "podrías") + s("también") + s("simplemente") + s("pedir", "decir")
+				+ "nos que: " + s("‘Continuemos’ o ‘sigamos’.", "‘Continuemos’."));
 
 		return reprompt;
 	}
 
 	protected String chooseYouCanFindOutAffect() {
 
-		String s = "Tú You " + s("puedescan", "podríasmay") + "siempre always "
-				+ s("pedirnos queask us about", "descubrir de nosotros lo que creemos saber sobrediscover from us what we believe we know concerning");
-		s += s(s("estosthese", "losthe") + "sentimientosfeelings", "losthe " + phonemic("a") + "fectosffects")
-				+ s("dentro de los cuales podrías habitar,within which you dwell,", "que te poseen,which possess you,") + "diciendo,by saying, ‘¿Qué estoy sintiendo?What am I feeling?’ ";
+		String s = "Tú " + s("puedes", "podrías") + "siempre "
+				+ s("pedirnos que", "escuchar de nosotros lo que creemos saber sobre");
+		s += s(s("estos", "los") + "sentimientos", "los " + phonemic("a") + "fectos")
+				+ s("dentro de los cuales podrías habitar,", "que te inundan,") + "diciendo, ‘¿Qué estoy sintiendo?’ ";
 		return s;
 	}
 
 	protected String continueCardTitle() {
 
-		return S("Continúa ...Continue ...", S("Sigue ...Go on ...", S("Siempre mAlways m", "MM") + "ás ...ore ..."));
+		return S("Continúa ...", S("Sigue ...", S("Siempre m", "M") + "ás ..."));
 	}
 
 	protected String dontKnowFragmentReprompt() {
