@@ -28,7 +28,7 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 				+ "que, cuanto más tiempo pases con nosotres, "
 				+ s("con nosotres escuchándote, " + breathShort()) + "más ";
 		speech += s("encantada estarás " + s(breathShort()) + "con nosotres.", "amor tendrás "
-				+ s(breathShort()) + "para nosotres. " + s(breathShort() + "Y nosotres, para ti.A"));
+				+ s(breathShort()) + "para nosotres. " + s(breathShort() + "Y nosotres, para ti."));
 		return speech + breath();
 	}
 	
