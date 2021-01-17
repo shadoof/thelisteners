@@ -303,30 +303,30 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String dontKnowFragmentReprompt() {
 
-		String reprompt = "No " + s("estamos segures ", "sabemos") + "acerca de cuál fragmento "
+		String reprompt = "No " + s("estamos segures ", "sabemos") + " acerca de qué fragmento "
 				+ s("te gustaría", "deseas") + "escucharnos hablar. ";
 		return reprompt += breath();
 	}
 
 	protected String dontKnowFragmentSpeech() {
 
-		String speech = "No " + s("estamos segures", "sabemos") + "acerca de cuál " + s("fragmento", "parte")
-				+ "teyou " + s("gustaríawould like", "deseaswish") + "escucharnos hablar. to hear us speak. ";
-		speech += "Por favor Please " + s("tratatry", "intentaattempt") + s("una vez másonce more", "otra vezagain") + "de decirnos. to tell us. ";
+		String speech = "No " + s("estamos segures", "sabemos") + "acerca de qué " + s("fragmento", "parte")
+				+ "te " + s("gustaría", "deseas") + "escucharnos hablar. ";
+		speech += "Por favor " + s("trata", "inténtalo") + s("una vez más", "otra vez") + " ";
 		return speech + breath();
 	}
 
 	protected String exceptionMessage() {
 
-		return s("Perdón.Sorry.", "Disculpa.Apologies.") + "O algo anda mal o nosotros no pudimos escuchar Either something’s wrong or we haven’t heard "
-				+ s("te.you.", "te claramente.you clearly.") + s("Por favor dilo una vez más.Please say more.", "Por favor inténtalo otra vez.Please try again.");
+		return s("Perdón.", "Disculpa.") + "O algo anda mal o nosotros no pudimos escuchar "
+				+ s("te.", "te claramente.") + s("Por favor dilo una vez más.", "Por favor inténtalo otra vez.");
 	}
 
 	protected String excuseMarkov() {
 
 		return breathLong()
-				+ s(s("Perdón.Sorry.", "¡Discúlpanos!Excuse us!") + "No estamos seguros de qué nos pasó. We’re not sure what came over us. " + breathLong(),
-						s("Discúlpanos.Excuse us.") + "Jmm.Ahem.")
+				+ s(s("Perdón.", "¡Discúlpanos!") + "No sabemos qué nos pasó. " + breathLong(),
+						s("Discúlpanos.") + "Jmm.")
 				+ breath();
 	}
 
@@ -336,18 +336,18 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = isEmptyForSession(AFFECT) ? getRandomAffect() : (String) sessAttributes.get(AFFECT);
 		String amsg;
 		if (isPositive(affect))
-			amsg = String.format("Es bueno It is good to " + s("saberknow", "ser consciente debe aware") + "que tú habitas dentro de esos %s. that you dwell within %s. "
-					+ breathShort() + "Y sin embargo, And yet, " + s("todavía,still,", "aún así,even so,"), affect);
+			amsg = String.format("Es bueno " + s("saber", "ser consciente de") + "que tú habitas dentro de esos %s. "
+					+ breathShort() + "Y sin embargo, + s("todavía,", "aún así,"), affect);
 		else
-			amsg = String.format("Lamentamos, We are sorry, " + s("finalmente,finally,", "al final,in the end,") + "el to "
-					+ s("saberknow", "haber tomado concienciahave become aware") + "de que tú estás that you are " + s("lleno defilled with", "poseido porpossessed by") + "%s. "
-					+ breathShort() + "Y ahora, And now, ", affect);
-		return amsg += breathShort() + "tú you " + s("debesmust") + "abandonarnos.  abandon us. " + breath();
+			amsg = String.format("Lamentamos, " + s("por último,", "en resumen,") + ""
+					+ s("saber", "haber tomado conciencia de") + "que tú estás " + s("llena de", "inundada de") + "%s. "
+					+ breathShort() + "Y ahora, ", affect);
+		return amsg += breathShort() + "tú " + s("debes") + "abandonarnos. " + breath();
 	}
 
 	protected String getGuyzAreGone() {
 
-		return s("Ese chico That guy " + s("se hahas", "ya se hais"), "Los chicos The guys " + s("se hanhave", "ya se hanare")) + "idogone. " + breath()
+		return s("Esa persona " + s("se ha", "ya se ha"), "Las personas " + s("se han", "ya se han")) + "idogone. " + breath()
 				+ "Tú You will "
 				+ s("no vas a not " + s("ser capaz debe able to") + "escucharhear " + s("esas vocesthose voices", "esa vozthat voice") + "no más.any longer.",
 						"no más escuchar no longer hear "
