@@ -347,19 +347,19 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String getGuyzAreGone() {
 
-		return s("Esa persona " + s("se ha", "ya se ha"), "Las personas " + s("se han", "ya se han")) + "idogone. " + breath()
-				+ "Tú You will "
-				+ s("no vas a not " + s("ser capaz debe able to") + "escucharhear " + s("esas vocesthose voices", "esa vozthat voice") + "no más.any longer.",
-						"no más escuchar no longer hear "
-								+ s("esasthose " + s("voces.voices.", "voces hablando.voices speak."), "esa that " + s("vozvoice.", "voz hablar.voice speak.")))
+		return s("Esa persona " + s("se ha", "ya se ha"), "Las personas " + s("se han", "ya se han")) + "ido. " + breath()
+				+ "Tú "
+				+ s("no vas a " + s("") + "escuchar " + s("esas voces", "esa voz") + "otra vez.",
+						"no más escuchar "
+								+ s("esas " + s("voces.", "voces hablando."), "esa " + s("voz.", "voz hablar.")))
 				+ breath();
 	}
 
 	protected String getGuyzMoreQuery() {
 
 		return breath()
-				+ s("¿Más? More? " + breathShort(), S("Por favor dPlease s", "DS") + "iay ‘" + S("síyes", S("prosiguego on", "continúacontinue"))
-						+ "‘, " + s(s("si gustasif you would like") + "escuchar más.to hear more.", "para más.for more."));
+				+ s("¿Más? " + breathShort(), S("Por favor d", "D") + "i ‘" + S("sí", S("sigue", "continúa"))
+						+ "‘, " + s(s("si quieres") + "escuchar más.", "para escuchar más."));
 	}
 
 	protected Object[][] getContents() {
