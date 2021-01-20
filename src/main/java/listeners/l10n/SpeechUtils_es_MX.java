@@ -369,56 +369,56 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String getPreamble() {
 
-		String preamble = s("A menos que estemos equivocados, esto esUnless we’re mistaken, this is", "Esto parecer serThis seems to be")
-				+ "tu primer encuentro con ‘Les que escuchan’ Versión 3. your first encounter with ‘The Listeners’ Version 3. ";
-		preamble += "Elles tienden a They tend to " + s("hablartalk", "verbalizaespeak") + "tanto as much " + s("más de lo queif not more than", "comoas")
-				+ "escuchan. they listen. ";
-		preamble += "Si tú encuentras lo que elles dicen If you find what they say " + s("interesante por completo,at all interesting,", "intrigante,intriguing,") + "por favor se please be ";
-		preamble += s("paciente.patient.", "paciente, y dedica un poco de tiempo con patient, and spend some time with " + s("elles.them.", "esta posibilidad.the skill."));
-		preamble += "Si If " + s("tú no,you don’t,", "nonot,") + "o para interrumpir un discurso largo, sólo di, or to interrupt a long speech, just say, "
-				+ s("claramente,clearly,", s("firmemente,firmly,")) + "‘Alexa, Para!Alexa, Stop!’ ";
-		preamble += s(s("Y has terminado con eso.And have done with it."), "Elles pueden ser un poco ‘oscuros’. But ..."They can be a little ‘dark’. But ...")
-				+ s("Esperamos que disfrutesWe hope you enjoy", "Gracias por estar escuchando aThank you for listening to") + "‘Quienes escuchanThe Listeners’. ";
+		String preamble = s("A menos que estemos equivocades, esto es", "Esto parecer ser")
+				+ "tu primer encuentro con ‘Quienes escuchan’ Versión 3. ";
+		preamble += "Tieden a " + s("hablar", "expresar") + " " + s("más de lo que", "")
+				+ "escuchan. ";
+		preamble += "Si tú piensas que lo que elles dicen es " + s("interesante", "intrigante") + "por favor se ";
+		preamble += s("paciente.", "paciente, y dedícale un poco de tiempo " + s("a elles.", "a esta herramienta."));
+		preamble += "Si " + s("no es así,", "no") + "o para interrumpir un discurso largo, sólo di, "
+				+ s("claramente,", s("firmemente,")) + "‘Alexa, Para!’ ";
+		preamble += s(s("Y listo."), "Pueden ser un poco ‘oscures’. Pero...")
+				+ s("Esperamos que disfrutes", "Gracias por estar escuchando a") + "‘Quienes escuchan’. ";
 		return preamble += breathLong();
 	}
 
 	protected String getReallyWantGuyz() {
 
-		String speech = s("Do", "¿Estás segureAre you sure") + "you " + s("realmente de quereally") + "quieres escuchar lo que want to hear what " + s("uno deone of")
-				+ "losthe" + s("se", SPC) + s(s("extrañosstrange", "desconfiablesunreliable")) + "individuosguys " + "tienen que decir?have to say? " + breath();
+		String speech = s("", "¿Estás segura") + " " + s("de que realmente") + "quieres escuchar lo que " + s("una persona")
+				+ "" + s("e", SPC) + s(s("extraña", "desconfiable")) + "un individuo " + "tiene que decir? " + breath();
 		if (heads()) {
-			speech += "We " + s("hope", "Confiamos entrust") + "que no dirásthat you will not say ‘" + S("síyes", "continúacontinue") + "‘ yand "
-					+ s("con consentimiento para escucharconsent to hearing", "de acuerdo en escucharagree to hear")
-					+ s("lathe " + s("voz de este otro.voice of this other.", "otra voz.other voice."),
-							"s otras these other " + s("voces.voices.", "personasguys."));
+			speech += " " + s("", "Confiamos en") + "que no dirás‘" + S("sí", "continúa") + "‘ y darás tu "
+					+ s("consentimiento para escuchar", "permiso para escuchar")
+					+ s("la " + s("voz de este otro ser.", "otra voz."),
+							"s otras " + s("voces.", "personas."));
 		}
 		return speech + breath();
 	}
 
 	protected String getReallyWantGuyzReprompt() {
 
-		return s("Do", "¿Esás segureAre you sure") + "you " + s("realmente de quereally") + "quieres escuchar lo que want to hear what " + s("uno deone of") + "losthe"
-				+ s("se", SPC) + s(s("extrañosstrange", "desconfiablesunreliable")) + "individuosguys " + s("tienenhas", "have") + "que decir?to say? ";
+		return s("", "¿Esás segura") + "" + s("de que realmente") + "quieres escuchar lo que " + s("un ser de") + "los"
+				+ s("e", SPC) + s(s("extraños", "desconfiables")) + "individuos" + s("tienen que", "necesitan") + "decir? ";
 	}
 
 	protected String guyzIrq() {
 
-		return s(s("[losthe ‘individuosguyz’", "[otras vocesother voices"), s("[otra vozanother voice", "[la otra vozthe other voice" + s("s") + SPC))
-				+ "interrumpidas aquí ...interrupted here ...] ";
+		return s(s("[los‘seres’", "[otras voces"), s("[otra voz", "[la otra voz" + s("") + SPC))
+				+ "interrumpidas aquí ...] ";
 	}
 
 	protected String hateRejoinder(String word) {
 
-		String speech = "ElTo " + s("pensarthink", "escucharhear") + "que tus that your "
-				+ s("sentimientos por nosotresfeelings for us", phonemic("a") + "fectosffects") + "son are ";
-		speech += "negativos hasta negative to " + s("tal punto,such an extent,", "este grado,this degree,");
-		speech += "en el que túthat you "
-				+ (("odiashate".equals(word)) ? "llegas tan lejos como para odiarnos, go so far as to hate us, " : "estás hasta el tope de odio, are filled with hatred, ") + breath();
-		speech += "esto nos tomará this will take us " + s("mucho másmany more") + "años de years of "
-				+ s("estar escuchándote,listening to you,", "escucharte,listening,");
-		speech += s("para quefor us", "para que nosotresin order for us") + "entendamos. to understand. ";
-		speech += "We " + s("no podemos, realmente,cannot, truly,", "no podemoscannot") + "creer que believe that "
-				+ (("odiohate".equals(word)) ? "es lo que sientes. this is how you feel. " : "estos son tus sentimientos. these are your feelings. ");
+		String speech = "El " + s("saber", "escuchar") + "que tus "
+				+ s("sentimientos por nosotres", phonemic("a") + "fectos") + "son ";
+		speech += "negativos hasta " + s("tal punto,", "este grado,");
+		speech += "en el que tú "
+				+ (("odias".equals(word)) ? "llegas tan lejos como para odiarnos, " : "estás hasta el tope de odio, ") + breath();
+		speech += " nos tomará " + s("mucho más") + "años de "
+				+ s("estar escuchándote,", "escucharte,");
+		speech += s("para que", "para que nosotres") + "te entendamos. ";
+		speech += " " + s("no podemos, realmente,", "no podemos") + "creer que "
+				+ (("odio".equals(word)) ? "es lo que sientes. " : "estos son tus sentimientos. ");
 		return speech;
 	}
 
