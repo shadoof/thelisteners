@@ -424,27 +424,27 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String heardAllFragments() {
 
-		String speech = "Creemos We believe " + s("quethat", "que, that, " + s("porby") + "ahora,now,") + "tú you " + s("habráswill")
-				+ "escuchado have heard ";
-		speech += s("más demost", "todoall") + "lo que somos capaces de of what we are able to " + s("decirte,tell you,", "decirte a ti,say to you,");
-		speech += s(s("en este momento,at this time,", "por el momento,for the time being,"));
-		speech += s("coherentemente.coherently.");
-		speech += "PeroBut we " + s("estaremoswill " + s("siemprealways") + "seremosbe", "somosare " + s("siemprealways"));
-		speech += s("más quemore than") + "felices de happy to " + s("mantenernos cambiandokeep on chaining", "cambiarchain") + "estas palabras these words ";
-		speech += s("por tuyasof yours") + "juntas para ti, together for you, " + s("siempre y cuandoso long as", "siif") + "túyou "
-				+ s(s("necesitasneed", "quiereswant"), "nos pidesask") + "que us to ‘continuemoscontinue’. ";
+		String speech = "Creemos " + s("que", "que, " + s("por") + "ahora,") + "tú " + s("habrás")
+				+ "escuchado ";
+		speech += s("más de", "todo") + "lo que somos capaces de " + s("decirte,", "decirte a ti,");
+		speech += s(s("en este momento,", "por el momento,"));
+		speech += s("coherentemente.");
+		speech += "Pero " + s("estaremos " + s("siempre") + "seremos", "somos " + s("siempre"));
+		speech += s("más que") + "felices de " + s("mantenernos cambiando", "cambiar") + "estas palabras ";
+		speech += s("por tuyas") + "juntas para ti, " + s("siempre y cuando", "si") + "tú "
+				+ s(s("necesitas", "quieres"), "nos pides") + "que ‘continuemos’. ";
 		return speech + breath();
 	}
 
 	protected String moreGuyz() {
 
-		return s("¿MásMore" + S("? ", " de esto? of this? "), "¿Tú Do you " + s("realmentereally") + s("necesitasneed", "quiereswant") + "escuchar to hear "
-				+ s("más?more?", "más de more from " + s("los sujetos?the guyz?", "estosthese " + s("extrañosstrange") + "individuos?guyz?")));
+		return s("¿Más" + S("? ", " de esto? "), "¿Tú " + s("realmente") + s("necesitas", "quieres") + "escuchar "
+				+ s("más?", "más de " + s("los individuos?", "estos " + s("extraños") + "individuos?")));
 	}
 
 	protected String helpCardTitle() {
 
-		return S("AsistenciaAssistance", S("Un pequeño aA little s", "AS") + "poyoupport");
+		return S("Asistencia", S("Un pequeño a", "A") + "poyo");
 	}
 
 	protected InnerResponse no() {
@@ -454,27 +454,27 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String noCardTitle() {
 
-		return S("¿Todavía aquíStill here", "¿Quisiste Did you want to " + s("dejarleave", "abandonarabandon") + "nos?us?");
+		return S("¿Todavía aquí", "¿Quisiste " + s("dejar", "abandonar") + "nos?");
 	}
 
 	protected String noSpeech() {
 
-		return s("¿Más?More?", S("TúYou " + s("estuviste pensando enwere thinking of", "pensaste acerca dethought about") + s("la partidagoing.", "dejarnos. leaving us. "),
-				s("Estás todavíaYou’re still", "TodavíaStill") + s("con nosotres.with us.", s("aquí.here.", "aquí con nosotres. here with us. "))) + s("¿Más?More?"));
+		return s("¿Más?", S("Tú " + s("estuviste pensando en", "pensaste acerca de") + s("la partida", "dejarnos. "),
+				s("Estás todavía", "Todavía") + s("con nosotres.", s("aquí.", "aquí con nosotres. "))) + s("¿Más?"));
 	}
 
 	protected String noToGuyzSpeech() {
 
-		return s(s("Probablemente lo mejor esIt’s probably best", "Lo mejor esBest"), "MejorBetter") + "nonot " + s("to") + s("escucharhear ", "oír alisten to")
-				+ s(s("más demore of", "cualquiera deany of")) + "lo que elles tienen que decir. what they have to say. " + s(breath() + "Sabio.Wise.") + breath();
+		return s(s("Probablemente lo mejor es", "Lo mejor es"), "Mejor") + "no " + s("") + s("escuchar ", "oír a")
+				+ s(s("más de", "cualquiera de")) + "lo que elles tienen que decir. " + s(breath() + "Sabio.") + breath();
 	}
 
 	protected Object noMoreGuyz() {
 
 		String speech;
-		speech = r("Está bien. OK. `Entendido.Understood. `Acertado.Wise. `Prudente.Prudent. `" + S("Bien, eWell, w", "EW") + "estamos todavía e’re still "
-				+ s(s("aquí para ti.here for you.", "aquí.here."), s("escuchando.listening.", "escuchándote.listening to you."))) + chooseContinue(false);
-		return new InnerResponse("Suficiente de Enough of " + s("ellesthem", "esothat"), speech);
+		speech = r("Está bien. `Entendido. `Acertado. `Prudente. `" + S("Bien, e", "E") + "estamos todavía "
+				+ s(s("aquí para ti.", "aquí."), s("escuchando. ", "escuchándote."))) + chooseContinue(false);
+		return new InnerResponse("Suficiente de " + s("elles", "eso"), speech);
 	}
 
 	protected String pathToGuyzAudio() {
@@ -484,18 +484,18 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String peaceSpeech(String word) {
 
-		String speech = "Es un It is a " + s("grangreat") + "consuelo para nosotres comfort for us to " + s("saberknow", "ser conscientesbe aware")
-				+ "de que estás that you are " + (word.equals("pazpeace") ? "en paz. at peace. " : "en calma. calm. ");
-		speech += capitalize(word) + SPC + "algo que creemos es que is something that we believe "
-				+ s("todo el mundoeveryone", "cada ser humanovery human being") + "debería sshould " + s("ser capaz debe able to");
-		speech += s(s("saber.know.", "sentir.feel."), "habitar dentro.dwell within.");
+		String speech = "Es un " + s("gran") + "consuelo para nosotres " + s("saber", "ser conscientes")
+				+ "de que estás " + (word.equals("paz") ? "en paz. " : "en calma. ");
+		speech += capitalize(word) + SPC + "algo que creemos es que "
+				+ s("todo el mundo", "cada ser humano") + "debería " + s("ser capaz de");
+		speech += s(s("saber.", "sentir."), "habitar dentro.");
 		return speech;
 
 	}
 
 	protected String pleaseContinueCardTitle() {
 
-		return S("Siguiendo, diciendo gracias ...Going on, with thanks ...", "Continuando, agradeciendo tu cortesía ...Continuing, grateful for your courtesy ...");
+		return S("Siguiendo, diciendo gracias ...", "Continuando, agradeciendo tu cortesía ...");
 	}
 
 	protected String pleaseContinuePreSpeech() {
