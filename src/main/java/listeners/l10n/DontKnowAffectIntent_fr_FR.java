@@ -10,7 +10,7 @@ public class DontKnowAffectIntent_fr_FR extends DontKnowAffectIntent {
 
 		return r("Nous ne savons pas `Nous ne connaissons pas `Nous ne sommes pas certaines de ")
 				+ s("les sentiments", "les émotions")
-				+ s("qui vous " + r("habitent`traversent`animate"), "dont vous êtes tributaire");
+				+ s("qui vous " + r("habitent`traversent`animent"), "dont vous êtes tributaire");
 	}
 
 	public String buildSpeech() {
