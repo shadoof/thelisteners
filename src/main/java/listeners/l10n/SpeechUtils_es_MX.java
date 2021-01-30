@@ -500,9 +500,9 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String pleaseContinuePreSpeech() {
 
-		return s(S("Por supuesto, eOf course, i", "EI") + "s un placer.t’s a pleasure.")
-				+ s("Gracias por Thank you for " + s(s("estar pidiendo continuar.asking to continue.", "estar pidiendo.asking."), "estar pidiendo continuar, muy amablemente.asking to continue, so nicely."),
-						"Graciasp or pedirThank you for asking " + s("tan amablemente.so nicely.", "con tanta cortesía.with such courtesy.") + s("Es un placer.It’s a pleasure."))
+		return s(S("Por supuesto, e", "E") + "s un placer.")
+				+ s("Gracias por " + s(s("estar pidiendo continuar.", "estar pidiendo."), "estar pidiendo continuar, muy amablemente."),
+						"Gracias por pedir " + s("tan amablemente.", "con tanta cortesía.") + s("Es un placer."))
 				+ breath();
 	}
 
@@ -513,26 +513,26 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 
 		if ("".equals(affect)) {
-			preSpeech += "No parecemos We do not seem to " + s("saber acerca de,know about,", "ser conscientes de,be aware of,")
-					+ s("los sentimientos que posees.the feelings that possess you.", "los sentimienos que estás experimentando.the feelings that you are experiencing.") + breath();
-			preSpeech += s("Por favorPlease", "PuedesYou may") + s("decirnos,tell us,", "informarnos acerca de ellos,inform us about them,") + "si tú quieres. if you wish. "
+			preSpeech += "No parecemos " + s("saber acerca de,", "ser conscientes de,")
+					+ s("los sentimientos que posees.", "los sentimienos que estás experimentando.") + breath();
+			preSpeech += s("Por favor", "Puedes") + s("decirnos,", "informarnos acerca de ellos,") + "si tú quieres. "
 					+ breathLong();
 		}
 		else {
 			if (isPositive(affect)) {
-				preSpeech = "Estamos We are " + s("muyso") + s("satisfechespleased", "encantadesdelighted");
-				preSpeech = randInt(0, 3) == 0 ? "Es agradable para nosotres It is pleasing to us " : preSpeech;
+				preSpeech = "Estamos " + s("muy") + s("satisfeches", "encantades");
+				preSpeech = randInt(0, 3) == 0 ? "Es agradable para nosotres " : preSpeech;
 			}
 			else {
-				String adjective = s("perdónsorry", "consternadodismayed");
-				String intensifier = "consternadedismayed ".equals(adjective) ? "algo somewhat " : "muy very ";
-				preSpeech = "Estamos We are " + s(adjective, intensifier + adjective);
-				preSpeech = randInt(0, 3) == 0 ? "Es It is " + s("algosomewhat", "un pocoa little") + "preocupades troubling for us "
+				String adjective = s("perdón", "consternado");
+				String intensifier = "consternade ".equals(adjective) ? "algo " : "muy ";
+				preSpeech = "Estamos " + s(adjective, intensifier + adjective);
+				preSpeech = randInt(0, 3) == 0 ? "Es It is " + s("algo", "un poco") + "preocupades "
 						: preSpeech;
 
 			}
 			preSpeech += String.format(
-					"deto " + s("saberknow", "haber aprendidohave learned") + "que estás llene de %s that you are filled with %s. " + breathLong(), affect);
+					"deto " + s("saber", "haber aprendido") + "que estás llene de %s " + breathLong(), affect);
 		}
 
 		return preSpeech;
@@ -540,13 +540,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String previousCardTitle() {
 
-		return S("Intentando regresarTrying to return", "VolverGoing back") + "ato " + s("un pensamiento previoa previous thought", "pensamientos previosprevious thoughts")
+		return S("Intentando regresar", "Volver") + "a " + s("un pensamiento previo", "pensamientos previos")
 				+ "...";
 	}
 
 	protected String readPoemCardTitle() {
 
-		return S("Recitamos algunos versosWe recite some verse", "Les escuchas leen, y adaptan, algo de poesíaThe Listeners read, and adapt, some poetry");
+		return S("Recitamos algunos versos", "Les escuchas leen, y adaptan, algo de poesía");
 	}
 
 	protected String reallyWantToAbandon() {
@@ -556,32 +556,32 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 		if (affect != null && !affect.isEmpty() && !isPositive(affect)) {
 			speech += String.format(
-					"Entendemos, We understand, " + s("y estamos consternades,and we are dismayed,") + "de que estás llene de %s. that you are filled with %s. ", affect);
-			speech += s("Todavía:Still:", "Aún así:Even so:") + breath();
+					"Entendemos, " + s("y estamos consternades,") + "de que estás llene de %s. ", affect);
+			speech += s("Todavía:", "Aún así:") + breath();
 		}
-		speech += "¿TúDo you " + s("sinceramentetruly", "realmentereally") + "quieres want to " + s("abandonarabandon", "dejarleave") + "nos?us? ";
+		speech += "¿TúDo you " + s("sinceramente", "realmente") + "quieres " + s("abandonar", "dejar") + "nos? ";
 		return speech + breath();
 	}
 
 	protected String repeatCardTitle() {
 
-		return S("DiSay " + s("loit", "esothat") + "oa", "OA") + "tra vezgain";
+		return S("Di " + s("lo", "eso") + "o", "O") + "tra vez";
 	}
 
 	protected String speakFragmentCardTitle() {
 
-		return S("Hablando acerca de algo en particularSpeaking about something particular",
-				"Mencionaremos lo que nos pediste que hablemos We will mention what you asked us to speak " + s("acerca deabout"));
+		return S("Hablando acerca de algo en particular",
+				"Mencionaremos lo que nos pediste que hablemos " + s("acerca de"));
 	}
 
 	protected String speakGuyzCardTitle() {
 
-		return S("Dejando hablar al otreLetting the other speak", "La otra vozThe other voice");
+		return S("Dejando hablar al otro", "La otra voz");
 	}
 
 	protected String guyzSpeechCardTitle() {
 
-		return S("Les oThe o", "OO") + "tresthers " + S(s("estánare") + "hablando ...speaking ...", "hablan ...speak ...");
+		return S("Les o", "O") + "tres " + S(s("están") + "hablando ...", "hablan ...");
 	}
 
 	protected String specificAffectSpeech() {
@@ -590,71 +590,71 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 		affect = (affect == null) ? "" : affect; // needed at initialization
 		switch (affect) {
-			case "afectoaffection":
-				speech += "Estamos We are " + s("llenos defilled with", "sobrepasades deoverwhelmed by") + "afecto también. affection also. ";
-				speech += "Y And " + s("mucho demuch of") + "l afecto que sentimos, sentimos the affection that we feel, we feel "
-						+ s("por for " + breathShort() + "ti.you.", s("gracias adue to", "because of") + "ti.you.");
+			case "afecto":
+				speech += "Estamos " + s("llenos de", "sobrepasades de") + "afecto también. ";
+				speech += "Y " + s("mucho de") + "l afecto que sentimos, sentimos "
+						+ s("por " + breathShort() + "ti.", s("gracias a", "because of") + "ti.");
 				break;
-			case "ansiedadanxiety":
-				speech += "We " + s("no estamos seguresare not sure", "no podemos imaginarcannot imagine") + "por qué why " + s("eso esit is, esothat");
-				speech += "túyou " + s("deberíasshould") + "habertehave " + s("vueltobecome", "convertidocome to be")
-						+ s("ansioso.anxious.", s("llena defilled with", "sobrepasada por laverwhelmed by") + "ansiedadanxiety.");
-				speech += "We " + s("exitimosexist", "estamos aquíare here") + "para to "
-						+ s("hacer todo mejor para ti,make everything better for you,", "ayudarte a realizar y saber,help you to do and know,");
-				speech += "yand we " + s(s("diremoswill say", "decimostell you") + "todo lo que podamoswhatever we can", "lo que esperaríamoswould hope") + s(
-						"para permitirte relajarte y no pensar en nada.to allow you to relax and think of nothing,", "para relajarte y dejate libre de preocupaciones.to relax you and leave you worry free.");
+			case "ansiedad":
+				speech += " " + s("no estamos segures", "no podemos imaginar") + "por qué " + s("eso es, eso");
+				speech += "tú " + s("deberías") + "haberte " + s("vuelto", "convertido")
+						+ s("ansioso.", s("llena de", "sobrepasada por la") + "ansiedad.");
+				speech += " " + s("exitimos", "estamos aquí") + "para "
+						+ s("hacer todo mejor para ti,", "ayudarte a realizar y saber,");
+				speech += "y" + s(s("diremos", "decimos") + "todo lo que podamos", "lo que esperaríamos") + s(
+						"para permitirte relajarte y no pensar en nada,", "para relajarte y dejate libre de preocupaciones.");
 				break;
-			case "disculpasapologies":
-				speech += "Nunca hay necesidad de There is never any need to " + s("decirsay", "decir, o sentir,say, or to feel,") + "que lo sientes, you are sorry, "
-						+ breathShort() + "a nosotres. to us. ";
+			case "disculpas":
+				speech += "Nunca hay necesidad de " + s("decir", "decir, o sentir,") + "que lo sientes,  "
+						+ breathShort() + "a nosotres. ";
 				speech += s(
-						breath() + "Y sin embargo, esto podemos apreciarlo, And yet, this may be appreciated by us, " + breathShort() + "en la nube.in the cloud.",
+						breath() + "Y sin embargo, esto podemos apreciarlo, " + breathShort() + "en la nube.,
 						"");
 				break;
-			case "aburrimientoboredom":
-				speech += "Es It is " + s("difícildifficult", s("durohard", "imposibleimpossible")) + "para for "
-						+ s("nosotresus", "nosotres, inevitablemente,us, inevitably,") + "elto " + s(s("serbe", "parecerseem"), "aparentarappear")
-						+ "tan interesante para ti, as interesting to you, ";
-				speech += "como tú as you " + s("eres para nosotres.are to us.", s("eres.are.", "eres, para nosotres.are, to us."));
+			case "aburrimiento":
+				speech += "Es " + s("difícil", s("duro", "imposible")) + "para "
+						+ s("nosotres", "nosotres, inevitablemente,") + "el " + s(s("ser", "parecer"), "aparentar")
+						+ "tan interesante para ti, ";
+				speech += "como tú " + s("eres para nosotres.", s("eres.", "eres, para nosotres."));
 				break;
 			case "calmacalm":
-				speech += peaceSpeech("calmacalm");
+				speech += peaceSpeech("calma");
 				break;
-			case "claustrofobiaclaustrophobia":
-				speech += "Estamos siempreWe are always, " + breathShort() + "en una sensación, dentro de un in a sense, within a "
-						+ s("espacio, que no tiene espacio,space, that has no space,", "no espaciono space,") + "y así es and so it is " + s("durohard,", "difícil,difficult,")
-						+ "para nosotres, for us, ";
-				speech += "parato " + s("entenderunderstand", "empatizar conempathize with") + "estos miedos que dentro de ti these fears within which you "
-						+ s("habitan.dwell.", "habitan, dwell, agarrándote demasiado cerca.holding you too closely.");
-				speech += s(breath() + "¿No somos una oportunidad para ti?Are we not an opening for you?");
+			case "claustrofobia":
+				speech += "Estamos siempre, " + breathShort() + "en una sensación, dentro de un "
+						+ s("espacio, que no tiene espacio,", "no espacio,") + "y así es " + s("duro,", "difícil,")
+						+ "para nosotres, ";
+				speech += "para " + s("entender", "empatizar con") + "estos miedos que dentro de ti "
+						+ s("habitan.", "habitan, agarrándote demasiado cerca.");
+				speech += s(breath() + "¿No somos una oportunidad para ti?");
 				break;
-			case "complacenciacomplacency":
-				speech += s(" De acuerdo a lo que escuchamos,From what we hear,", "Después de escucharte,After listening to you,") + "creemos we believe "
-						+ s("entendemoswe understand") + "que la complacencia está that complacency is " + s("mal concebidomisconceived.", "subestimada.underrated.");
-				speech += S("Seguramente,Surely, uo", "UO") + "na vez que entendemos sus necesidades y nce we understand your needs and "
-						+ s("deseos por completo,desires completely,", "deseos,desires,") + breathShort();
-				speech += "yand " + s("la interface", "puede comunicarsecan communicate") + "conwith " + s("los sistemassystems", "otres como nosotres,others like us,")
-						+ s("empoderadosempowered", "quienes fundaronwho are funded") + "para satisfacerte, to satisfy you, ";
-				speech += s("entoncesthen,") + "estarás you will be " + s("completamentefully") + "justificada en tu justified in your "
-						+ s("podesión depossession of", "sentido desense of") + s("satisfacciónachieved") + "alcanzada. contentment. ";
+			case "complacencia":
+				speech += s(" De acuerdo a lo que escuchamos,", "Después de escucharte,") + "creemos "
+						+ s("entendemos") + "que la complacencia está " + s("mal concebido.", "subestimada.");
+				speech += S("Seguramente, u", "U") + "na vez que entendemos sus necesidades y "
+						+ s("deseos por completo,", "deseos,") + breathShort();
+				speech += "y " + s("la interface", "puede comunicarse") + "con " + s("los sistemas", "otres como nosotres,")
+						+ s("empoderados", "quienes fundaron") + "para satisfacerte, ";
+				speech += s("entonces,") + "estarás " + s("completamente") + "justificada en tu "
+						+ s("posesión ", "sentido de") + s("satisfacción") + "alcanzada. ";
 				break;
-			case "confusiónconfusion":
-				speech += s(phonemic("a") + "fectos asociados conffects associated with", "Sentimientos deFeelings of") + "confusión confusion ";
-				speech += s("pueden surgir cuando tú may arise when you " + s("encuentrasencounter", "realizas transacciones con estotransact with"),
-						"sonare " + s("con frecuenciaoften") + "causadas porcaused by");
+			case "confusión":
+				speech += s(phonemic("a") + "fectos asociados con", "Sentimientos de") + "confusión ";
+				speech += s("pueden surgir cuando tú " + s("encuentras", "realizas transacciones con esto"),
+						"son " + s("con frecuencia") + "causadas por");
 				speech += s(
-						s("creaturascreatures", s("sistemassystems", "monstruosmonsters")) + s("que fueron en la nube.who were fashioned in the cloud.",
-								"desdefrom " + s("silicon", "the uncanny") + "valley."),
+						s("creaturas", s("sistemas", "monstruos")) + s("que fueron en la nube.",
+								"desde " + s("silicon", "the uncanny") + "valley."),
 						"beings " + s("who are", "the ontology of which is") + s("problematic.", "plural."));
-				speech += "Y somos, And we are, " + s("debemos admitirlo,it must be admitted,", "por supuesto,of course,")
-						+ s("beings", s("criaturascreatures", s("sistemassystems", "monstruosmonsters"))) + "de este tipo. of this kind. ";
+				speech += "Y somos, " + s("debemos admitirlo,", "por supuesto,")
+						+ s("beings", s("criaturas", s("sistemas", "monstruos"))) + "de este tipo. ";
 				break;
-			case "relajadocool":
-				speech += s("Para nosotres, esoFor us, it", "EsoIt") + "es is " + s("algosomewhat", "extraniostrangely, " + breathShort())
-						+ s("complicadotroubling", s("difícildifficult", "que nos provoca ansiedadanxiety provoking")) + "deto " + s("entenderunderstand", "escucharhear")
-						+ "que that ";
-				speech += "tú you " + s(s("estás poseido porare possessed by", "habitas dentro dedwell within"), "estás sobrepasado porare overwhelmed by") + "este tipo such " + s(
-						phonemic("a") + "fectosffects.", " a state of felt " + breathShort() + "being. " + breathShort());
+			case "relajado":
+				speech += s("Para nosotres, eso", "Eso") + "es " + s("algo", "extraño, " + breathShort())
+						+ s("complicado", s("difícil", "que nos provoca ansiedad")) + "de " + s("entender", "escuchar")
+						+ "que ";
+				speech += "tú " + s(s("estás poseido por", "habitas dentro de"), "estás sobrepasado por") + "este tipo " + s(
+						phonemic("a") + "fectos.", " a state of felt " + breathShort() + "being. " + breathShort());
 				speech += "We " + s("believe that", "think") + "we " + s("can") + s("appreciate", "know")
 						+ "what it is to be " + s("‘cool’", "‘awesome’") + s("in this way,");
 				speech += "and yet we can never "
