@@ -49,7 +49,7 @@ public class LangConstantsBundle_fr_FR extends LangConstantsBundle {
 		fragmentNameMap.put("enceintes", 1);
 		fragmentNameMap.put("art", 1);
 		fragmentNameMap.put("artiste", 2);
-		fragmentNameMap.put("auteurr", 2);
+		fragmentNameMap.put("auteur", 2);
 		fragmentNameMap.put("compte", 2);
 		fragmentNameMap.put("autres", 3);
 		fragmentNameMap.put("protocole", 3);
