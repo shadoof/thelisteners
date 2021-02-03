@@ -223,9 +223,9 @@ public class LangConstantsBundle_fr_FR extends LangConstantsBundle {
 		affectivejj2nnMap.put("puissant", "puissance");
 		affectivejj2nnMap.put("détendu", "calme");
 		affectivejj2nnMap.put("triste", "tristesse");
-		affectivejj2nnMap.put("sûr", "sécurité");
+		affectivejj2nnMap.put("sûr", "sûreté");
 		affectivejj2nnMap.put("effrayé", "peur");
-		affectivejj2nnMap.put("securisé", "sécurité");
+		affectivejj2nnMap.put("sécurisé", "sécurité");
 		affectivejj2nnMap.put("sexuel", "sexe");
 		affectivejj2nnMap.put("stupéfait", "surprise");
 		affectivejj2nnMap.put("malade", "maladie");
