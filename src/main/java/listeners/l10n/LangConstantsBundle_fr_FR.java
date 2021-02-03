@@ -183,8 +183,8 @@ public class LangConstantsBundle_fr_FR extends LangConstantsBundle {
 		affectivejj2nnMap.put("dégoûté", "dégoût");
 		affectivejj2nnMap.put("affligé", "détresse");
 		affectivejj2nnMap.put("perturbé", "inconfort");
-		affectivejj2nnMap.put("étourdi", "étournissement");
-		affectivejj2nnMap.put("vide", "vacuité"); /////
+		affectivejj2nnMap.put("étourdi", "étourdissement");
+		affectivejj2nnMap.put("vide", "vacuité"); 
 		affectivejj2nnMap.put("excité", "excitation");
 		affectivejj2nnMap.put("fabuleux", "joie");
 		affectivejj2nnMap.put("correct", "apathie");
