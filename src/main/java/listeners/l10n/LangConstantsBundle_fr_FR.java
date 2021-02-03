@@ -57,7 +57,7 @@ public class LangConstantsBundle_fr_FR extends LangConstantsBundle {
 		fragmentNameMap.put("courtoisie", 3);
 		fragmentNameMap.put("site", 4);
 		fragmentNameMap.put("espace", 4);
-		fragmentNameMap.put("espace", 4);
+		fragmentNameMap.put("maison", 4);
 		fragmentNameMap.put("bureau", 4);
 		fragmentNameMap.put("galerie", 4);
 		fragmentNameMap.put("inquiétudes", 5);
