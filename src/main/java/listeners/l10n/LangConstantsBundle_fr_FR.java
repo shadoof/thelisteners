@@ -26,16 +26,16 @@ public class LangConstantsBundle_fr_FR extends LangConstantsBundle {
 		fragmentNumberMap.put("9", 8);
 		fragmentNumberMap.put("10", 9);
 		//
-		fragmentNumberMap.put("one", 0);
-		fragmentNumberMap.put("two", 1);
-		fragmentNumberMap.put("three", 2);
-		fragmentNumberMap.put("four", 3);
-		fragmentNumberMap.put("five", 4);
+		fragmentNumberMap.put("un", 0);
+		fragmentNumberMap.put("deux", 1);
+		fragmentNumberMap.put("trois", 2);
+		fragmentNumberMap.put("quatre", 3);
+		fragmentNumberMap.put("cinq", 4);
 		fragmentNumberMap.put("six", 5);
-		fragmentNumberMap.put("seven", 6);
-		fragmentNumberMap.put("eight", 7);
-		fragmentNumberMap.put("nine", 8);
-		fragmentNumberMap.put("ten", 9);
+		fragmentNumberMap.put("sept", 6);
+		fragmentNumberMap.put("huit", 7);
+		fragmentNumberMap.put("neuf", 8);
+		fragmentNumberMap.put("dix", 9);
 		return fragmentNumberMap;
 	}
 
