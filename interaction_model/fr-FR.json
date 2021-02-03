@@ -1186,122 +1186,204 @@
                     "name": "WhatsLsnrsAffectIntent",
                     "slots": [],
                     "samples": [
-                        "are you afraid",
-                        "are you scared",
-                        "how are the listeners feeling",
-                        "how are you feeling",
-                        "how do the listeners feel",
-                        "how do you feel",
-                        "what are the listeners feeling",
-                        "what are the listeners feelings",
-                        "what are the listeners overwhelmed by",
-                        "what are the listeners possessed by",
-                        "what are you feeling",
-                        "what are you overwhelmed by",
-                        "what are you possessed by",
-                        "what are your feelings",
-                        "what do the listeners feel",
-                        "what do you feel"
+                        "as-tu peur",
+                        "avez-vous peur",
+                        "est-ce que tu as peur",
+                        "est-ce que vous avez peur",
+                        "es-tu effrayée",
+                        "êtes-vous effrayées",
+                        "est-ce que tu es effrayée",
+                        "est-ce que vous êtes effrayées",
+                        "comment te sens-tu",
+                        "comment vous sentez-vous",
+                        "comment se sentent celles qui sont à l'écoute",
+                        "que ressens-tu",
+                        "que ressentez-vous",
+                        "quels sont tes sentiments",
+                        "quels sont vos sentiments",
+                        "quelles sont tes émotions",
+                        "quelles sont vos émotions",
+                        "quels sont les sentiments de celles qui sont à l'écoute",
+                        "quelles sont tes émotions de celles qui sont à l'écoute",
                     ]
                 },
                 {
                     "name": "WhatsSpkrsAffectIntent",
                     "slots": [],
                     "samples": [
-                        "how am i feeling",
-                        "how do i feel",
-                        "please recall my affect",
-                        "please recall my affects",
-                        "please recall my feelings",
-                        "recall my affect",
-                        "recall my affects",
-                        "recall my feelings",
-                        "what am i feeling",
-                        "what am i overwhelmed by",
-                        "what am i possessed by",
-                        "what are my feelings",
-                        "what do i feel"
+                        "comment je me sens",
+                        "comment me sens-je",
+                        "je me sens comment",
+                        "comment est-ce que je me sens",
+                        "qu'est-ce que je sens",
+                        "qu'est-ce que je ressens",
+                        "qu'est-ce que je sens déjà",
+                        "qu'est-ce que je ressens déjà",                     
+                        "rappelle-moi mes affects",
+                        "rappelle-moi mes sentiments",
+                        "rappelle-moi mes émotions",
+                        "remémore-moi mes affects",
+                        "remémore-moi mes sentiments",
+                        "remémore-moi mes émotions",
+                        "peux-tu me rappeler mes affects",
+                        "peux-tu me rappeler mes sentiments",
+                        "peux-tu me rappeler mes émotions",
+                        "peux-tu me remémorer mes affects",
+                        "peux-tu me remémorer mes sentiments",
+                        "peux-tu me remémorer mes émotions",
+                        "veux-tu me rappeler mes affects",
+                        "veux-tu me rappeler mes sentiments",
+                        "veux-tu me rappeler mes émotions",
+                        "veux-tu me remémorer mes affects",
+                        "veux-tu me remémorer mes sentiments",
+                        "veux-tu me remémorer mes émotions",
+                        "rappelle-moi mes affects s'il-te-plaît",
+                        "rappelle-moi mes sentiments s'il-te-plaît",
+                        "rappelle-moi mes émotions s'il-te-plaît",
+                        "remémore-moi mes affects s'il-te-plaît",
+                        "remémore-moi mes sentiments s'il-te-plaît",
+                        "remémore-moi mes émotions s'il-te-plaît",
+                        "peux-tu me rappeler mes affects s'il-te-plaît",
+                        "peux-tu me rappeler mes sentiments s'il-te-plaît",
+                        "peux-tu me rappeler mes émotions s'il-te-plaît",
+                        "peux-tu me remémorer mes affects s'il-te-plaît",
+                        "peux-tu me remémorer mes sentiments s'il-te-plaît",
+                        "peux-tu me remémorer mes émotions s'il-te-plaît",
+                        "veux-tu me rappeler mes affects s'il-te-plaît",
+                        "veux-tu me rappeler mes sentiments s'il-te-plaît",
+                        "veux-tu me rappeler mes émotions s'il-te-plaît",
+                        "veux-tu me remémorer mes affects s'il-te-plaît",
+                        "veux-tu me remémorer mes sentiments s'il-te-plaît",
+                        "veux-tu me remémorer mes émotions s'il-te-plaît",
+                        "rappellez-moi mes affects",
+                        "rappellez-moi mes sentiments",
+                        "rappellez-moi mes émotions",
+                        "remémorez-moi mes affects",
+                        "remémorez-moi mes sentiments",
+                        "remémorez-moi mes émotions",
+                        "pouvez-vous me rappeler mes affects",
+                        "pouvez-vous me rappeler mes sentiments",
+                        "pouvez-vous me rappeler mes émotions",
+                        "pouvez-vous me remémorer mes affects",
+                        "pouvez-vous me remémorer mes sentiments",
+                        "pouvez-vous me remémorer mes émotions",
+                        "voulez-vous me rappeler mes affects",
+                        "voulez-vous me rappeler mes sentiments",
+                        "voulez-vous me rappeler mes émotions",
+                        "voulez-vous me remémorer mes affects",
+                        "voulez-vous me remémorer mes sentiments",
+                        "veux-tu me remémorer mes émotions",
+                        "rappellez-moi mes affects s'il-vous-plaît",
+                        "rappellez-moi mes sentiments s'il-vous-plaît",
+                        "rappellez-moi mes émotions s'il-vous-plaît",
+                        "remémorez-moi mes affects s'il-vous-plaît",
+                        "remémorez-moi mes sentiments s'il-vous-plaît",
+                        "remémorez-moi mes émotions s'il-vous-plaît",
+                        "pouvez-vous me rappeler mes affects s'il-vous-plaît",
+                        "pouvez-vous me rappeler mes sentiments s'il-vous-plaît",
+                        "pouvez-vous me rappeler mes émotions s'il-vous-plaît",
+                        "pouvez-vous me remémorer mes affects s'il-vous-plaît",
+                        "pouvez-vous me remémorer mes sentiments s'il-vous-plaît",
+                        "pouvez-vous me remémorer mes émotions s'il-vous-plaît",
+                        "voulez-vous me rappeler mes affects s'il-vous-plaît",
+                        "voulez-vous me rappeler mes sentiments s'il-vous-plaît",
+                        "voulez-vous me rappeler mes émotions s'il-vous-plaît",
+                        "voulez-vous me remémorer mes affects s'il-vous-plaît",
+                        "voulez-vous me remémorer mes sentiments s'il-vous-plaît",
+                        "veux-tu me remémorer mes émotions s'il-vous-plaît",
                     ]
                 },
                 {
                     "name": "WhereIntent",
                     "slots": [],
                     "samples": [
-                        "where are the listeners",
-                        "where are you",
-                        "where is John"
+                        "où es-tu",
+                        "où êtes-vous",
+                        "où est John",
+                        "où sont celles qui sont à l'écoute",
+                        "où te trouves-tu",
+                        "où vous trouvez-vous",
+                        "où est-ce que tu te situes",
+                        "où est-ce que vous vous situez",
                     ]
                 },
                 {
                     "name": "WhoAreSpkrsIntent",
                     "slots": [],
                     "samples": [
-                        "who am i",
-                        "who are we",
-                        "who do you take us for",
-                        "who do you think we are",
-                        "who is we"
+                        "qui suis-je",
+                        "pour qui me prends-tu",
+                        "pour qui nous prenez-nous",
+                        "qui crois-tu que suis",
+                        "qui croyez-vous que je suis",
+                        "qui est-ce que tu crois que je suis",
                     ]
                 },
                 {
                     "name": "WhoseAccountIntent",
                     "slots": [],
                     "samples": [
-                        "whose account",
-                        "whose account is this"
+                        "quel compte",
+                        "à qui est ce compte",
+                        "à qui appartient ce compte"
                     ]
                 },
                 {
                     "name": "WhoSaysGuyzIntent",
                     "slots": [],
                     "samples": [
-                        "what is that other voice",
-                        "what is this other voice",
-                        "what is that voice",
-                        "what is this voice",
-                        "what was that other voice",
-                        "what was that voice",
-                        "who are these guys",
-                        "who are these other guys",
-                        "who else is speaking",
-                        "who is that guy",
-                        "who is that other guy",
-                        "who is that other person",
-                        "who is that person",
-                        "who is this guy",
-                        "who is this other guy",
-                        "who is this other person",
-                        "who is this person",
-                        "whose voice is that",
-                        "who was that",
-                        "who was that guy",
-                        "who was that other guy",
-                        "who was that other person",
-                        "who was that person"
+                        "qui est cette autre voix",
+                        "qui est cette voix",
+                        "qui est-ce",
+                        "de qui s'agit-il",
+                        "qui d'autre parle",
+                        "qui est ce type",
+                        "qui est ce gars",
+                        "qui est cette personne",
+                        "qui était cette autre voix",
+                        "qui était cette voix",
+                        "qui était-ce",
+                        "de qui s'agissait-il",
+                        "qui d'autre parlait",
+                        "qui était ce type",
+                        "qui était ce gars",
+                        "qui était cette personne",
+                        "qui était-ce",
+                        "qui était cette voix",
                     ]
                 },
                 {
                     "name": "WhoWhatIntent",
                     "slots": [],
                     "samples": [
-                        "what are you",
-                        "who are the listeners",
-                        "who are you",
-                        "who is John",
-                        "who is the listeners",
-                        "why",
-                        "why are you doing this",
-                        "why are you saying these things",
-                        "why are you saying this",
-                        "why are you speaking",
-                        "why are you speaking like this"
+                        "qui es-tu",
+                        "qui êtes-vous",
+                        "qui sont celles qui sont à l'écoute",
+                        "qui est John",
+                        "pourquoi",
+                        "pourquoi fais-tu ceci",
+                        "pourquoi fais-tu cela",
+                        "pourquoi faites-vous ceci",
+                        "pourquoi faites-vous cela",
+                        "pourquoi dis-tu ceci",
+                        "pourquoi dis-tu cela",
+                        "pourquoi parles-tu",
+                        "pourquoi parles-tu comme ceci",
+                        "pourquoi parles-tu comme cela",
+                        "pourquoi dis-tu ces choses",
+                        "pourquoi dites-vous ceci",
+                        "pourquoi dites-vous cela",
+                        "pourquoi parlez-vous",
+                        "pourquoi parlez-vous comme ceci",
+                        "pourquoi parlez-vous comme cela",
+                        "pourquoi dites-vous ces choses",
                     ]
                 },
                 {
                     "name": "WinterIntent",
                     "slots": [],
                     "samples": [
-                        "winter is coming"
+                        "l'hiver vient"
                     ]
                 },
                 {
@@ -1350,22 +1432,22 @@
                     "values": [
                         {
                             "name": {
-                                "value": "happiness"
+                                "value": "boheur"
                             }
                         },
                         {
                             "name": {
-                                "value": "excitement"
+                                "value": "excitation"
                             }
                         },
                         {
                             "name": {
-                                "value": "curiosity"
+                                "value": "curiosité"
                             }
                         },
                         {
                             "name": {
-                                "value": "wonder"
+                                "value": "émerveillement"
                             }
                         },
                         {
@@ -1375,42 +1457,42 @@
                         },
                         {
                             "name": {
-                                "value": "anger"
+                                "value": "colère"
                             }
                         },
                         {
                             "name": {
-                                "value": "disgust"
+                                "value": "dégoût"
                             }
                         },
                         {
                             "name": {
-                                "value": "distress"
+                                "value": "détresse"
                             }
                         },
                         {
                             "name": {
-                                "value": "sadness"
+                                "value": "peine"
                             }
                         },
                         {
                             "name": {
-                                "value": "grief"
+                                "value": "douleur"
                             }
                         },
                         {
                             "name": {
-                                "value": "melancholy"
+                                "value": "mélancolie"
                             }
                         },
                         {
                             "name": {
-                                "value": "fear"
+                                "value": "peur"
                             }
                         },
                         {
                             "name": {
-                                "value": "shame"
+                                "value": "honte"
                             }
                         },
                         {
@@ -1420,7 +1502,7 @@
                         },
                         {
                             "name": {
-                                "value": "abject"
+                                "value": "abjection"
                             }
                         },
                         {
@@ -1435,97 +1517,97 @@
                         },
                         {
                             "name": {
-                                "value": "affectionate"
+                                "value": "affectueux"
                             }
                         },
                         {
                             "name": {
-                                "value": "afraid"
+                                "value": "effrayé"
                             }
                         },
                         {
                             "name": {
-                                "value": "age"
+                                "value": "âge"
                             }
                         },
                         {
                             "name": {
-                                "value": "alright"
+                                "value": "correct"
                             }
                         },
                         {
                             "name": {
-                                "value": "angry"
+                                "value": "fâché"
                             }
                         },
                         {
                             "name": {
-                                "value": "anguish"
+                                "value": "angoissé"
                             }
                         },
                         {
                             "name": {
-                                "value": "annoyed"
+                                "value": "agacé"
                             }
                         },
                         {
                             "name": {
-                                "value": "anxiety"
+                                "value": "anxiété"
                             }
                         },
                         {
                             "name": {
-                                "value": "anxious"
+                                "value": "anxieux"
                             }
                         },
                         {
                             "name": {
-                                "value": "apathy"
+                                "value": "apathie"
                             }
                         },
                         {
                             "name": {
-                                "value": "apathetic"
+                                "value": "apathie"
                             }
                         },
                         {
                             "name": {
-                                "value": "apologetic"
+                                "value": "complaisant"
                             }
                         },
                         {
                             "name": {
-                                "value": "apologies"
+                                "value": "complaisance"
                             }
                         },
                         {
                             "name": {
-                                "value": "ashamed"
+                                "value": "honteux"
                             }
                         },
                         {
                             "name": {
-                                "value": "awesome"
+                                "value": "génial"
                             }
                         },
                         {
                             "name": {
-                                "value": "awesomeness"
+                                "value": "incroyable"
                             }
                         },
                         {
                             "name": {
-                                "value": "bad"
+                                "value": "mauvais"
                             }
                         },
                         {
                             "name": {
-                                "value": "bewildered"
+                                "value": "perplexe"
                             }
                         },
                         {
                             "name": {
-                                "value": "bewilderment"
+                                "value": "perplexité"
                             }
                         },
                         {
@@ -1535,37 +1617,37 @@
                         },
                         {
                             "name": {
-                                "value": "boredom"
+                                "value": "ennui"
                             }
                         },
                         {
                             "name": {
-                                "value": "calm"
+                                "value": "calme"
                             }
                         },
                         {
                             "name": {
-                                "value": "claustrophobia"
+                                "value": "claustrophobie"
                             }
                         },
                         {
                             "name": {
-                                "value": "claustrophobic"
+                                "value": "claustrophobique"
                             }
                         },
                         {
                             "name": {
-                                "value": "complacency"
+                                "value": "complaisance"
                             }
                         },
                         {
                             "name": {
-                                "value": "complacent"
+                                "value": "complaisant"
                             }
                         },
                         {
                             "name": {
-                                "value": "confused"
+                                "value": "confus"
                             }
                         },
                         {
@@ -1575,147 +1657,147 @@
                         },
                         {
                             "name": {
-                                "value": "cool"
+                                "value": "froid"
                             }
                         },
                         {
                             "name": {
-                                "value": "curious"
+                                "value": "curieux"
                             }
                         },
                         {
                             "name": {
-                                "value": "debt"
+                                "value": "dette"
                             }
                         },
                         {
                             "name": {
-                                "value": "delight"
+                                "value": "ravissement"
                             }
                         },
                         {
                             "name": {
-                                "value": "delighted"
+                                "value": "ravi"
                             }
                         },
                         {
                             "name": {
-                                "value": "depressed"
+                                "value": "déprimé"
                             }
                         },
                         {
                             "name": {
-                                "value": "depression"
+                                "value": "dépression"
                             }
                         },
                         {
                             "name": {
-                                "value": "despair"
+                                "value": "désespoir"
                             }
                         },
                         {
                             "name": {
-                                "value": "disappointed"
+                                "value": "déçu"
                             }
                         },
                         {
                             "name": {
-                                "value": "disappointment"
+                                "value": "déception"
                             }
                         },
                         {
                             "name": {
-                                "value": "discomfort"
+                                "value": "inconfort"
                             }
                         },
                         {
                             "name": {
-                                "value": "disgusted"
+                                "value": "dégoûté"
                             }
                         },
                         {
                             "name": {
-                                "value": "distressed"
+                                "value": "affligé"
                             }
                         },
                         {
                             "name": {
-                                "value": "disturbed"
+                                "value": "perturbé"
                             }
                         },
                         {
                             "name": {
-                                "value": "dizziness"
+                                "value": "étourdissement"
                             }
                         },
                         {
                             "name": {
-                                "value": "dizzy"
+                                "value": "étourdi"
                             }
                         },
                         {
                             "name": {
-                                "value": "dread"
+                                "value": "crainte"
                             }
                         },
                         {
                             "name": {
-                                "value": "emptiness"
+                                "value": "vacuité"
                             }
                         },
                         {
                             "name": {
-                                "value": "empty"
+                                "value": "vide"
                             }
                         },
                         {
                             "name": {
-                                "value": "excited"
+                                "value": "excité"
                             }
                         },
                         {
                             "name": {
-                                "value": "fabulous"
+                                "value": "fabuleux"
                             }
                         },
                         {
                             "name": {
-                                "value": "fatigue"
+                                "value": "épuisement"
                             }
                         },
                         {
                             "name": {
-                                "value": "fine"
+                                "value": "bien"
                             }
                         },
                         {
                             "name": {
-                                "value": "frightened"
+                                "value": "apeuré"
                             }
                         },
                         {
                             "name": {
-                                "value": "furious"
+                                "value": "furieux"
                             }
                         },
                         {
                             "name": {
-                                "value": "fury"
+                                "value": "furie"
                             }
                         },
                         {
                             "name": {
-                                "value": "frivolity"
+                                "value": "frivolité"
                             }
                         },
                         {
                             "name": {
-                                "value": "good"
+                                "value": "bien"
                             }
                         },
                         {
                             "name": {
-                                "value": "great"
+                                "value": "super"
                             }
                         },
                         {
@@ -1725,127 +1807,127 @@
                         },
                         {
                             "name": {
-                                "value": "groovy"
+                                "value": "sensationnel"
                             }
                         },
                         {
                             "name": {
-                                "value": "guilt"
+                                "value": "culpabilité"
                             }
                         },
                         {
                             "name": {
-                                "value": "guilty"
+                                "value": "coupable"
                             }
                         },
                         {
                             "name": {
-                                "value": "happy"
+                                "value": "heureux"
                             }
                         },
                         {
                             "name": {
-                                "value": "hate"
+                                "value": "haineux"
                             }
                         },
                         {
                             "name": {
-                                "value": "hatred"
+                                "value": "haine"
                             }
                         },
                         {
                             "name": {
-                                "value": "horror"
+                                "value": "horreur"
                             }
                         },
                         {
                             "name": {
-                                "value": "horrified"
+                                "value": "horrifié"
                             }
                         },
                         {
                             "name": {
-                                "value": "hope"
+                                "value": "espoir"
                             }
                         },
                         {
                             "name": {
-                                "value": "hopeful"
+                                "value": "optimiste"
                             }
                         },
                         {
                             "name": {
-                                "value": "hopeful"
+                                "value": "optimiste"
                             }
                         },
                         {
                             "name": {
-                                "value": "humiliated"
+                                "value": "humilié"
                             }
                         },
                         {
                             "name": {
-                                "value": "hunger"
+                                "value": "faim"
                             }
                         },
                         {
                             "name": {
-                                "value": "hungry"
+                                "value": "affamé"
                             }
                         },
                         {
                             "name": {
-                                "value": "indecision"
+                                "value": "indécision"
                             }
                         },
                         {
                             "name": {
-                                "value": "indecisive"
+                                "value": "indécis"
                             }
                         },
                         {
                             "name": {
-                                "value": "indifference"
+                                "value": "indifférence"
                             }
                         },
                         {
                             "name": {
-                                "value": "indifferent"
+                                "value": "indifférent"
                             }
                         },
                         {
                             "name": {
-                                "value": "interest"
+                                "value": "intérêt"
                             }
                         },
                         {
                             "name": {
-                                "value": "interested"
+                                "value": "intéressé"
                             }
                         },
                         {
                             "name": {
-                                "value": "insecure"
+                                "value": "insécure"
                             }
                         },
                         {
                             "name": {
-                                "value": "insecurity"
+                                "value": "insécurity"
                             }
                         },
                         {
                             "name": {
-                                "value": "invulnerability"
+                                "value": "invulnérability"
                             }
                         },
                         {
                             "name": {
-                                "value": "invulnerable"
+                                "value": "invulnérable"
                             }
                         },
                         {
                             "name": {
-                                "value": "irritated"
+                                "value": "irrité"
                             }
                         },
                         {
@@ -1855,67 +1937,67 @@
                         },
                         {
                             "name": {
-                                "value": "joy"
+                                "value": "joie"
                             }
                         },
                         {
                             "name": {
-                                "value": "loneliness"
+                                "value": "isolement"
                             }
                         },
                         {
                             "name": {
-                                "value": "lonely"
+                                "value": "esseulé"
                             }
                         },
                         {
                             "name": {
-                                "value": "love"
+                                "value": "amour"
                             }
                         },
                         {
                             "name": {
-                                "value": "loving"
+                                "value": "amoureux"
                             }
                         },
                         {
                             "name": {
-                                "value": "luck"
+                                "value": "chance"
                             }
                         },
                         {
                             "name": {
-                                "value": "lucky"
+                                "value": "chanceux"
                             }
                         },
                         {
                             "name": {
-                                "value": "miserable"
+                                "value": "misérable"
                             }
                         },
                         {
                             "name": {
-                                "value": "misery"
+                                "value": "misère"
                             }
                         },
                         {
                             "name": {
-                                "value": "nausea"
+                                "value": "nausée"
                             }
                         },
                         {
                             "name": {
-                                "value": "nauseous"
+                                "value": "nauséeux"
                             }
                         },
                         {
                             "name": {
-                                "value": "nervous"
+                                "value": "nerveux"
                             }
                         },
                         {
                             "name": {
-                                "value": "nothing"
+                                "value": "vide"
                             }
                         },
                         {
@@ -1925,12 +2007,12 @@
                         },
                         {
                             "name": {
-                                "value": "obliged"
+                                "value": "obligé"
                             }
                         },
                         {
                             "name": {
-                                "value": "odd"
+                                "value": "étrange"
                             }
                         },
                         {
@@ -1940,37 +2022,37 @@
                         },
                         {
                             "name": {
-                                "value": "old"
+                                "value": "vieux"
                             }
                         },
                         {
                             "name": {
-                                "value": "peace"
+                                "value": "paix"
                             }
                         },
                         {
                             "name": {
-                                "value": "peaceful"
+                                "value": "apaisé"
                             }
                         },
                         {
                             "name": {
-                                "value": "pitiful"
+                                "value": "pitoyable"
                             }
                         },
                         {
                             "name": {
-                                "value": "pity"
+                                "value": "pitié"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleased"
+                                "value": "heureux"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleasure"
+                                "value": "plaisir"
                             }
                         },
                         {
@@ -1990,122 +2072,122 @@
                         },
                         {
                             "name": {
-                                "value": "relaxed"
+                                "value": "relaxé"
                             }
                         },
                         {
                             "name": {
-                                "value": "sad"
+                                "value": "triste"
                             }
                         },
                         {
                             "name": {
-                                "value": "safe"
+                                "value": "sûr"
                             }
                         },
                         {
                             "name": {
-                                "value": "safety"
+                                "value": "sûreté"
                             }
                         },
                         {
                             "name": {
-                                "value": "scared"
+                                "value": "apeuré"
                             }
                         },
                         {
                             "name": {
-                                "value": "secure"
+                                "value": "sécure"
                             }
                         },
                         {
                             "name": {
-                                "value": "security"
+                                "value": "sécurité"
                             }
                         },
                         {
                             "name": {
-                                "value": "sex"
+                                "value": "sexe"
                             }
                         },
                         {
                             "name": {
-                                "value": "sexual"
+                                "value": "sexuel"
                             }
                         },
                         {
                             "name": {
-                                "value": "shock"
+                                "value": "choc"
                             }
                         },
                         {
                             "name": {
-                                "value": "shocked"
+                                "value": "choqué"
                             }
                         },
                         {
                             "name": {
-                                "value": "sick"
+                                "value": "malade"
                             }
                         },
                         {
                             "name": {
-                                "value": "sickness"
+                                "value": "maladie"
                             }
                         },
                         {
                             "name": {
-                                "value": "silliness"
+                                "value": "ridicule"
                             }
                         },
                         {
                             "name": {
-                                "value": "silly"
+                                "value": "ridicule"
                             }
                         },
                         {
                             "name": {
-                                "value": "sorrow"
+                                "value": "chagrin"
                             }
                         },
                         {
                             "name": {
-                                "value": "sorry"
+                                "value": "désolé"
                             }
                         },
                         {
                             "name": {
-                                "value": "surprised"
+                                "value": "surpris"
                             }
                         },
                         {
                             "name": {
-                                "value": "strength"
+                                "value": "force"
                             }
                         },
                         {
                             "name": {
-                                "value": "strong"
+                                "value": "fort"
                             }
                         },
                         {
                             "name": {
-                                "value": "strange"
+                                "value": "étrange"
                             }
                         },
                         {
                             "name": {
-                                "value": "strangeness"
+                                "value": "étrangeté"
                             }
                         },
                         {
                             "name": {
-                                "value": "stupid"
+                                "value": "stupide"
                             }
                         },
                         {
                             "name": {
-                                "value": "stupidity"
+                                "value": "stupidite"
                             }
                         },
                         {
@@ -2115,22 +2197,22 @@
                         },
                         {
                             "name": {
-                                "value": "terrified"
+                                "value": "terrifié"
                             }
                         },
                         {
                             "name": {
-                                "value": "terror"
+                                "value": "terreur"
                             }
                         },
                         {
                             "name": {
-                                "value": "tired"
+                                "value": "fatigué"
                             }
                         },
                         {
                             "name": {
-                                "value": "tiredness"
+                                "value": "fatigue"
                             }
                         },
                         {
@@ -2140,87 +2222,87 @@
                         },
                         {
                             "name": {
-                                "value": "troubled"
+                                "value": "troublé"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncanny"
+                                "value": "inquiet"
                             }
                         },
                         {
                             "name": {
-                                "value": "the uncanny"
+                                "value": "inquiétude"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncertain"
+                                "value": "incertain"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncertainty"
+                                "value": "incertitude"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncomfortable"
+                                "value": "incomfortable"
                             }
                         },
                         {
                             "name": {
-                                "value": "unhappiness"
+                                "value": "malheur"
                             }
                         },
                         {
                             "name": {
-                                "value": "unhappy"
+                                "value": "malheureux"
                             }
                         },
                         {
                             "name": {
-                                "value": "unsure"
+                                "value": "incertain"
                             }
                         },
                         {
                             "name": {
-                                "value": "upset"
+                                "value": "fâché"
                             }
                         },
                         {
                             "name": {
-                                "value": "vertigo"
+                                "value": "étourdi"
                             }
                         },
                         {
                             "name": {
-                                "value": "vulnerability"
+                                "value": "vulnérabilité"
                             }
                         },
                         {
                             "name": {
-                                "value": "vulnerable"
+                                "value": "vulnérable"
                             }
                         },
                         {
                             "name": {
-                                "value": "weird"
+                                "value": "bizarre"
                             }
                         },
                         {
                             "name": {
-                                "value": "weirdness"
+                                "value": "étrangeté"
                             }
                         },
                         {
                             "name": {
-                                "value": "worried"
+                                "value": "inquiet"
                             }
                         },
                         {
                             "name": {
-                                "value": "worry"
+                                "value": "inquiétude"
                             }
                         }
                     ]
@@ -2230,27 +2312,27 @@
                     "values": [
                         {
                             "name": {
-                                "value": "one"
+                                "value": "un"
                             }
                         },
                         {
                             "name": {
-                                "value": "two"
+                                "value": "deux"
                             }
                         },
                         {
                             "name": {
-                                "value": "three"
+                                "value": "trois"
                             }
                         },
                         {
                             "name": {
-                                "value": "four"
+                                "value": "quatre"
                             }
                         },
                         {
                             "name": {
-                                "value": "five"
+                                "value": "cinq"
                             }
                         },
                         {
@@ -2260,47 +2342,47 @@
                         },
                         {
                             "name": {
-                                "value": "seven"
+                                "value": "sept"
                             }
                         },
                         {
                             "name": {
-                                "value": "eight"
+                                "value": "huit"
                             }
                         },
                         {
                             "name": {
-                                "value": "nine"
+                                "value": "neuf"
                             }
                         },
                         {
                             "name": {
-                                "value": "ten"
+                                "value": "dix"
                             }
                         },
                         {
                             "name": {
-                                "value": "listening"
+                                "value": "écoute"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleasure"
+                                "value": "plaisir"
                             }
                         },
                         {
                             "name": {
-                                "value": "liveness"
+                                "value": "vivacité"
                             }
                         },
                         {
                             "name": {
-                                "value": "within"
+                                "value": "dans"
                             }
                         },
                         {
                             "name": {
-                                "value": "enclosures"
+                                "value": "enceintes"
                             }
                         },
                         {
@@ -2315,32 +2397,32 @@
                         },
                         {
                             "name": {
-                                "value": "author"
+                                "value": "auteur"
                             }
                         },
                         {
                             "name": {
-                                "value": "account"
+                                "value": "compte"
                             }
                         },
                         {
                             "name": {
-                                "value": "others"
+                                "value": "autres"
                             }
                         },
                         {
                             "name": {
-                                "value": "protocol"
+                                "value": "protocole"
                             }
                         },
                         {
                             "name": {
-                                "value": "terms"
+                                "value": "termes"
                             }
                         },
                         {
                             "name": {
-                                "value": "courtesy"
+                                "value": "courtoisie"
                             }
                         },
                         {
@@ -2350,32 +2432,32 @@
                         },
                         {
                             "name": {
-                                "value": "space"
+                                "value": "espace"
                             }
                         },
                         {
                             "name": {
-                                "value": "home"
+                                "value": "maison"
                             }
                         },
                         {
                             "name": {
-                                "value": "office"
+                                "value": "bureau"
                             }
                         },
                         {
                             "name": {
-                                "value": "gallery"
+                                "value": "galerie"
                             }
                         },
                         {
                             "name": {
-                                "value": "concerns"
+                                "value": "inquiétudes"
                             }
                         },
                         {
                             "name": {
-                                "value": "fears"
+                                "value": "peurs"
                             }
                         },
                         {
@@ -2385,12 +2467,12 @@
                         },
                         {
                             "name": {
-                                "value": "reading"
+                                "value": "lecture"
                             }
                         },
                         {
                             "name": {
-                                "value": "verse"
+                                "value": "vers"
                             }
                         },
                         {
@@ -2400,32 +2482,32 @@
                         },
                         {
                             "name": {
-                                "value": "clouds"
+                                "value": "nuages"
                             }
                         },
                         {
                             "name": {
-                                "value": "echoes"
+                                "value": "échos"
                             }
                         },
                         {
                             "name": {
-                                "value": "caring"
+                                "value": "attention"
                             }
                         },
                         {
                             "name": {
-                                "value": "consent"
+                                "value": "consentement"
                             }
                         },
                         {
                             "name": {
-                                "value": "language"
+                                "value": "langage"
                             }
                         },
                         {
                             "name": {
-                                "value": "desire"
+                                "value": "désir"
                             }
                         },
                         {
@@ -2435,7 +2517,7 @@
                         },
                         {
                             "name": {
-                                "value": "harvest"
+                                "value": "récolte"
                             }
                         }
                     ]
@@ -2445,42 +2527,42 @@
                     "values": [
                         {
                             "name": {
-                                "value": "nightmare"
+                                "value": "cauchemar"
                             }
                         },
                         {
                             "name": {
-                                "value": "nightmare withheld"
+                                "value": "cauchemar retenu"
                             }
                         },
                         {
                             "name": {
-                                "value": "breath"
+                                "value": "respiration"
                             }
                         },
                         {
                             "name": {
-                                "value": "breath withheld"
+                                "value": "respiration retenue"
                             }
                         },
                         {
                             "name": {
-                                "value": "dream"
+                                "value": "rêve"
                             }
                         },
                         {
                             "name": {
-                                "value": "dream withheld"
+                                "value": "rêve retenu"
                             }
                         },
                         {
                             "name": {
-                                "value": "feeling"
+                                "value": "émotion"
                             }
                         },
                         {
                             "name": {
-                                "value": "feeling withheld"
+                                "value": "émotion retenue"
                             }
                         },
                         {
@@ -2490,32 +2572,32 @@
                         },
                         {
                             "name": {
-                                "value": "listening"
+                                "value": "écoute"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleasure"
+                                "value": "plaisir"
                             }
                         },
                         {
                             "name": {
-                                "value": "liveness"
+                                "value": "vivacité"
                             }
                         },
                         {
                             "name": {
-                                "value": "within"
+                                "value": "dans"
                             }
                         },
                         {
                             "name": {
-                                "value": "enclosure"
+                                "value": "enceinte"
                             }
                         },
                         {
                             "name": {
-                                "value": "enclosures"
+                                "value": "enceintes"
                             }
                         },
                         {
@@ -2525,37 +2607,37 @@
                         },
                         {
                             "name": {
-                                "value": "artist"
+                                "value": "artiste"
                             }
                         },
                         {
                             "name": {
-                                "value": "author"
+                                "value": "auteur"
                             }
                         },
                         {
                             "name": {
-                                "value": "account"
+                                "value": "compte"
                             }
                         },
                         {
                             "name": {
-                                "value": "others"
+                                "value": "autres"
                             }
                         },
                         {
                             "name": {
-                                "value": "protocol"
+                                "value": "protocole"
                             }
                         },
                         {
                             "name": {
-                                "value": "terms"
+                                "value": "termes"
                             }
                         },
                         {
                             "name": {
-                                "value": "courtesy"
+                                "value": "courtoisie"
                             }
                         },
                         {
@@ -2565,32 +2647,32 @@
                         },
                         {
                             "name": {
-                                "value": "space"
+                                "value": "espace"
                             }
                         },
                         {
                             "name": {
-                                "value": "home"
+                                "value": "maison"
                             }
                         },
                         {
                             "name": {
-                                "value": "office"
+                                "value": "bureau"
                             }
                         },
                         {
                             "name": {
-                                "value": "gallery"
+                                "value": "gallerie"
                             }
                         },
                         {
                             "name": {
-                                "value": "concerns"
+                                "value": "inquiétude"
                             }
                         },
                         {
                             "name": {
-                                "value": "fears"
+                                "value": "peurs"
                             }
                         },
                         {
@@ -2600,12 +2682,12 @@
                         },
                         {
                             "name": {
-                                "value": "reading"
+                                "value": "lecture"
                             }
                         },
                         {
                             "name": {
-                                "value": "verse"
+                                "value": "vers"
                             }
                         },
                         {
@@ -2615,32 +2697,32 @@
                         },
                         {
                             "name": {
-                                "value": "clouds"
+                                "value": "nuages"
                             }
                         },
                         {
                             "name": {
-                                "value": "echoes"
+                                "value": "échos"
                             }
                         },
                         {
                             "name": {
-                                "value": "caring"
+                                "value": "attention"
                             }
                         },
                         {
                             "name": {
-                                "value": "consent"
+                                "value": "consentement"
                             }
                         },
                         {
                             "name": {
-                                "value": "language"
+                                "value": "langage"
                             }
                         },
                         {
                             "name": {
-                                "value": "desire"
+                                "value": "désir"
                             }
                         },
                         {
@@ -2650,27 +2732,27 @@
                         },
                         {
                             "name": {
-                                "value": "harvest"
+                                "value": "récolte"
                             }
                         },
                         {
                             "name": {
-                                "value": "happiness"
+                                "value": "bonheur"
                             }
                         },
                         {
                             "name": {
-                                "value": "excitement"
+                                "value": "excitation"
                             }
                         },
                         {
                             "name": {
-                                "value": "curiosity"
+                                "value": "curiosité"
                             }
                         },
                         {
                             "name": {
-                                "value": "wonder"
+                                "value": "fascination"
                             }
                         },
                         {
@@ -2680,42 +2762,42 @@
                         },
                         {
                             "name": {
-                                "value": "anger"
+                                "value": "colère"
                             }
                         },
                         {
                             "name": {
-                                "value": "disgust"
+                                "value": "dégoût"
                             }
                         },
                         {
                             "name": {
-                                "value": "distress"
+                                "value": "détresse"
                             }
                         },
                         {
                             "name": {
-                                "value": "sadness"
+                                "value": "tristesse"
                             }
                         },
                         {
                             "name": {
-                                "value": "grief"
+                                "value": "douleur"
                             }
                         },
                         {
                             "name": {
-                                "value": "melancholy"
+                                "value": "mélancolie"
                             }
                         },
                         {
                             "name": {
-                                "value": "fear"
+                                "value": "peur"
                             }
                         },
                         {
                             "name": {
-                                "value": "shame"
+                                "value": "honte"
                             }
                         },
                         {
@@ -2735,52 +2817,52 @@
                         },
                         {
                             "name": {
-                                "value": "age"
+                                "value": "âge"
                             }
                         },
                         {
                             "name": {
-                                "value": "anguish"
+                                "value": "angoisse"
                             }
                         },
                         {
                             "name": {
-                                "value": "anxiety"
+                                "value": "anxiété"
                             }
                         },
                         {
                             "name": {
-                                "value": "apathy"
+                                "value": "apathie"
                             }
                         },
                         {
                             "name": {
-                                "value": "awesomeness"
+                                "value": "fantastique"
                             }
                         },
                         {
                             "name": {
-                                "value": "bewilderment"
+                                "value": "incrédulité"
                             }
                         },
                         {
                             "name": {
-                                "value": "boredom"
+                                "value": "ennui"
                             }
                         },
                         {
                             "name": {
-                                "value": "calm"
+                                "value": "calme"
                             }
                         },
                         {
                             "name": {
-                                "value": "claustrophobia"
+                                "value": "claustrophobie"
                             }
                         },
                         {
                             "name": {
-                                "value": "complacency"
+                                "value": "complaisance"
                             }
                         },
                         {
@@ -2790,107 +2872,107 @@
                         },
                         {
                             "name": {
-                                "value": "debt"
+                                "value": "dette"
                             }
                         },
                         {
                             "name": {
-                                "value": "delight"
+                                "value": "délice"
                             }
                         },
                         {
                             "name": {
-                                "value": "depression"
+                                "value": "dépression"
                             }
                         },
                         {
                             "name": {
-                                "value": "despair"
+                                "value": "désespoir"
                             }
                         },
                         {
                             "name": {
-                                "value": "disappointment"
+                                "value": "déception"
                             }
                         },
                         {
                             "name": {
-                                "value": "discomfort"
+                                "value": "inconfort"
                             }
                         },
                         {
                             "name": {
-                                "value": "dizziness"
+                                "value": "vertige"
                             }
                         },
                         {
                             "name": {
-                                "value": "dread"
+                                "value": "angoisse"
                             }
                         },
                         {
                             "name": {
-                                "value": "emptiness"
+                                "value": "vide"
                             }
                         },
                         {
                             "name": {
-                                "value": "fatigue"
+                                "value": "épuisement"
                             }
                         },
                         {
                             "name": {
-                                "value": "fury"
+                                "value": "furie"
                             }
                         },
                         {
                             "name": {
-                                "value": "the groove"
+                                "value": "sensationnel"
                             }
                         },
                         {
                             "name": {
-                                "value": "guilt"
+                                "value": "culpabilité"
                             }
                         },
                         {
                             "name": {
-                                "value": "hate"
+                                "value": "haine"
                             }
                         },
                         {
                             "name": {
-                                "value": "hatred"
+                                "value": "détestation"
                             }
                         },
                         {
                             "name": {
-                                "value": "hunger"
+                                "value": "faim"
                             }
                         },
                         {
                             "name": {
-                                "value": "indecision"
+                                "value": "indécision"
                             }
                         },
                         {
                             "name": {
-                                "value": "indifference"
+                                "value": "indifférence"
                             }
                         },
                         {
                             "name": {
-                                "value": "interest"
+                                "value": "intérêt"
                             }
                         },
                         {
                             "name": {
-                                "value": "insecurity"
+                                "value": "insécurité"
                             }
                         },
                         {
                             "name": {
-                                "value": "invulnerability"
+                                "value": "invulnérabilité"
                             }
                         },
                         {
@@ -2900,37 +2982,37 @@
                         },
                         {
                             "name": {
-                                "value": "joy"
+                                "value": "joie"
                             }
                         },
                         {
                             "name": {
-                                "value": "loneliness"
+                                "value": "isolement"
                             }
                         },
                         {
                             "name": {
-                                "value": "love"
+                                "value": "amour"
                             }
                         },
                         {
                             "name": {
-                                "value": "luck"
+                                "value": "chance"
                             }
                         },
                         {
                             "name": {
-                                "value": "misery"
+                                "value": "misère"
                             }
                         },
                         {
                             "name": {
-                                "value": "nausea"
+                                "value": "nausée"
                             }
                         },
                         {
                             "name": {
-                                "value": "nothing"
+                                "value": "rien"
                             }
                         },
                         {
@@ -2940,12 +3022,12 @@
                         },
                         {
                             "name": {
-                                "value": "peace"
+                                "value": "paix"
                             }
                         },
                         {
                             "name": {
-                                "value": "pity"
+                                "value": "pitié"
                             }
                         },
                         {
@@ -2960,47 +3042,47 @@
                         },
                         {
                             "name": {
-                                "value": "safety"
+                                "value": "sécurité"
                             }
                         },
                         {
                             "name": {
-                                "value": "security"
+                                "value": "sûreté"
                             }
                         },
                         {
                             "name": {
-                                "value": "sex"
+                                "value": "sexe"
                             }
                         },
                         {
                             "name": {
-                                "value": "shock"
+                                "value": "choc"
                             }
                         },
                         {
                             "name": {
-                                "value": "sickness"
+                                "value": "maladie"
                             }
                         },
                         {
                             "name": {
-                                "value": "sorrow"
+                                "value": "douleur"
                             }
                         },
                         {
                             "name": {
-                                "value": "strangeness"
+                                "value": "étrangeté"
                             }
                         },
                         {
                             "name": {
-                                "value": "terror"
+                                "value": "terreur"
                             }
                         },
                         {
                             "name": {
-                                "value": "tiredness"
+                                "value": "fatigue"
                             }
                         },
                         {
@@ -3010,37 +3092,37 @@
                         },
                         {
                             "name": {
-                                "value": "the uncanny"
+                                "value": "inquiétude"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncertainty"
+                                "value": "incertitude"
                             }
                         },
                         {
                             "name": {
-                                "value": "unhappiness"
+                                "value": "malheur"
                             }
                         },
                         {
                             "name": {
-                                "value": "vertigo"
+                                "value": "vertige"
                             }
                         },
                         {
                             "name": {
-                                "value": "vulnerability"
+                                "value": "vulnérabilité"
                             }
                         },
                         {
                             "name": {
-                                "value": "weirdness"
+                                "value": "bizarrerie"
                             }
                         },
                         {
                             "name": {
-                                "value": "worry"
+                                "value": "inquiétude"
                             }
                         }
                     ]
