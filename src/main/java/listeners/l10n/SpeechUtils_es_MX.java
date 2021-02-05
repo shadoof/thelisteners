@@ -1144,25 +1144,25 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String whatIsCardTitle() {
 
-		return s("Trying to tell", "Telling") + "you what " + s("little") + "we know "
-				+ s("about some thing");
+		return s("Tratando de decir", "Diciendo") + "te lo " + s("poquito") + "que sabemos "
+				+ s("acerca de algo");
 	}
 
 	protected InnerResponse whatPicture() {
 
-		String speech = "This " + s("image,", "picture,") + "which is often "
-				+ s("mounted", "framed and hung") + "close to us, "
-				+ s("is", "is, " + s("actually,", "in fact,")) + "a papercut facsimile ";
-		speech += "of " + s("artificial") + "flowers that adorn " + s("ancient")
-				+ "Chinese Buddhist shrines. ";
-		speech += s("It is here, " + s("simply,") + "to remind us, " + s("and you,") + "of the place, "
-				+ s("a home,") + s("within which we are used to dwell.", "where we live.") + s("With you."));
+		String speech = "Esta " + s("imagen,", "fotografía,") + "que es a menudo "
+				+ s("puesta", "enmarcada y colgada") + "cerca de nosotres, "
+				+ s("es", "es, " + s("de hecho,", "")) + "un facsímil cortado en papel ";
+		speech += "con " + s("artificiales") + "flores que adornan " + s("antiguos")
+				+ "santuarios budistas chinos. ";
+		speech += s("Eso está aquí, " + s("simplemente,") + "para recordarnos, " + s("y tú,") + "el lugar, "
+				+ s("una casa,") + s("dentro de la cual estábamos acostrumbrades a vivir.", "solíamos vivir.") + s("Contigo."));
 		return new InnerResponse(whatPictureCardTitle(), speech += breath());
 	}
 
 	protected String whatPictureCardTitle() {
 
-		return S("A picture", "An image") + s("that reminds us of home", "we are fond of");
+		return S("Una fotografía", "Una imagen") + s("que nos recuerda a casa", "que nos gusta");
 	}
 
 	protected String whatsLsnrsAffectSpeech() {
@@ -1177,39 +1177,38 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		boolean shared = affect.equals(listenersAffect);
 		boolean halfTheTime = heads();
 
-		speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
-				+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "
+		speech += " " + (shared ? s("también", "además,") : "") + "estamos "
+				+ s("llenes de", s("poseídes por", "sobrepasades por")) + listenersAffect + ". "
 				+ breathShort();
 		if (isPositive(affect) && isPositive(listenersAffect)) {
 
-			speech += "It is good " + s("for all of us") + "to know that we can "
-					+ (shared ? s("share these feelings.", "empathize with you.") : "have such feelings. ");
+			speech += "es bueno " + s("para todes") + "saber que podemos "
+					+ (shared ? s("compartir esos sentimientos.", "empatizar contigo.") : "tener estos sentimientos. ");
 		}
 		else if (!isPositive(affect) && !isPositive(listenersAffect)) {
 
-			speech += s(s("My", "Oh") + "heavens!", s("Oh goodness!", "Oh my word!")) + "That "
-					+ s("anyone", "any " + s("one") + "of us") + "should " + s("have to")
-					+ s("experience such troubling " + phonemic("a") + "ffects.", "have such feelings.");
+			speech += s(s("ay", "Oh") + "por dios!", s("ay diosito!", "Oh santo cielo")) + "Que "
+					+ s("ninguna persona", "nadie " + s("ninguno") + "de nosotres") + "debería " + s("tener que")
+					+ s("vivir estos preocupantes " + phonemic("a") + "fectos.", "sentimientos.");
 		}
 		else if (isPositive(affect) && !isPositive(listenersAffect)) {
-			speech += "We are" + s(", at least,", SPC) + s("glad", "pleased") + "to " + s("know", "be aware")
-					+ "that the positivity of your " + s("feelings", phonemic("a") + "ffect") + "betters "
-					+ s("that of ourselves.", "our negative feelings.");
+			speech += "Estamos" + s(", al menos,", SPC) + s("agradecides", "") + "de " + s("saber", "ser conscientes")
+					+ "que eres positiva ante tus " + s("sentimientos", phonemic("a") + "fectos") + "mejores "
+					+ s("que los de nosotres.", "que nuestros sentimientos negativos.");
 		}
 		else // speaker negative; listeners positive
 		{
-			speech += "It is " + s("embarrassing", "awkward")
-					+ "for us to be experiencing positive feelings when you are "
-					+ s("possessed by " + s("relative") + "negativity.", "not.");
-			speech += s(
-					"But " + s("we suppose that") + "this cannot " + s("really") + "be helped. " + s("Can it?"));
+			speech += "Es " + s("avegonzante", "raro")
+					+ "estar esperimentando sentimientos positivos cuando tú estás "
+					+ s("poseída por esto")
+					"Pero " + s("supusimos") + "que eso no está " + s("realmente") + "siendo de gran ayuda. " + s("¿o sí?"));
 		}
 		return speech + breath();
 	}
 
 	protected String whatsLsnrsAffectCardTitle() {
 
-		return "What we " + s("are trying to") + "feel";
+		return "Estamos " + s("tratando de") + "sentir";
 	}
 
 	protected InnerResponse whatsSpkrsAffect() {
@@ -1219,39 +1218,39 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 		if (affect != null && !affect.isEmpty()) {
 			if (isPositive(affect)) {
-				speech = "We are " + s("so") + s("pleased", "delighted");
+				speech = "Estamos" + s("muy") + s("a gusto", "satisfeches");
 			}
 			else {
 				String adjective, intensifier;
-				adjective = s("sorry", "dismayed");
-				intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-				speech = "We are " + s(adjective, intensifier + adjective);
+				adjective = s("sentides", "consternades");
+				intensifier = "consternades".equals(adjective) ? "algo " : "muy ";
+				speech = "Estamos " + s(adjective, intensifier + adjective);
 			}
-			speech += "to " + s("know", s("recall", "remember")) + "that ";
+			speech += "para " + s("saber", s("recordar", "repensar")) + "que ";
 			// make it brief 1 in 4 times:
 			if (randInt(0, 3) == 0)
 				speech = "Y";
 			else
-				speech += "y";
+				speech += "t";
 			speech += String
-					.format("ou are " + s("filled with", s("possessed", "overwhelmed") + "by") + "%s. ", affect);
+					.format("ú estás " + s("llena de", s("poseída", "sobrepasada") + "por") + "esos %s ", affect);
 
 			speech += s(breath() + specificAffectSpeech());
 		}
 		// affect is not set
 		else {
 			// Since the user’s affect is not set, ask them:
-			speech = "We are" + s("no tenemos claridad acerca de", "dudamos, acerca de");
-			speech += s("tus sentimientos.your feelings.",
-					"what these feelings are that " + s("possess", "overwhelm") + "you.");
-			speech += "Please " + s("try", "attempt") + "to tell us. ";
+			speech = "" + s("no tenemos claridad acerca de", "dudamos, acerca de");
+			speech += s("tus sentimientos.",
+					"de que estos sentimientos están " + s("poseyéndote", "en ti") + "");
+			speech += "Por favor " + s("trata de", "intenta") + "contarnos. ";
 		}
 		return new InnerResponse(whatsSpkrsAffectCardTitle(), speech += breath());
 	}
 
 	protected String whatsSpkrsAffectCardTitle() {
 
-		return S("Tú nos dijiste " + s("this", "esto, acerca de tus sentimientos"),
+		return S("Tú nos dijiste " + s("esto", "esto, acerca de tus sentimientos"),
 				"Lo que creemos que estás sintiendo");
 	}
 
