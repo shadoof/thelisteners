@@ -1823,27 +1823,27 @@
                         },
                         {
                             "name": {
-                                "value": "concerns"
+                                "value": "preocupaciones"
                             }
                         },
                         {
                             "name": {
-                                "value": "fears"
+                                "value": "miedos"
                             }
                         },
                         {
                             "name": {
-                                "value": "aurature"
+                                "value": "tuercas"
                             }
                         },
                         {
                             "name": {
-                                "value": "reading"
+                                "value": "leyendo"
                             }
                         },
                         {
                             "name": {
-                                "value": "verse"
+                                "value": "verso"
                             }
                         },
                         {
@@ -1853,42 +1853,42 @@
                         },
                         {
                             "name": {
-                                "value": "clouds"
+                                "value": "nubes"
                             }
                         },
                         {
                             "name": {
-                                "value": "echoes"
+                                "value": "ecos"
                             }
                         },
                         {
                             "name": {
-                                "value": "caring"
+                                "value": "cuidados"
                             }
                         },
                         {
                             "name": {
-                                "value": "consent"
+                                "value": "consentimiento"
                             }
                         },
                         {
                             "name": {
-                                "value": "language"
+                                "value": "lenguaje"
                             }
                         },
                         {
                             "name": {
-                                "value": "desire"
+                                "value": "deseo"
                             }
                         },
                         {
                             "name": {
-                                "value": "transactions"
+                                "value": "transacciones"
                             }
                         },
                         {
                             "name": {
-                                "value": "harvest"
+                                "value": "cosecha"
                             }
                         }
                     ]
@@ -1898,167 +1898,167 @@
                     "values": [
                         {
                             "name": {
-                                "value": "nightmare"
+                                "value": "pesadilla"
                             }
                         },
                         {
                             "name": {
-                                "value": "nightmare withheld"
+                                "value": "pesadilla secreta"
                             }
                         },
                         {
                             "name": {
-                                "value": "breath"
+                                "value": "respiración"
                             }
                         },
                         {
                             "name": {
-                                "value": "breath withheld"
+                                "value": "retener la respiración"
                             }
                         },
                         {
                             "name": {
-                                "value": "dream"
+                                "value": "sueño"
                             }
                         },
                         {
                             "name": {
-                                "value": "dream withheld"
+                                "value": "sueño secreto"
                             }
                         },
                         {
                             "name": {
-                                "value": "feeling"
+                                "value": "sentimiento"
                             }
                         },
                         {
                             "name": {
-                                "value": "feeling withheld"
+                                "value": "sentimiento oculto"
                             }
                         },
                         {
                             "name": {
-                                "value": "possession"
+                                "value": "posesión"
                             }
                         },
                         {
                             "name": {
-                                "value": "listening"
+                                "value": "escuchando"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleasure"
+                                "value": "placer"
                             }
                         },
                         {
                             "name": {
-                                "value": "liveness"
+                                "value": "vivacidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "within"
+                                "value": "dentro de"
                             }
                         },
                         {
                             "name": {
-                                "value": "enclosure"
+                                "value": "encierro"
                             }
                         },
                         {
                             "name": {
-                                "value": "enclosures"
+                                "value": "encerrado"
                             }
                         },
                         {
                             "name": {
-                                "value": "art"
+                                "value": "arte"
                             }
                         },
                         {
                             "name": {
-                                "value": "artist"
+                                "value": "artista"
                             }
                         },
                         {
                             "name": {
-                                "value": "author"
+                                "value": "autor"
                             }
                         },
                         {
                             "name": {
-                                "value": "account"
+                                "value": "cuenta"
                             }
                         },
                         {
                             "name": {
-                                "value": "others"
+                                "value": "otros"
                             }
                         },
                         {
                             "name": {
-                                "value": "protocol"
+                                "value": "protocolo"
                             }
                         },
                         {
                             "name": {
-                                "value": "terms"
+                                "value": "condiciones"
                             }
                         },
                         {
                             "name": {
-                                "value": "courtesy"
+                                "value": "cortesía"
                             }
                         },
                         {
                             "name": {
-                                "value": "site"
+                                "value": "sitio"
                             }
                         },
                         {
                             "name": {
-                                "value": "space"
+                                "value": "espacio"
                             }
                         },
                         {
                             "name": {
-                                "value": "home"
+                                "value": "casa"
                             }
                         },
                         {
                             "name": {
-                                "value": "office"
+                                "value": "oficina"
                             }
                         },
                         {
                             "name": {
-                                "value": "gallery"
+                                "value": "galería"
                             }
                         },
                         {
                             "name": {
-                                "value": "concerns"
+                                "value": "preocupaciones"
                             }
                         },
                         {
                             "name": {
-                                "value": "fears"
+                                "value": "miedos"
                             }
                         },
                         {
                             "name": {
-                                "value": "aurature"
+                                "value": "tornillos"
                             }
                         },
                         {
                             "name": {
-                                "value": "reading"
+                                "value": "leyendo"
                             }
                         },
                         {
                             "name": {
-                                "value": "verse"
+                                "value": "verso"
                             }
                         },
                         {
@@ -2068,382 +2068,382 @@
                         },
                         {
                             "name": {
-                                "value": "clouds"
+                                "value": "nubes"
                             }
                         },
                         {
                             "name": {
-                                "value": "echoes"
+                                "value": "ecos"
                             }
                         },
                         {
                             "name": {
-                                "value": "caring"
+                                "value": "cuidado"
                             }
                         },
                         {
                             "name": {
-                                "value": "consent"
+                                "value": "consentimiento"
                             }
                         },
                         {
                             "name": {
-                                "value": "language"
+                                "value": "lenguaje"
                             }
                         },
                         {
                             "name": {
-                                "value": "desire"
+                                "value": "deseo"
                             }
                         },
                         {
                             "name": {
-                                "value": "transactions"
+                                "value": "transacciones"
                             }
                         },
                         {
                             "name": {
-                                "value": "harvest"
+                                "value": "cosecha"
                             }
                         },
                         {
                             "name": {
-                                "value": "happiness"
+                                "value": "felicidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "excitement"
+                                "value": "emoción"
                             }
                         },
                         {
                             "name": {
-                                "value": "curiosity"
+                                "value": "curiosidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "wonder"
+                                "value": "cuestionarse"
                             }
                         },
                         {
                             "name": {
-                                "value": "surprise"
+                                "value": "sorpresa"
                             }
                         },
                         {
                             "name": {
-                                "value": "anger"
+                                "value": "enojo"
                             }
                         },
                         {
                             "name": {
-                                "value": "disgust"
+                                "value": "disgusto"
                             }
                         },
                         {
                             "name": {
-                                "value": "distress"
+                                "value": "angustia"
                             }
                         },
                         {
                             "name": {
-                                "value": "sadness"
+                                "value": "tristeza"
                             }
                         },
                         {
                             "name": {
-                                "value": "grief"
+                                "value": "dolor"
                             }
                         },
                         {
                             "name": {
-                                "value": "melancholy"
+                                "value": "melancolía"
                             }
                         },
                         {
                             "name": {
-                                "value": "fear"
+                                "value": "miedo"
                             }
                         },
                         {
                             "name": {
-                                "value": "shame"
+                                "value": "pena"
                             }
                         },
                         {
                             "name": {
-                                "value": "humiliation"
+                                "value": "humillación"
                             }
                         },
                         {
                             "name": {
-                                "value": "abjection"
+                                "value": "despreciable"
                             }
                         },
                         {
                             "name": {
-                                "value": "affection"
+                                "value": "cariño"
                             }
                         },
                         {
                             "name": {
-                                "value": "age"
+                                "value": "vejez"
                             }
                         },
                         {
                             "name": {
-                                "value": "anguish"
+                                "value": "angustia"
                             }
                         },
                         {
                             "name": {
-                                "value": "anxiety"
+                                "value": "ansiedad"
                             }
                         },
                         {
                             "name": {
-                                "value": "apathy"
+                                "value": "apatía"
                             }
                         },
                         {
                             "name": {
-                                "value": "awesomeness"
+                                "value": "asombro"
                             }
                         },
                         {
                             "name": {
-                                "value": "bewilderment"
+                                "value": "júbilo"
                             }
                         },
                         {
                             "name": {
-                                "value": "boredom"
+                                "value": "aburrimiento"
                             }
                         },
                         {
                             "name": {
-                                "value": "calm"
+                                "value": "calma"
                             }
                         },
                         {
                             "name": {
-                                "value": "claustrophobia"
+                                "value": "claustrofobia"
                             }
                         },
                         {
                             "name": {
-                                "value": "complacency"
+                                "value": "complacencia"
                             }
                         },
                         {
                             "name": {
-                                "value": "confusion"
+                                "value": "confusión"
                             }
                         },
                         {
                             "name": {
-                                "value": "debt"
+                                "value": "deuda"
                             }
                         },
                         {
                             "name": {
-                                "value": "delight"
+                                "value": "delicia"
                             }
                         },
                         {
                             "name": {
-                                "value": "depression"
+                                "value": "depresión"
                             }
                         },
                         {
                             "name": {
-                                "value": "despair"
+                                "value": "desesperación"
                             }
                         },
                         {
                             "name": {
-                                "value": "disappointment"
+                                "value": "decepción"
                             }
                         },
                         {
                             "name": {
-                                "value": "discomfort"
+                                "value": "malestar"
                             }
                         },
                         {
                             "name": {
-                                "value": "dizziness"
+                                "value": "vértigo"
                             }
                         },
                         {
                             "name": {
-                                "value": "dread"
+                                "value": "pavor"
                             }
                         },
                         {
                             "name": {
-                                "value": "emptiness"
+                                "value": "falta de algo"
                             }
                         },
                         {
                             "name": {
-                                "value": "fatigue"
+                                "value": "fatiga"
                             }
                         },
                         {
                             "name": {
-                                "value": "fury"
+                                "value": "furia"
                             }
                         },
                         {
                             "name": {
-                                "value": "the groove"
+                                "value": "la buena onda"
                             }
                         },
                         {
                             "name": {
-                                "value": "guilt"
+                                "value": "culpa"
                             }
                         },
                         {
                             "name": {
-                                "value": "hate"
+                                "value": "odio"
                             }
                         },
                         {
                             "name": {
-                                "value": "hatred"
+                                "value": "detestar"
                             }
                         },
                         {
                             "name": {
-                                "value": "hunger"
+                                "value": "hambre"
                             }
                         },
                         {
                             "name": {
-                                "value": "indecision"
+                                "value": "indecisión"
                             }
                         },
                         {
                             "name": {
-                                "value": "indifference"
+                                "value": "indiferencia"
                             }
                         },
                         {
                             "name": {
-                                "value": "interest"
+                                "value": "interés"
                             }
                         },
                         {
                             "name": {
-                                "value": "insecurity"
+                                "value": "inseguridad"
                             }
                         },
                         {
                             "name": {
-                                "value": "invulnerability"
+                                "value": "invulnerabilidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "irritation"
+                                "value": "enojo"
                             }
                         },
                         {
                             "name": {
-                                "value": "joy"
+                                "value": "gozo"
                             }
                         },
                         {
                             "name": {
-                                "value": "loneliness"
+                                "value": "soledad"
                             }
                         },
                         {
                             "name": {
-                                "value": "love"
+                                "value": "amor"
                             }
                         },
                         {
                             "name": {
-                                "value": "luck"
+                                "value": "suerte"
                             }
                         },
                         {
                             "name": {
-                                "value": "misery"
+                                "value": "miseria"
                             }
                         },
                         {
                             "name": {
-                                "value": "nausea"
+                                "value": "náusea"
                             }
                         },
                         {
                             "name": {
-                                "value": "nothing"
+                                "value": "nada"
                             }
                         },
                         {
                             "name": {
-                                "value": "obligation"
+                                "value": "obligación"
                             }
                         },
                         {
                             "name": {
-                                "value": "peace"
+                                "value": "paz"
                             }
                         },
                         {
                             "name": {
-                                "value": "pity"
+                                "value": "compasión"
                             }
                         },
                         {
                             "name": {
-                                "value": "rage"
+                                "value": "ira"
                             }
                         },
                         {
                             "name": {
-                                "value": "relaxation"
+                                "value": "relajación"
                             }
                         },
                         {
                             "name": {
-                                "value": "safety"
+                                "value": "seguro"
                             }
                         },
                         {
                             "name": {
-                                "value": "security"
+                                "value": "seguridad"
                             }
                         },
                         {
                             "name": {
-                                "value": "sex"
+                                "value": "sexo"
                             }
                         },
                         {
                             "name": {
-                                "value": "shock"
+                                "value": "impacto"
                             }
                         },
                         {
                             "name": {
-                                "value": "sickness"
+                                "value": "enfermedad"
                             }
                         },
                         {
                             "name": {
-                                "value": "sorrow"
+                                "value": "tristeza"
                             }
                         },
                         {
                             "name": {
-                                "value": "strangeness"
+                                "value": "extrañeza "
                             }
                         },
                         {
@@ -2453,47 +2453,47 @@
                         },
                         {
                             "name": {
-                                "value": "tiredness"
+                                "value": "cansancio"
                             }
                         },
                         {
                             "name": {
-                                "value": "trouble"
+                                "value": "problema"
                             }
                         },
                         {
                             "name": {
-                                "value": "the uncanny"
+                                "value": "el extraño"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncertainty"
+                                "value": "incertidumbre"
                             }
                         },
                         {
                             "name": {
-                                "value": "unhappiness"
+                                "value": "infelicidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "vertigo"
+                                "value": "vértigo"
                             }
                         },
                         {
                             "name": {
-                                "value": "vulnerability"
+                                "value": "vulnerabilidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "weirdness"
+                                "value": "rareza"
                             }
                         },
                         {
                             "name": {
-                                "value": "worry"
+                                "value": "precupación
                             }
                         }
                     ]
@@ -2574,7 +2574,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Are you sure?"
+                        "value": "¿Estás seguro?"
                     }
                 ]
             },
@@ -2583,7 +2583,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Are you sure?"
+                        "value": "¿Estás segura?"
                     }
                 ]
             },
@@ -2592,7 +2592,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Are you sure?"
+                        "value": "¿Estás seguro?"
                     }
                 ]
             },
@@ -2601,7 +2601,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Are you sure?"
+                        "value": "¿Estás segure?"
                     }
                 ]
             },
@@ -2631,7 +2631,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Are you sure?"
+                        "value": "¿Estás segura?"
                     }
                 ]
             },
@@ -2640,7 +2640,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Are you sure?"
+                        "value": "¿Estás segura?"
                     }
                 ]
             }
