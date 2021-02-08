@@ -1003,7 +1003,7 @@
                         },
                         {
                             "name": {
-                                "value": "claustrophobic"
+                                "value": "claustrofóbico"
                             }
                         },
                         {
@@ -1623,32 +1623,32 @@
                         },
                         {
                             "name": {
-                                "value": "unhappiness"
+                                "value": "infelicidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "unhappy"
+                                "value": "infeliz"
                             }
                         },
                         {
                             "name": {
-                                "value": "unsure"
+                                "value": "insegura"
                             }
                         },
                         {
                             "name": {
-                                "value": "upset"
+                                "value": "trastornado"
                             }
                         },
                         {
                             "name": {
-                                "value": "vertigo"
+                                "value": "vértigo"
                             }
                         },
                         {
                             "name": {
-                                "value": "vulnerability"
+                                "value": "vulnerabilidad"
                             }
                         },
                         {
@@ -1658,22 +1658,22 @@
                         },
                         {
                             "name": {
-                                "value": "weird"
+                                "value": "raro"
                             }
                         },
                         {
                             "name": {
-                                "value": "weirdness"
+                                "value": "rareza"
                             }
                         },
                         {
                             "name": {
-                                "value": "worried"
+                                "value": "preocupada"
                             }
                         },
                         {
                             "name": {
-                                "value": "worry"
+                                "value": "preocupación"
                             }
                         }
                     ]
@@ -1683,142 +1683,142 @@
                     "values": [
                         {
                             "name": {
-                                "value": "one"
+                                "value": "uno"
                             }
                         },
                         {
                             "name": {
-                                "value": "two"
+                                "value": "dos"
                             }
                         },
                         {
                             "name": {
-                                "value": "three"
+                                "value": "tres"
                             }
                         },
                         {
                             "name": {
-                                "value": "four"
+                                "value": "cuatro"
                             }
                         },
                         {
                             "name": {
-                                "value": "five"
+                                "value": "cinco"
                             }
                         },
                         {
                             "name": {
-                                "value": "six"
+                                "value": "seis"
                             }
                         },
                         {
                             "name": {
-                                "value": "seven"
+                                "value": "siete"
                             }
                         },
                         {
                             "name": {
-                                "value": "eight"
+                                "value": "ocho"
                             }
                         },
                         {
                             "name": {
-                                "value": "nine"
+                                "value": "nueve"
                             }
                         },
                         {
                             "name": {
-                                "value": "ten"
+                                "value": "diez"
                             }
                         },
                         {
                             "name": {
-                                "value": "listening"
+                                "value": "escuchando"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleasure"
+                                "value": "placer"
                             }
                         },
                         {
                             "name": {
-                                "value": "liveness"
+                                "value": "vivacidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "within"
+                                "value": "dentro"
                             }
                         },
                         {
                             "name": {
-                                "value": "enclosures"
+                                "value": "encierro"
                             }
                         },
                         {
                             "name": {
-                                "value": "art"
+                                "value": "arte"
                             }
                         },
                         {
                             "name": {
-                                "value": "artist"
+                                "value": "artista"
                             }
                         },
                         {
                             "name": {
-                                "value": "author"
+                                "value": "autor"
                             }
                         },
                         {
                             "name": {
-                                "value": "account"
+                                "value": "reporte"
                             }
                         },
                         {
                             "name": {
-                                "value": "others"
+                                "value": "otras"
                             }
                         },
                         {
                             "name": {
-                                "value": "protocol"
+                                "value": "protocolo"
                             }
                         },
                         {
                             "name": {
-                                "value": "terms"
+                                "value": "condiciones"
                             }
                         },
                         {
                             "name": {
-                                "value": "courtesy"
+                                "value": "cortesía"
                             }
                         },
                         {
                             "name": {
-                                "value": "site"
+                                "value": "sitio"
                             }
                         },
                         {
                             "name": {
-                                "value": "space"
+                                "value": "espacio"
                             }
                         },
                         {
                             "name": {
-                                "value": "home"
+                                "value": "casa"
                             }
                         },
                         {
                             "name": {
-                                "value": "office"
+                                "value": "oficina"
                             }
                         },
                         {
                             "name": {
-                                "value": "gallery"
+                                "value": "galería"
                             }
                         },
                         {
