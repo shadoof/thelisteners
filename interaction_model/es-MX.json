@@ -803,542 +803,72 @@
                     "values": [
                         {
                             "name": {
-                                "value": "happiness"
+                                "value": "felicidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "excitement"
+                                "value": "emoción"
                             }
                         },
                         {
                             "name": {
-                                "value": "curiosity"
+                                "value": "curiosidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "wonder"
+                                "value": "asombro"
                             }
                         },
                         {
                             "name": {
-                                "value": "surprise"
+                                "value": "sorpresa"
                             }
                         },
                         {
                             "name": {
-                                "value": "anger"
+                                "value": "enojo"
                             }
                         },
                         {
                             "name": {
-                                "value": "disgust"
+                                "value": "disgusto"
                             }
                         },
                         {
                             "name": {
-                                "value": "distress"
+                                "value": "angustia"
                             }
                         },
                         {
                             "name": {
-                                "value": "sadness"
+                                "value": "tristeza"
                             }
                         },
                         {
                             "name": {
-                                "value": "grief"
+                                "value": "dolor"
                             }
                         },
                         {
                             "name": {
-                                "value": "melancholy"
+                                "value": "melancolía"
                             }
                         },
                         {
                             "name": {
-                                "value": "fear"
+                                "value": "miedo"
                             }
                         },
                         {
                             "name": {
-                                "value": "shame"
+                                "value": "vergüenza"
                             }
                         },
                         {
                             "name": {
-                                "value": "humiliation"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "abject"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "abjection"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "affection"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "affectionate"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "afraid"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "age"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "alright"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "angry"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "anguish"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "annoyed"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "anxiety"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "anxious"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "apathy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "apathetic"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "apologetic"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "apologies"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "ashamed"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "awesome"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "awesomeness"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bad"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bewildered"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bewilderment"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bored"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "boredom"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "calm"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "claustrophobia"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "claustrophobic"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "complacency"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "complacent"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "confused"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "confusion"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "cool"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "curious"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "debt"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "delight"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "delighted"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "depressed"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "depression"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "despair"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "disappointed"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "disappointment"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "discomfort"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "disgusted"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "distressed"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "disturbed"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "dizziness"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "dizzy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "dread"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "emptiness"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "empty"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "excited"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "fabulous"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "fatigue"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "fine"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "frightened"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "furious"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "fury"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "frivolity"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "good"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "great"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "the groove"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "groovy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "guilt"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "guilty"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "happy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hate"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hatred"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "horror"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "horrified"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hope"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hopeful"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hopeful"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "humiliated"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hunger"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hungry"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "indecision"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "indecisive"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "indifference"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "indifferent"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "interest"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "interested"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "insecure"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "insecurity"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "invulnerability"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "invulnerable"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "irritated"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "irritation"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "joy"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "loneliness"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "lonely"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "love"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "loving"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "luck"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "lucky"
+                                "value": "humiliación"
                             }
                         },
                         {
@@ -1348,227 +878,232 @@
                         },
                         {
                             "name": {
-                                "value": "misery"
+                                "value": "bajoneado"
                             }
                         },
                         {
                             "name": {
-                                "value": "nausea"
+                                "value": "cariño"
                             }
                         },
                         {
                             "name": {
-                                "value": "nauseous"
+                                "value": "cariñosa"
                             }
                         },
                         {
                             "name": {
-                                "value": "nervous"
+                                "value": "asustado"
                             }
                         },
                         {
                             "name": {
-                                "value": "nothing"
+                                "value": "antiguo"
                             }
                         },
                         {
                             "name": {
-                                "value": "obligation"
+                                "value": "bien"
                             }
                         },
                         {
                             "name": {
-                                "value": "obliged"
+                                "value": "congoja"
                             }
                         },
                         {
                             "name": {
-                                "value": "odd"
+                                "value": "angustia"
                             }
                         },
                         {
                             "name": {
-                                "value": "okay"
+                                "value": "irritabilidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "old"
+                                "value": "ansiedad"
                             }
                         },
                         {
                             "name": {
-                                "value": "peace"
+                                "value": "ansioso"
                             }
                         },
                         {
                             "name": {
-                                "value": "peaceful"
+                                "value": "apatía"
                             }
                         },
                         {
                             "name": {
-                                "value": "pitiful"
+                                "value": "indiferente"
                             }
                         },
                         {
                             "name": {
-                                "value": "pity"
+                                "value": "compungido"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleased"
+                                "value": "apenado"
                             }
                         },
                         {
                             "name": {
-                                "value": "pleasure"
+                                "value": "avergonzada"
                             }
                         },
                         {
                             "name": {
-                                "value": "questions"
+                                "value": "increíble"
                             }
                         },
                         {
                             "name": {
-                                "value": "rage"
+                                "value": "genial"
                             }
                         },
                         {
                             "name": {
-                                "value": "relaxation"
+                                "value": "mal"
                             }
                         },
                         {
                             "name": {
-                                "value": "relaxed"
+                                "value": "desconcierto"
                             }
                         },
                         {
                             "name": {
-                                "value": "sad"
+                                "value": "perplejo"
                             }
                         },
                         {
                             "name": {
-                                "value": "safe"
+                                "value": "aburrido"
                             }
                         },
                         {
                             "name": {
-                                "value": "safety"
+                                "value": "aburrimiento"
                             }
                         },
                         {
                             "name": {
-                                "value": "scared"
+                                "value": "calma"
                             }
                         },
                         {
                             "name": {
-                                "value": "secure"
+                                "value": "claustrofobia"
                             }
                         },
                         {
                             "name": {
-                                "value": "security"
+                                "value": "claustrophobic"
                             }
                         },
                         {
                             "name": {
-                                "value": "sex"
+                                "value": "complacencia"
                             }
                         },
                         {
                             "name": {
-                                "value": "sexual"
+                                "value": "complacido"
                             }
                         },
                         {
                             "name": {
-                                "value": "shock"
+                                "value": "confundida"
                             }
                         },
                         {
                             "name": {
-                                "value": "shocked"
+                                "value": "confusión"
                             }
                         },
                         {
                             "name": {
-                                "value": "sick"
+                                "value": "tranquilidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "sickness"
+                                "value": "curiouso"
                             }
                         },
                         {
                             "name": {
-                                "value": "silliness"
+                                "value": "deuda"
                             }
                         },
                         {
                             "name": {
-                                "value": "silly"
+                                "value": "deleie"
                             }
                         },
                         {
                             "name": {
-                                "value": "sorrow"
+                                "value": "placer"
                             }
                         },
                         {
                             "name": {
-                                "value": "sorry"
+                                "value": "deprimido"
                             }
                         },
                         {
                             "name": {
-                                "value": "surprised"
+                                "value": "depresión"
                             }
                         },
                         {
                             "name": {
-                                "value": "strength"
+                                "value": "desesperación"
                             }
                         },
                         {
                             "name": {
-                                "value": "strong"
+                                "value": "decepcionar"
                             }
                         },
                         {
                             "name": {
-                                "value": "strange"
+                                "value": "desilusión"
                             }
                         },
                         {
                             "name": {
-                                "value": "strangeness"
+                                "value": "incomodidad"
                             }
                         },
                         {
                             "name": {
-                                "value": "stupid"
+                                "value": "disgusto"
                             }
                         },
                         {
                             "name": {
-                                "value": "stupidity"
+                                "value": "afligido"
                             }
                         },
                         {
                             "name": {
-                                "value": "terrible"
+                                "value": "perturbada"
                             }
                         },
                         {
                             "name": {
-                                "value": "terrified"
+                                "value": "mareo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mareado"
                             }
                         },
                         {
@@ -1578,47 +1113,512 @@
                         },
                         {
                             "name": {
-                                "value": "tired"
+                                "value": "empatía"
                             }
                         },
                         {
                             "name": {
-                                "value": "tiredness"
+                                "value": "vacío"
                             }
                         },
                         {
                             "name": {
-                                "value": "trouble"
+                                "value": "emocionado"
                             }
                         },
                         {
                             "name": {
-                                "value": "troubled"
+                                "value": "fabuloso"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncanny"
+                                "value": "fatiga"
                             }
                         },
                         {
                             "name": {
-                                "value": "the uncanny"
+                                "value": "bien"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncertain"
+                                "value": "espantado"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncertainty"
+                                "value": "furioso"
                             }
                         },
                         {
                             "name": {
-                                "value": "uncomfortable"
+                                "value": "furia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "frivolidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bueno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "genial"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lo chido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maravilloso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "feliz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "odio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "detestar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horrorizado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "esperanza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "optimista"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "esperanzada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humillado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hambre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enojo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecisión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecisivo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indiferencia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indiferente"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interesar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interesado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inseguro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inseguridad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerabilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gozo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "soledad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "solitario"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "adorable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "suerte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "suertuda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miserable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miseria"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nausea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nauseabundo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nervioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tranquilo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "viejo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "paz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pacífico"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lamentable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lástima"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "satisfecha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "placer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preguntas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rabia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relajación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relajada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "triste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seguro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "a salvo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "asustado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "firme"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seguridad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexual"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "impacto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "impactada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enfermo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enfermedad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tontería"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tonto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dolor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perdón"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorprendido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fuerza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fuerte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desconocido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sacado de onda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "estúpido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "estupidez"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aterrorizada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cansado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "casancio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "problema"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preocupado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "el misterioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incierto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertidumbre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incómodo"
                             }
                         },
                         {
