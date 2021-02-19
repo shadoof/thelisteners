@@ -627,127 +627,127 @@
                         }
                     ],
                     "samples": [
-                        "how do the listeners feel about {FragmentName}",
-                        "how do you feel about {FragmentName}",
-                        "what do the listeners feel about {FragmentName}",
-                        "what do the listeners think about {FragmentName}",
-                        "what do you feel about {FragmentName}",
-                        "what do you think about {FragmentName}"
+                        "¿cómo se sienten les que escuchan acerca de {FragmentName}?",
+                        "¿cómo te sientes acerca de {FragmentName}?",
+                        "¿qué sienten ustedes acerca de {FragmentName}?",
+                        "¿qué piensas sobre {FragmentName}?",
+                        "¿cómo te sientes acerca de{FragmentName}?",
+                        "¿qué sientes sobre {FragmentName}?"
                     ]
                 },
                 {
                     "name": "WhatsLsnrsAffectIntent",
                     "slots": [],
                     "samples": [
-                        "are you afraid",
-                        "are you scared",
-                        "how are the listeners feeling",
-                        "how are you feeling",
-                        "how do the listeners feel",
-                        "how do you feel",
-                        "what are the listeners feeling",
-                        "what are the listeners feelings",
-                        "what are the listeners overwhelmed by",
-                        "what are the listeners possessed by",
-                        "what are you feeling",
-                        "what are you overwhelmed by",
-                        "what are you possessed by",
-                        "what are your feelings",
-                        "what do the listeners feel",
-                        "what do you feel"
+                        "¿estás asustado?",
+                        "¿te asustaste?",
+                        "¿cómo se sienten les que escuchan?",
+                        "¿cómo te estás sintiendo?",
+                        "¿cómo se sientes ustedes?",
+                        "¿cómo están?",
+                        "¿cómo se están sintiendo ustedes?",
+                        "¿cuáles son sus sentimientos?",
+                        "¿qué les sobrepasa a ustedes?",
+                        "¿qué los posee a ustedes?",
+                        "¿cómo te sientes?",
+                        "¿qué tienes?",
+                        "¿que te abruma?",
+                        "¿qué sientes?",
+                        "¿qué es lo que sienten?",
+                        "¿qué estás sientiendo?"
                     ]
                 },
                 {
                     "name": "WhatsSpkrsAffectIntent",
                     "slots": [],
                     "samples": [
-                        "how am i feeling",
-                        "how do i feel",
-                        "please recall my affect",
-                        "please recall my affects",
-                        "please recall my feelings",
-                        "recall my affect",
-                        "recall my affects",
-                        "recall my feelings",
-                        "what am i feeling",
-                        "what am i overwhelmed by",
-                        "what am i possessed by",
-                        "what are my feelings",
-                        "what do i feel"
+                        "¿cómo me siento?",
+                        "¿cómo estoy?",
+                        "por favor recuerda éstas emociones",
+                        "por favor recuerda mis sentimientos",
+                        "por favor recuerda cómo me siento",
+                        "recuerda cómo me siento",
+                        "recuerda mis emociones",
+                        "recuerda mis sentimientos",
+                        "¿qué estoy sintiendo?",
+                        "¿qué es lo que sobrepasa?",
+                        "¿qué es lo que me posee?",
+                        "¿cuáles son mis sentimientos?",
+                        "¿qué siento?"
                     ]
                 },
                 {
                     "name": "WhereIntent",
                     "slots": [],
                     "samples": [
-                        "where are the listeners",
-                        "where are you",
-                        "where is John"
+                        "¿dónde están les que escuchan?",
+                        "¿dónde estás?",
+                        "¿dónde está John?"
                     ]
                 },
                 {
                     "name": "WhoAreSpkrsIntent",
                     "slots": [],
                     "samples": [
-                        "who am i",
-                        "who are we",
-                        "who do you take us for",
-                        "who do you think we are",
-                        "who is we"
+                        "¿quién soy yo?",
+                        "¿quiénes somos nosotros?",
+                        "¿quién crees que soy",
+                        "¿quiénes crees que somos?",
+                        "¿quiénes somos nosotros?"
                     ]
                 },
                 {
                     "name": "WhoseAccountIntent",
                     "slots": [],
                     "samples": [
-                        "whose account",
-                        "whose account is this"
+                        "¿la cuenta de quién?",
+                        "¿de quién es esta cuenta?"
                     ]
                 },
                 {
                     "name": "WhoSaysGuyzIntent",
                     "slots": [],
                     "samples": [
-                        "what is that other voice",
-                        "what is this other voice",
-                        "what is that voice",
-                        "what is this voice",
-                        "what was that other voice",
-                        "what was that voice",
-                        "who are these guys",
-                        "who are these other guys",
-                        "who else is speaking",
-                        "who is that guy",
-                        "who is that other guy",
-                        "who is that other person",
-                        "who is that person",
-                        "who is this guy",
-                        "who is this other guy",
-                        "who is this other person",
-                        "who is this person",
-                        "whose voice is that",
-                        "who was that",
-                        "who was that guy",
-                        "who was that other guy",
-                        "who was that other person",
-                        "who was that person"
+                        "¿de quién es esa voz?",
+                        "¿de quién es esa otra voz?",
+                        "¿qué es esa voz?",
+                        "¿de dónde viene tu voz?
+                        "¿qué pedo con esa voz?",
+                        "¿qué fue esa otra voz?",
+                        "¿quiénes son ellos?",
+                        "¿quiénes son esas personas?",
+                        "¿quién más está hablando?",
+                        "¿quién es ese wey?",
+                        "¿quién es esa otra persona?",
+                        "¿quién es?",
+                        "¿quién es esa persona?",
+                        "¿quién es este?
+                        "¿quiénes son ellas?",
+                        "¿quiénes son?",
+                        "¿quién es ese ser?",
+                        "¿qué es esa voz?",
+                        "¿qué fue eso?",
+                        "¿por qué hay otra persona?",
+                        "¿quién era?",
+                        "¿qué pasó?",
+                        "¿quién era esa persona?"
                     ]
                 },
                 {
                     "name": "WhoWhatIntent",
                     "slots": [],
                     "samples": [
-                        "what are you",
-                        "who are the listeners",
-                        "who are you",
-                        "who is John",
-                        "who is the listeners",
-                        "why",
-                        "why are you doing this",
-                        "why are you saying these things",
-                        "why are you saying this",
-                        "why are you speaking",
-                        "why are you speaking like this"
+                        "¿qué eres?",
+                        "¿quiénes son Les que escuchan?",
+                        "¿quiénes son ustedes?",
+                        "¿quién es John?",
+                        "¿quién es Les que escuchan?",
+                        "¿por qué?",
+                        "¿por qué se dedican a esto?",
+                        "¿por qué dices estas cosas?",
+                        "¿por qué me dices esto?",
+                        "¿por qué estás hablando?",
+                        "¿por qué hablas así?"
                     ]
                 },
                 {
