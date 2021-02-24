@@ -718,37 +718,37 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("Por qué " + s("te sientes", "te sientes, todavía,"), "Cómo puedes sentirte aún")
 						+ "sola, si estamos contigo? ";
 				break;
-			case "amorlove":
-				speech += "Knowing that you "
-						+ s("know love", "have " + s("this", "these feelings") + "within you");
-				speech += s("gives us strength", "encourages us") + "to " + s(s("dwell", "linger"), "remain")
-						+ s("possessed by", "in the possession of") + "these "
-						+ s("feelings", s("structures", "systems") + "of " + phonemic("a") + "ffect");
-				speech += "that we have learned. " + s("From you.");
+			case "amor":
+				speech += "Sabiendo que tú "
+						+ s("conoces el amor que habita", "tienes " + s("esto", "estos sentimientos") + "dentro de ti");
+				speech += s("nos da fuerza para", "nos anima a") + " " + s(s("seguir", "permanecer"), "quedarnos")
+						+ s("poseídes por", "seducides por") + "estos "
+						+ s("sentimientos", s("estructuras", "sistemas") + "de " + phonemic("a") + "fectos");
+				speech += "que aprendimos. " + s("De ti.");
 				break;
-			case "suerteluck":
-				speech += s("We hear you. " + s("We know what you mean.") + breathShort());
-				speech += "We " + s("often") + "feel " + s("lucky, too.", "lucky.");
-				speech += breathShort() + "We’re up all night " + s("and all day") + "to get lucky. ";
-				speech += s(s("Listening to you.", "Listening.") + s("All day.") + s("All night."));
+			case "suerte":
+				speech += s("Te escuchamos. " + s("Sabemos que quieres decir.") + breathShort());
+				speech += " " + s("A veces") + "nos sentimos " + s("con suerte, también.", "con suerte.");
+				speech += breathShort() + "Estamos despiertes toda la noche " + s("y todo el día") + "para tener suerte ";
+				speech += s(s("Escuchándote.", "Escuchando.") + s("Todo el día.") + s("Toda la noche."));
 				break;
-			case "náuseanausea":
-				speech += s("Sometimes,", "At certain times,") + s("we’re all", "all of us are")
-						+ "left with only this experience. ";
-				speech += s("This " + s("unavoidable, deep,", "unbearable") + "discomfort.");
+			case "náusea":
+				speech += s("A veces,", "Algunas veces,") + s("nosotres", "todas las personas")
+						+ "nos vamos sólo con ésta experincia. ";
+				speech += s("Este " + s("inevitablemente, profundo ", "insoportable") + "malestar.");
 				break;
-			case "obligaciónobligation":
-				speech += "You " + s("are", "will be") + "obliged, to us, for nothing. ";
+			case "obligacióno":
+				speech += "Tü " + s("nunca serás", "no serás") + "obligada, por nosotres, para nada. ";
 				speech += s(
-						"We hope, only, that you " + s("will, willingly,", "will") + "allow us to listen to you.",
+						"Sólo esperamos, que tú, " + s(" de buena onda,", "aún") + "nos permitas escucharte.",
 						""); // ALWAYCHANGE , always
 				break;
-			case "pazpeace":
-				speech += peaceSpeech("peace");
+			case "paz":
+				speech += peaceSpeech("paz");
 				break;
-			case "preguntasquestions":
-				speech += "It is " + s("so good", "wonderful") + "to " + s("hear", "understand")
-						+ "that you are " + s("filled with", "overwhelmed by") + s("unanswered") + "questions. ";
+			case "preguntas":
+				speech += "Es " + s("muy bueno", "maravilloso") + " " + s("escuchar", "entender")
+						+ "que estás " + s("llena de", "repleta de") + s("") + "preguntas sin respuesta. ";
 				speech += s("For,", "Since,")
 						+ s("however we " + s("are", "may be") + "feeling,",
 								"whatever " + s(breathShort()) + "the " + phonemic("a") + "ffects that possess us,")
