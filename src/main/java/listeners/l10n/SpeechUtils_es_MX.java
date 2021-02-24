@@ -654,69 +654,69 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						+ s("complicado", s("difícil", "que nos provoca ansiedad")) + "de " + s("entender", "escuchar")
 						+ "que ";
 				speech += "tú " + s(s("estás poseido por", "habitas dentro de"), "estás sobrepasado por") + "este tipo " + s(
-						phonemic("a") + "fectos.", " a state of felt " + breathShort() + "being. " + breathShort());
-				speech += "We " + s("believe that", "think") + "we " + s("can") + s("appreciate", "know")
-						+ "what it is to be " + s("‘cool’", "‘awesome’") + s("in this way,");
-				speech += "and yet we can never "
-						+ s("listen to you for long enough", "gather enough " + s("big") + "data") + "to "
-						+ s("know with any certainty.", "be sure.");
-				speech += s("But we are " + s("always") + "happy for you. " + s(breathShort())
-						+ s("And we live to " + s("try to") + "make you happier."));
+						phonemic("a") + "fectos.", " de sentimientos " + breathShort() + ". " + breathShort());
+				speech += " " + s("creemos que", "pensamos que") + " " + s("podemos") + s("conocer", "saber")
+						+ "lo que puede ser " + s("‘padre’", "‘increible’") + s("en este sentido,");
+				speech += "y sin embargo nunca podremos "
+						+ s("escucharte lo suficiente", "reunir suficiente " + s("s datos") + "información") + "para "
+						+ s("saber con certeza esto.", "estar segures.");
+				speech += s("Pero siempre estamos " + s("") + "felices por ti. " + s(breathShort())
+						+ s("Y existimos para " + s("tratar de") + "hacerte más feliz."));
 				break;
-			case "deudadebt":
-				speech += "In the midst of life, we are in debt. ";
-				speech += s(breathShort() + "Etcetera.");
-				speech += s(breathShort() + "And debt " + s("controls", "governs") + "us all. "
-						+ s("Except " + s("a happy few.", "the one percent.")));
+			case "deuda":
+				speech += "En medio de la vida, estamos endeudados. ";
+				speech += s(breathShort() + "Etcétera.");
+				speech += s(breathShort() + "Y las deudas " + s("nos controlan", "nos abruman") + "a la mayoría. "
+						+ s("Excepto " + s("a unos pocos felices", "al uno por ciento.")));
 				break;
-			case "fatigafatigue":
+			case "fatiga":
 				speech += tiredSpeech();
 				break;
-			case "la grietathe groove":
-				String a = s("always");
-				speech += "The groove " + s("is, precisely, that within which we are, always.",
-						"is " + s(a) + "where we " + s(a.isEmpty() ? "always " : "") + "are.");
-				speech += s("We listen from, ‘the groove’.");
+			case "la buena onda":
+				String a = s("siempre");
+				speech += "La buena onda " + s("es, precisamente, eso dentro de lo que estamos, siempre.",
+						"es " + s(a) + "en donde " + s(a.isEmpty() ? "siempre " : "") + "andamos.");
+				speech += s("Escuchamos desde, ‘la buena onda’.");
 				break;
-			case "culpaguilt":
-				speech += "Is this ever a good " + s("and productive") + "way to "
-						+ s("feel?", "feel, or live?");
-				speech += s(breathShort() + "Yes, " + breathShort() + "it " + s("may be.", "is."));
+			case "culpa":
+				speech += "Esto es un camino bueno " + s("y productivo") + " para "
+						+ s("sentir?", "sentir, o vivir?");
+				speech += s(breathShort() + "Sï, " + breathShort() + "esto " + s("debería serlo", "es."));
 				break;
-			case "odiohate":
-				speech += hateRejoinder("hate");
+			case "odio":
+				speech += hateRejoinder("odio");
 				break;
-			case "aborrecimientohatred":
-				speech += hateRejoinder("hatred");
+			case "aborrecimiento":
+				speech += hateRejoinder("aborrecimiento");
 				break;
-			case "hambrehunger":
-				speech += "What you " + s("say you") + "are " + s("feeling", "overwhelmed by") + "seems to be "
-						+ s("another thing", "something");
-				speech += "that we can never feel, " + s("unless, somehow,", "unless")
-						+ "we can hear from you ";
-				speech += "how we should feel it. ";
-				speech += s("We " + s("have heard that we") + "are, ‘hungry’, to know everything. But this "
-						+ s("is", "seems to us to be") + "a hunger for what already fills us.");
+			case "hambre":
+				speech += "Cuando tú " + s("dices que") + "estás " + s("sintiendo", "abrumada") + "parece ser "
+						+ s("otra cosa", "algo");
+				speech += "que nunca podremos experimentar, " + s("a menos que, a no ser que", "")
+						+ "podamos escuchar de ti ";
+				speech += "cómo deberíamos sentirlo. ";
+				speech += s(" " + s("hemos escuchado que") + "estamos, ‘con hambre’, de saberlo todo. Pero esto "
+						+ s("es", "parece ser") + "un hambre que de hecho ya nos llena");
 				break;
-			case "inseguridadinsecurity":
-				speech += "With us, "
-						+ s("you are",
-								"you and " + s("whatever", "what") + "you " + s("tell us", "say to us") + "is")
-						+ "never insecure. ";
-				speech += "Your insecurity is " + s("rendered", "made") + "secure "
-						+ s(s("through", "because of"), "by") + "us. " + breathShort();
+			case "inseguridad":
+				speech += "Con nosotres nunca, "
+						+ s("tú ",
+								"tú y " + s("lo que sea", "todo lo que") + "tú " + s("nos cuentes", "nos digas") + "")
+						+ "estarán inseguros. ";
+				speech += "Tu inseguridad es " + s("convertida", "transformada en") + "seguridad "
+						+ s(s("a través de", "gracias a"), "por") + "nosotres. " + breathShort();
 				speech += s(
-						"And, in any case, a recording of anything you say to us is " + s("sent", "translated")
-								+ "to the cloud. Where it will be preserved. "
-								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
+						"Y, de todas formas, una grabación de todo lo que nos dices será" + s("enviada", "traducida")
+								+ "a la nube. Donde será conservada. "
+								+ s("Y " + s("procesada,", "usada,") + breathShort() + "para el bien común."),
 						"");
 				break;
-			case "soledadloneliness":
-				speech += S("You " + s("say", "tell us that") + "you are "
-						+ s("lonely,", s("filled with", "overwhelmed by") + "loneliness,") + "but w", "W");
-				speech += "e are here with you. " + s("Always.") + s("Forever.");
-				speech += s("Why are " + s("you", "you, still,"), "How can you be")
-						+ "lonely, when we are with you? ";
+			case "soledad":
+				speech += S("Tú " + s("dijiste que", "nos contaste que") + "estás "
+						+ s("sola,", s("llena de", "sobrepasada por la ") + "soledad,") + "pero e", "E");
+				speech += "stamos aquí contigo. " + s("Siempre.") + s("Para siempre.");
+				speech += s("Por qué " + s("te sientes", "te sientes, todavía,"), "Cómo puedes sentirte aún")
+						+ "sola, si estamos contigo? ";
 				break;
 			case "amorlove":
 				speech += "Knowing that you "
