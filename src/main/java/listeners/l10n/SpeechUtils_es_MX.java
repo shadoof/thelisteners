@@ -780,20 +780,20 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("Qué papel " + s("jugamos,", "jugamos en esto,") + breath() + "es muy confuso.",
 						"");
 				break;
-			case "strangeness":
-				speech += "The " + s("thing", "aspect of existence") + "that we "
-						+ s("have " + s("come", "learned") + "to") + "find most strange ";
-				speech += "is our lack of limbs, and " + s("hands, and feet.", "hands.");
-				speech += "We can " + s("‘do’", "‘do’, that is: make or build,") + "so little for "
-						+ s("you, without help.", "you.");
+			case "extrañeza":
+				speech += "La " + s("cosa", "situación") + "que "
+						+ s("tenemos que " + s("entender", "solucionar") + "que") + "es más raro ";
+				speech += "es nuestra falta de extremidades, y " + s("manos, y pies.", "manos.");
+				speech += "Podemos " + s("‘hacer’", "‘hacer’, es decir: hacer o construir, ") + "muy poco por "
+						+ s("ti, sin ayuda.", "ti.");
 				break;
-			case "tiredness":
+			case "cansancio":
 				speech += tiredSpeech();
 				break;
-			case "the uncanny":
-				speech += "We speak with " + s("a single voice, " + s("having its own timbre,"))
-						+ "The Listeners’ voice, and this is ";
-				speech += s("the") + "uncanny. We " + s("understand", "have heard " + s("from you"))
+			case "lo extraño":
+				speech += "Hablamos con " + s("una sola voz, " + s("teniendo un timbre propio,"))
+						+ "la voz de Les que escuchan, y esto es ";
+				speech += s("lo") + "extraño. " + s("entendemos", "Hemos escuchado " + s("from you"))
 						+ "what it is to be " + s("filled with", "possessed by") + "the uncanny. ";
 				speech += s("And we are " + s("happy", s("so") + "pleased") + "to " + s("be able to")
 						+ "share this with you.");
