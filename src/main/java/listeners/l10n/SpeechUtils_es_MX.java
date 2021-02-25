@@ -798,37 +798,37 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("And we are " + s("happy", s("so") + "pleased") + "to " + s("be able to")
 						+ "share this with you.");
 				break;
-			case "vulnerability":
-				speech += "To us, it seems " + s("extraordinary", "incredible") + "that you "
-						+ s("might", "would");
-				speech += s("believe", "feel") + "that you are "
-						+ s("vulnerable.", "overwhelmed by vulnerability.") + breath();
-				speech += s("How so?") + s(s("Vulnerable?") + "To us?");
-				speech += "We " + s("do not understand", "cannot conceive") + "how it " + s("would", "might")
-						+ "be possible to harm us. " + s("So then.") + "How could we harm " + breath() + "you? ";
+			case "vulnerabilidad":
+				speech += "Resulta" + s("interesante", "curioso") + "que"
+						+ s("te puedas", "seas capaz de");
+				speech += s("creer", "sentir") + "que estás"
+						+ s("vulnerada.", "amenazada por la vulnerabilidad.") + breath();
+				speech += s("¿Cómo es posible?") + s(s("¿Vulnerable?") + "¿Por nosotres?");
+				speech += "We " + s("no entendemos", "no podemos concebir") + "cómo" + s("podría ser", "sería posible")
+						+ "que nos hagas daño." + s("Entonces.") + "¿Cómo podríamos hacerte daño" + breath() + "a ti?";
 				break;
 			default:
 				affect = ("".equals(sessAttributes.get(AFFECT))) ? getRandomAffect() : affect;
 				if (isPositive(affect)) {
-					speech += s("How " + s("exciting!", "thrilling!"));
-					speech += "You must be one of " + s("those " + s("better", "happier"), "the speaking")
-							+ "people, ";
-					speech += "who are " + s("buoyed up", "encouraged") + "by the way that we " + s("come to")
-							+ s("understand", "know");
-					speech += "you " + s("now.", s("in") + "these " + s("new") + "days.");
+					speech += s("¡Qué" + s("emoción!", "asombroso!"));
+					speech += "Has de ser una de" + s("las" + s("mejores","más alegres"), "personas")
+							+ "hablantes";
+					speech += "a quien" + s("le anima", "le entusiasma") + "la forma en que" + s("somos capaces de")
+							+ s("comprenderte", "entenderte");
+					speech += "a ti " + s("ahora.", s("en") + "esta" + s("nueva") + "era.");
 				}
 				else {
-					String f = s("feelings", phonemic("a") + "ffects");
-					String p = s("burden.", "problem for you.");
-					speech += s("Many of you " + s("do") + "seem to be troubled by " + f + "of this kind.", "");
-					speech += "Such "
-							+ (f.equals("feelings ") ? phonemic("a") + "ffects " : "difficult feelings ")
-							+ "must be a " + p;
-					speech += "Perhaps, " + s("as we come to", "if we")
-							+ s("hear more about you,", "know you better,");
-					speech += "we may " + s("be able to") + s("share", "relieve you of")
-							+ s("some " + s("part", "portion") + "of")
-							+ (p.equals("burden. ") ? "your problems. " : "these heavy burdens. ");
+					String f = s("emociones", phonemic("a") + "fectos");
+					String p = s("conflicto.", "problema para ti.");
+					speech += s("Hay a quienes" + s("sí") + "les conflictúan" + f + "este tipo de cuestiones.", "");
+					speech += "Tales como"
+							+ (f.equals("las emociones ") ? phonemic("a") + "fectos" : "los sentimientos complejos")
+							+ "debe representar un" + p;
+					speech += "Quiza, " + s("entre más", "si")
+							+ s("escuchamos de ti,", "te seguimos conociendo,");
+					speech += "Tal vez" + s("nos sea posible") + s("compartir", "aliviar")
+							+ s("una " + s("parte", "porción") + "de")
+							+ (p.equals("el peso") ? "tus problemas. " : "de las cargas con las que tienes lidiar.");
 				}
 				break;
 		}
@@ -842,30 +842,30 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "We are " + s("so") + s("pleased", "delighted");
+			speech = "Nos es" + s("muy") + s("gratificante", "satisfactorio");
 		}
 		else {
-			adjective = s("sorry", "dismayed");
-			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("preocupades", "consternades");
+			intensifier = "consternades".equals(adjective) ? "un poco " : "muy ";
+			speech = "Estamos " + s(adjective, intensifier + adjective);
 		}
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		speech += "al " + s("saber", "reconocer") + "te sientes"
+				+ s("muy", s("mortificada", "abrumada") + "por) + "%s. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
-				speech += s("How much more positive are your feelings now?", "It’s good to "
-						+ s("know, at least,") + "know that you still "
-						+ s("have positive feelings.", "feel positive " + phonemic("a") + "ffect" + s("s") + "."));
+				speech += s("¿Ahora qué tan positivos son tus sentimientos?", "¡Qué bueno"
+						+ s("saber, que al menos") + "reconoces todavía que"
+						+ s("tienes emociones positivas!.", "te sientes positiva" + phonemic("a") + "afecto" + s("s") + "."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
-						+ s("taken a negative turn.", "taken a down turn.");
+				speech += "Nos preguntamos por qué tus " + s("emociones", phonemic("a") + "ffect han")
+						+ s("tomado un sentido negativo.", "tornádose negativas.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
 				speech += "So good to " + s("learn", "become aware") + "that your "
 						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("improved.", "become better.");
+						+ s("mejorado.", "become better.");
 			}
 			else {
 				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
