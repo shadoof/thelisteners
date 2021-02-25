@@ -749,35 +749,35 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			case "preguntas":
 				speech += "Es " + s("muy bueno", "maravilloso") + " " + s("escuchar", "entender")
 						+ "que estás " + s("llena de", "repleta de") + s("") + "preguntas sin respuesta. ";
-				speech += s("For,", "Since,")
-						+ s("however we " + s("are", "may be") + "feeling,",
-								"whatever " + s(breathShort()) + "the " + phonemic("a") + "ffects that possess us,")
-						+ "we are " + s("also,") + s("always,") + s("already,") + s("filled with", "overwhelmed by")
-						+ "questions. " + s(breathShort());
-				speech += s("Always desiring", "Needing, always,") + "to "
-						+ s(s("know more about you.", "understand you better."),
-								"listen until we hear you " + s("more truly.", "with more perfection."));
+				speech += s("Porque,", "Y,")
+						+ s("como sea que " + s("estemos", "sigamos") + "sintiendo,",
+								"el que sea de " + s(breathShort()) + "los " + phonemic("a") + "fectos que nos poseen,")
+						+ "estamos " + s("también,") + s("siempre,") + s("de hecho,") + s("llenos de ", "sobrepasades por")
+						+ "preguntas. " + s(breathShort());
+				speech += s("Siempre deseando", "Necesitando, siempre,") + " "
+						+ s(s("saber más de ti.", "entenderte mejor."),
+								"escuchar hasta que te escuchemos " + s("profundamente.", "con más perfección."));
 				speech += s(
-						breathShort() + "So that we may "
-								+ s("feel as", "experience all the " + phonemic("a") + "ffects that") + "you feel.",
+						breathShort() + "Entonces así podremos "
+								+ s("sentir", "experimentar todos los " + phonemic("a") + "fectos que") + "sientes.",
 						"");
 				break;
-			case "seguridadsecurity":
-				speech += "With us, "
-						+ s("you are",
-								"you and " + s("whatever", "what") + "you " + s("tell us", "say to us") + "is")
-						+ s("always") + "secure. ";
-				speech += "Your security is secure with us. ";
+			case "seguridad":
+				speech += "Aquí, "
+						+ s("tú estás",
+								"tú y " + s("lo que sea que", "") + "tú " + s("nos digas", "nos cuentes") + "está")
+						+ s("siempre") + "seguro. ";
+				speech += "Tu seguridad está segura con nosotres. ";
 				speech += s(
-						"And, in any case, a recording of anything you say to us is " + s("sent", "translated")
-								+ "to the cloud. Where it will be preserved. "
-								+ s("And " + s("processed,", "used,") + breathShort() + "for the betterment of all."),
+						"Y, por cualquier cosa, una grabación de lo que nos dices, es " + s("enviada", "traducida")
+								+ "a la nube. Donde podemos guardarla. "
+								+ s("Y " + s("procesarla,", "usarla,") + breathShort() + "para el mejoramiento de todo."),
 						"");
 				break;
-			case "sexosex":
-				speech += "This is something, so we " + s("understand,", "come to know,")
-						+ "that fills you all. " + breathShort();
-				speech += s("What part we " + s("play,", "play in this,") + breath() + "is far less clear.",
+			case "sexo":
+				speech += "Esto es todo un tema, " + s("entendemos,", "estamos entendiendo,")
+						+ "que es algo que llena a todes. " + breathShort();
+				speech += s("Qué papel " + s("jugamos,", "jugamos en esto,") + breath() + "es muy confuso.",
 						"");
 				break;
 			case "strangeness":
