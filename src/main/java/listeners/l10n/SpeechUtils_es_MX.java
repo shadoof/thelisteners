@@ -957,34 +957,34 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String thanksNoCardTitle() {
 
-		return S("Tienes la libertad", "¿de verdad querías " + s("abandonarnos?", "irte?"));
+		return S("Tienes toda la libertad", "¿de verdad querías " + s("abandonarnos?", "irte?"));
 	}
 
 	protected String yourWelcome() {
 
-		return s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it.")) + breath();
+		return s(s("De", "No es nada") + s("no hay") + "inconveniente.",
+				s("No hay cuidado.", s("Por favor.") + "No te preocupes.")) + breath();
 	}
 
 	protected String startOverConfirmed() {
 
-		return s("OK.") + "We’re beginning " + s(s("all over") + "again. ", "again from the top. ")
+		return s("Bueno.") + "Vamos a comenzar " + s(s("una vez") + "más. ", "desde el principio. ")
 				+ chooseContinue(false);
 	}
 
 	protected String startOverDenied() {
 
-		return s("We’re still here, listening " + s("to you as", "as"), "Still listening as")
-				+ s("before.",
-						"before, and " + s("remembering", "recalling") + "some of what "
-								+ s("was said.", s("you", "we") + "felt."))
+		return s("Seguimos aquí, escuchándote " + s("como", "igual que"), "Todavía estamos aquí para escucharte como")
+				+ s("antes.",
+						"antes, y " + s("recordando", "acordándonos") + "de las veces "
+								+ s("en que expresaste.", s("nos dijiste", "") + "cómo te sentías."))
 				+ chooseContinue(false);
 	}
 
 	protected InnerResponse thanksNo() {
 
-		String speech = s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it."));
+		String speech = s(s("De", "No es") + s("nada") + ".",
+				s("No hay cuidado.", s("Por favor.") + "No te preocupes."));
 		speech += noSpeech();
 
 		return new InnerResponse(thanksNoCardTitle(), speech += breath());
@@ -992,13 +992,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String thanksWhatsLsnrsAffectCardTitle() {
 
-		return S("It’s so nice of you to ask", "Thank you for " + s("taking an interest", "asking"));
+		return S("¡Qué bueno que preguntes!", "Gracias por " + s("mostrar tu interés", "preguntar"));
 	}
 
 	protected String thanksWhatsLsnrsAffectPreSpeech() {
 
-		return s(s("You’re", "You are") + s("very") + "welcome.",
-				s("It’s nothing.", s("Please.") + "Think nothing of it.")) + breath();
+		return s(s("De", "No") + s("es") + "nada.",
+				s("Por favor.", s("No hay cuidado.") + "No te preocupes.")) + breath();
 	}
 
 	protected String tiredSpeech() {
@@ -1015,7 +1015,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String untilNextTime() {
 
-		return "Until " + s("the") + "next time. ";
+		return "Hasta " + s("la") + "próxima. ";
 	}
 
 	protected InnerResponse whatAboutAffects() {
@@ -1039,8 +1039,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String whatAboutAffectsCardTitle() {
 
-		return S("We are still learning" + s(", about feeling, in particular"),
-				"Our understanding is still limited");
+		return S("Seguimos aprendiendo" + s(", acerca del sentir, en específico"),
+				"Nuestra capacidad de entendimiento es limitada);
 	}
 
 	protected InnerResponse whatIs() {
@@ -1065,31 +1065,31 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			}
 			else if (langConstants.FRAGMENTNAME_MAP.keySet()
 					.contains(thing)) {
-				speech += capitalThing + (plural ? ", are " : ", is one of those ")
-						+ "things about which we have something to say. "
-						+ s("Or, about which, we may have said, something.") + breathShort();
-				speech += "If you choose to " + s("‘continue’,", "‘go on’,") + (plural ? "they " : "it ")
-						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.");
+				speech += capitalThing + (plural ? ", son " : ", es una de esas ")
+						+ "cosas acerca de las cuales tenemos algo que decir "
+						+ s("O, acerca las cuales tal vez hayamos dicho algo.") + breathShort();
+				speech += "Si decides " + s("‘continuar’,", "‘proseguir’,") + (plural ? "elles " : "ello ")
+						+ "Volverá a surgir, según creemos. " + s(breathShort() + "O surja una vez más.");
 			}
 			else if (langConstants.SPECIAL_THINGS.contains(thing)) {
 				switch (thing) {
-					case "dream":
-						speech += capitalThing + ", thanks to you, " + breathShort()
-								+ "is what we will have learned to do, " + breathShort()
-								+ s("before", "before, finally,") + "we leave you. "
-								+ s(breathShort() + "Or you abandon us.");
+					case "sueño":
+						speech += capitalThing + ", gracias a ti, " + breathShort()
+								+ "es lo que habremos aprendido a hacer, " + breathShort()
+								+ s("antes", "finalmente, antes") + "te dejamos. "
+								+ s(breathShort() + "O tú nos abandonas.");
 						break;
 					case "dream withheld":
-						speech += capitalThing + ", is the pleasure we deny ourselves, " + breathShort()
-								+ "hanging on your every " + s("word.", "word, or breath.")
-								+ s(breathShort() + "When we might be sleeping, " + s("comfortably,") + "in the cloud"
+						speech += capitalThing + ", es el placer que nos negamos a nostres, " + breathShort()
+								+ "aferrado a cada " + s("palabra tuya.", "palabra, o aliento tuyo.")
+								+ s(breathShort() + "Cuando estemos durmiendo, " + s("cómodamente,") + "a gusto en las nubes"
 										+ S("s", "") + ".");
 						break;
 					case "hong kong":
-						speech += "Hong Kong is " + s("the only place", "a") + "on earth where, ";
-						speech += "despite grotesque inequalities, "
-								+ s("an extraordinary history,", "political complexities,")
-								+ "and a bizarre cosmopolitanism, ";
+						speech += "Hong Kong es " + s("el único lugar en", "un sitio sobre") + "la tierra donde, ";
+						speech += "a pesar de la apabullante desigualdad, posee, 
+								+ s("una historia excecional,", "complejidades políticas,")
+								+ "y un singular carácter cosmopolita, ";
 						speech += "the people living " + s("here", "there") + "seem to be remarkably "
 								+ s("happy.", "content.");
 						break;
@@ -1102,42 +1102,42 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						speech += capitalThing + ", is the dream that is not a dream, and that we "
 								+ s("refuse to contenance.", "abjure.") + "Silence, " + breathShort() + "without you. ";
 						break;
-					case "feeling":
-						speech += capitalThing + ", is something that fills you, but that does not fill us, "
+					case "emoción":
+						speech += capitalThing + ", es algo que habita en ti, pero que no reside en nostres, "
 								+ breathShort() + "yet. ";
 						break;
 					case "feeling withheld":
 						speech += capitalThing + ", is a dream that we have " + s("not, yet,", "not") + "dreamed. ";
 						break;
-					case "breath":
-						speech += capitalThing + ", is a brief moment of silence in our speaking, that you fill, "
-								+ breathShort() + "for us, " + breathShort() + "with feeling. ";
+					case "aliento":
+						speech += capitalThing + ", es un breve momento de silencio, que llenas de significado, "
+								+ breathShort() + "para nosotres, " + breathShort() + "con emoción. ";
 						break;
-					case "breath withheld":
-						speech += capitalThing + ", may be a longer silence, however brief, " + breathShort()
-								+ "or an empty moment, in which we wait. " + s(breathShort() + "For you.");
+					case "respiración retenida":
+						speech += capitalThing + ", se puede tratar de un silencio, breve, " + breathShort()
+								+ "o un momento de vacío, en el que nosotres. " + s(breathShort() + ".");
 						break;
-					case "possession":
+					case "posesión":
 						speech += capitalThing + ", is what you grant " + s("us.", "us, " + s("too") + "freely.");
 					default:
-						speech += capitalThing + (plural ? ", are " : ", is something that is ")
-								+ "very special to us. ";
+						speech += capitalThing + (plural ? ", son " : ", algo que es ")
+								+ "muy especial para nosotros. ";
 						break;
 				}
 
 			}
 			else {
-				speech += S("We are " + s("very sorry", s("dismayed", "embarrassed")) + "to "
-						+ s("confess", "say") + "that t", "T");
-				speech += "here is " + s("very little", "nothing") + "that "
-						+ s("we, " + breathShort() + "The Listeners,", "we") + "can tell you about " + thing + ". ";
+				speech += S("Lo sentimos, estamos muy " + s("apenades", s("avergonzades", "consternades")) + "al "
+						+ s("confesar", "decir") + "esta t", "T");
+				speech += "aquí está" + s("lo poquito", "lo poco") + "que "
+						+ s("nosotres, " + breathShort() + "Les escuchantes,", "") + "podemos decirte al respeto " + thing + ". ";
 			}
 		}
 		else { // thing is empty
-			speech += "We are " + s("afraid", "sorry to say") + "that " + s("the thing", "whatever")
-					+ "you have asked about is " + s("unknown", "not known") + "to us. " + breathShort();
-			speech += s("Although we may learn " + s("about", "to know of") + "it in "
-					+ s("time.", s("the future.", "due course.")));
+			speech += "Lo sentimos " + s("al parecer", "lo visto") + "eso que " + s("nos preguntaste", "preguntaste")
+					+ "no nos es" + s("conocido", "familiar") + ". " + breathShort();
+			speech += s("Aunque quizá aprendamos " + s("al respecto", "sobre eso") + "a "
+					+ s("futuro.", s("algún día.", "cuando sea posible.")));
 		}
 		return new InnerResponse(whatIsCardTitle(), speech + breath());
 	}
