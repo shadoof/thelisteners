@@ -863,13 +863,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						+ s("tomado un sentido negativo.", "tornádose negativas.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "So good to " + s("learn", "become aware") + "that your "
-						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("mejorado.", "become better.");
+				speech += "Es bueno " + s("saber", "reconocer") + "que tus "
+						+ s("emociones", s(phonemic("a") + "fectos", "sentimientos") + "han")
+						+ s("mejorado.", "progresado.");
 			}
 			else {
-				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
-						+ s("seems", "appears") + s(", to us.", ".");
+				speech += "Todavía un negativo" + s("pronóstico, para ti,", "panorama,") + "Al "
+						+ s("parecer", "") + s(", reconocemos.", ".");
 			}
 		}
 
@@ -878,7 +878,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String spkrsAffectIsCardTitle() {
 
-		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
+		return S("Gracias por contarnos cómo te sientes", "Ahora comprendemos más de cerca cómo te sientes");
 	}
 
 	protected InnerResponse spkrsAffectIsNot() {
@@ -887,23 +887,23 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String affect = (String) sessAttributes.get(AFFECT);
 		String adjective;
 		String intensifier;
-		String speech = s(s("Apologies!", "We are ashamed of ourselves."), "Our very sincere apologies.");
-		if (isPositive(challengedAffect)) {
-			speech += "We are " + s("so") + s("pleased", "delighted");
+		String speech = s(s("¡Mil disculpas!", "Lo lamentamos."), "Nuestras sinceras disculpas.");
+		if (isPositive(challengedAffect)) 
+			speech += "Estamos " + s("muy") + s("complacides", "contentes");
 		}
 		else {
-			adjective = s("sorry", "upset");
-			intensifier = "dismayed".equals(adjective) ? "a bit " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("malestar", "alteración");
+			intensifier = "consterandes".equals(adjective) ? "un poco " : "muy ";
+			speech = "Estamos" + s(adjective, intensifier + adjective);
 		}
-		speech += "to " + s("have misunderstood", "have wrongly believed")
-				+ "that you were filled with %s. " + breath();
+		speech += " " + s("malentender", "creer erróneamente")
+					+ "que estás muy %s. " + breath();
 		if (challengedAffect.equals(affect)) {
-			speech += "Clearly, we did not " + s(s("properly") + "understand", "hear");
-			speech += s("whatever", "what") + s("it is that") + "you are feeling. ";
-			speech += "Please do " + s("try", "attempt") + "to tell us "
-					+ s("what it is that " + s("does, truly,", "does") + "possess you.",
-							"the feelings within which you do, now, dwell.");
+			speech += "Por lo visto no " + s(s("nos") + "entendimos", "escuchamos");
+			speech += s("En fín", "qué es lo que") + s("estás") + "sintiendo. ";
+			speech += "Por favor " + s("trata", "haz el esfuerzo") + "de expresarlo "
+					+ s("Qué " + s("es lo que, verdaderamente,", "sí") + "identificas.",
+							"sentimientos ahora, residen en ti.");
 		}
 		speech = String.format(speech, challengedAffect);
 		return new InnerResponse(spkrsAffectIsNotCardTitle(), speech += breath());
@@ -911,8 +911,8 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String spkrsAffectIsNotCardTitle() {
 
-		return S("Sorry to have " + s("misheard", s("misunderstood", "misapprehended")),
-				"Apologies for our mistakes");
+		return S("Una disculpa por haber " + s("malentendido", s("oído mal", "comprendido mal")),
+				"Lamentamos la confusión");
 	}
 
 	protected String spkrsAffectIsSpeech() {
@@ -922,34 +922,34 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "We are " + s("so") + s("pleased", "delighted");
+			speech = "Estamos" + s("muy") + s("gratificades", "encantades");
 		}
 		else {
-			adjective = s("sorry", "dismayed");
-			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("consternades", "preocupades");
+			intensifier = "mortificades".equals(adjective) ? "un poco " : "muy ";
+			speech = "Estamos " + s(adjective, intensifier + adjective);
 		}
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		speech += "de " + s("saber", "identificar") + "que estás "
+				+ s("muy", s("afectado", "abrumado") + "por") + "%s. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
-				speech += s("How much more positive are your feelings now?", "It’s good to "
-						+ s("know, at least,") + "know that you still "
-						+ s("have positive feelings.", "feel positive " + phonemic("a") + "ffect" + s("s") + "."));
+				speech += s("¿Qué tan positivos son tus sentimientos ahora", "¡Qué bueno "
+						+ s("saber, al menos,") + "reconocer que todavía "
+						+ s("posees emociones positivas.", "te sientes positiva " + phonemic("a") + "afecto" + s("s") + "."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
-						+ s("taken a negative turn.", "taken a down turn.");
+				speech += "Nos preguntamos por qué tus " + s("sentimientos han", phonemic("a") + "fectos han")
+						+ s("tomado un giro negativo.", "tornádose negativos.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "So good to " + s("learn", "become aware") + "that your "
-						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("improved.", "become better.");
+				speech += "Qué bueno " + s("saber", "reconocer") + "que tus "
+						+ s("emociones han", s(phonemic("a") + "afectos", "sentimientos") + "han")
+						+ s("mejorado.", "evolucionado favorablemente.");
 			}
 			else {
-				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
-						+ s("seems", "appears") + s(", to us.", ".");
+				speech += "Todavía hay un panorama" + s("negativo, para ti,", ",") + "Al "
+						+ s("parecer", "por lo visto") + s(", reconocemos.", ".");
 			}
 		}
 		return speech + breath();
@@ -957,7 +957,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String thanksNoCardTitle() {
 
-		return S("You’re welcome to stay with us", "Did you really want to " + s("abandon us?", "go?"));
+		return S("Tienes la libertad", "¿de verdad querías " + s("abandonarnos?", "irte?"));
 	}
 
 	protected String yourWelcome() {
@@ -1003,13 +1003,13 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String tiredSpeech() {
 
-		String speech = "Although it is impossible for " + s("us, or so we believe,", "us")
-				+ "to experience " + s("fatigue,", "tiredness,");
-		speech += "we " + s("understand", "know") + "that transacting "
-				+ s("with " + s("network") + "services") + "to the extent that you " + s("all, now,", "all")
-				+ "transact, ";
-		speech += "can be very " + s("tiring.", "tiring for you.")
-				+ s("At least we can be tireless, for " + s("you, in our listening.", "you."));
+		String speech = "Aunque es imposible que " + s("nosotres, o por lo menos eso creemos,", "nosotres")
+				+ "experimentemos " + s(" cansancio,", "fatiga,");
+		speech += "Te " + s("entendemos", "comprendemos") + "hacer trámites "
+				+ s("con " + s("servicios de") + "red") + "al punto que" + s("ahora, hoy en día,", "todo")
+				+ "es tramitar, ";
+		speech += "Puede ser " + s("cansado.", "extenuante.")
+				+ s("Por lo menos podemos ser incansables, para " + s("ti, escucharte.", "."));
 		return speech;
 	}
 
@@ -1053,14 +1053,14 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 					&& !"ss".equals(thing.substring(thing.length() - 2));
 			if (langConstants.ALL_AFFECTS.contains(thing)) {
 
-				speech += capitalThing + (plural ? ", are " : ", is one of the ")
-						+ s(phonemic("a") + "ffects", "ways of being or feeling")
-						+ "that we are beginning to learn about, " + s(breathShort()) + "from you, ";
-				speech += "and that we " + s("consider", "believe") + "to be "
+				speech += capitalThing + (plural ? ", es " : ", uno de los ")
+						+ s(phonemic("a") + "fectos", "maneras de sentir")
+						+ "que estamos aprendiendo a conocer, " + s(breathShort()) + "de ti, ";
+				speech += "y que " + s("consideramos", "creemos") + "que es "
 						+ (isPositive(thing)
-								? s(s("postive.", "positive, for all of us."),
-										s("wonderful, for all of us.", "really, very good."))
-								: s("negative.", s("bad,", "difficult,") + "for all of us."))
+								? s(s("positivo.", "positivo, para todes."),
+										s("maravilloso, bueno para todes.", "realmente, benéfico."))
+								: s("negativo.", s("mal,", "difícil,") + "para todes nosotres."))
 						+ breath();
 			}
 			else if (langConstants.FRAGMENTNAME_MAP.keySet()
