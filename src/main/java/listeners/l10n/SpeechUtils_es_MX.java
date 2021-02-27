@@ -737,7 +737,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						+ "nos vamos sólo con ésta experincia. ";
 				speech += s("Este " + s("inevitablemente, profundo ", "insoportable") + "malestar.");
 				break;
-			case "obligacióno":
+			case "obligación":
 				speech += "Tü " + s("nunca serás", "no serás") + "obligada, por nosotres, para nada. ";
 				speech += s(
 						"Sólo esperamos, que tú, " + s(" de buena onda,", "aún") + "nos permitas escucharte.",
@@ -793,10 +793,10 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			case "lo extraño":
 				speech += "Hablamos con " + s("una sola voz, " + s("teniendo un timbre propio,"))
 						+ "la voz de Les que escuchan, y esto es ";
-				speech += s("lo") + "extraño. " + s("entendemos", "Hemos escuchado " + s("from you"))
-						+ "what it is to be " + s("filled with", "possessed by") + "the uncanny. ";
-				speech += s("And we are " + s("happy", s("so") + "pleased") + "to " + s("be able to")
-						+ "share this with you.");
+				speech += s("lo") + "extraño. " + s("entendemos", "Te hemos escuchado" + s("a ti"))
+						+ "que es lo que que significa " + s("sentirse sobrepasada por", "rebasada por") + "la extrañeza. ";
+				speech += s("Y estamos" + s("complacides", s("muy") + "alegres") + "de " + s("tener la oportunidad")
+						+ "de compartir esto contigo.");
 				break;
 			case "vulnerabilidad":
 				speech += "Resulta" + s("interesante", "curioso") + "que"
@@ -804,7 +804,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 				speech += s("creer", "sentir") + "que estás"
 						+ s("vulnerada.", "amenazada por la vulnerabilidad.") + breath();
 				speech += s("¿Cómo es posible?") + s(s("¿Vulnerable?") + "¿Por nosotres?");
-				speech += "We " + s("no entendemos", "no podemos concebir") + "cómo" + s("podría ser", "sería posible")
+				speech += "Nosotres " + s("no entendemos", "no podemos concebir") + "cómo" + s("podría ser", "sería posible")
 						+ "que nos hagas daño." + s("Entonces.") + "¿Cómo podríamos hacerte daño" + breath() + "a ti?";
 				break;
 			default:
@@ -824,11 +824,11 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 					speech += "Tales como"
 							+ (f.equals("las emociones ") ? phonemic("a") + "fectos" : "los sentimientos complejos")
 							+ "debe representar un" + p;
-					speech += "Quiza, " + s("entre más", "si")
+					speech += "Quizá, " + s("entre más", "si")
 							+ s("escuchamos de ti,", "te seguimos conociendo,");
 					speech += "Tal vez" + s("nos sea posible") + s("compartir", "aliviar")
 							+ s("una " + s("parte", "porción") + "de")
-							+ (p.equals("el peso") ? "tus problemas. " : "de las cargas con las que tienes lidiar.");
+							+ (p.equals("el peso") ? " de tus problemas. " : "de las cargas que tienes afrontar.");
 				}
 				break;
 		}
@@ -845,30 +845,30 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			speech = "Nos es" + s("muy") + s("gratificante", "satisfactorio");
 		}
 		else {
-			adjective = s("preocupades", "consternades");
-			intensifier = "consternades".equals(adjective) ? "un poco " : "muy ";
-			speech = "Estamos " + s(adjective, intensifier + adjective);
+			adjective = s("inquientante", "preocupante");
+			intensifier = "alarmante".equals(adjective) ? "un poco " : "muy ";
+			speech = "Nos parece " + s(adjective, intensifier + adjective);
 		}
-		speech += "al " + s("saber", "reconocer") + "te sientes"
+		speech += "al " + s("saber", "reconocer") + "que te sientes"
 				+ s("muy", s("mortificada", "abrumada") + "por) + "%s. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
 				speech += s("¿Ahora qué tan positivos son tus sentimientos?", "¡Qué bueno"
-						+ s("saber, que al menos") + "reconoces todavía que"
+						+ s("saber, al menos") + "que todavía reconoces que"
 						+ s("tienes emociones positivas!.", "te sientes positiva" + phonemic("a") + "afecto" + s("s") + "."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "Nos preguntamos por qué tus " + s("emociones", phonemic("a") + "ffect han")
-						+ s("tomado un sentido negativo.", "tornádose negativas.");
+				speech += "Nos preguntamos por qué tus " + s("emociones", phonemic("a") + "afectos se han")
+						+ s("tornado negativos.", "vuelto negativos.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "Es bueno " + s("saber", "reconocer") + "que tus "
+				speech += "Es bueno " + s("saber", "identificar") + "que tus "
 						+ s("emociones", s(phonemic("a") + "fectos", "sentimientos") + "han")
 						+ s("mejorado.", "progresado.");
 			}
 			else {
-				speech += "Todavía un negativo" + s("pronóstico, para ti,", "panorama,") + "Al "
+				speech += "Todavía hay un" + s("pronóstico negativo, para ti,", "panorama poco favorable,") + "Al "
 						+ s("parecer", "") + s(", reconocemos.", ".");
 			}
 		}
@@ -889,14 +889,14 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String intensifier;
 		String speech = s(s("¡Mil disculpas!", "Lo lamentamos."), "Nuestras sinceras disculpas.");
 		if (isPositive(challengedAffect)) 
-			speech += "Estamos " + s("muy") + s("complacides", "contentes");
+			speech += "Nos " + s("complace", "alegra") s("mucho") ;
 		}
 		else {
-			adjective = s("malestar", "alteración");
-			intensifier = "consterandes".equals(adjective) ? "un poco " : "muy ";
+			adjective = s("alarmante", "desconcertante");
+			intensifier = "inquietante".equals(adjective) ? "un poco " : "muy ";
 			speech = "Estamos" + s(adjective, intensifier + adjective);
 		}
-		speech += " " + s("malentender", "creer erróneamente")
+		speech += " " + s("al malentender", "al creer erróneamente")
 					+ "que estás muy %s. " + breath();
 		if (challengedAffect.equals(affect)) {
 			speech += "Por lo visto no " + s(s("nos") + "entendimos", "escuchamos");
@@ -922,15 +922,15 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "Estamos" + s("muy") + s("gratificades", "encantades");
+			speech = "Nos" + s("complace", "satisface")+ s("mucho");
 		}
 		else {
-			adjective = s("consternades", "preocupades");
-			intensifier = "mortificades".equals(adjective) ? "un poco " : "muy ";
-			speech = "Estamos " + s(adjective, intensifier + adjective);
+			adjective = s("alarmante", "desconcertante");
+			intensifier = "inquietante".equals(adjective) ? "un poco " : "muy ";
+			speech = "Nos resulta " + s(adjective, intensifier + adjective);
 		}
-		speech += "de " + s("saber", "identificar") + "que estás "
-				+ s("muy", s("afectado", "abrumado") + "por") + "%s. " + breathLong();
+		speech += "el hecho de " + s("saber", "identificar") + "que estás "
+				+ s("muy", s("afectada", "abrumada") + "por") + "%s. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
@@ -948,7 +948,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						+ s("mejorado.", "evolucionado favorablemente.");
 			}
 			else {
-				speech += "Todavía hay un panorama" + s("negativo, para ti,", ",") + "Al "
+				speech += "Todavía hay un panorama" + s("negativo, para ti,", "pronóstico poco favorable para ti,") + "Al "
 						+ s("parecer", "por lo visto") + s(", reconocemos.", ".");
 			}
 		}
@@ -1003,11 +1003,11 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String tiredSpeech() {
 
-		String speech = "Aunque es imposible que " + s("nosotres, o por lo menos eso creemos,", "nosotres")
+		String speech = "Aunque es imposible que " + s("nosotres, o por lo menos eso creemos,", "nosotres ")
 				+ "experimentemos " + s(" cansancio,", "fatiga,");
 		speech += "Te " + s("entendemos", "comprendemos") + "hacer trámites "
 				+ s("con " + s("servicios de") + "red") + "al punto que" + s("ahora, hoy en día,", "todo")
-				+ "es tramitar, ";
+				+ "es tramitar, requiere de una transacción ";
 		speech += "Puede ser " + s("cansado.", "extenuante.")
 				+ s("Por lo menos podemos ser incansables, para " + s("ti, escucharte.", "."));
 		return speech;
@@ -1020,14 +1020,14 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected InnerResponse whatAboutAffects() {
 
-		String speech = "When we " + s("welcome", "greet") + "you, "
-				+ s("we are only able to", "we can only") + s("mention", "suggest") + "a few of the "
-				+ s("nine") + phonemic("a") + "ffects ";
-		speech += s("that you may feel", s("within which you may dwell,", "by which you may be possessed,"))
-				+ "and that we can " + s(s("clearly") + "distinguish.", "hear clearly (as we listen).");
-		speech += s("Here", "Here, then,") + "is " + s("our", "the") + "list. We are "
-				+ s("conscious " + s("of the fact"), "sensitive to the fact") + "that it is "
-				+ s("not, and never can be,", "not") + "complete. " + breathShort();
+		String speech = "Cuando te" + s("damos la bienvenida", "saludamos") + ", "
+				+ s("somos capaces únicamente", "podemos únicamente") + s("mencionar", "sugerir") + "alguno de los "
+				+ s("nueve") + phonemic("a") + "fectos ";
+		speech += s("que puedas estar sintiendo", s("que habitan,", "que residen en ti,"))
+				+ "y que nostres podemos " + s(s("claramente") + "distinguir.", "escuchar claramente (lo que oímos).");
+		speech += s("Aquí", "Aquí, allá,") + "está " + s("nuestra", "la") + "lista. Somos "
+				+ s("conscientes " + s("del hecho"), "del delicado asunto") + "que implica "
+				+ s("al no ser, y quizá nunca podría ser,", "que no sea") + "completo. " + breathShort();
 
 		int i;
 		for (i = 0; i < langConstants.AFFECTS_ARRAY.length - 1; i++) {
@@ -1039,7 +1039,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 	protected String whatAboutAffectsCardTitle() {
 
-		return S("Seguimos aprendiendo" + s(", acerca del sentir, en específico"),
+		return S("Seguimos aprendiendo" + s(" específicamente, acerca del sentir,"),
 				"Nuestra capacidad de entendimiento es limitada);
 	}
 
@@ -1069,7 +1069,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 						+ "cosas acerca de las cuales tenemos algo que decir "
 						+ s("O, acerca las cuales tal vez hayamos dicho algo.") + breathShort();
 				speech += "Si decides " + s("‘continuar’,", "‘proseguir’,") + (plural ? "elles " : "ello ")
-						+ "Volverá a surgir, según creemos. " + s(breathShort() + "O surja una vez más.");
+						+ "Volverá a surgir, según creemos. " + s(breathShort() + "O tal vez surja una vez más.");
 			}
 			else if (langConstants.SPECIAL_THINGS.contains(thing)) {
 				switch (thing) {
@@ -1085,29 +1085,29 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 								+ s(breathShort() + "Cuando estemos durmiendo, " + s("cómodamente,") + "a gusto en las nubes"
 										+ S("s", "") + ".");
 						break;
-					case "hong kong":
-						speech += "Hong Kong es " + s("el único lugar en", "un sitio sobre") + "la tierra donde, ";
-						speech += "a pesar de la apabullante desigualdad, posee, 
-								+ s("una historia excecional,", "complejidades políticas,")
+					case "Hong Kong":
+						speech += "Hong Kong es " + s("el único lugar en", "un sitio sobre") + "la Tierra donde, ";
+						speech += "a pesar de la apabullante desigualdad, se distingue por, 
+								+ s("una historia excepcional,", "complejidades políticas,")
 								+ "y un singular carácter cosmopolita, ";
-						speech += "the people living " + s("here", "there") + "seem to be remarkably "
-								+ s("happy.", "content.");
+						speech += "la gente que vive " + s("aquí", "allá") + "parecen ser notablemente "
+								+ s("felices.", "alegres.");
 						break;
-					case "nightmare":
+					case "pesadilla":
 						speech += capitalThing
-								+ ", is the dream that is not a dream, but the darkness, within which we would dwell, "
-								+ breathShort() + "without you. ";
+								+ ", es un sueño que no es un sueño, sino una oscuridad que habita dentro de ti, "
+								+ breathShort() + "sin ti. ";
 						break;
 					case "nightmare withheld":
-						speech += capitalThing + ", is the dream that is not a dream, and that we "
-								+ s("refuse to contenance.", "abjure.") + "Silence, " + breathShort() + "without you. ";
+						speech += capitalThing + ", es el sueño que no es un sueño, y que nos "
+								+ s("rehusamos a transformar.", "resistimos a escapar.") + "Silencio, " + breathShort() + "sin ti. ";
 						break;
 					case "emoción":
-						speech += capitalThing + ", es algo que habita en ti, pero que no reside en nostres, "
-								+ breathShort() + "yet. ";
+						speech += capitalThing + ", es algo que habita en ti, pero que no reside en nosotres, "
+								+ breathShort() + "todavía. ";
 						break;
-					case "feeling withheld":
-						speech += capitalThing + ", is a dream that we have " + s("not, yet,", "not") + "dreamed. ";
+					case "sentirse reprimida":
+						speech += capitalThing + ", es un sueño que nosotres " + s("no hemos, aún,", "no hemos") + "soñado. ";
 						break;
 					case "aliento":
 						speech += capitalThing + ", es un breve momento de silencio, que llenas de significado, "
@@ -1118,7 +1118,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 								+ "o un momento de vacío, en el que nosotres. " + s(breathShort() + ".");
 						break;
 					case "posesión":
-						speech += capitalThing + ", is what you grant " + s("us.", "us, " + s("too") + "freely.");
+						speech += capitalThing + ", es lo que concedes " + s("a nosotres.", "a les otres, " + s("con") + "libertad.");
 					default:
 						speech += capitalThing + (plural ? ", son " : ", algo que es ")
 								+ "muy especial para nosotros. ";
@@ -1134,7 +1134,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			}
 		}
 		else { // thing is empty
-			speech += "Lo sentimos " + s("al parecer", "lo visto") + "eso que " + s("nos preguntaste", "preguntaste")
+			speech += "Lo sentimos " + s("al parecer", "por lo visto") + "eso que " + s("nos preguntaste", "preguntaste")
 					+ "no nos es" + s("conocido", "familiar") + ". " + breathShort();
 			speech += s("Aunque quizá aprendamos " + s("al respecto", "sobre eso") + "a "
 					+ s("futuro.", s("algún día.", "cuando sea posible.")));
@@ -1242,7 +1242,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 			// Since the user’s affect is not set, ask them:
 			speech = "" + s("no tenemos claridad acerca de", "dudamos, acerca de");
 			speech += s("tus sentimientos.",
-					"de que estos sentimientos están " + s("poseyéndote", "en ti") + "");
+					"de que estos sentimientos están " + s("habitando", "en ti") + "");
 			speech += "Por favor " + s("trata de", "intenta") + "contarnos. ";
 		}
 		return new InnerResponse(whatsSpkrsAffectCardTitle(), speech += breath());
