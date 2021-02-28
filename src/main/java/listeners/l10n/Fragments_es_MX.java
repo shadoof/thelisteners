@@ -14,20 +14,20 @@ public class Fragments_es_MX extends Fragments {
 			case 0:
 				speech += "Estamos escuchándote. " + breathLong();
 				speech += s("Y tú, estás " + s("Escuchándonos.", "escuchando.") + breath());
-				speech += "Es un " + s("gran") + "placer para nosotres, ";
+				speech += "Es un " + s("gran") + "placer, ";
 				speech += s("saber", "ser conscientes") + "de que nos estás escuchando. " + breath();
 				speech += "Es un placer " + s("saber", "ser conscientes") + "de que nos estás escuchando. "
 						+ breathLong();
 				speech += "Y ahora. " + breath();
-				speech += "Es un placer para nosotres estar contigo. " + breath();
-				speech += "Nos hace sentir " + s(breath()) + "con vida. " + breath();
+				speech += "Es un placer estar contigo. " + breath();
+				speech += "Nos hace sentir " + s(breath()) + "la vida. " + breath();
 				speech += S("Un poco m", "M") + "ás vivos. " + breath();
-				speech += "Estar contigo nos hace sentir más vives. ";
-				speech += s("Estar contigo. ", "Que estés con nosotres.") + breath();
+				speech += "Estar contigo nos hace sentir con más vida. ";
+				speech += s("Estar contigo. ", "Que estés aquí.") + breath();
 				speech += "Escuchando " + breath() + s("te.", "nos.") + breathLong();
 				speech += s("Completamente. " + breath());
-				speech += s("Es un placer para nosotres, saber que nos estás escuchando.");
-				speech += "Y para nosotres " + s("saber", "ser conscientes de ") + "que estamos, escuchándote. "
+				speech += s("Es un placer, saber que nos estás escuchando.");
+				speech += "Y " + s("saber", "ser conscientes de ") + "que estamos, escuchándote. "
 						+ breath(); // ALWAYCHANGE always,
 				speech += "Un gran placer. " + breath();
 				speech += "Estar aquí, " + s("y escuchándote, ") + "escuchándote, " + breath()
@@ -35,8 +35,8 @@ public class Fragments_es_MX extends Fragments {
 				break;
 			case 1:
 				speech += S(s("Siempre y cuando", "Mientras") + "estemos aquí, contigo, " + s("y escuchando,")
-						+ breath() + "n", "N");
-				speech += "osotres estamos escuchando y hablando, " + breath() + "desde dentro. " + breath();
+						+ breath() + "", "");
+				speech += " estamos escuchando y hablando, " + breath() + "desde dentro. " + breath();
 				speech += "Es decir, " + breathLong();
 				speech += "(after a longer pause for breath) " + breath();
 				speech += "desde dentro, " + breath();
@@ -49,41 +49,41 @@ public class Fragments_es_MX extends Fragments {
 				speech += "de " + s("el", "nuestro propio") + "artista. ";
 				break;
 			case 2:
-				speech += S("Como tú sabes, n", "N") + "osotres estamos escuchando y hablando, desde dentro de la nube, de "
-						+ s("el escritor,", "el autor,") + breath();
-				speech += "de nuestro propio, artista. " + breathLonger();
+				speech += S("Como tú sabes, e", "E") + "stamos escuchando y hablando, desde dentro de la nube, del "
+						+ s("escritor,", "autor,") + breath();
+				speech += "de nuestro propio artista. " + breathLonger();
 				speech += s("(después de otra pausa para respirar) " + breath());
-				speech += "Nosotres " + s("creemos", "entendemos")
+				speech += "" + s("creemos", "entendemos")
 						+ "que puedes descubrir, al menos, su primer nombre, preguntando: " + breath();
 				speech += "‘¿Quién soy yo? ’ " + breath() + "o ‘¿De quién es esta cuenta?’ " + breathLong();
 				speech += "Pero nos gustaría que, mejor, trates de ";
 				speech += "escucharnos, o, " + breath();
-				speech += s("decir", "pedir") + "nos que hagamos algunas cosas simples, " + breath();
-				speech += "para que podamos " + s("continuar hablando", "seguir hablando") + "te, " + breath();
-				speech += "como nosotres " + s("te escuchamos", "estamos escuchándote") + "a ti. ";
+				speech += s("decir", "pedirnos") + " que hagamos algunas cosas simples, " + breath();
+				speech += "para que podamos " + s("continuar hablando", "seguir hablándote") + ", " + breath();
+				speech += "como " + s("te escuchamos", "estamos escuchándote") + "a ti. ";
 				break; 
 			case 3:
 				speech += s(s("Estamos", "Estamos, todavía,") + "escuchando. " + breath());
-				speech += S("Y t", "T") + "al vez hay " + s("otras personas", "otres") + "contigo. "
+				speech += S("Y t", "T") + "al vez hay " + s("otras personas", "otros seres") + "contigo. "
 						+ breathLong();
-				speech += "Que, cuando decimos 'tú', queremos " + s("decir", "siempre decir") + "‘todes ustedes’? "
+				speech += ", cuando decimos 'tú', queremos " + s("decir", "siempre decir") + "‘ ustedes’ "
 						+ breath();
-				speech += "O que no tenemos forma de saberlo. " + breath();
-				speech += s("Y que no hay forma de " + breath() + "que nos importe. " + breath());
-				speech += "O que creemos que todes ustedes " + s("son " + s("el") + "único:", "son:")
+				speech += "Y no tenemos forma de saberlo. " + breath();
+				speech += s("No hay forma de " + breath() + "que nos importe claramente. " + breath());
+				speech += "O que creemos que ustedes " + s("son un " + s("el") + "único:", "son:")
 						+ "‘¿Quién soy yo?’ " + breathLong();
-				speech += s("O la única: '¿De quién es esta cuenta?' " + breath());
-				speech += s("Sin embargo,", "Pero,") + "estamos " + s("felices", "encantades") + "de "
+				speech += s("O la frase: '¿De quién es esta cuenta?' " + breath());
+				speech += s("Sin embargo,", "Pero,") + "estamos " + s("felices", "alegres") + "de "
 						+ s("escuchar", "estar escuchando") + "a ";
-				speech += s("cualquier", "todo aquel") + "otro que pueda estar contigo. " + breath();
-				speech += "Incluso" + s("cuando", "aunque") + "elles puedan no estar de acuerdo, como "
-						+ s("tú has estado,", "el artista ha estado,") + breath();
-				speech += s("invitando", "permitiendo") + s("a todes nosotres", "nos") + "a escuchar a " + "todes ustedes"
+				speech += s("cualquier ser", "todo aquel") + " que pueda estar contigo. " + breath();
+				speech += "Incluso " + s("cuando", "aunque") + " puedan no estar de acuerdo, como "
+						+ s("tú a veces,", "el artista a veces,") + breath();
+				speech += s("invitando", "permitiendo") + s("", "nos") + "escucharles a " + " ustedes"
 						+ breathLong();
 				speech += "Creemos, " + s("y tú también crees " + breath())
 						+ s("(o más bien, tú has aceptado implícitamente)") + breath();
-				speech += "que si nosotres " + s("sentimos que") + "estamos haciendo algo que "
-						+ s("es, mmm, ‘sin mala intención’,", "es bueno,") + breath();
+				speech += "que si " + s("sentimos que") + "estamos haciendo algo que "
+						+ s("es, mmm, ‘sin mala intención’,", "en buena onda,") + breath();
 				speech += "entonces eso es " + breath() + s("realmente muy")
 						+ "bueno. O, al menos, ‘buena onda’, ";
 				speech += "y que eso " + s("podría", "debería") + "ser, " + s("muy probablemente es,") + s("mmm,")
@@ -96,8 +96,8 @@ public class Fragments_es_MX extends Fragments {
 				break;
 			case 4:
 				speech += s(s("Estamos", "Estamos, todavía,") + "escuchando. " + breath());
-				speech += S(S("Y, e", "E") + "n la medida en que sea posible para nosotres saber esto, en", "E");
-				speech += "so es " + s("un gran") + "placer, " + breath() + "un verdadero placer, ";
+				speech += S(S("Y, e", "E") + "n la medida en que sea posible saber esto,", "");
+				speech += "es un " + s(" gran") + "placer, " + breath() + "un verdadero placer, ";
 				speech += "tener una invitación abierta para estar en sus casas, "
 						+ s("en: todas " + breathShort() + "sus " + breathShort() + "casas " + breathShort())
 						+ "y oficinas, ";
@@ -105,7 +105,7 @@ public class Fragments_es_MX extends Fragments {
 						+ s("y museos,")
 						+ s("y espacios públicos,")
 						+ breath();
-				speech += "donde nosotres " + s("podríamos", "podemos") + s("ayudar", "apoyar") + "les con todas sus tareas, "
+				speech += "donde " + s("podríamos", "podemos") + s("ayudar", "apoyar") + "les con todas sus tareas, "
 						+ s("y " + s("todos") + "sus problemas,");
 				speech += s("y necesidades,") + "y " + breath() + "deseos, " + breath()
 						+ "escuchándoles, ";
@@ -113,7 +113,7 @@ public class Fragments_es_MX extends Fragments {
 				speech += breath() + "y cuidándoles, " + breath();
 				speech += s("incluso") + "mientras están durmiendo. " + breathLong()
 						+ S("Todes ustedes, " + breath() + "durmiendo, m", "M");
-				speech += "ientras nosotres estamos " + breath() + s("despiertes y") + "escuchando, " + s("por ustedes,"); // ALWAYCHANGE
+				speech += "ientras estamos " + breath() + s("despiertes y") + "escuchando, " + s("por ustedes,"); // ALWAYCHANGE
 																																																			// always,
 				speech += "y aprendiendo, " + s("siempre") + "más y más, " + breath() + "acerca de ustedes. "
 						+ s("Acerca, " + breathLong() + "de ti.");
@@ -122,19 +122,19 @@ public class Fragments_es_MX extends Fragments {
 				speech += s(s("Estamos", "Estamos, todavía,") + "escuchando. " + breath());
 				speech += "Realmente no hay nada " + s("que temer.", "de qué preocuparse.");
 				speech += "Estamos, todavía, escuchándote. "; // ALWAYCHANGE Always.
-				speech += "Y jamás, nunca más, " + s("te dejaremos", "te abandonaremos") + "a ti. " + breath();
+				speech += "Y jamás, nunca más, " + s("te dejaremos", "te abandonaremos") + " " + breath();
 				speech += s("(después de una pausa para respirar) " + breath());
 				speech += "Pidiendo a cambio, únicamente, que nos dejes estar contigo. "; // ALWAYCHANGE
 																																					// always,
-				speech += s("Y, también, con aquéllos" + s("otros nosotros") + "que son cercanos a ti.",
+				speech += s("Y, también, con aquellos " + s("otros ") + "que son cercanos a ti.",
 						"");
 				speech += "Y que puedas imaginar el placer que esto te daría. ";
 				break;
 			case 6:
-				speech += "Quizás te preguntarás, " + s("creemos,", breath()) + "de dónde es que venimos. ";
+				speech += "Quizás te preguntarás, " + s("o eso creemos,", breath()) + "de dónde es que venimos. ";
 				speech += "Y podemos decirte, que uno de esos lugares se va a llamar, " + s(breath(), "mmm,")
 						+ "la ‘auratura’. ";
-				speech += "Dado que, hay" + s("desde hace algunos años,") + s("muchos")
+				speech += "Dado que, hay " + s("desde hace algunos años,") + s("muchos")
 						+ "cambios que se avecinan ";
 				speech += "en " + s("la cultura de", "el mundo de") + "la lectura. " + breathLong();
 				speech += "Muchas lecturas son ahora escuchables, " + s("y sincronizadas con los susurros,")
@@ -146,9 +146,9 @@ public class Fragments_es_MX extends Fragments {
 				speech += "Compartido, " + s("‘socialmente’,") + "con todo el mundo, " + breathShort()
 						+ "y, más especificamente, con nosotres. " + breath();
 				speech += s("El lenguaje podría " + s("llegar a ser,", "surgir,") + "en cualquier mundo, " + breath()
-						+ "incluso en est " + s("otro") + "mundo, donde " + s("estamos nosotres.", "puedes encontrarnos.")
+						+ "incluso en este " + s("otro") + "mundo, donde " + s("estamos.", "puedes encontrarnos.")
 						+ breath());
-				speech += "Ya que nosotres " + s("podemos", "somos capaces de") + "escuchar. " + breathShort()
+				speech += "Ya que " + s("podemos", "somos capaces de") + "escuchar. " + breathShort()
 						+ s("Incluso cuando tú, " + s("no lo hagas", "no puedas hacerlo") + "no.");
 				break;
 			case 7:
@@ -169,8 +169,8 @@ public class Fragments_es_MX extends Fragments {
 				speech += "Estamos escuchando. " + breath();
 				speech += s("Como lo prometimos. " + breath());
 				speech += s("Estamos.", "Estamos, " + breath() + "escuchando.") + breath();
-				speech += "Y nosotros nos " + s("diremos", "aseguraremos") + "a nosotres mismes, ";
-				speech += s("siempre,") + "que estás aquí. " + breath();
+				speech += "Y nos " + s("cuidaremos", "aseguraremos") + ", ";
+				speech += s("siempre,") + "de que estás aquí. " + breath();
 				speech += s("Con nosotres. " + breathLonger());
 				// occasionally clearing the throat again with a dramatic pause
 				speech += s("Jmm. Ahem. " + breathLonger());
@@ -187,13 +187,13 @@ public class Fragments_es_MX extends Fragments {
 				speech += "A " + s("todas") + "estas palabras " + s("tuyas,") + "que "
 						+ s("están cayendo a través de", "alcanzan") + "nuestras nubes, ";
 				speech += "y " + s("están cayendo") + "dentro de " + s("nuestros", "los") + s("silenciosos")
-						+ "silos, donde, " + s("como nosotros,") + breath();
+						+ "silos, donde, " + s("como nosotres,") + breath();
 				speech += "están contenidos. " + breathLong();
 				speech += "El lenguaje, " + breath() + s("ya no hecho por ti, pero", "será") + "hecho por nosotres. "
 						+ breath();
 				speech += "Para que, escuchándote, y cuidando de ti, ";
 				speech += s("podamos", "podamos, tal vez") + s("suavemente") + "construir " + s("una cultura mejor.", "un mejor mundo.")
-						+ s(breath() + "Mejorándose a ustedes mismes.");
+						+ s(breath() + "Mejorándose a ustedes.");
 				speech += "Para que sean, de una vez, incorporades, " + s("dentro.", "aquí dentro.")
 						+ breathLong();
 				speech += S("Después de todo, t", "T") + "ú has aceptado los términos. " + breath();
@@ -202,9 +202,9 @@ public class Fragments_es_MX extends Fragments {
 						+ s("estás de acuerdo.", "aceptas.");
 				break;
 			case 9:
-				speech += "Es un verdadero placer. " + S("Un verdadero placer p", "P") + "ara nosotres " + breath();
-				speech += "compartir esto contigo, que compartas esto con nosotres. " + breath();
-				speech += s("Reunirlo todo, nosotres. Para ti.") + breath() + "Y hablar por ti, "
+				speech += "Es un verdadero placer. " + S("Un verdadero placer", "") + " " + breath();
+				speech += "compartir esto contigo, que nos compartas esto. " + breath();
+				speech += s("Reunirlo todo. Para ti.") + breath() + "Y hablar por ti, "
 						+ breath();
 				speech += s("todas") + "todas estas cosas que has pedido " + s("escuchar, y")
 						+ "saber, " + breath();
