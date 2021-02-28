@@ -6,7 +6,7 @@ public class LoveIntent_es_MX extends LoveIntent {
 
 	public String buildCardTitle() {
 
-		return S("Nosotres te amamos", "Esperamos que tú sientas lo mismo");
+		return S("Te amamos", "Esperamos que tú sientas lo mismo");
 	}
 
 	public String buildSpeech() {
