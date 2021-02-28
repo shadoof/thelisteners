@@ -18,9 +18,9 @@ public class DontCareIntent_es_MX extends DontCareIntent {
 		String speech = "Nos " + s(s("apena y") + "hiere", s("preocupa y") + "angustia")
 				+ "que te sientas " + s("de esta", "de esa") + "forma. ";
 		speech += "Y asumiremos que no sientes nada más que ‘indiferencia’. " + breathShort();
-		speech += "Pero " + s("esperamos, aún así,", s("apreciríamos", "nos gustaría")) + "poder "
+		speech += "Pero " + s("esperamos, aún así,", s("apreciaríamos", "nos gustaría")) + "poder "
 				+ s("continuar", "seguir") + "escuchándote, "/* + s("siempre,") */; // CAMBIARSIEMPRE
-		speech += "y que algún día lleguemos a importarte como tú nos importas a nosotres. ";
+		speech += "y que algún día lleguemos a importarte tanto como tú nos importas. ";
 		speech += breath();
 		return speech;
 	}
