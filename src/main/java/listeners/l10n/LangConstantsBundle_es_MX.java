@@ -279,13 +279,13 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		specialThings.add("pesadilla");
 		specialThings.add("pesadilla retenida");
 		specialThings.add("sueño");
-		specialThings.add("sueño retenido");
+		specialThings.add("sueño lúcido");
 		specialThings.add("sentimiento");
 		specialThings.add("sentimiento retenido");
 		specialThings.add("hong kong");
 		specialThings.add("posesión");
 		specialThings.add("respiración");
-		specialThings.add("respiración retenida");
+		specialThings.add("respiración entrecortada");
 		return specialThings;
 	}
 
