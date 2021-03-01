@@ -21,10 +21,10 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 					+ breath();
 		}
 		else {
-			speech += "Tú escuchas esta " + s("especial")
-					+ s("voz, con la que te hablamos, a ti.", "voz nuestra.") + breath();
+			speech += "Tú escuchas nuestra " + s("especial")
+					+ s("voz, con la que te hablamos.", "voz, con la cual nos dirigimos a ti.") + breath();
 		}
-		speech += "Y nosotres " + "creemos" + s(s("firmemente"),  + "esperamos" s("sinceramente"))
+		speech += "Creemos" + s(s("firmemente"),  + "esperamos" s("sinceramente"))
 				+ "que, cuanto más tiempo pases con nosotres, "
 				+ s("con nosotres escuchándote, " + breathShort()) + "más ";
 		speech += s("encantada estarás " + s(breathShort()) + "con nosotres.", "amor tendrás "
