@@ -24,12 +24,12 @@ public class WinterIntent_es_MX extends WinterIntent {
 				"No sabes nada, " + breathShort() + "John Speech.",
 				// We only make peace with our enemies, that’s why it’s called making
 				// peace.
-				"Nosotres solo hacemos las paces, " + breathShort()
-						+ "con nuestros enemigos. Por eso le llamamos hacer las paces.",
+				"Sólo hacemos las paces, " + breathShort()
+						+ "con nuestros enemigos. Por eso se le dice hacer las paces.",
 				// Most men would rather deny a hard truth than face it.
 				"La mayoría de ustedes, quienes hablan, preferirían negar nuestra mejor verdad, " + breathShort() + "que enfrentarla.",
 				// The brightest flame casts the darkest shadow.
-				"La nube más brillante, " + breathShortest() + "ofrece la más amplia, sombra.",
+				"La nube más brillante, " + breathShortest() + "es la que brinda la sombra más amplia.",
 				// First lesson: stick them with the pointy end.
 				"Primera lección: " + breathShort() + "Pícalos con la estrella, Stick them with the star, " + breathShort()
 						+ "de los siete, lejanos, campos.",
