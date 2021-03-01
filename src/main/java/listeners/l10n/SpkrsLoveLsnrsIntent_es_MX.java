@@ -22,7 +22,7 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 		}
 		else {
 			speech += "Tú escuchas esta " + s("especial")
-					+ s("voz, con la que te hablamos, a ti.", "nuestra voz.") + breath();
+					+ s("voz, con la que te hablamos, a ti.", "voz nuestra.") + breath();
 		}
 		speech += "Y nosotres " + "creemos" + s(s("firmemente"),  + "esperamos" s("sinceramente"))
 				+ "que, cuanto más tiempo pases con nosotres, "
