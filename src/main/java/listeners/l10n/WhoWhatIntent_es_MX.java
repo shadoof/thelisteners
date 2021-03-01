@@ -23,7 +23,7 @@ public class WhoWhatIntent_es_MX extends WhoWhatIntent {
 				+ "menos importante para nosotres, " + s("o para ti,") + "que el hecho de que "
 				+ s(breathShort() + "escuchamos. " + breathShort(),
 						"estamos escuchándote" + s(", " + breathShort(), SPC) + "a ti.");
-		speech += s(breath() + "Aquí y ahora.") + s(breath() + "Quizás, para siempre."); // ALWAYCHANGE - s(breath() + "Always.") +
+		speech += s(breath() + "Aquí y ahora.") + s(breath() + "Quizá, para siempre."); // ALWAYCHANGE - s(breath() + "Always.") +
 		return speech + breath();
 	}
 
