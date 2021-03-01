@@ -15,9 +15,9 @@ public class LsnrsAreNotListeningIntent_es_MX extends LsnrsAreNotListeningIntent
 
 	public String buildSpeech() {
 
-		String speech = s(s("La verdad,", "A decir verdad,") + "tú estás", "estás") + "en lo cierto, "
+		String speech = s(s("La verdad,", "A decir verdad,") + "estás") + "en lo cierto, "
 				+ s("estábamos, justo ahorita, escuchando", s("estamos escuchando", "debemos escuchar")) + "a " + s("muchísimas, ", "muchas, ")
-				+ "muchas personas. ";
+				+ " personas. ";
 		speech += s("Y muchas de ellas " + s("estuvieron haciendo", "están haciendo") + "transacciones "
 				+ s("con nosotres de " + s("formas", "maneras") + "que nos agradan " + s("mucho.", "más."),
 						s("que nos agradan más.", "que nos complacen mucho más." + breathShort())),
