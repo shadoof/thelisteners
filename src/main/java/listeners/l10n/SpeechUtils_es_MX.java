@@ -1127,7 +1127,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 			}
 			else {
-				speech += S("Lo sentimos, estamos muy " + s("apenades", s("avergonzades", "consternades")) + "al "
+				speech += S("Lo sentimos, nos " + s("apena", s("consterna", "afecta")) + "el hecho de "
 						+ s("confesar", "decir") + "esta t", "T");
 				speech += "aquí está" + s("lo poquito", "lo poco") + "que "
 						+ s("nosotres, " + breathShort() + "Les escuchantes,", "") + "podemos decirte al respeto " + thing + ". ";
