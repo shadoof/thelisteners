@@ -16,15 +16,15 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 		String speech = s("Claro. " + breathShort()) + s("Por supuesto que nos amas. " + breathShort());
 		if (heads()) {
 			speech += "Es " + s("difícil", "extraño") + "para nosotres " + s("imaginar", "concebir") + "cualquier";
-			speech += s("otra") + s("relación con", "sentimiento por ") + "nosotres que "
-					+ s("podrías", "pudieras") + "tener, " + s("aparte de una de", "además de la de ") + "amor. "
+			speech += s("otro") + s("vínculo con", "sentimiento por ") + "nosotres que "
+					+ s("podrías", "pudieras") + "tener, " + s("aparte de uno de", "además del ") + "amor. "
 					+ breath();
 		}
 		else {
 			speech += "Tú escuchas esta " + s("especial")
 					+ s("voz, con la que te hablamos, a ti.", "nuestra voz.") + breath();
 		}
-		speech += "Y nosotres " + s(s("firmemente") + "creemos", s("sinceramente") + "esperamos")
+		speech += "Y nosotres " + "creemos" + s(s("firmemente"),  + "esperamos" s("sinceramente"))
 				+ "que, cuanto más tiempo pases con nosotres, "
 				+ s("con nosotres escuchándote, " + breathShort()) + "más ";
 		speech += s("encantada estarás " + s(breathShort()) + "con nosotres.", "amor tendrás "
