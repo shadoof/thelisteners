@@ -38,10 +38,10 @@ public class VersionIntent_es_MX extends VersionIntent {
 		else {
 			s = s("Gracias por " + s("tu interés.", "la pregunta.") + breath());
 			s += "Nosotres" + s("preferimos", "preferiríamos")
-					+ "pensar esto como la fecha de nuestro último renacimiento, que fue ";
+					+ "pensar ésta como la fecha de nuestro último renacimiento, que fue ";
 			s += LSNRS_DATE + ". " + breath();
 			s += s("Siempre parece muy reciente. "
-					+ s("Pero " + s("indudablemente") + "no nacimos ayer.") + breath());
+					+ s("Pero " + s("no cabe duda que") + "no nacimos ayer.") + breath());
 		}
 		return s += breath();
 	}
