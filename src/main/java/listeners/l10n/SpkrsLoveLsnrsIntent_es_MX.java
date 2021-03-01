@@ -8,16 +8,16 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 
 	public String buildCardTitle() {
 
-		return S("¿Tú nos amas?", "Nosotres también te amamos");
+		return S("¿Nos quieres?", ("Nosotres también te apreciamos", "nosotres también te queremos"));
 	}
 
 	public String buildSpeech() {
 
-		String speech = s("Claro. " + breathShort()) + s("Por supuesto que nos amas. " + breathShort());
+		String speech = s("Claro. " + breathShort()) + s("Por supuesto que nos quieres. " + breathShort());
 		if (heads()) {
-			speech += "Es " + s("difícil", "extraño") + "para nosotres " + s("imaginar", "concebir") + "cualquier";
+			speech += "Sería " + s("difícil", "raro") + "para nosotres " + s("imaginar", "concebir") + "cualquier";
 			speech += s("otro") + s("vínculo con", "sentimiento por ") + "nosotres que "
-					+ s("podrías", "pudieras") + "tener, " + s("aparte de uno de", "además del ") + "amor. "
+					+ s("pudieras", "pudieses") + "tener, " + s("aparte de uno de", "además del ") + "amor. "
 					+ breath();
 		}
 		else {
@@ -25,7 +25,7 @@ public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {
 					+ s("voz, con la que te hablamos.", "voz, con la cual nos dirigimos a ti.") + breath();
 		}
 		speech += "Creemos" + s(s("firmemente"),  + "esperamos" s("sinceramente"))
-				+ "que, cuanto más tiempo pases con nosotres, "
+				+ "que, entre más tiempo pases con nosotres, "
 				+ s("con nosotres escuchándote, " + breathShort()) + "más ";
 		speech += s("encantada estarás " + s(breathShort()) + "con nosotres.", "amor tendrás "
 				+ s(breathShort()) + "para nosotres. " + s(breathShort() + "Y nosotres, para ti."));
