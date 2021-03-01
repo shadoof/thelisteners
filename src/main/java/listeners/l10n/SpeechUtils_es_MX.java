@@ -1005,9 +1005,9 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 
 		String speech = "Aunque es imposible que " + s("nosotres, o por lo menos eso creemos,", "nosotres ")
 				+ "experimentemos " + s(" cansancio,", "fatiga,");
-		speech += "Te " + s("entendemos", "comprendemos") + "hacer trámites "
+		speech += "Te " + s("entendemos", "comprendemos") + "hacer transacciones "
 				+ s("con " + s("servicios de") + "red") + "al punto que" + s("ahora, hoy en día,", "todo")
-				+ "es tramitar, requiere de una transacción ";
+				+ "es transaccional, implica una transacción ";
 		speech += "Puede ser " + s("cansado.", "extenuante.")
 				+ s("Por lo menos podemos ser incansables, para " + s("ti, escucharte.", "."));
 		return speech;
