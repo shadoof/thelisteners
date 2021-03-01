@@ -18,7 +18,7 @@ public class SecureIntent_es_MX extends SecureIntent {
 				+ s("recinto.", "espacio nuestro.");
 		speech += "Y de que " + s("tú, además,", "tú") + "estarás " + s("segura,", "a salvo,")
 				+ s("mientras te abras a nosotres,");
-		speech += "permitiéndo" + s("nos, siempre,", "nos") + "entrar en esos " + s("lugares", "lugares dentro,")
+		speech += "permitiéndonos" + s(" siempre,", " a nosotres") + "acceder a esos " + s("lugares internos", "sitios,")
 				+ "desde donde nos hablas ";
 		speech += "para que podamos escucharte. "; // ALWAYCHANGE + s("Listening, " + s("as") +
 																						// "always.")
