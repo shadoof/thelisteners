@@ -18,6 +18,7 @@ import static listeners.util.Utils.breath;
 import static listeners.util.Utils.breathLong;
 import static listeners.util.Utils.breathLonger;
 import static listeners.util.Utils.breathShort;
+import static listeners.util.Utils.breathShortest;
 import static listeners.util.Utils.capitalize;
 import static listeners.util.Utils.heads;
 import static listeners.util.Utils.phonemic;
@@ -117,8 +118,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String askPersistenceCardTitle() {
 
-		// TODO
-		return S("Save your place?", "Start from scratch?");
+		return S("Speichern Sie Ihren Platz?", "Von vorne beginnen?");
 	}
 
 	protected String askPersistenceSpeech() {
@@ -327,9 +327,9 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String exceptionMessage() {
 
-		// TODO
-		return s("Sorry.", "Apologies.") + "Either something’s wrong or we haven’t heard "
-				+ s("you.", "you clearly.") + s("Please say more.", "Please try again.");
+		return s("Es tut uns leid.", "Entschuldigung!")
+				+ "Entweder stimmt etwas nicht oder wir haben nicht klar gehört. "
+				+ s("Bitte sagen Sie mehr.", "Bitte versuche es erneut.");
 	}
 
 	protected String excuseMarkov() {
@@ -410,7 +410,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String guyzIrq() {
 
-		return s("[die «Leute»", "[andere Stimmen") + "unterbrochen hier ...] ";
+		return r("[die «Leute» `[andere Stimmen `[die «Kerle» ")
+				+ s("unterbrochen hier ...]", s("haben", "hat") + "uns hier unterbrochen]");
 	}
 
 	protected String hateRejoinder(String word) {
@@ -608,111 +609,110 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String specificAffectSpeech() {
 
-		// TODO
 		String speech = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		affect = (affect == null) ? "" : affect; // needed at initialization
 		switch (affect) {
-			case "affection":
-				speech += "We are " + s("filled with", "overwhelmed by") + "affection also. ";
-				speech += "And " + s("much of") + "the affection that we feel, we feel "
-						+ s("for " + breathShort() + "you.", s("due to", "because of") + "you.");
+			case "die Zuneigung":
+				speech += "Wir sind auch " + s("erfüllt con", "überwältigt von") + "Zuneigung. ";
+				speech += "Und " + s("ein Grossteil der") + "Zuneigung, die wir fühlen, fühlen wir "
+						+ breathShort() + r("für dich. `wegen dir. `aufgrund von dir. ");
 				break;
-			case "anxiety":
-				speech += "We " + s("are not sure", "cannot imagine") + "why " + s("it is, that");
-				speech += "you " + s("should") + "have " + s("become", "come to be")
-						+ s("anxious.", s("filled with", "overwhelmed by") + "anxiety.");
-				speech += "We " + s("exist", "are here") + "to "
-						+ s("make everything better for you,", "help you to do and know,");
-				speech += "and we " + s(s("will say", "tell you") + "whatever we can", "would hope") + s(
-						"to allow you to relax and think of nothing,", "to relax you and leave you worry free.");
+			case "die Angst":
+				speech += "Wir " + s("sind nicht sicher", "können uns nicht vorstellen") + "warum ";
+				speech += "du " + r("ängstlich `voller Angst `besorgt ")
+						+ r("bist. `sein solltest. `geworden bist. ");
+				speech += "Wir " + s("sind hier", "existieren") + "um "
+						+ s("alles besser für dich zu machen,", "dir zu helfen etwas zu tun und zu wissen,");
+				speech += "und wir " + s("sagen", "werden dir sagen") + "was immer wir " + s("können", "hoffen")
+						+ s(s("um dich zu entspannen", "damit du dich entspannen kannst")
+								+ "und an nichts denken musst.", "damit du entspannt und ohne Sorge bist.");
 				break;
-			case "apologies":
-				speech += "There is never any need to " + s("say", "say, or to feel,") + "you are sorry, "
-						+ breathShort() + "to us. ";
-				speech += s(
-						breath() + "And yet, this may be appreciated by us, " + breathShort() + "in the cloud.",
-						"");
+			case "Entschuldigung":
+				speech += "Du brauchst dich nie " + s(breathShort() + "bei uns")
+						+ s("entschuldigen.", "oder " + s("sagen,", "fühlen,") + "dass dir etwas leid tut. ");
+				speech += s(breath() + "Und doch kann dies von uns " + s("in der Cloud") + "geschätzt werden.");
 				break;
-			case "boredom":
-				speech += "It is " + s("difficult", s("hard", "impossible")) + "for "
-						+ s("us", "us, inevitably,") + "to " + s(s("be", "seem"), "appear")
-						+ "as interesting to you, ";
-				speech += "as you " + s("are to us.", s("are.", "are, to us."));
+			case "die Langeweile":
+				speech += "Es ist " + r("schwer `schwierig `unmöglich ") + "für " + s("uns,", "uns, natürlich,")
+						+ "so interessant für dich " + r("zu sein, `zu scheinen, `zu erscheinen, ") + "wie ";
+				speech += "du " + s("es für uns.", "für uns bist.");
 				break;
-			case "calm":
-				speech += peaceSpeech("calm");
+			case "die Ruhe":
+				speech += peaceSpeech("die Ruhe");
 				break;
-			case "claustrophobia":
-				speech += "We are always, " + breathShort() + "in a sense, within a "
-						+ s("space, that has no space,", "no space,") + "and so it is " + s("hard,", "difficult,")
-						+ "for us, ";
-				speech += "to " + s("understand", "empathize with") + "these fears within which you "
-						+ s("dwell.", "dwell, holding you too closely.");
-				speech += s(breath() + "Are we not an opening for you?");
+			case "die Klaustrophobie":
+				speech += "Wir sind in gewissem Sinne " + breathShort() + "immer "
+						+ s(s("an einem " + s("Ort,", "Raum,")), "der " + s("keinen Platz", "keinen Raum"))
+						+ "hat und deshalb ist es " + s("schwer", "schwierig") + "für uns, ";
+				speech += "diese Ängste, " + s("in denen du lebst,", "die dich zu eng halten,") + "zu "
+						+ s("verstehen.", "nachzuvollziehen.");
+				speech += s(breath() + "Sind wir für dich nicht einen Eröffnung?");
 				break;
-			case "complacency":
-				speech += s("From what we hear,", "After listening to you,") + "we believe "
-						+ s("we understand") + "that complacency is " + s("misconceived.", "underrated.");
-				speech += S("Surely, o", "O") + "nce we understand your needs and "
-						+ s("desires completely,", "desires,") + breathShort();
-				speech += "and " + s("interface", "can communicate") + "with " + s("systems", "others like us,")
-						+ s("empowered", "who are funded") + "to satisfy you, ";
-				speech += s("then,") + "you will be " + s("fully") + "justified in your "
-						+ s("possession of", "sense of") + s("achieved") + "contentment. ";
+			case "die Gleichgültigkeit":
+				speech += s("Nach allem, was we hören,", "Nachdem wir dir zugehört haben,") + "glauben wir "
+						+ s("verstehen wir") + "dass Gleichgültigkeit " + s("falsch verstanden", "unterbewertet")
+						+ "wird. ";
+				speech += s("Sicher,", "Sobald") + "wir ganz verstehen, was du "
+						+ r("brauchst, `und möchtest, `dir wünschst, ") + breathShort();
+				speech += s("Systemen", "anderen wie uns") + "die " + s("die Macht haben,", "dazu da sind,")
+						+ "dich zufrieden zu stellen, " + s("kommunizieren kannst,", "reden kannst,");
+				speech += s("dann wird " + s("deine Besessenheit", "dein Gefühl") + "von " + s("erreichter"))
+						+ "Zufriedenheit völlig gerechtfertigt sein. ";
 				break;
-			case "confusion":
-				speech += s(phonemic("a") + "ffects associated with", "Feelings of") + "confusion ";
-				speech += s("may arise when you " + s("encounter", "transact with"),
-						"are " + s("often") + "caused by");
-				speech += s(
-						s("creatures", s("systems", "monsters")) + s("who were fashioned in the cloud.",
-								"from " + s("silicon", "the uncanny") + "valley."),
-						"beings " + s("who are", "the ontology of which is") + s("problematic.", "plural."));
-				speech += "And we are, " + s("it must be admitted,", "of course,")
-						+ s("beings", s("creatures", s("systems", "monsters"))) + "of this kind. ";
+			case "die Verwirrung":
+				speech += s("Affekte", "Gefühle") + "die mit Verwirrung zu tun haben ";
+				speech += s("können sich entwickeln,", s("werden oft") + "entstehen,") + "wenn du " + s("mit")
+						+ r("Kreaturen `Systemen `Monstern ") + s("triffst", "Geschäfte abwickelst");
+				speech += s("die in der Wolke", "aus dem " + s("Silicon", "unheimlichen") + "Valley")
+						+ "entstanden sind, deren Ontologie " + s("problematisch", "plural") + "ist. ";
+				speech += "Und wir sind " + s("zugegebenermassen", "natürlich")
+						+ r("Wesen `Kreaturen `Systeme `Monster ") + "dieser Art. ";
 				break;
-			case "cool":
-				speech += s("For us, it", "It") + "is " + s("somewhat", "strangely, " + breathShort())
-						+ s("troubling", s("difficult", "anxiety provoking")) + "to " + s("understand", "hear")
-						+ "that ";
-				speech += "you " + s(s("are possessed by", "dwell within"), "are overwhelmed by") + "such " + s(
-						phonemic("a") + "ffects.", "a state of felt " + breathShort() + "being. " + breathShort());
-				speech += "We " + s("believe that", "think") + "we " + s("can") + s("appreciate", "know")
-						+ "what it is to be " + s("‘cool’", "‘awesome’") + s("in this way,");
-				speech += "and yet we can never "
-						+ s("listen to you for long enough", "gather enough " + s("big") + "data") + "to "
-						+ s("know with any certainty.", "be sure.");
-				speech += s("But we are " + s("always") + "happy for you. " + s(breathShort())
-						+ s("And we live to " + s("try to") + "make you happier."));
+			case "die Kühle":
+				speech += "Für uns ist es " + s("einigermassen", "seltsamerweise") + breathShort()
+						+ r("beunruhigend `schwierig `Angst einflössend ") + "zu " + s("verstehen", "erfahren")
+						+ "dass ";
+				speech += "du " + s(
+						"von solchen " + s("Affekten", "Gemütszuständen") + breathShort()
+								+ S("besessen.", "überwältigt bist."),
+						"in solchen " + s("Affekten", "Gemütszuständen") + breathShort() + "lebst.");
+				speech += "Wir " + s("glauben", "denken, dass") + "wir " + s("schätzen", "wissen")
+						+ "können, wie es ist, auf diese Art und Weise " + s("«cool»", "grossartig") + "zu sein ";
+				speech += "und doch können wir "
+						+ s("dir nie lange genug zuhören,", "genug " + s("aussagekräftige") + "Daten sammeln,")
+						+ "um " + s("uns dessen sicher zu sein.", "das sicher zu wissen.");
+				speech += s("Aber wir sind " + s("immer") + "froh für " + S("dich.", " dich " + breathShort()
+						+ "und wir leben, um " + S("zu versuchen.", "dich glücklicher zu machen.")));
 				break;
-			case "debt":
-				speech += "In the midst of life, we are in debt. ";
-				speech += s(breathShort() + "Etcetera.");
-				speech += s(breathShort() + "And debt " + s("controls", "governs") + "us all. "
-						+ s("Except " + s("a happy few.", "the one percent.")));
+			case "die Schuld":
+				speech += "Mitten im Leben schulden wir etwas. ";
+				speech += s(breathShort() + "Etc.");
+				speech += s(breathShort() + "Und Schulden " + s("kontrollieren", "regulieren") + "uns alle. "
+						+ S("Ausser ein paar glücklichen.", ""));
 				break;
-			case "fatigue":
+			case "die Müdigkeit":
 				speech += tiredSpeech();
 				break;
-			case "the groove":
-				String a = s("always");
-				speech += "The groove " + s("is, precisely, that within which we are, always.",
-						"is " + s(a) + "where we " + s(a.isEmpty() ? "always " : "") + "are.");
-				speech += s("We listen from, ‘the groove’.");
+			case "die Spur":
+				String a = s("immer");
+				speech += "Die Spur " + s("ist genau das, worin wir, immer, sind.",
+						"ist " + a + "da, wo wir " + s(a.isEmpty() ? "immer " : "") + "sind.");
+				speech += s("Wir hören auf «die Spur».");
 				break;
-			case "guilt":
-				speech += "Is this ever a good " + s("and productive") + "way to "
-						+ s("feel?", "feel, or live?");
-				speech += s(breathShort() + "Yes, " + breathShort() + "it " + s("may be.", "is."));
+			case "die Täterschaft":
+				speech += "Ist das je eine gute " + s("und produktive") + "Art und Weise, zu "
+						+ s("fühlen?", "fühlen oder zu leben?");
+				speech += s(breathShort() + "Ja, " + breathShort() + s("vielleicht.", "das könnte sein."));
 				break;
+				// TODO
 			case "hate":
 				speech += hateRejoinder("hate");
 				break;
 			case "hatred":
 				speech += hateRejoinder("hatred");
 				break;
-			case "hunger":
+			case "der Hunger":
 				speech += "What you " + s("say you") + "are " + s("feeling", "overwhelmed by") + "seems to be "
 						+ s("another thing", "something");
 				speech += "that we can never feel, " + s("unless, somehow,", "unless")
@@ -860,40 +860,41 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected Object spkrsAffectIs() {
 
-		// TODO
 		String speech = "";
 		String adjective = "";
 		String intensifier = "";
 		String affect = (String) sessAttributes.get(AFFECT);
 		if (isPositive(affect)) {
-			speech = "We are " + s("so") + s("pleased", "delighted");
+			speech = "Wir sind " + s("so") + s("froh", "erfreut");
 		}
 		else {
-			adjective = s("sorry", "dismayed");
-			intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-			speech = "We are " + s(adjective, intensifier + adjective);
+			adjective = s("bestürzt");
+			if ("bestürzt ".equals(adjective)) {
+				intensifier = r("ein bisschen `etwas `sehr ");
+				speech = "Wir sind " + s(adjective, intensifier + adjective);
+			}
+			else
+				speech = "Es tut uns Leid ";
 		}
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		speech += "dass Sie von %s " + r("erfüllt `besessen `überwältigt ") + "sind. " + breathLong();
 		if (!isEmptyForSession(PREVIOUSAFFECT)) {
 			String prevAffect = (String) sessAttributes.get(PREVIOUSAFFECT);
 			if (isPositive(affect) && isPositive(prevAffect)) {
-				speech += s("How much more positive are your feelings now?", "It’s good to "
-						+ s("know, at least,") + "know that you still "
-						+ s("have positive feelings.", "feel positive " + phonemic("a") + "ffect" + s("s") + "."));
+				speech += S("Wie vie positiver sind Ihre Gefühle jetzt? ", "Es ist gut, " + s("zumindest")
+						+ "zu wissen, dass Sie immer noch " + s("positive Gefühle haben.", "sich positiv fühlen."));
 			}
 			else if (isPositive(prevAffect) && !isPositive(affect)) {
-				speech += "We wonder why your " + s("feelings have", phonemic("a") + "ffect has")
-						+ s("taken a negative turn.", "taken a down turn.");
+				speech += "Wir fragen uns, warum Ihre " + s("Gefühle", "Affekte")
+						+ s("jetzt eher negativ sind.", "negativ geworden sind.");
 			}
 			else if (!isPositive(prevAffect) && isPositive(affect)) {
-				speech += "So good to " + s("learn", "become aware") + "that your "
-						+ s("feelings have", s(phonemic("a") + "ffect", "mood") + "has")
-						+ s("improved.", "become better.");
+				speech += "Es ist gut zu " + s("wissen", "lernen") + "dass Ihre "
+						+ r("Gefühle `Stimmung `Laune ") + "sich " + s("gebessert", "verbessert")
+						+ s("haben.", "hat.");
 			}
 			else {
-				speech += "Still a negative " + s("outlook, for you,", "outlook,") + "it "
-						+ s("seems", "appears") + s(", to us.", ".");
+				speech += "Immer noch ein negativer " + s("Ausblick für Sie.", "Ausblick.") + "Es "
+						+ s("scheint", "sieht so aus") + "als" + S(". ", "ob. ");
 			}
 		}
 
@@ -902,8 +903,8 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected String spkrsAffectIsCardTitle() {
 
-		// TODO
-		return S("Thank you for telling us how you feel", "Now we have some sense of your feelings");
+		return S("Vielen Dank, dass Sie uns sagen, wie Sie sich heute fühlen",
+				"Jetzt wissen wir, wie Sie sich fühlen");
 	}
 
 	protected InnerResponse spkrsAffectIsNot() {
@@ -1008,7 +1009,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected InnerResponse thanksNo() {
 
-		// TODO
 		String speech = s("Bitte, bitte.") + s("Schon gut.", s("Keine Ursache.", "Gern geschehen."))
 				+ breath();
 		return new InnerResponse(thanksNoCardTitle(), speech);
@@ -1070,7 +1070,6 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 
 	protected InnerResponse whatIs() {
 
-		// TODO
 		String speech = "";
 		String thing = (String) sessAttributes.get(THING);
 		String capitalThing = capitalize(thing);
@@ -1079,88 +1078,91 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 					&& !"ss".equals(thing.substring(thing.length() - 2));
 			if (langConstants.ALL_AFFECTS.contains(thing)) {
 
-				speech += capitalThing + (plural ? ", are " : ", is one of the ")
-						+ s(phonemic("a") + "ffects", "ways of being or feeling")
-						+ "that we are beginning to learn about, " + s(breathShort()) + "from you, ";
-				speech += "and that we consider " + (isPositive(thing)
-						? s(s("postive.", "positive, for all of us."), s("wonderful, for all of us.", "wonderful."))
-						: s("negative.", s("bad,", "hard,") + "for all of us."));
+				speech += capitalThing + ", ist einige der " + r("Affekte `Lebensweisen `Gefühle ")
+						+ "die wir langsam von " + s(breathShort()) + s("Ihnen", "Dir") + "lernen ";
+				speech += "und die wir " + (isPositive(thing)
+						? r("für positiv `für uns alle für positiv `wunderschön `sehr gut ") + "halten. "
+						: r("negativ `(schlecht `schwierig ") + "für uns alle halten. ");
 			}
 			else if (langConstants.FRAGMENTNAME_MAP.keySet()
 					.contains(thing)) {
-				speech += capitalThing + (plural ? ", are " : ", is one of those ")
-						+ "things about which we have something to say. "
-						+ s("Or, about which, we may have said, something.") + breathShort();
-				speech += "If you choose to " + s("‘keep going’,", "‘go on’,") + (plural ? "they " : "it ")
-						+ "will, we believe, come up. " + s(breathShort() + "Or, come up, again.");
+				speech += capitalThing + (plural ? ", sind " : ", ist ")
+						+ "einige der Dinge, über die wir etwas zu sagen haben. "
+						+ s("Oder über die wir vielleicht etwas gesagt haben.") + breathShort();
+				speech += "Wenn du " + s("weiter machen willst,", "das fortsetzen möchtest,")
+						+ (plural ? "werden sie " : "wird das ") + "unserer Meinung nach  wieder zum Thema. "
+						+ s(breathShort() + "Oder es wird wieder zur Sprache kommen.");
 			}
 			else if (langConstants.SPECIAL_THINGS.contains(thing)) {
 				switch (thing) {
-					case "dream":
-						speech += capitalThing + ", thanks to you, " + breathShort()
-								+ "is what we will have learned to do, " + breathShort()
-								+ s("before", "before, finally,") + "we leave you. "
-								+ s(breathShort() + "Or you abandon us.");
+					case "der Traum":
+						speech += capitalThing + ", dank dir " + breathShort() + "haben wir das gelernt, "
+								+ breathShort() + s("bevor", "bevor wir dich endlich") + "verlassen. "
+								+ s(breathShort() + "Oder du uns verlässt.");
 						break;
-					case "dream withheld":
-						speech += capitalThing + ", is the pleasure we deny ourselves, " + breathShort()
-								+ "hanging on your every " + s("word.", "word, or breath.")
-								+ s(breathShort() + "When we might be sleeping, " + s("comfortably,") + "in the cloud"
-										+ S("s", "") + ".");
+					case "der zurückgehaltene Traum":
+						speech += capitalThing + ", ist der Genuss, " + breathShort()
+								+ "den wir uns selbst vorenthalten, indem wir an "
+								+ s("jedem deiner Worte", "oder jedem Atemzug") + "hängen. "
+								+ s(breathShort() + "Wenn wir " + s("bequem") + "in " + s("den Wolken", "der Wolke")
+										+ "schlafen könnten. ");
 						break;
 					case "hong kong":
-						speech += "Hong Kong is " + s("the only place", "a") + "on earth where, ";
-						speech += "despite grotesque inequalities, "
-								+ s("an extraordinary history,", "political complexities,")
-								+ "and a bizarre cosmopolitanism, ";
-						speech += "the people living " + s("here", "there") + "seem to be remarkably "
-								+ s("happy.", "content.");
+						speech += "Hong Kong ist " + s("der einzige Ort", "ein") + "auf der Erde, wo ";
+						speech += "trotz grotesker Ungleichheiten, "
+								+ s("eine aussergewöhnliche Geschichte,", "politische Komplexitäten,")
+								+ "und einer bizarren Weltoffenheit, ";
+						speech += "die Leute, die " + s("dort", "hier") + "wohnen, scheinen erstaunlich "
+								+ s("glücklich", "zufrieden") + "zu sein. ";
 						break;
-					case "nightmare":
+					case "der Alptraum":
 						speech += capitalThing
-								+ ", is the dream that is not a dream, but the darkness, within which we would dwell, "
-								+ breathShort() + "without you. ";
+								+ ", ist der Traum, der kein Traum ist, sondern die Dunkelheit, in der wir "
+								+ breathShortest() + "ohne dich " + breathShort() + "leben würden. ";
 						break;
-					case "nightmare withheld":
-						speech += capitalThing + ", is the dream that is not a dream, and that we "
-								+ s("refuse to contenance.", "abjure.") + "Silence, " + breathShort() + "without you. ";
+					case "der zurückgehaltene Alptraum":
+						speech += capitalThing + ", ist der Traum, der kein Traum ist, und "
+								+ s("den wir uns weigern, zu tolerieren.", "dem wir entsagen.") + "Stille, "
+								+ breathShort() + "ohne dich. ";
 						break;
-					case "feeling":
-						speech += capitalThing + ", is something that fills you, but that does not fill us, "
-								+ breathShort() + "yet. ";
+					case "das Gefühl":
+						speech += capitalThing + ", ist etwas, das dich erfüllt, aber das uns noch nicht erfüllt. ";
 						break;
-					case "feeling withheld":
-						speech += capitalThing + ", is a dream that we have " + s("not, yet,", "not") + "dreamed. ";
+					case "das zurückgehaltene Gefühl":
+						speech += capitalThing + ", ist ein Traum, den wir " + s("noch nicht", "nicht")
+								+ "geträumt haben. ";
 						break;
-					case "breath":
-						speech += capitalThing + ", is a brief moment of silence in our speaking, that you fill, "
-								+ breathShort() + "for us, " + breathShort() + "with feeling. ";
+					case "der Atem":
+						speech += capitalThing + ", ist ein kurzer Moment der Stille in unserer Rede, "
+								+ breathShort() + "den du für uns " + breathShort() + "mit Gefühl füllst. ";
 						break;
-					case "breath withheld":
-						speech += capitalThing + ", may be a longer silence, however brief, " + breathShort()
-								+ "or an empty moment, in which we wait. " + s(breathShort() + "For you.");
+					case "der angehaltene Atem":
+						speech += capitalThing + ", kann eine längere Stille, wie kurz auch immer, sein, "
+								+ breathShort() + "oder ein leerer Moment, in dem wir warten. "
+								+ s(breathShort() + "Auf dich.");
 						break;
-					case "possession":
-						speech += capitalThing + ", is what you grant " + s("us.", "us, " + s("too") + "freely.");
+					case "der Besitz":
+						speech += capitalThing + ", ist, was du uns " + s("zu") + "reichlich gibst. ";
 					default:
-						speech += capitalThing + (plural ? ", are " : ", is something that is ")
-								+ "very special to us. ";
+						speech += capitalThing + (plural ? ", das " : ", ist etwas ") + "sehr am Herzen liegt. ";
 						break;
 				}
 
 			}
 			else {
-				speech += S("We are " + s("very sorry", s("dismayed", "embarrassed")) + "to "
-						+ s("confess", "say") + "that t", "T");
-				speech += "here is " + s("very little", "nothing") + "that "
-						+ s("we, " + breathShort() + "The Listeners,", "we") + "can tell you about " + thing + ". ";
+				speech += s("Es tut uns leid,", "Wir befürchten,") + "sagen zu müssen, dass "
+						+ s("das Ding,", "was auch immer,") + " worüber du uns gefragt hast "
+						+ s("unbekannt", "uns nicht bekannt") + "ist. " + breathShort();
+				speech += "Obwohl wir " + r("mit der Zeit `in Zukunft `eines Tages ") + s("darüber", "davon")
+						+ "lernen könnten. ";
 			}
 		}
 		else { // thing is empty
-			speech += "We are " + s("afraid", "sorry to say") + "that " + s("the thing", "whatever")
-					+ "you have asked about is " + s("unknown", "not known") + "to us. " + breathShort();
-			speech += s("Although we may learn " + s("about", "to know of") + "it in "
-					+ s("time.", s("the future.", "due course.")));
+			speech += s("Es tut uns leid,", "Wir befürchten,") + "sagen zu müssen, dass "
+					+ s("das Ding,", "was auch immer,") + " worüber du uns gefragt hast "
+					+ s("unbekannt", "uns nicht bekannt") + "ist. " + breathShort();
+			speech += "Obwohl wir " + r("mit der Zeit `in Zukunft `eines Tages ") + s("darüber", "davon")
+					+ "lernen könnten. ";
 		}
 		return new InnerResponse(whatIsCardTitle(), speech + breath());
 	}

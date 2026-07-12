@@ -13,7 +13,7 @@ public class DontLikeIntent_en_US extends DontLikeIntent {
 		String intensifier = "upset".equals(adjective) ? "a bit " : "very ";
 		String speech = "We’re " + s(adjective, intensifier + adjective);
 		speech += "to " + s("know", "have found out") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. ";
 		speech = String.format(speech, affect);
 		return speech + breath();
 	}

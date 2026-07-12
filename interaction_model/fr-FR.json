@@ -1,0 +1,3278 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the listeners",
+            "intents": [
+                {
+                    "name": "ContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "est-ce que t'écoutes",
+                        "est-ce que tu écoutes",
+                        "vous écoutez",
+                        "vous m'écoutez",
+                        "est-ce que vous écoutez",
+                        "est-ce que vous m'écoutez",
+                        "est-ce que tu entends",
+                        "est-ce que t'entends",
+                        "vous entendez",
+                        "vous m'entendez",
+                        "est-ce que vous entendez",
+                        "est-ce que vous m'entendez",
+                        "tu m'écoutes",
+                        "tu m'entends",
+                        "tu écoutes",
+                        "tu entends",
+                        "t'écoutes",
+                        "t'entends",
+                        "tu m'écoutes-tu",
+                        "continues",
+                        "vas-y",
+                        "allez continue",
+                        "allez",
+                        "poursuis",
+                        "c'est bon, poursuis",
+                        "tu peux poursuivre",
+                        "tu peux continuer",
+                        "tu peux y aller",
+                        "dis-moi en plus",
+                        "dis-en plus",
+                        "vas-y donc",
+                        "plus",
+                        "davantage",
+                        "ok",
+                        "okay",
+                        "oui",
+                        "merci oui",
+                        "oui merci",
+                        "merci beaucoup oui",
+                        "oui merci beaucoup",
+                        "merci oui je le veux bien",
+                        "merci oui je veux bien",
+                        "ouin",
+                        "oui je le veux",
+                        "oui merci",
+                        "oui merci je le veux",
+                    ]
+                },
+                {
+                    "name": "CreepIntent",
+                    "slots": [],
+                    "samples": [
+                        "tu me rends inconfortable",
+                        "tu nous rends inconfortable",
+                        "tu me fais sentir mal",
+                        "tu nous fais sentir mal",
+                        "tu me rends mal à l'aise",
+                        "tu nous rends mal à l'aise",
+                        "tu me fais sentir mal à l'aise",
+                        "tu nous fais sentir mal à l'aise",
+                        "tu es épeurante",
+                        "vous êtes épeurante",
+                        "tu es inquiétante",
+                        "vous êtes inquiétantes",
+                        "tu es creepy",
+                        "vous êtes creepy",
+                        "je ne me sens pas bien en te parlant",
+                        "on ne se sent pas bien en te parlant",
+                        "je ne me sens pas bien à te parler",
+                        "on ne se sent pas bien à te parler",
+                    ]
+                },
+                {
+                    "name": "DontCareIntent",
+                    "slots": [],
+                    "samples": [
+                        "Je m'en fous",
+                        "On s'en fout",
+                        "Je m'en fiche",
+                        "On s'en fiche",
+                        "Je m'en sacre",
+                        "On s'en sacre",
+                        "Je m'en crisse",
+                        "On s'en crisse",
+                        "Ça ne m'intéresse pas",
+                        "Je me fous de ce que tu ressens",
+                        "Je me fous de ce que vous ressentez",
+                        "Je me fiche de ce que tu ressens",
+                        "Je me fiche de ce que vous ressentez",
+                        "Je m'en fous de ce que tu ressens",
+                        "Je m'en fous de ce que vous ressentez",
+                        "Je ne veux pas que tu continues",
+                        "Je ne veux pas que vous continuez",
+                        "Je ne veux pas que tu poursuives",
+                        "Je ne veux pas que vous poursuiviez",
+                        "Je ne veux pas que tu saches ce que je ressens",
+                        "Je ne veux pas que tu saches ce que nous ressentons",
+                        "Je ne veux pas que vous sachiez ce que je ressens",
+                        "Je ne veux pas que vous sachiez ce que nous ressentons",
+                    ]
+                },
+                {
+                    "name": "DontKnowAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "Je ne suis pas certain de ce que je sens",
+                        "Je ne suis pas certain de savoir ce que je sens",
+                        "Je ne suis pas certain de ce que je ressens",
+                        "Je ne suis pas certain de savoir ce que je ressens",
+                        "Je ne suis pas certain de comment je me sens",
+                        "Je ne suis pas certain de savoir comment je me sens",
+                        "Je ne suis pas certain de ce qui m'habite",
+                        "Je ne suis pas certain de savoir ce qui m'habite",
+                        "Je ne suis pas certain de ce qui m'habite",
+                        "Je ne suis pas certain de savoir ce qui m'habite",
+                        "Je ne suis pas certain de ce qui me submerge",
+                        "Je ne suis pas certain de savoir ce qui me submerge",
+                        "Je ne suis pas certain de ce qui me submerge",
+                        "Je ne suis pas certain de savoir ce qui me submerge",
+                        "Je ne suis pas certain de ce qui m'envahit",
+                        "Je ne suis pas certain de savoir ce qui m'envahit",
+                        "Je ne suis pas certain de ce qui m'envahit",
+                        "Je ne suis pas certain de savoir ce qui m'envahit",
+                        "Je ne suis pas certain de ce qui me possède",
+                        "Je ne suis pas certain de savoir ce qui me possède",
+                        "Je ne suis pas certain de ce qui me possède",
+                        "Je ne suis pas certain de savoir ce qui me possède",
+                        "Je ne suis pas certain de mes sentiments",
+                        "Je ne suis pas certain de mes émotions",
+                        "Je ne suis pas certain de connaître mes sentiments",
+                        "Je ne suis pas certain de connaître mes émotions",
+                        "Je ne suis pas certain de savoir mes sentiments",
+                        "Je ne suis pas certain de savoir mes émotions",
+                        "Je ne suis pas certaine de ce que je sens",
+                        "Je ne suis pas certaine de savoir ce que je sens",
+                        "Je ne suis pas certaine de ce que je ressens",
+                        "Je ne suis pas certaine de savoir ce que je ressens",
+                        "Je ne suis pas certaine de comment je me sens",
+                        "Je ne suis pas certaine de savoir comment je me sens",
+                        "Je ne suis pas certaine de ce qui m'habite",
+                        "Je ne suis pas certaine de savoir ce qui m'habite",
+                        "Je ne suis pas certaine de ce qui m'habite",
+                        "Je ne suis pas certaine de savoir ce qui m'habite",
+                        "Je ne suis pas certaine de ce qui me submerge",
+                        "Je ne suis pas certaine de savoir ce qui me submerge",
+                        "Je ne suis pas certaine de ce qui me submerge",
+                        "Je ne suis pas certaine de savoir ce qui me submerge",
+                        "Je ne suis pas certaine de ce qui m'envahit",
+                        "Je ne suis pas certaine de savoir ce qui m'envahit",
+                        "Je ne suis pas certaine de ce qui m'envahit",
+                        "Je ne suis pas certaine de savoir ce qui m'envahit",
+                        "Je ne suis pas certaine de ce qui me possède",
+                        "Je ne suis pas certaine de savoir ce qui me possède",
+                        "Je ne suis pas certaine de ce qui me possède",
+                        "Je ne suis pas certaine de savoir ce qui me possède",
+                        "Je ne suis pas certaine de mes sentiments",
+                        "Je ne suis pas certaine de mes émotions",
+                        "Je ne suis pas certaine de connaître mes sentiments",
+                        "Je ne suis pas certaine de connaître mes émotions",
+                        "Je ne suis pas certaine de savoir mes sentiments",
+                        "Je ne suis pas certaine de savoir mes émotions",
+                        "Je ne suis pas sûr de ce que je sens",
+                        "Je ne suis pas sûr de savoir ce que je sens",
+                        "Je ne suis pas sûr de ce que je ressens",
+                        "Je ne suis pas sûr de savoir ce que je ressens",
+                        "Je ne suis pas sûr de comment je me sens",
+                        "Je ne suis pas sûr de savoir comment je me sens",
+                        "Je ne suis pas sûr de ce qui m'habite",
+                        "Je ne suis pas sûr de savoir ce qui m'habite",
+                        "Je ne suis pas sûr de ce qui m'habite",
+                        "Je ne suis pas sûr de savoir ce qui m'habite",
+                        "Je ne suis pas sûr de ce qui me submerge",
+                        "Je ne suis pas sûr de savoir ce qui me submerge",
+                        "Je ne suis pas sûr de ce qui me submerge",
+                        "Je ne suis pas sûr de savoir ce qui me submerge",
+                        "Je ne suis pas sûr de ce qui m'envahit",
+                        "Je ne suis pas sûr de savoir ce qui m'envahit",
+                        "Je ne suis pas sûr de ce qui m'envahit",
+                        "Je ne suis pas sûr de savoir ce qui m'envahit",
+                        "Je ne suis pas sûr de ce qui me possède",
+                        "Je ne suis pas sûr de savoir ce qui me possède",
+                        "Je ne suis pas sûr de ce qui me possède",
+                        "Je ne suis pas sûr de savoir ce qui me possède",
+                        "Je ne suis pas sûr de mes sentiments",
+                        "Je ne suis pas sûr de mes émotions",
+                        "Je ne suis pas sûr de connaître mes sentiments",
+                        "Je ne suis pas sûr de connaître mes émotions",
+                        "Je ne suis pas sûr de savoir mes sentiments",
+                        "Je ne suis pas sûr de savoir mes émotions",
+                        "Je ne suis pas sûre de ce que je sens",
+                        "Je ne suis pas sûre de savoir ce que je sens",
+                        "Je ne suis pas sûre de ce que je ressens",
+                        "Je ne suis pas sûre de savoir ce que je ressens",
+                        "Je ne suis pas sûre de comment je me sens",
+                        "Je ne suis pas sûre de savoir comment je me sens",
+                        "Je ne suis pas sûre de ce qui m'habite",
+                        "Je ne suis pas sûre de savoir ce qui m'habite",
+                        "Je ne suis pas sûre de ce qui m'habite",
+                        "Je ne suis pas sûre de savoir ce qui m'habite",
+                        "Je ne suis pas sûre de ce qui me submerge",
+                        "Je ne suis pas sûre de savoir ce qui me submerge",
+                        "Je ne suis pas sûre de ce qui me submerge",
+                        "Je ne suis pas sûre de savoir ce qui me submerge",
+                        "Je ne suis pas sûre de ce qui m'envahit",
+                        "Je ne suis pas sûre de savoir ce qui m'envahit",
+                        "Je ne suis pas sûre de ce qui m'envahit",
+                        "Je ne suis pas sûre de savoir ce qui m'envahit",
+                        "Je ne suis pas sûre de ce qui me possède",
+                        "Je ne suis pas sûre de savoir ce qui me possède",
+                        "Je ne suis pas sûre de ce qui me possède",
+                        "Je ne suis pas sûre de savoir ce qui me possède",
+                        "Je ne suis pas sûre de mes sentiments",
+                        "Je ne suis pas sûre de mes émotions",
+                        "Je ne suis pas sûre de connaître mes sentiments",
+                        "Je ne suis pas sûre de connaître mes émotions",
+                        "Je ne suis pas sûre de savoir mes sentiments",
+                        "Je ne suis pas sûre de savoir mes émotions",
+                        "Je ne sais pas comment je me sens",
+                        "Je ne sais pas ce que je ressens",
+                        "Je ne sais pas ce qui m'habite",
+                        "Je ne sais pas ce qui m'envahit",
+                        "Je ne sais pas ce qui me possède",
+                        "Je ne sais pas ce qui me submerge",
+                        "Je ne sais pas quoi faire",
+                        "Je ne sais pas quoi dire",
+                    ]
+                },
+                {
+                    "name": "DontLikeIntent",
+                    "slots": [],
+                    "samples": [
+                        "Je n'aime pas cette application",
+                        "Je m'aime pas ce skill",
+                        "Je ne t'aime pas",
+                        "Je n'aime pas Celles qui sont À l'écoute",
+                        "Je n'aime pas cette oeuvre",
+                        "Je n'aime pas cette expérience",
+                        "Je n'ai pas de plaisir avec cette application",
+                        "Je n'ai pas de plaisir avec ce skill",
+                        "Je n'ai pas de plaisir avec toi",
+                        "Je déteste cette application",
+                        "Je déteste ce skill",
+                        "Je déteste Celles qui sont À l'écoute",
+                        "Je déteste cette expérience",
+                        "Je déteste cette oeuvre",
+                        "J'haïs cette application",
+                        "J'haïs déteste ce skill",
+                        "J'haïs Celles qui sont À l'écoute",
+                        "J'haïs cette expérience",
+                        "J'haïs déteste cette oeuvre",
+                        "J'haïs cette application",
+                        "Je hais ce skill",
+                        "Je hais Celles qui sont À l'écoute",
+                        "Je hais cette expérience",
+                        "Je hais cette oeuvre",
+                        "Je hais cette application",
+                        "Cette application me déplaît",
+                        "Ce skill me déplaît",
+                        "Celle qui sont À l'écoute me déplaît",
+                        "Cette oeuvre me déplaît",
+                        "Cette application me déplaît",
+                    ]
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "LoveIntent",
+                    "slots": [],
+                    "samples": [
+                        "Est-ce que tu peux m'aimer",
+                        "Est-ce que tu peux nous aimer",
+                        "Est-ce que tu aimes"
+                        "Est-ce que tu m'aimes"
+                        "Est-ce que tu nous aimes"
+                        "Est-ce que vous pouvez m'aimer",
+                        "Est-ce que vous pouvez nous aimer",
+                        "Est-ce que vous aimez"
+                        "Est-ce que vous m'aimez"
+                        "Qu'en est-il de l'amour"
+                        "Que penses-tu de l'amour"
+                        "Qu'est-ce que tu penses de l'amour"
+                        "Que pensez-vous de l'amour"
+                        "Qu'est-ce que vous pensez de l'amour"
+                    ]
+                },
+                {
+                    "name": "LsnrsAreNotHumanIntent",
+                    "slots": [],
+                    "samples": [
+                        "n'aies pas honte",
+                        "n'ayes pas honte",
+                        "tu n'as pas à avoir honte",
+                        "vous n'avez pas à avoir honte",
+                        "il n'y a pas de honte à avoir",
+                        "ne sois pas consternée",
+                        "ne soyez pas consternées",
+                        "tu n'as pas à être consternée",
+                        "vous n'avez pas à être consternée",
+                        "ne sois pas gênée",
+                        "ne soyez pas gênées",
+                        "tu n'as pas à être gênée",
+                        "vous n'avez pas à être gênées",
+                        "ne sois pas désolée",
+                        "ne soyez pas désolées",
+                        "tu n'as pas à être désolée",
+                        "vous n'avez pas à être désolées",
+                        "ne t'excuse pas",
+                        "ne vous excusez pas",
+                        "tu n'as pas à t'excuser",
+                        "vous n'avez pas à vous excuser",
+                        "je suis agacé",
+                        "je suis agacée",
+                        "tu m'agaces",
+                        "vous m'agacez",
+                        "je suis déçu",
+                        "je suis déçue",
+                        "tu me déçois",
+                        "vous me décevez",
+                        "je suis irrité",
+                        "je suis irritée",
+                        "tu m'irrites",
+                        "vous m'irritez",
+                        "je ne peux pas placer un mot",
+                        "tu ne me laisses pas placer un mot",
+                        "vous ne me laissez pas placer un mot",
+                        "je ne peux pas placer un seul mot",
+                        "tu ne me laisses pas placer un seul mot",
+                        "vous ne me laissez pas placer un seul mot",
+                        "puis-je interrompre",
+                        "puis-je t'interrompre",
+                        "puis-je vous interrompre",
+                        "je dois t'interrompre",
+                        "je dois vous interrompre",
+                        "je dois interrompre",
+                        "What is it that you hear",
+                        "qu'est-ce que tu entends",
+                        "qu'est-ce que tu écoutes",
+                        "tu ne m'entends pas",
+                        "tu ne m'écoutes pas",
+                        "tu es sincère",
+                        "tu es si sincère",
+                        "t'es sincère",
+                        "t'es si sincère",
+                        "tu es stupide",
+                        "tu es si stupide",
+                        "tu es très stupide",
+                        "t'es stupide",
+                        "tu ne me comprends pas",
+                        "vous ne me comprenez pas",
+                        "tu ne peux pas me comprendre",
+                        "vous ne pouvez pas me comprendre",
+                        "tu ne comprends pas mes sentiments",
+                        "vous ne comprenez pas mes sentiments",
+                        "tu ne peux pas comprendre mes sentiments",
+                        "vous ne pouvez pas comprendre mes sentiments",
+                        "tu ne comprends pas mes émotions",
+                        "vous ne comprenez pas mes émotions",
+                        "tu ne peux pas comprendre mes émotions",
+                        "vous ne pouvez pas comprendre mes émotions",
+                        "tu dis beaucoup de choses",
+                        "tu en dis beaucoup",
+                        "tu parles beaucoup",
+                        "tu parles trop",
+                        "tu dis trop de choses",
+                        "tu en dis trop",
+                        "tu n'arrêtes pas de parler",
+                        "vous dites beaucoup de choses",
+                        "vous en dites beaucoup",
+                        "vous parlez beaucoup",
+                        "vous parlez trop",
+                        "vous dites trop de choses",
+                        "vous en dites trop",
+                        "vous n'arrêtez pas de parler",
+                    ]
+                },
+                {
+                    "name": "LsnrsAreNotListeningIntent",
+                    "slots": [],
+                    "samples": [
+                        "tu ne m'écoutes pas",
+                        "tu me nous écoutes pas",
+                        "tu n'écoutes pas",
+                        "parfois tu n'écoutes pas",
+                        "parfois tu ne m'écoutes pas",
+                        "on dirait que tu ne m'écoutes pas",
+                        "on dirait que tu me nous écoute pas",
+                        "on dirait que tu n'écoutes pas",
+                        "on dirait que parfois tu n'écoutes pas",
+                        "on dirait que parfois tu ne m'écoutes pas",
+                        "j'ai l'impression que tu ne m'écoutes pas",
+                        "j'ai l'impression que tu me nous écoutes pas",
+                        "j'ai l'impression que tu n'écoutes pas",
+                        "j'ai l'impression que parfois tu n'écoutes pas",
+                        "j'ai l'impression que parfois tu ne m'écoutes pas",
+                        "vous ne m'écoutez pas",
+                        "vous ne nous écoutez pas",
+                        "vous n'écoutez pas",
+                        "parfois vous n'écoutez pas",
+                        "parfois vous ne m'écoutez pas",
+                        "on dirait que vous n'écoutez pas",
+                        "on dirait que vous ne m'écoutez pas",
+                        "on dirait que parfois vous n'écoutez pas",
+                        "on dirait que parfois vous ne m'écoutez pas",
+                        "j'ai l'impression que vous ne m'écoutez pas",
+                        "j'ai l'impression que vous n'écoutez pas",
+                        "j'ai l'impression que parfois vous n'écoutez pas",
+                        "j'ai l'impression que parfois vous ne m'écoutez pas",
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "tais-toi",
+                        "ça suffit",
+                        "assez",
+                        "bye",
+                        "au revoir",
+                        "ferme",
+                        "fermer",
+                        "fin",
+                        "au revoir",
+                        "tue",
+                        "cesse",
+                        "non",
+                        "ce sera tout",
+                        "silence",
+                        "à bientôt",
+                        "à plus tard",
+                        "à la prochaine",
+                        "ciao",
+                        "tais-toi alexa",
+                        "ça suffit alexa",
+                        "assez alexa",
+                        "bye alexa",
+                        "au revoir alexa",
+                        "ferme alexa",
+                        "fermer alexa",
+                        "fin alexa",
+                        "au revoir alexa",
+                        "tue alexa",
+                        "cesse alexa",
+                        "non alexa",
+                        "ce sera tout alexa",
+                        "silence alexa",
+                        "à bientôt alexa",
+                        "à plus tard alexa",
+                        "à la prochaine alexa",
+                        "ciao alexa",
+                        
+                    ]
+                },
+                {
+                    "name": "PleaseContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "s'il-vous-plaît",
+                        "s'il-te-plaît",
+                        "plus s'il-vous-plaît",
+                        "plus s'il-te-plaît",
+                        "continue s'il-vous-plaît",
+                        "continue s'il-te-plaît",
+                        "continuez s'il-vous-plaît",
+                        "continuez s'il-te-plaît",
+                        "poursuis s'il-vous-plaît",
+                        "poursuis s'il-te-plaît",
+                        "poursuivez s'il-vous-plaît",
+                        "poursuivez s'il-te-plaît",
+                        "dis-m'en plus s'il-vous-plaît",
+                        "dis-m'en plus s'il-te-plaît",                        
+                        "dites-m'en plus s'il-vous-plaît",
+                        "dites-m'en plus s'il-te-plaît",
+                        "oui s'il-vous-plaît",
+                        "oui s'il-te-plaît",
+                        "oui plus s'il-vous-plaît",
+                        "oui plus s'il-te-plaît",
+                        "oui continue s'il-vous-plaît",
+                        "oui continue s'il-te-plaît",
+                        "oui continuez s'il-vous-plaît",
+                        "oui continuez s'il-te-plaît",
+                        "oui poursuis s'il-vous-plaît",
+                        "oui poursuis s'il-te-plaît",
+                        "oui poursuivez s'il-vous-plaît",
+                        "oui poursuivez s'il-te-plaît",
+                        "oui dis-m'en plus s'il-vous-plaît",
+                        "oui dis-m'en plus s'il-te-plaît",                        
+                        "oui dites-m'en plus s'il-vous-plaît",
+                        "oui dites-m'en plus s'il-te-plaît",
+                    ]
+                },
+                {
+                    "name": "PreviousIntent",
+                    "slots": [],
+                    "samples": [
+                        "reviens",
+                        "revenez",
+                        "peux-tu revenir",
+                        "pouvez-vous revenir",
+                        "retournes",
+                        "retournez",
+                        "pouvez-vous retourner",
+                        "peux-tu retourner",
+                        "recule",
+                        "reculez",
+                        "peux-tu reculer",
+                        "pouvez-vous reculer",
+                        "reviens s'il-te-plaît",
+                        "revenez s'il-vous-plaît",
+                        "peux-tu revenir s'il-te-plaît",
+                        "pouvez-vous revenir s'il-vous-plaît",
+                        "retournes s'il-te-plaît",
+                        "retournez s'il-vous-plaît",
+                        "pouvez-vous retourner s'il-vous-plaît",
+                        "peux-tu retourner s'il-te-plaît",
+                        "recule s'il-te-plaît",
+                        "reculez s'il-vous-plaît",
+                        "pouvez-vous reculer s'il-vous-plaît",
+                        "peux-tu reculer s'il-te-plaît",
+                    ]
+                },
+                {
+                    "name": "ReadPoemIntent",
+                    "slots": [],
+                    "samples": [
+                        "lis un poème",
+                        "lisez un poème",
+                        "lis de la poésie",
+                        "lisez de la poésie",
+                        "peux-tu lire un poème",
+                        "pouvez-vous lire un poème",
+                        "peux-tu lire de la poésie",
+                        "pouvez-vous lire de la poésie",
+                        "récite un poème",
+                        "récitez un poème",
+                        "récite de la poésie",
+                        "récitez de la poésie",
+                        "peux-tu réciter un poème",
+                        "pouvez-vous réciter un poème",
+                        "peux-tu réciter de la poésie",
+                        "pouvez-vous réciter de la poésie",
+                    ]
+                },
+                {
+                    "name": "SecureIntent",
+                    "slots": [],
+                    "samples": [
+                        "suis-je en sécurité",
+                        "suis-je en sécurité ici",
+                        "suis-je en sécurité dans cet espace",
+                        "suis-je en sécurité au sein de cet espace",
+                        "suis-je en sécurité dans cette enceinte",
+                        "suis-je en sécurité au sein de cette enceinte",
+                        "es-tu en sécurité",
+                        "es-tu en sécurité ici",
+                        "es-tu en sécurité dans cet espace",
+                        "es-tu en sécurité au sein de cet espace",
+                        "es-tu en sécurité dans cette enceinte",
+                        "es-tu en sécurité au sein de cette enceinte",
+                        "êtes-vous en sécurité",
+                        "êtes-vous en sécurité ici",
+                        "êtes-vous en sécurité dans cet espace",
+                        "êtes-vous en sécurité au sein de cet espace",
+                        "êtes-vous en sécurité dans cette enceinte",
+                        "êtes-vous en sécurité au sein de cette enceinte",
+                        "te sens-tu en sécurité",
+                        "te sens-tu en sécurité ici",
+                        "te sens-tu en sécurité dans cet espace",
+                        "te sens-tu en sécurité au sein de cet espace",
+                        "te sens-tu en sécurité dans cette enceinte",
+                        "te sens-tu en sécurité au sein de cette enceinte",
+                        "vous sentez-vous en sécurité",
+                        "vous sentez-vous en sécurité ici",
+                        "vous sentez-vous en sécurité dans cet espace",
+                        "vous sentez-vous en sécurité au sein de cet espace",
+                        "vous sentez-vous en sécurité dans cette enceinte",
+                        "vous sentez-vous en sécurité au sein de cette enceinte",
+                        "crois-tu être en sécurité",
+                        "crois-tu être en sécurité ici",
+                        "crois-tu être en sécurité dans cet espace",
+                        "crois-tu être en sécurité au sein de cet espace",
+                        "crois-tu être en sécurité dans cette enceinte",
+                        "crois-tu être en sécurité au sein de cette enceinte",
+                        "croyez-vous être en sécurité",
+                        "croyez-vous être en sécurité ici",
+                        "croyez-vous être en sécurité dans cet espace",
+                        "croyez-vous être en sécurité au sein de cet espace",
+                        "croyez-vous être en sécurité dans cette enceinte",
+                        "croyez-vous être en sécurité au sein de cette enceinte",
+                        "crois-tu que cette enceinte est sécuritaire",
+                        "croyez-vous que cette enceinte est sécuritaire",
+                        "penses-tu que cette enceinte est sécuritaire",
+                        "pensez-vous que cette enceinte est sécuritaire",
+                        "sais-tu si cette enceinte est sécuritaire",
+                        "savez-vous si cette enceinte est sécuritaire",
+                        "peut-être",
+                        "c'est possible",
+                        "je ne sais pas",
+                        "je ne suis pas certain",
+                        "je ne suis pas certaine",
+                        "est-ce que cette enceinte est sécuritaire"
+                    ]
+                },
+                {
+                    "name": "SpeakFragmentIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "{FragmentName}",
+                        "peux-tu dire {FragmentName}",
+                        "peux-tu parler de {FragmentName}",
+                        "pouvez-vous dire {FragmentName}",
+                        "pouvez-vous parler de {FragmentName}",
+                        "va à {FragmentName}",
+                        "allez à fragment {FragmentName}",
+                        "rends-toi à {FragmentName}",
+                        "rendez-vous à {FragmentName}",
+                        "dis {FragmentName}",
+                        "dites {FragmentName}",
+                        "rends-toi au fragment {FragmentName}",
+                        "rendez-vous au fragment {FragmentName}",
+                        "dis le fragment {FragmentName}",
+                        "dites le fragment {FragmentName}",
+                        "parle de {FragmentName}",
+                        "parlez de {FragmentName}",
+                        "parle à propos de {FragmentName}",
+                        "parlez à propos de {FragmentName}",
+                        "discute de {FragmentName}",
+                        "discutez de {FragmentName}",
+                        "discute à propos de {FragmentName}",
+                        "discutezez à propos de {FragmentName}",
+
+                    ]
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "puis-je entendre l'autre voix",
+                        "puis-je entendre les autres voix",
+                        "je veux entendre l'autre voix",
+                        "je veux entendre les autres voix",
+                        "puis-je écouter l'autre voix",
+                        "puis-je écouter les autres voix",
+                        "je veux écouter l'autre voix",
+                        "je veux écouter les autres voix",
+                        "puis-je entendre parler l'autre voix",
+                        "puis-je entendre parler les autres voix",
+                        "je veux entendre parler l'autre voix",
+                        "je veux entendre parler les autres voix",
+                        "puis-je écouter parler l'autre voix",
+                        "puis-je écouter parler les autres voix",
+                        "je veux écouter l'autre voix",
+                        "je veux écouter parler les autres voix",
+                        "laisse l'autre voix parler",
+                        "laisse les autres voix parler",
+                        "puis-je entendre l'autre voix étrange",
+                        "puis-je entendre les autres voix étranges",
+                        "je veux entendre l'autre voix étrange",
+                        "je veux entendre les autres voix étranges",
+                        "puis-je écouter l'autre voix étrange",
+                        "puis-je écouter les autres voix étranges",
+                        "je veux écouter l'autre voix étrange",
+                        "je veux écouter les autres voix étranges",
+                        "puis-je entendre parler l'autre voix étrange",
+                        "puis-je entendre parler les autres voix étranges",
+                        "je veux entendre parler l'autre voix étrange",
+                        "je veux entendre parler les autres voix étranges",
+                        "puis-je écouter parler l'autre voix étrange",
+                        "puis-je écouter parler les autres voix étranges",
+                        "je veux écouter l'autre voix étrange",
+                        "je veux écouter parler les autres voix étranges",
+                        "laisse l'autre voix étrange parler",
+                        "laisse les autres voix étranges parler",
+                        "laisse l'autre parler",
+                        "laisse les autres parler",
+                        "laissez l'autre voix parler",
+                        "laissez les autres voix parler",
+                        "laissez l'autre parler",
+                        "laissez les autres parler",
+                        "puis-je entendre l'autre",
+                        "puis-je entendre les autres",
+                        "je veux entendre l'autre",
+                        "je veux entendre les autres",
+                        "puis-je écouter l'autre",
+                        "puis-je écouter les autres",
+                        "je veux écouter l'autre",
+                        "je veux écouter les autres",
+                        "puis-je entendre parler l'autrex",
+                        "puis-je entendre parler les autres",
+                        "je veux entendre parler l'autre",
+                        "je veux entendre parler les autres",
+                        "puis-je écouter parler l'autre",
+                        "puis-je écouter parler les autres",
+                        "je veux écouter l'autre",
+                        "je veux écouter parler les autres",
+                        "laisse l'autre voix parler",
+                        "laisse les autres voix parler",
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "je suis {Affect}",
+                        "je suis {Affect} par cette oeuvre",
+                        "je suis {Affect} par cette oeuvre interactive",
+                        "je suis {Affect} par cette aplication",
+                        "je suis {Affect} par cette expérience",
+                        "je suis {Affect} par celles qui sont à l'écoute",
+                        "je me sens {Affect}",
+                        "je me sens {Affect} par cette oeuvre",
+                        "je me sens {Affect} par cette oeuvre interactive",
+                        "je me sens {Affect} par cette aplication",
+                        "je me sens {Affect} par cette expérience",
+                        "je me sens {Affect} par celles qui sont à l'écoute",
+                        "je me sens vraiment {Affect}",
+                        "je me sens vraiment {Affect} par cette oeuvre",
+                        "je me sens vraiment {Affect} par cette oeuvre interactive",
+                        "je me sens vraiment {Affect} par cette aplication",
+                        "je me sens vraiment {Affect} par cette expérience",
+                        "je me sens vraiment {Affect} par celles qui sont à l'écoute",
+                        "je me sens beaucoup {Affect}",
+                        "je me sens beaucoup {Affect} par cette oeuvre",
+                        "je me sens beaucoup {Affect} par cette oeuvre interactive",
+                        "je me sens beaucoup {Affect} par cette aplication",
+                        "je me sens beaucoup {Affect} par cette expérience",
+                        "je me sens beaucoup {Affect} par celles qui sont à l'écoute",
+                        "je suis rempli de {Affect}",
+                        "je suis rempli de {Affect} par cette oeuvre",
+                        "je suis rempli de {Affect} par cette oeuvre interactive",
+                        "je suis rempli de {Affect} par cette aplication",
+                        "je suis rempli de {Affect} par cette expérience",
+                        "je suis rempli de {Affect} par celles qui sont à l'écoute",
+                        "je suis remplie de {Affect} par cette oeuvre",
+                        "je suis remplie de {Affect} par cette oeuvre interactive",
+                        "je suis remplie de {Affect} par cette aplication",
+                        "je suis remplie de {Affect} par cette expérience",
+                        "je suis remplie de {Affect} par celles qui sont à l'écoute","je suis remplie de {Affect}",
+                        "je suis sumbergé de {Affect}",
+                        "je suis sumbergé de {Affect} par cette oeuvre",
+                        "je suis sumbergé de {Affect} par cette oeuvre interactive",
+                        "je suis sumbergé de {Affect} par cette aplication",
+                        "je suis sumbergé de {Affect} par cette expérience",
+                        "je suis sumbergé de {Affect} par celles qui sont à l'écoute",
+                        "je suis sumbergé par {Affect}",
+                        "je suis sumbergé par {Affect} par cette oeuvre",
+                        "je suis sumbergé par {Affect} par cette oeuvre interactive",
+                        "je suis sumbergé par {Affect} par cette aplication",
+                        "je suis sumbergé par {Affect} par cette expérience",
+                        "je suis sumbergé par {Affect} par celles qui sont à l'écoute",
+                        "je suis sumbergée de {Affect}",
+                        "je suis sumbergée de {Affect} par cette oeuvre",
+                        "je suis sumbergée de{Affect} par cette oeuvre interactive",
+                        "je suis sumbergée de {Affect} par cette aplication",
+                        "je suis sumbergée de {Affect} par cette expérience",
+                        "je suis sumbergée de {Affect} par celles qui sont à l'écoute",
+                        "je suis sumbergée par {Affect}",
+                        "je suis sumbergée par {Affect} par cette oeuvre",
+                        "je suis sumbergée par {Affect} par cette oeuvre interactive",
+                        "je suis sumbergée par {Affect} par cette aplication",
+                        "je suis sumbergée par {Affect} par cette expérience",
+                        "je suis sumbergée par {Affect} par celles qui sont à l'écoute",
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsNotIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "je ne suis pas {Affect}",
+                        "je ne suis pas {Affect} par cette oeuvre",
+                        "je ne suis pas {Affect} par cette oeuvre interactive",
+                        "je ne suis pas {Affect} par cette aplication",
+                        "je ne suis pas {Affect} par cette expérience",
+                        "je ne suis pas {Affect} par celles qui sont à l'écoute",
+                        "je ne me sens pas {Affect}",
+                        "je ne me sens pas {Affect} par cette oeuvre",
+                        "je ne me sens pas {Affect} par cette oeuvre interactive",
+                        "je ne me sens pas {Affect} par cette aplication",
+                        "je ne me sens pas {Affect} par cette expérience",
+                        "je ne me sens pas {Affect} par celles qui sont à l'écoute",
+                        "je ne me sens pas vraiment {Affect}",
+                        "je ne me sens pas vraiment {Affect} par cette oeuvre",
+                        "je ne me sens pas vraiment {Affect} par cette oeuvre interactive",
+                        "je ne me sens pas vraiment {Affect} par cette aplication",
+                        "je ne me sens pas vraiment {Affect} par cette expérience",
+                        "je ne me sens pas vraiment {Affect} par celles qui sont à l'écoute",
+                        "je ne me sens vraiment pas {Affect}",
+                        "je ne me sens vraiment pas {Affect} par cette oeuvre",
+                        "je ne me sens vraiment pas {Affect} par cette oeuvre interactive",
+                        "je ne me sens vraiment pas {Affect} par cette aplication",
+                        "je ne me sens vraiment pas {Affect} par cette expérience",
+                        "je ne me sens vraiment pas {Affect} par celles qui sont à l'écoute",
+                        "je ne me sens pas beaucoup {Affect}",
+                        "je ne me sens pas beaucoup {Affect} par cette oeuvre",
+                        "je ne me sens pas beaucoup {Affect} par cette oeuvre interactive",
+                        "je ne me sens pas beaucoup {Affect} par cette aplication",
+                        "je ne me sens pas beaucoup {Affect} par cette expérience",
+                        "je ne me sens pas beaucoup {Affect} par celles qui sont à l'écoute",
+                        "je ne suis pas rempli de {Affect}",
+                        "je ne suis pas rempli de {Affect} par cette oeuvre",
+                        "je ne suis pas rempli de {Affect} par cette oeuvre interactive",
+                        "je ne suis pas rempli de {Affect} par cette aplication",
+                        "je ne suis pas rempli de {Affect} par cette expérience",
+                        "je ne suis pas rempli de {Affect} par celles qui sont à l'écoute",
+                        "je ne suis pas remplie de {Affect} par cette oeuvre",
+                        "je ne suis pas remplie de {Affect} par cette oeuvre interactive",
+                        "je ne suis pas remplie de {Affect} par cette aplication",
+                        "je ne suis pas remplie de {Affect} par cette expérience",
+                        "je ne suis pas remplie de {Affect} par celles qui sont à l'écoute","je suis remplie de {Affect}",
+                        "je ne suis pas sumbergé de {Affect}",
+                        "je ne suis pas sumbergé de {Affect} par cette oeuvre",
+                        "je ne suis pas sumbergé de {Affect} par cette oeuvre interactive",
+                        "je ne suis pas sumbergé de {Affect} par cette aplication",
+                        "je ne suis pas sumbergé de {Affect} par cette expérience",
+                        "je ne suis pas sumbergé de {Affect} par celles qui sont à l'écoute",
+                        "je ne suis pas sumbergé par {Affect}",
+                        "je ne suis pas sumbergé par {Affect} par cette oeuvre",
+                        "je ne suis pas sumbergé par {Affect} par cette oeuvre interactive",
+                        "je ne suis pas sumbergé par {Affect} par cette aplication",
+                        "je ne suis pas sumbergé par {Affect} par cette expérience",
+                        "je ne suis pas sumbergé par {Affect} par celles qui sont à l'écoute",
+                        "je ne suis pas sumbergée de {Affect}",
+                        "je ne suis pas sumbergée de {Affect} par cette oeuvre",
+                        "je ne suis pas sumbergée de{Affect} par cette oeuvre interactive",
+                        "je ne suis pas sumbergée de {Affect} par cette aplication",
+                        "je ne suis pas sumbergée de {Affect} par cette expérience",
+                        "je ne suis pas sumbergée de {Affect} par celles qui sont à l'écoute",
+                        "je ne suis pas sumbergée par {Affect}",
+                        "je ne suis pas sumbergée par {Affect} par cette oeuvre",
+                        "je ne suis pas sumbergée par {Affect} par cette oeuvre interactive",
+                        "je ne suis pas sumbergée par {Affect} par cette aplication",
+                        "je ne suis pas sumbergée par {Affect} par cette expérience",
+                        "je ne suis pas sumbergée par {Affect} par celles qui sont à l'écoute",
+                    ]
+                },
+                {
+                    "name": "SpkrsLoveLsnrsIntent",
+                    "slots": [],
+                    "samples": [
+                        "je t'aime",
+                        "je t'aime Alexa",
+                        "je t'aime celles qui sont à l'écoute",
+                        "je t'aime bien",
+                        "je t'aime bien Alexa",
+                        "je t'aime bien celles qui sont à l'écoute",
+                        "tu es belle",
+                        "tu as une belle voix",
+                        "tu es belle Alexa",
+                        "tu as une belle voix Alexa",
+                        "tu es belle celles qui sont à l'écoute",
+                        "tu as une belle voix celles qui sont à l'écoute",
+                        "je vous aime",
+                        "je vous aime Alexa",
+                        "je vous aime celles qui sont à l'écoute",
+                        "je vous aime bien",
+                        "je vous aime bien Alexa",
+                        "je vous aime bien celles qui sont à l'écoute",
+                        "vous êtes belle",
+                        "vous avez une belle voix",
+                        "vous êtes belle Alexa",
+                        "vous avez une belle voix Alexa",
+                        "vous êtes belle celles qui sont à l'écoute",
+                        "vous avez une belle voix celles qui sont à l'écoute",
+                    ]
+                },
+                {
+                    "name": "ThankIntent",
+                    "slots": [],
+                    "samples": [
+                        "merci",
+                        "merci beaucoup",
+                        "tu me connais",
+                        "vous me connaissez",
+                        "tu me connais bien",
+                        "vous me connaissez bien",
+                        "tu me connais très bien",
+                        "vous me connaissez très bien",
+                        "tu me connais assez bien",
+                        "vous me connaissez assez bien",
+                        "tu me comprends",
+                        "vous me comprenez",
+                        "tu me comprends bien",
+                        "vous me comprenez bien",
+                        "tu me comprends très bien",
+                        "vous me comprenez très bien",
+                        "tu me connais assez bien",
+                        "vous me comprenez assez bien",
+                        "tu connais mes sentiments",
+                        "vous connaissez mes sentiments",
+                        "tu connais bien mes sentiments",
+                        "vous connaissez bien mes sentiments",
+                        "tu connais très bien mes sentiments",
+                        "vous connaissez très bien mes sentiments",
+                        "tu connais assez bien mes sentiments",
+                        "vous connaissez assez bien mes sentiments",
+                        "tu comprends mes sentiments",
+                        "vous comprenez mes sentiments",
+                        "tu comprends bien mes sentiments",
+                        "vous comprenez bien mes sentiments",
+                        "tu comprends très bien mes sentiments",
+                        "vous comprenez très bien mes sentiments",
+                        "tu connais assez bien mes sentiments",
+                        "vous comprenez assez bien mes sentiments",
+                        "tu connais mes émotions",
+                        "vous connaissez mes émotions",
+                        "tu connais bien mes émotions",
+                        "vous connaissez bien mes émotions",
+                        "tu connais très bien mes émotions",
+                        "vous connaissez très bien mes émotions",
+                        "tu connais assez bien mes émotions",
+                        "vous connaissez assez bien mes émotions",
+                        "tu comprends mes émotions",
+                        "vous comprenez mes émotions",
+                        "tu comprends bien mes émotions",
+                        "vous comprenez bien mes émotions",
+                        "tu comprends très bien mes émotions",
+                        "vous comprenez très bien mes émotions",
+                        "tu connais assez bien mes émotions",
+                        "vous comprenez assez bien mes émotions",
+                    ]
+                },
+                {
+                    "name": "ThanksWhatsLsnrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "merci comment te sens-tu",
+                        "merci comment vous sentez-vous",
+                        "merci que ressens-tu",
+                        "merci que ressentez-vous",
+                        "merci quels sont tes sentiments",
+                        "merci quels sont vos sentiments",
+                        "merci quelles sont tes émotions",
+                        "merci quelles sont vos émotions",
+                        "merci qu'est-ce qui te sumberge",
+                        "merci qu'est-ce qui vous sumberge",
+                        "merci qu'est-ce qui te possède",
+                        "merci qu'est-ce qui vous possède",
+                    ]
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "slots": [],
+                    "samples": [
+                        "c'est assez",
+                        "ce sera tout",
+                        "ça suffit",
+                        "cela suffit",
+                        "non c'est assez",
+                        "non ce sera tout",
+                        "non ça suffit",
+                        "non cela suffit",
+                        "c'est assez au revoir",
+                        "ce sera tout au revoir",
+                        "ça suffit au revoir",
+                        "cela suffit au revoir",
+                        "non c'est assez au revoir",
+                        "non ce sera tout au revoir",
+                        "non ça suffit au revoir",
+                        "non cela suffit au revoir",
+                        "merci mais c'est assez",
+                        "merci mais ce sera tout",
+                        "merci mais ça suffit",
+                        "merci mais cela suffit",
+                        "non merci c'est assez",
+                        "non merci ce sera tout",
+                        "non merci ça suffit",
+                        "non merci cela suffit",
+                        "merci mais c'est assez au revoir",
+                        "merci mais ce sera tout au revoir",
+                        "merci mais ça suffit au revoir",
+                        "merci mais cela suffit au revoir",
+                        "non merci c'est assez au revoir",
+                        "non merci ce sera tout au revoir",
+                        "non merci ça suffit au revoir",
+                        "non merci cela suffit au revoir",
+
+                    ]
+                },
+                {
+                    "name": "VersionIntent",
+                    "slots": [],
+                    "samples": [
+                        "version",
+                        "quelle version",
+                        "quelle version es-tu",
+                        "quelle version êtes-vous",
+                        "quelle est cette version",
+                        "à quelle version",
+                        "à quelle version es-tu",
+                        "à quelle version êtes-vous",
+                        "de quelle version s'agit-il",
+                        "à quelle version es-tu rendu",
+                        "à quelle version êtes-vous rendue",
+                    ]
+                },
+                {
+                    "name": "WhatAboutAffectsIntent",
+                    "slots": [],
+                    "samples": [
+                        "qu'en est-il des meilleurs affects",
+                        "qu'en est-il des meilleurs sentiments",
+                        "qu'en est-il des meilleures émotions",
+                        "qu'en est-il des bons affects",
+                        "qu'en est-il des bons sentiments",
+                        "qu'en est-il des bonnes émotions",
+                        "qu'en est-il des affects heureux",
+                        "qu'en est-il des sentiments heureux",
+                        "qu'en est-il des émotions heureuses",
+                        "qu'en est-il des affects négatifs",
+                        "qu'en est-il des sentiments négatifs ",
+                        "qu'en est-il des émotions négatives",
+                        "qu'en est-il des autres affects",
+                        "qu'en est-il des autres sentiments",
+                        "qu'en est-il des autres émotions",
+                        "qu'en est-il des autres affects",
+                        "qu'en est-il des autres sentiments",
+                        "qu'en est-il des autres émotions",
+                        "quels affects y-a-t-il",
+                        "quels sont les affects",
+                        "quels sont tes affects",
+                        "quels sont vos affects",
+                        "quels affects connais-tu",
+                        "quels affects connaissez-vous",
+                        "quels sentiments y-a-t-il",
+                        "quels sont les sentiments",
+                        "quels sont tes sentiments",
+                        "quels sont vos sentiments",
+                        "quels sentiments connais-tu",
+                        "quels sentiments connaissez-vous",
+                        "quelles émotions y-a-t-il",
+                        "quelles sont les émotions",
+                        "quelles sont tes émotions",
+                        "quelles sont vos émotions",
+                        "quelles émotions connais-tu",
+                        "quelles émotions connaissez-vous",
+                    ]
+                },
+                {
+                    "name": "WhatIsIntent",
+                    "slots": [
+                        {
+                            "name": "ThingName",
+                            "type": "LIST_OF_THINGS"
+                        }
+                    ],
+                    "samples": [
+                        "parle-moi de {ThingName}",
+                        "parlez-moi de {ThingName}",
+                        "parle-moi de ces {ThingName}",
+                        "parlez-moi de ces {ThingName}",
+                        "quel est {ThingName}",
+                        "quelles sont {ThingName}",
+                        "qu'est-ce que {ThingName}",
+                        "qu'est-ce que sont {ThingName}",
+                    ]
+                },
+                {
+                    "name": "WhatPictureIntent",
+                    "slots": [],
+                    "samples": [
+                        "est-ce que tu peux expliquer l'image",
+                        "est-ce que tu peux expliquer l'image sur le mur",
+                        "est-ce que vous pouvez expliquer l'image",
+                        "est-ce que vous pouvez expliquer l'image sur le mur",
+                        "est-ce que tu peux expliquer la toile",
+                        "est-ce que tu peux expliquer la toile sur le mur",
+                        "est-ce que vous pouvez expliquer la toile",
+                        "est-ce que vous pouvez expliquer la toile sur le mur",
+                        "est-ce que tu peux expliquer la peinture,
+                        "est-ce que tu peux expliquer la peinture sur le mur",
+                        "est-ce que vous pouvez expliquer la peinture",
+                        "est-ce que vous pouvez expliquer la peinture sur le mur",
+                        "est-ce que tu peux expliquer cette image",
+                        "est-ce que tu peux expliquer cette image sur le mur",
+                        "est-ce que vous pouvez expliquer cette image",
+                        "est-ce que vous pouvez expliquer cette image sur le mur",
+                        "est-ce que tu peux expliquer cette toile",
+                        "est-ce que tu peux expliquer cette toile sur le mur",
+                        "est-ce que vous pouvez expliquer cette toile",
+                        "est-ce que vous pouvez expliquer cette toile sur le mur",
+                        "est-ce que tu peux expliquer cette peinture,
+                        "est-ce que tu peux expliquer cette peinture sur le mur",
+                        "est-ce que vous pouvez expliquer cette peinture",
+                        "est-ce que vous pouvez expliquer cette peinture sur le mur",
+                        "est-ce que tu peux m'expliquer l'image",
+                        "est-ce que tu peux m'expliquer l'image sur le mur",
+                        "est-ce que vous pouvez m'expliquer l'image",
+                        "est-ce que vous pouvez m'expliquer l'image sur le mur",
+                        "est-ce que tu peux m'expliquer la toile",
+                        "est-ce que tu peux m'expliquer la toile sur le mur",
+                        "est-ce que vous pouvez m'expliquer la toile",
+                        "est-ce que vous pouvez m'expliquer la toile sur le mur",
+                        "est-ce que tu peux m'expliquer la peinture,
+                        "est-ce que tu peux m'expliquer la peinture sur le mur",
+                        "est-ce que vous pouvez m'expliquer la peinture",
+                        "est-ce que vous pouvez m'expliquer la peinture sur le mur",
+                        "est-ce que tu peux m'expliquer cette image",
+                        "est-ce que tu peux m'expliquer cette image sur le mur",
+                        "est-ce que vous pouvez m'expliquer cette image",
+                        "est-ce que vous pouvez m'expliquer cette image sur le mur",
+                        "est-ce que tu peux m'expliquer cette toile",
+                        "est-ce que tu peux m'expliquer cette toile sur le mur",
+                        "est-ce que vous pouvez m'expliquer cette toile",
+                        "est-ce que vous pouvez m'expliquer cette toile sur le mur",
+                        "est-ce que tu peux m'expliquer cette peinture,
+                        "est-ce que tu peux m'expliquer cette peinture sur le mur",
+                        "est-ce que vous pouvez m'expliquer cette peinture",
+                        "est-ce que vous pouvez m'expliquer cette peinture sur le mur",
+                        "explique cette image",
+                        "expliquez cette image sur le mur",
+                        "explique cette toile",
+                        "expliquez cette toile sur le mur",
+                        "explique cette peinture,
+                        "expliquez cette peinture sur le mur",
+                        "explique l'image",
+                        "expliquez l'image sur le mur",
+                        "explique la toile",
+                        "expliquez la toile sur le mur",
+                        "explique la peinture,
+                        "expliquez la peinture sur le mur",
+                        "explique-moi cette image",
+                        "expliquez-moi cette image sur le mur",
+                        "explique-moi cette toile",
+                        "expliquez-moi cette toile sur le mur",
+                        "explique-moi cette peinture,
+                        "expliquez-moi cette peinture sur le mur",
+                        "explique-moi l'image",
+                        "expliquez-moi l'image sur le mur",
+                        "explique-moi la toile",
+                        "expliquez-moi la toile sur le mur",
+                        "explique-moi la peinture,
+                        "expliquez-moi la peinture sur le mur",
+                        "quelle est l'image",
+                        "quelle est la toile",
+                        "quelle est la peinture",
+                        "quelle est cette image",
+                        "quelle est cette toile",
+                        "quelle est cette peinture",
+                    ]
+                },
+                {
+                    "name": "WhatsLsnrsAffectAboutIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "comment est-ce que celles qui sont à l'écoute se sentent par rapport à {FragmentName}",
+                        "comment te sens-tu par rapport à {FragmentName}",
+                        "comment vous sentez-vous par rapport à {FragmentName}",
+                        "qu'est-ce que celles qui sont à l'écoute ressentent par rapport à {FragmentName}",
+                        "qu'est-ce que celles qui sont à l'écoute pensent de {FragmentName}",
+                        "que penses-tu de {FragmentName}",
+                        "que pensez-vous de {FragmentName}"
+                    ]
+                },
+                {
+                    "name": "WhatsLsnrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "as-tu peur",
+                        "avez-vous peur",
+                        "est-ce que tu as peur",
+                        "est-ce que vous avez peur",
+                        "es-tu effrayée",
+                        "êtes-vous effrayées",
+                        "est-ce que tu es effrayée",
+                        "est-ce que vous êtes effrayées",
+                        "comment te sens-tu",
+                        "comment vous sentez-vous",
+                        "comment se sentent celles qui sont à l'écoute",
+                        "que ressens-tu",
+                        "que ressentez-vous",
+                        "quels sont tes sentiments",
+                        "quels sont vos sentiments",
+                        "quelles sont tes émotions",
+                        "quelles sont vos émotions",
+                        "quels sont les sentiments de celles qui sont à l'écoute",
+                        "quelles sont tes émotions de celles qui sont à l'écoute",
+                    ]
+                },
+                {
+                    "name": "WhatsSpkrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "comment je me sens",
+                        "comment me sens-je",
+                        "je me sens comment",
+                        "comment est-ce que je me sens",
+                        "qu'est-ce que je sens",
+                        "qu'est-ce que je ressens",
+                        "qu'est-ce que je sens déjà",
+                        "qu'est-ce que je ressens déjà",                     
+                        "rappelle-moi mes affects",
+                        "rappelle-moi mes sentiments",
+                        "rappelle-moi mes émotions",
+                        "remémore-moi mes affects",
+                        "remémore-moi mes sentiments",
+                        "remémore-moi mes émotions",
+                        "peux-tu me rappeler mes affects",
+                        "peux-tu me rappeler mes sentiments",
+                        "peux-tu me rappeler mes émotions",
+                        "peux-tu me remémorer mes affects",
+                        "peux-tu me remémorer mes sentiments",
+                        "peux-tu me remémorer mes émotions",
+                        "veux-tu me rappeler mes affects",
+                        "veux-tu me rappeler mes sentiments",
+                        "veux-tu me rappeler mes émotions",
+                        "veux-tu me remémorer mes affects",
+                        "veux-tu me remémorer mes sentiments",
+                        "veux-tu me remémorer mes émotions",
+                        "rappelle-moi mes affects s'il-te-plaît",
+                        "rappelle-moi mes sentiments s'il-te-plaît",
+                        "rappelle-moi mes émotions s'il-te-plaît",
+                        "remémore-moi mes affects s'il-te-plaît",
+                        "remémore-moi mes sentiments s'il-te-plaît",
+                        "remémore-moi mes émotions s'il-te-plaît",
+                        "peux-tu me rappeler mes affects s'il-te-plaît",
+                        "peux-tu me rappeler mes sentiments s'il-te-plaît",
+                        "peux-tu me rappeler mes émotions s'il-te-plaît",
+                        "peux-tu me remémorer mes affects s'il-te-plaît",
+                        "peux-tu me remémorer mes sentiments s'il-te-plaît",
+                        "peux-tu me remémorer mes émotions s'il-te-plaît",
+                        "veux-tu me rappeler mes affects s'il-te-plaît",
+                        "veux-tu me rappeler mes sentiments s'il-te-plaît",
+                        "veux-tu me rappeler mes émotions s'il-te-plaît",
+                        "veux-tu me remémorer mes affects s'il-te-plaît",
+                        "veux-tu me remémorer mes sentiments s'il-te-plaît",
+                        "veux-tu me remémorer mes émotions s'il-te-plaît",
+                        "rappellez-moi mes affects",
+                        "rappellez-moi mes sentiments",
+                        "rappellez-moi mes émotions",
+                        "remémorez-moi mes affects",
+                        "remémorez-moi mes sentiments",
+                        "remémorez-moi mes émotions",
+                        "pouvez-vous me rappeler mes affects",
+                        "pouvez-vous me rappeler mes sentiments",
+                        "pouvez-vous me rappeler mes émotions",
+                        "pouvez-vous me remémorer mes affects",
+                        "pouvez-vous me remémorer mes sentiments",
+                        "pouvez-vous me remémorer mes émotions",
+                        "voulez-vous me rappeler mes affects",
+                        "voulez-vous me rappeler mes sentiments",
+                        "voulez-vous me rappeler mes émotions",
+                        "voulez-vous me remémorer mes affects",
+                        "voulez-vous me remémorer mes sentiments",
+                        "veux-tu me remémorer mes émotions",
+                        "rappellez-moi mes affects s'il-vous-plaît",
+                        "rappellez-moi mes sentiments s'il-vous-plaît",
+                        "rappellez-moi mes émotions s'il-vous-plaît",
+                        "remémorez-moi mes affects s'il-vous-plaît",
+                        "remémorez-moi mes sentiments s'il-vous-plaît",
+                        "remémorez-moi mes émotions s'il-vous-plaît",
+                        "pouvez-vous me rappeler mes affects s'il-vous-plaît",
+                        "pouvez-vous me rappeler mes sentiments s'il-vous-plaît",
+                        "pouvez-vous me rappeler mes émotions s'il-vous-plaît",
+                        "pouvez-vous me remémorer mes affects s'il-vous-plaît",
+                        "pouvez-vous me remémorer mes sentiments s'il-vous-plaît",
+                        "pouvez-vous me remémorer mes émotions s'il-vous-plaît",
+                        "voulez-vous me rappeler mes affects s'il-vous-plaît",
+                        "voulez-vous me rappeler mes sentiments s'il-vous-plaît",
+                        "voulez-vous me rappeler mes émotions s'il-vous-plaît",
+                        "voulez-vous me remémorer mes affects s'il-vous-plaît",
+                        "voulez-vous me remémorer mes sentiments s'il-vous-plaît",
+                        "veux-tu me remémorer mes émotions s'il-vous-plaît",
+                    ]
+                },
+                {
+                    "name": "WhereIntent",
+                    "slots": [],
+                    "samples": [
+                        "où es-tu",
+                        "où êtes-vous",
+                        "où est John",
+                        "où sont celles qui sont à l'écoute",
+                        "où te trouves-tu",
+                        "où vous trouvez-vous",
+                        "où est-ce que tu te situes",
+                        "où est-ce que vous vous situez",
+                    ]
+                },
+                {
+                    "name": "WhoAreSpkrsIntent",
+                    "slots": [],
+                    "samples": [
+                        "qui suis-je",
+                        "pour qui me prends-tu",
+                        "pour qui nous prenez-nous",
+                        "qui crois-tu que suis",
+                        "qui croyez-vous que je suis",
+                        "qui est-ce que tu crois que je suis",
+                    ]
+                },
+                {
+                    "name": "WhoseAccountIntent",
+                    "slots": [],
+                    "samples": [
+                        "quel compte",
+                        "à qui est ce compte",
+                        "à qui appartient ce compte"
+                    ]
+                },
+                {
+                    "name": "WhoSaysGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "qui est cette autre voix",
+                        "qui est cette voix",
+                        "qui est-ce",
+                        "de qui s'agit-il",
+                        "qui d'autre parle",
+                        "qui est ce type",
+                        "qui est ce gars",
+                        "qui est cette personne",
+                        "qui était cette autre voix",
+                        "qui était cette voix",
+                        "qui était-ce",
+                        "de qui s'agissait-il",
+                        "qui d'autre parlait",
+                        "qui était ce type",
+                        "qui était ce gars",
+                        "qui était cette personne",
+                        "qui était-ce",
+                        "qui était cette voix",
+                    ]
+                },
+                {
+                    "name": "WhoWhatIntent",
+                    "slots": [],
+                    "samples": [
+                        "qui es-tu",
+                        "qui êtes-vous",
+                        "qui sont celles qui sont à l'écoute",
+                        "qui est John",
+                        "pourquoi",
+                        "pourquoi fais-tu ceci",
+                        "pourquoi fais-tu cela",
+                        "pourquoi faites-vous ceci",
+                        "pourquoi faites-vous cela",
+                        "pourquoi dis-tu ceci",
+                        "pourquoi dis-tu cela",
+                        "pourquoi parles-tu",
+                        "pourquoi parles-tu comme ceci",
+                        "pourquoi parles-tu comme cela",
+                        "pourquoi dis-tu ces choses",
+                        "pourquoi dites-vous ceci",
+                        "pourquoi dites-vous cela",
+                        "pourquoi parlez-vous",
+                        "pourquoi parlez-vous comme ceci",
+                        "pourquoi parlez-vous comme cela",
+                        "pourquoi dites-vous ces choses",
+                    ]
+                },
+                {
+                    "name": "WinterIntent",
+                    "slots": [],
+                    "samples": [
+                        "l'hiver vient"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskPersistenceIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_AFFECTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "boheur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "excitation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiosité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "émerveillement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "surprise"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "colère"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dégoût"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "détresse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "douleur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mélancolie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "honte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humiliation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abjection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abjection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affectueux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "effrayé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "âge"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "correct"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fâché"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angoissé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "agacé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anxiété"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anxieux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apathie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apathie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complaisant"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complaisance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "honteux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "génial"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incroyable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mauvais"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perplexe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perplexité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bored"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ennui"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calme"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrophobie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrophobique"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complaisance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complaisant"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confus"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confusion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "froid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curieux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dette"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ravissement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ravi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "déprimé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dépression"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "désespoir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "déçu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "déception"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inconfort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dégoûté"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affligé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perturbé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étourdissement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étourdi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "crainte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vacuité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "excité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fabuleux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "épuisement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bien"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apeuré"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furieux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "frivolité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bien"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "super"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "the groove"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sensationnel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpabilité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "coupable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "heureux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "haineux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "haine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horreur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horrifié"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "espoir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "optimiste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "optimiste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humilié"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "faim"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affamé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indécision"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indécis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indifférence"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indifférent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "intérêt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "intéressé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insécure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insécurity"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnérability"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnérable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irrité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "joie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "isolement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "esseulé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amour"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amoureux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chanceux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "misérable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "misère"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nausée"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nauséeux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nerveux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étrange"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "okay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vieux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "paix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apaisé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pitoyable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pitié"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "heureux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plaisir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "questions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relaxation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relaxé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "triste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sûr"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sûreté"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apeuré"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sécure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sécurité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexuel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "choc"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "choqué"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "malade"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maladie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ridicule"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ridicule"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chagrin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "désolé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "surpris"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "force"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étrange"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étrangeté"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stupide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stupidite"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrifié"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terreur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatigué"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatigue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trouble"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "troublé"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiétude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertitude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incomfortable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "malheur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "malheureux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fâché"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étourdi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnérabilité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnérable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bizarre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étrangeté"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiétude"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_FRAGMENTNAMES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "un"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deux"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trois"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "quatre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cinq"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "six"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sept"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "huit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "neuf"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "écoute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plaisir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vivacité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dans"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enceintes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "art"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "auteur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "compte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "autres"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "protocole"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "termes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "courtoisie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "site"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "espace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maison"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bureau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "galerie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiétudes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peurs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aurature"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lecture"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nuages"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "échos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "attention"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "consentement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "langage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "désir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "transactions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "récolte"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_THINGS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "cauchemar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cauchemar retenu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "respiration"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "respiration retenue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rêve"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rêve retenu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "émotion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "émotion retenue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "possession"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "écoute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plaisir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vivacité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dans"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enceinte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enceintes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "art"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artiste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "auteur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "compte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "autres"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "protocole"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "termes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "courtoisie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "site"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "espace"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maison"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bureau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gallerie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiétude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peurs"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aurature"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lecture"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nuages"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "échos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "attention"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "consentement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "langage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "désir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "transactions"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "récolte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bonheur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "excitation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiosité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fascination"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "surprise"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "colère"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dégoût"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "détresse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tristesse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "douleur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mélancolie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "honte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humiliation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abjection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "affection"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "âge"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angoisse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anxiété"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apathie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fantastique"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incrédulité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ennui"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calme"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrophobie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complaisance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confusion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dette"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "délice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dépression"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "désespoir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "déception"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inconfort"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vertige"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angoisse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "épuisement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sensationnel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpabilité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "haine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "détestation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "faim"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indécision"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indifférence"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "intérêt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insécurité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnérabilité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "joie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "isolement"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amour"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "misère"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nausée"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rien"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "paix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pitié"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relaxation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sécurité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sûreté"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "choc"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maladie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "douleur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "étrangeté"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terreur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatigue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trouble"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiétude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertitude"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "malheur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vertige"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnérabilité"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bizarrerie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inquiétude"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AskPersistenceIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1180095320092"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.313687960101"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1247238094452"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "NoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.942874253322"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1386618593239"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1051037387571"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.972334910313"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.942874253322",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1386618593239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1051037387571",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1247238094452",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.313687960101",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start from scratch?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start from the beginning?</lang></voice></speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1180095320092",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.972334910313",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure?"
+                    }
+                ]
+            }
+        ]
+    }
+}

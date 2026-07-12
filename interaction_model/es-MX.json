@@ -1,0 +1,2676 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the listeners",
+            "intents": [
+                {
+                    "name": "ContinueIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿me estás escuchando?",
+                        "¿estás escuchándonos?",
+                        "continúa",
+                        "síguele",
+                        "sigue",
+                        "cuéntanos más",
+                        "más",
+                        "bueno",
+                        "okay",
+                        "sí gracias",
+                        "gracias, eso hago",
+                        "eso hacemos, gracias",
+                        "claro gracias",
+                        "gracias sí lo hago",
+                        "sí lo hacemos gracias",
+                        "va",
+                        "sí pues sí",
+                        "sí eso hacemos",
+                        "sí gracias eso hago",
+                        "exacto gracias",
+                        "simón, eso hacemos",
+                        "gracias sí",
+                        "sí claro gracias eso hago",
+                        "sí claro gracias eso hacemos"
+                    ]
+                },
+                {
+                    "name": "CreepIntent",
+                    "slots": [],
+                    "samples": [
+                        "me estás asustando,
+                        "nos estás asustando",
+                        "das miedo",
+                        "me das miedo",
+                        "nos das miedo",
+                        "qué miedo",
+                        "ya nos diste miedo",
+                        "perro miedo"
+                    ]
+                },
+                {
+                    "name": "DontCareIntent",
+                    "slots": [],
+                    "samples": [
+                        "No me importa",
+                        "¿Tú sientes?",
+                        "No me importa qué estás sintiendo",
+                        "No quiero que sigas",
+                        "No quiero que continues",
+                        "No quiero que sepas lo que estoy sintiendo",
+                        "Me da igual",
+                        "No me importa lo que sientes",
+                        "Me vale",
+                        "No quiero escuchar tus sentimentos",
+                        "No gracias no quiero escuchar tus sentimientos ",
+                        "No te voy a decir lo que siento"
+                    ]
+                },
+                {
+                    "name": "DontKnowAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "No sé qué estoy sintiendo",
+                        "No tengo idea",
+                        "No sé cómo me siento",
+                        "No sé qué me pasa",
+                        "No sé qué sentimientos me inundan",
+                        "No se qué pedo con mis sentimientos",
+                        "No sé qué me está pasando",
+                        "La neta no sé qué me está pasando",
+                        "No sé qué pedo",
+                        "No sé qué siento",
+                        "No sé cómo me estoy sintiendo",
+                        "Pues...",
+                        "No sé que es lo que me está sobrepasando",
+                        "No sé por qué siento eso",
+                        "No sé qué hacer",
+                        "Pues...no sé cómo me siento",
+                        "La verdad no sé qué siento",
+                        "No sé",
+                        "No entiendo qué es lo que me sobrepasa",
+                        "No sé qué me posee",
+                        "No sé qué hacer",
+                        "No sé cómo sentirme",
+                        "No estoy segura de qué estoy sintiendo",
+                        "No estoy seguro de qué me pasa",
+                        "No estoy segura de qué me está sobrepasando",
+                        "No entiendo qué es lo que me está pasando",
+                        "No sé qué onda con mis sentimientos",
+                        "No estoy segura de cuáles son mis sentimientos",
+                        "No estoy seguro de cuáles son mis sentimientos",
+                        "No sé qué es lo que siento"
+                    ]
+                },
+                {
+                    "name": "DontLikeIntent",
+                    "slots": [],
+                    "samples": [
+                        "No me caen bien Les que escuchan",
+                        "No me gustas",
+                        "No me gustan 'Les que escuchan´",
+                        "No me caes bien",
+                        "Odio les que escuchan",
+                        "Te odio"
+                    ]
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "LoveIntent",
+                    "slots": [],
+                    "samples": [
+                        "puedes amarme",
+                        "puedes amarnos",
+                        "amas",
+                        "me quieres",
+                        "nos quieres",
+                        "qué onda con el amor",
+                        "y qué con el amor"
+                    ]
+                },
+                {
+                    "name": "LsnrsAreNotHumanIntent",
+                    "slots": [],
+                    "samples": [
+                        "que no te de pena",
+                        "no te desanimes",
+                        "sin pena",
+                        "no te arrepientas",
+                        "Estoy enojado",
+                        "Estoy desiusionada",
+                        "Me irrita",
+                        "Chale",
+                        "Me da pa abajo",
+                        "Estoy de malas",
+                        "No puedo hablar",
+                        "No puedo decir ni una palabra",
+                        "¿te puedo interrumpir?",
+                        "¿puedo interrumpir?",
+                        "Estamos de malas",
+                        "nos decepciona",
+                        "nos irrita",
+                        "estamos molestas",
+                        "estamos molestos",
+                        "estamos enojades",
+                        "¿qué es lo que escuchaste?",
+                        "No me estás escuchando",
+                        "Eres súper sincero",
+                        "Eres estúpida",
+                        "Eres muy pendejo",
+                        "Eres muy sincera",
+                        "Eres estúpido",
+                        "Eres tonta",
+                        "No entiendes los sentimientos",
+                        "No entiendes",
+                        "NO puedes entender las emociones",
+                        "No puedes entendernos",
+                        "Dices muchas cosas",
+                        "Hablas mucho",
+                        "Hablas demasiado"
+                    ]
+                },
+                {
+                    "name": "LsnrsAreNotListeningIntent",
+                    "slots": [],
+                    "samples": [
+                        "no estás escuchando",
+                        "no me estás escuchando",
+                        "no sabes escuchar",
+                        "no me escuchas",
+                        "no estás escuchándonos",
+                        "ni me estás poniendo atención",
+                        "la verdad es que a veces no escuchas",
+                        "a veces no me escuchas"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        
+                        "shhhhhh",
+                        "adiós",
+                        "adiós alexa",
+                        "cerrar", 
+                        "ya ciérralo",
+                        "cierra esto",
+                        "ya cerrar",
+                        "ciérralo",
+                        "cierra esta aplicación",
+                        "bye",
+                        "ciao alexa",
+                        "mátalo",
+                        "mata esto",
+                        "mátalos",
+                        "mátalos a ellos",
+                        "mata",
+                        "cállate",
+                        "no",
+                        "no más",
+                        "no más por favor",
+                        "ya por favor",
+                        "silencio",
+                        "nos vemos",
+                        "ahí nos vidrios",
+                        "hasta pronto",
+                        "hasta pronto, alexa"
+
+
+                    ]
+                },
+                {
+                    "name": "PleaseContinueIntent",
+                    "slots": [],
+                    "samples": [  
+                        "más por favor",
+                        "por favor",
+                        "por favor continúa",
+                        "por favor hazlo",
+                        "síguele",
+                        "ajám",
+                        "qué más",
+                        "y luego?",
+                        "y entonces?",
+                        "sí por favor",
+                        "sí porfa ",
+                        "sí, continúa por favor",
+                        "sí, eso estoy haciendo",
+                        "sí, porfa"
+
+
+                    ]
+                },
+                {
+                    "name": "PreviousIntent",
+                    "slots": [],
+                    "samples": [
+                        "regresa",
+                        "regrésate",
+                        "regrésate por favor",
+                        "ve a lo anterior por favor",
+                        "atrás",
+                        "atrás por favor"
+
+
+                    ]
+                },
+                {
+                    "name": "ReadPoemIntent",
+                    "slots": [],
+                    "samples": [
+                        "lee un poema",
+                        "léeme un poema",
+                        "léeme un verso",
+                        "lee poesía",
+                        "dinos un poema",
+                        "dinos un verso",
+                        "lee un verso",
+                        "leenos un poema",
+                        "recita una poesía",
+                        "recita algún verso",
+                        "échate un poema"
+
+
+                    ]
+                },
+                {
+                    "name": "SecureIntent",
+                    "slots": [],
+                    "samples": [                      
+                        "¿estamos a salvo?",
+                        "¿estamos seguras aquí?",
+                        "¿estamos seguros en este cuarto?",
+                        "¿estamos seguros dentro de este lugar?",
+                        "¿estamos seguros?",
+                        "¿estamos seguras aquí?",
+                        "¿estamos seguras en este cuarto?",
+                        "¿estamos seguros en este lugar?",
+                        "¿te sientes a salvo?",
+                        "¿te sientes a salvo aquí?",
+                        "¿te sientes a salvo aquí adentro?",
+                        "¿te sientes a salvo en este lugar?",
+                        "¿te sientes segura?",
+                        "¿te sientes segura aquí?",
+                        "¿te sientes segura en este lugar?",
+                        "¿te sientes bien aquí?",
+                        "¿sientes que este lugar es seguro?",
+                        "¿sientes que aquí es seguro para ti?",
+                        "¿estás bien aquí?",
+                        "¿te sientes bien y segura?",
+                        "puede ser",
+                        "quizás",
+                        "no sé",
+                        "¿es seguro este lugar?",
+                        "¿es seguro aquí?"
+
+
+                    ]
+                },
+                {
+                    "name": "SpeakFragmentIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [                        
+                        "¿puedes hablar? {FragmentName}",
+                        "¿puedes hablar acerca de {FragmentName}",
+                        "¿me puedes contar lo de {FragmentName}",
+                        "¿me puedes contar de {FragmentName}",
+                        "reproduce {FragmentName}",
+                        "ve al fragmento {FragmentName}",
+                        "ve a {FragmentName}",
+                        "ve a la parte de {FragmentName}",
+                        "di {FragmentName}",
+                        "di el fragmento {FragmentName}",
+                        "habla {FragmentName}",
+                        "habla acerca de {FragmentName}",
+                        "dime el fragmento {FragmentName}",
+                        "cuéntame de {FragmentName}",
+                        "dime {FragmentName}"
+
+
+                    ]
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "slots": [],
+                    "samples": [                        
+                        "¿puedo escuchar la otra voz?",
+                        "¿puedo escuchar las otras voces?",
+                        "¿podemos escuchar la otra voz?",
+                        "¿podemos escuchar las otras voces?",
+                        "quiero escuchar la otra",
+                        "quiero escuchar las otras voces",
+                        "quiero escuchar la otra voz",
+                        "quiero escuchar las otras voces",
+                        "quiero la otra voz",
+                        "quiero las otras voces",
+                        "quiero que la otra voz hable",
+                        "quiero que hablen las otras voces",
+                        "deja que hablen la otra voz",
+                        "deja que hablen las otras voces",
+                        "deja que hable la voz de hombre",
+                        "deja que hable la otra persona",
+                        "deja que hablen los demás",
+                        "hablen",
+                        "que hablen sus voces",
+                        "a ver hablen",
+                        "que hable la voz masculina",
+                        "a ver otra voz habla",
+                        "hablen otras voces",
+                        "que hable la voz rara",
+                        "hablen, voces desconocidas",
+                        "que hable la voz",
+                        "que hablen las voces",
+                        "queremos escuchar a la otra",
+                        "queremos escuchar a las otras",
+                        "queremos escuchar la otra voz",
+                        "queremos escuchar a las otras voces",
+                        "queremos la otra voz",
+                        "queremos las otras voces",
+                        "queremos que hable la otra voz",
+                        "queremos que hablen las otras voces"
+
+
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "estoy {Affect}",
+                        "estoy {Affect} por esta locura",
+                        "estoy {Affect} por esta pieza de arte interactivo",
+                        "estoy {Affect} por esta cosa",
+                        "estoy {Affect} por esto,
+                        "estoy {Affect} por les que escuchan",
+                        "estoy {Affect} de este trabajo",
+                        "estoy {Affect} por ti",
+                        "estoy {Affect}",
+                        "estoy sintiendo {Affect}",
+                        "me estoy sintiendo muy {Affect}",
+                        "siento que estoy muy {Affect}",
+                        "estoy llena de {Affect}",
+                        "estoy lleno de {Affect}",
+                        "estoy llenándome de  {Affect}",
+                        "estoy abrumado por {Affect}",
+                        "estoy abrumada de {Affect}",
+                        "estoy sobrepasada de {Affect}",
+                        "estoy sobrepasado de {Affect}",
+                        "estoy muy {Affect}",
+                        "me siento {Affect}",
+                        "soy muy {Affect}",
+                        "me siento {Affect}",
+                        "estoy {Affect} por esta obra de arte ",
+                        "estoy {Affect} por la tecnología",
+                        "me siento {Affect} por esta pieza",
+                        "me siento {Affect} por este trabajo",
+                        "me siento llena de {Affect}",
+                        "me siento muy {Affect}",
+                        "estoy súper {Affect}",
+                        "nos sentimos {Affect}",
+                        "nos sentimos muy {Affect}",
+                        "estamos súper {Affect}"
+
+
+                    ]
+                },
+                {
+                    "name": "SpkrsAffectIsNotIntent",
+                    "slots": [
+                        {
+                            "name": "Affect",
+                            "type": "LIST_OF_AFFECTS"
+                        }
+                    ],
+                    "samples": [
+                        "no estoy {Affect} por esto",
+                        "no estoy {Affect} por ti",
+                        "no estoy {Affect}",
+                        "no estoy {Affect} por esta obra de arte",
+                        "no estoy {Affect} por este programa",
+                        "no estoy {Affect} por este pedo",
+                        "no estoy {Affect} por les que escuchan",
+                        "no estoy {Affect} por esta chamba",
+                        "no me siento {Affect} por ti ",
+                        "no me estoy sintiendo {Affect}",
+                        "no estoy lleno de {Affect}",
+                        "no estoy llena de {Affect}",
+                        "no estoy sobrepasado por {Affect}",
+                        "no estoy sobrepasada por {Affect}",
+                        "no me siento sobrepasada por {Affect}",
+                        "no me siento sobrepasado por {Affect}",
+                        "yo no {Affect} les que escuchan",
+                        "yo no te {Affect}",
+                        "no me siento {Affect}",
+                        "no siento {Affect}",
+                        "no soy{Affect}",
+                        "no estoy {Affect} por este arte",
+                        "no estoy {Affect} por este programa interactivo",
+                        "no estoy {Affect} por este lugar",
+                        "no estoy {Affect} de esto",
+                        "no nos sentimos {Affect}",
+                        "no estamos {Affect}"
+
+
+                    ]
+                },
+                {
+                    "name": "SpkrsLoveLsnrsIntent",
+                    "slots": [],
+                    "samples": [
+                        "me gustas",
+                        "me gustas Alexa",
+                        "me gustan les que escuchan",
+                        "te amo",
+                        "te amo Alexa",
+                        "amo a les que escuchan",
+                        "eres hermosa",
+                        "tienes una voz hermosa",
+                        "nos gustas,
+                        "nos gustas Alexa",
+                        "nos gustan les que escuchan",
+                        "te amamos",
+                        "te amamos Alexa",
+                        "nos encantan les que escuchan"
+
+
+                    ]
+                },
+                {
+                    "name": "ThankIntent",
+                    "slots": [],
+                    "samples": [
+                        "gracias",
+                        "muchas gracias",
+                        "grax",
+                        "muchísimas gracias",
+                        "ten kiu",
+                        "me conoces",
+                        "me conoces muy bien",
+                        "conoces mis sentmientos muy bien",
+                        "nos conoces",
+                        "nos conoces muy bien",
+                        "conoces nuestros sentimientos muy bien",
+                        "me entiendes",
+                        "me entiendes muy bien",
+                        "nos entiendes",
+                        "nos entiendes súper bien "
+
+
+                    ]
+                },
+                {
+                    "name": "ThanksWhatsLsnrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "gracias, ¿cómo te sientes?",
+                        "gracias, ¿cómo estás?",
+                        "grax, ¿qué sientes?",
+                        "gracias, ¿qué tienes?",
+                        "gracias, ¿qué te está pasando?",
+                        "gracias, ¿cuáles son tus sentimientos?",
+                        "gracias, ¿qué te pasa?",
+                        "gracias, ¿cómo te sientes ahora?,
+                        "grax, ¿cómo tas?",
+                        "muchas gracias, ¿cómo te sientes?",
+                        "gracias, ¿qué te está sobrepasando?",
+                        "gracias, ¿qué te posee?",
+                        "gracias, ¿cuáles son tus emociones?",
+                        "gracias, ¿qué es lo que sientes?"
+
+
+                    ]
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "slots": [],
+                    "samples": [  
+                        "suficiente",
+                        "suficiente gracias",
+                        "suficiente gracias adiós",
+                        "bueno ya gracias",
+                        "bueno ya gracias bye",
+                        "no gracias",
+                        "no muchas gracias",
+                        "gracias pero no",
+                        "no gracias",
+                        "gracias pero ahorita no",
+                        "hijole no gracias"
+
+
+                    ]
+                },
+                {
+                    "name": "VersionIntent",
+                    "slots": [],
+                    "samples": [
+                        "versión",
+                        "¿qué versión?",
+                        "¿qué versión eres tú?",
+                        "¿qué versión es ésta?"
+
+
+                    ]
+                },
+                {
+                    "name": "WhatAboutAffectsIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿qué piensas de los mejores afectos?",
+                        "¿qué onda con mejores sentimientos?",
+                        "¿qué opinas de los afectos buenos?",
+                        "¿qué piensas de los sentimientos buenos?",
+                        "¿qué opinas de los afectos felices?",
+                        "¿qué piensas de los sentimientos de felicidad?",
+                        "¿qué piensas de los afectos negativos?",
+                        "¿qué opinas de los sentimientos negativos?",
+                        "¿qué piensas de otros afectos?",
+                        "¿qué onda con los otros sentimientos?",
+                        "¿qué piensas de los afectos positivos?",
+                        "¿qué opinas de los sentimientos positivos?",
+                        "¿qué sentimientos hay?",
+                        "¿qué emociones conoces?",
+                        "¿qué son los afectos?",
+                        "¿qué son los sentimientos?",
+                        "¿qué afectos hay?",
+                        "¿qué sentimientos conoces?"
+                    ]
+                },
+                {
+                    "name": "WhatIsIntent",
+                    "slots": [
+                        {
+                            "name": "ThingName",
+                            "type": "LIST_OF_THINGS"
+                        }
+                    ],
+                    "samples": [
+                        "dime un {ThingName}",
+                        "dime ese {ThingName}",
+                        "qué son {ThingName}",
+                        "qué son los {ThingName}",
+                        "qué es{ThingName}",
+                        "qué es un {ThingName}",
+                        "qué es una {ThingName}",
+                        "qué es el {ThingName}"
+                    ]
+                },
+                {
+                    "name": "WhatPictureIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿puedes explicar la imagen?",
+                        "¿puedes explicar la imagen en la pared?",
+                        "¿puedes explicar la pintura?",
+                        "¿puedes explicar la pintura de la pared?",
+                        "¿puedes explicar la foto?",
+                        "¿puedes explicar la foto en la pared?",
+                        "explica la pintura",
+                        "explica la pintura en la pared",
+                        "explica la imagen",
+                        "explica la imagen de la pared",
+                        "¿qué es la pintura?",
+                        "¿qué es la pintura en la pared?",
+                        "¿qué es ese cuadro?",
+                        "¿qué onda con este cuadro?",
+                        "¿qué es esta pintura?",
+                        "¿qué es esta pintura en la pared?",
+                        "¿qué es esa imagen?",
+                        "¿qué es esa imagen en la pared?",
+                        "¿qué es esa foto?",
+                        "¿qué es esa foto en la pared?",
+                        "¿qué es esta imagen?",
+                        "¿qué es esta imagen en la pared?",
+                        "¿cuál es esta imagen?",
+                        "¿de qué es la imagen en la pared?",
+                        "¿cuál pintura?",
+                        "¿cuál pintura en la pared?",
+                        "¿cuál foto?",
+                        "¿cuál es la foto en la pared?",
+                        "¿cuál pintura?",
+                        "¿cuál pintura es esta?",
+                        "¿cuál es la pintura?",
+                        "¿qué pintura es esta?"
+                    ]
+                },
+                {
+                    "name": "WhatsLsnrsAffectAboutIntent",
+                    "slots": [
+                        {
+                            "name": "FragmentName",
+                            "type": "LIST_OF_FRAGMENTNAMES"
+                        }
+                    ],
+                    "samples": [
+                        "¿cómo se sienten les que escuchan acerca de {FragmentName}?",
+                        "¿cómo te sientes acerca de {FragmentName}?",
+                        "¿qué sienten ustedes acerca de {FragmentName}?",
+                        "¿qué piensas sobre {FragmentName}?",
+                        "¿cómo te sientes acerca de{FragmentName}?",
+                        "¿qué sientes sobre {FragmentName}?"
+                    ]
+                },
+                {
+                    "name": "WhatsLsnrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿estás asustado?",
+                        "¿te asustaste?",
+                        "¿cómo se sienten les que escuchan?",
+                        "¿cómo te estás sintiendo?",
+                        "¿cómo se sientes ustedes?",
+                        "¿cómo están?",
+                        "¿cómo se están sintiendo ustedes?",
+                        "¿cuáles son sus sentimientos?",
+                        "¿qué les sobrepasa a ustedes?",
+                        "¿qué los posee a ustedes?",
+                        "¿cómo te sientes?",
+                        "¿qué tienes?",
+                        "¿que te abruma?",
+                        "¿qué sientes?",
+                        "¿qué es lo que sienten?",
+                        "¿qué estás sientiendo?"
+                    ]
+                },
+                {
+                    "name": "WhatsSpkrsAffectIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿cómo me siento?",
+                        "¿cómo estoy?",
+                        "por favor recuerda éstas emociones",
+                        "por favor recuerda mis sentimientos",
+                        "por favor recuerda cómo me siento",
+                        "recuerda cómo me siento",
+                        "recuerda mis emociones",
+                        "recuerda mis sentimientos",
+                        "¿qué estoy sintiendo?",
+                        "¿qué es lo que sobrepasa?",
+                        "¿qué es lo que me posee?",
+                        "¿cuáles son mis sentimientos?",
+                        "¿qué siento?"
+                    ]
+                },
+                {
+                    "name": "WhereIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿dónde están les que escuchan?",
+                        "¿dónde estás?",
+                        "¿dónde está John?"
+                    ]
+                },
+                {
+                    "name": "WhoAreSpkrsIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿quién soy yo?",
+                        "¿quiénes somos nosotros?",
+                        "¿quién crees que soy",
+                        "¿quiénes crees que somos?",
+                        "¿quiénes somos nosotros?"
+                    ]
+                },
+                {
+                    "name": "WhoseAccountIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿la cuenta de quién?",
+                        "¿de quién es esta cuenta?"
+                    ]
+                },
+                {
+                    "name": "WhoSaysGuyzIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿de quién es esa voz?",
+                        "¿de quién es esa otra voz?",
+                        "¿qué es esa voz?",
+                        "¿de dónde viene tu voz?
+                        "¿qué pedo con esa voz?",
+                        "¿qué fue esa otra voz?",
+                        "¿quiénes son ellos?",
+                        "¿quiénes son esas personas?",
+                        "¿quién más está hablando?",
+                        "¿quién es ese wey?",
+                        "¿quién es esa otra persona?",
+                        "¿quién es?",
+                        "¿quién es esa persona?",
+                        "¿quién es este?
+                        "¿quiénes son ellas?",
+                        "¿quiénes son?",
+                        "¿quién es ese ser?",
+                        "¿qué es esa voz?",
+                        "¿qué fue eso?",
+                        "¿por qué hay otra persona?",
+                        "¿quién era?",
+                        "¿qué pasó?",
+                        "¿quién era esa persona?"
+                    ]
+                },
+                {
+                    "name": "WhoWhatIntent",
+                    "slots": [],
+                    "samples": [
+                        "¿qué eres?",
+                        "¿quiénes son Les que escuchan?",
+                        "¿quiénes son ustedes?",
+                        "¿quién es John?",
+                        "¿quién es Les que escuchan?",
+                        "¿por qué?",
+                        "¿por qué se dedican a esto?",
+                        "¿por qué dices estas cosas?",
+                        "¿por qué me dices esto?",
+                        "¿por qué estás hablando?",
+                        "¿por qué hablas así?"
+                    ]
+                },
+                {
+                    "name": "WinterIntent",
+                    "slots": [],
+                    "samples": [
+                        "winter is coming"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AskPersistenceIntent",
+                    "slots": [],
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_AFFECTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "felicidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "emoción"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiosidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "asombro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorpresa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enojo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disgusto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angustia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tristeza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dolor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "melancolía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miedo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vergüenza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humiliación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miserable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bajoneado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cariño"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cariñosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "asustado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "antiguo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bien"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "congoja"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angustia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritabilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ansiedad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ansioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apatía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indiferente"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "compungido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apenado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "avergonzada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "increíble"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "genial"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desconcierto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perplejo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aburrido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aburrimiento"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calma"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrofobia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrofóbico"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complacencia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complacido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confundida"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confusión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tranquilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiouso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deuda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deleie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "placer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deprimido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "depresión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desesperación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "decepcionar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desilusión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incomodidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disgusto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "afligido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perturbada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mareo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mareado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "empatía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vacío"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "emocionado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fabuloso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatiga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bien"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "espantado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "frivolidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bueno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "genial"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lo chido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "maravilloso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "feliz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "odio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "detestar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "horrorizado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "esperanza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "optimista"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "esperanzada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humillado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hambre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enojo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecisión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecisivo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indiferencia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indiferente"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interesar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interesado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inseguro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inseguridad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerabilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "irritación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gozo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "soledad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "solitario"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "adorable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "suerte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "suertuda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miserable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miseria"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nausea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nauseabundo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nervioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tranquilo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "viejo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "paz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pacífico"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lamentable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lástima"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "satisfecha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "placer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preguntas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rabia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relajación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relajada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "triste"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seguro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "a salvo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "asustado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "firme"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seguridad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexual"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "impacto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "impactada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enfermo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enfermedad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tontería"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tonto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dolor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "perdón"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorprendido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fuerza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fuerte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desconocido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sacado de onda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "estúpido"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "estupidez"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terrible"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aterrorizada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cansado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "casancio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "problema"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preocupado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "el misterioso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incierto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertidumbre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incómodo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "infelicidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "infeliz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "insegura"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trastornado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vértigo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnerabilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnerable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rareza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preocupada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preocupación"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_FRAGMENTNAMES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "uno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tres"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cuatro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cinco"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "siete"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ocho"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nueve"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diez"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "escuchando"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "placer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vivacidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dentro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "encierro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "arte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artista"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "autor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "reporte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "otras"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "protocolo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "condiciones"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cortesía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sitio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "espacio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "casa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "oficina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "galería"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preocupaciones"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miedos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tuercas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "leyendo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "verso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nubes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ecos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cuidados"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "consentimiento"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lenguaje"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deseo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "transacciones"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cosecha"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "LIST_OF_THINGS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "pesadilla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pesadilla secreta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "respiración"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "retener la respiración"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sueño"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sueño secreto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sentimiento"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sentimiento oculto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "posesión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "escuchando"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "placer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vivacidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dentro de"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "encierro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "encerrado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "arte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artista"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "autor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cuenta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "otros"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "protocolo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "condiciones"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cortesía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sitio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "espacio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "casa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "oficina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "galería"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "preocupaciones"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miedos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tornillos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "leyendo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "verso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nubes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ecos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cuidado"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "consentimiento"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lenguaje"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deseo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "transacciones"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cosecha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "felicidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "emoción"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "curiosidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cuestionarse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sorpresa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enojo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disgusto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angustia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tristeza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dolor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "melancolía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miedo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humillación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "despreciable"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cariño"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vejez"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "angustia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ansiedad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apatía"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "asombro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "júbilo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aburrimiento"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "calma"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "claustrofobia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complacencia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "confusión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "deuda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "delicia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "depresión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desesperación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "decepción"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "malestar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vértigo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pavor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "falta de algo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fatiga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "furia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "la buena onda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "culpa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "odio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "detestar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hambre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indecisión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "indiferencia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interés"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "inseguridad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "invulnerabilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enojo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gozo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "soledad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "suerte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "miseria"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "náusea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obligación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "paz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "compasión"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ira"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "relajación"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seguro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seguridad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sexo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "impacto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enfermedad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tristeza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "extrañeza "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "terror"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cansancio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "problema"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "el extraño"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "incertidumbre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "infelicidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vértigo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vulnerabilidad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rareza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "precupación
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AskPersistenceIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1180095320092"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "AskStartOverIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.313687960101"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "GuyzSpeechIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1247238094452"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "NoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.942874253322"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "ThanksNoIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1386618593239"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "SpeakGuyzIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1051037387571"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "LaunchAskIntent",
+                    "delegationStrategy": "SKILL_RESPONSE",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.972334910313"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.942874253322",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Estás seguro?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1386618593239",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Estás segura?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1051037387571",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Estás seguro?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1247238094452",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Estás segure?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.313687960101",
+                "variations": [
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start from scratch?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Would you like to start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start over?</lang></voice></speak>"
+                    },
+                    {
+                        "type": "SSML",
+                        "value": "<speak><voice name='Joanna'><lang xml:lang='en-US'>Start from the beginning?</lang></voice></speak>"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1180095320092",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Estás segura?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.972334910313",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "¿Estás segura?"
+                    }
+                ]
+            }
+        ]
+    }
+}

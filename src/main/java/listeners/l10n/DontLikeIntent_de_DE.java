@@ -5,25 +5,29 @@ import static listeners.model.Attributes.sessAttributes;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.breath;
 import static listeners.util.Utils.breathLong;
+import static listeners.util.Utils.r;
 import static listeners.util.Utils.s;
 
 public class DontLikeIntent_de_DE extends DontLikeIntent {
 
-	// TODO
 	public String buildCardTitle() {
 
-		return S("You don’t like us?", "Don’t you love us?");
+		return S("Du magst uns nicht?", "Liebst du uns nicht?");
 	}
 
 	public String buildSpeech() {
 
-		String affect = S(S("hate", S("anger", "anxiety")), S("hatred", "disgust"));
+		String speech;
+		String affect = r("der Hass`der Zorn`der Ekel");
 		sessAttributes.put(AFFECT, affect);
-		String adjective = s("sorry", "dismayed");
-		String intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
-		String speech = "We are " + s(adjective, intensifier + adjective);
-		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+		String adjective = s("bestürzt");
+		if ("bestürzt ".equals(adjective)) {
+			String intensifier = r("ein bisschen `etwas `sehr ");
+			speech = "Wir sind " + s(adjective, intensifier + adjective);
+		}
+		else
+			speech = "Es tut uns Leid ";
+		speech += "dass Sie von %s " + r("erfüllt `besessen `überwältigt ") + "sind. ";
 		speech = String.format(speech, affect);
 		return speech + breath();
 	}

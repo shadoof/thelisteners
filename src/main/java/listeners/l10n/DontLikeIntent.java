@@ -32,7 +32,7 @@ public class DontLikeIntent extends L10nSpeech {
 		String intensifier = "dismayed".equals(adjective) ? "somewhat " : "very ";
 		String speech = "We are " + s(adjective, intensifier + adjective);
 		speech += "to " + s("know", "have learned") + "that you are "
-				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. " + breathLong();
+				+ s("filled with", s("possessed", "overwhelmed") + "by") + "%s. ";
 		speech += speechUtils.getString("specificAffectSpeech");
 		speech = String.format(speech, affect);
 		return speech + breath();

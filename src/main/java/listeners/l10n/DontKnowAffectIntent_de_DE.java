@@ -9,13 +9,14 @@ import static listeners.util.Utils.s;
 
 public class DontKnowAffectIntent_de_DE extends DontKnowAffectIntent {
 
-	// TODO
 	public String buildCardTitle() {
 
-		return S("We don’t know", "We’re unsure about") + s("how you feel",
-				"the feelings " + s("that " + s("possess", "overwhelm") + "you", "within which you dwell"));
+		return "Wir sind " + s("nicht sicher", "unsicher")
+		+ s("was Ihre Gefühle sind,", "welche Gefühle es sind, ") + "die Sie da "
+		+ S("haben", "überwältigen");
 	}
 
+	// TODO
 	public String buildSpeech() {
 
 		String s = S("uncertainty", "insecurity");
