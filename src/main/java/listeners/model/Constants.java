@@ -34,7 +34,8 @@ public class Constants {
 	// 3.0.0 refactored for the latest Java ASK SDK and decent 110n
 	// 3.0.1 uses of Attributes class is static
 	// 3.0.2 version with de_DE
-	public static final String VERSION = "3.0.1";
+  // 3.1.0 - Java, Maven and other updates and improvements
+	public static final String VERSION = "3.1.0";
 
 	// configurable
 	public static final int NUMBER_OF_FRAGMENTS = 10;
