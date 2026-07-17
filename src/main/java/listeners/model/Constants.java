@@ -125,7 +125,7 @@ public class Constants {
 		localeCountry = localeString.substring(3, 5)
 				.toUpperCase();
 		localeTag = localeLang + "_" + localeCountry;
-		locale = new Locale(localeLang, localeCountry);
+		locale = Locale.of(localeLang, localeCountry);
 		switch (localeTag) {
 			case "de_DE":
 				polyVoice = "<voice name='Marlene'><lang xml:lang='de-DE'>";

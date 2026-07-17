@@ -1,7 +1,6 @@
 package listeners.model;
 
 import static listeners.util.Utils.randInt;
-import static listeners.util.Utils.info;
 import static listeners.model.Constants.langConstants;
 
 import java.math.BigDecimal;
@@ -10,7 +9,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 // keys, slot names, and constant values
@@ -54,12 +52,12 @@ public class Attributes {
 
 	// values
 	public static final int NOT_YET_GREETED = -1;
-	public static LinkedHashSet LIST_OF_FRAGMENTS = new LinkedHashSet();
+	public static LinkedHashSet<Integer> LIST_OF_FRAGMENTS = new LinkedHashSet<>();
 
 	public static Map<String, Object> initSessionAttributes() { // was Map<String, Object> or
 																															// SessionMap
 
-		HashMap m = new HashMap();
+		HashMap<String, Object> m = new HashMap<>();
 		// SessionMap m = new SessionMap();
 		m.put(AFFECT, "");
 		m.put(CHALLENGEDAFFECT, "");
@@ -74,11 +72,11 @@ public class Attributes {
 		m.put(HEARDBREATHAFFECTS, false);
 		m.put(HEARDWELCOME, true); // TODO probably no longer needed
 		m.put(LASTINTENT, "AMAZON.StopIntent");
-		ArrayList al;
+		ArrayList<String> al;
 		String la = "";
 		if (langConstants.AFFECTS_MAP != null) {
 			al = new ArrayList<>(langConstants.AFFECTS_MAP.keySet());
-			la = (String) al.get(randInt(0, al.size() - 1));
+			la = al.get(randInt(0, al.size() - 1));
 		}
 		m.put(LISTENERSAFFECT, la);
 		m.put(MARKOVIRQ, false);
@@ -91,8 +89,8 @@ public class Attributes {
 
 	public static String getRandomAffect() {
 
-		ArrayList al = new ArrayList<>(langConstants.AFFECTS_MAP.keySet());
-		return (String) al.get(randInt(0, al.size() - 1));
+		ArrayList<String> al = new ArrayList<>(langConstants.AFFECTS_MAP.keySet());
+		return al.get(randInt(0, al.size() - 1));
 	}
 
 	public static boolean isEmptyForSession(String key) {
@@ -124,7 +122,7 @@ public class Attributes {
 
 	public static HashMap<String, Object> getValuesFrom(Map<String, Object> persAttributes) {
 
-		HashMap<String, Object> hm = new HashMap();
+		HashMap<String, Object> hm = new HashMap<>();
 		for (Map.Entry<String, Object> entry : persAttributes.entrySet()) {
 			String key = entry.getKey();
 			Object value = entry.getValue();
@@ -135,7 +133,7 @@ public class Attributes {
 			}
 			else if (value instanceof List || value instanceof HashSet) {
 				// info("found a List or HashSet");
-				hm.put(key, ((LinkedHashSet) value));
+				hm.put(key, ((LinkedHashSet<?>) value));
 			}
 			else
 				hm.put(key, value);
