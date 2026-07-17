@@ -21,7 +21,7 @@ import com.amazon.ask.model.Response;
 import listeners.util.ResponseFinisher;
 import listeners.util.UnknownIntentException;
 
-public class LsnrsDialogIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
+public class LsnrsDialogIntentResponse extends LsnrsIntentResponse {
 
 	LsnrsDialogIntentResponse(HandlerInput input, String will) {
 

@@ -25,7 +25,7 @@ import com.amazon.ask.model.Response;
 import listeners.util.ResponseFinisher;
 import listeners.util.UnknownIntentException;
 
-public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
+public class LsnrsContinueIntentResponse extends LsnrsIntentResponse {
 
 	LsnrsContinueIntentResponse(HandlerInput input, String relationship) {
 
@@ -34,6 +34,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 	private boolean isEnd = false;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Optional<Response> getResponse() throws UnknownIntentException {
 
@@ -67,7 +68,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
 
 				// and add this to the list of fragments that have been heard
-				LinkedHashSet listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+				LinkedHashSet<Integer> listOfFragments = (LinkedHashSet<Integer>) sessAttributes.get(FRAGMENTLIST);
 				listOfFragments.add(fragmentIndex);
 				sessAttributes.put(FRAGMENTLIST, listOfFragments);
 				// if (!al.contains(fragmentIndex)) {
@@ -85,7 +86,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 				buildFragments();
 				ir.setSpeech(fragments[fragmentIndex]);
 				ir.setReprompt(speechUtils.getString("chooseContinue"));
-				listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+				listOfFragments = (LinkedHashSet<Integer>) sessAttributes.get(FRAGMENTLIST);
 				listOfFragments.add(fragmentIndex);
 				sessAttributes.put(FRAGMENTLIST, listOfFragments);
 				// al = (ArrayList) sessAttributes.get();
@@ -152,6 +153,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 	private class NextFragmentResponse extends InnerResponse {
 
+		@SuppressWarnings("unchecked")
 		NextFragmentResponse(String intentName) {
 
 			// build variant fragments just before they’re needed:
@@ -159,7 +161,7 @@ public class LsnrsContinueIntentResponse extends LsnrsIntentResponse implements 
 
 			int fragmentIndex = randInt(0, NUMBER_OF_FRAGMENTS - 1);
 
-			LinkedHashSet listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+			LinkedHashSet<Integer> listOfFragments = (LinkedHashSet<Integer>) sessAttributes.get(FRAGMENTLIST);
 			// note: the FRAGMENTLIST must be initialized with one value (-1)
 			// due to Amazon persistence issues so size() is +1
 			if ((listOfFragments.size() > NUMBER_OF_FRAGMENTS) && !(boolean) sessAttributes.get(HEARDALLFRAGMENTS)) {

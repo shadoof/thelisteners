@@ -20,8 +20,6 @@ import static listeners.model.LangConstants.fragments;
 import static listeners.util.Utils.heads;
 import static listeners.util.Utils.randInt;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 
@@ -33,7 +31,7 @@ import listeners.util.ResponseFinisher;
 import listeners.util.SpeechUtils;
 import listeners.util.UnknownIntentException;
 
-public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements LsnrsResponse {
+public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse {
 
 	LsnrsSlottedIntentResponse(HandlerInput input, String relationship) {
 
@@ -163,9 +161,10 @@ public class LsnrsSlottedIntentResponse extends LsnrsIntentResponse implements L
 				// set the session fragmentIndex if a valid fragment was found
 				sessAttributes.put(FRAGMENTINDEX, fragmentIndex);
 				// and add this to the list of fragments that have been heard
-				LinkedHashSet listOfFragments = (LinkedHashSet) sessAttributes.get(FRAGMENTLIST);
+				@SuppressWarnings("unchecked")
+				LinkedHashSet<Integer> listOfFragments = (LinkedHashSet<Integer>) sessAttributes.get(FRAGMENTLIST);
 				listOfFragments.add(fragmentIndex);
-				sessAttributes.put(FRAGMENTLIST,listOfFragments);
+				sessAttributes.put(FRAGMENTLIST, listOfFragments);
 //				ArrayList fl = (ArrayList) sessAttributes.get();
 //				if (!fl.contains(fragmentIndex)) {
 //					fl.add(fragmentIndex);

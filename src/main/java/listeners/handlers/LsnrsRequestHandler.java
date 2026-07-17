@@ -32,7 +32,6 @@ import java.util.ResourceBundle;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
-import com.amazon.ask.model.Intent;
 import com.amazon.ask.model.IntentConfirmationStatus;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.LaunchRequest;
@@ -91,7 +90,7 @@ public class LsnrsRequestHandler implements RequestHandler {
 		// TODO put a note in the documentation, ultimately:
 		// for use in other English speaking regions:
 		// British English, en-gb *text* is the default for this skill:
-		Locale.setDefault(new Locale("en", "GB"));
+		Locale.setDefault(Locale.of("en", "GB"));
 		// LangConstants depend on locale so
 		// we assemble locale constants in top-level model.Constants:
 		String ls = input.getRequestEnvelope()
@@ -261,8 +260,8 @@ public class LsnrsRequestHandler implements RequestHandler {
 						int fragmentIndex = (int) sessAttributes.get(FRAGMENTINDEX);
 						if (fragmentIndex > NOT_YET_GREETED && fragmentIndex < NUMBER_OF_FRAGMENTS) {
 							// build variant fragments just before they’re needed:
-							langConstants.buildFragments();
-							ir.setSpeech(langConstants.fragments[fragmentIndex]
+						LangConstants.buildFragments();
+						ir.setSpeech(LangConstants.fragments[fragmentIndex]
 									+ speechUtils.getString("chooseContinueNoAffect"));
 						}
 						else {

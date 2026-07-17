@@ -7,12 +7,10 @@ import static listeners.model.Attributes.PERSISTENCE;
 import static listeners.model.Attributes.READSOFAR;
 import static listeners.model.Attributes.getRandomAffect;
 import static listeners.model.Attributes.sessAttributes;
-import static listeners.model.Constants.DEV;
 import static listeners.model.Constants.DIALOG_INTENTS;
 import static listeners.model.Constants.NUMBER_OF_READABLES;
 import static listeners.model.Constants.locale;
 import static listeners.model.Constants.speechUtils;
-import static listeners.model.LangConstants.dateString;
 import static listeners.util.Utils.randInt;
 
 import java.util.Map;
@@ -117,7 +115,7 @@ public class LsnrsIntentResponse implements LsnrsResponse {
 				.build();
 
 		// while developing replace cardTitle with intentName - dated
-		String ct = DEV ? intentName + " - " + dateString : ls.getCardTitle();
+		// String ct = DEV ? intentName + " - " + dateString : ls.getCardTitle();
 
 		sessAttributes.put(LASTINTENT, intentName);
 		return input.getResponseBuilder()

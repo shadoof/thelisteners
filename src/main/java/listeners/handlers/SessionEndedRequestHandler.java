@@ -7,13 +7,10 @@ import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Constants.attributesManager;
 import static listeners.model.Constants.langConstants;
 import static listeners.model.Constants.locale;
-import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
 import static org.slf4j.LoggerFactory.getLogger;
 
-import java.util.Locale;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import org.slf4j.Logger;
 
@@ -46,7 +43,7 @@ public class SessionEndedRequestHandler implements RequestHandler {
 		.toString());
 		
 		if (locale == null) {
-			Locale l = Constants.parseLocale("en-us");
+			Constants.parseLocale("en-us");
 		}
 		if (langConstants == null) langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = initSessionAttributes();
