@@ -10,9 +10,7 @@ import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.info;
 import static org.slf4j.LoggerFactory.getLogger;
 
-import java.util.Locale;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import org.slf4j.Logger;
 
@@ -42,7 +40,7 @@ public class ExceptionHandler implements com.amazon.ask.dispatcher.exception.Exc
 		throwable.printStackTrace();
 
 		if (locale == null) {
-			Locale l = Constants.parseLocale("en-gb");
+			Constants.parseLocale("en-gb");
 		}
 		langConstants = LangConstants.getInstance(locale);
 		if (sessAttributes == null) sessAttributes = initSessionAttributes();

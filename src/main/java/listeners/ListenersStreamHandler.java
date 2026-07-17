@@ -1,6 +1,5 @@
 package listeners;
 
-import static listeners.model.Constants.DEV;
 import static listeners.util.Utils.info;
 
 import com.amazon.ask.Skill;
@@ -14,6 +13,7 @@ import listeners.handlers.UnsupportedRequestHandler;
 
 public class ListenersStreamHandler extends SkillStreamHandler {
 
+	@SuppressWarnings("unchecked")
 	private static Skill getSkill() {
 		
 		// skill ID should be in this environment variable for xeno 'other voices'
