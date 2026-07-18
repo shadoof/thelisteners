@@ -11,7 +11,6 @@ import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
 import static listeners.model.Constants.SPC;
-import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.langConstants;
 import static listeners.util.Utils.*;
 
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.ListResourceBundle;
 
 import listeners.handlers.InnerResponse;
 
@@ -208,7 +206,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 	protected String chooseSomeFragmentNames() {
 
 		String s = "";
-		ArrayList list = new ArrayList(langConstants.FRAGMENTNAME_MAP.keySet());
+		ArrayList<String> list = new ArrayList<>(langConstants.FRAGMENTNAME_MAP.keySet());
 		Collections.shuffle(list);
 		int i;
 		for (i = 0; i < 3; i++) {
@@ -241,7 +239,7 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		if (heads) {
 			speech += "Les noms des neuf " + phonemic("a") + "ffects, que nous pouvons "
 					+ s("entendre,", "reconnaître,") + "includent : " + breath();
-			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
+			List<String> list = Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
 			int limit = 5;
@@ -1251,7 +1249,6 @@ public class SpeechUtils_fr_FR extends SpeechUtils {
 		listenersAffect = setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
 
 		boolean shared = affect.equals(listenersAffect);
-		boolean halfTheTime = heads();
 
 		speech += "Nous, " + (shared ? s("aussi,", "également,") : "") + "sommes "
 				+ s("remplies par", s("traversées par", "submergées par")) + listenersAffect + ". "

@@ -228,7 +228,7 @@ public class SpeechUtils_de_DE extends SpeechUtils {
 		if (heads) {
 			speech += s("Manche der Namen", "Die Namen") + "für die neuen Affekte, die wir "
 					+ s("hören", "erkennen") + "können, sind: " + breath();
-			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
+			List<String> list = Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
 			int limit = 5;

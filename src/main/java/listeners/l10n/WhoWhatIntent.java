@@ -1,7 +1,6 @@
 package listeners.l10n;
 
 import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
 import static listeners.util.Utils.*;
 
 public class WhoWhatIntent extends L10nSpeech {

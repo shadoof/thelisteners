@@ -2,9 +2,6 @@ package listeners.l10n;
 
 import static listeners.util.Utils.*;
 
-import java.util.ListResourceBundle;
-import java.util.function.Supplier;
-
 public class Fragments_en_US extends Fragments {
 
 	protected String buildFragment(int fragmentNumber) {

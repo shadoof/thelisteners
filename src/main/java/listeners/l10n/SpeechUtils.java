@@ -11,7 +11,6 @@ import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
 import static listeners.model.Constants.SPC;
-import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.langConstants;
 import static listeners.util.Utils.S;
 import static listeners.util.Utils.breath;
@@ -271,7 +270,7 @@ public class SpeechUtils extends ListResourceBundle {
 	protected String chooseSomeFragmentNames() {
 
 		String s = "";
-		ArrayList list = new ArrayList(langConstants.FRAGMENTNAME_MAP.keySet());
+		ArrayList<String> list = new ArrayList<>(langConstants.FRAGMENTNAME_MAP.keySet());
 		Collections.shuffle(list);
 		int i;
 		for (i = 0; i < 3; i++) {
@@ -300,7 +299,7 @@ public class SpeechUtils extends ListResourceBundle {
 		if (heads) {
 			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can "
 					+ s("hear,", "recognize,") + "include: " + breath();
-			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
+			List<String> list = Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
 			int limit = 5;
@@ -1245,7 +1244,6 @@ public class SpeechUtils extends ListResourceBundle {
 		listenersAffect = setAndGetRandomAffectIfEmpty(LISTENERSAFFECT);
 
 		boolean shared = affect.equals(listenersAffect);
-		boolean halfTheTime = heads();
 
 		speech += "We, " + (shared ? s("also,", "too,") : "") + "are "
 				+ s("filled with", s("possessed by", "overwhelmed with")) + listenersAffect + ". "

@@ -1,10 +1,9 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
+import static listeners.model.Attributes.AFFECT;
+import static listeners.model.Attributes.PREVIOUSAFFECT;
+import static listeners.model.Attributes.sessAttributes;
 import static listeners.util.Utils.*;
-
-import java.util.ResourceBundle;
 
 public class LsnrsAreNotHumanIntent_es_MX extends LsnrsAreNotHumanIntent {
 

@@ -1,10 +1,7 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.*;
 import static listeners.model.Attributes.*;
 import static listeners.util.Utils.*;
-
-import java.util.ResourceBundle;
 
 public class LsnrsAreNotHumanIntent extends L10nSpeech {
 

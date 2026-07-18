@@ -7,11 +7,10 @@ import static listeners.util.Utils.*;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.ListResourceBundle;
 
 public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 
-	protected HashMap getFragmentNumberMap() {
+	protected HashMap<String, Integer> getFragmentNumberMap() {
 
 		fragmentNumberMap = new HashMap<>();
 		fragmentNumberMap.put("1", 0);
@@ -38,7 +37,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		return fragmentNumberMap;
 	}
 
-	protected HashMap getFragmentNameMap() {
+	protected HashMap<String, Integer> getFragmentNameMap() {
 
 		fragmentNameMap = new HashMap<>();
 		fragmentNameMap.put("escuchando", 0);
@@ -84,7 +83,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		return s.split(SPC);
 	}
 
-	protected HashMap getAffectsMap() {
+	protected HashMap<String, Boolean> getAffectsMap() {
 
 		affectsMap = new HashMap<>();
 		affectsMap.put("felicidad", POSITIVE);
@@ -119,7 +118,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		return affectsMap;
 	}
 
-	protected HashMap getSpecialAffectsMap() {
+	protected HashMap<String, Boolean> getSpecialAffectsMap() {
 
 		specialAffectsMap = new HashMap<>();
 		specialAffectsMap.put("afecto", POSITIVE);
@@ -154,7 +153,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		return specialAffectsMap;
 	}
 
-	protected HashMap getAffectivejj2nnMap() {
+	protected HashMap<String, String> getAffectivejj2nnMap() {
 
 		affectivejj2nnMap = new HashMap<>();
 		affectivejj2nnMap.put("abyecto", "abyección");
@@ -273,7 +272,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		return affectivejj2nnMap;
 	}
 
-	protected HashSet getSpecialThings() {
+	protected HashSet<String> getSpecialThings() {
 
 		specialThings = new HashSet<>();
 		specialThings.add("pesadilla");
@@ -289,7 +288,7 @@ public class LangConstantsBundle_es_MX extends LangConstantsBundle {
 		return specialThings;
 	}
 
-	protected HashSet getPictureWords() {
+	protected HashSet<String> getPictureWords() {
 
 		pictureWords = new HashSet<>();
 		pictureWords.add("collage");

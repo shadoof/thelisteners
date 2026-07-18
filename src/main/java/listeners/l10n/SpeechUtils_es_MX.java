@@ -11,7 +11,6 @@ import static listeners.model.Attributes.isPositive;
 import static listeners.model.Attributes.sessAttributes;
 import static listeners.model.Attributes.setAndGetRandomAffectIfEmpty;
 import static listeners.model.Constants.SPC;
-import static listeners.model.Constants.localeTag;
 import static listeners.model.Constants.langConstants;
 import static listeners.util.Utils.*;
 
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.ListResourceBundle;
 
 import listeners.handlers.InnerResponse;
 
@@ -201,7 +199,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 	protected String chooseSomeFragmentNames() {
 
 		String s = "";
-		ArrayList list = new ArrayList(langConstants.FRAGMENTNAME_MAP.keySet());
+		ArrayList<String> list = new ArrayList<>(langConstants.FRAGMENTNAME_MAP.keySet());
 		Collections.shuffle(list);
 		int i;
 		for (i = 0; i < 3; i++) {
@@ -230,7 +228,7 @@ public class SpeechUtils_es_MX extends SpeechUtils {
 		if (heads) {
 			speech += S("Algunos de los n", "N") + "ombres para los nueve" + phonemic("a") + "fectos, que nosotros podemos "
 					+ s("escuchar,", "reconocer,") + "son: " + breath();
-			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
+			List<String> list = Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
 			int limit = 5;

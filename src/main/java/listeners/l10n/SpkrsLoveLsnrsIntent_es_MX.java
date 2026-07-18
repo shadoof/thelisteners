@@ -1,7 +1,6 @@
 package listeners.l10n;
 
-import static listeners.model.Constants.*;
-import static listeners.model.Attributes.*;
+import static listeners.model.Constants.speechUtils;
 import static listeners.util.Utils.*;
 
 public class SpkrsLoveLsnrsIntent_es_MX extends SpkrsLoveLsnrsIntent {

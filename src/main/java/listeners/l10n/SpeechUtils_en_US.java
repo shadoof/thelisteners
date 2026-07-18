@@ -94,7 +94,7 @@ public class SpeechUtils_en_US extends SpeechUtils {
 		if (heads) {
 			speech += S("Some of the n", "N") + "ames for the nine " + phonemic("a") + "ffects, that we can "
 					+ s("hear,", "recognize,") + "include: " + breath();
-			List list = (List) Arrays.asList(langConstants.AFFECTS_ARRAY);
+			List<String> list = Arrays.asList(langConstants.AFFECTS_ARRAY);
 			Collections.shuffle(list);
 
 			int limit = 5;
